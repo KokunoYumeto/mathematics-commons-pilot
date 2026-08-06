@@ -5,7 +5,7 @@ This is a citation-and-status follow-up to the frozen `v0.1.0` concept release. 
 ## What changed
 
 - citation metadata now distinguishes the all-versions concept DOI from immutable version DOIs;
-- the README and status page now link the published `v0.1.0` record and describe the operational-MVP work as a separate review lane; and
+- the README and status page now link the published `v0.1.0` record and describe the operational-MVP work as a separate review lane;
 - the structural validator now excludes local `dist/` build and verification output from public-source scans; and
 - the public project log and recovery record contain the verified release receipts.
 

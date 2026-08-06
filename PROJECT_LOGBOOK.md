@@ -355,3 +355,27 @@ This is the durable chronological memory of the concept and publication work. Ap
 - README and status now distinguish the evolving-project concept DOI, frozen v0.1.0 DOI, and reserved v0.1.1 DOI. `RELEASE_NOTES_v0.1.1.md` states that this is a citation/status follow-up with no new mathematical result.
 - The structural validator now excludes ignored local `dist/` build and public-download verification directories from source scans. This repairs a local false failure exposed only after exact release assets existed; it does not weaken scanning of tracked public source files.
 - The operational pilot MVP remains isolated on `codex/pilot-mvp` and is not included in this patch.
+
+## 2026-08-07 — v0.1.1 citation branch committed, built, and pushed
+
+- The complete citation/status patch was committed as `9c9e7418d8c449086cfef9912b89285ff950bc61`, tree `d0585712114f14e0ecba864e640908e7f48351a8`, on `codex/v0.1.1-citation` and pushed to the same public remote branch.
+- Structural validation, official CFF 1.2.0 schema validation, GitHub YAML parsing, privacy/credential scanning, whitespace checks, and Python compilation all passed before commit. The committed structural validator also passed from exact head.
+- Two independent preflight builds from fully qualified branch ref produced ten byte-identical files. Preflight archive SHA-256 is `fa07cd682c8277b4382d5f2355c226f035d82e2f72fe5899c31ef5a4ed22c617`; manifest SHA-256 is `3c08529c97ea7ac9324de07cbdca7d7db3d33f2236a62d4be8a29113169c5c1e`; checksum-file SHA-256 is `602fd878fef97d56ca6b6119bab5f160c3eb9a496bfdf100239f29ccb995d5d6`.
+- These are branch-head preflight bytes, not publication assets. Do not commit this receipt onto the pull-request branch before merge; require a native exact-head check, then build final publication bytes from the protected v0.1.1 tag.
+- The GitHub CLI pull-request creation attempt was rejected with `Resource not accessible by personal access token`, the same account-token limitation seen for the earlier release PR. No pull request or repository state was created by that rejected call. Use the already authenticated GitHub web interface and then verify the resulting PR's exact head and base.
+
+## 2026-08-07 — Post-compaction recovery before v0.1.1 pull request
+
+- The mandatory recovery set was reread through EOF in both the release and operational-MVP worktrees, and the active 3,995-character durable goal was retrieved before further mutation.
+- Git was verified on `codex/v0.1.1-citation` at exact local and public remote head `9c9e7418d8c449086cfef9912b89285ff950bc61`, one commit ahead of protected `main` at `c4daf0e20878db7457563b3daa121067f06385c0`. No pull request exists yet for the citation branch. The only release-worktree change is this append-only recovery/log receipt.
+- The isolated operational worktree remains on `codex/pilot-mvp` at `e0018d84847c53068cf0e37f7935a4f91eddfbe2` with only the intended uncommitted MVP documents, schemas, tools, examples, tests, and log entries.
+- Live GitHub readback confirmed the repository is public, Issues and Discussions remain enabled, `main` remains protected by the native `validate` requirement, `v0.1.0` remains the only public release, and the citation branch's public head is exact.
+- Live Zenodo readback confirmed published record `21828563` remains immutable v0.1.0 with ten files, version DOI `10.5281/zenodo.21828563`, and concept DOI `10.5281/zenodo.21828562`. Authenticated draft readback confirmed project-specific v0.1.1 draft `21830229` remains unpublished with zero files and reserved DOI `10.5281/zenodo.21830229`; no create, upload, or publish action was repeated.
+- Independent preflight found one release blocker: the authoritative recovery file still contains stale imperative text naming the already-published v0.1.0 draft and still describes validation, commit, and push as pending. Correct that idempotency hazard before opening the v0.1.1 pull request; otherwise the DOI roles, CFF, validator behavior, release scope, and leakage checks passed.
+
+## 2026-08-07 — v0.1.1 recovery blocker corrected
+
+- The authoritative Zenodo continuation rule now explicitly freezes published v0.1.0 record `21828563` and directs the current release only to unpublished v0.1.1 draft `21830229`. Stale claims that initial validation, commit, and push remain pending were replaced with the actual protected-pull-request continuation.
+- The only additional editorial change removes a duplicated conjunction from the v0.1.1 release notes; it changes no release meaning or mathematical claim.
+- The structural validator, official Citation File Format 1.2.0 JSON Schema, all seven repository YAML files, Python compilation, and whitespace checks pass on the corrected worktree. The exact committed head still requires two byte-identical deterministic builds and the native protected `validate` check before merge.
+- An independent corrected-diff re-audit confirmed that the stale-draft/idempotency blocker is closed, the release-note correction is clean, the targeted leakage scan passes, and no new release blocker remains.

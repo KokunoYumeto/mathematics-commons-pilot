@@ -26,7 +26,7 @@ Execution order and conditional continuation:
 4. If the GitHub repository does not exist, create it public under the authenticated `KokunoYumeto` account, enable issues and discussions, and push `main`. If it already exists, inspect it and continue from the live state rather than recreating or overwriting it. Configure labels, feedback forms, a visible concept discussion/issue, read-only Actions permissions, and branch/ruleset protection to the extent supported by the account plan. Use no self-hosted runner for public pull requests.
 5. Verify the repository anonymously: public URL, default branch, README rendering, issue forms, discussions or fallback feedback issue, Actions result, license/rights notice, and absence of private material. Log exact URLs and results.
 6. Freeze release `v0.1.0` only after the public commit passes. If the tag/release already exists, compare its commit and assets; do not replace history silently. Create checksums and a source archive or use the exact GitHub source archive, and record identities.
-7. Resume the existing project-specific Zenodo draft `21828563` with reserved version DOI `10.5281/zenodo.21828563`; never create a duplicate or use the existing Erdős–Straus or other unrelated concept-update scripts/IDs. Stage frozen files and metadata, creator pseudonym `KokunoYumeto`, CC0 license, version, GitHub URL, Leiden qualification, AI/tool disclosure, and concept status. Publish only after file names, sizes, hashes, description, creator, license, and related identifiers pass preflight.
+7. Operate only the exact project-specific Zenodo draft named in the current checkpoint; never create a duplicate or use an unrelated concept, script, or identifier. The v0.1.0 deposit through draft `21828563` is complete and frozen. For the current v0.1.1 follow-up, resume only unpublished draft `21830229` with reserved version DOI `10.5281/zenodo.21830229`; do not upload to or edit published v0.1.0 record `21828563`. Stage frozen files and metadata, creator pseudonym `KokunoYumeto`, CC0 license, version, GitHub URL, Leiden qualification, AI/tool disclosure, and concept status. Publish only after file names, sizes, hashes, description, creator, license, and related identifiers pass preflight.
 8. After Zenodo publication, anonymously resolve the record and DOI; download/read back every public file; verify hashes, metadata, version, creator, license, and GitHub relationship. If publication succeeds but local state is interrupted, discover the live record before any retry.
 9. Add the DOI to `CITATION.cff`, README, status, and release metadata. Because a DOI normally exists only after the first deposit, commit a DOI-bearing revision and, if necessary, create a small `v0.1.1` citation release rather than mutating the frozen `v0.1.0` record deceptively. Link version DOI and concept DOI with their distinct meanings.
 10. Publish a final public invitation that says: read the current concept, criticize it, propose improvements or pilot problems, and contribute if desired. Make limitations prominent. Hand the user the GitHub, discussion/feedback, release, and DOI links.
@@ -83,7 +83,7 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Work not yet completed at this checkpoint
 
-- Validate, commit, push, and merge the v0.1.1 citation/status revision through the protected pull-request path.
+- Open and merge the already validated, committed, and pushed v0.1.1 citation/status revision through the protected pull-request path; revalidate any corrective commit on the new exact head.
 - Tag exact protected `main` as `v0.1.1`, build twice from the tag, attach exact files to draft `21830229`, preflight and publish once, then publish the immutable GitHub release from the same bytes.
 - Verify both v0.1.1 public surfaces, DOI resolution, citation metadata, and anonymous hashes; update this recovery record and logbook.
 - Complete, review, and publish the separate operational-pilot MVP branch after the citation release; it is not part of v0.1.0 or v0.1.1.
@@ -98,8 +98,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Finish validation of `codex/v0.1.1-citation`: structural checks, official CFF 1.2.0 schema, YAML, links, privacy/secret scans, rights language, whitespace, and deterministic-builder tests. Commit only intended public files.
-2. Push the branch, open a protected pull request, require native `validate` on its exact head, and merge through linear history without bypassing protection.
+1. Commit and push the bounded recovery/idempotency correction identified after the first citation-branch preflight together with its audit and recovery receipts, then rerun structural checks, official CFF 1.2.0 schema validation, YAML parsing, links, privacy/secret scans, rights language, whitespace checks, and two deterministic builds on the new exact head.
+2. Open a protected pull request from `codex/v0.1.1-citation`, require native `validate` on its exact final head, and merge through linear history without bypassing protection.
 3. Tag exact protected `main` as `v0.1.1`; build twice from the fully qualified tag and require byte identity.
 4. Populate only Zenodo draft `21830229` with the exact v0.1.1 tag-built files; set version/date/description and an explicit repository relation, save, full-reload preflight, and publish once. Publish the immutable GitHub v0.1.1 release from the same tag and bytes.
 5. Verify anonymous GitHub and Zenodo readback, all hashes, both DOI classes, citation metadata, repository relationship, and concept DOI latest-version behavior. Never edit frozen v0.1.0 files.
