@@ -87,7 +87,7 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Commit and push the GitHub publication/log/status update; confirm Actions runs and passes.
+1. Commit and push the explicit validation-dispatch trigger, run it, and confirm it passes.
 2. Configure and verify branch protection/rulesets.
 3. Verify the live repository anonymously.
 4. Create the first GitHub release.

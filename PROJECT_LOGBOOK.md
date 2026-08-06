@@ -136,3 +136,9 @@ This is the durable chronological memory of the concept and publication work. Ap
 - The goal service reported no active goal after recovery, despite the earlier user request. A new detailed durable goal must therefore be created from the authoritative continuation contract before publication work proceeds.
 - A new active goal was then created at 3,995 characters, within the goal service's 4,000-character maximum. It embeds the recovery protocol, conditional GitHub/Zenodo workflow, Leiden and rights boundaries, future-scope separation, verification gates, and definition of completion.
 - The three public core documents were verified byte-for-byte identical to their source drafts. The structural validator and YAML parser passed, and the public scan found no private path or credential disclosure.
+
+## 2026-08-06 — Public validation trigger repair
+
+- Commit `e3915a8` pushed the public repository checkpoint successfully.
+- GitHub reported the validation workflow as present, active, and Actions-enabled, but recorded no run after the push.
+- An explicit `workflow_dispatch` trigger was added while retaining the `push` and `pull_request` triggers, allowing the same public validation job to be launched and verified without weakening its permissions.

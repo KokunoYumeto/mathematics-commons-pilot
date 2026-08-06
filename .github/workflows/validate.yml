@@ -1,6 +1,7 @@
 name: Validate public concept repository
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
@@ -16,4 +17,3 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Run structural validation
         run: python3 tools/validate_repository.py
-
