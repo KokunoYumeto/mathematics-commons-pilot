@@ -203,3 +203,9 @@ This is the durable chronological memory of the concept and publication work. Ap
 - A deterministic release builder was added. It reads only objects from one fully qualified Git ref snapshot; rejects ambiguous refs, links, gitlinks, unsafe and Windows-reserved paths, case-insensitive collisions, existing output targets, and unexpected diagnostics; records exact commit, tree, and per-file hashes; creates a sorted strict uncompressed USTAR archive with canonical metadata; copies approved reader files from Git blobs; and writes byte-exact `SHA256SUMS.txt` coverage.
 - The builder publishes the complete verified asset set by one atomic directory rename into a previously nonexistent target. Adversarial tests confirmed byte-identical repeat builds, exact commit/tree identity, reader/blob equality, strict USTAR metadata, unsafe-path rejection, no residue after an injected rename failure, and rejection of a line-ending-modified checksum file.
 - Independent final editorial regression found no remaining release-blocking issue. Structural validation, YAML/form semantics, source/public parity, privacy and secret scans, rights boundaries, relative links, and whitespace checks passed.
+
+## 2026-08-06 — DOI release branch content commit
+
+- The privacy-safe DOI release content was committed on `codex/v0.1.0-doi` as `1b30f40b09985457065b0daaa1f86a3fde0f9f0e`, tree `50edcd86d66b4b06d3b1477d4ca4a5ae5902f9f4`.
+- The commit contains the reserved DOI metadata, privacy correction, provenance strengthening, public and private 2FA continuity guidance, updated intake forms, release notes, structural validator changes, and the independently audited deterministic release builder.
+- A staged whitespace check identified one newly added Markdown hard-break marker in the 2FA guide after the content commit; it was removed immediately and is included with this receipt before the branch is pushed.

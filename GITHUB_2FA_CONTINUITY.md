@@ -1,6 +1,6 @@
 # GitHub two-factor authentication continuity
 
-**Status:** operational security runbook for contributors and stewards  
+**Status:** operational security runbook for contributors and stewards
 **Last verified:** 6 August 2026
 
 ## The short answer
