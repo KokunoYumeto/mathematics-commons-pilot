@@ -1,7 +1,7 @@
 # Mathematics Commons: Durable Requirements
 
 **Status:** Normative working specification for the white paper and minimum viable system  
-**Version:** 2026-08-06.2  
+**Version:** 2026-08-06.3
 **Leading framework:** [Leiden Declaration on Artificial Intelligence and Mathematics](https://leidendeclaration.ai/), 2 June 2026, DOI [10.5281/zenodo.20302944](https://doi.org/10.5281/zenodo.20302944)
 
 ## 1. Purpose and interpretation
@@ -14,7 +14,21 @@ The Commons may publicly describe itself as **designed to align with the Leiden 
 
 The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** are normative. A requirement may be waived only by a recorded decision naming the requirement, reason, scope, responsible human, and expiry or review date. A waiver cannot convert an inadequately supported mathematical claim into an established result.
 
-### 1.1 Current implementation goal
+### 1.1 Privacy presumption and proportional disclosure
+
+All requirements below operate subject to legitimate privacy, confidentiality, security, copyright, third-party-rights, and legal constraints. Ordinary AI interactions are private by default. Contributing a mathematical artifact does not grant the Commons general access to, or permission to publish, the contributor's prompt history, raw transcripts, hidden reasoning or chain-of-thought, private working notes, unpublished communications, personal context, credentials, or unrelated local data.
+
+The Leiden Declaration asks contributors to disclose material automated-tool use and to make mathematical arguments independently understandable and verifiable. It does not require publication of prompt histories or raw AI transcripts. Its reference to “proprietary knowledge or equipment” concerns whether the mathematics can be independently understood; **“proprietary prompts” is not wording from the Declaration and is not a Commons disclosure requirement**.
+
+The public record MUST contain only the proportionate, sanitized information reasonably needed under ordinary mathematical, academic, institutional, and destination-venue integrity standards: which material tools were used and for what role, a functional task specification, material human interventions, supporting sources and artifacts, checks performed, known limitations, and any relevant disclosure gap. Raw interaction records MAY be published only by the contributor's specific affirmative choice, after privacy, confidentiality, security, and rights review. If a material detail cannot appropriately be shared, the limitation MUST be stated and the associated claim narrowed when necessary.
+
+A prompt or transcript is process provenance, not proof, authorship, or a magical causal explanation of theorem-level work. A mathematical claim must stand on independently checkable arguments and evidence. A distinct empirical claim about a system's autonomy or performance may require a more detailed experimental protocol, but even then the default is a sanitized protocol and appropriately qualified claim, not coerced publication of private conversations.
+
+Every module, packet, runner, and evidence bundle MUST apply data minimization: declare what is public, private, restricted, temporary, or prohibited; access only the files and services required for its bounded task; exclude unrelated local state and conversations by default; and retain no private material merely because it might later be convenient.
+
+“Private by default” defines the Commons' own collection and publication boundary. It is not a guarantee about a chosen provider's retention, training, account, or legal terms; those MUST be assessed separately and any material limitation disclosed.
+
+### 1.2 Current implementation goal
 
 The immediate goal is a small, GitHub-native proof-of-concept operated by an initial group already comfortable with AI-assisted work. It will:
 
@@ -28,7 +42,7 @@ The immediate goal is a small, GitHub-native proof-of-concept operated by an ini
 
 The pilot tests whether the protocol produces reviewable mathematics and catches errors. It does not need to solve an open problem to succeed.
 
-### 1.2 Future conceptual directions, not current deliverables
+### 1.3 Future conceptual directions, not current deliverables
 
 The protocol is intentionally extensible to archival transcription, canonical editions, multilingual translation, Stacks-style semantic integration, non-Git public onboarding, automatic capability routing, one-click donated-agent workflows, and a genuinely local volunteer CPU/GPU or model network. These directions are recorded so the pilot does not create incompatible infrastructure. They MUST NOT be represented as features of the first release.
 
@@ -40,7 +54,7 @@ The white paper and implementation MUST keep four related ideas distinct.
 
 The Commons SHOULD reduce barriers arising from language, disability, geography, cost, institutional status, technical background, and unequal access to proprietary tools. It SHOULD support multilingual interfaces and releases, persistent pseudonymous participation where compatible with publication rules, low-bandwidth workflows, and contribution paths that do not require Git expertise.
 
-This is a genuine inclusion commitment. It is not expressed by patronizing contributors or treating them as representatives of deficits.
+This is a genuine inclusion commitment.
 
 ### 2.2 Broad integrability of contributions
 
@@ -56,6 +70,8 @@ For the minimum viable system, decentralization means that independently operate
 
 A federation of locally hosted models and volunteered CPU/GPU resources is a compatible future program, not a dependency of the minimum viable system. Possible uses include OCR, layout recovery, transcription, translation, embedding and index construction, formal-library search, and training rights-cleared specialist models on historical corpora. This future program MUST satisfy the same source-rights, consent, security, resource, attribution, review, and environmental requirements as the present system.
 
+The suggestion to train rights-cleared specialist models on historical mathematical corpora is credited to Reddit user [u/UmbrellaCorp_HR](https://www.reddit.com/user/UmbrellaCorp_HR/), cited solely by the public pseudonym supplied for attribution.
+
 ## 3. Foundational scientific requirements
 
 | ID | Normative requirement | Required evidence or control |
@@ -63,7 +79,7 @@ A federation of locally hosted models and volunteered CPU/GPU resources is a com
 | `SCI-001` | A promoted mathematical result MUST contain a human-readable account of its central argument, not only a model transcript, solver verdict, formal term, or press summary. | Reader-facing statement and argument tied to an exact version. |
 | `SCI-002` | Proof remains the highest evidence for theorem claims; the system MUST distinguish proof, computation, experiment, heuristic, analogy, and conjecture. | Typed claim and evidence fields; promotion rules by claim type. |
 | `SCI-003` | Every review MUST identify the exact artifact version, the scope checked, methods used, limitations, and reviewer. | Version-bound review record. |
-| `SCI-004` | Independent verification MUST be possible without secret model state, proprietary prompts, or inaccessible equipment being the sole justification. | Open argument and shareable evidence; inaccessible dependencies disclosed. |
+| `SCI-004` | A promoted claim MUST be independently verifiable from its public mathematical argument and shareable evidence. Private interaction history, secret model state, or inaccessible equipment MUST NOT serve as its sole justification; this does not make those private materials publishable. | Open argument or certificate and shareable evidence; material inaccessible dependencies disclosed at a functional level. |
 | `SCI-005` | Formal verification MUST be used when proportionate and feasible for high-risk or central claims, but formal acceptance MUST NOT substitute for checking that the encoded statement matches the intended mathematics. Formal artifacts MUST disclose their trust base, including toolchain, library revision, axioms, oracles, generated code, and placeholders. | Kernel/build receipt, trust-base manifest, and a separate statement-correspondence review. |
 | `SCI-006` | Theoretical and computational conclusions MUST be cross-checked when both are material to a claim. | Independent replay, exact certificate, certified bounds, or documented comparison. |
 | `SCI-007` | Claim status, literature status, proof review, computation status, formalization status, and publication status MUST remain separate. | Faceted status record; no bare `verified` badge. |
@@ -93,14 +109,16 @@ A federation of locally hosted models and volunteered CPU/GPU resources is a com
 | ID | Normative requirement | Required evidence or control |
 |---|---|---|
 | `TOOL-001` | Every research packet, run, review, and release MUST disclose material use of language models, machine learning, proof assistants, solvers, mathematical software, search systems, and OCR/translation tools. | Machine-readable run/review manifest and reader-facing release disclosure. |
-| `TOOL-002` | Disclosure MUST record provider, model/tool name, version or dated identifier, mode, access date, material task specification, human interventions, relevant compute, reproducibility limits, nondeterminism, and material information that is unavailable. | `run.json` schema validation. |
-| `TOOL-003` | Private reasoning, secrets, personal data, and irrelevant raw conversations MUST NOT be published merely in the name of transparency. | Redaction/privacy review and disclosure of omitted categories. |
+| `TOOL-002` | Disclosure MUST record provider, model/tool name, version or dated identifier, mode, access date, a sanitized functional task specification, material human interventions, relevant compute, verification performed, reproducibility limits, nondeterminism, and material information that is unavailable. | `run.json` schema validation. |
+| `TOOL-003` | AI interactions, prompt histories, raw transcripts, private working notes, personal data, credentials, and unrelated informal material MUST be treated as private by default. They MUST NOT be required or published without the contributor's specific affirmative choice and a privacy, confidentiality, security, and rights review. | Data-minimized disclosure; publication-consent field; redaction/privacy review; omitted categories described only when material. |
 | `TOOL-004` | Tool choice MUST consider values alignment, source and training rights, privacy, openness, accessibility, energy and material cost, and whether a smaller or non-proprietary system suffices. | Tool-choice record for substantial runs. |
 | `TOOL-005` | The capability router SHOULD prefer the least resource-intensive adequate tool and SHOULD expose cost and resource limits before work begins. | Declared resource envelope and routing rationale. |
 | `TOOL-006` | A faster result MAY be delayed when the available tool or partnership would materially violate the project's scientific or ethical requirements. | Recorded refusal, deferral, or alternate-tool decision. |
 | `TOOL-007` | Maintainers and reviewers MUST stay informed enough to revise threat models, disclosure fields, and validation policies as tools change. | Scheduled policy review and versioned compatibility registry. |
 | `TOOL-008` | Reviewers MUST disclose material AI assistance in their review, follow the destination venue's confidentiality and tool rules, and remain responsible for every recommendation they make. | Reviewer tool disclosure and venue-policy attestation. |
 | `TOOL-009` | Useful non-AI contribution and review paths MUST remain available, and contributors MAY decline a model, provider, task, or partnership without penalty. | Provider-choice controls and non-AI packet routes. |
+| `TOOL-010` | A prompt or transcript MUST NOT be treated as proof, authorship, or a sufficient explanation of model capability. When particular instructions materially affect scientific evaluation, their functional content MUST be summarized in sanitized form; verbatim excerpts remain optional and contributor-controlled. | Sanitized task specification, optional approved excerpts, and claim qualification where details remain private. |
+| `TOOL-011` | Empirical claims about model autonomy or performance MUST disclose a proportionate experimental protocol and evidence. They MUST be narrowed when private or unavailable details prevent evaluation, without converting raw-transcript publication into a default requirement. | Protocol summary, evaluation artifacts, disclosure gaps, and qualified claim language. |
 
 ## 6. Attribution, sources, licenses, and training consent
 
@@ -117,6 +135,7 @@ A federation of locally hosted models and volunteered CPU/GPU resources is a com
 | `ATTR-009` | Attribution must have its own challenge, correction, and appeal path; correcting credit or locating prior art counts as a successful contribution. | Attribution objection and disposition records. |
 | `ATTR-010` | All Commons-originated material MUST be released under CC0 1.0, modulo pre-existing third-party copyright and other rights. The Commons MUST NOT purport to waive rights it does not control. | Per-file provenance and rights manifest; third-party exception records. |
 | `ATTR-011` | “Commons-originated” MUST include every newly created component submitted through the workflow, including proofs, computations, formalizations, code, metadata, reviews, corrections, translations, transcriptions, and exposition. Contributors dedicate any rights they control under CC0; absence of copyright and waiver of possible rights lead to the same open result. | Mandatory `origin`, `dedication`, third-party-component, and redistribution-status fields. |
+| `ATTR-012` | Provenance MUST cover materially influential ideas and process contributions, not only incorporated files: problem nominations, workflow proposals, source leads, sanitized task specifications or voluntarily disclosed prompts, prior attempts, and conceptual suggestions retain their originator where the contributor has made that attribution lawfully publishable. Public pseudonyms MUST be credited without attempted deanonymization; attribution MUST NOT compel raw-transcript disclosure; uncertainty MUST be recorded rather than silently reassigned. | Idea-origin field, contribution-role ledger, stable public-handle citation where supplied, privacy/publication boundary, and attribution-gap record. |
 
 ## 7. Open science, review, publication, and public communication
 
@@ -190,7 +209,7 @@ Every packet MUST record:
 - required inputs and outputs, including JSON metadata and human-readable or LaTeX artifacts where appropriate;
 - acceptance tests and the kinds of independent review required;
 - risk classification covering mathematical, security, privacy, rights, ethical, and publicity risk;
-- disclosure requirements and human responsibility state;
+- disclosure requirements, data-minimization and publication boundary, retention/redaction decisions, and human responsibility state;
 - a resource envelope and capability requirements;
 - attribution and credit roles;
 - lease, checkpoint, submission, objection, correction, and supersession information.
@@ -222,10 +241,11 @@ User-facing presets MAY resemble `light`, `standard`, `extended`, and `local-com
 | `ROUTE-005` | The human operator MUST approve a clear permission envelope before work: files, network, code execution, compute, monetary budget, and maximum duration. | Consent receipt stored locally; public record contains only non-sensitive summary. |
 | `ROUTE-006` | A packet MUST run in an isolated workspace and MUST NOT obtain secrets merely because its output will be submitted to the Commons. | Sandbox policy and automated security checks. |
 | `ROUTE-007` | Self-checking is mandatory but never sufficient for promotion. Producer and accepting reviewer MUST be distinct roles. | Separate review packet and disposition. |
-| `ROUTE-008` | A completed node run MUST return a portable evidence bundle rather than only a conversational answer. | Outputs, manifest, logs or bounded transcript evidence, hashes, and test receipts. |
+| `ROUTE-008` | A completed node run MUST return a portable evidence bundle rather than only a conversational answer. | Outputs, manifest, sanitized run summary, optional contributor-approved excerpts, hashes, and test receipts. |
 | `ROUTE-009` | Leases and checkpoints MUST prevent silent overlap and permit safe continuation after interruption. | Lease record, cursor, and immutable checkpoint. |
 | `ROUTE-010` | Project variants MAY expose different packet trees—such as archival transcription, corpus translation, Stacks-style integration, or conjecture research—while using the same packet and review protocol. | Common schema conformance test. |
 | `ROUTE-011` | The interface MUST distinguish a locally operated agent client from genuinely local model inference. Remote providers, data flows, retention limits, and reproducibility constraints remain disclosed. | Capability profile and run disclosure. |
+| `ROUTE-012` | Every module MUST declare and enforce its data boundary. It MUST collect and expose only what its bounded task requires, deny unrelated local context by default, and distinguish public, private, restricted, temporary, and prohibited material before execution or submission. | Per-module privacy class, allowlisted inputs and destinations, retention rule, redaction check, and publication preview. |
 
 ## 12. Peer-to-peer review requirements
 
@@ -321,24 +341,24 @@ This matrix prevents selective citation. “Project treatment” includes both e
 | Leiden element | Project treatment |
 |---|---|
 | Proof, certainty, and understanding | `SCI-001`–`SCI-006`, peer-to-peer review layers. |
-| Human attribution, credit, and correctness responsibility | `HUM-001`–`HUM-007`. |
+| Human attribution, credit, and correctness responsibility | `HUM-001`–`HUM-008`. |
 | Transparency and independent verification without proprietary dependence | `SCI-003`–`SCI-005`, `OPEN-001`–`OPEN-003`. |
 | Shared evaluation of depth, difficulty, and significance | `SCI-011`, `OPEN-006`, no scalar leaderboard. |
 | Human expertise, judgment, question formation, and autonomous research | `SCI-012`–`SCI-013`, `ETH-005`. |
 | Care for people and the environment | `TOOL-004`–`TOOL-006`, `ETH-001`–`ETH-008`. |
 | Plausible but unreliable informal or formal AI output | `SCI-001`–`SCI-010`, review separation and correspondence checks. |
 | Review-system overload | `SCI-010`, bounded generation and review routing. |
-| Attribution failure, copyright, and exploitative training | `ATTR-001`–`ATTR-008`. |
+| Attribution failure, copyright, and exploitative training | `ATTR-001`–`ATTR-012`. |
 | Distorted incentives and unequal access | `SCI-012`, `ACCESS-001`–`ACCESS-009`, `ROUTE-003`–`ROUTE-004`. |
 | Market-timeline announcements and hype | `OPEN-004`–`OPEN-009`, `ORG-002`, `ORG-005`. |
 | Loss of mathematical autonomy and understanding | `SCI-012`–`SCI-013`, `ETH-003`–`ETH-006`. |
 | Wider harms involving warfare, surveillance, oppression, democracy, and environment | `ETH-001`–`ETH-008`, `ORG-006`. |
-| Transparent disclosure of tools and resources | `TOOL-001`–`TOOL-003`. |
+| Transparent disclosure of tools and resources | `TOOL-001`–`TOOL-003`, `TOOL-010`–`TOOL-011`. |
 | Making AI-assisted work easier to review | `SCI-001`–`SCI-010`, packet acceptance checks. |
 | Open science | `OPEN-001`–`OPEN-003`, `ACCESS-001`–`ACCESS-006`. |
 | Human responsibility for arguments, adequacy, and citations | `HUM-002`, `ATTR-001`–`ATTR-004`. |
 | Human authorship | `HUM-001`–`HUM-006`. |
-| Proactive attribution and explicit uncertainty | `ATTR-001`–`ATTR-004`. |
+| Proactive attribution and explicit uncertainty | `ATTR-001`–`ATTR-004`, `ATTR-009`, `ATTR-012`. |
 | Serious public discourse and solidarity with other fields | `OPEN-006`–`OPEN-010`. |
 | Staying informed about emerging tools | `TOOL-007`, `ORG-001`–`ORG-003`. |
 | Welcoming new contributors while making standards accessible | `ACCESS-001`–`ACCESS-009`. |

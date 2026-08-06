@@ -9,6 +9,7 @@ date-released: 2026-08-06
 authors:
   - name: "KokunoYumeto"
 repository-code: "https://github.com/KokunoYumeto/mathematics-commons-pilot"
+doi: 10.5281/zenodo.21828563
 license: CC0-1.0
 keywords:
   - mathematics
@@ -17,4 +18,3 @@ keywords:
   - open science
   - formal verification
   - distributed collaboration
-

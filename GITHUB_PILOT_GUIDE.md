@@ -4,6 +4,10 @@
 **Date:** 6 August 2026  
 **Audience:** Initial stewards and contributors who can already operate an AI coding/research agent but may not know GitHub administration
 
+> **Privacy presumption:** ordinary AI interactions and local working context are private by default. This workflow publishes only a contributor-approved, data-minimized evidence bundle. It does not require raw prompt histories, transcripts, chain-of-thought, credentials, personal data, unpublished communications, or unrelated local files. Disclosure remains proportionate to ordinary mathematical, academic, institutional, and destination-venue integrity requirements.
+
+“Private by default” describes the Commons' own collection and publication boundary. It is not a promise about a chosen model provider's retention, training, account, or legal terms; those must be assessed separately and any material limitation disclosed.
+
 ## 1. The short answer
 
 Do not begin by building a custom peer-to-peer network.
@@ -144,6 +148,13 @@ A packet states one bounded task:
     "expected_hours": 2,
     "network_required": true
   },
+  "privacy": {
+    "public_outputs": ["literature_search.json", "source_notes.md", "run.json"],
+    "private_by_default": ["raw_transcript", "prompt_history", "local_working_notes"],
+    "temporary_inputs": [],
+    "commons_retention": "none beyond approved outputs",
+    "external_provider_retention": "declare in run.json"
+  },
   "outputs": [
     "literature_search.json",
     "source_notes.md",
@@ -157,7 +168,7 @@ The example ID is illustrative; the pilot should not reopen a solved problem as 
 
 ### 5.3 Run
 
-A run records what a person and their tools actually did: task specification, model/tool versions and dates, human interventions, commands, queries, inputs, outputs, hashes, resources, limitations, and anything material that could not be reproduced or disclosed.
+A run records, in sanitized and proportionate form, what a person and their tools materially did: functional task specification, model/tool versions and dates, material human interventions, commands or queries needed for evaluation, approved inputs and outputs, hashes, resources, checks, limitations, and material disclosure gaps. It is not a dump of the person's private interaction history. A prompt or transcript is not proof; optional excerpts remain contributor-controlled and receive privacy, confidentiality, security, and rights review.
 
 ### 5.4 Claim
 
@@ -216,9 +227,11 @@ The contributor opens the clone or download in Codex, Claude Code, or another ch
 
 The packet, not a clever improvised prompt, carries the durable instructions.
 
+That local interaction remains private by default. Before submission, the contributor or agent assembles only the packet's allowlisted outputs and shows an exact publication preview; unrelated conversation and local state stay outside the bundle.
+
 ### Step 6: submit an evidence bundle
 
-The submission includes the required output, `run.json`, sources, hashes, limitations, and self-check receipts. A validator rejects missing fields before mathematical reviewers spend time on it.
+The submission includes the required output, a sanitized `run.json`, sources, hashes, limitations, and self-check receipts. A validator rejects missing fields and unexpected private or undeclared files before mathematical reviewers spend time on it. Raw transcripts and complete prompt histories are not required.
 
 ### Step 7: independent review
 
@@ -255,6 +268,8 @@ Protect the default `main` branch with a repository ruleset or branch protection
 - stale approvals dismissed when reviewed files change; and
 - maintainer bypass limited and recorded.
 
+During a one-maintainer bootstrap, requiring one approval would make every release impossible. The current repository therefore requires the pull-request path and public validation check but temporarily requires zero approvals. Raise the count to one and require last-push approval as soon as an independent write collaborator is recruited; the bootstrap exception is not the intended pilot review standard.
+
 Organization-level rulesets are a later convenience and some features depend on the GitHub plan. Repository-level protection is enough for the pilot. GitHub documents the available [repository rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 Create one organization-level GitHub Project only if the group finds the board helpful. It can show packet status, type, capability envelope, problem family, and reviewer need across issues and pull requests. It is a dashboard, not the scientific database. See [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
@@ -270,8 +285,15 @@ Public pull requests contain untrusted input.
 - Never connect a personal persistent machine containing credentials as a runner for arbitrary public pull requests.
 - Triage code before running expensive or specialized jobs in an isolated, disposable environment with no secrets.
 - Treat PDFs, archives, solver files, prompts, and generated source as untrusted.
+- Give every module an explicit privacy boundary: allowlisted inputs and destinations, public/private/restricted/temporary classifications, a retention rule, and an exact pre-publication preview. Deny unrelated local context by default.
 
 GitHub recommends keeping self-hosted runners away from untrusted public fork workflows because a pull request can execute hostile code. Its workflow syntax also allows an explicit read-only `GITHUB_TOKEN`. See GitHub's [runner-access warning](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/manage-access) and [workflow-permissions documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#permissions).
+
+### 9.1 Two-factor authentication continuity
+
+Human GitHub accounts should use secure 2FA with at least two independent methods and offline recovery codes. This does not require TOTP prompts on every Git operation: GitHub CLI/Git Credential Manager, SSH, personal access tokens, GitHub Apps, and Actions use token or key authentication after any interactive authorization.
+
+Local agents must use the configured credential helper without retrieving or logging its credential. Prefer the built-in Actions token for repository workflows and GitHub Apps for unattended cross-repository automation. Before organization-level 2FA enforcement, appoint two owners, notify contributors, and audit outside collaborators and any machine-user accounts. Follow [GITHUB_2FA_CONTINUITY.md](GITHUB_2FA_CONTINUITY.md) for enrollment, smoke tests, rotation, and lockout recovery.
 
 ## 10. Mirroring without creating chaos
 
@@ -378,15 +400,15 @@ The pilot succeeds if it produces durable, independently reviewable work and ide
 
 The pilot should preserve compatibility with those ideas through open schemas, stable IDs, packet boundaries, mirrors, and rights metadata. It should not pretend to have implemented them.
 
-## 14. Decisions needed before creating the remote organization
+## 14. Decisions needed before the live pilot or organization migration
 
 Only a few human choices cannot be made by the technical design:
 
-1. the public organization and repository names;
-2. the two initial organization owners;
+1. whether and when the current public repository should migrate to an organization;
+2. the two initial organization owners before that migration;
 3. the initial stewards and reviewer pool;
 4. the content and code licenses;
 5. which six to ten records enter the calibration set; and
 6. the independent mirror destination.
 
-Everything else can be scaffolded locally first and pushed after those choices are made.
+The current personal-account repository can host the concept and technical calibration. The live collaborative pilot should not depend on an organization migration until those continuity choices are made.

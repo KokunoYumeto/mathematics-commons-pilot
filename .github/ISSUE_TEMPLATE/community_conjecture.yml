@@ -14,7 +14,7 @@ body:
     id: origin
     attributes:
       label: Origin and attribution
-      description: Who proposed it, where, and when? Link the original discussion when possible.
+      description: Who proposed it, where, and when? Link a lawfully publishable public source when possible; otherwise give a sanitized attribution note. Do not quote or link a private discussion without the required consent.
     validations:
       required: true
   - type: textarea
@@ -35,6 +35,13 @@ body:
     id: tools
     attributes:
       label: Material AI or software use
+      description: Give a sanitized summary or write "none". Do not paste raw prompts, transcripts, chain-of-thought, credentials, personal data, unpublished communications, or unrelated local material.
     validations:
       required: true
-
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights
+      options:
+        - label: I have identified any third-party material and understand that each new component I intentionally submit is dedicated under CC0 to the extent legally possible.
+          required: true
