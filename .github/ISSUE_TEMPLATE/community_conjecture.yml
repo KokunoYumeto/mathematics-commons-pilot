@@ -1,0 +1,40 @@
+name: Propose a community conjecture
+description: Submit a precise conjecture with definitions, motivation, evidence, and known limitations.
+title: "[Conjecture]: "
+labels: ["community-conjecture", "triage"]
+body:
+  - type: textarea
+    id: statement
+    attributes:
+      label: Exact conjecture
+      description: State quantifiers, definitions, domain, conventions, and edge cases.
+    validations:
+      required: true
+  - type: textarea
+    id: origin
+    attributes:
+      label: Origin and attribution
+      description: Who proposed it, where, and when? Link the original discussion when possible.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Motivation and evidence
+      description: Examples, computations, heuristics, or related theorems. Distinguish each evidence type.
+    validations:
+      required: true
+  - type: textarea
+    id: literature
+    attributes:
+      label: First literature search
+      description: What was searched, which sources were opened, and what remains uncertain?
+    validations:
+      required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Material AI or software use
+    validations:
+      required: true
+

@@ -1,0 +1,43 @@
+name: Report an error, rights issue, or attribution concern
+description: Challenge an exact claim, source, credit, license, or workflow decision.
+title: "[Challenge]: "
+labels: ["challenge", "triage"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Exact target
+      placeholder: File, section, claim ID, commit, release, or DOI
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Concern type
+      options:
+        - Mathematical correctness
+        - Citation or prior art
+        - Credit or attribution
+        - Copyright, license, or training consent
+        - Tool disclosure
+        - Security or privacy
+        - Governance or communication
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: Concern and evidence
+    validations:
+      required: true
+  - type: textarea
+    id: remedy
+    attributes:
+      label: Suggested correction or next check
+  - type: textarea
+    id: tools
+    attributes:
+      label: Material AI or software use
+    validations:
+      required: true
+

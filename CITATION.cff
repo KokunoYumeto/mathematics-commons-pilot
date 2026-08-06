@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  Cite the archived concept release. Scientific attribution remains requested
+  even though Commons-originated material is dedicated under CC0.
+title: "The Mathematics Commons: a Leiden-led peer-to-peer review pilot"
+type: software
+version: 0.1.0
+date-released: 2026-08-06
+authors:
+  - name: "KokunoYumeto"
+repository-code: "https://github.com/KokunoYumeto/mathematics-commons-pilot"
+license: CC0-1.0
+keywords:
+  - mathematics
+  - artificial intelligence
+  - peer review
+  - open science
+  - formal verification
+  - distributed collaboration
+

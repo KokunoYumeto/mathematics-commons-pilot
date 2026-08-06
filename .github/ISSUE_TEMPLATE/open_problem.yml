@@ -1,0 +1,39 @@
+name: Propose an established open problem
+description: Suggest a sourced problem with bounded pilot work that remains useful without a complete solution.
+title: "[Problem]: "
+labels: ["problem-proposal", "triage"]
+body:
+  - type: input
+    id: statement_source
+    attributes:
+      label: Authoritative problem source
+      placeholder: URL, DOI, problem number, book/page, or paper/theorem
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Exact statement and conventions
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: Evidence that the status was checked
+      description: Include dates, databases, and primary sources already inspected.
+    validations:
+      required: true
+  - type: textarea
+    id: packets
+    attributes:
+      label: Suggested bounded packets
+      description: Literature, special case, counterexample, computation, formalization, or other useful work.
+    validations:
+      required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Material AI or software use
+    validations:
+      required: true
+

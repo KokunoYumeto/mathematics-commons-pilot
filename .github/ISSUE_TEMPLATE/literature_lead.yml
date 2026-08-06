@@ -1,0 +1,39 @@
+name: Submit a literature lead
+description: Report a paper or source that may settle, precede, correct, or contextualize a recorded problem.
+title: "[Literature]: "
+labels: ["literature", "triage"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Target problem or claim
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Primary source
+      placeholder: DOI, arXiv ID, stable URL, or complete bibliographic reference
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Exact relevance
+      description: Give theorem/page/section details and distinguish direct support from possible relevance.
+    validations:
+      required: true
+  - type: checkboxes
+    id: opened
+    attributes:
+      label: Source inspection
+      options:
+        - label: I opened the source itself rather than relying only on an AI answer or database snippet.
+          required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Material AI or software use
+    validations:
+      required: true
+
