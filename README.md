@@ -22,6 +22,8 @@ The long-term concept is broader—translation, transcription, archival recovery
 
 ## Comment or contribute
 
+Start with the open discussion: **[Read the concept and break it: what would make this workflow work?](https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1)**
+
 You can:
 
 - open **Concept feedback** to criticize or extend the proposal;
@@ -31,7 +33,7 @@ You can:
 - report a mathematical, attribution, rights, or workflow error; or
 - volunteer to help build or review the pilot.
 
-Use the repository's issue forms. Discussion is welcome; agreement is not required. Specific objections are especially useful.
+Use the repository's issue forms for structured proposals and challenges. Discussion is welcome; agreement is not required. Specific objections are especially useful.
 
 ## Leading framework
 

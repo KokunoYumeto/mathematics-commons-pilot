@@ -58,15 +58,21 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Created this recovery spine and the public project logbook.
 - Passed structural, relative-link, public-path/credential-pattern, rights-language, and YAML parse checks after removing local absolute paths from public files.
 - Configured repository-local Git author metadata using the public pseudonym and GitHub no-reply address.
+- Reverified that the white paper, Leiden requirements, and GitHub guide are byte-for-byte identical to their source drafts.
+- Recreated the active durable goal at 3,995 characters after the goal service reported no active goal following compaction.
+
+## External state now completed
+
+- Public GitHub repository exists at `https://github.com/KokunoYumeto/mathematics-commons-pilot` with `main` pushed.
+- Issues and Discussions are enabled; workflow tokens default to read-only.
+- Public feedback discussion exists at `https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1`.
 
 ## Work not yet completed at this checkpoint
 
-- Recopy the latest source versions of the white paper and Leiden requirements into the standalone repository after every subsequent source edit.
-- Run repository validation and fix every failure.
-- Review public files for private paths, credentials, private identity linkage, overclaims, broken links, and inconsistent license language.
-- Initialize Git author metadata if needed, commit, and inspect the exact commit.
-- Create the public GitHub repository, push `main`, enable issues and discussions, configure labels and protection, and verify anonymous readback.
-- Create a public feedback/discussion entry.
+- Commit and push the pending publication-status and recovery updates.
+- Trigger and verify the public validation workflow.
+- Configure branch protection or the closest supported ruleset and verify it.
+- Complete anonymous readback of the public repository and feedback surfaces.
 - Create and verify release `v0.1.0`.
 - Create a new Zenodo concept deposit, publish it, record DOI and file hashes, update citation metadata, and publish a DOI-bearing follow-up release if required by sequencing.
 - Verify anonymous GitHub and Zenodo readback and append receipts.
@@ -81,8 +87,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Inspect the final staged file set and commit the clean public concept release.
-2. Create and configure the GitHub repository, labels, discussions/feedback, Actions, and protection.
+1. Commit and push the GitHub publication/log/status update; confirm Actions runs and passes.
+2. Configure and verify branch protection/rulesets.
 3. Verify the live repository anonymously.
 4. Create the first GitHub release.
 5. Create a new Zenodo concept deposit and publish only after its metadata and files are frozen.

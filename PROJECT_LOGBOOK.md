@@ -115,3 +115,24 @@ This is the durable chronological memory of the concept and publication work. Ap
 - The standalone public repository was committed on `main` as `4cc36d8d96780b815a7a8e1a50551aa5adeccfd7` with message `Publish Mathematics Commons concept draft`.
 - The root commit contains 25 intentionally public files and 2,202 inserted lines. No file from the large source workspace was staged.
 - Git reported only Windows line-ending advisory messages; the commit completed successfully and the worktree was clean immediately afterward.
+
+## 2026-08-06 — GitHub publication checkpoint
+
+- A second local commit `700a3116e4e7e317240edf90611e4ec61ca08c08` recorded the initial freeze.
+- Public repository created and pushed successfully: `https://github.com/KokunoYumeto/mathematics-commons-pilot`.
+- Repository visibility is public; default branch is `main`; Issues and Discussions are enabled; the wiki is disabled; branch cleanup after merge is enabled.
+- Default workflow permissions were set to read-only, with Actions unable to approve pull requests.
+- Project labels created for concept discussion, triage, problem proposals, community conjectures, literature, challenges, review need, and future directions.
+- Public Discussion 1 created: `https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1`.
+- No GitHub release or Zenodo DOI existed at the end of this checkpoint.
+
+## 2026-08-06 — Post-compaction recovery verification
+
+- The mandatory recovery set was reread through EOF before continuing: `AGENTS.md`, `SESSION_RECOVERY.md`, this logbook, `STATUS.md`, `RIGHTS.md`, and `START_HERE_FOR_AGENTS.md`.
+- Git was verified on `main`, tracking `origin/main`, at commit `700a3116e4e7e317240edf90611e4ec61ca08c08`; the only working-tree changes were the four previously intended publication-status edits to this logbook, `README.md`, `SESSION_RECOVERY.md`, and `STATUS.md`.
+- The live GitHub repository was verified as public with `main` as default, Issues and Discussions enabled, no release, and Discussion 1 open at the recorded URL.
+- GitHub Actions had no recorded run yet, and the `main` branch was not protected at this checkpoint.
+- Public Zenodo search for the project title returned no record. Authenticated draft discovery remains required before any Zenodo create call.
+- The goal service reported no active goal after recovery, despite the earlier user request. A new detailed durable goal must therefore be created from the authoritative continuation contract before publication work proceeds.
+- A new active goal was then created at 3,995 characters, within the goal service's 4,000-character maximum. It embeds the recovery protocol, conditional GitHub/Zenodo workflow, Leiden and rights boundaries, future-scope separation, verification gates, and definition of completion.
+- The three public core documents were verified byte-for-byte identical to their source drafts. The structural validator and YAML parser passed, and the public scan found no private path or credential disclosure.
