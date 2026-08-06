@@ -215,3 +215,19 @@ This is the durable chronological memory of the concept and publication work. Ap
 - Release branch `codex/v0.1.0-doi` was pushed at `484642d67a12cb7a7d40322009cb6be873454ba9`; the exact commit built twice to byte-identical assets with 28 tracked files and matching commit/tree identities.
 - The first GitHub CLI pull-request creation attempt failed with `Resource not accessible by personal access token`. No pull request was created by that attempt. The branch and repository were unaffected.
 - The next safe route is the authenticated GitHub web interface. Any resulting pull request must target protected `main`, use the pushed branch, and be rechecked against its exact head before merge.
+
+## 2026-08-06 — Post-compaction recovery verification before publication continuation
+
+- The mandatory recovery set was reread through EOF and the active 3,995-character durable goal was retrieved before any mutation.
+- Git was verified clean on `codex/v0.1.0-doi` at `eed5c3549ba67df633babaf35f24f5293abe2314`, tracking the identically named remote branch. The public remote and recent history are unchanged.
+- Live GitHub readback confirmed that no pull request, tag, or release yet exists for the branch. The repository remains public with Issues and Discussions enabled, and protected `main` still requires the strict GitHub Actions `validate` check, the pull-request path, linear history, resolved conversations, administrator enforcement, and force-push/deletion prevention.
+- The authenticated GitHub comparison page still contains the prepared pull-request title and privacy-safe description for the exact branch head; it has not yet been submitted.
+- Anonymous Zenodo readback still returns no published record for identifier `21828563`. Authenticated draft readback confirmed that the existing project-specific draft remains unpublished, has no files, and retains reserved DOI `10.5281/zenodo.21828563` plus the saved project metadata. No create, upload, or publish action was repeated.
+- The user's sharpened privacy rule will now be checked against the leading disclaimer and contribution boundaries: ordinary AI interaction is private by default; only ordinary, proportionate academic/institutional/venue integrity disclosure and contributor-approved sanitized evidence may be required; raw transcripts and unrelated private context cannot be compelled.
+
+## 2026-08-06 — Privacy clarification confirmed and protected pull request opened
+
+- A fresh read-only editorial audit checked the user's precise privacy formulation across the README, white paper, Leiden requirements, contribution and rights policies, and public intake forms. It found no concrete gap or overreach: the leading disclaimer already states that ordinary AI interaction is private by default, contribution does not imply consent to publish the interaction history, raw records remain contributor-controlled, and required disclosure is limited to proportionate sanitized information needed under ordinary mathematical, academic, institutional, destination-venue, legal, confidentiality, and privacy standards.
+- No additional public-policy edit was made merely to restate the same rule. The distinction remains: a claim must be independently assessable from its submitted evidence, while that evidentiary duty creates no general power to compel a person's raw AI conversation or unrelated private context.
+- The protected release pull request was created at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`, targeting `main` from `codex/v0.1.0-doi`. At creation its exact head was `eed5c3549ba67df633babaf35f24f5293abe2314`; it was open, non-draft, and mergeable, with no status check yet reported.
+- This recovery and pull-request receipt is the only subsequent repository change. It must be committed and pushed once, after which `validate` must pass on that new exact head before merge.
