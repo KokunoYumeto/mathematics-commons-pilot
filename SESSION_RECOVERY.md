@@ -94,8 +94,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Finish the reserved DOI, release metadata, 2FA continuity, deterministic archive tooling, and publication receipts on `codex/v0.1.0-doi`.
-2. Validate, push the branch, run public CI, open and merge the protected pull request.
+1. Commit and push the pull-request fallback receipt on `codex/v0.1.0-doi`; the release content and deterministic archive tooling are otherwise complete and validated.
+2. Create the protected pull request through the authenticated GitHub web interface because the CLI token lacks pull-request creation permission; run public CI and merge only the exact passing head.
 3. Tag the exact merge as `v0.1.0`, build and verify deterministic release assets.
 4. Upload those exact files to Zenodo draft `21828563`, preflight, and publish once; then publish the immutable GitHub release from the same tag and bytes.
 5. Verify anonymous GitHub and Zenodo readback, hashes, version/concept DOI resolution, and citation metadata.

@@ -209,3 +209,9 @@ This is the durable chronological memory of the concept and publication work. Ap
 - The privacy-safe DOI release content was committed on `codex/v0.1.0-doi` as `1b30f40b09985457065b0daaa1f86a3fde0f9f0e`, tree `50edcd86d66b4b06d3b1477d4ca4a5ae5902f9f4`.
 - The commit contains the reserved DOI metadata, privacy correction, provenance strengthening, public and private 2FA continuity guidance, updated intake forms, release notes, structural validator changes, and the independently audited deterministic release builder.
 - A staged whitespace check identified one newly added Markdown hard-break marker in the 2FA guide after the content commit; it was removed immediately and is included with this receipt before the branch is pushed.
+
+## 2026-08-06 — Release branch push and pull-request fallback
+
+- Release branch `codex/v0.1.0-doi` was pushed at `484642d67a12cb7a7d40322009cb6be873454ba9`; the exact commit built twice to byte-identical assets with 28 tracked files and matching commit/tree identities.
+- The first GitHub CLI pull-request creation attempt failed with `Resource not accessible by personal access token`. No pull request was created by that attempt. The branch and repository were unaffected.
+- The next safe route is the authenticated GitHub web interface. Any resulting pull request must target protected `main`, use the pushed branch, and be rechecked against its exact head before merge.
