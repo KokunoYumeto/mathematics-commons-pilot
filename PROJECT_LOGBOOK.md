@@ -142,3 +142,6 @@ This is the durable chronological memory of the concept and publication work. Ap
 - Commit `e3915a8` pushed the public repository checkpoint successfully.
 - GitHub reported the validation workflow as present, active, and Actions-enabled, but recorded no run after the push.
 - An explicit `workflow_dispatch` trigger was added while retaining the `push` and `pull_request` triggers, allowing the same public validation job to be launched and verified without weakening its permissions.
+- Commit `5f482317d19799ca738cef2f191623f28979513a` added that trigger. Manual run `31126372040` completed successfully; its `validate` job checked the exact commit and passed the public structural validator.
+- An unauthenticated readback returned HTTP 200 and the expected content for the repository API, raw README, rights policy, concept-feedback form, Discussion 1, and successful Actions-run API record.
+- The repository currently has only one write collaborator. Branch protection will therefore require pull requests and the passing `validate` check but bootstrap with zero mandatory approvals; requiring one approval now would deadlock the sole maintainer. The approval count must be raised to one after an independent write collaborator is recruited.

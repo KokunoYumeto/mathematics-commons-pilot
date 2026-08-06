@@ -66,6 +66,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Public GitHub repository exists at `https://github.com/KokunoYumeto/mathematics-commons-pilot` with `main` pushed.
 - Issues and Discussions are enabled; workflow tokens default to read-only.
 - Public feedback discussion exists at `https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1`.
+- Public validation run `31126372040` passed on commit `5f482317d19799ca738cef2f191623f28979513a`.
+- Anonymous readback passed for the repository, README, rights policy, issue form, discussion, and Actions result.
 
 ## Work not yet completed at this checkpoint
 
@@ -87,9 +89,9 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Commit and push the explicit validation-dispatch trigger, run it, and confirm it passes.
-2. Configure and verify branch protection/rulesets.
-3. Verify the live repository anonymously.
+1. Commit and push the CI/readback receipt, then dispatch validation on that exact commit.
+2. Configure and verify branch protection with a zero-approval bootstrap rule; raise it after recruiting an independent collaborator.
+3. Reconfirm anonymous repository readback after protection.
 4. Create the first GitHub release.
 5. Create a new Zenodo concept deposit and publish only after its metadata and files are frozen.
 6. Add the DOI to `CITATION.cff`, README, status, and release metadata; commit and release the DOI-bearing revision if necessary.
