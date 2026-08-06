@@ -50,4 +50,9 @@ Commons-originated material is dedicated to the public domain under **CC0 1.0**,
 
 ## Citation
 
-The repository includes [CITATION.cff](CITATION.cff). The reserved version DOI is **`10.5281/zenodo.21828563`**. It becomes resolving when the preflighted Zenodo draft is published with the frozen `v0.1.0` release.
+The repository includes [CITATION.cff](CITATION.cff). Use the **concept DOI [`10.5281/zenodo.21828562`](https://doi.org/10.5281/zenodo.21828562)** for the evolving project and a version DOI when citing exact bytes:
+
+- frozen `v0.1.0`: [`10.5281/zenodo.21828563`](https://doi.org/10.5281/zenodo.21828563);
+- citation/status follow-up `v0.1.1`: reserved version DOI [`10.5281/zenodo.21830229`](https://doi.org/10.5281/zenodo.21830229), which resolves after the preflighted v0.1.1 record is published.
+
+The concept DOI and version DOIs are deliberately distinct: the first follows the latest archived version, while each version DOI identifies one immutable deposit.

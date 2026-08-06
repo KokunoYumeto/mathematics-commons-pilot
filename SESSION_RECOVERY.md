@@ -1,6 +1,6 @@
 # Session recovery record
 
-**Last updated:** 6 August 2026  
+**Last updated:** 7 August 2026
 **Active goal identifier:** Publish and verify the public, citable Mathematics Commons concept repository and first DOI-bearing pilot release.  
 **Authoritative continuation contract:** the complete workflow below. The goal tool's initial objective was created too briefly and cannot be edited while active; do not treat that technical limitation as permission to omit any requirement below.
 
@@ -44,9 +44,9 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Target GitHub account: `KokunoYumeto`
 - Target repository: `KokunoYumeto/mathematics-commons-pilot`
 - Target visibility: public
-- Target release version: `v0.1.0`
+- Published frozen release: `v0.1.0`; current citation-only follow-up target: `v0.1.1`
 - Target rights rule: CC0 1.0 for all Commons-originated material, modulo pre-existing third-party copyright and other rights
-- Zenodo target: a new concept record for this repository; do not reuse or modify unrelated existing concept DOIs
+- Zenodo concept: `10.5281/zenodo.21828562`; published v0.1.0 record `21828563`; project-specific unpublished v0.1.1 draft `21830229`. Do not touch unrelated concept records.
 
 ## Work completed locally
 
@@ -64,6 +64,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Recreated the active durable goal at 3,995 characters after the goal service reported no active goal following compaction.
 - Corrected the disclosure framework so ordinary AI interactions are private by default, raw prompts/transcripts are not required, mathematical claims stand on public evidence, and every module declares a data-minimized publication boundary.
 - Added and adversarially audited a deterministic exact-ref release builder with strict USTAR metadata, commit/tree/file hashes, approved reader copies, byte-exact checksums, Windows-safe paths, and atomic no-overwrite output publication.
+- Published and anonymously verified frozen `v0.1.0` on Zenodo and GitHub; all ten files agree byte-for-byte across the tag build and both public download surfaces.
+- Prepared a minimal v0.1.1 citation/status patch on `codex/v0.1.1-citation` that distinguishes concept DOI `10.5281/zenodo.21828562` from reserved v0.1.1 version DOI `10.5281/zenodo.21830229`, updates stale status text, adds release notes, and prevents local `dist/` output from contaminating repository validation.
 
 ## External state now completed
 
@@ -74,15 +76,17 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Anonymous readback passed for the repository, README, rights policy, issue form, discussion, and Actions result.
 - `main` is protected with required `validate`, enforced pull requests, linear history, conversation resolution, and force-push/deletion prevention; zero approvals is an explicit one-maintainer bootstrap.
 - Repository-level immutable releases are enabled.
-- Protected pull request 2 is open at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`, targeting `main` from `codex/v0.1.0-doi`. It was created from head `eed5c3549ba67df633babaf35f24f5293abe2314`; the recovery/PR receipt still needs one final commit and push before exact-head validation.
-- Zenodo draft `21828563` is saved for this exact project with reserved version DOI `10.5281/zenodo.21828563`; it has no files and is not published.
+- Protected pull request 2 is merged at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`. Native run `31129228235` passed `validate` on exact audited head `e0018d84847c53068cf0e37f7935a4f91eddfbe2`; protected `main` is now `c4daf0e20878db7457563b3daa121067f06385c0` with the same tree `80d87838decddafbba19b8d962fef25b206c7160`.
+- Annotated tag and immutable GitHub release `v0.1.0` are public at `https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/v0.1.0`; release id `366423403` has ten assets and reports `immutable: true`.
+- Zenodo record `21828563` is public at `https://zenodo.org/records/21828563`, with version DOI `10.5281/zenodo.21828563`, concept DOI `10.5281/zenodo.21828562`, CC0 metadata, and ten files. Both DOI URLs resolve, and anonymous download/hash verification passed 10/10.
+- Zenodo New version created only project draft `21830229`; its reserved version DOI is `10.5281/zenodo.21830229`, it currently has zero files, and it is not published.
 
 ## Work not yet completed at this checkpoint
 
-- Commit and push the final recovery/pull-request receipt, then run validation on that exact pull-request head and merge it through the protected path.
-- Create and verify release `v0.1.0`.
-- Upload to and publish the existing project-specific Zenodo draft, record DOI and file hashes, update citation metadata, and publish a DOI-bearing follow-up release if required by sequencing.
-- Verify anonymous GitHub and Zenodo readback and append receipts.
+- Validate, commit, push, and merge the v0.1.1 citation/status revision through the protected pull-request path.
+- Tag exact protected `main` as `v0.1.1`, build twice from the tag, attach exact files to draft `21830229`, preflight and publish once, then publish the immutable GitHub release from the same bytes.
+- Verify both v0.1.1 public surfaces, DOI resolution, citation metadata, and anonymous hashes; update this recovery record and logbook.
+- Complete, review, and publish the separate operational-pilot MVP branch after the citation release; it is not part of v0.1.0 or v0.1.1.
 
 ## Safety and integrity notes
 
@@ -94,9 +98,10 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Commit and push the final recovery/pull-request receipt on `codex/v0.1.0-doi`; make no further self-referential log-only commit before merge.
-2. Require public `validate` to pass on the exact resulting pull-request head, then merge pull request 2 through protected `main` with linear history.
-3. Tag the exact merge as `v0.1.0`, build and verify deterministic release assets.
-4. Upload those exact files to Zenodo draft `21828563`, preflight, and publish once; then publish the immutable GitHub release from the same tag and bytes.
-5. Verify anonymous GitHub and Zenodo readback, hashes, version/concept DOI resolution, and citation metadata.
-6. Mark the durable goal complete only after all receipts are current and no publication work remains.
+1. Finish validation of `codex/v0.1.1-citation`: structural checks, official CFF 1.2.0 schema, YAML, links, privacy/secret scans, rights language, whitespace, and deterministic-builder tests. Commit only intended public files.
+2. Push the branch, open a protected pull request, require native `validate` on its exact head, and merge through linear history without bypassing protection.
+3. Tag exact protected `main` as `v0.1.1`; build twice from the fully qualified tag and require byte identity.
+4. Populate only Zenodo draft `21830229` with the exact v0.1.1 tag-built files; set version/date/description and an explicit repository relation, save, full-reload preflight, and publish once. Publish the immutable GitHub v0.1.1 release from the same tag and bytes.
+5. Verify anonymous GitHub and Zenodo readback, all hashes, both DOI classes, citation metadata, repository relationship, and concept DOI latest-version behavior. Never edit frozen v0.1.0 files.
+6. Continue the isolated operational-pilot MVP through semantic hardening, fixtures, CI, end-to-end agent handoff, review, and its own protected pull request.
+7. Mark the durable release goal complete only after v0.1.1 receipts are current and no publication work remains; the broader Mathematics Commons remains an ongoing public pilot.
