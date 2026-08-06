@@ -13,6 +13,7 @@ body:
         - GitHub architecture
         - Participation and accessibility
         - Rights and attribution
+        - Privacy and proportional disclosure
         - Security and resource use
         - Pilot scope
         - Future direction
@@ -40,7 +41,7 @@ body:
     id: tools
     attributes:
       label: Material AI or software use
-      description: Disclose material tools or write "none".
+      description: Give a sanitized summary or write "none". Do not paste raw prompts, transcripts, chain-of-thought, credentials, personal data, unpublished communications, or unrelated local material.
     validations:
       required: true
   - type: checkboxes
@@ -48,6 +49,5 @@ body:
     attributes:
       label: Rights
       options:
-        - label: I identify any third-party material and understand that my original contribution is dedicated under CC0 to the extent legally possible.
+        - label: I have identified any third-party material and understand that each new component I intentionally submit is dedicated under CC0 to the extent legally possible.
           required: true
-

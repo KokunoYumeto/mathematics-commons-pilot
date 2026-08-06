@@ -82,6 +82,16 @@ The Commons adopts an enabling interpretation. Leiden recognizes that mathematic
 
 The complete normative crosswalk is maintained in the [Mathematics Commons Durable Requirements](MATHEMATICS_COMMONS_DURABLE_REQUIREMENTS.md). That document maps every value, threat, and recommendation for individuals, organizations, funders, policymakers, and industry to an internal control or an explicit public position. The following are the leading commitments.
 
+### Privacy presumption for everything below
+
+All disclosure, provenance, reproducibility, and archival commitments below are subject to legitimate privacy, confidentiality, security, copyright, third-party-rights, and legal constraints. Ordinary AI interactions are private by default. Choosing to contribute a mathematical artifact does not imply consent to publish prompt histories, raw transcripts, hidden reasoning or chain-of-thought, private notes, unpublished communications, personal context, credentials, or unrelated local data. Raw interaction records are published only by a contributor's specific affirmative choice after an appropriate review.
+
+The public record asks for no more than ordinary mathematical, academic, institutional, and venue-specific integrity requires: a sanitized account of material tools and their role, the functional task conditions needed for evaluation, supporting sources and artifacts, checks performed, limitations, and relevant disclosure gaps. A prompt or transcript is process provenance, not proof, authorship, or a magical explanation of theorem-level work. The mathematics must stand on independently checkable arguments and evidence. Empirical claims about a model's autonomy or performance may require a more detailed protocol, but privacy still favors a sanitized protocol and a qualified claim over coerced publication of private conversations.
+
+This presumption applies module by module. Each packet, runner, review, and evidence bundle minimizes data, declares what is public or private before submission, excludes unrelated local state by default, and retains no private material merely because it might later be useful.
+
+Here, “private by default” describes the Commons' own collection and publication boundary. It is not a promise about a chosen provider's retention, training, account, or legal terms; contributors must assess those separately and disclose material limitations.
+
 ### 3.1 Proof, understanding, and proportionate rigor
 
 - Every output is typed honestly as transcription, translation, source finding, heuristic, experiment, computation, conjecture, informal proof, formal theorem, counterexample, review, or synthesis.
@@ -103,10 +113,12 @@ The complete normative crosswalk is maintained in the [Mathematics Commons Durab
 
 ### 3.3 Disclosure, attribution, rights, and open science
 
-- Every material run, review, and release carries a tool and computational-resource disclosure covering models, providers, modes, dates, task specifications, human interventions, proof assistants, solvers, relevant compute, and known reproducibility limits.
-- Reviewers disclose their own permitted AI assistance and remain responsible for their recommendations. Private reasoning, credentials, personal data, and irrelevant conversations are not demanded or published.
+- Every material run, review, and release carries a proportionate tool and computational-resource disclosure covering models, providers, modes, dates, sanitized functional task specifications, material human interventions, proof assistants, solvers, relevant compute, checks performed, and known reproducibility limits.
+- Reviewers disclose their own permitted AI assistance and remain responsible for their recommendations. Prompt histories, raw transcripts, private reasoning, credentials, personal data, unpublished communications, and irrelevant conversations are private by default and are neither demanded nor published without a specific affirmative choice and review.
+- Mathematical claims stand on their public arguments and evidence, not on a prompt or private interaction history. Where a particular instruction is genuinely material to evaluation, its functional content is summarized without forcing disclosure of the contributor's surrounding conversation.
 - Novelty and open-status claims require logged searches, including non-English sources where relevant, and direct inspection of the works relied upon. A generated citation is a lead; “no source found” is not “no source exists.”
 - Every source records provenance, integrity, copyright or license status, permitted transformations, and access restrictions. Public availability is not treated as automatic consent for model training.
+- Provenance covers ideas as well as files: problem nominations, workflow proposals, source leads, sanitized task specifications or voluntarily disclosed prompts, prior attempts, and conceptual suggestions that materially shape an artifact retain their originator where the contributor has made the attribution lawfully publishable. Public pseudonyms are credited without deanonymization; provenance does not compel raw-transcript disclosure; uncertainty is recorded rather than silently reassigned.
 - Mature releases use stable identifiers, explicit licenses, open formats, versioned archives, and independent mirrors. Where evidence cannot lawfully be opened, the metadata, restriction, provenance, and maximum lawful verification material remain public.
 - Commons-originated material remains CC0 through later review and publication, modulo pre-existing third-party rights. A publisher may not receive exclusive control over the Commons artifact or require removal of its public record.
 - “Commons-originated” includes every new component submitted through the workflow—proofs, computations, formalizations, code, metadata, reviews, corrections, translations, transcriptions, and exposition. Where no copyright exists, CC0 confirms the intended status; where a contributor may hold rights, contribution to the workflow dedicates them. This does not erase rights in incorporated sources.
@@ -189,7 +201,7 @@ The network should avoid both extremes at launch: one enormous undifferentiated 
 
 ### 4.4 Research Packets
 
-A Research Packet is the smallest independently claimable and reviewable unit. It contains a stable ID; exact scope, exclusions, dependencies, and stopping conditions; source identifiers, rights, and hashes; expected JSON, LaTeX, code, image, or review outputs; acceptance tests; resource and permission envelopes; and its required review path.
+A Research Packet is the smallest independently claimable and reviewable unit. It contains a stable ID; exact scope, exclusions, dependencies, and stopping conditions; source identifiers, rights, and hashes; expected JSON, LaTeX, code, image, or review outputs; acceptance tests; resource and permission envelopes; a data-minimization and publication boundary; and its required review path.
 
 The same protocol supports different project-tree variants. A conjecture tree may emit literature, lemma, counterexample, computation, and formalization packets. An archival tree may emit source-authority, scan segmentation, transcription, translation, correction, diagram, terminology, semantic-integration, and release packets. These are not secondary chores surrounding “real” theorem work. They are durable mathematical contributions with task-appropriate evidence.
 
@@ -197,7 +209,7 @@ Current corpus workflows already demonstrate the pattern: bounded page ranges, s
 
 ### 4.5 The Node Kit and capability router
 
-The Node Kit is a signed, downloadable project interface readable by both a person and their existing local agent. It contains a human quick start, `START_HERE_FOR_AGENTS.md`, schemas, validators, project adapters, and a single contribution command or button. It returns a portable evidence bundle rather than merely an answer in a chat.
+The Node Kit is a signed, downloadable project interface readable by both a person and their existing local agent. It contains a human quick start, `START_HERE_FOR_AGENTS.md`, schemas, validators, project adapters, and a single contribution command or button. It returns a portable, privacy-reviewed evidence bundle rather than merely an answer in a chat; the underlying chat remains private unless the contributor deliberately includes an approved excerpt.
 
 The pilot does not build that complete interface. Its Node Kit is simply a clone or download containing the start files, packet JSON, templates, and one validation script. Stewards may perform the Git operations while the initial contributors test the research protocol.
 
@@ -430,7 +442,8 @@ A released result is never silently edited. A challenge names the exact claim an
 
 - Treat contributed code, archives, papers, prompts, websites, and solver output as untrusted input.
 - Never expose credentials to a fork or unreviewed workflow.
-- Do not publish private conversations or personal data merely because an agent used them.
+- Treat each module as a separate privacy boundary: allowlist only the files, services, destinations, and public fields required for the bounded task; deny unrelated local context by default; label temporary and restricted data; and preview the exact bundle before publication.
+- Do not collect or publish prompt histories, raw transcripts, private conversations, personal data, or unpublished communications merely because an agent used them. Publication requires the contributor's specific affirmative choice plus any authority or consent otherwise required.
 - Record access, copying, translation, redistribution, and model-training permissions separately. A freely downloadable preprint is not automatically licensed for translation or training, and a historical work's public-domain status does not automatically settle the rights in every scan, edition, annotation, or translation.
 - Store bibliographic records and lawful excerpts rather than redistributing paper collections without a reviewed basis.
 - Pin dependencies and preserve exact environments for cited computations.
@@ -521,6 +534,8 @@ Connect Atlas objects to DOI metadata, arXiv identifiers, formal-library declara
 ### Phase VII: genuinely local peer-to-peer compute
 
 Explore rights-cleared volunteer CPU/GPU workloads and local open-model inference for OCR, translation candidates, exact search, indexing, and formal-library work. This optional layer requires signed workloads, sandboxing, revocable resource limits, poisoning resistance, explicit data and training consent, and independent verification.
+
+The suggestion to train rights-cleared specialist models on historical mathematical corpora is credited to Reddit user [u/UmbrellaCorp_HR](https://www.reddit.com/user/UmbrellaCorp_HR/), cited solely by the public pseudonym supplied for attribution.
 
 ## Conclusion
 

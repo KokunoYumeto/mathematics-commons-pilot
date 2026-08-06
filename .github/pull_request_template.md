@@ -12,7 +12,7 @@ What did you not check? What remains uncertain?
 
 ## Tool and resource disclosure
 
-List material AI models, proof assistants, solvers, scripts, search systems, dates, and human interventions.
+List material AI models, proof assistants, solvers, scripts, search systems, dates, and human interventions in sanitized, proportionate form. Do not paste raw prompt histories, transcripts, chain-of-thought, credentials, personal data, unpublished communications, or unrelated local material.
 
 ## Sources and rights
 
@@ -25,6 +25,6 @@ State the independent review needed. Checking this box does not assert acceptanc
 - [ ] I worked only within the stated scope.
 - [ ] I did not represent AI/model agreement as proof.
 - [ ] I verified cited sources or marked them unverified.
-- [ ] I identified third-party material and its terms.
-- [ ] I agree that my original contribution is dedicated under CC0 1.0 to the extent legally possible.
-
+- [ ] I identified any third-party material and its terms.
+- [ ] I previewed the exact submitted diff and excluded private or undeclared material.
+- [ ] I agree that each new component I intentionally submit is dedicated under CC0 1.0 to the extent legally possible.

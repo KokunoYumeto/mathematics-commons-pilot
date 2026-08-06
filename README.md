@@ -4,6 +4,8 @@
 
 **Status:** public concept draft and pilot design, open for criticism and contribution. No mathematical result is claimed by this repository merely because it appears here.
 
+**Privacy:** ordinary AI interactions are private by default. Contributions publish a sanitized, contributor-approved evidence bundle—not raw prompt histories, transcripts, chain-of-thought, personal context, credentials, or unrelated local files. A prompt is provenance, not proof.
+
 ## What this is
 
 The Mathematics Commons is a proposed workflow in which independently operated human–AI nodes work on exact, bounded mathematical tasks and review one another's artifacts against shared standards of proof, provenance, attribution, openness, and human responsibility.
@@ -18,7 +20,8 @@ The long-term concept is broader—translation, transcription, archival recovery
 2. [White paper discussion draft](WHITE_PAPER.md)
 3. [Leiden-led durable requirements](LEIDEN_ALIGNMENT.md)
 4. [Technical GitHub pilot guide](GITHUB_PILOT_GUIDE.md)
-5. [How to contribute](CONTRIBUTING.md)
+5. [GitHub 2FA continuity runbook](GITHUB_2FA_CONTINUITY.md)
+6. [How to contribute](CONTRIBUTING.md)
 
 ## Comment or contribute
 
@@ -47,4 +50,4 @@ Commons-originated material is dedicated to the public domain under **CC0 1.0**,
 
 ## Citation
 
-The repository includes [CITATION.cff](CITATION.cff). A DOI will be added to the citation metadata when the first concept release is archived.
+The repository includes [CITATION.cff](CITATION.cff). The reserved version DOI is **`10.5281/zenodo.21828563`**. It becomes resolving when the preflighted Zenodo draft is published with the frozen `v0.1.0` release.

@@ -15,3 +15,4 @@ You do not need to agree with the proposal to contribute. Useful contributions i
 
 Use an issue form. Please distinguish a question, suggestion, conjecture, and asserted result. AI-generated material is welcome as input to review, but do not present it as established merely because it is fluent or because several models agree.
 
+Your ordinary AI interactions remain private by default. A contribution should contain the mathematical artifact, a sanitized account of material tool use and task conditions, checks, sources, and limitations—not your raw prompt history, full transcript, chain-of-thought, private notes, personal context, credentials, unpublished communications, or unrelated local files. A prompt is provenance, not proof.

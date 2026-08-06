@@ -89,7 +89,7 @@ This is the durable chronological memory of the concept and publication work. Ap
 - User requested a quick but non-embarrassing public GitHub that colleagues can read, comment on, and contribute to.
 - User requested a citable DOI-bearing pilot concept release.
 - Authenticated target account was verified as `KokunoYumeto`; target repository name selected as `mathematics-commons-pilot`.
-- A standalone local repository was initialized outside the large dirty source workspace so only the intended public concept files can be committed.
+- A standalone local repository was initialized outside the separate source corpus so only the intended public concept files can be committed.
 - Public files created so far: README, status, human and agent start files, contribution policy, rights policy, CC0 notice, citation metadata, issue forms, pull-request template, white paper, Leiden requirements, technical GitHub guide, structural validator, CI workflow, recovery instructions, and this logbook.
 - External GitHub creation, commit, release, and Zenodo publication had not yet occurred at the moment this entry was written.
 
@@ -145,3 +145,61 @@ This is the durable chronological memory of the concept and publication work. Ap
 - Commit `5f482317d19799ca738cef2f191623f28979513a` added that trigger. Manual run `31126372040` completed successfully; its `validate` job checked the exact commit and passed the public structural validator.
 - An unauthenticated readback returned HTTP 200 and the expected content for the repository API, raw README, rights policy, concept-feedback form, Discussion 1, and successful Actions-run API record.
 - The repository currently has only one write collaborator. Branch protection will therefore require pull requests and the passing `validate` check but bootstrap with zero mandatory approvals; requiring one approval now would deadlock the sole maintainer. The approval count must be raised to one after an independent write collaborator is recruited.
+- The first branch-protection PUT was rejected with HTTP 422 because the submitted required-check object combined both `contexts` and app-bound `checks`, which the live endpoint treated as conflicting schemas. No protection was created by that call. The retry follows GitHub's documented `contexts: ["validate"]` form.
+- The corrected protection call succeeded. `main` now requires a current `validate` check and pull-request path, enforces the rule for the administrator, dismisses stale reviews, requires conversation resolution and linear history, and blocks force-pushes and deletion. Both authenticated and unauthenticated API readback reported `protected: true`; GitHub bound the `validate` context to the GitHub Actions app.
+- Remaining release work moved to branch `codex/v0.1.0-doi` so the protected workflow is exercised rather than bypassed.
+- Repository-level immutable releases were enabled before creating `v0.1.0`. The release must use a project-built deterministic archive and checksum manifest because GitHub's automatically generated source-archive bytes are not promised to remain stable.
+- A later duplicate manual run, `31126431090`, remained queued without starting for approximately fifteen minutes and was cancelled; GitHub records it as a cancelled/failure run with no executed steps. It is not treated as validation evidence. The final release branch still requires a fresh passing `validate` check before merge.
+
+## 2026-08-06 — Zenodo DOI reservation
+
+- The project-bounded Zenodo API path was unavailable and was not used for creation or publication; no credential material was copied into the repository, and unrelated concept publishers were not run.
+- An authenticated Zenodo interface was used instead. Exact-title search of the account's uploads and anonymous public search both found no matching project draft or record.
+- A new project-specific draft was created and saved at upload identifier `21828563`, with reserved version DOI `10.5281/zenodo.21828563`.
+- The draft identifies the work as a publication/working paper, version `0.1.0`, creator `KokunoYumeto`, English, CC0 1.0, public files, and the living GitHub repository. Its description labels the work a concept proposal, Leiden alignment self-assessed, AI as a disclosed tool, and no solved problem or journal-review claim.
+- The draft currently has no files and is not published. The reserved DOI does not resolve until publication. Do not delete the draft, because deletion would lose the reserved DOI.
+
+## 2026-08-06 — GitHub 2FA continuity side requirement
+
+- The user added a side requirement: imminent GitHub 2FA enrollment must not interrupt this project or the other local GitHub workflows.
+- A private machine-specific audit found the current HTTPS Git/CLI path operational. No credential material or detailed machine inventory is stored in this public record.
+- Enabling 2FA does not itself revoke the existing token or add TOTP prompts to ordinary Git/CLI operations. The practical risks are lost recovery methods, token expiry/revocation, insecure credential storage, missing backup transport, and human-PAT-dependent automation.
+- A public continuity runbook and a separate private machine-specific checklist were created. They require independent recovery methods, offline recovery codes, before/after smoke tests, securely stored CLI credentials, optional tested backup transport, Actions/GitHub Apps for automation, and two-owner organization continuity.
+- The private pre-enrollment read, fetch, and write-permission dry-runs passed without creating a branch.
+
+## 2026-08-06 — Inclusion wording correction
+
+- At the user's request, a negatively framed sentence about inclusion was removed from the Leiden requirements. The preceding affirmative commitment remains.
+- The source requirements and public `LEIDEN_ALIGNMENT.md` were changed together so they remain identical.
+
+## 2026-08-06 — Originating-idea attribution
+
+- At the user's request, the future direction of training rights-cleared specialist models on historical mathematical corpora is explicitly credited to Reddit user `u/UmbrellaCorp_HR`, using only the supplied public pseudonym and profile link.
+- The credit is scoped to that originating idea, not represented as authorship of the entire Commons framework. It appears in both the white paper and Leiden requirements, with the paired source and public copies updated together.
+- The user further clarified that provenance preservation is a central Leiden concern and must cover ideas, not only source files. The white paper, requirements, contribution guide, and rights policy now explicitly preserve origins for problem nominations, workflow proposals, source leads, sanitized task specifications or voluntarily disclosed prompts, prior attempts, and conceptual suggestions; public pseudonyms are credited without deanonymization and uncertain attribution remains marked as uncertain.
+
+## 2026-08-06 — Post-compaction recovery verification before privacy correction
+
+- The mandatory recovery set was reread through EOF before mutation: `AGENTS.md`, `SESSION_RECOVERY.md`, this logbook, `STATUS.md`, `RIGHTS.md`, and `START_HERE_FOR_AGENTS.md`; the active 3,995-character durable goal was retrieved and remains active.
+- Git was verified on `codex/v0.1.0-doi` at `7889f5826d80294e74ec1a142005db1ea23c7998`, with the intended uncommitted release, provenance, rights, 2FA-continuity, and documentation changes still present. `origin` remains the public HTTPS repository, and no public tag or release exists yet.
+- Live GitHub readback confirmed that the repository remains public with Issues and Discussions enabled; `main` remains protected by the strict `validate` check and pull-request path, linear history, conversation resolution, administrator enforcement, and force-push/deletion prevention. Immutable releases remain enabled.
+- Anonymous Zenodo API readback returned no published record for reserved identifier `21828563`. Signed-in draft readback confirmed that the existing unpublished project draft still exists, retains reserved DOI `10.5281/zenodo.21828563`, contains the previously saved title, creator pseudonym, CC0 license, description, repository URL, and version metadata, and still has no uploaded files. No create or publish action was repeated.
+- The immediate correction is to distinguish reproducibility and provenance from surveillance: verify the Declaration's exact words, remove any overstatement about publishing prompts, recognize ordinary AI interactions and raw transcripts as private by default, require only purpose-bound sanitized disclosure and inspectable mathematical evidence, and apply data minimization across every module.
+
+## 2026-08-06 — Prompt-disclosure and module-privacy correction
+
+- A complete exact-text audit of the official Leiden Declaration confirmed that “proprietary prompts” is not Declaration wording. Leiden asks for transparent disclosure of material tool use, information needed for scientific evaluation, reviewer support, and mathematical arguments that can be independently understood without proprietary knowledge or equipment. It does not require publication of prompts, transcripts, chain-of-thought, private notes, or personal data.
+- The white paper and normative requirements now begin their Leiden treatment with a privacy presumption: ordinary AI interactions are private by default, submitting an artifact is not consent to publish the interaction history, and raw interaction records are optional and contributor-controlled after privacy, confidentiality, security, and rights review.
+- Proportionate public disclosure now consists of a sanitized functional task specification, material tools and human interventions, supporting sources and artifacts, checks, limitations, and relevant disclosure gaps. A prompt is recorded only as process provenance where voluntarily publishable; it is not proof, authorship, or a sufficient explanation of theorem-level work.
+- Mathematical claims must stand on independently checkable public arguments and evidence. Empirical claims about model autonomy or performance may require more protocol detail, but unavailable private detail narrows the claim rather than creating a right to compel disclosure.
+- Privacy is enforced module by module through allowlisted inputs and destinations, public/private/restricted/temporary/prohibited classifications, retention and redaction rules, and an exact pre-publication bundle preview. Contribution, agent, rights, technical-guide, status, release-note, and recovery texts were updated consistently.
+
+## 2026-08-06 — Privacy-boundary and release-tool preflight
+
+- The privacy rule was propagated to every public intake surface: issue forms request only sanitized tool disclosure, private-source attribution requires a lawful publication basis, and pull requests require an exact diff preview that excludes private or undeclared material.
+- The CC0 covenant was aligned with the privacy boundary: it covers each new component intentionally submitted, not an unsubmitted prompt history, transcript, private note, personal context, or unrelated local file. All issue and pull-request attestations now use the same intentional-submission rule.
+- Earlier public recovery entries were data-minimized to remove unnecessary machine and authentication detail while preserving project-level receipts. A removed inclusion sentence is no longer reproduced in the public logbook.
+- “Private by default” is explicitly defined as the Commons' collection and publication rule, not a promise about an external provider's retention, training, account, or legal terms; those remain separate disclosure and tool-choice questions.
+- A deterministic release builder was added. It reads only objects from one fully qualified Git ref snapshot; rejects ambiguous refs, links, gitlinks, unsafe and Windows-reserved paths, case-insensitive collisions, existing output targets, and unexpected diagnostics; records exact commit, tree, and per-file hashes; creates a sorted strict uncompressed USTAR archive with canonical metadata; copies approved reader files from Git blobs; and writes byte-exact `SHA256SUMS.txt` coverage.
+- The builder publishes the complete verified asset set by one atomic directory rename into a previously nonexistent target. Adversarial tests confirmed byte-identical repeat builds, exact commit/tree identity, reader/blob equality, strict USTAR metadata, unsafe-path rejection, no residue after an injected rename failure, and rejection of a line-ending-modified checksum file.
+- Independent final editorial regression found no remaining release-blocking issue. Structural validation, YAML/form semantics, source/public parity, privacy and secret scans, rights boundaries, relative links, and whitespace checks passed.

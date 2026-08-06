@@ -10,6 +10,8 @@ Complete a clean, public, colleague-shareable Mathematics Commons concept reposi
 
 The complete Leiden Declaration of 2 June 2026 is the leading scientific and ethical framework. Preserve its enabling intent: use AI to do mathematics well rather than use safeguards as a reason not to do it. Maintain the clause-level crosswalk covering proof and human understanding; human authorship, credit, and exclusive responsibility; transparent tool/resource disclosure; proactive attribution; reviewer burden; formal verification when feasible and appropriate plus separate statement correspondence; open science; fair evaluation of depth, difficulty, and significance; human research autonomy; public discourse without hype; new-contributor pathways; careful tool choice; author and training rights; ethics, environment, funding, partnerships, public infrastructure, industry asymmetry, regulation, and freedom of conscience. Never claim Leiden certification or project endorsement; say alignment is self-assessed. Never equate network review with journal peer review or model agreement with truth.
 
+Privacy is a governing constraint on every module. The Declaration requires disclosure of material tool use and independently understandable mathematics; it does not require prompt histories, raw transcripts, chain-of-thought, private notes, personal context, credentials, unpublished communications, or unrelated local state. Ordinary AI interactions are private by default. Publish only a contributor-approved, data-minimized evidence bundle: sanitized functional task conditions, material tools and human interventions, sources, artifacts, checks, limitations, and disclosure gaps. A prompt is provenance, not proof or a magical explanation of theorem-level work. Empirical autonomy/performance claims may need a proportionate protocol, but private details narrow the claim rather than creating a power to compel disclosure. Follow normal academic, institutional, venue, privacy, confidentiality, security, legal, and third-party-rights requirements.
+
 Apply the final rights rule everywhere: all Commons-originated material is CC0 1.0, modulo pre-existing third-party copyright and other rights. “Commons-originated” includes every new candidate argument, proof, computation, formalization, code component, schema, metadata record, review, correction, transcription, translation, exposition, index, and document created and submitted through the workflow. If no copyright exists, CC0 confirms the commons status; if a human may hold rights through selection, arrangement, editing, or another contribution, participation dedicates them to the fullest extent possible. Preserve academic authorship, priority, credit, responsibility, prizes, and professional recognition as a separate Leiden/scholarly axis. AI is a disclosed tool, never an author. Do not grant publishers exclusive control over Commons artifacts or remove the public CC0 record. Third-party sources retain their rights; every source needs provenance, license/rights, transformation, redistribution, and training-consent metadata. Do not treat arXiv availability, old scans, or assumed community approval as blanket permission.
 
 Keep current and future scope explicit. Current deliverable: the GitHub concept, feedback surface, pilot design, first release, and DOI. Future conceptual directions only: polished one-click Node Kit; automatic subscription/hardware routing; archival source acquisition, diplomatic transcription, canonical editions, and Stacks-style integration; language packs prioritized by marginal intelligibility gain; broad multilingual/non-Western and low-bandwidth participation; volunteer CPU/GPU work; and genuinely local peer-to-peer inference/training on rights-cleared corpora. These ideas must be recorded without being advertised as implemented.
@@ -20,11 +22,11 @@ Execution order and conditional continuation:
 
 1. Finish local public artifacts and recopy the latest white paper, Leiden requirements, and GitHub guide into the standalone repository. If their source files changed after copying, compare and recopy before commit.
 2. Run structural validation, relative-link checks, rights-language checks, public-text scans, and Git inspection. Fix every private path, secret-like string, broken link, overclaim, inconsistent current/future statement, and inconsistent license statement. If validation fails, remain local and log the failure and repair.
-3. Commit only the standalone repository. Never stage the large dirty source workspace. Record commit and tree identities in the logbook.
+3. Commit only the standalone repository. Never stage the separate source corpus. Record commit and tree identities in the logbook.
 4. If the GitHub repository does not exist, create it public under the authenticated `KokunoYumeto` account, enable issues and discussions, and push `main`. If it already exists, inspect it and continue from the live state rather than recreating or overwriting it. Configure labels, feedback forms, a visible concept discussion/issue, read-only Actions permissions, and branch/ruleset protection to the extent supported by the account plan. Use no self-hosted runner for public pull requests.
 5. Verify the repository anonymously: public URL, default branch, README rendering, issue forms, discussions or fallback feedback issue, Actions result, license/rights notice, and absence of private material. Log exact URLs and results.
 6. Freeze release `v0.1.0` only after the public commit passes. If the tag/release already exists, compare its commit and assets; do not replace history silently. Create checksums and a source archive or use the exact GitHub source archive, and record identities.
-7. Create a new Zenodo concept deposit dedicated only to this project. Never use the existing Erdős–Straus or other concept-update scripts/IDs. Before creation, search for an existing project draft or record; if one exists, resume and verify it rather than creating a duplicate. Stage frozen files and metadata, creator pseudonym `KokunoYumeto`, CC0 license, version, GitHub URL, Leiden qualification, AI/tool disclosure, and concept status. Publish only after file names, sizes, hashes, description, creator, license, and related identifiers pass preflight.
+7. Resume the existing project-specific Zenodo draft `21828563` with reserved version DOI `10.5281/zenodo.21828563`; never create a duplicate or use the existing Erdős–Straus or other unrelated concept-update scripts/IDs. Stage frozen files and metadata, creator pseudonym `KokunoYumeto`, CC0 license, version, GitHub URL, Leiden qualification, AI/tool disclosure, and concept status. Publish only after file names, sizes, hashes, description, creator, license, and related identifiers pass preflight.
 8. After Zenodo publication, anonymously resolve the record and DOI; download/read back every public file; verify hashes, metadata, version, creator, license, and GitHub relationship. If publication succeeds but local state is interrupted, discover the live record before any retry.
 9. Add the DOI to `CITATION.cff`, README, status, and release metadata. Because a DOI normally exists only after the first deposit, commit a DOI-bearing revision and, if necessary, create a small `v0.1.1` citation release rather than mutating the frozen `v0.1.0` record deceptively. Link version DOI and concept DOI with their distinct meanings.
 10. Publish a final public invitation that says: read the current concept, criticize it, propose improvements or pilot problems, and contribute if desired. Make limitations prominent. Hand the user the GitHub, discussion/feedback, release, and DOI links.
@@ -60,6 +62,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Configured repository-local Git author metadata using the public pseudonym and GitHub no-reply address.
 - Reverified that the white paper, Leiden requirements, and GitHub guide are byte-for-byte identical to their source drafts.
 - Recreated the active durable goal at 3,995 characters after the goal service reported no active goal following compaction.
+- Corrected the disclosure framework so ordinary AI interactions are private by default, raw prompts/transcripts are not required, mathematical claims stand on public evidence, and every module declares a data-minimized publication boundary.
+- Added and adversarially audited a deterministic exact-ref release builder with strict USTAR metadata, commit/tree/file hashes, approved reader copies, byte-exact checksums, Windows-safe paths, and atomic no-overwrite output publication.
 
 ## External state now completed
 
@@ -68,31 +72,31 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Public feedback discussion exists at `https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1`.
 - Public validation run `31126372040` passed on commit `5f482317d19799ca738cef2f191623f28979513a`.
 - Anonymous readback passed for the repository, README, rights policy, issue form, discussion, and Actions result.
+- `main` is protected with required `validate`, enforced pull requests, linear history, conversation resolution, and force-push/deletion prevention; zero approvals is an explicit one-maintainer bootstrap.
+- Repository-level immutable releases are enabled.
+- Zenodo draft `21828563` is saved for this exact project with reserved version DOI `10.5281/zenodo.21828563`; it has no files and is not published.
 
 ## Work not yet completed at this checkpoint
 
-- Commit and push the pending publication-status and recovery updates.
-- Trigger and verify the public validation workflow.
-- Configure branch protection or the closest supported ruleset and verify it.
-- Complete anonymous readback of the public repository and feedback surfaces.
+- Complete and verify the reserved-DOI release branch, including the GitHub 2FA continuity runbook and deterministic release tooling.
+- Push the branch, run validation, and merge it through the protected pull-request path.
 - Create and verify release `v0.1.0`.
-- Create a new Zenodo concept deposit, publish it, record DOI and file hashes, update citation metadata, and publish a DOI-bearing follow-up release if required by sequencing.
+- Upload to and publish the existing project-specific Zenodo draft, record DOI and file hashes, update citation metadata, and publish a DOI-bearing follow-up release if required by sequencing.
 - Verify anonymous GitHub and Zenodo readback and append receipts.
 
 ## Safety and integrity notes
 
-- GitHub authentication is available locally. Never print or log tokens.
-- A local Zenodo credential resolver exists in the source workspace, but existing publication scripts are fixed to unrelated concepts. Do not run them for this project. A new-concept publisher must be separately bounded and stateful.
-- The outer source workspace is a dirty repository with extensive unrelated untracked files. Do not stage or commit it wholesale.
+- External operations must use already configured secure authentication without inspecting, printing, copying, or logging credentials.
+- Operate only the project-specific Zenodo draft. Do not run scripts or mutate records belonging to unrelated concepts.
+- Stage and commit only this standalone public repository. Do not stage or commit the separate source corpus.
 - The standalone public repository is the only repository intended for publication here.
 - Before external publication, confirm that no private absolute filesystem paths appear in public artifacts.
 
 ## Exact next actions
 
-1. Commit and push the CI/readback receipt, then dispatch validation on that exact commit.
-2. Configure and verify branch protection with a zero-approval bootstrap rule; raise it after recruiting an independent collaborator.
-3. Reconfirm anonymous repository readback after protection.
-4. Create the first GitHub release.
-5. Create a new Zenodo concept deposit and publish only after its metadata and files are frozen.
-6. Add the DOI to `CITATION.cff`, README, status, and release metadata; commit and release the DOI-bearing revision if necessary.
-7. Mark the durable goal complete only after live GitHub and DOI readback succeed.
+1. Finish the reserved DOI, release metadata, 2FA continuity, deterministic archive tooling, and publication receipts on `codex/v0.1.0-doi`.
+2. Validate, push the branch, run public CI, open and merge the protected pull request.
+3. Tag the exact merge as `v0.1.0`, build and verify deterministic release assets.
+4. Upload those exact files to Zenodo draft `21828563`, preflight, and publish once; then publish the immutable GitHub release from the same tag and bytes.
+5. Verify anonymous GitHub and Zenodo readback, hashes, version/concept DOI resolution, and citation metadata.
+6. Mark the durable goal complete only after all receipts are current and no publication work remains.

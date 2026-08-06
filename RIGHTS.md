@@ -8,6 +8,8 @@ All Commons-originated material is made available under **CC0 1.0 Universal**, m
 
 This includes AI-generated material and, to the extent a human contributor holds rights through selection, arrangement, editing, authorship, or another legally recognized contribution, their dedication of those rights under CC0. If no copyright or related right exists, the CC0 notice confirms rather than creates the material's commons status.
 
+The submission boundary matters. CC0 applies to components a contributor intentionally submits to the Commons; it does not silently sweep in the contributor's underlying prompt history, raw AI transcript, private notes, unpublished communications, personal context, or unrelated local files. Those remain private by default unless the contributor specifically chooses to include reviewed material and has any authority or consent otherwise required. Privacy and confidentiality do not depend on whether a particular fragment is copyrightable.
+
 CC0 legal code: <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 
 ## What CC0 does not do
@@ -36,7 +38,7 @@ Freely downloadable is not synonymous with openly licensed. Public-domain status
 
 ## Attribution without ownership
 
-Mathematical and scholarly attribution remains mandatory as a scientific norm. The project records who found, proved, checked, translated, transcribed, formalized, reviewed, corrected, and maintained an artifact even when no copyright restriction applies.
+Mathematical and scholarly attribution remains mandatory as a scientific norm. The project records who proposed, found, proved, checked, translated, transcribed, formalized, reviewed, corrected, and maintained an idea or artifact even when no copyright restriction applies. Public pseudonyms are preserved as attribution handles without attempted deanonymization.
 
 Academic authorship is not copyright ownership. A human may be academically credited as an author or discoverer, accept responsibility under the Leiden framework, establish priority through the record, receive professional recognition, or receive a prize while the underlying Commons-originated artifact remains CC0.
 
