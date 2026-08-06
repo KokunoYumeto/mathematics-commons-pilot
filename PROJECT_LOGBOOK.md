@@ -231,3 +231,127 @@ This is the durable chronological memory of the concept and publication work. Ap
 - No additional public-policy edit was made merely to restate the same rule. The distinction remains: a claim must be independently assessable from its submitted evidence, while that evidentiary duty creates no general power to compel a person's raw AI conversation or unrelated private context.
 - The protected release pull request was created at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`, targeting `main` from `codex/v0.1.0-doi`. At creation its exact head was `eed5c3549ba67df633babaf35f24f5293abe2314`; it was open, non-draft, and mergeable, with no status check yet reported.
 - This recovery and pull-request receipt is the only subsequent repository change. It must be committed and pushed once, after which `validate` must pass on that new exact head before merge.
+
+## 2026-08-06 — GitHub Actions incident during protected validation
+
+- The final receipt commit was pushed as `e0018d84847c53068cf0e37f7935a4f91eddfbe2`, which remains pull request 2's exact head.
+- Public workflow-dispatch run `31127201469` passed the `validate` job on that exact head. A second public workflow-dispatch run, `31127259155`, passed on synthetic merge commit `63b7cac43b75c61b5c9dff89ed8649322c0415aa`, whose parents were protected `main` at `7889f5826d80294e74ec1a142005db1ea23c7998` and the exact pull-request head. GitHub nevertheless kept the pull-request check at “expected” because neither manually dispatched run was classified as the native `pull_request` check.
+- GitHub's public status page concurrently reported a major Actions outage, delayed or failed workflow starts, and delayed webhook delivery. This is treated as an external incident rather than evidence that validation failed.
+- The pull request was closed and reopened once through the authenticated web interface to emit the documented native `reopened` event. It is open and mergeable again; its protected `validate` check is still awaiting webhook processing.
+- A temporary remote branch pointing only at the synthetic merge commit was created to test exact-merge validation and deleted immediately after the passing run. The branch-protection `strict` field was briefly tested as `false`, did not make the manual run count, and was restored to `true`; all other protections remained intact.
+- No status was forged and no required check was bypassed. The next action is to wait for GitHub to deliver and execute the native pull-request validation, then merge only if that required check passes.
+- An attempted Zenodo description update added the same privacy boundary in the visible rich-text editor, but authenticated reload repeatedly returned the previously saved description. The draft therefore remains unchanged; no false save receipt is claimed. Before publication, append and reload-verify the privacy sentence using a reliable editor interaction, then proceed to file preflight.
+- While the native check was delayed, the deterministic builder was run twice from exact remote ref `refs/remotes/origin/codex/v0.1.0-doi` at `e0018d84847c53068cf0e37f7935a4f91eddfbe2`. Both ten-file asset sets were byte-for-byte identical. The uncompressed USTAR archive is 276,480 bytes with SHA-256 `e73bbd24d86d653deecd0c2a592a3876e59699299665df5a732968fca5ee1e42`; the release manifest SHA-256 is `d1d926658a9023bf33609e581bcae0a5974876149e20eae6ffe29e431b39e74d`. These are preflight bytes, not yet the tag-built publication assets.
+- GitHub eventually delivered the native reopen webhook and created pull-request run `31127731033` for exact head `e0018d84847c53068cf0e37f7935a4f91eddfbe2`. The required `validate` check is now attached to pull request 2 but remains queued during the incident; merge remains blocked pending its actual result.
+
+## 2026-08-06 — Post-compaction recovery verification during Actions incident
+
+- The mandatory recovery set was reread through EOF, the active 3,995-character durable goal was retrieved, and Git plus both publication services were checked before any new mutation.
+- Git remains on `codex/v0.1.0-doi` at exact local and remote head `e0018d84847c53068cf0e37f7935a4f91eddfbe2`. Only this append-only logbook receipt and the previously intended recovery-state update are uncommitted; they must not create a new self-referential pull-request head before release merge.
+- Pull request 2 remains open, non-draft, mergeable but protected from merge, targeting `main` at `7889f5826d80294e74ec1a142005db1ea23c7998`. Native `pull_request` run `31127731033` is again reported as queued on the exact head with no completed job or attached check result. The public GitHub status incident remains critical and investigating; its latest update reports throttled webhook delivery and impaired queued jobs.
+- Protected `main` still requires the strict GitHub Actions `validate` check, the pull-request path, linear history, resolved conversations, administrator enforcement, and force-push/deletion prevention. No repository tag or release exists, and the temporary synthetic-check branch is absent.
+- Anonymous Zenodo readback still has no public record for `21828563`. Authenticated embedded draft state confirms that project draft `21828563` remains unpublished with zero files, reserved DOI `10.5281/zenodo.21828563`, version `0.1.0`, CC0 metadata, and the previously saved three-paragraph description. No upload, publication, or duplicate creation occurred.
+- The user's privacy clarification is already a leading rule across the public packet: ordinary AI interactions are private by default; raw prompts, transcripts, personal context, and unrelated local state are not presumed publishable; only contributor-approved, sanitized, proportionate evidence required by ordinary mathematical, academic, institutional, venue, legal, confidentiality, security, and third-party-rights standards enters the Commons.
+
+## 2026-08-06 — Zenodo privacy-description persistence recheck
+
+- Two further Save Draft attempts used the visible Source Code editor followed by a genuine editor focus/blur cycle, a wait for form-state propagation, and the ordinary Zenodo Save Draft control. Each attempt reported `Record saved with validation feedback inFiles 1`; after a full page reload, the authenticated embedded draft still contained the earlier three-paragraph description without the privacy sentence.
+- The draft remains unpublished with zero files, so no public or immutable state changed. No upload, publish, duplicate-create, or unrelated-record operation occurred, and persistence is not claimed.
+- The public README, white paper, Leiden requirements, contribution policy, rights policy, guide, agent rules, and intake surfaces already lead with or enforce the requested privacy boundary. For Zenodo metadata, defer the next persistence attempt until the exact tag-built files are attached and the empty-files validation condition is removed; then save, fully reload, and verify the sentence before publication.
+
+## 2026-08-06 — Stuck native-run control inconsistency
+
+- Native pull-request run `31127731033` remained `queued` with zero jobs and no update for more than thirty minutes while the public Actions incident remained critical. A bounded supported recovery was attempted without changing the pull request or its head.
+- GitHub rejected `cancel` with `Cannot cancel a workflow run that is completed`, although immediate REST readback still reported the run as `queued` with no conclusion and zero jobs. GitHub then rejected `rerun` with `This workflow is already running`.
+- Neither rejected control call changed external state. Because GitHub's run and control planes currently disagree, do not repeat either operation until the run or public incident changes. Keep the pull request open, the exact head stable, and branch protection strict.
+
+## 2026-08-06 — User-authorized native-event retry during confirmed outage
+
+- GitHub's official public status page independently confirmed an Actions `Major Outage`: push and pull-request webhooks were throttled, queued jobs could remain delayed or fail, and runners were being assigned no-longer-valid jobs. This establishes that the zero-step red/queued state is a GitHub service failure, not a validator or project-content result.
+- After the user explicitly requested another try, pull request 2 was closed and immediately reopened once through GitHub's normal interface to emit a fresh native `reopened` event. The pull request is open again at the unchanged exact head `e0018d84847c53068cf0e37f7935a4f91eddfbe2` and unchanged base `7889f5826d80294e74ec1a142005db1ea23c7998`; no project byte, protection rule, or review requirement changed.
+- Immediate readback showed no newly delivered workflow yet; existing native run `31127731033` remained queued with zero jobs. Continue waiting for webhook delivery and do not treat a red zero-step outage artifact as a failed validation.
+
+## 2026-08-06 — Runner fix deployed; webhook and control inconsistency remains
+
+- GitHub's official incident update at `22:18:09Z` reported that its invalid-job-assignment fix was deployed and workflow-start success had reached approximately 97%, while webhook triggers remained throttled and queued work was still draining.
+- The user-authorized reopen event had not yet produced a new native workflow. A post-fix supported `cancel` attempt was still rejected as “completed,” while a supported `rerun` attempt was still rejected as “already running”; REST readback continued to report the same run queued with zero jobs.
+- Both rejected requests changed nothing. Preserve the open PR and exact head, allow the already-emitted reopen webhook and queue recovery to drain, and do not create content churn or weaken the required check.
+
+## 2026-08-07 — Post-compaction recovery and native validation success
+
+- Before further mutation, the mandatory recovery set was reread through EOF in both the frozen release worktree and the isolated pilot-MVP worktree; the active detailed durable goal was retrieved and remains active.
+- Git was verified on frozen branch `codex/v0.1.0-doi` at exact local and remote head `e0018d84847c53068cf0e37f7935a4f91eddfbe2`. Only the intended append-only release recovery files are modified there. The separate `codex/pilot-mvp` worktree remains based on the same audited head and contains only uncommitted operational-pilot implementation work.
+- Live GitHub readback confirmed pull request 2 remains open, non-draft, and cleanly mergeable from exact head `e0018d84847c53068cf0e37f7935a4f91eddfbe2` into protected `main` at `7889f5826d80294e74ec1a142005db1ea23c7998`.
+- Native `pull_request` run `31129228235` completed successfully on that exact head. Its attached required `validate` check ran the checkout and structural validator and concluded `success`; the pull request now reports merge state `CLEAN`.
+- Live release and tag APIs still returned no GitHub release and no tag. No merge, tag, release, upload, or publication was repeated during recovery.
+- Anonymous Zenodo readback still returned 404 for record `21828563`. Authenticated draft readback confirmed the same project-specific unpublished draft, reserved DOI `10.5281/zenodo.21828563`, version `0.1.0`, CC0 metadata, project repository URL, and zero files. The publish control remains disabled until files are attached.
+- The immediate publication lane may now merge pull request 2 through the protected linear-history path, then tag and build exact release assets. The operational MVP continues separately; the earlier privacy wording was one completed correction, not the project scope.
+
+## 2026-08-07 — Protected release pull request merged
+
+- Pull request 2 was merged through GitHub's protected rebase path with exact-head guard `e0018d84847c53068cf0e37f7935a4f91eddfbe2`; no protection was bypassed and the required native `validate` check remained successful.
+- GitHub records the merged pull request at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2` and the resulting protected `main` head as `c4daf0e20878db7457563b3daa121067f06385c0`.
+- Rebase produced new commit identities, as expected, but the final release tree is exactly `80d87838decddafbba19b8d962fef25b206c7160` on both the audited pull-request head and protected `main`; a full Git diff is empty.
+- The merged remote release branch was deleted by the repository's configured post-merge cleanup. No tag or release existed immediately after merge.
+
+## 2026-08-07 — Exact protected-main release tag published
+
+- Annotated tag `v0.1.0` was created on exact protected-main commit `c4daf0e20878db7457563b3daa121067f06385c0` and pushed to the public repository.
+- GitHub readback reports tag object `1b6b421a144b4b1c50ef687b6946450ecdcff672`, target type `commit`, and target commit `c4daf0e20878db7457563b3daa121067f06385c0`; the target tree remains `80d87838decddafbba19b8d962fef25b206c7160`.
+- No GitHub release or Zenodo publication was created by the tag push. Exact tag-built assets must now be generated twice and compared before either publication surface is used.
+
+## 2026-08-07 — Deterministic tag-built release assets verified
+
+- The release builder was run independently twice from fully qualified ref `refs/tags/v0.1.0`. Both builds resolved exact commit `c4daf0e20878db7457563b3daa121067f06385c0` and tree `80d87838decddafbba19b8d962fef25b206c7160`.
+- All ten publication files were byte-identical across the two output directories. The deterministic uncompressed USTAR archive is 276,480 bytes with SHA-256 `e73bbd24d86d653deecd0c2a592a3876e59699299665df5a732968fca5ee1e42`.
+- `RELEASE_MANIFEST.json` is 8,841 bytes with SHA-256 `3b771c9ec8964c5d1d14c6bd56923c976b7a79e90b72e765576fbe11db7add8d`; `SHA256SUMS.txt` is 766 bytes with SHA-256 `3e0dd311fc4c83340ed02994e6d53d622f261bd6cd479b3c186430d06554c31f` and covers the other nine files.
+- The exact publication set is: `CITATION.cff`, `GITHUB_PILOT_GUIDE.md`, `LEIDEN_ALIGNMENT.md`, `README.md`, `RELEASE_MANIFEST.json`, `RELEASE_NOTES_v0.1.0.md`, `RIGHTS.md`, `SHA256SUMS.txt`, `WHITE_PAPER.md`, and `mathematics-commons-pilot-0.1.0.tar`.
+
+## 2026-08-07 — Zenodo draft populated and reload-verified
+
+- The exact ten files from the first tag build were attached to existing project draft `21828563`; every upload reached 100%, and Zenodo reports 10 files totaling 422.81 KB.
+- Zenodo's displayed MD5 for every file matches the independently computed local MD5, including archive MD5 `b5f6f2e31ac48df672aeda05f02875ca`. The local SHA-256 identities remain governed by `SHA256SUMS.txt` and the release manifest.
+- The description was restored to its exact three concept-status paragraphs plus one concise privacy-boundary sentence, saved, and verified after a full reload. No raw interaction history or private material was uploaded.
+- Full-reload preflight passed for reserved DOI `10.5281/zenodo.21828563`, title, publication/working-paper resource type, publication date, creator pseudonym, version `0.1.0`, CC0 license, English language, public visibility, project repository URL, exact description, all ten filenames, sizes, and checksums.
+- The draft remains unpublished at this checkpoint. The Publish control is enabled; publication is the next irreversible step and must occur only once, followed by anonymous readback before any retry or downstream DOI update.
+
+## 2026-08-07 — Zenodo v0.1.0 published once
+
+- After the verified confirmation screen, the existing draft was published exactly once. The authenticated interface redirected to public record `https://zenodo.org/records/21828563`; the draft label and Publish control disappeared, and the public record title and reserved DOI are present.
+- No retry was issued after the confirmation action. All subsequent work must discover and verify the live public record and its concept/version DOI metadata before any GitHub release or citation follow-up.
+
+## 2026-08-07 — Anonymous Zenodo readback passed
+
+- Anonymous API readback succeeded for record `21828563`. The immutable version DOI is `10.5281/zenodo.21828563`; Zenodo assigned concept record `21828562` and concept DOI `10.5281/zenodo.21828562`.
+- Both DOI URLs resolve anonymously with HTTP 200 to `https://zenodo.org/records/21828563`.
+- Public metadata matches the preflight: exact title, creator `KokunoYumeto`, publication/working-paper type, version `0.1.0`, publication date, CC0 (`cc-zero`), English, open access, four project keywords, complete description with limitations and privacy boundary, and ten public files.
+- Every public file was downloaded anonymously into a separate verification directory. All ten downloaded sizes and Zenodo MD5 values match the record, and all ten SHA-256 hashes are byte-identical to the exact tag build. The archive again verifies as SHA-256 `e73bbd24d86d653deecd0c2a592a3876e59699299665df5a732968fca5ee1e42`.
+- The living GitHub URL is present in the public description. Zenodo's API did not expose the form's software-only repository field for this publication resource type, so an explicit related identifier should be added in a metadata-only update if the public record lacks a machine-readable repository relation after GitHub release creation.
+
+## 2026-08-07 — Immutable GitHub v0.1.0 release published and verified
+
+- Public GitHub release `v0.1.0` was created from the already verified annotated tag at `https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/v0.1.0`, with the exact frozen release-notes file as its body and all ten tag-built assets attached.
+- GitHub API readback reports release id `366423403`, non-draft, non-prerelease, latest, ten assets, and `immutable: true`.
+- GitHub reports a SHA-256 digest and size for each asset; all ten match the local tag build and the corresponding Zenodo bytes.
+- Every GitHub release asset was then downloaded through its public unauthenticated URL into a separate verification directory. All ten downloaded files are byte-identical to the exact tag build. Zenodo, GitHub, and local release bytes therefore agree 10/10.
+
+## 2026-08-07 — Honest concept-DOI follow-up decision
+
+- Frozen `v0.1.0` correctly embeds its own version DOI `10.5281/zenodo.21828563`, but the all-versions concept DOI `10.5281/zenodo.21828562` did not exist until publication.
+- The concept DOI must now be linked distinctly from the version DOI in citation metadata, README, status, and release notes. Frozen `v0.1.0` files and immutable records will not be edited or relabeled.
+- A minimal `v0.1.1` citation/status release will therefore be created through Zenodo's official New version path. Its draft DOI will be reserved first, then the protected GitHub revision will embed both identifiers with their different meanings before tagging and archiving exact new bytes.
+- The operational pilot MVP remains a separate branch and will not be folded into this citation-only patch.
+
+## 2026-08-07 — Zenodo v0.1.1 draft and DOI reserved
+
+- The published record's single New version control was used once. Zenodo created project-specific draft upload `21830229` at `https://zenodo.org/uploads/21830229`; it inherited the prior metadata but initially contained zero files.
+- The draft's DOI reservation control was then used once. Reserved v0.1.1 version DOI: `10.5281/zenodo.21830229`. It will not resolve until this exact follow-up draft is published.
+- The all-versions concept DOI remains `10.5281/zenodo.21828562`. The protected citation revision can now encode concept DOI `21828562` separately from specific version DOI `21830229` before any v0.1.1 tag or archive is created.
+
+## 2026-08-07 — v0.1.1 citation/status revision prepared locally
+
+- New branch `codex/v0.1.1-citation` was created from exact protected `main` at `c4daf0e20878db7457563b3daa121067f06385c0`, carrying only the intended append-only publication receipts plus the citation/status patch.
+- `CITATION.cff` now identifies version `0.1.1` by reserved version DOI `10.5281/zenodo.21830229` and records concept DOI `10.5281/zenodo.21828562` in the separate identifiers list. It validates against the official CFF 1.2.0 JSON Schema.
+- README and status now distinguish the evolving-project concept DOI, frozen v0.1.0 DOI, and reserved v0.1.1 DOI. `RELEASE_NOTES_v0.1.1.md` states that this is a citation/status follow-up with no new mathematical result.
+- The structural validator now excludes ignored local `dist/` build and public-download verification directories from source scans. This repairs a local false failure exposed only after exact release assets existed; it does not weaken scanning of tracked public source files.
+- The operational pilot MVP remains isolated on `codex/pilot-mvp` and is not included in this patch.

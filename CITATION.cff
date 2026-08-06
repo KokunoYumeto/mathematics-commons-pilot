@@ -4,12 +4,16 @@ message: >-
   even though Commons-originated material is dedicated under CC0.
 title: "The Mathematics Commons: a Leiden-led peer-to-peer review pilot"
 type: software
-version: 0.1.0
-date-released: 2026-08-06
+version: 0.1.1
+date-released: 2026-08-07
 authors:
   - name: "KokunoYumeto"
 repository-code: "https://github.com/KokunoYumeto/mathematics-commons-pilot"
-doi: 10.5281/zenodo.21828563
+doi: 10.5281/zenodo.21830229
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21828562
+    description: "Concept DOI for all versions"
 license: CC0-1.0
 keywords:
   - mathematics
