@@ -74,12 +74,12 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Anonymous readback passed for the repository, README, rights policy, issue form, discussion, and Actions result.
 - `main` is protected with required `validate`, enforced pull requests, linear history, conversation resolution, and force-push/deletion prevention; zero approvals is an explicit one-maintainer bootstrap.
 - Repository-level immutable releases are enabled.
+- Protected pull request 2 is open at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`, targeting `main` from `codex/v0.1.0-doi`. It was created from head `eed5c3549ba67df633babaf35f24f5293abe2314`; the recovery/PR receipt still needs one final commit and push before exact-head validation.
 - Zenodo draft `21828563` is saved for this exact project with reserved version DOI `10.5281/zenodo.21828563`; it has no files and is not published.
 
 ## Work not yet completed at this checkpoint
 
-- Complete and verify the reserved-DOI release branch, including the GitHub 2FA continuity runbook and deterministic release tooling.
-- Push the branch, run validation, and merge it through the protected pull-request path.
+- Commit and push the final recovery/pull-request receipt, then run validation on that exact pull-request head and merge it through the protected path.
 - Create and verify release `v0.1.0`.
 - Upload to and publish the existing project-specific Zenodo draft, record DOI and file hashes, update citation metadata, and publish a DOI-bearing follow-up release if required by sequencing.
 - Verify anonymous GitHub and Zenodo readback and append receipts.
@@ -94,8 +94,8 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Commit and push the pull-request fallback receipt on `codex/v0.1.0-doi`; the release content and deterministic archive tooling are otherwise complete and validated.
-2. Create the protected pull request through the authenticated GitHub web interface because the CLI token lacks pull-request creation permission; run public CI and merge only the exact passing head.
+1. Commit and push the final recovery/pull-request receipt on `codex/v0.1.0-doi`; make no further self-referential log-only commit before merge.
+2. Require public `validate` to pass on the exact resulting pull-request head, then merge pull request 2 through protected `main` with linear history.
 3. Tag the exact merge as `v0.1.0`, build and verify deterministic release assets.
 4. Upload those exact files to Zenodo draft `21828563`, preflight, and publish once; then publish the immutable GitHub release from the same tag and bytes.
 5. Verify anonymous GitHub and Zenodo readback, hashes, version/concept DOI resolution, and citation metadata.
