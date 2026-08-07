@@ -189,6 +189,7 @@ def require_portable_repository_path(relative_path: str, location: str) -> None:
 def repository_path(value: str | Path, location: str) -> tuple[Path, str]:
     """Resolve a repository-relative POSIX path without accepting aliases."""
 
+    lexical_root = ROOT.absolute()
     root = ROOT.resolve()
     if isinstance(value, Path) and value.is_absolute():
         candidate = value
@@ -206,13 +207,25 @@ def repository_path(value: str | Path, location: str) -> tuple[Path, str]:
         candidate = ROOT.joinpath(*pure.parts)
     try:
         lexical_path = candidate.absolute()
-        lexical_relative = lexical_path.relative_to(root)
         resolved = candidate.resolve(strict=False)
         relative_path = resolved.relative_to(root)
+        try:
+            lexical_relative = lexical_path.relative_to(lexical_root)
+            traversal_root = lexical_root
+        except ValueError as lexical_error:
+            # Windows may expose one existing directory through both its long
+            # name and an 8.3 short-name alias.  A Path returned by an earlier
+            # resolution step is already canonical, so allow that exact form
+            # while retaining the resolved containment check above.  Do not
+            # extend this exception to unresolved aliases or symbolic links.
+            if lexical_path != resolved:
+                raise lexical_error
+            lexical_relative = relative_path
+            traversal_root = root
     except (OSError, ValueError) as exc:
         raise ValueError(f"{location} escapes the repository") from exc
 
-    current = root
+    current = traversal_root
     for part in lexical_relative.parts:
         current = current / part
         if current.is_symlink():
