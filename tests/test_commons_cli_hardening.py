@@ -689,6 +689,34 @@ class CommonsCliHardeningTests(unittest.TestCase):
         )
         self.assertEqual("a" * 40, parsed.expected_handoff_commit)
 
+    def test_repository_path_accepts_an_already_canonical_root_alias(self) -> None:
+        """Model Windows long-name/8.3 identity without requiring 8.3 locally."""
+
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            canonical_root = base / "canonical-repository-root"
+            canonical_root.mkdir()
+            canonical_file = canonical_root / "README.md"
+            canonical_file.write_text("test\n", encoding="utf-8", newline="\n")
+
+            class EquivalentAliasRoot:
+                def absolute(self) -> Path:
+                    return base / "CANONI~1"
+
+                def resolve(self) -> Path:
+                    return canonical_root.resolve()
+
+            with mock.patch.object(commons, "ROOT", EquivalentAliasRoot()):
+                resolved, relative = commons.repository_path(
+                    canonical_file.resolve(), "canonical handoff input"
+                )
+                self.assertEqual(canonical_file.resolve(), resolved)
+                self.assertEqual("README.md", relative)
+                with self.assertRaisesRegex(ValueError, "escapes the repository"):
+                    commons.repository_path(
+                        (base / "outside.md").resolve(), "outside handoff input"
+                    )
+
     def test_show_renders_declared_operational_bounds(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             repository = Path(temporary)
