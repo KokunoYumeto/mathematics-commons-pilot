@@ -4,12 +4,15 @@ This repository is currently a proposal, not an operating theorem factory.
 
 If you have ten minutes, read [README.md](README.md) and [STATUS.md](STATUS.md). If you want to evaluate the idea seriously, read the [white paper](WHITE_PAPER.md), then inspect the [Leiden requirements](LEIDEN_ALIGNMENT.md) and [technical pilot guide](GITHUB_PILOT_GUIDE.md).
 
+If you want to help launch the first bounded cycle, inspect the [launch board](PILOT_LAUNCH.md) and [candidate docket](PILOT_CANDIDATES.md). You can offer a specific production or independent-review lane through the repository's **Pilot volunteer** issue form. A public pseudonym is enough; describe what you can check and the limits of that scope.
+
 You do not need to agree with the proposal to contribute. Useful contributions include:
 
 - identifying a mathematical or governance failure;
 - correcting a source or attribution;
 - explaining why a proposed review gate is too weak or too expensive;
 - suggesting a bounded pilot problem;
+- source-auditing one proposed pilot record;
 - offering domain, formalization, archival, language, security, or GitHub expertise; and
 - testing whether another person or agent can follow the instructions.
 

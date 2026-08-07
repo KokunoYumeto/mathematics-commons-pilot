@@ -1,0 +1,130 @@
+{
+  "record_type": "source_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "source_id": "CAL-SOURCE-001",
+  "status": "verified",
+  "source_kind": "idea_origin",
+  "title": "Odd-sum calibration statement",
+  "citation": "Mathematics Commons pilot, Odd-sum calibration statement, version 1.0.0.",
+  "languages": [
+    "en"
+  ],
+  "authority_status": "primary_source",
+  "verification_status": "independently_checked",
+  "created_at": "2026-08-06T08:00:00Z",
+  "updated_at": "2026-08-06T08:00:00Z",
+  "locator": {
+    "reference_kind": "repository_artifact",
+    "canonical_reference": "examples/calibration/artifacts/odd-sum-statement.md",
+    "accessed_at": "2026-08-06T08:00:00Z",
+    "version_label": "1.0.0"
+  },
+  "integrity": {
+    "hashed_object_description": "Exact UTF-8 bytes of examples/calibration/artifacts/odd-sum-statement.md",
+    "byte_size": 302,
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "5e3f3e1061797bc11c343815c356deb5c1d1c882f1ad65f5eb59e39096a82241"
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "entry_id": "CAL-PROVENANCE-001",
+      "kind": "idea_origin",
+      "description": "A long-known elementary identity selected by the pilot maintainers solely as harmless workflow calibration mathematics.",
+      "originator_label": "Elementary mathematical folklore; no novelty claimant",
+      "attribution_status": "reported",
+      "publication_basis": "public_domain",
+      "recorded_at": "2026-08-06T08:00:00Z"
+    }
+  ],
+  "rights_assessment": {
+    "rights_status": "public_domain",
+    "basis": "The mathematical identity itself is not protected expression; the newly written local statement and metadata are submitted as Commons-originated CC0 material.",
+    "license_identifier": "Public-domain fact; Commons wording CC0-1.0",
+    "jurisdictions_assessed": [
+      "pilot public-domain and copyrightability screen"
+    ],
+    "permissions": {
+      "copying": "permitted",
+      "extraction": "permitted",
+      "translation": "permitted",
+      "redistribution": "permitted",
+      "model_training": "permitted"
+    },
+    "redistribution_status": "permitted",
+    "attribution_requirements": [
+      "Preserve the calibration and no-novelty context."
+    ],
+    "access_requirements": [],
+    "review_status": "reviewed",
+    "reviewed_at": "2026-08-06T08:05:00Z",
+    "reviewer_id": "CAL-STEWARD-001",
+    "limitations": {
+      "status": "known",
+      "items": [
+        "This is a workflow calibration record, not a historical priority study."
+      ]
+    }
+  },
+  "third_party_components": [
+    {
+      "component_id": "CAL-IDENTITY-001",
+      "component_kind": "original_work",
+      "description": "The elementary identity that the sum of the first n positive odd integers is n squared.",
+      "rightsholder_or_source": "Mathematical folklore; no protected source text incorporated",
+      "rights_status": "public_domain",
+      "license_identifier": "Public domain",
+      "permissions": {
+        "copying": "permitted",
+        "extraction": "permitted",
+        "translation": "permitted",
+        "redistribution": "permitted",
+        "model_training": "permitted"
+      },
+      "redistribution_status": "permitted"
+    }
+  ],
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "CAL-SOURCE-FILE-001"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_metadata_and_components_only",
+    "submitted_component_ids": [
+      "CAL-SOURCE-001",
+      "CAL-SOURCE-FILE-001"
+    ],
+    "third_party_rights_preserved": true,
+    "described_source_content_dedicated_under_cc0": false,
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "The record intentionally establishes no historical priority or novelty claim."
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "record_type": "packet_transition",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "transition_id": "CAL-TRANSITION-001",
+  "event_model": "append_only",
+  "event_kind": "state_transition",
+  "from_packet_ref": {
+    "packet_id": "CAL-PACKET-001",
+    "record_version": "1.0.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "573610bd498d9a69a9bf05f9c237f3bcee3d5a6ce489a832fac49c7142d6460f"
+      }
+    ]
+  },
+  "to_packet_ref": {
+    "packet_id": "CAL-PACKET-001",
+    "record_version": "1.1.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "1f3f13878eb6950949457137b46898703d6a784f2779703d7354b9258fa18a11"
+      }
+    ]
+  },
+  "sequence": 1,
+  "from_status": "draft",
+  "to_status": "ready",
+  "actor_id": "CAL-STEWARD-001",
+  "occurred_at": "2026-08-07T17:05:00Z",
+  "git_commit": "3fd7a29560e78ac3ecaa131707b61727c25ae9fd",
+  "reason": "The exact known-result calibration statement, scope, rights boundary, and acceptance criteria were recorded; this advances only a workflow calibration.",
+  "next_owner_id": "CAL-STEWARD-001",
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "CAL-TRANSITION-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This append-only event documents a synthetic known-result calibration history, not open-problem progress."
+    ]
+  }
+}

@@ -203,6 +203,8 @@ The network should avoid both extremes at launch: one enormous undifferentiated 
 
 A Research Packet is the smallest independently claimable and reviewable unit. It contains a stable ID; exact scope, exclusions, dependencies, and stopping conditions; source identifiers, rights, and hashes; expected JSON, LaTeX, code, image, or review outputs; acceptance tests; resource and permission envelopes; a data-minimization and publication boundary; and its required review path.
 
+The stable ID names the continuing task, but every state is a new immutable snapshot with its own record version and complete normalized digest. Append-only transition events bind an exact from-snapshot to an exact to-snapshot, constrain which fields that event kind may change, forbid forks, and make one current head derivable without rewriting history. Runs, evidence, and reviews remain bound to the historical snapshot they actually used. Acceptance therefore cannot drift forward onto later task wording, and a later challenge or closure cannot erase the exact evidence and reviews that supported an earlier acceptance.
+
 The same protocol supports different project-tree variants. A conjecture tree may emit literature, lemma, counterexample, computation, and formalization packets. An archival tree may emit source-authority, scan segmentation, transcription, translation, correction, diagram, terminology, semantic-integration, and release packets. These are not secondary chores surrounding “real” theorem work. They are durable mathematical contributions with task-appropriate evidence.
 
 Current corpus workflows already demonstrate the pattern: bounded page ranges, stable semantic IDs, diplomatic and corrected layers, independent checker lanes, append-only correction ledgers, provisional Stacks mappings, build and visual QA, checksum manifests, and archival releases. The packet protocol generalizes those working practices instead of inventing a separate abstraction.
@@ -255,6 +257,8 @@ Theorems in different fields may play the same role without having directly comp
 - stability under change of context.
 
 This makes questions such as “Do these reconstruction theorems share a universal pattern?” testable. Category theory may provide the right language for some relationships; reverse mathematics, model theory, proof theory, or explicit algebra may provide it for others. The system records the strongest relation actually supported by evidence.
+
+The distinction between comparing theorem statements and comparing the roles they play—especially through local data, compatibility, obstructions, and canonical global objects—was sharpened in the public r/LLMmathematics [monthly conjectures discussion](https://www.reddit.com/r/LLMmathematics/comments/1v6me4a/monthly_conjectures_1_start/) by Reddit user `u/Ill-SonOfClawDraws`. This attribution records the public conceptual contribution without implying authorship of the wider Commons design.
 
 ### 5.3 Population-level synthesis
 
@@ -314,19 +318,18 @@ Begin with one public GitHub organization and one repository:
 mathematics-commons/
 ├── START_HERE_FOR_HUMANS.md
 ├── START_HERE_FOR_AGENTS.md
-├── governance/
-├── registry/
-│   ├── problems/
-│   ├── community-conjectures/
-│   └── sources/
+├── RIGHTS.md
+├── LEIDEN_ALIGNMENT.md
+├── PILOT_OPERATIONS.md
+├── problems/
 ├── packets/
-│   ├── ready/
-│   ├── claimed/
-│   ├── submitted/
-│   └── closed/
-├── claims/
+├── transitions/
+├── sources/
+├── runs/
+├── evidence/
 ├── reviews/
-├── formal/
+├── work/
+│   └── <packet-id>/
 ├── schemas/
 ├── tools/
 ├── releases/
@@ -344,10 +347,10 @@ All substantive mathematical claims, reviews, decisions, and status changes even
 The pilot needs no exotic network technology. Git already gives every clone the complete version history.
 
 1. The public repository is the initial rendezvous point and protected integration branch.
-2. A contributor forks or clones it, chooses one `ready` packet, and records a short lease.
-3. Work occurs on a branch containing only that bounded packet and its required evidence.
+2. A contributor forks or clones it, chooses one current `ready` packet head, and asks a steward to commit a short lease as a new snapshot and exact transition event.
+3. Work occurs from the exact handoff commit on the lease branch, with agent-writable output confined to `work/<packet-id>/` and the packet's explicit bounds.
 4. A pull request runs schema, citation, build, disclosure, rights, and security checks.
-5. Independent reviewers add version-bound review files; comments alone are not the durable review record.
+5. Independent reviewers add review files bound to the exact packet, evidence, artifacts, and commit they inspected; comments alone are not the durable review record.
 6. A maintainer merges only after the packet's stated gates pass.
 7. A scheduled bare mirror copies the complete Git history to independently controlled storage or another forge.
 8. Release bundles and manifests are deposited in an external archive such as Zenodo.
@@ -462,7 +465,7 @@ The first month is a grassroots proof of concept for the existing AI-literate gr
 - Name at least two organization owners and two or three stewards.
 - Adopt a one-page charter plus Leiden alignment, review, correction, authorship, rights/training, security, and major-claim policies.
 - Create one public repository, protected `main` branch, issue forms, pull-request template, `START_HERE_FOR_HUMANS.md`, and `START_HERE_FOR_AGENTS.md`.
-- Implement only problem, packet, run, claim, and review/disposition objects.
+- Implement only the seven MVP record types: problem, immutable packet snapshot, packet transition, source, run, evidence, and review.
 - Create one independent one-way mirror before accepting irreplaceable work.
 
 ### Week 2: calibration set
@@ -472,7 +475,7 @@ Import approximately six to ten deliberately varied records:
 - one apparently open problem already settled in the literature;
 - one known theorem accompanied by a deliberately flawed candidate proof;
 - three or four selected Erdős or comparable open problems with bounded literature, special-case, experiment, or formalization work;
-- two or three precisely stated community conjectures, including suitable subreddit contributions; and
+- two precisely stated community-originated status-reconciliation records, with exact attribution, rights, and correction boundaries; and
 - at least one finite or computational packet with an exact replay.
 
 “Open-door” is a workflow label, not a claim that a problem is easy. It means the problem offers bounded tasks that can produce useful evidence without requiring a complete solution.
@@ -556,6 +559,7 @@ This discussion draft was generated and revised through an AI-assisted workflow 
 - [Leiden Declaration on Artificial Intelligence and Mathematics](https://leidendeclaration.ai/), 2 June 2026, DOI 10.5281/zenodo.20302944.
 - [International Mathematical Union endorsement of the Leiden Declaration](https://www.mathunion.org/fileadmin/documents/2026-06/IMU_AO_CL_8_2026.pdf), Circular Letter 8/2026.
 - [AI contributions to Erdős problems](https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems), status archive through 30 June 2026.
+- [r/LLMmathematics monthly conjectures discussion](https://www.reddit.com/r/LLMmathematics/comments/1v6me4a/monthly_conjectures_1_start/), public origin of the theorem-role comparison and the immediate community-pilot proposal.
 - Tony Feng et al., [Semi-Autonomous Mathematics Discovery with Gemini: A Case Study on the Erdős Problems](https://arxiv.org/abs/2601.22401), version 3, 2026.
 - Tony Feng et al., [Towards Autonomous Mathematics Research](https://arxiv.org/abs/2602.10177), version 3, 2026.
 - OpenAI, [An OpenAI model has disproved a central conjecture in discrete geometry](https://openai.com/index/model-disproves-discrete-geometry-conjecture/), 20 May 2026.

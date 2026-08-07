@@ -130,7 +130,7 @@ The suggestion to train rights-cleared specialist models on historical mathemati
 | `ATTR-004` | If satisfactory attribution cannot be established, the uncertainty MUST be stated prominently rather than converted into a priority claim. | Attribution-gap flag and qualified public language. |
 | `ATTR-005` | Every ingested source MUST record copyright status, redistribution permission, extraction permission where relevant, license, provenance, and integrity hash. | Rights and provenance manifest. |
 | `ATTR-006` | Public availability MUST NOT be treated as consent for model training. A training job MUST use only material with recorded permission or a reviewed legal basis compatible with project policy. | Training-consent field and dataset allowlist. |
-| `ATTR-007` | Contributors MUST be able to specify licenses and, where meaningful, machine-learning use preferences for their own material. | Submission form and release metadata. |
+| `ATTR-007` | Contributors MUST be able to specify licenses and, where meaningful, machine-learning use preferences for pre-existing material they control; they may withhold it or submit it only under compatible terms. Every newly created component intentionally submitted into the Commons workflow follows `ATTR-010` and `ATTR-011` under CC0. | Source/submission form, origin field, compatibility check, and release metadata. |
 | `ATTR-008` | The project SHOULD develop or adopt plain-language licensing templates and seek qualified legal advice for uncertain, large-scale, or cross-jurisdictional uses. | Template register and escalation path. |
 | `ATTR-009` | Attribution must have its own challenge, correction, and appeal path; correcting credit or locating prior art counts as a successful contribution. | Attribution objection and disposition records. |
 | `ATTR-010` | All Commons-originated material MUST be released under CC0 1.0, modulo pre-existing third-party copyright and other rights. The Commons MUST NOT purport to waive rights it does not control. | Per-file provenance and rights manifest; third-party exception records. |
@@ -197,7 +197,7 @@ The suggestion to train rights-cleared specialist models on historical mathemati
 
 ## 11. Research Packet and capability router
 
-Every contribution MUST enter the durable workflow as a versioned **Research Packet** or as an intake item that a steward converts into one. A packet is the smallest independently claimable and reviewable unit.
+Every scientific production or review work item admitted to the durable research graph MUST enter as a versioned **Research Packet** or as an intake item that a steward converts into one. A packet is the smallest independently claimable and reviewable unit. Ordinary concept, governance, documentation, or software feedback may remain in the normal issue and pull-request flow unless a steward adopts it into the scientific record.
 
 ### 11.1 Required packet fields
 
@@ -273,15 +273,15 @@ The first deliverable is neither a custom platform nor a global decentralized co
 
 ### 13.1 MVP components
 
-1. **One public pilot repository.** It stores problem records, community conjectures, packets, claims, reviews, and status changes as cloneable files. GitHub issues and pull requests coordinate work but do not hold the only durable copy of scientific state.
-2. **One small schema set.** JSON Schema defines problem, packet, run manifest, review, and disposition objects. A capability field records approximate budget, time, context, and tools without binding the protocol to current subscription prices.
+1. **One public pilot repository.** It stores exact problem, packet-snapshot, packet-transition, source, run, evidence, and review records as cloneable files. GitHub issues and pull requests coordinate work but do not hold the only durable copy of scientific state.
+2. **One small schema set.** Seven JSON Schemas define those record types. Exact version-and-digest references, no-fork histories, and unique derived heads prevent silent rewriting; packet capability fields record bounded budget, time, context, tools, permissions, and outputs without binding the protocol to current subscription prices.
 3. **Agent-readable instructions.** `START_HERE_FOR_AGENTS.md` and a human quick start tell existing Codex, Claude Code, or comparable workflows how to select, claim, execute, check, and submit a packet.
 4. **Two initial project lanes.** One lane covers selected Erdős or other established open problems; the other covers carefully stated community conjectures. Both can issue literature, proof, counterexample, computation, exposition, and formalization packets.
 5. **Simple capability routing.** Labels and packet fields such as `light`, `standard`, and `extended` help people choose feasible work. Assignment may be manual during the pilot; no custom scheduler is required.
 6. **Bounded leases and continuation.** Every assignment has exact inputs, scope, dependencies, resource envelope, cursor, and stopping conditions.
-7. **Evidence-bundle submission.** A script validates and packages outputs, disclosures, sources, hashes, and test receipts for a pull request.
+7. **Evidence-bundle submission.** The pilot validator checks the exact record graph, output allowlist, disclosures, sources, hashes, rights, limits, and test receipts; contributors assemble the reviewed bundle manually until a later packaging interface is implemented.
 8. **Independent review routing.** Submitted work generates separate literature, mathematical, computational, formal, or communication review packets as appropriate.
-9. **Promotion gates.** Candidate, network-checked, externally reviewed, published, challenged, superseded, and withdrawn remain explicit states.
+9. **Promotion gates.** Packet lifecycle states remain distinct from mathematical, literature, computation, formalization, responsibility, and external-publication facets. Every acceptance means only “accepted as bounded packet evidence”; network checking is neither model consensus nor journal peer review.
 10. **Open release and mirror.** The pilot produces one immutable release, one independent Git mirror, one external archive deposit, and one retrospective documenting failures as well as successes.
 
 ### 13.2 Pilot usability target

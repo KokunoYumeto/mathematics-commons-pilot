@@ -1,0 +1,1072 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/main/schemas/research-packet.schema.json",
+  "title": "Mathematics Commons Research Packet",
+  "description": "A bounded, versioned and independently reviewable unit of mathematical work.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "schema_version",
+    "record_version",
+    "packet_id",
+    "project_id",
+    "subject_ids",
+    "kind",
+    "status",
+    "lease",
+    "created_at",
+    "updated_at",
+    "scope",
+    "dependencies",
+    "source_inputs",
+    "outputs",
+    "acceptance_criteria",
+    "capability",
+    "risk",
+    "review_plan",
+    "formalization_plan",
+    "submission_boundary",
+    "submission_rights",
+    "responsible_steward_id",
+    "credit_roles",
+    "limitations"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "research_packet"
+    },
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "record_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "packet_id": {
+      "$ref": "#/$defs/stable_id"
+    },
+    "project_id": {
+      "$ref": "#/$defs/stable_id"
+    },
+    "subject_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/stable_id"
+      }
+    },
+    "kind": {
+      "enum": [
+        "literature_audit",
+        "citation_audit",
+        "statement_normalization",
+        "proof_attempt",
+        "lemma_attempt",
+        "counterexample_search",
+        "exact_computation",
+        "reproduction",
+        "formalization",
+        "statement_correspondence",
+        "exposition",
+        "transcription",
+        "translation",
+        "semantic_integration",
+        "adversarial_review",
+        "release_audit"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "ready",
+        "claimed",
+        "in_progress",
+        "blocked",
+        "submitted",
+        "under_review",
+        "accepted",
+        "rejected",
+        "challenged",
+        "superseded",
+        "withdrawn",
+        "closed"
+      ]
+    },
+    "lease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "generation",
+        "claimant_id",
+        "claimed_at",
+        "expires_at",
+        "base_commit",
+        "branch_name"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unclaimed",
+            "claimed",
+            "active",
+            "expired",
+            "released",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claimant_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stable_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claimed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "base_commit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "branch_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "status": {
+              "const": "unclaimed"
+            },
+            "generation": {
+              "const": 0
+            },
+            "claimant_id": {
+              "type": "null"
+            },
+            "claimed_at": {
+              "type": "null"
+            },
+            "expires_at": {
+              "type": "null"
+            },
+            "base_commit": {
+              "type": "null"
+            },
+            "branch_name": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "properties": {
+            "status": {
+              "enum": [
+                "claimed",
+                "active",
+                "expired",
+                "released",
+                "completed",
+                "cancelled"
+              ]
+            },
+            "generation": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "claimant_id": {
+              "$ref": "#/$defs/stable_id"
+            },
+            "claimed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "expires_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "base_commit": {
+              "type": "string",
+              "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+            },
+            "branch_name": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+            }
+          }
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "included_work",
+        "excluded_work",
+        "stop_conditions",
+        "continuation_cursor"
+      ],
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "included_work": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excluded_work": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "stop_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "continuation_cursor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/record_reference"
+      }
+    },
+    "source_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_record_id",
+          "record_version",
+          "hashes",
+          "permitted_uses"
+        ],
+        "properties": {
+          "source_record_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "record_version": {
+            "$ref": "#/$defs/semver"
+          },
+          "hashes": {
+            "$ref": "#/$defs/hashes"
+          },
+          "permitted_uses": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "inspect",
+                "quote_lawful_excerpt",
+                "extract_facts",
+                "compute",
+                "translate",
+                "redistribute",
+                "model_training"
+              ]
+            }
+          },
+          "component_ids": {
+            "description": "Optional source-component allowlist. Omission conservatively applies requested-use checks to every declared component.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 128,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/stable_id"
+            }
+          }
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "kind",
+          "description",
+          "media_type",
+          "required"
+        ],
+        "properties": {
+          "artifact_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "kind": {
+            "enum": [
+              "bibliography",
+              "source_notes",
+              "mathematical_argument",
+              "counterexample",
+              "computation",
+              "certificate",
+              "formalization",
+              "correspondence_map",
+              "transcription",
+              "translation",
+              "exposition",
+              "review",
+              "metadata",
+              "other"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "media_type": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+$"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criterion_id",
+          "description",
+          "verification_method",
+          "required_evidence_kinds",
+          "mandatory"
+        ],
+        "properties": {
+          "criterion_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_method": {
+            "enum": [
+              "schema_validation",
+              "source_opened",
+              "manual_reconstruction",
+              "adversarial_check",
+              "test_command",
+              "exact_replay",
+              "formal_compile",
+              "statement_correspondence",
+              "rights_review",
+              "privacy_review",
+              "other"
+            ]
+          },
+          "required_evidence_kinds": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 16,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "mandatory": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "envelope",
+        "maximum_hours",
+        "network_access",
+        "code_execution",
+        "required_tools",
+        "required_competencies"
+      ],
+      "properties": {
+        "envelope": {
+          "enum": [
+            "light",
+            "standard",
+            "extended",
+            "specialized"
+          ]
+        },
+        "maximum_hours": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 720
+        },
+        "network_access": {
+          "enum": [
+            "none",
+            "restricted",
+            "required"
+          ]
+        },
+        "code_execution": {
+          "enum": [
+            "forbidden",
+            "isolated",
+            "specialized_isolation"
+          ]
+        },
+        "required_tools": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required_competencies": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "execution_limits": {
+      "description": "Explicit operational allowlists and resource ceilings. If this object is omitted, the validator and node tooling treat every list as empty and every numeric ceiling as zero.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed_output_paths",
+        "acceptance_commands",
+        "maximum_paid_spend",
+        "maximum_cpu_seconds",
+        "maximum_ram_bytes",
+        "maximum_gpu_seconds",
+        "maximum_storage_bytes",
+        "maximum_upload_bytes"
+      ],
+      "properties": {
+        "allowed_output_paths": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+          }
+        },
+        "acceptance_commands": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "command_id",
+              "command",
+              "cwd",
+              "dependency_paths",
+              "timeout_seconds",
+              "criterion_ids"
+            ],
+            "properties": {
+              "command_id": {
+                "$ref": "#/$defs/stable_id"
+              },
+              "command": {
+                "description": "Caller-reviewed argument vector. The Commons CLI never executes it; a conforming external runner passes it without implicit shell interpolation. An argv may still explicitly invoke a shell or interpreter and remains untrusted.",
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 64,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
+                }
+              },
+              "cwd": {
+                "description": "Repository-relative working directory; absolute paths and parent traversal are forbidden.",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 512,
+                "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+              },
+              "dependency_paths": {
+                "description": "Complete explicit list of repository-local executable, script, configuration, and other file dependencies whose raw bytes must match the captured handoff commit, index, and worktree. The external runtime named by argv[0] is caller-reviewed and is not trusted or executed by the Commons CLI.",
+                "type": "array",
+                "maxItems": 256,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512,
+                  "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+                }
+              },
+              "timeout_seconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 86400
+              },
+              "criterion_ids": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 64,
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "#/$defs/stable_id"
+                }
+              }
+            }
+          }
+        },
+        "maximum_paid_spend": {
+          "description": "Maximum paid spend in USD for this packet.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "maximum_cpu_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 31536000
+        },
+        "maximum_ram_bytes": {
+          "description": "Maximum peak resident memory in bytes.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1125899906842624
+        },
+        "maximum_gpu_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 31536000
+        },
+        "maximum_storage_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1125899906842624
+        },
+        "maximum_upload_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1125899906842624
+        }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mathematical",
+        "security",
+        "privacy",
+        "rights",
+        "ethical",
+        "publicity"
+      ],
+      "properties": {
+        "mathematical": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "security": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "privacy": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "rights": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "ethical": {
+          "$ref": "#/$defs/risk_level"
+        },
+        "publicity": {
+          "$ref": "#/$defs/risk_level"
+        }
+      }
+    },
+    "review_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_review_types",
+        "minimum_reviewers",
+        "independent_reviewer_required",
+        "producer_may_accept_own_work",
+        "version_bound_review_required"
+      ],
+      "properties": {
+        "required_review_types": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/review_type"
+          }
+        },
+        "minimum_reviewers": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "independent_reviewer_required": {
+          "const": true
+        },
+        "producer_may_accept_own_work": {
+          "const": false
+        },
+        "version_bound_review_required": {
+          "const": true
+        }
+      }
+    },
+    "formalization_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expectation",
+        "formal_acceptance_review",
+        "statement_correspondence_review",
+        "separate_reviews_required"
+      ],
+      "properties": {
+        "expectation": {
+          "enum": [
+            "none",
+            "feasibility",
+            "partial",
+            "complete"
+          ]
+        },
+        "formal_acceptance_review": {
+          "enum": [
+            "not_applicable",
+            "required"
+          ]
+        },
+        "statement_correspondence_review": {
+          "enum": [
+            "not_applicable",
+            "required"
+          ]
+        },
+        "separate_reviews_required": {
+          "const": true
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "expectation": {
+              "const": "none"
+            },
+            "formal_acceptance_review": {
+              "const": "not_applicable"
+            },
+            "statement_correspondence_review": {
+              "const": "not_applicable"
+            }
+          }
+        },
+        {
+          "properties": {
+            "expectation": {
+              "enum": [
+                "feasibility",
+                "partial",
+                "complete"
+              ]
+            },
+            "formal_acceptance_review": {
+              "const": "required"
+            },
+            "statement_correspondence_review": {
+              "const": "required"
+            }
+          }
+        }
+      ]
+    },
+    "submission_boundary": {
+      "$ref": "#/$defs/submission_boundary"
+    },
+    "submission_rights": {
+      "$ref": "#/$defs/submission_rights"
+    },
+    "responsible_steward_id": {
+      "$ref": "#/$defs/stable_id"
+    },
+    "credit_roles": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contributor_id",
+          "role"
+        ],
+        "properties": {
+          "contributor_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "role": {
+            "enum": [
+              "problem_origin",
+              "source_lead",
+              "packet_design",
+              "stewardship",
+              "review_planning",
+              "rights_review",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "limitations": {
+      "$ref": "#/$defs/limitations"
+    }
+  },
+  "$defs": {
+    "stable_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "hash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "hashes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/hash"
+      }
+    },
+    "record_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "record_id",
+        "record_version",
+        "hashes"
+      ],
+      "properties": {
+        "record_type": {
+          "enum": [
+            "problem_record",
+            "research_packet",
+            "source_record",
+            "run_record",
+            "evidence_record",
+            "review_record"
+          ]
+        },
+        "record_id": {
+          "$ref": "#/$defs/stable_id"
+        },
+        "record_version": {
+          "$ref": "#/$defs/semver"
+        },
+        "hashes": {
+          "$ref": "#/$defs/hashes"
+        }
+      }
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "review_type": {
+      "enum": [
+        "source_authority",
+        "citation_audit",
+        "semantic_fidelity",
+        "mathematical_reconstruction",
+        "adversarial",
+        "computational_reproduction",
+        "formal_acceptance",
+        "statement_correspondence",
+        "literature_open_status",
+        "attribution",
+        "rights_privacy",
+        "release_archival",
+        "integration"
+      ]
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "items"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "none_identified",
+            "known",
+            "not_assessed"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "submission_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "private_by_default",
+        "schema_fields_are_public_allowlist",
+        "allowlisted_artifact_ids",
+        "excluded_from_submission_by_default",
+        "raw_interaction_records_required",
+        "redaction_status",
+        "publication_preview_status",
+        "retention_rule"
+      ],
+      "properties": {
+        "private_by_default": {
+          "const": true
+        },
+        "schema_fields_are_public_allowlist": {
+          "const": true
+        },
+        "allowlisted_artifact_ids": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "excluded_from_submission_by_default": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "raw_transcript",
+            "prompt_history",
+            "chain_of_thought",
+            "private_notes",
+            "unpublished_communications",
+            "personal_context",
+            "credentials",
+            "unrelated_local_files"
+          ],
+          "properties": {
+            "raw_transcript": {
+              "const": true
+            },
+            "prompt_history": {
+              "const": true
+            },
+            "chain_of_thought": {
+              "const": true
+            },
+            "private_notes": {
+              "const": true
+            },
+            "unpublished_communications": {
+              "const": true
+            },
+            "personal_context": {
+              "const": true
+            },
+            "credentials": {
+              "const": true
+            },
+            "unrelated_local_files": {
+              "const": true
+            }
+          }
+        },
+        "raw_interaction_records_required": {
+          "const": false
+        },
+        "redaction_status": {
+          "enum": [
+            "pending",
+            "passed",
+            "failed"
+          ]
+        },
+        "publication_preview_status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "retention_rule": {
+          "enum": [
+            "approved_submission_only",
+            "metadata_only",
+            "time_limited"
+          ]
+        }
+      }
+    },
+    "submission_rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "commons_originated_record",
+        "dedication",
+        "dedication_scope",
+        "submitted_component_ids",
+        "third_party_rights_preserved",
+        "third_party_source_ids",
+        "redistribution_status"
+      ],
+      "properties": {
+        "commons_originated_record": {
+          "const": true
+        },
+        "dedication": {
+          "const": "CC0-1.0"
+        },
+        "dedication_scope": {
+          "const": "intentionally_submitted_commons_components_only"
+        },
+        "submitted_component_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "third_party_rights_preserved": {
+          "const": true
+        },
+        "third_party_source_ids": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "redistribution_status": {
+          "enum": [
+            "permitted",
+            "restricted",
+            "unresolved",
+            "metadata_only"
+          ]
+        }
+      }
+    }
+  }
+}

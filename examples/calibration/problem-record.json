@@ -1,0 +1,160 @@
+{
+  "record_type": "problem_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "problem_id": "CAL-ODD-SUM-IDENTITY",
+  "previous_problem_ref": null,
+  "project_id": "MC-PILOT-CALIBRATION",
+  "kind": "known_result",
+  "title": "Elementary odd-sum identity (known-result workflow calibration)",
+  "statement": {
+    "artifact_id": "CAL-PROBLEM-STATEMENT-001",
+    "artifact_path": "examples/calibration/artifacts/odd-sum-statement.md",
+    "artifact_version": "1.0.0",
+    "statement_label": "The sum of the first n positive odd integers is n squared for every integer n at least zero.",
+    "media_type": "text/markdown",
+    "language": "en",
+    "byte_size": 302,
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "5e3f3e1061797bc11c343815c356deb5c1d1c882f1ad65f5eb59e39096a82241"
+      }
+    ],
+    "exactness": "canonical_project_statement",
+    "change_policy": "new_record_version_required"
+  },
+  "current_status": {
+    "assessment": "known_result",
+    "qualified_label": "Long-known elementary identity selected only to calibrate record, review, and transition mechanics.",
+    "assessed_at": "2026-08-06T08:06:00Z",
+    "assessor_id": "CAL-STEWARD-001",
+    "assessment_method": "calibration_designation",
+    "basis_source_ids": [
+      "CAL-SOURCE-001"
+    ],
+    "basis_summary": "The verified local source record identifies the statement as elementary mathematical folklore and explicitly establishes no novelty or priority claim.",
+    "status_scope": "This assessment covers only the exact statement artifact and its use as a harmless workflow calibration.",
+    "tracker_or_model_agreement_sufficient": false,
+    "independent_verification_status": "verified",
+    "caveats": [
+      "This is not an open problem, a community conjecture, or evidence of open-problem research capability.",
+      "No historical priority survey was attempted because the record makes no novelty claim."
+    ]
+  },
+  "source_refs": [
+    {
+      "source_record_id": "CAL-SOURCE-001",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "4e34f3608317fe92fccd3eef891f41036b322ca05e11f23ab81768e3c398ef84"
+        }
+      ],
+      "roles": [
+        "statement_authority",
+        "status_basis",
+        "provenance_basis",
+        "definition_basis",
+        "rights_basis"
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    }
+  ],
+  "provenance": [
+    {
+      "entry_id": "CAL-PROBLEM-PROVENANCE-001",
+      "kind": "problem_nomination",
+      "description": "Pilot maintainers selected a long-known elementary identity solely to exercise the operational record contracts without creating an open-problem or novelty claim.",
+      "originator_label": "Mathematics Commons pilot maintainers",
+      "attribution_status": "verified",
+      "publication_basis": "commons_submission",
+      "source_record_ids": [
+        "CAL-SOURCE-001"
+      ],
+      "recorded_at": "2026-08-06T08:06:00Z"
+    },
+    {
+      "entry_id": "CAL-PROBLEM-PROVENANCE-002",
+      "kind": "status_assessment",
+      "description": "The source and statement were checked as a known-result calibration; no tracker label or model agreement was treated as evidence of status.",
+      "originator_label": "CAL-STEWARD-001",
+      "attribution_status": "verified",
+      "publication_basis": "commons_submission",
+      "source_record_ids": [
+        "CAL-SOURCE-001"
+      ],
+      "recorded_at": "2026-08-06T08:06:00Z"
+    }
+  ],
+  "definitions_and_conventions": {
+    "statement_scope": "The variable n ranges over nonnegative integers and the statement concerns the finite sum of the first n positive odd integers.",
+    "definitions": [
+      {
+        "term": "the first n positive odd integers",
+        "meaning": "The sequence 1, 3, 5, ..., 2n-1 when n is positive, and no terms when n is zero.",
+        "source_record_ids": [
+          "CAL-SOURCE-001"
+        ]
+      }
+    ],
+    "conventions": [
+      {
+        "label": "empty-sum convention",
+        "text": "For n equals zero, the sum contains no terms and is defined to be zero.",
+        "source_record_ids": [
+          "CAL-SOURCE-001"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-06T08:06:00Z",
+  "updated_at": "2026-08-06T08:06:00Z",
+  "responsible_steward_id": "CAL-STEWARD-001",
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "CAL-PROBLEM-STATEMENT-001"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "CAL-ODD-SUM-IDENTITY",
+      "CAL-PROBLEM-STATEMENT-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "CAL-SOURCE-001"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This record exists only to calibrate durable workflow mechanics around a non-novel known result.",
+      "It provides no evidence that an open problem was attempted, reviewed, or solved."
+    ]
+  }
+}

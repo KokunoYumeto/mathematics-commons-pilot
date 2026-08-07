@@ -1,0 +1,5 @@
+{
+  "record_type": "source_record",
+  "schema_version": "0.1.0",
+  "unexpected_private_blob": "This undeclared field must be rejected by the public allowlist."
+}

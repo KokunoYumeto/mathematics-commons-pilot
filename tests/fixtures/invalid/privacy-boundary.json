@@ -1,0 +1,7 @@
+{
+  "record_type": "evidence_record",
+  "schema_version": "0.1.0",
+  "submission_boundary": {
+    "raw_interaction_records_required": true
+  }
+}

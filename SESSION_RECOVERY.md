@@ -44,9 +44,25 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Target GitHub account: `KokunoYumeto`
 - Target repository: `KokunoYumeto/mathematics-commons-pilot`
 - Target visibility: public
-- Published frozen release: `v0.1.0`; current citation-only follow-up target: `v0.1.1`
+- Published frozen releases: `v0.1.0` and citation-only follow-up `v0.1.1`
+- Current operational publication branch: local `codex/pilot-phase-a`, based directly on protected `C0`; no remote Phase A branch or pull request exists at this checkpoint
 - Target rights rule: CC0 1.0 for all Commons-originated material, modulo pre-existing third-party copyright and other rights
-- Zenodo concept: `10.5281/zenodo.21828562`; published v0.1.0 record `21828563`; project-specific unpublished v0.1.1 draft `21830229`. Do not touch unrelated concept records.
+- Zenodo concept: `10.5281/zenodo.21828562`; published v0.1.0 record `21828563`; published v0.1.1 record `21830229`. Do not touch unrelated concept records or repeat either publication.
+
+## Operational-MVP protected publication manifest
+
+Do not publish development commit `425d5c217bc9dbc03779957ad60e617919d5741d`. The final calibration requires **two sequential protected pull requests**, because an independent review cannot honestly cite evidence until that exact evidence is already on protected `main`. A single branch or pull request containing both phases is invalid. Squash would destroy the reviewed commit; rebasing both phases together would rewrite it.
+
+Let `C0` be current protected main `3fd7a29560e78ac3ecaa131707b61727c25ae9fd`, committed at `2026-08-06T23:32:42Z`. Phase A starts from `C0` and publishes a coherent submitted-state freeze of exactly 13 calibration records:
+
+- `source-record.json`, `problem-record.json`;
+- packet snapshots `research-packet-01-draft.json` through `research-packet-05-submitted.json`;
+- transitions `packet-transition-01-draft-ready.json` through `packet-transition-04-in-progress-submitted.json`;
+- `producer-run.json` and `evidence-record.json`.
+
+The Phase A artifacts are exactly `examples/calibration/artifacts/odd-sum-statement.md` and `work/CAL-PACKET-001/odd-sum-proof.md`; there is no second public proof copy. Phase A also carries the finished public documents, CODEOWNERS and volunteer form, all seven schemas, `tools/validate_packets.py`, `tools/commons.py`, a Phase-A structural validator, and the Phase-A tests/fixtures that do not require review or acceptance. Its workflow keeps the Ubuntu/Windows matrix and exact aggregate context `validate`, asserts 13 records, five packet snapshots, four transitions, one `submitted` head, evidence `status: complete`, and `independently_reproduced: false`, and runs repository-aware validation against `C0`. Every non-null lease base, producer workspace revision, and transition basis is `C0`; all packet-lifecycle, lease, event, producer-run, and evidence times must be actual UTC times after `C0` and before the Phase A commit. Source and problem provenance dates may predate `C0` when they truthfully describe earlier source or nomination history. Merge Phase A through protected rebase, verify its pull-request tree equals protected main, and record the resulting protected-main SHA as `A` plus its commit time.
+
+Phase B starts directly from exact `A` and preserves every Phase A record and artifact byte. It adds exactly six records: `research-packet-06-under-review.json`, final `research-packet.json` at accepted `1.6.0`, transitions `05-submitted-under-review` and `06-under-review-accepted`, `reviewer-run.json`, and `review-record.json`. The review subject, reviewer-run Git workspace revision, and transitions 5/6 bind `A`; the reviewer run consumes the exact Phase A evidence artifact; its start/completion and all review/transition times occur after the actual `A` commit time. Phase B adds the complete hardening/record-contract/CLI test set and final workflow/structural-validator requirements, cascades every normalized record digest, and runs repository-aware validation with protected base `A`. Rebase-merge Phase B only if `A` remains an unchanged ancestor. After merge, verify zero diff from `A` for all 13 Phase A records, both artifacts, `.gitattributes`, all seven schemas, `tools/validate_packets.py`, and `tools/commons.py`; only the documented Phase B records, workflow/structural-validator/test promotion, and reader-state/recovery text may vary. Then verify the complete 19-record graph, native `validate`, and anonymous public readback.
 
 ## Work completed locally
 
@@ -66,6 +82,10 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Added and adversarially audited a deterministic exact-ref release builder with strict USTAR metadata, commit/tree/file hashes, approved reader copies, byte-exact checksums, Windows-safe paths, and atomic no-overwrite output publication.
 - Published and anonymously verified frozen `v0.1.0` on Zenodo and GitHub; all ten files agree byte-for-byte across the tag build and both public download surfaces.
 - Prepared a minimal v0.1.1 citation/status patch on `codex/v0.1.1-citation` that distinguishes concept DOI `10.5281/zenodo.21828562` from reserved v0.1.1 version DOI `10.5281/zenodo.21830229`, updates stale status text, adds release notes, and prevents local `dist/` output from contaminating repository validation.
+- Published and anonymously verified v0.1.1 on Zenodo and GitHub; all ten files agree byte-for-byte across the protected tag and both public download surfaces.
+- Rebased the operational-MVP branch onto protected-main v0.1.1 content and committed its initial 48-file Research Packet/schema/validator/CLI/calibration implementation as `425d5c217bc9dbc03779957ad60e617919d5741d`.
+- The operational MVP now includes all seven durable record contracts, immutable snapshot/event graphs, collection-level acceptance, revision epochs, exact Git-backed review/run/lease provenance, an explicit expected-handoff commit, safe command-free non-code packets, immutable-artifact/output collision prevention, a content-aware live gate, fail-closed public artifact manifests, CODEOWNERS, cross-platform CI, a nine-record candidate docket, launch board, volunteer form, and mirror runbook. The final independent audit found no remaining code-level P0/P1 after the last handoff-path repair. The complete local run passes 109 tests with one expected Windows symlink-permission skip; all schema, calibration, default, CLI, structural, compilation, YAML, source-parity, and whitespace gates pass.
+- The clean Phase A worktree now contains exactly 13 calibration records and the two declared artifacts. All historical Git bindings cite `C0`; packet, producer, evidence, and transition hashes were cascaded; the head is `1.4.0/submitted`; evidence is producer-complete and explicitly not independently reproduced. Its Phase-A-specific suite passes 100 tests with one expected Windows symlink-permission skip, all seven schemas, calibration/default/CLI validation, structural validation, Python compilation, eight YAML files, three-document source parity, and both staged and unstaged whitespace checks.
 
 ## External state now completed
 
@@ -79,14 +99,15 @@ If context was compacted or you are uncertain what happened, read this file and 
 - Protected pull request 2 is merged at `https://github.com/KokunoYumeto/mathematics-commons-pilot/pull/2`. Native run `31129228235` passed `validate` on exact audited head `e0018d84847c53068cf0e37f7935a4f91eddfbe2`; protected `main` is now `c4daf0e20878db7457563b3daa121067f06385c0` with the same tree `80d87838decddafbba19b8d962fef25b206c7160`.
 - Annotated tag and immutable GitHub release `v0.1.0` are public at `https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/v0.1.0`; release id `366423403` has ten assets and reports `immutable: true`.
 - Zenodo record `21828563` is public at `https://zenodo.org/records/21828563`, with version DOI `10.5281/zenodo.21828563`, concept DOI `10.5281/zenodo.21828562`, CC0 metadata, and ten files. Both DOI URLs resolve, and anonymous download/hash verification passed 10/10.
-- Zenodo New version created only project draft `21830229`; its reserved version DOI is `10.5281/zenodo.21830229`, it currently has zero files, and it is not published.
+- Zenodo v0.1.1 record `21830229` was published exactly once and anonymously verified. Its version DOI is `10.5281/zenodo.21830229`, concept DOI is `10.5281/zenodo.21828562`, both DOI URLs returned HTTP 200, machine-readable GitHub relation is present, and all ten public files match the exact tag build byte-for-byte.
+- Immutable GitHub release `v0.1.1` is public at `https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/v0.1.1`; release id `366435945` is non-draft, non-prerelease, latest, and immutable. Its ten public assets match the tag build and Zenodo 10/10.
 
 ## Work not yet completed at this checkpoint
 
-- Open and merge the already validated, committed, and pushed v0.1.1 citation/status revision through the protected pull-request path; revalidate any corrective commit on the new exact head.
-- Tag exact protected `main` as `v0.1.1`, build twice from the tag, attach exact files to draft `21830229`, preflight and publish once, then publish the immutable GitHub release from the same bytes.
-- Verify both v0.1.1 public surfaces, DOI resolution, citation metadata, and anonymous hashes; update this recovery record and logbook.
-- Complete, review, and publish the separate operational-pilot MVP branch after the citation release; it is not part of v0.1.0 or v0.1.1.
+- The complete v0.1.1 citation-release lane is public and verified across protected Git, immutable GitHub release, Zenodo, citation metadata, related identifier, and all ten hashes. Do not edit or republish either frozen version.
+- The final exact-diff security audit and clean local verification of the operational MVP are complete; the remaining P0 is the intentional two-phase publication-assembly gate.
+- Phase A is assembled and locally verified but not yet committed or published. Phase B cannot begin until Phase A is protected on `main` and its actual commit `A` is known.
+- Recruit the initial steward/reviewer capacity, freeze the active subset from the nine-record docket, create live packet records, and begin the bounded 30-day pilot.
 
 ## Safety and integrity notes
 
@@ -98,10 +119,9 @@ If context was compacted or you are uncertain what happened, read this file and 
 
 ## Exact next actions
 
-1. Commit and push the bounded recovery/idempotency correction identified after the first citation-branch preflight together with its audit and recovery receipts, then rerun structural checks, official CFF 1.2.0 schema validation, YAML parsing, links, privacy/secret scans, rights language, whitespace checks, and two deterministic builds on the new exact head.
-2. Open a protected pull request from `codex/v0.1.1-citation`, require native `validate` on its exact final head, and merge through linear history without bypassing protection.
-3. Tag exact protected `main` as `v0.1.1`; build twice from the fully qualified tag and require byte identity.
-4. Populate only Zenodo draft `21830229` with the exact v0.1.1 tag-built files; set version/date/description and an explicit repository relation, save, full-reload preflight, and publish once. Publish the immutable GitHub v0.1.1 release from the same tag and bytes.
-5. Verify anonymous GitHub and Zenodo readback, all hashes, both DOI classes, citation metadata, repository relationship, and concept DOI latest-version behavior. Never edit frozen v0.1.0 files.
-6. Continue the isolated operational-pilot MVP through semantic hardening, fixtures, CI, end-to-end agent handoff, review, and its own protected pull request.
-7. Mark the durable release goal complete only after v0.1.1 receipts are current and no publication work remains; the broader Mathematics Commons remains an ongoing public pilot.
+1. Run repository-aware validation against exact `C0`, restage the complete Phase A tree, verify the exact manifest and diff, and commit the clean candidate without importing either combined development commit into its ancestry.
+2. Push only `codex/pilot-phase-a`, open its protected pull request, require both native Ubuntu and Windows workers plus aggregate `validate`, manually review workflow/validator/schema/test changes under the disclosed one-maintainer trust boundary, rebase-merge, and discover/record actual protected SHA `A`, tree, and commit time.
+3. Assemble Phase B directly from `A`; perform and record the independent reconstruction against the exact Phase A evidence; add only the six acceptance-phase records and full test/workflow promotion; cascade hashes and prove every Phase A scientific byte stayed unchanged.
+4. Push only Phase B, pass protected native CI, rebase-merge without rewriting `A`, and verify the complete public 19-record repository-aware collection plus anonymous readback.
+5. Create the public recruitment, capacity, candidate-selection, independent-audit, and mirror-drill issues; freeze a capacity-backed six-to-ten-record live set from the docket; create the initial problem/packet histories; and begin one bounded 30-day pilot without claiming an open-problem solution or journal peer review.
+6. Update branch protection to one code-owner and last-push approval as soon as an independent write steward exists. Mark the durable goal complete only when publication and launch receipts are current and no required work remains.

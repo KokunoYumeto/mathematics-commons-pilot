@@ -10,10 +10,126 @@ permissions:
   contents: read
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
+  validation_workers:
+    name: validation worker (${{ matrix.os }}, Python 3.10)
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Check out exact submitted revision
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check out exact submitted revision with complete history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install the minimum supported Python
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
+        with:
+          python-version: "3.10"
+
+      - name: Confirm exact Python compatibility floor
+        run: python -c "import sys; assert sys.version_info[:2] == (3, 10), sys.version"
+
+      - name: Validate the schema contract
+        run: python tools/validate_packets.py --schema-only
+
+      - name: Compile all dependency-free release and validation tooling
+        run: >-
+          python -m py_compile
+          tools/build_release_archive.py
+          tools/validate_repository.py
+          tools/validate_packets.py
+          tools/commons.py
+
+      - name: Run valid and adversarial tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Validate calibration, default collection, and CLI projection
+        run: |
+          python tools/validate_packets.py examples/calibration
+          python tools/validate_packets.py
+          python tools/commons.py validate
+
+      - name: Verify Git-backed provenance and protected-base immutability for pull requests
+        if: github.event_name == 'pull_request'
+        run: >-
+          python tools/validate_packets.py --repository-aware
+          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
+
+      - name: Require the exact C0 base for the Phase A pull request
+        if: github.event_name == 'pull_request'
+        env:
+          ACTUAL_BASE: ${{ github.event.pull_request.base.sha }}
+        run: >-
+          python -c "import os; expected='3fd7a29560e78ac3ecaa131707b61727c25ae9fd';
+          actual=os.environ.get('ACTUAL_BASE');
+          raise SystemExit(0 if actual == expected else
+          f'Phase A must target exact C0 {expected}, found {actual}')"
+
+      - name: Verify Git-backed provenance and protected-base immutability after main integration
+        if: github.event_name == 'push'
+        run: >-
+          python tools/validate_packets.py --repository-aware
+          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
+
+      - name: Require the exact C0 predecessor for the Phase A main push
+        if: github.event_name == 'push'
+        env:
+          ACTUAL_PREDECESSOR: ${{ github.event.before }}
+        run: >-
+          python -c "import os; expected='3fd7a29560e78ac3ecaa131707b61727c25ae9fd';
+          actual=os.environ.get('ACTUAL_PREDECESSOR');
+          raise SystemExit(0 if actual == expected else
+          f'Phase A must follow exact C0 {expected}, found {actual}')"
+
+      - name: Verify Git-backed provenance on a manual readback
+        if: github.event_name == 'workflow_dispatch'
+        run: >-
+          python tools/validate_packets.py --repository-aware
+          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
+
+      - name: Require the live gate whenever live records exist
+        run: >-
+          python -c "from pathlib import Path; import subprocess, sys;
+          roots=('packets','problems','sources','runs','evidence','reviews','transitions','records');
+          live=any(any(Path(root).rglob('*.json')) for root in roots if Path(root).is_dir());
+          commands=([sys.executable,'tools/validate_packets.py','--require-live'],[sys.executable,'tools/commons.py','validate','--require-live']) if live else ();
+          raise SystemExit(max((subprocess.call(command) for command in commands),default=0))"
+
+      - name: Smoke-test deterministic release construction from this commit
+        run: |
+          git update-ref refs/heads/ci-validation HEAD
+          python tools/build_release_archive.py --ref refs/heads/ci-validation --version 0.0.0-ci --output-dir dist/ci-validation
+
       - name: Run structural validation
-        run: python3 tools/validate_repository.py
+        run: python tools/validate_repository.py
+
+      - name: Check the complete pull-request diff for whitespace errors
+        if: github.event_name == 'pull_request'
+        run: git diff --check "${{ github.event.pull_request.base.sha }}...HEAD"
+
+      - name: Check the integrated push range for whitespace errors
+        if: github.event_name == 'push'
+        run: git diff --check "${{ github.event.before }}..HEAD"
+
+      - name: Check the manually requested commit for whitespace errors
+        if: github.event_name == 'workflow_dispatch'
+        run: git show --check --format= HEAD
+
+  # Branch protection requires this exact, unsuffixed status context.  The
+  # matrix does the platform work; this aggregate fails closed unless every
+  # worker completed successfully.
+  validate:
+    name: validate
+    needs: [validation_workers]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require every validation worker to succeed
+        env:
+          WORKER_RESULT: ${{ needs.validation_workers.result }}
+        run: python3 -c "import os; raise SystemExit(0 if os.environ.get('WORKER_RESULT') == 'success' else 1)"

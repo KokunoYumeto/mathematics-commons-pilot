@@ -1,0 +1,762 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/main/schemas/review-record.schema.json",
+  "title": "Mathematics Commons Independent Review Record",
+  "description": "A version-bound independent review with explicit scope, unchecked facets, findings and a distinct formal-review lane.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "schema_version",
+    "record_version",
+    "review_id",
+    "reviewed_subject",
+    "status",
+    "review_type",
+    "created_at",
+    "updated_at",
+    "responsible_reviewer_id",
+    "review_run_refs",
+    "independence",
+    "scope",
+    "acceptance_results",
+    "findings",
+    "formalization_scope",
+    "conclusion",
+    "submission_boundary",
+    "submission_rights",
+    "limitations"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "review_record"
+    },
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "record_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "review_id": {
+      "$ref": "#/$defs/stable_id"
+    },
+    "reviewed_subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "record_id",
+        "record_version",
+        "hashes",
+        "git_commit",
+        "artifact_path"
+      ],
+      "properties": {
+        "record_type": {
+          "enum": [
+            "research_packet",
+            "source_record",
+            "run_record",
+            "evidence_record",
+            "review_record"
+          ]
+        },
+        "record_id": {
+          "$ref": "#/$defs/stable_id"
+        },
+        "record_version": {
+          "$ref": "#/$defs/semver"
+        },
+        "hashes": {
+          "$ref": "#/$defs/hashes"
+        },
+        "git_commit": {
+          "type": "string",
+          "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "artifact_path": {
+          "type": "string",
+          "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "completed",
+        "superseded",
+        "withdrawn"
+      ]
+    },
+    "review_type": {
+      "$ref": "#/$defs/review_type"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responsible_reviewer_id": {
+      "$ref": "#/$defs/stable_id"
+    },
+    "review_run_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "run_id",
+          "record_version",
+          "hashes"
+        ],
+        "properties": {
+          "run_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "record_version": {
+            "$ref": "#/$defs/semver"
+          },
+          "hashes": {
+            "$ref": "#/$defs/hashes"
+          }
+        }
+      }
+    },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_was_producer",
+        "accepting_reviewer_is_distinct_from_producer",
+        "private_producer_context_used",
+        "reviewed_exact_submitted_version",
+        "conflict_status",
+        "conflicts",
+        "independence_basis"
+      ],
+      "properties": {
+        "reviewer_was_producer": {
+          "const": false
+        },
+        "accepting_reviewer_is_distinct_from_producer": {
+          "const": true
+        },
+        "private_producer_context_used": {
+          "const": false
+        },
+        "reviewed_exact_submitted_version": {
+          "const": true
+        },
+        "conflict_status": {
+          "enum": [
+            "none_disclosed",
+            "disclosed_and_managed",
+            "unresolved"
+          ]
+        },
+        "conflicts": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "independence_basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checked",
+        "not_checked",
+        "methods"
+      ],
+      "properties": {
+        "checked": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 128,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "not_checked": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "methods": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 128,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "acceptance_results": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criterion_id",
+          "status",
+          "evidence_refs",
+          "notes"
+        ],
+        "properties": {
+          "criterion_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "status": {
+            "enum": [
+              "passed",
+              "failed",
+              "not_checked",
+              "not_applicable",
+              "inconclusive"
+            ]
+          },
+          "evidence_refs": {
+            "description": "Exact evidence-record references with full normalized-record digests.",
+            "type": "array",
+            "maxItems": 128,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/evidence_record_reference"
+            }
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_id",
+          "severity",
+          "status",
+          "description",
+          "evidence_refs"
+        ],
+        "properties": {
+          "finding_id": {
+            "$ref": "#/$defs/stable_id"
+          },
+          "severity": {
+            "enum": [
+              "blocking",
+              "major",
+              "minor",
+              "note"
+            ]
+          },
+          "status": {
+            "enum": [
+              "open",
+              "resolved",
+              "disputed",
+              "superseded"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "description": "Exact evidence-record references supporting this finding.",
+            "type": "array",
+            "maxItems": 128,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/evidence_record_reference"
+            }
+          }
+        }
+      }
+    },
+    "formalization_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lane",
+        "formal_acceptance_status",
+        "statement_correspondence_status",
+        "other_lane_requires_separate_review",
+        "formal_acceptance_and_statement_correspondence_are_distinct_checks"
+      ],
+      "properties": {
+        "lane": {
+          "enum": [
+            "not_applicable",
+            "formal_acceptance",
+            "statement_correspondence"
+          ]
+        },
+        "formal_acceptance_status": {
+          "enum": [
+            "not_applicable",
+            "not_reviewed",
+            "passed",
+            "failed",
+            "inconclusive"
+          ]
+        },
+        "statement_correspondence_status": {
+          "enum": [
+            "not_applicable",
+            "not_reviewed",
+            "passed",
+            "failed",
+            "inconclusive"
+          ]
+        },
+        "other_lane_requires_separate_review": {
+          "type": "boolean"
+        },
+        "formal_acceptance_and_statement_correspondence_are_distinct_checks": {
+          "const": true
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "lane": {
+              "const": "not_applicable"
+            },
+            "formal_acceptance_status": {
+              "const": "not_applicable"
+            },
+            "statement_correspondence_status": {
+              "const": "not_applicable"
+            },
+            "other_lane_requires_separate_review": {
+              "const": false
+            }
+          }
+        },
+        {
+          "properties": {
+            "lane": {
+              "const": "formal_acceptance"
+            },
+            "formal_acceptance_status": {
+              "enum": [
+                "passed",
+                "failed",
+                "inconclusive"
+              ]
+            },
+            "statement_correspondence_status": {
+              "const": "not_reviewed"
+            },
+            "other_lane_requires_separate_review": {
+              "const": true
+            }
+          }
+        },
+        {
+          "properties": {
+            "lane": {
+              "const": "statement_correspondence"
+            },
+            "formal_acceptance_status": {
+              "const": "not_reviewed"
+            },
+            "statement_correspondence_status": {
+              "enum": [
+                "passed",
+                "failed",
+                "inconclusive"
+              ]
+            },
+            "other_lane_requires_separate_review": {
+              "const": true
+            }
+          }
+        }
+      ]
+    },
+    "conclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recommendation",
+        "claim_status_effect",
+        "rationale",
+        "journal_peer_review_claimed",
+        "model_agreement_treated_as_truth"
+      ],
+      "properties": {
+        "recommendation": {
+          "enum": [
+            "accept_for_network_record",
+            "revise_and_resubmit",
+            "reject",
+            "challenge",
+            "no_opinion"
+          ]
+        },
+        "claim_status_effect": {
+          "enum": [
+            "no_change",
+            "candidate",
+            "network_checked",
+            "challenged",
+            "superseded",
+            "withdrawn"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "journal_peer_review_claimed": {
+          "const": false
+        },
+        "model_agreement_treated_as_truth": {
+          "const": false
+        }
+      }
+    },
+    "submission_boundary": {
+      "$ref": "#/$defs/submission_boundary"
+    },
+    "submission_rights": {
+      "$ref": "#/$defs/submission_rights"
+    },
+    "limitations": {
+      "$ref": "#/$defs/limitations"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "review_type": {
+          "const": "formal_acceptance"
+        },
+        "formalization_scope": {
+          "properties": {
+            "lane": {
+              "const": "formal_acceptance"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "review_type": {
+          "const": "statement_correspondence"
+        },
+        "formalization_scope": {
+          "properties": {
+            "lane": {
+              "const": "statement_correspondence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "review_type": {
+          "enum": [
+            "source_authority",
+            "citation_audit",
+            "semantic_fidelity",
+            "mathematical_reconstruction",
+            "adversarial",
+            "computational_reproduction",
+            "literature_open_status",
+            "attribution",
+            "rights_privacy",
+            "release_archival",
+            "integration"
+          ]
+        },
+        "formalization_scope": {
+          "properties": {
+            "lane": {
+              "const": "not_applicable"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "stable_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "hash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "hashes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/hash"
+      }
+    },
+    "evidence_record_reference": {
+      "description": "Exact evidence-record identity; hashes bind the complete normalized JSON record, not only artifact bytes.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "record_version",
+        "hashes"
+      ],
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/stable_id"
+        },
+        "record_version": {
+          "$ref": "#/$defs/semver"
+        },
+        "hashes": {
+          "$ref": "#/$defs/hashes"
+        }
+      }
+    },
+    "review_type": {
+      "enum": [
+        "source_authority",
+        "citation_audit",
+        "semantic_fidelity",
+        "mathematical_reconstruction",
+        "adversarial",
+        "computational_reproduction",
+        "formal_acceptance",
+        "statement_correspondence",
+        "literature_open_status",
+        "attribution",
+        "rights_privacy",
+        "release_archival",
+        "integration"
+      ]
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "items"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "none_identified",
+            "known",
+            "not_assessed"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "submission_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "private_by_default",
+        "schema_fields_are_public_allowlist",
+        "allowlisted_artifact_ids",
+        "excluded_from_submission_by_default",
+        "raw_interaction_records_required",
+        "redaction_status",
+        "publication_preview_status",
+        "retention_rule"
+      ],
+      "properties": {
+        "private_by_default": {
+          "const": true
+        },
+        "schema_fields_are_public_allowlist": {
+          "const": true
+        },
+        "allowlisted_artifact_ids": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "excluded_from_submission_by_default": {
+          "$ref": "#/$defs/private_exclusions"
+        },
+        "raw_interaction_records_required": {
+          "const": false
+        },
+        "redaction_status": {
+          "enum": [
+            "pending",
+            "passed",
+            "failed"
+          ]
+        },
+        "publication_preview_status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "retention_rule": {
+          "enum": [
+            "approved_submission_only",
+            "metadata_only",
+            "time_limited"
+          ]
+        }
+      }
+    },
+    "private_exclusions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_transcript",
+        "prompt_history",
+        "chain_of_thought",
+        "private_notes",
+        "unpublished_communications",
+        "personal_context",
+        "credentials",
+        "unrelated_local_files"
+      ],
+      "properties": {
+        "raw_transcript": {
+          "const": true
+        },
+        "prompt_history": {
+          "const": true
+        },
+        "chain_of_thought": {
+          "const": true
+        },
+        "private_notes": {
+          "const": true
+        },
+        "unpublished_communications": {
+          "const": true
+        },
+        "personal_context": {
+          "const": true
+        },
+        "credentials": {
+          "const": true
+        },
+        "unrelated_local_files": {
+          "const": true
+        }
+      }
+    },
+    "submission_rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "commons_originated_record",
+        "dedication",
+        "dedication_scope",
+        "submitted_component_ids",
+        "third_party_rights_preserved",
+        "third_party_source_ids",
+        "redistribution_status"
+      ],
+      "properties": {
+        "commons_originated_record": {
+          "const": true
+        },
+        "dedication": {
+          "const": "CC0-1.0"
+        },
+        "dedication_scope": {
+          "const": "intentionally_submitted_commons_components_only"
+        },
+        "submitted_component_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "third_party_rights_preserved": {
+          "const": true
+        },
+        "third_party_source_ids": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stable_id"
+          }
+        },
+        "redistribution_status": {
+          "enum": [
+            "permitted",
+            "restricted",
+            "unresolved",
+            "metadata_only"
+          ]
+        }
+      }
+    }
+  }
+}

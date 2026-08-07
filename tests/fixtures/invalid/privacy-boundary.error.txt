@@ -1,0 +1,1 @@
+$.submission_boundary.raw_interaction_records_required: must equal False
