@@ -1,0 +1,130 @@
+{
+  "record_type": "source_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "source_id": "CAL-SOURCE-001",
+  "status": "verified",
+  "source_kind": "idea_origin",
+  "title": "Odd-sum calibration statement duplicate-ID fixture",
+  "citation": "Deliberate duplicate identifier regression fixture; not a second source.",
+  "languages": [
+    "en"
+  ],
+  "authority_status": "primary_source",
+  "verification_status": "independently_checked",
+  "created_at": "2026-08-07T10:00:00Z",
+  "updated_at": "2026-08-07T10:00:00Z",
+  "locator": {
+    "reference_kind": "repository_artifact",
+    "canonical_reference": "tests/fixtures/invalid_collections/duplicate-id/source-record.json",
+    "accessed_at": "2026-08-07T10:00:00Z",
+    "version_label": "1.0.0"
+  },
+  "integrity": {
+    "hashed_object_description": "Exact UTF-8 bytes of examples/calibration/artifacts/odd-sum-statement.md",
+    "byte_size": 302,
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "5e3f3e1061797bc11c343815c356deb5c1d1c882f1ad65f5eb59e39096a82241"
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "entry_id": "CAL-PROVENANCE-DUPLICATE-001",
+      "kind": "idea_origin",
+      "description": "A deliberately duplicated stable identifier used only to test collection-level uniqueness enforcement.",
+      "originator_label": "Mathematics Commons validator regression fixture",
+      "attribution_status": "verified",
+      "publication_basis": "permission",
+      "recorded_at": "2026-08-07T10:00:00Z"
+    }
+  ],
+  "rights_assessment": {
+    "rights_status": "public_domain",
+    "basis": "The mathematical identity is a public-domain fact; this newly written fixture is Commons-originated CC0 material.",
+    "license_identifier": "CC0-1.0",
+    "jurisdictions_assessed": [
+      "pilot public-domain and copyrightability screen"
+    ],
+    "permissions": {
+      "copying": "permitted",
+      "extraction": "permitted",
+      "translation": "permitted",
+      "redistribution": "permitted",
+      "model_training": "permitted"
+    },
+    "redistribution_status": "permitted",
+    "attribution_requirements": [
+      "Preserve the deliberately invalid fixture context."
+    ],
+    "access_requirements": [],
+    "review_status": "reviewed",
+    "reviewed_at": "2026-08-07T10:00:00Z",
+    "reviewer_id": "CAL-STEWARD-001",
+    "limitations": {
+      "status": "known",
+      "items": [
+        "This is not a distinct source and must be rejected for duplicating CAL-SOURCE-001."
+      ]
+    }
+  },
+  "third_party_components": [
+    {
+      "component_id": "CAL-IDENTITY-DUPLICATE-001",
+      "component_kind": "original_work",
+      "description": "Reference to the elementary odd-sum identity without incorporated protected source text.",
+      "rightsholder_or_source": "Mathematical folklore; no protected source text incorporated",
+      "rights_status": "public_domain",
+      "license_identifier": "Public domain",
+      "permissions": {
+        "copying": "permitted",
+        "extraction": "permitted",
+        "translation": "permitted",
+        "redistribution": "permitted",
+        "model_training": "permitted"
+      },
+      "redistribution_status": "permitted"
+    }
+  ],
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "CAL-SOURCE-DUPLICATE-FIXTURE-001"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_metadata_and_components_only",
+    "submitted_component_ids": [
+      "CAL-SOURCE-001",
+      "CAL-SOURCE-DUPLICATE-FIXTURE-001"
+    ],
+    "third_party_rights_preserved": true,
+    "described_source_content_dedicated_under_cc0": false,
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This deliberately invalid source record exists only to test duplicate stable-ID rejection."
+    ]
+  }
+}

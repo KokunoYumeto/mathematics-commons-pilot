@@ -1,0 +1,90 @@
+name: Volunteer for the first pilot
+description: Offer a bounded contribution or independent-review lane for the proposed 30-day pilot.
+title: "[Pilot volunteer]: "
+labels: ["pilot-volunteer", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The live pilot has not started. This form records public capacity; it does not assign authority or a packet. Share only information you are comfortable publishing.
+  - type: input
+    id: handle
+    attributes:
+      label: Public attribution handle
+      description: A real name is not required. Give the public name or pseudonym to use in project records.
+    validations:
+      required: true
+  - type: checkboxes
+    id: lanes
+    attributes:
+      label: Contribution lanes
+      description: Select every lane in which you could make or independently review a bounded contribution.
+      options:
+        - label: Problem-statement and definition audit
+        - label: Literature, citation, or open-status reconciliation
+        - label: Informal proof reconstruction or adversarial checking
+        - label: Counterexample search or exact computation
+        - label: Lean, Coq, or another formalization system
+        - label: Formal-statement correspondence review
+        - label: Reproducibility, software, GitHub, or security review
+        - label: Rights, provenance, attribution, or archival review
+        - label: Exposition, accessibility, or language work
+        - label: Stewardship, triage, release, or mirror operations
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Relevant experience and boundaries
+      description: Describe the topics, tools, languages, or review facets you can cover and what you should not be assigned. Credentials are optional; concrete scope is more useful.
+    validations:
+      required: true
+  - type: dropdown
+    id: envelope
+    attributes:
+      label: Typical capacity envelope
+      description: This scopes work; it does not change evidentiary standards or voting weight.
+      options:
+        - Light — up to roughly 2 hours per packet
+        - Standard — up to roughly 8 hours per packet
+        - Extended — up to roughly 20 hours with steward agreement
+        - Specialized — capability-specific scope to be agreed first
+    validations:
+      required: true
+  - type: textarea
+    id: availability
+    attributes:
+      label: Availability during one 30-day cycle
+      description: Give a rough number of packets or reviews and any scheduling limits. Do not disclose private account, employment, health, or financial details.
+    validations:
+      required: true
+  - type: textarea
+    id: conflicts
+    attributes:
+      label: Relevant conflicts or independence limits
+      description: Identify only conflicts relevant to proposed mathematics, sources, tools, employers, collaborators, or prior work; write "none known" if appropriate.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Access or accommodation needs
+      description: Optional. State a practical need such as language, low-bandwidth materials, file format, schedule, or tooling. Do not include sensitive personal details.
+  - type: textarea
+    id: tools
+    attributes:
+      label: AI and software you may use
+      description: A sanitized capability summary is enough. Do not paste credentials, private prompts, transcripts, chain-of-thought, personal data, or unrelated local material.
+    validations:
+      required: true
+  - type: checkboxes
+    id: commitments
+    attributes:
+      label: Pilot commitments
+      options:
+        - label: I understand that model agreement is not evidence of truth and that I may not approve my own produced packet.
+          required: true
+        - label: I will work only from a steward-issued, version-bound packet and respect its scope, rights, resource, and publication boundaries.
+          required: true
+        - label: I understand that each new component I intentionally submit is dedicated under CC0 to the extent legally possible, while third-party rights remain unchanged.
+          required: true

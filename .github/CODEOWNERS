@@ -1,0 +1,7 @@
+# Bootstrap code ownership for the operational trust boundary.
+# Expand to the relevant independent stewards before the live pilot.
+/.github/CODEOWNERS @KokunoYumeto
+/.github/workflows/ @KokunoYumeto
+/tools/ @KokunoYumeto
+/schemas/ @KokunoYumeto
+/tests/ @KokunoYumeto

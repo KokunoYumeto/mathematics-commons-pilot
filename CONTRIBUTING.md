@@ -4,7 +4,7 @@ The project welcomes criticism, corrections, technical help, mathematical propos
 
 ## Current scope
 
-The current work is to design and test a GitHub-native pilot for selected Erdős/open problems and community conjectures. The broad archive, translation, one-click onboarding, and local volunteer-compute ideas are recorded future programs.
+The current work is to review and calibrate the GitHub-native operational MVP, recruit stewards and reviewers, and select six to ten records spanning selected Erdős/comparable open problems and precise community conjectures. The broad archive, translation, one-click onboarding, and local volunteer-compute ideas are recorded future programs.
 
 ## Good first contributions
 
@@ -14,6 +14,12 @@ The current work is to design and test a GitHub-native pilot for selected Erdős
 - Propose a calibration problem with an exact source and bounded useful tasks.
 - Suggest a reviewer or public-infrastructure partner.
 - Improve the GitHub workflow without adding unnecessary platform complexity.
+- Run the calibration schemas, validator, CLI, and adversarial tests from a clean clone and report a reproducible failure.
+- Review whether one record field or transition gate actually captures the mathematical or operational obligation it claims to enforce.
+
+## Working a Research Packet
+
+Do not start mathematical research from an issue comment alone. A steward must first commit and assign an exact packet with a live lease, branch, base commit, outputs, acceptance commands, resource caps, rights boundary, and independent-review route. Follow [NODE_HANDOFF.md](NODE_HANDOFF.md). The CLI may reject a handoff even when a JSON file is structurally valid; that refusal is a safety gate, not an invitation to bypass it.
 
 ## Submission standard
 

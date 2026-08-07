@@ -1,0 +1,1 @@
+$.submission_rights.third_party_rights_preserved: must equal True

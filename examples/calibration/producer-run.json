@@ -1,0 +1,208 @@
+{
+  "record_type": "run_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "run_id": "CAL-RUN-PRODUCER-001",
+  "packet_ref": {
+    "packet_id": "CAL-PACKET-001",
+    "record_version": "1.3.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "1288c636347affbafaa6d78b9bd67f337cb2b9c3f3ec2103225f73c7506ef0b7"
+      }
+    ]
+  },
+  "status": "completed",
+  "started_at": "2026-08-07T17:20:00Z",
+  "recorded_at": "2026-08-07T17:35:00Z",
+  "elapsed_seconds": 900,
+  "responsible_operator_id": "CAL-CONTRIBUTOR-001",
+  "responsibility_statement": "The operator accepts responsibility for the submitted proof artifact and its sanitized run disclosure.",
+  "functional_task_specification": "Produce a short elementary proof of the frozen odd-sum identity, explicitly cover n equals zero, and make no novelty or open-problem claim.",
+  "disclosure_attestation": {
+    "sanitized_task_conditions_supplied": true,
+    "material_tool_use_disclosed": true,
+    "material_human_interventions_disclosed": true,
+    "raw_prompt_history_required": false,
+    "raw_transcript_required": false,
+    "claim_depends_on_undisclosed_private_material": false
+  },
+  "tool_disclosures": [
+    {
+      "tool_id": "CAL-TOOL-EDITOR-001",
+      "category": "editor",
+      "name": "Local plain-text editor",
+      "version": "not recorded",
+      "version_status": "unavailable",
+      "role": [
+        "other"
+      ],
+      "execution_location": "local",
+      "network_used": false,
+      "provider": "not applicable",
+      "data_sent_categories": [
+        "none"
+      ],
+      "provider_retention_status": "not_applicable",
+      "provider_training_use_status": "not_applicable",
+      "limitations": {
+        "status": "known",
+        "items": [
+          "Editor version is immaterial to the mathematical check and was not recorded."
+        ]
+      }
+    }
+  ],
+  "material_human_interventions": [
+    {
+      "intervention_id": "CAL-INTERVENTION-SCOPE-001",
+      "role": "task_selection",
+      "description": "Selected a closed elementary identity to avoid any open-problem or novelty claim."
+    },
+    {
+      "intervention_id": "CAL-INTERVENTION-CHECK-001",
+      "role": "self_check",
+      "description": "Checked the algebraic simplification and the n equals zero boundary convention."
+    },
+    {
+      "intervention_id": "CAL-INTERVENTION-SUBMIT-001",
+      "role": "submission_approval",
+      "description": "Approved only the two allowlisted calibration artifacts and sanitized records for submission."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "CAL-SOURCE-FILE-001",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "5e3f3e1061797bc11c343815c356deb5c1d1c882f1ad65f5eb59e39096a82241"
+        }
+      ]
+    }
+  ],
+  "output_artifacts": [
+    {
+      "artifact_id": "CAL-EVIDENCE-001",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "b59df765f4e03a7bb69a9f876d3cb00399d91a72fe04e4e4a1a88ad98c31d8ee"
+        }
+      ]
+    }
+  ],
+  "workspace_revision": {
+    "version_control": "git",
+    "revision": "3fd7a29560e78ac3ecaa131707b61727c25ae9fd",
+    "working_tree_status": "modified"
+  },
+  "reproduction_steps": [
+    {
+      "step_id": "CAL-STEP-ALGEBRA-001",
+      "description": "Expand the odd-number sum as twice the sum of one through n minus n.",
+      "expected_result": "The expression simplifies to n squared."
+    },
+    {
+      "step_id": "CAL-STEP-BOUNDARY-001",
+      "description": "Evaluate the empty sum at n equals zero.",
+      "expected_result": "Both sides equal zero."
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CAL-CHECK-PRODUCER-ALGEBRA",
+      "method": "Manual symbolic simplification using the finite arithmetic-series identity.",
+      "status": "passed",
+      "evidence_artifact_refs": [
+        {
+          "artifact_id": "CAL-EVIDENCE-001",
+          "record_version": "1.0.0",
+          "hashes": [
+            {
+              "algorithm": "sha256",
+              "digest": "b59df765f4e03a7bb69a9f876d3cb00399d91a72fe04e4e4a1a88ad98c31d8ee"
+            }
+          ]
+        }
+      ],
+      "notes": "The calculation gives 2 times n(n+1)/2 minus n, hence n squared."
+    },
+    {
+      "check_id": "CAL-CHECK-PRODUCER-BOUNDARY",
+      "method": "Direct inspection of the empty-sum convention.",
+      "status": "passed",
+      "evidence_artifact_refs": [
+        {
+          "artifact_id": "CAL-EVIDENCE-001",
+          "record_version": "1.0.0",
+          "hashes": [
+            {
+              "algorithm": "sha256",
+              "digest": "b59df765f4e03a7bb69a9f876d3cb00399d91a72fe04e4e4a1a88ad98c31d8ee"
+            }
+          ]
+        }
+      ],
+      "notes": "The n equals zero case is explicit in the artifact."
+    }
+  ],
+  "resources": {
+    "paid_spend": 0,
+    "cpu_seconds": 1,
+    "peak_ram_bytes": 1048576,
+    "gpu_seconds": 0,
+    "storage_bytes": 489,
+    "upload_bytes": 0,
+    "resource_envelope": "light",
+    "network_calls_status": "none",
+    "compute_summary": "Human-readable elementary algebra; no numerical or model computation.",
+    "monetary_cost_status": "not_applicable",
+    "energy_reporting_status": "not_proportionate"
+  },
+  "disclosure_gaps": [],
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "CAL-EVIDENCE-001"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "CAL-RUN-PRODUCER-001",
+      "CAL-EVIDENCE-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "CAL-SOURCE-001"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This run tests record plumbing and elementary checking only."
+    ]
+  }
+}

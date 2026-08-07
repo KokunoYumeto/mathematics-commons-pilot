@@ -2,11 +2,11 @@
 
 ## Current task boundary
 
-This repository is in concept-draft status. Do not claim that the Mathematics Commons is operational, Leiden-certified, peer-reviewed, or mathematically authoritative. Do not claim that any open problem has been solved through this repository.
+This repository contains a published concept and an operational-MVP implementation with an elementary calibration example. The live Mathematics Commons pilot has not started. Do not claim that the project is an operational distributed network, Leiden-certified, journal-peer-reviewed, or mathematically authoritative. Do not claim that any open problem has been solved through this repository.
 
 ## Before doing work
 
-1. Read `README.md`, `STATUS.md`, `CONTRIBUTING.md`, `RIGHTS.md`, and the exact issue or future Research Packet assigned to you.
+1. Read `README.md`, `STATUS.md`, `CONTRIBUTING.md`, `RIGHTS.md`, `PILOT_OPERATIONS.md`, `NODE_HANDOFF.md`, and the exact committed Research Packet assigned to you.
 2. Preserve the distinction between current pilot requirements and future conceptual directions.
 3. Treat all mathematical, bibliographic, legal, and historical claims as requiring direct evidence.
 4. Disclose material model, tool, date, and human-intervention information.
@@ -27,4 +27,4 @@ This repository is in concept-draft status. Do not claim that the Mathematics Co
 
 ## Current contribution types
 
-At concept stage, help by reviewing the white paper, Leiden mapping, GitHub design, rights policy, or pilot scope. Once packets exist, follow the exact packet schema and acceptance checks.
+Help by reviewing the concept, Leiden mapping, rights policy, record contract, validator, calibration fixtures, security boundary, or pilot scope. Research work requires a steward-assigned committed packet in a live `packets/` queue, an active lease, an exact clean branch, explicit operational limits, and a reserved independent-review lane. Follow the packet and [node handoff](NODE_HANDOFF.md), not an improvised prompt.

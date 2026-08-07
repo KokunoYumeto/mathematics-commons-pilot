@@ -1,0 +1,24 @@
+* text=auto eol=lf
+
+# Record identities normalize JSON line endings, while evidence-artifact hashes
+# remain exact-byte. Force public text checkouts to LF so declared artifact bytes
+# are reproducible on Windows, macOS, and Linux.
+*.cff text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.txt text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Known binary/archive formats must never receive text conversion.
+*.7z -text
+*.gif -text
+*.gz -text
+*.jpeg -text
+*.jpg -text
+*.pdf -text
+*.png -text
+*.tar -text
+*.webp -text
+*.zip -text

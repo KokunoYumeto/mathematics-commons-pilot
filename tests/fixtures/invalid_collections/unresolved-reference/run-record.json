@@ -1,0 +1,119 @@
+{
+  "record_type": "run_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "run_id": "CAL-RUN-UNRESOLVED-001",
+  "packet_ref": {
+    "packet_id": "CAL-PACKET-MISSING",
+    "record_version": "1.0.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "13de8e9815c30ae94710d8d79b6dd301d0b7554b5395918b9afdcfbcc6a21056"
+      }
+    ]
+  },
+  "status": "completed",
+  "started_at": "2026-08-07T10:00:00Z",
+  "recorded_at": "2026-08-07T10:01:00Z",
+  "elapsed_seconds": 60,
+  "responsible_operator_id": "CAL-ADVERSARY-001",
+  "responsibility_statement": "This deliberately invalid fixture tests fail-closed resolution of packet references.",
+  "functional_task_specification": "Attempt to bind a schema-valid run record to a packet identifier that is absent from the collection.",
+  "disclosure_attestation": {
+    "sanitized_task_conditions_supplied": true,
+    "material_tool_use_disclosed": true,
+    "material_human_interventions_disclosed": true,
+    "raw_prompt_history_required": false,
+    "raw_transcript_required": false,
+    "claim_depends_on_undisclosed_private_material": false
+  },
+  "tool_disclosures": [],
+  "material_human_interventions": [
+    {
+      "intervention_id": "CAL-ADVERSARY-INTERVENTION-001",
+      "role": "task_selection",
+      "description": "Constructed a public regression fixture with an intentionally unresolved packet identifier."
+    }
+  ],
+  "input_artifacts": [
+    {
+      "artifact_id": "CAL-SOURCE-FILE-001",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "5e3f3e1061797bc11c343815c356deb5c1d1c882f1ad65f5eb59e39096a82241"
+        }
+      ]
+    }
+  ],
+  "output_artifacts": [],
+  "workspace_revision": {
+    "version_control": "git",
+    "revision": "e0018d84847c53068cf0e37f7935a4f91eddfbe2",
+    "working_tree_status": "modified"
+  },
+  "reproduction_steps": [
+    {
+      "step_id": "CAL-ADVERSARY-STEP-001",
+      "description": "Validate this record together with the calibration collection.",
+      "expected_result": "Semantic validation rejects the absent packet identifier."
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "CAL-ADVERSARY-CHECK-001",
+      "method": "Schema validation before semantic collection validation.",
+      "status": "passed",
+      "evidence_artifact_refs": [],
+      "notes": "The fixture is intentionally schema-valid so the semantic reference check is reached."
+    }
+  ],
+  "resources": {
+    "resource_envelope": "light",
+    "network_calls_status": "none",
+    "compute_summary": "Static regression fixture only.",
+    "monetary_cost_status": "not_applicable",
+    "energy_reporting_status": "not_proportionate"
+  },
+  "disclosure_gaps": [],
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "CAL-RUN-UNRESOLVED-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "CAL-SOURCE-001"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This is a deliberately invalid semantic regression fixture, not a research result."
+    ]
+  }
+}

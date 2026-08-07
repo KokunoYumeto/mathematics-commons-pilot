@@ -1,0 +1,195 @@
+{
+  "record_type": "research_packet",
+  "schema_version": "0.1.0",
+  "record_version": "1.3.0",
+  "packet_id": "CAL-PACKET-001",
+  "project_id": "MC-PILOT-CALIBRATION",
+  "subject_ids": [
+    "CAL-ODD-SUM-IDENTITY"
+  ],
+  "kind": "proof_attempt",
+  "status": "in_progress",
+  "lease": {
+    "status": "active",
+    "generation": 1,
+    "claimant_id": "CAL-CONTRIBUTOR-001",
+    "claimed_at": "2026-08-07T17:10:00Z",
+    "expires_at": "2026-08-07T19:10:00Z",
+    "base_commit": "3fd7a29560e78ac3ecaa131707b61727c25ae9fd",
+    "branch_name": "calibration/odd-sum-proof"
+  },
+  "created_at": "2026-08-07T17:00:00Z",
+  "updated_at": "2026-08-07T17:20:00Z",
+  "scope": {
+    "question": "Give a short, independently checkable proof that the sum of the first n positive odd integers is n squared for every integer n at least zero.",
+    "included_work": [
+      "State the identity with the n equals zero convention.",
+      "Give an elementary algebraic derivation.",
+      "Make the calibration-only and no-novelty status explicit."
+    ],
+    "excluded_work": [
+      "Do not claim novelty, open-problem progress, historical priority, or broad model capability.",
+      "Do not use private transcripts or unrelated local context."
+    ],
+    "stop_conditions": [
+      "A proof artifact covers all integers n at least zero.",
+      "The exact artifact bytes and checks are recorded.",
+      "An independent mathematical reconstruction review is complete."
+    ],
+    "continuation_cursor": "proof construction underway"
+  },
+  "dependencies": [
+    {
+      "record_type": "problem_record",
+      "record_id": "CAL-ODD-SUM-IDENTITY",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "96c8168791b395280f73a687ffe2066d2e7e2007c3d9ab6dc2b52759b78a75ce"
+        }
+      ]
+    }
+  ],
+  "source_inputs": [
+    {
+      "source_record_id": "CAL-SOURCE-001",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "4e34f3608317fe92fccd3eef891f41036b322ca05e11f23ab81768e3c398ef84"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "artifact_id": "CAL-EVIDENCE-001",
+      "kind": "mathematical_argument",
+      "description": "A short elementary proof with the n equals zero boundary case and no-novelty disclaimer.",
+      "media_type": "text/markdown",
+      "required": true
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "criterion_id": "CAL-CRITERION-ALGEBRA",
+      "description": "The algebraic derivation is valid for every integer n at least one.",
+      "verification_method": "manual_reconstruction",
+      "required_evidence_kinds": [
+        "mathematical_argument"
+      ],
+      "mandatory": true
+    },
+    {
+      "criterion_id": "CAL-CRITERION-BOUNDARY",
+      "description": "The n equals zero empty-sum convention is stated and checked.",
+      "verification_method": "adversarial_check",
+      "required_evidence_kinds": [
+        "mathematical_argument"
+      ],
+      "mandatory": true
+    }
+  ],
+  "capability": {
+    "envelope": "light",
+    "maximum_hours": 1,
+    "network_access": "none",
+    "code_execution": "forbidden",
+    "required_tools": [],
+    "required_competencies": [
+      "elementary algebra"
+    ]
+  },
+  "risk": {
+    "mathematical": "low",
+    "security": "low",
+    "privacy": "low",
+    "rights": "low",
+    "ethical": "low",
+    "publicity": "low"
+  },
+  "review_plan": {
+    "required_review_types": [
+      "mathematical_reconstruction"
+    ],
+    "minimum_reviewers": 1,
+    "independent_reviewer_required": true,
+    "producer_may_accept_own_work": false,
+    "version_bound_review_required": true
+  },
+  "formalization_plan": {
+    "expectation": "none",
+    "formal_acceptance_review": "not_applicable",
+    "statement_correspondence_review": "not_applicable",
+    "separate_reviews_required": true
+  },
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "CAL-EVIDENCE-001"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "CAL-PACKET-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "CAL-SOURCE-001"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "responsible_steward_id": "CAL-STEWARD-001",
+  "credit_roles": [
+    {
+      "contributor_id": "CAL-STEWARD-001",
+      "role": "packet_design"
+    },
+    {
+      "contributor_id": "CAL-CONTRIBUTOR-001",
+      "role": "other"
+    }
+  ],
+  "limitations": {
+    "status": "known",
+    "items": [
+      "The packet validates workflow mechanics only and provides no evidence about open-problem research capability."
+    ]
+  },
+  "execution_limits": {
+    "allowed_output_paths": [
+      "work/CAL-PACKET-001/odd-sum-proof.md"
+    ],
+    "acceptance_commands": [],
+    "maximum_paid_spend": 0,
+    "maximum_cpu_seconds": 3600,
+    "maximum_ram_bytes": 1073741824,
+    "maximum_gpu_seconds": 0,
+    "maximum_storage_bytes": 10485760,
+    "maximum_upload_bytes": 0
+  }
+}
