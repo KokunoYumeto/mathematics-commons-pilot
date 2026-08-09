@@ -51,7 +51,7 @@ jobs:
       - name: Validate the exact approved interlanguage adoption snapshot
         run: >-
           python tools/validate_adoption_snapshot.py
-          tests/fixtures/interlanguage-adoption/1ecde9651d5fa508c5a3c0056021bfa89c4ea888
+          tests/fixtures/interlanguage-adoption/5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0
           --limit 1
 
       - name: Validate calibration, default collection, and CLI projection

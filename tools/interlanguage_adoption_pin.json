@@ -1,13 +1,11 @@
 {
   "schema": "mathematics-commons-adoption-pin-v2",
   "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
-  "approved_snapshot_commit": "1ecde9651d5fa508c5a3c0056021bfa89c4ea888",
-  "approved_snapshot_tree": "8962d9c5a74ed9758d9e551e0ac3da174aab16c0",
-  "content_source_commit": "24fe25af7e593dee03280c46cf941ec6d83a4f84",
-  "content_source_tree": "cc8bbb2b79ae84125ab85e7713b86a53cf76cf03",
-  "validation_context_commit": "9a892452bba8f484ccef449c2d6d6dd49f05e41d",
-  "validation_context_role": "producer_recorded_precommit_context_not_publicly_resolvable_not_a_trust_anchor",
-  "evidence_closure_commit": "1ecde9651d5fa508c5a3c0056021bfa89c4ea888",
+  "approved_snapshot_commit": "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0",
+  "approved_snapshot_tree": "739cb174f6a9efb262923c7f09cd69c09f7d5529",
+  "content_source_commit": "ae59d85d406d52448eacc0794916b34c8189a739",
+  "content_source_tree": "4452635bf293d379e55652280781c3d077615fab",
+  "evidence_closure_commit": "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0",
   "evidence_base_commit": "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53",
   "map_observation_commit": "61b9d5cab6441b8fa02e34630d7145a916f0ea37",
   "discovery_ref": "main",
@@ -22,20 +20,20 @@
     {
       "role": "board",
       "path": "manifests/adopt.json",
-      "bytes": 81818,
-      "sha256": "37a58ce18133d99d7492753e795f146d6764611c88682c0ce813a3ea05035fb7"
+      "bytes": 82281,
+      "sha256": "bba918fd8255d07af7a312577d7cf92be1052f8fe39f2c1caa9afb8be05f2a6e"
     },
     {
       "role": "schema",
       "path": "manifests/adopt.schema.json",
-      "bytes": 17236,
-      "sha256": "9512088cc7a823c0470b0931e68a2bf1cf9095e94577288ba530c2c164ac3b9a"
+      "bytes": 18528,
+      "sha256": "c0a4527e8b32649a7792e7eee0d192c2e80dc373ff4d98270173304af55de996"
     },
     {
       "role": "check",
       "path": "manifests/adopt.check.json",
-      "bytes": 5005,
-      "sha256": "4b45b540aa243d623737fcdeeedc4b8a60cbd1b4b8ff758627c263cb5ff35ee5"
+      "bytes": 5661,
+      "sha256": "013f6766aab6c0dfec598af03fde64a00bcc3225cc1f90f14abf8abfa3baec56"
     },
     {
       "role": "map_manifest",
@@ -47,8 +45,8 @@
   "optional_human_projection": {
     "role": "human_board",
     "path": "docs/adopt.md",
-    "bytes": 28917,
-    "sha256": "006e210d24b79945543b46942a9230dd938705418a146eb80fe0ce7f6751e9c7",
+    "bytes": 30105,
+    "sha256": "8996cc8bdcdddfd72e10865386b3555bb2edf065f1e8a6421cac4cdc155cec7c",
     "machine_required": false
   },
   "optional_consumer_helper_identity": {
@@ -72,19 +70,33 @@
     "sha256": "100f8d72f2f6beedd979c69d99bfc519b8d19351e73ae01516b1e86bd32591b6",
     "machine_required": false
   },
+  "optional_claim_regression_identity": {
+    "role": "claim_regression",
+    "path": "scripts/test-claims.py",
+    "bytes": 7501,
+    "sha256": "22cd1c6fe9b42310b830b0299acc2e09f2c6a41d37ad078332281f63e279f1aa",
+    "machine_required": false
+  },
+  "optional_continuous_validation_identity": {
+    "role": "continuous_validation",
+    "path": ".github/workflows/adopt.yml",
+    "bytes": 3546,
+    "sha256": "0c3c179bae2b83862f9a5f4bb05a34c8e4256ff41c069958ef1babebcb357bcf",
+    "machine_required": false
+  },
   "sealed_public_receipts": [
     {
-      "role": "claims_offline_readback",
-      "path": "manifests/published-github/20260809_claims_offline_rb.json",
-      "bytes": 7154,
-      "sha256": "9085b14d5bfb872b0cbfd8c43929844ecbb124802bc1ebe50e81470f999b020a",
+      "role": "continuous_validation_readback",
+      "path": "manifests/published-github/20260809_adopt_ci_rb.json",
+      "bytes": 7332,
+      "sha256": "ad7e38d1604e7e5f5e6ed31848117b8d3d8ec2210610329f1d27d31e929499b1",
       "machine_required": false
     },
     {
       "role": "source_link_audit",
-      "path": "manifests/github-custody/20260809_links_r27.json",
+      "path": "manifests/github-custody/20260809_links_r28.json",
       "bytes": 10767,
-      "sha256": "96d6574817c13981d5c4f030d76039259103907bbdd2e264778126b0809f0f35",
+      "sha256": "93745d9cc5f64f148ecdcaec026a52c4cb6da87dd323bade03264cf5f6df89de",
       "machine_required": false
     }
   ],
@@ -109,13 +121,14 @@
     "human_index_series": 16,
     "human_index_languages": 16,
     "human_index_corpora": 21,
-    "repository_path_checks": 133,
-    "tracked_repository_paths": 133,
+    "repository_path_checks": 135,
+    "tracked_repository_paths": 135,
     "issue_labels": 4,
     "issue_label_templates": 6,
     "consumer_modes": 2,
     "claim_auditor_board_modes": 2,
     "claim_auditor_issue_modes": 2,
+    "continuous_validation_checks": 4,
     "workflow_registry": 14,
     "workflow_tokens_used": 14,
     "unreferenced_workflows": 0,

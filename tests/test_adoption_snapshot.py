@@ -24,12 +24,29 @@ PRODUCTION_FIXTURE = (
     / "tests"
     / "fixtures"
     / "interlanguage-adoption"
-    / "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+    / "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0"
 )
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 import validate_adoption_snapshot as adoption  # noqa: E402
+
+
+CLAIM_REGRESSION_PATH = "scripts/test-claims.py"
+PRODUCTION_WORKTREE_BASE_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+CONTINUOUS_VALIDATION = {
+    "workflow": ".github/workflows/adopt.yml",
+    "checkout": "blobless_sparse_metadata",
+    "events": ["pull_request", "push_main", "workflow_dispatch"],
+    "checks": [
+        "board_schema_maps",
+        "exact_local_consumer",
+        "promisor_no_lazy_fetch",
+        "claim_lifecycle_fixtures",
+    ],
+    "pinned_actions": True,
+    "corpus_builds": False,
+}
 
 
 def json_bytes(value: object) -> bytes:
@@ -129,7 +146,7 @@ class SnapshotFixture:
     tree = "1" * 40
     content_commit = "2" * 40
     content_tree = "3" * 40
-    validation_commit = "b" * 40
+    worktree_base_commit = "b" * 40
     evidence_commit = "c" * 40
     map_commit = "d" * 40
     evidence_closure_commit = commit
@@ -176,13 +193,14 @@ class SnapshotFixture:
             "human_index_series": 0,
             "human_index_languages": 1,
             "human_index_corpora": 1,
-            "repository_path_checks": 31,
-            "tracked_repository_paths": 31,
+            "repository_path_checks": 33,
+            "tracked_repository_paths": 33,
             "issue_labels": 4,
             "issue_label_templates": len(adoption.ISSUE_TEMPLATE_PATHS),
             "consumer_modes": len(adoption.CONSUMER_MODES),
             "claim_auditor_board_modes": len(adoption.CLAIM_AUDITOR_MODES["board"]),
             "claim_auditor_issue_modes": len(adoption.CLAIM_AUDITOR_MODES["issues"]),
+            "continuous_validation_checks": len(CONTINUOUS_VALIDATION["checks"]),
             "workflow_registry": len(adoption.WORKFLOW_IDS),
             "workflow_tokens_used": len(adoption.WORKFLOW_IDS),
             "unreferenced_workflows": 0,
@@ -240,6 +258,8 @@ class SnapshotFixture:
             "consumer_regression": adoption.CONSUMER_REGRESSION_PATH,
             "claim_auditor": adoption.CLAIM_AUDITOR_PATH,
             "claim_auditor_modes": copy.deepcopy(adoption.CLAIM_AUDITOR_MODES),
+            "claim_regression": CLAIM_REGRESSION_PATH,
+            "continuous_validation": copy.deepcopy(CONTINUOUS_VALIDATION),
             "claim_interface": adoption.CLAIM_URL,
             "handback_interface": adoption.HANDBACK_URL,
             "human_workflows": adoption.HUMAN_WORKFLOWS_PATH,
@@ -298,6 +318,49 @@ class SnapshotFixture:
                             "maxItems": len(modes),
                         }
                         for key, modes in adoption.CLAIM_AUDITOR_MODES.items()
+                    },
+                    "additionalProperties": False,
+                },
+                "claim_regression": {"const": CLAIM_REGRESSION_PATH},
+                "continuous_validation": {
+                    "type": "object",
+                    "required": [
+                        "workflow",
+                        "checkout",
+                        "events",
+                        "checks",
+                        "pinned_actions",
+                        "corpus_builds",
+                    ],
+                    "properties": {
+                        "workflow": {"const": CONTINUOUS_VALIDATION["workflow"]},
+                        "checkout": {"const": CONTINUOUS_VALIDATION["checkout"]},
+                        "events": {
+                            "type": "array",
+                            "prefixItems": [
+                                {"const": value}
+                                for value in CONTINUOUS_VALIDATION["events"]
+                            ],
+                            "items": False,
+                            "minItems": len(CONTINUOUS_VALIDATION["events"]),
+                            "maxItems": len(CONTINUOUS_VALIDATION["events"]),
+                        },
+                        "checks": {
+                            "type": "array",
+                            "prefixItems": [
+                                {"const": value}
+                                for value in CONTINUOUS_VALIDATION["checks"]
+                            ],
+                            "items": False,
+                            "minItems": len(CONTINUOUS_VALIDATION["checks"]),
+                            "maxItems": len(CONTINUOUS_VALIDATION["checks"]),
+                        },
+                        "pinned_actions": {
+                            "const": CONTINUOUS_VALIDATION["pinned_actions"]
+                        },
+                        "corpus_builds": {
+                            "const": CONTINUOUS_VALIDATION["corpus_builds"]
+                        },
                     },
                     "additionalProperties": False,
                 },
@@ -453,7 +516,9 @@ class SnapshotFixture:
             "status": "PASS",
             "errors": [],
             "observed_date": "2026-08-09",
-            "observed_commit": self.validation_commit,
+            "input_mode": "named_worktree_files",
+            "worktree_base_commit": self.worktree_base_commit,
+            "worktree_dirty": True,
             "board": {},
             "schema_file": {},
             "map_manifest": {},
@@ -473,6 +538,8 @@ class SnapshotFixture:
             "consumer_regression": adoption.CONSUMER_REGRESSION_PATH,
             "claim_auditor": adoption.CLAIM_AUDITOR_PATH,
             "claim_auditor_modes": copy.deepcopy(adoption.CLAIM_AUDITOR_MODES),
+            "claim_regression": CLAIM_REGRESSION_PATH,
+            "continuous_validation": copy.deepcopy(CONTINUOUS_VALIDATION),
             "ownership_policy": copy.deepcopy(adoption.OWNERSHIP_POLICY),
             "queue_snapshot": [
                 {"path": path, "bytes": size, "sha256": digest}
@@ -571,8 +638,6 @@ class SnapshotFixture:
             "approved_snapshot_tree": self.tree,
             "content_source_commit": self.content_commit,
             "content_source_tree": self.content_tree,
-            "validation_context_commit": self.validation_commit,
-            "validation_context_role": adoption.PRODUCTION_VALIDATION_CONTEXT_ROLE,
             "evidence_closure_commit": self.evidence_closure_commit,
             "evidence_base_commit": self.evidence_commit,
             "map_observation_commit": self.map_commit,
@@ -608,10 +673,24 @@ class SnapshotFixture:
                 "sha256": "4" * 64,
                 "machine_required": False,
             },
+            "optional_claim_regression_identity": {
+                "role": "claim_regression",
+                "path": CLAIM_REGRESSION_PATH,
+                "bytes": 657,
+                "sha256": "3" * 64,
+                "machine_required": False,
+            },
+            "optional_continuous_validation_identity": {
+                "role": "continuous_validation",
+                "path": CONTINUOUS_VALIDATION["workflow"],
+                "bytes": 658,
+                "sha256": "2" * 64,
+                "machine_required": False,
+            },
             "sealed_public_receipts": [
                 {
-                    "role": "claims_offline_readback",
-                    "path": "manifests/published-github/test-claims-offline-readback.json",
+                    "role": "continuous_validation_readback",
+                    "path": "manifests/published-github/test-adopt-ci-readback.json",
                     "bytes": 456,
                     "sha256": "7" * 64,
                     "machine_required": False,
@@ -665,14 +744,8 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertEqual(
             pin["content_source_tree"], adoption.PRODUCTION_CONTENT_SOURCE_TREE
         )
-        self.assertEqual(
-            pin["validation_context_commit"],
-            adoption.PRODUCTION_VALIDATION_CONTEXT_COMMIT,
-        )
-        self.assertEqual(
-            pin["validation_context_role"],
-            adoption.PRODUCTION_VALIDATION_CONTEXT_ROLE,
-        )
+        self.assertNotIn("validation_context_commit", pin)
+        self.assertNotIn("validation_context_role", pin)
         self.assertEqual(
             pin["evidence_closure_commit"], pin["approved_snapshot_commit"]
         )
@@ -683,6 +756,14 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 adoption.CONSUMER_REGRESSION_IDENTITY,
             ),
             ("optional_claim_auditor_identity", adoption.CLAIM_AUDITOR_IDENTITY),
+            (
+                "optional_claim_regression_identity",
+                adoption.CLAIM_REGRESSION_IDENTITY,
+            ),
+            (
+                "optional_continuous_validation_identity",
+                adoption.CONTINUOUS_VALIDATION_IDENTITY,
+            ),
         )
         for field, expected in optional_identities:
             with self.subTest(field=field):
@@ -725,22 +806,32 @@ class AdoptionSnapshotTests(unittest.TestCase):
             )
             rendered = adoption._render_text(snapshot, selected)  # noqa: SLF001
         self.assertEqual(snapshot.aggregate["items"], 46)
-        self.assertEqual(snapshot.aggregate["repository_path_checks"], 133)
-        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 133)
+        self.assertEqual(snapshot.aggregate["repository_path_checks"], 135)
+        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 135)
         self.assertEqual(snapshot.aggregate["claim_auditor_board_modes"], 2)
         self.assertEqual(snapshot.aggregate["claim_auditor_issue_modes"], 2)
+        self.assertEqual(snapshot.aggregate["continuous_validation_checks"], 4)
+        self.assertEqual(snapshot.check["input_mode"], "named_worktree_files")
+        self.assertEqual(
+            snapshot.check["worktree_base_commit"], PRODUCTION_WORKTREE_BASE_COMMIT
+        )
+        self.assertIs(snapshot.check["worktree_dirty"], True)
+        self.assertNotIn("observed_commit", snapshot.check)
         self.assertEqual([item["id"] for item in selected], ["gauss-werke-ii"])
         self.assertIn(adoption.PRODUCTION_APPROVED_COMMIT, rendered)
         self.assertIn("[ready_for_adoption; high; exact_cursor]", rendered)
         self.assertIn("pinned archive: https://github.com/", rendered)
+        self.assertNotIn("validation context", rendered.lower())
+        self.assertNotIn("not publicly resolvable", rendered.lower())
 
     def test_generated_snapshot_passes_compiled_contract(self) -> None:
         snapshot = self.fixture.validate()
         self.assertEqual(snapshot.aggregate["items"], 3)
-        self.assertEqual(snapshot.aggregate["repository_path_checks"], 31)
-        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 31)
+        self.assertEqual(snapshot.aggregate["repository_path_checks"], 33)
+        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 33)
         self.assertEqual(snapshot.aggregate["claim_auditor_board_modes"], 2)
         self.assertEqual(snapshot.aggregate["claim_auditor_issue_modes"], 2)
+        self.assertEqual(snapshot.aggregate["continuous_validation_checks"], 4)
         self.assertEqual(snapshot.check["status"], "PASS")
 
     def test_default_projection_is_ready_only_and_deterministic(self) -> None:
@@ -779,18 +870,24 @@ class AdoptionSnapshotTests(unittest.TestCase):
             payload["interfaces"]["claim_auditor_modes"],
             adoption.CLAIM_AUDITOR_MODES,
         )
+        self.assertEqual(
+            payload["interfaces"]["claim_regression"], CLAIM_REGRESSION_PATH
+        )
+        self.assertEqual(
+            payload["interfaces"]["continuous_validation"], CONTINUOUS_VALIDATION
+        )
         self.assertEqual(payload["source"]["approved_snapshot_tree"], self.fixture.tree)
         self.assertEqual(
             payload["source"]["content_source_commit"], self.fixture.content_commit
         )
+        self.assertEqual(payload["source"]["input_mode"], "named_worktree_files")
         self.assertEqual(
-            payload["source"]["validation_context_commit"],
-            self.fixture.validation_commit,
+            payload["source"]["worktree_base_commit"], self.fixture.worktree_base_commit
         )
-        self.assertEqual(
-            payload["source"]["validation_context_role"],
-            adoption.PRODUCTION_VALIDATION_CONTEXT_ROLE,
-        )
+        self.assertIs(payload["source"]["worktree_dirty"], True)
+        self.assertNotIn("validation_context_commit", payload["source"])
+        self.assertNotIn("validation_context_role", payload["source"])
+        self.assertNotIn("observed_commit", payload["source"])
         self.assertEqual(len(payload["source"]["contract_files"]), 4)
         self.assertIs(
             payload["source"]["optional_human_projection"]["machine_required"], False
@@ -809,12 +906,27 @@ class AdoptionSnapshotTests(unittest.TestCase):
             payload["source"]["optional_claim_auditor_identity"]["machine_required"],
             False,
         )
+        self.assertIs(
+            payload["source"]["optional_claim_regression_identity"]["machine_required"],
+            False,
+        )
+        self.assertIs(
+            payload["source"]["optional_continuous_validation_identity"][
+                "machine_required"
+            ],
+            False,
+        )
         self.assertEqual(
             payload["source"]["optional_code_identities_role"],
             "non_input_executable_provenance_only_not_a_trust_anchor",
         )
         self.assertEqual(len(payload["source"]["sealed_public_receipts"]), 2)
-        self.assertNotIn("record_type", json.dumps(payload))
+        serialized = json.dumps(payload)
+        self.assertNotIn("record_type", serialized)
+        self.assertNotIn("validation_context_commit", serialized)
+        self.assertNotIn("validation_context_role", serialized)
+        self.assertNotIn("observed_commit", serialized)
+        self.assertNotIn("not_publicly_resolvable", serialized)
 
     def test_support_and_receipts_are_provenance_not_additional_inputs(self) -> None:
         snapshot = self.fixture.validate()
@@ -823,6 +935,8 @@ class AdoptionSnapshotTests(unittest.TestCase):
             "optional_consumer_helper_identity",
             "optional_consumer_regression_identity",
             "optional_claim_auditor_identity",
+            "optional_claim_regression_identity",
+            "optional_continuous_validation_identity",
         )
         support_paths = [snapshot.pin[field]["path"] for field in support_fields]
         receipt_paths = [
@@ -873,6 +987,18 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 ),
             ),
             (
+                "optional_claim_regression_identity",
+                lambda pin: pin["optional_claim_regression_identity"].__setitem__(
+                    "sha256", "0" * 64
+                ),
+            ),
+            (
+                "optional_continuous_validation_identity",
+                lambda pin: pin["optional_continuous_validation_identity"].__setitem__(
+                    "bytes", pin["optional_continuous_validation_identity"]["bytes"] + 1
+                ),
+            ),
+            (
                 "sealed_public_receipts",
                 lambda pin: pin["sealed_public_receipts"][0].__setitem__(
                     "sha256", "0" * 64
@@ -908,34 +1034,52 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertTrue(any("approved bounded byte length" in item for item in error.errors))
         self.assertNotIn(hashlib.sha256(tampered).hexdigest(), "\n".join(error.errors))
 
-    def test_mixed_revision_check_file_is_rejected_even_when_it_says_pass(self) -> None:
-        self.fixture.check["observed_commit"] = "f" * 40
+    def test_unbound_check_state_tampering_is_rejected_even_when_it_says_pass(self) -> None:
+        self.fixture.check["worktree_dirty"] = False
         self.fixture.write("check", self.fixture.check)
         self.assert_validation_error("snapshot file manifests/adopt.check.json")
 
-    def test_rebound_check_must_still_bind_validation_source(self) -> None:
-        self.fixture.check["observed_commit"] = "f" * 40
-        self.fixture.rebind()
-        self.assert_validation_error("observed_commit")
-
-    def test_validation_context_must_remain_qualified_as_non_trust_anchor(self) -> None:
-        for name, mutate in (
-            (
-                "wrong",
-                lambda pin: pin.__setitem__("validation_context_role", "public_trust_anchor"),
-            ),
-            ("missing", lambda pin: pin.pop("validation_context_role")),
-        ):
+    def test_rebound_check_requires_explicit_named_worktree_state(self) -> None:
+        mutations = (
+            ("input-mode", "input_mode", "other_mode", "input_mode"),
+            ("malformed-base", "worktree_base_commit", "Z" * 40, "worktree_base_commit"),
+            ("dirty-false", "worktree_dirty", False, "worktree_dirty"),
+        )
+        for name, field, value, fragment in mutations:
             with self.subTest(name=name):
+                child = self.root / f"check-state-{name}"
+                fixture = SnapshotFixture(child)
+                fixture.check[field] = value
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn(fragment, "\n".join(caught.exception.errors))
+
+        for field in ("input_mode", "worktree_base_commit", "worktree_dirty"):
+            with self.subTest(missing=field):
+                child = self.root / f"check-state-missing-{field}"
+                fixture = SnapshotFixture(child)
+                fixture.check.pop(field)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn(f"missing required keys ['{field}']", "\n".join(caught.exception.errors))
+
+    def test_obsolete_validation_context_and_observed_commit_are_rejected(self) -> None:
+        for field, value in (
+            ("validation_context_commit", "f" * 40),
+            ("validation_context_role", "public_trust_anchor"),
+        ):
+            with self.subTest(pin_field=field):
                 pin = copy.deepcopy(self.fixture.pin)
-                mutate(pin)
+                pin[field] = value
                 with self.assertRaises(adoption.SnapshotValidationError) as caught:
                     adoption.validate_snapshot(self.root, pin=pin, production=False)
-                joined = "\n".join(caught.exception.errors)
-                if name == "missing":
-                    self.assertIn("missing required keys ['validation_context_role']", joined)
-                else:
-                    self.assertIn("pin.validation_context_role", joined)
+                self.assertIn("pin: contains undeclared keys", "\n".join(caught.exception.errors))
+
+        self.fixture.check["observed_commit"] = "f" * 40
+        self.fixture.rebind()
+        self.assert_validation_error("contains undeclared keys ['observed_commit']")
 
     def test_pass_with_nonempty_errors_is_rejected(self) -> None:
         self.fixture.check["errors"] = ["hidden failure"]
@@ -953,6 +1097,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 "must equal 'scripts/test-adopt-offline.py'",
             ),
             ("claim_auditor", "scripts/other-auditor.py", "must equal 'scripts/check-claims.py'"),
+            ("claim_regression", "scripts/other-claims.py", "must equal 'scripts/test-claims.py'"),
         )
         for field, value, fragment in mutations:
             with self.subTest(field=field):
@@ -970,6 +1115,20 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.fixture.write("board", self.fixture.board)
         self.fixture.rebind()
         self.assert_validation_error("missing required keys ['consumer_regression']")
+
+    def test_missing_claim_regression_and_continuous_validation_are_rejected(self) -> None:
+        for field in ("claim_regression", "continuous_validation"):
+            with self.subTest(field=field):
+                child = self.root / f"missing-{field}"
+                fixture = SnapshotFixture(child)
+                fixture.board.pop(field)
+                fixture.write("board", fixture.board)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn(
+                    f"missing required keys ['{field}']", "\n".join(caught.exception.errors)
+                )
 
     def test_consumer_modes_reject_wrong_reversed_and_extra_ordering(self) -> None:
         mutations = (
@@ -1015,6 +1174,40 @@ class AdoptionSnapshotTests(unittest.TestCase):
                     fixture.validate()
                 self.assertIn("board.claim_auditor_modes", "\n".join(caught.exception.errors))
 
+    def test_continuous_validation_rejects_every_contract_drift(self) -> None:
+        def set_field(field: str, value: object):
+            return lambda contract: contract.__setitem__(field, value)
+
+        mutations = (
+            ("workflow", set_field("workflow", ".github/workflows/other.yml")),
+            ("checkout", set_field("checkout", "full_checkout")),
+            (
+                "events-reversed",
+                set_field("events", list(reversed(CONTINUOUS_VALIDATION["events"]))),
+            ),
+            ("events-extra", set_field("events", [*CONTINUOUS_VALIDATION["events"], "schedule"])),
+            ("events-missing", set_field("events", CONTINUOUS_VALIDATION["events"][:-1])),
+            (
+                "checks-reversed",
+                set_field("checks", list(reversed(CONTINUOUS_VALIDATION["checks"]))),
+            ),
+            ("checks-extra", set_field("checks", [*CONTINUOUS_VALIDATION["checks"], "corpus_build"])),
+            ("checks-missing", set_field("checks", CONTINUOUS_VALIDATION["checks"][:-1])),
+            ("unpinned-actions", set_field("pinned_actions", False)),
+            ("corpus-builds", set_field("corpus_builds", True)),
+            ("extra-field", set_field("surprise", True)),
+        )
+        for name, mutate in mutations:
+            with self.subTest(name=name):
+                child = self.root / f"continuous-validation-{name}"
+                fixture = SnapshotFixture(child)
+                mutate(fixture.board["continuous_validation"])
+                fixture.write("board", fixture.board)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn("continuous_validation", "\n".join(caught.exception.errors))
+
     def test_board_and_check_new_transport_bindings_must_match(self) -> None:
         mutations = (
             (
@@ -1030,6 +1223,19 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 },
                 "validation check.claim_auditor_modes",
             ),
+            (
+                "claim_regression",
+                "scripts/other-claims.py",
+                "validation check.claim_regression",
+            ),
+            (
+                "continuous_validation",
+                {
+                    **copy.deepcopy(CONTINUOUS_VALIDATION),
+                    "pinned_actions": False,
+                },
+                "validation check.continuous_validation",
+            ),
         )
         for field, value, fragment in mutations:
             with self.subTest(field=field):
@@ -1042,6 +1248,19 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 joined = "\n".join(caught.exception.errors)
                 self.assertIn(fragment, joined)
                 self.assertIn("does not match the validation receipt", joined)
+
+    def test_check_requires_claim_regression_and_continuous_validation(self) -> None:
+        for field in ("claim_regression", "continuous_validation"):
+            with self.subTest(field=field):
+                child = self.root / f"check-missing-{field}"
+                fixture = SnapshotFixture(child)
+                fixture.check.pop(field)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn(
+                    f"missing required keys ['{field}']", "\n".join(caught.exception.errors)
+                )
 
     def test_schema_consumer_mode_contract_drift_is_rejected(self) -> None:
         self.fixture.schema["properties"]["consumer_modes"]["prefixItems"] = [
@@ -1079,6 +1298,71 @@ class AdoptionSnapshotTests(unittest.TestCase):
                     fixture.validate()
                 self.assertIn(fragment, "\n".join(caught.exception.errors))
 
+    def test_schema_claim_regression_and_continuous_validation_are_closed_exactly(self) -> None:
+        def cv(schema: dict[str, object]) -> dict[str, object]:
+            return schema["properties"]["continuous_validation"]
+
+        def wrong_claim_regression(schema: dict[str, object]) -> None:
+            schema["properties"]["claim_regression"]["const"] = "scripts/other.py"
+
+        def drop_top_required(schema: dict[str, object]) -> None:
+            schema["required"].remove("continuous_validation")
+
+        def drop_inner_required(schema: dict[str, object]) -> None:
+            cv(schema)["required"].remove("workflow")
+
+        def wrong_workflow(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["workflow"]["const"] = ".github/workflows/other.yml"
+
+        def wrong_checkout(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["checkout"]["const"] = "full_checkout"
+
+        def reverse_events(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["events"]["prefixItems"].reverse()
+
+        def open_events(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["events"]["items"] = {}
+
+        def reverse_checks(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["checks"]["prefixItems"].reverse()
+
+        def loosen_check_count(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["checks"]["maxItems"] += 1
+
+        def unpin_actions(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["pinned_actions"]["const"] = False
+
+        def permit_corpus_builds(schema: dict[str, object]) -> None:
+            cv(schema)["properties"]["corpus_builds"]["const"] = True
+
+        def open_object(schema: dict[str, object]) -> None:
+            cv(schema)["additionalProperties"] = True
+
+        mutations = (
+            ("wrong-claim-regression", wrong_claim_regression, "properties.claim_regression"),
+            ("drop-top-required", drop_top_required, "required"),
+            ("drop-inner-required", drop_inner_required, "properties.continuous_validation"),
+            ("wrong-workflow", wrong_workflow, "properties.continuous_validation"),
+            ("wrong-checkout", wrong_checkout, "properties.continuous_validation"),
+            ("reverse-events", reverse_events, "properties.continuous_validation"),
+            ("open-events", open_events, "properties.continuous_validation"),
+            ("reverse-checks", reverse_checks, "properties.continuous_validation"),
+            ("loosen-check-count", loosen_check_count, "properties.continuous_validation"),
+            ("unpin-actions", unpin_actions, "properties.continuous_validation"),
+            ("permit-corpus-builds", permit_corpus_builds, "properties.continuous_validation"),
+            ("open-object", open_object, "properties.continuous_validation"),
+        )
+        for name, mutate, fragment in mutations:
+            with self.subTest(name=name):
+                child = self.root / f"schema-continuous-{name}"
+                fixture = SnapshotFixture(child)
+                mutate(fixture.schema)
+                fixture.write("schema", fixture.schema)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                self.assertIn(fragment, "\n".join(caught.exception.errors))
+
     def test_consumer_mode_aggregate_drift_is_rejected(self) -> None:
         self.fixture.check["aggregate"]["consumer_modes"] = 3
         self.fixture.rebind()
@@ -1098,6 +1382,13 @@ class AdoptionSnapshotTests(unittest.TestCase):
                     "\n".join(caught.exception.errors),
                 )
 
+    def test_continuous_validation_aggregate_drift_is_rejected(self) -> None:
+        self.fixture.check["aggregate"]["continuous_validation_checks"] = 5
+        self.fixture.rebind()
+        self.assert_validation_error(
+            "validation check.aggregate.continuous_validation_checks"
+        )
+
     def test_consumer_regression_check_flag_must_be_present_and_true(self) -> None:
         for name, mutate in (
             (
@@ -1114,6 +1405,25 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 with self.assertRaises(adoption.SnapshotValidationError) as caught:
                     fixture.validate()
                 self.assertIn("validation check.checks", "\n".join(caught.exception.errors))
+
+    def test_claim_regression_and_continuous_validation_flags_must_be_present_and_true(
+        self,
+    ) -> None:
+        for field in ("claim_regression_contract", "continuous_validation_contract"):
+            for name, mutate in (
+                ("false", lambda checks, field=field: checks.__setitem__(field, False)),
+                ("missing", lambda checks, field=field: checks.pop(field)),
+            ):
+                with self.subTest(field=field, name=name):
+                    child = self.root / f"{field}-{name}"
+                    fixture = SnapshotFixture(child)
+                    mutate(fixture.check["checks"])
+                    fixture.rebind()
+                    with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                        fixture.validate()
+                    self.assertIn(
+                        "validation check.checks", "\n".join(caught.exception.errors)
+                    )
 
     def test_human_projection_receipt_is_pinned_but_not_a_fifth_input(self) -> None:
         self.fixture.check["human_board"]["bytes"] = 999
@@ -1268,7 +1578,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
                     fixture.validate()
                 joined = "\n".join(caught.exception.errors)
                 self.assertIn(f"validation check.aggregate.{field}", joined)
-                self.assertIn("does not match pin value 31", joined)
+                self.assertIn("does not match pin value 33", joined)
 
     def test_symlinked_required_file_is_rejected(self) -> None:
         original = self.fixture.paths["board"]

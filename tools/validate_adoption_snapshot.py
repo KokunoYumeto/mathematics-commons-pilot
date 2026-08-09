@@ -64,32 +64,30 @@ BIDI_FORMATTING_CODEPOINTS = {
     *range(0x2066, 0x206A),
 }
 
-PRODUCTION_APPROVED_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
-PRODUCTION_APPROVED_TREE = "8962d9c5a74ed9758d9e551e0ac3da174aab16c0"
-PRODUCTION_CONTENT_SOURCE_COMMIT = "24fe25af7e593dee03280c46cf941ec6d83a4f84"
-PRODUCTION_CONTENT_SOURCE_TREE = "cc8bbb2b79ae84125ab85e7713b86a53cf76cf03"
-PRODUCTION_VALIDATION_CONTEXT_COMMIT = "9a892452bba8f484ccef449c2d6d6dd49f05e41d"
-PRODUCTION_VALIDATION_CONTEXT_ROLE = (
-    "producer_recorded_precommit_context_not_publicly_resolvable_not_a_trust_anchor"
-)
+PRODUCTION_APPROVED_COMMIT = "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0"
+PRODUCTION_APPROVED_TREE = "739cb174f6a9efb262923c7f09cd69c09f7d5529"
+PRODUCTION_CONTENT_SOURCE_COMMIT = "ae59d85d406d52448eacc0794916b34c8189a739"
+PRODUCTION_CONTENT_SOURCE_TREE = "4452635bf293d379e55652280781c3d077615fab"
+PRODUCTION_WORKTREE_BASE_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+VALIDATION_INPUT_MODE = "named_worktree_files"
 PRODUCTION_EVIDENCE_CLOSURE_COMMIT = PRODUCTION_APPROVED_COMMIT
 PRODUCTION_EVIDENCE_BASE_COMMIT = "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53"
 PRODUCTION_MAP_OBSERVATION_COMMIT = "61b9d5cab6441b8fa02e34630d7145a916f0ea37"
 PRODUCTION_FILE_IDENTITIES = {
     "board": (
         "manifests/adopt.json",
-        81818,
-        "37a58ce18133d99d7492753e795f146d6764611c88682c0ce813a3ea05035fb7",
+        82281,
+        "bba918fd8255d07af7a312577d7cf92be1052f8fe39f2c1caa9afb8be05f2a6e",
     ),
     "schema": (
         "manifests/adopt.schema.json",
-        17236,
-        "9512088cc7a823c0470b0931e68a2bf1cf9095e94577288ba530c2c164ac3b9a",
+        18528,
+        "c0a4527e8b32649a7792e7eee0d192c2e80dc373ff4d98270173304af55de996",
     ),
     "check": (
         "manifests/adopt.check.json",
-        5005,
-        "4b45b540aa243d623737fcdeeedc4b8a60cbd1b4b8ff758627c263cb5ff35ee5",
+        5661,
+        "013f6766aab6c0dfec598af03fde64a00bcc3225cc1f90f14abf8abfa3baec56",
     ),
     "map_manifest": (
         "manifests/github-custody/20260807_maps_r5.json",
@@ -118,13 +116,14 @@ PRODUCTION_EXPECTED_AGGREGATE = {
     "human_index_series": 16,
     "human_index_languages": 16,
     "human_index_corpora": 21,
-    "repository_path_checks": 133,
-    "tracked_repository_paths": 133,
+    "repository_path_checks": 135,
+    "tracked_repository_paths": 135,
     "issue_labels": 4,
     "issue_label_templates": 6,
     "consumer_modes": 2,
     "claim_auditor_board_modes": 2,
     "claim_auditor_issue_modes": 2,
+    "continuous_validation_checks": 4,
     "workflow_registry": 14,
     "workflow_tokens_used": 14,
     "unreferenced_workflows": 0,
@@ -149,14 +148,16 @@ HANDBACK_URL = (
 CONSUMER_HELPER_PATH = "scripts/get-adopt.py"
 CONSUMER_REGRESSION_PATH = "scripts/test-adopt-offline.py"
 CLAIM_AUDITOR_PATH = "scripts/check-claims.py"
+CLAIM_REGRESSION_PATH = "scripts/test-claims.py"
+CONTINUOUS_VALIDATION_PATH = ".github/workflows/adopt.yml"
 HUMAN_BOARD_PATH = "docs/adopt.md"
 HUMAN_INDEX_PATH = "docs/adopt-index.md"
 HUMAN_WORKFLOWS_PATH = "docs/adopt-flows.md"
 ISSUE_LABELS_PATH = ".github/labels.json"
 HUMAN_BOARD_IDENTITY = (
     HUMAN_BOARD_PATH,
-    28917,
-    "006e210d24b79945543b46942a9230dd938705418a146eb80fe0ce7f6751e9c7",
+    30105,
+    "8996cc8bdcdddfd72e10865386b3555bb2edf065f1e8a6421cac4cdc155cec7c",
 )
 CONSUMER_HELPER_IDENTITY = (
     CONSUMER_HELPER_PATH,
@@ -172,6 +173,16 @@ CLAIM_AUDITOR_IDENTITY = (
     CLAIM_AUDITOR_PATH,
     13596,
     "100f8d72f2f6beedd979c69d99bfc519b8d19351e73ae01516b1e86bd32591b6",
+)
+CLAIM_REGRESSION_IDENTITY = (
+    CLAIM_REGRESSION_PATH,
+    7501,
+    "22cd1c6fe9b42310b830b0299acc2e09f2c6a41d37ad078332281f63e279f1aa",
+)
+CONTINUOUS_VALIDATION_IDENTITY = (
+    CONTINUOUS_VALIDATION_PATH,
+    3546,
+    "0c3c179bae2b83862f9a5f4bb05a34c8e4256ff41c069958ef1babebcb357bcf",
 )
 HUMAN_INDEX_IDENTITY = (
     HUMAN_INDEX_PATH,
@@ -190,16 +201,16 @@ ISSUE_LABELS_IDENTITY = (
 )
 SEALED_PUBLIC_RECEIPTS = (
     (
-        "claims_offline_readback",
-        "manifests/published-github/20260809_claims_offline_rb.json",
-        7154,
-        "9085b14d5bfb872b0cbfd8c43929844ecbb124802bc1ebe50e81470f999b020a",
+        "continuous_validation_readback",
+        "manifests/published-github/20260809_adopt_ci_rb.json",
+        7332,
+        "ad7e38d1604e7e5f5e6ed31848117b8d3d8ec2210610329f1d27d31e929499b1",
     ),
     (
         "source_link_audit",
-        "manifests/github-custody/20260809_links_r27.json",
+        "manifests/github-custody/20260809_links_r28.json",
         10767,
-        "96d6574817c13981d5c4f030d76039259103907bbdd2e264778126b0809f0f35",
+        "93745d9cc5f64f148ecdcaec026a52c4cb6da87dd323bade03264cf5f6df89de",
     ),
 )
 
@@ -225,6 +236,8 @@ TOP_REQUIRED = (
     "consumer_regression",
     "claim_auditor",
     "claim_auditor_modes",
+    "claim_regression",
+    "continuous_validation",
     "claim_interface",
     "handback_interface",
     "human_workflows",
@@ -306,6 +319,19 @@ CLAIM_AUDITOR_MODES = {
     "board": list(CONSUMER_MODES),
     "issues": ["public_github_api", "json_fixture"],
 }
+CONTINUOUS_VALIDATION = {
+    "workflow": CONTINUOUS_VALIDATION_PATH,
+    "checkout": "blobless_sparse_metadata",
+    "events": ["pull_request", "push_main", "workflow_dispatch"],
+    "checks": [
+        "board_schema_maps",
+        "exact_local_consumer",
+        "promisor_no_lazy_fetch",
+        "claim_lifecycle_fixtures",
+    ],
+    "pinned_actions": True,
+    "corpus_builds": False,
+}
 WORKFLOW_FIELDS = (
     "id",
     "purpose",
@@ -373,6 +399,8 @@ CHECK_FLAGS = {
     "consumer_helper_contract": True,
     "consumer_regression_contract": True,
     "claim_auditor_contract": True,
+    "claim_regression_contract": True,
+    "continuous_validation_contract": True,
     "contributor_interface_contract": True,
     "issue_label_contract": True,
     "workflow_registry_contract": True,
@@ -417,6 +445,7 @@ CHECK_AGGREGATE_FIELDS = (
     "consumer_modes",
     "claim_auditor_board_modes",
     "claim_auditor_issue_modes",
+    "continuous_validation_checks",
     "workflow_registry",
     "workflow_tokens_used",
     "unreferenced_workflows",
@@ -695,8 +724,6 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "approved_snapshot_tree",
         "content_source_commit",
         "content_source_tree",
-        "validation_context_commit",
-        "validation_context_role",
         "evidence_closure_commit",
         "evidence_base_commit",
         "map_observation_commit",
@@ -708,6 +735,8 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "optional_consumer_helper_identity",
         "optional_consumer_regression_identity",
         "optional_claim_auditor_identity",
+        "optional_claim_regression_identity",
+        "optional_continuous_validation_identity",
         "sealed_public_receipts",
         "expected_aggregate",
         "trust_boundary",
@@ -722,13 +751,6 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
     _valid_commit(pin.get("approved_snapshot_tree"), "pin.approved_snapshot_tree", errors)
     _valid_commit(pin.get("content_source_commit"), "pin.content_source_commit", errors)
     _valid_commit(pin.get("content_source_tree"), "pin.content_source_tree", errors)
-    _valid_commit(pin.get("validation_context_commit"), "pin.validation_context_commit", errors)
-    if pin.get("validation_context_role") != PRODUCTION_VALIDATION_CONTEXT_ROLE:
-        _error(
-            errors,
-            "pin.validation_context_role",
-            "must identify the opaque producer-recorded context as a non-trust-anchor",
-        )
     _valid_commit(pin.get("evidence_closure_commit"), "pin.evidence_closure_commit", errors)
     _valid_commit(pin.get("evidence_base_commit"), "pin.evidence_base_commit", errors)
     _valid_commit(pin.get("map_observation_commit"), "pin.map_observation_commit", errors)
@@ -839,6 +861,16 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
             "claim_auditor",
             CLAIM_AUDITOR_IDENTITY,
         ),
+        (
+            "optional_claim_regression_identity",
+            "claim_regression",
+            CLAIM_REGRESSION_IDENTITY,
+        ),
+        (
+            "optional_continuous_validation_identity",
+            "continuous_validation",
+            CONTINUOUS_VALIDATION_IDENTITY,
+        ),
     )
     optional_code_identities: dict[str, Any] = {}
     for field, expected_role, _expected_identity in optional_code_specs:
@@ -940,18 +972,6 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
             _error(errors, "pin.content_source_commit", "does not match the compiled production pin")
         if pin.get("content_source_tree") != PRODUCTION_CONTENT_SOURCE_TREE:
             _error(errors, "pin.content_source_tree", "does not match the compiled production pin")
-        if pin.get("validation_context_commit") != PRODUCTION_VALIDATION_CONTEXT_COMMIT:
-            _error(
-                errors,
-                "pin.validation_context_commit",
-                "does not match the compiled production pin",
-            )
-        if pin.get("validation_context_role") != PRODUCTION_VALIDATION_CONTEXT_ROLE:
-            _error(
-                errors,
-                "pin.validation_context_role",
-                "does not match the compiled validation-context qualification",
-            )
         if pin.get("evidence_closure_commit") != PRODUCTION_EVIDENCE_CLOSURE_COMMIT:
             _error(errors, "pin.evidence_closure_commit", "does not match the compiled production pin")
         if pin.get("evidence_base_commit") != PRODUCTION_EVIDENCE_BASE_COMMIT:
@@ -1310,6 +1330,54 @@ def _validate_schema_document(value: Any, errors: list[str]) -> None:
                 f"{label}.properties.claim_auditor_modes",
                 "does not bind the exact board/issue auditor mode contract",
             )
+        if properties.get("claim_regression", {}).get("const") != CLAIM_REGRESSION_PATH:
+            _error(
+                errors,
+                f"{label}.properties.claim_regression",
+                "does not bind the claim lifecycle regression path",
+            )
+        expected_continuous_validation_schema = {
+            "type": "object",
+            "required": [
+                "workflow",
+                "checkout",
+                "events",
+                "checks",
+                "pinned_actions",
+                "corpus_builds",
+            ],
+            "properties": {
+                "workflow": {"const": CONTINUOUS_VALIDATION["workflow"]},
+                "checkout": {"const": CONTINUOUS_VALIDATION["checkout"]},
+                "events": {
+                    "type": "array",
+                    "prefixItems": [
+                        {"const": value} for value in CONTINUOUS_VALIDATION["events"]
+                    ],
+                    "items": False,
+                    "minItems": len(CONTINUOUS_VALIDATION["events"]),
+                    "maxItems": len(CONTINUOUS_VALIDATION["events"]),
+                },
+                "checks": {
+                    "type": "array",
+                    "prefixItems": [
+                        {"const": value} for value in CONTINUOUS_VALIDATION["checks"]
+                    ],
+                    "items": False,
+                    "minItems": len(CONTINUOUS_VALIDATION["checks"]),
+                    "maxItems": len(CONTINUOUS_VALIDATION["checks"]),
+                },
+                "pinned_actions": {"const": CONTINUOUS_VALIDATION["pinned_actions"]},
+                "corpus_builds": {"const": CONTINUOUS_VALIDATION["corpus_builds"]},
+            },
+            "additionalProperties": False,
+        }
+        if properties.get("continuous_validation") != expected_continuous_validation_schema:
+            _error(
+                errors,
+                f"{label}.properties.continuous_validation",
+                "does not bind the exact closed continuous-validation contract",
+            )
         if properties.get("claim_interface", {}).get("const") != CLAIM_URL:
             _error(errors, f"{label}.properties.claim_interface", "does not bind the claim form")
         if properties.get("handback_interface", {}).get("const") != HANDBACK_URL:
@@ -1623,7 +1691,7 @@ def _validate_workflow_registry(value: Any, errors: list[str]) -> set[str]:
 def _repository_path_references(board: dict[str, Any]) -> list[str]:
     references: list[str] = []
     # schema_url and validation are already counted in same_commit_paths.  This
-    # mirrors the sealed producer check's exact 133-reference accounting.
+    # mirrors the sealed producer check's exact 135-reference accounting.
     for key in (
         "human_board",
         "human_index",
@@ -1631,11 +1699,17 @@ def _repository_path_references(board: dict[str, Any]) -> list[str]:
         "consumer_helper",
         "consumer_regression",
         "claim_auditor",
+        "claim_regression",
         "human_workflows",
     ):
         value = board.get(key)
         if isinstance(value, str) and value:
             references.append(value)
+    continuous_validation = board.get("continuous_validation")
+    if isinstance(continuous_validation, dict):
+        workflow = continuous_validation.get("workflow")
+        if isinstance(workflow, str) and workflow:
+            references.append(workflow)
     authority = board.get("archive_authority")
     if isinstance(authority, dict):
         for key in ARCHIVE_AUTHORITY_FIELDS:
@@ -1693,6 +1767,7 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         "consumer_helper": CONSUMER_HELPER_PATH,
         "consumer_regression": CONSUMER_REGRESSION_PATH,
         "claim_auditor": CLAIM_AUDITOR_PATH,
+        "claim_regression": CLAIM_REGRESSION_PATH,
         "human_workflows": HUMAN_WORKFLOWS_PATH,
     }
     for key, expected in constants.items():
@@ -1778,6 +1853,12 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
             errors,
             "board.claim_auditor_modes",
             "does not match the exact board/issue auditor mode contract",
+        )
+    if value.get("continuous_validation") != CONTINUOUS_VALIDATION:
+        _error(
+            errors,
+            "board.continuous_validation",
+            "does not match the exact closed continuous-validation contract",
         )
 
     expected_enums = {
@@ -1972,6 +2053,12 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         "consumer_modes": len(CONSUMER_MODES),
         "claim_auditor_board_modes": len(CLAIM_AUDITOR_MODES["board"]),
         "claim_auditor_issue_modes": len(CLAIM_AUDITOR_MODES["issues"]),
+        "continuous_validation_checks": (
+            len(value.get("continuous_validation", {}).get("checks", []))
+            if isinstance(value.get("continuous_validation"), dict)
+            and isinstance(value.get("continuous_validation", {}).get("checks"), list)
+            else 0
+        ),
         "workflow_registry": len(workflow_ids),
         "workflow_tokens_used": len(used_workflows),
         "unreferenced_workflows": len(unused_workflows),
@@ -2211,6 +2298,8 @@ def _validate_check(
     aggregate: dict[str, int],
     identities: dict[str, dict[str, Any]],
     errors: list[str],
+    *,
+    production: bool,
 ) -> None:
     label = "validation check"
     required_keys = (
@@ -2218,7 +2307,9 @@ def _validate_check(
         "status",
         "errors",
         "observed_date",
-        "observed_commit",
+        "input_mode",
+        "worktree_base_commit",
+        "worktree_dirty",
         "board",
         "schema_file",
         "map_manifest",
@@ -2232,6 +2323,8 @@ def _validate_check(
         "consumer_regression",
         "claim_auditor",
         "claim_auditor_modes",
+        "claim_regression",
+        "continuous_validation",
         "ownership_policy",
         "queue_snapshot",
         "aggregate",
@@ -2247,8 +2340,29 @@ def _validate_check(
     if value.get("errors") != []:
         _error(errors, f"{label}.errors", "must be an empty array")
     _valid_date(value.get("observed_date"), f"{label}.observed_date", errors)
-    if value.get("observed_commit") != pin.get("validation_context_commit"):
-        _error(errors, f"{label}.observed_commit", "does not match the pinned validation context")
+    if value.get("input_mode") != VALIDATION_INPUT_MODE:
+        _error(
+            errors,
+            f"{label}.input_mode",
+            "must identify validation of the named worktree files",
+        )
+    _valid_commit(
+        value.get("worktree_base_commit"),
+        f"{label}.worktree_base_commit",
+        errors,
+    )
+    if production and value.get("worktree_base_commit") != PRODUCTION_WORKTREE_BASE_COMMIT:
+        _error(
+            errors,
+            f"{label}.worktree_base_commit",
+            "does not match the compiled production predecessor",
+        )
+    if value.get("worktree_dirty") is not True:
+        _error(
+            errors,
+            f"{label}.worktree_dirty",
+            "must preserve the producer's explicit dirty-worktree qualification",
+        )
 
     declarations = {
         "board": ("board", "schema", "math-commons-adoption-v1"),
@@ -2356,6 +2470,26 @@ def _validate_check(
         )
     if board.get("claim_auditor_modes") != value.get("claim_auditor_modes"):
         _error(errors, "board.claim_auditor_modes", "does not match the validation receipt")
+    if value.get("claim_regression") != CLAIM_REGRESSION_PATH:
+        _error(
+            errors,
+            f"{label}.claim_regression",
+            "does not match the compiled claim lifecycle regression path",
+        )
+    if board.get("claim_regression") != value.get("claim_regression"):
+        _error(errors, "board.claim_regression", "does not match the validation receipt")
+    if value.get("continuous_validation") != CONTINUOUS_VALIDATION:
+        _error(
+            errors,
+            f"{label}.continuous_validation",
+            "does not match the exact closed continuous-validation contract",
+        )
+    if board.get("continuous_validation") != value.get("continuous_validation"):
+        _error(
+            errors,
+            "board.continuous_validation",
+            "does not match the validation receipt",
+        )
     if value.get("ownership_policy") != OWNERSHIP_POLICY:
         _error(errors, f"{label}.ownership_policy", "does not match the ownership contract")
     if board.get("ownership_policy") != value.get("ownership_policy"):
@@ -2466,7 +2600,15 @@ def validate_snapshot(
     aggregate = _validate_board(board, pin, errors)
     if isinstance(board, dict):
         _validate_map_manifest(map_manifest, board, pin, errors)
-        _validate_check(check, pin, board, aggregate, identities, errors)
+        _validate_check(
+            check,
+            pin,
+            board,
+            aggregate,
+            identities,
+            errors,
+            production=production,
+        )
     else:
         _error(errors, "board", "must be an object")
     if errors:
@@ -2578,8 +2720,9 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "approved_snapshot_tree": snapshot.pin["approved_snapshot_tree"],
             "content_source_commit": snapshot.pin["content_source_commit"],
             "content_source_tree": snapshot.pin["content_source_tree"],
-            "validation_context_commit": snapshot.pin["validation_context_commit"],
-            "validation_context_role": snapshot.pin["validation_context_role"],
+            "input_mode": snapshot.check["input_mode"],
+            "worktree_base_commit": snapshot.check["worktree_base_commit"],
+            "worktree_dirty": snapshot.check["worktree_dirty"],
             "evidence_closure_commit": snapshot.pin["evidence_closure_commit"],
             "evidence_base_commit": snapshot.pin["evidence_base_commit"],
             "map_observation_commit": snapshot.pin["map_observation_commit"],
@@ -2596,6 +2739,12 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             ),
             "optional_claim_auditor_identity": dict(
                 snapshot.pin["optional_claim_auditor_identity"]
+            ),
+            "optional_claim_regression_identity": dict(
+                snapshot.pin["optional_claim_regression_identity"]
+            ),
+            "optional_continuous_validation_identity": dict(
+                snapshot.pin["optional_continuous_validation_identity"]
             ),
             "optional_code_identities_role": (
                 "non_input_executable_provenance_only_not_a_trust_anchor"
@@ -2622,6 +2771,8 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "consumer_regression": snapshot.board["consumer_regression"],
             "claim_auditor": snapshot.board["claim_auditor"],
             "claim_auditor_modes": snapshot.board["claim_auditor_modes"],
+            "claim_regression": snapshot.board["claim_regression"],
+            "continuous_validation": snapshot.board["continuous_validation"],
         },
         "application_http_api_requests_performed": 0,
         "snapshot_storage_requirement": "caller_supplied_local_non_on_demand_private_directory",
@@ -2636,8 +2787,9 @@ def _render_text(snapshot: ValidatedSnapshot, items: list[dict[str, Any]]) -> st
         f"approved snapshot: {snapshot.pin['approved_snapshot_commit']}",
         f"content source: {snapshot.pin['content_source_commit']}",
         (
-            f"validation context: {snapshot.pin['validation_context_commit']} "
-            "(producer-recorded precommit context; not publicly resolvable; not a trust anchor)"
+            f"producer validation input: {snapshot.check['input_mode']} on a "
+            f"dirty worktree based at {snapshot.check['worktree_base_commit']} "
+            "(receipt context; not snapshot authority)"
         ),
         (
             "board: "
