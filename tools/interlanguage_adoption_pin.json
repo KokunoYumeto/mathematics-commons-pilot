@@ -1,11 +1,13 @@
 {
-  "schema": "mathematics-commons-adoption-pin-v2",
+  "schema": "mathematics-commons-adoption-pin-v3",
   "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
-  "approved_snapshot_commit": "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0",
-  "approved_snapshot_tree": "739cb174f6a9efb262923c7f09cd69c09f7d5529",
-  "content_source_commit": "ae59d85d406d52448eacc0794916b34c8189a739",
-  "content_source_tree": "4452635bf293d379e55652280781c3d077615fab",
-  "evidence_closure_commit": "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0",
+  "approved_snapshot_commit": "06f918eee33729f760b1459934f9a50c2aca9e31",
+  "approved_snapshot_tree": "a95aa9fce519b23a0db47aa1fb61df44c19da002",
+  "content_source_commit": "10d2df083bf0b47b758d5f094b6fcaeed9167011",
+  "content_source_tree": "035f7fa3151f7071639190d9afc12b8ad3bbf040",
+  "first_complete_contract_commit": "62b13062c7b3deea30fd924d6cf585fd637a58f8",
+  "first_complete_contract_tree": "e65c8dd8000abdb02f31949e1fed5d73ced3d22d",
+  "evidence_closure_commit": "06f918eee33729f760b1459934f9a50c2aca9e31",
   "evidence_base_commit": "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53",
   "map_observation_commit": "61b9d5cab6441b8fa02e34630d7145a916f0ea37",
   "discovery_ref": "main",
@@ -20,8 +22,8 @@
     {
       "role": "board",
       "path": "manifests/adopt.json",
-      "bytes": 82281,
-      "sha256": "bba918fd8255d07af7a312577d7cf92be1052f8fe39f2c1caa9afb8be05f2a6e"
+      "bytes": 114084,
+      "sha256": "c76ec481adef9e6aeec048e5a7efd0bc4f8f0e318952ae68fad7075e68c3c9ee"
     },
     {
       "role": "schema",
@@ -32,8 +34,8 @@
     {
       "role": "check",
       "path": "manifests/adopt.check.json",
-      "bytes": 5661,
-      "sha256": "013f6766aab6c0dfec598af03fde64a00bcc3225cc1f90f14abf8abfa3baec56"
+      "bytes": 5664,
+      "sha256": "cf6ee9c81aac5114e6a91d8f4e0cc095677477418a8c74a2dc20923c524e6368"
     },
     {
       "role": "map_manifest",
@@ -45,8 +47,15 @@
   "optional_human_projection": {
     "role": "human_board",
     "path": "docs/adopt.md",
-    "bytes": 30105,
-    "sha256": "8996cc8bdcdddfd72e10865386b3555bb2edf065f1e8a6421cac4cdc155cec7c",
+    "bytes": 34850,
+    "sha256": "8a5af3586a61df4cdc2b2eb270273462da75e8e6f59d0ab13a38931c67e9b3c4",
+    "machine_required": false
+  },
+  "optional_human_index_projection": {
+    "role": "human_index",
+    "path": "docs/adopt-index.md",
+    "bytes": 21392,
+    "sha256": "bb3985c85dd5f20602096a3e341aeadf42951c123a61cc683e58ea63755f2334",
     "machine_required": false
   },
   "optional_consumer_helper_identity": {
@@ -86,43 +95,43 @@
   },
   "sealed_public_receipts": [
     {
-      "role": "continuous_validation_readback",
-      "path": "manifests/published-github/20260809_adopt_ci_rb.json",
-      "bytes": 7332,
-      "sha256": "ad7e38d1604e7e5f5e6ed31848117b8d3d8ec2210610329f1d27d31e929499b1",
+      "role": "scope_source_readback",
+      "path": "manifests/published-github/20260809_scope_rb.json",
+      "bytes": 7322,
+      "sha256": "65eed606572ce7fa01d6e0868da263b53ae009129fcf683e89b74e0cde5f038e",
       "machine_required": false
     },
     {
-      "role": "source_link_audit",
-      "path": "manifests/github-custody/20260809_links_r28.json",
-      "bytes": 10767,
-      "sha256": "93745d9cc5f64f148ecdcaec026a52c4cb6da87dd323bade03264cf5f6df89de",
+      "role": "scope_exact_contract_closure",
+      "path": "manifests/published-github/20260809_scope_close.json",
+      "bytes": 3745,
+      "sha256": "e4d1148b269a9239818fdc15090e2de758597a3ad8c2464b96984ff7ccdc8f58",
       "machine_required": false
     }
   ],
   "expected_aggregate": {
-    "items": 46,
+    "items": 66,
     "mirrors": 0,
-    "current_work": 3,
-    "ready_for_adoption": 38,
+    "current_work": 8,
+    "ready_for_adoption": 53,
     "future": 5,
     "required_maps": 19,
     "queue_sources": 2,
     "queue_snapshot_sources": 2,
     "queue_snapshot_bytes": 93584,
-    "human_board_rows": 46,
-    "represented_human_board_items": 46,
+    "human_board_rows": 66,
+    "represented_human_board_items": 66,
     "missing_human_board_items": 0,
     "unknown_human_board_ids": 0,
     "duplicate_human_board_ids": 0,
-    "human_index_rows": 46,
-    "human_index_authors": 38,
-    "human_index_works": 46,
-    "human_index_series": 16,
-    "human_index_languages": 16,
+    "human_index_rows": 66,
+    "human_index_authors": 43,
+    "human_index_works": 66,
+    "human_index_series": 18,
+    "human_index_languages": 20,
     "human_index_corpora": 21,
-    "repository_path_checks": 135,
-    "tracked_repository_paths": 135,
+    "repository_path_checks": 214,
+    "tracked_repository_paths": 214,
     "issue_labels": 4,
     "issue_label_templates": 6,
     "consumer_modes": 2,
@@ -132,8 +141,8 @@
     "workflow_registry": 14,
     "workflow_tokens_used": 14,
     "unreferenced_workflows": 0,
-    "named_owner_rows": 3,
-    "unclaimed_owner_rows": 43
+    "named_owner_rows": 8,
+    "unclaimed_owner_rows": 58
   },
   "trust_boundary": {
     "application_http_api_fetch": "forbidden",

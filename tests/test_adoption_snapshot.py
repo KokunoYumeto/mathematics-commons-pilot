@@ -24,7 +24,7 @@ PRODUCTION_FIXTURE = (
     / "tests"
     / "fixtures"
     / "interlanguage-adoption"
-    / "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0"
+    / "06f918eee33729f760b1459934f9a50c2aca9e31"
 )
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
@@ -33,7 +33,53 @@ import validate_adoption_snapshot as adoption  # noqa: E402
 
 
 CLAIM_REGRESSION_PATH = "scripts/test-claims.py"
-PRODUCTION_WORKTREE_BASE_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+PRODUCTION_WORKTREE_BASE_COMMIT = "10d2df083bf0b47b758d5f094b6fcaeed9167011"
+PRODUCTION_FIRST_COMPLETE_CONTRACT_COMMIT = (
+    "62b13062c7b3deea30fd924d6cf585fd637a58f8"
+)
+PRODUCTION_FIRST_COMPLETE_CONTRACT_TREE = (
+    "e65c8dd8000abdb02f31949e1fed5d73ced3d22d"
+)
+PRODUCTION_PREDECESSOR_COMMIT = "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0"
+PRODUCTION_SOURCE_CHECK_IDENTITY = (
+    5663,
+    "21584e4bf46e6fcdcef38ae637026d58c82aac8bc45d1afff5d9070b3c0b8dfa",
+)
+RETIRED_UMBRELLA_ITEM_IDS = (
+    "noether-multilingual",
+    "grothendieck-school",
+)
+NOETHER_SCOPE_ITEM_IDS = (
+    "noether-de-auth",
+    "noether-en",
+    "noether-es",
+    "noether-fr",
+    "noether-ru",
+    "noether-uk",
+    "noether-isv",
+    "noether-ko-review",
+    "noether-ko-p09",
+    "noether-zh-r5",
+    "noether-zh-hant",
+    "noether-ja",
+    "noether-ar-p06",
+    "noether-fa-p06",
+    "noether-id-p36",
+    "noether-vi-p01",
+)
+GROTHENDIECK_SCOPE_ITEM_IDS = (
+    "ega-0-iv",
+    "fga-foundements",
+    "verdier-thesis",
+    "tohoku-paper",
+    "illusie-cotangent-i-ii",
+    "deligne-papers-letters",
+)
+PRODUCTION_CURRENT_ITEM_IDS = (
+    "noether-de-auth",
+    *GROTHENDIECK_SCOPE_ITEM_IDS,
+    "weber-algebra",
+)
 CONTINUOUS_VALIDATION = {
     "workflow": ".github/workflows/adopt.yml",
     "checkout": "blobless_sparse_metadata",
@@ -146,7 +192,9 @@ class SnapshotFixture:
     tree = "1" * 40
     content_commit = "2" * 40
     content_tree = "3" * 40
-    worktree_base_commit = "b" * 40
+    first_complete_contract_commit = "4" * 40
+    first_complete_contract_tree = "5" * 40
+    worktree_base_commit = PRODUCTION_WORKTREE_BASE_COMMIT
     evidence_commit = "c" * 40
     map_commit = "d" * 40
     evidence_closure_commit = commit
@@ -518,7 +566,7 @@ class SnapshotFixture:
             "observed_date": "2026-08-09",
             "input_mode": "named_worktree_files",
             "worktree_base_commit": self.worktree_base_commit,
-            "worktree_dirty": True,
+            "worktree_dirty": False,
             "board": {},
             "schema_file": {},
             "map_manifest": {},
@@ -632,12 +680,14 @@ class SnapshotFixture:
             for role in ("board", "schema", "check", "map_manifest")
         ]
         self.pin = {
-            "schema": "mathematics-commons-adoption-pin-v2",
+            "schema": "mathematics-commons-adoption-pin-v3",
             "repository": adoption.REPOSITORY_URL,
             "approved_snapshot_commit": self.commit,
             "approved_snapshot_tree": self.tree,
             "content_source_commit": self.content_commit,
             "content_source_tree": self.content_tree,
+            "first_complete_contract_commit": self.first_complete_contract_commit,
+            "first_complete_contract_tree": self.first_complete_contract_tree,
             "evidence_closure_commit": self.evidence_closure_commit,
             "evidence_base_commit": self.evidence_commit,
             "map_observation_commit": self.map_commit,
@@ -650,6 +700,13 @@ class SnapshotFixture:
                 "path": adoption.HUMAN_BOARD_PATH,
                 "bytes": 321,
                 "sha256": "9" * 64,
+                "machine_required": False,
+            },
+            "optional_human_index_projection": {
+                "role": "human_index",
+                "path": adoption.HUMAN_INDEX_IDENTITY[0],
+                "bytes": adoption.HUMAN_INDEX_IDENTITY[1],
+                "sha256": adoption.HUMAN_INDEX_IDENTITY[2],
                 "machine_required": False,
             },
             "optional_consumer_helper_identity": {
@@ -689,14 +746,14 @@ class SnapshotFixture:
             },
             "sealed_public_receipts": [
                 {
-                    "role": "continuous_validation_readback",
+                    "role": adoption.SEALED_PUBLIC_RECEIPTS[0][0],
                     "path": "manifests/published-github/test-adopt-ci-readback.json",
                     "bytes": 456,
                     "sha256": "7" * 64,
                     "machine_required": False,
                 },
                 {
-                    "role": "source_link_audit",
+                    "role": adoption.SEALED_PUBLIC_RECEIPTS[1][0],
                     "path": "manifests/github-custody/test-links.json",
                     "bytes": 789,
                     "sha256": "8" * 64,
@@ -744,12 +801,24 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertEqual(
             pin["content_source_tree"], adoption.PRODUCTION_CONTENT_SOURCE_TREE
         )
+        self.assertEqual(
+            pin["first_complete_contract_commit"],
+            PRODUCTION_FIRST_COMPLETE_CONTRACT_COMMIT,
+        )
+        self.assertEqual(
+            pin["first_complete_contract_tree"],
+            PRODUCTION_FIRST_COMPLETE_CONTRACT_TREE,
+        )
         self.assertNotIn("validation_context_commit", pin)
         self.assertNotIn("validation_context_role", pin)
         self.assertEqual(
             pin["evidence_closure_commit"], pin["approved_snapshot_commit"]
         )
         optional_identities = (
+            (
+                "optional_human_index_projection",
+                adoption.HUMAN_INDEX_IDENTITY,
+            ),
             ("optional_consumer_helper_identity", adoption.CONSUMER_HELPER_IDENTITY),
             (
                 "optional_consumer_regression_identity",
@@ -805,9 +874,25 @@ class AdoptionSnapshotTests(unittest.TestCase):
                 limit=10,
             )
             rendered = adoption._render_text(snapshot, selected)  # noqa: SLF001
-        self.assertEqual(snapshot.aggregate["items"], 46)
-        self.assertEqual(snapshot.aggregate["repository_path_checks"], 135)
-        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 135)
+        self.assertEqual(snapshot.aggregate["items"], 66)
+        self.assertEqual(snapshot.aggregate["current_work"], 8)
+        self.assertEqual(snapshot.aggregate["ready_for_adoption"], 53)
+        self.assertEqual(snapshot.aggregate["future"], 5)
+        self.assertEqual(snapshot.aggregate["mirrors"], 0)
+        self.assertEqual(snapshot.aggregate["required_maps"], 19)
+        self.assertEqual(snapshot.aggregate["queue_sources"], 2)
+        self.assertEqual(snapshot.aggregate["human_board_rows"], 66)
+        self.assertEqual(snapshot.aggregate["human_index_rows"], 66)
+        self.assertEqual(snapshot.aggregate["human_index_authors"], 43)
+        self.assertEqual(snapshot.aggregate["human_index_works"], 66)
+        self.assertEqual(snapshot.aggregate["human_index_series"], 18)
+        self.assertEqual(snapshot.aggregate["human_index_languages"], 20)
+        self.assertEqual(snapshot.aggregate["human_index_corpora"], 21)
+        self.assertEqual(snapshot.aggregate["workflow_registry"], 14)
+        self.assertEqual(snapshot.aggregate["named_owner_rows"], 8)
+        self.assertEqual(snapshot.aggregate["unclaimed_owner_rows"], 58)
+        self.assertEqual(snapshot.aggregate["repository_path_checks"], 214)
+        self.assertEqual(snapshot.aggregate["tracked_repository_paths"], 214)
         self.assertEqual(snapshot.aggregate["claim_auditor_board_modes"], 2)
         self.assertEqual(snapshot.aggregate["claim_auditor_issue_modes"], 2)
         self.assertEqual(snapshot.aggregate["continuous_validation_checks"], 4)
@@ -815,7 +900,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertEqual(
             snapshot.check["worktree_base_commit"], PRODUCTION_WORKTREE_BASE_COMMIT
         )
-        self.assertIs(snapshot.check["worktree_dirty"], True)
+        self.assertIs(snapshot.check["worktree_dirty"], False)
         self.assertNotIn("observed_commit", snapshot.check)
         self.assertEqual([item["id"] for item in selected], ["gauss-werke-ii"])
         self.assertIn(adoption.PRODUCTION_APPROVED_COMMIT, rendered)
@@ -834,6 +919,66 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertEqual(snapshot.aggregate["continuous_validation_checks"], 4)
         self.assertEqual(snapshot.check["status"], "PASS")
 
+    def test_production_scope_split_is_exact_and_retires_umbrella_claims(self) -> None:
+        snapshot = adoption.validate_snapshot(PRODUCTION_FIXTURE)
+        items = snapshot.board["items"]
+        item_ids = [item["id"] for item in items]
+        split_ids = (*NOETHER_SCOPE_ITEM_IDS, *GROTHENDIECK_SCOPE_ITEM_IDS)
+
+        self.assertEqual(item_ids[: len(split_ids)], list(split_ids))
+        self.assertEqual(len(split_ids), 22)
+        self.assertTrue(set(RETIRED_UMBRELLA_ITEM_IDS).isdisjoint(item_ids))
+        self.assertEqual(
+            {item["id"] for item in items if item["lane_state"] == "current_work"},
+            set(PRODUCTION_CURRENT_ITEM_IDS),
+        )
+
+        noether_rows = [item for item in items if item["id"] in NOETHER_SCOPE_ITEM_IDS]
+        self.assertEqual(len(noether_rows), 16)
+        self.assertEqual(
+            [item["id"] for item in noether_rows if item["lane_state"] == "current_work"],
+            ["noether-de-auth"],
+        )
+        self.assertTrue(
+            all(
+                item["owner"] is None
+                for item in noether_rows
+                if item["lane_state"] == "ready_for_adoption"
+            )
+        )
+
+        grothendieck_rows = [
+            item for item in items if item["id"] in GROTHENDIECK_SCOPE_ITEM_IDS
+        ]
+        self.assertEqual(len(grothendieck_rows), 6)
+        self.assertTrue(
+            all(
+                item["lane_state"] == "current_work" and item["owner"] is not None
+                for item in grothendieck_rows
+            )
+        )
+
+    def test_mixed_source_check_and_final_contract_fail_closed(self) -> None:
+        mixed_root = self.root / "mixed-source-final"
+        shutil.copytree(PRODUCTION_FIXTURE, mixed_root)
+        check_path = mixed_root / adoption.CHECK_PATH
+        source_check = check_path.read_bytes().replace(
+            PRODUCTION_WORKTREE_BASE_COMMIT.encode("ascii"),
+            PRODUCTION_PREDECESSOR_COMMIT.encode("ascii"),
+        ).replace(b'"worktree_dirty": false', b'"worktree_dirty": true')
+        self.assertEqual(len(source_check), PRODUCTION_SOURCE_CHECK_IDENTITY[0])
+        self.assertEqual(
+            hashlib.sha256(source_check).hexdigest(),
+            PRODUCTION_SOURCE_CHECK_IDENTITY[1],
+        )
+        check_path.write_bytes(source_check)
+
+        with self.assertRaises(adoption.SnapshotValidationError) as caught:
+            adoption.validate_snapshot(mixed_root)
+        joined = "\n".join(caught.exception.errors)
+        self.assertIn(adoption.CHECK_PATH, joined)
+        self.assertIn("approved bounded byte length", joined)
+
     def test_default_projection_is_ready_only_and_deterministic(self) -> None:
         snapshot = self.fixture.validate()
         selected = adoption.select_items(
@@ -848,6 +993,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
         )
         self.assertEqual([item["id"] for item in selected], ["ready-item"])
         payload = adoption._candidate_payload(snapshot, selected)  # noqa: SLF001
+        self.assertEqual(payload["schema"], "mathematics-commons-adoption-candidates-v2")
         self.assertEqual(payload["authority"], "coordination_metadata_only_not_mathematical_evidence")
         self.assertEqual(payload["application_http_api_requests_performed"], 0)
         self.assertEqual(payload["live_packets_created"], 0)
@@ -876,21 +1022,62 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertEqual(
             payload["interfaces"]["continuous_validation"], CONTINUOUS_VALIDATION
         )
+        self.assertEqual(
+            payload["migration"],
+            {
+                "retired_ids": ["grothendieck-school", "noether-multilingual"],
+                "change": "stable_id_breaking_one_to_many_scope_split",
+                "automatic_remap": "forbidden",
+                "replacement_selection": (
+                    "human_selection_of_one_or_more_bounded_ids_required"
+                ),
+            },
+        )
+        self.assertEqual(
+            payload["source"]["pin_schema"], "mathematics-commons-adoption-pin-v3"
+        )
         self.assertEqual(payload["source"]["approved_snapshot_tree"], self.fixture.tree)
         self.assertEqual(
             payload["source"]["content_source_commit"], self.fixture.content_commit
+        )
+        self.assertEqual(
+            payload["source"]["first_complete_contract_commit"],
+            self.fixture.first_complete_contract_commit,
+        )
+        self.assertEqual(
+            payload["source"]["first_complete_contract_tree"],
+            self.fixture.first_complete_contract_tree,
+        )
+        self.assertEqual(
+            payload["source"]["first_complete_contract_role"],
+            "first_commit_with_all_four_approved_contract_identities",
+        )
+        self.assertEqual(
+            payload["source"]["contract_identity_relation"],
+            {
+                "content_source_matches_approved": "three_of_four",
+                "first_complete_contract_matches_approved": "four_of_four",
+            },
         )
         self.assertEqual(payload["source"]["input_mode"], "named_worktree_files")
         self.assertEqual(
             payload["source"]["worktree_base_commit"], self.fixture.worktree_base_commit
         )
-        self.assertIs(payload["source"]["worktree_dirty"], True)
+        self.assertIs(payload["source"]["worktree_dirty"], False)
         self.assertNotIn("validation_context_commit", payload["source"])
         self.assertNotIn("validation_context_role", payload["source"])
         self.assertNotIn("observed_commit", payload["source"])
         self.assertEqual(len(payload["source"]["contract_files"]), 4)
         self.assertIs(
             payload["source"]["optional_human_projection"]["machine_required"], False
+        )
+        self.assertIs(
+            payload["source"]["optional_human_index_projection"]["machine_required"],
+            False,
+        )
+        self.assertEqual(
+            payload["source"]["optional_human_projections_role"],
+            "same_commit_human_guidance_only_not_machine_contract_inputs",
         )
         self.assertIs(
             payload["source"]["optional_consumer_helper_identity"]["machine_required"],
@@ -932,6 +1119,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
         snapshot = self.fixture.validate()
         required_paths = [entry["path"] for entry in snapshot.pin["files"]]
         support_fields = (
+            "optional_human_index_projection",
             "optional_consumer_helper_identity",
             "optional_consumer_regression_identity",
             "optional_claim_auditor_identity",
@@ -974,6 +1162,12 @@ class AdoptionSnapshotTests(unittest.TestCase):
 
     def test_production_support_and_receipt_identity_drift_is_rejected(self) -> None:
         mutations = (
+            (
+                "optional_human_index_projection",
+                lambda pin: pin["optional_human_index_projection"].__setitem__(
+                    "sha256", "0" * 64
+                ),
+            ),
             (
                 "optional_consumer_regression_identity",
                 lambda pin: pin["optional_consumer_regression_identity"].__setitem__(
@@ -1035,7 +1229,7 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.assertNotIn(hashlib.sha256(tampered).hexdigest(), "\n".join(error.errors))
 
     def test_unbound_check_state_tampering_is_rejected_even_when_it_says_pass(self) -> None:
-        self.fixture.check["worktree_dirty"] = False
+        self.fixture.check["worktree_dirty"] = True
         self.fixture.write("check", self.fixture.check)
         self.assert_validation_error("snapshot file manifests/adopt.check.json")
 
@@ -1043,7 +1237,8 @@ class AdoptionSnapshotTests(unittest.TestCase):
         mutations = (
             ("input-mode", "input_mode", "other_mode", "input_mode"),
             ("malformed-base", "worktree_base_commit", "Z" * 40, "worktree_base_commit"),
-            ("dirty-false", "worktree_dirty", False, "worktree_dirty"),
+            ("wrong-base", "worktree_base_commit", "b" * 40, "worktree_base_commit"),
+            ("dirty-true", "worktree_dirty", True, "worktree_dirty"),
         )
         for name, field, value, fragment in mutations:
             with self.subTest(name=name):
@@ -1065,6 +1260,38 @@ class AdoptionSnapshotTests(unittest.TestCase):
                     fixture.validate()
                 self.assertIn(f"missing required keys ['{field}']", "\n".join(caught.exception.errors))
 
+    def test_pin_requires_first_complete_contract_identity(self) -> None:
+        for field in (
+            "first_complete_contract_commit",
+            "first_complete_contract_tree",
+        ):
+            with self.subTest(missing=field):
+                pin = copy.deepcopy(self.fixture.pin)
+                pin.pop(field)
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    adoption.validate_snapshot(self.root, pin=pin, production=False)
+                self.assertIn(field, "\n".join(caught.exception.errors))
+
+            with self.subTest(drift=field):
+                pin = adoption._read_pin()  # noqa: SLF001 - compiled contract audit
+                pin[field] = "f" * 40
+                errors: list[str] = []
+                adoption._validate_pin(pin, errors, production=True)  # noqa: SLF001
+                self.assertTrue(any(field in error for error in errors), errors)
+
+    def test_pin_requires_exact_human_index_projection(self) -> None:
+        pin = copy.deepcopy(self.fixture.pin)
+        pin.pop("optional_human_index_projection")
+        with self.assertRaises(adoption.SnapshotValidationError) as caught:
+            adoption.validate_snapshot(self.root, pin=pin, production=False)
+        self.assertIn("optional_human_index_projection", "\n".join(caught.exception.errors))
+
+        pin = copy.deepcopy(self.fixture.pin)
+        pin["optional_human_index_projection"]["bytes"] += 1
+        with self.assertRaises(adoption.SnapshotValidationError) as caught:
+            adoption.validate_snapshot(self.root, pin=pin, production=False)
+        self.assertIn("human_index", "\n".join(caught.exception.errors))
+
     def test_obsolete_validation_context_and_observed_commit_are_rejected(self) -> None:
         for field, value in (
             ("validation_context_commit", "f" * 40),
@@ -1080,6 +1307,20 @@ class AdoptionSnapshotTests(unittest.TestCase):
         self.fixture.check["observed_commit"] = "f" * 40
         self.fixture.rebind()
         self.assert_validation_error("contains undeclared keys ['observed_commit']")
+
+    def test_retired_umbrella_item_ids_are_rejected_after_rebinding(self) -> None:
+        for retired_id in RETIRED_UMBRELLA_ITEM_IDS:
+            with self.subTest(retired_id=retired_id):
+                child = self.root / f"retired-{retired_id}"
+                fixture = SnapshotFixture(child)
+                fixture.board["items"][1]["id"] = retired_id
+                fixture.write("board", fixture.board)
+                fixture.rebind()
+                with self.assertRaises(adoption.SnapshotValidationError) as caught:
+                    fixture.validate()
+                joined = "\n".join(caught.exception.errors)
+                self.assertIn("retired umbrella item ID", joined)
+                self.assertIn(retired_id, joined)
 
     def test_pass_with_nonempty_errors_is_rejected(self) -> None:
         self.fixture.check["errors"] = ["hidden failure"]

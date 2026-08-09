@@ -64,11 +64,17 @@ BIDI_FORMATTING_CODEPOINTS = {
     *range(0x2066, 0x206A),
 }
 
-PRODUCTION_APPROVED_COMMIT = "5ccd9357187c2f4a246a40fd5ef45f6df6ae88b0"
-PRODUCTION_APPROVED_TREE = "739cb174f6a9efb262923c7f09cd69c09f7d5529"
-PRODUCTION_CONTENT_SOURCE_COMMIT = "ae59d85d406d52448eacc0794916b34c8189a739"
-PRODUCTION_CONTENT_SOURCE_TREE = "4452635bf293d379e55652280781c3d077615fab"
-PRODUCTION_WORKTREE_BASE_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+PRODUCTION_APPROVED_COMMIT = "06f918eee33729f760b1459934f9a50c2aca9e31"
+PRODUCTION_APPROVED_TREE = "a95aa9fce519b23a0db47aa1fb61df44c19da002"
+PRODUCTION_CONTENT_SOURCE_COMMIT = "10d2df083bf0b47b758d5f094b6fcaeed9167011"
+PRODUCTION_CONTENT_SOURCE_TREE = "035f7fa3151f7071639190d9afc12b8ad3bbf040"
+PRODUCTION_FIRST_COMPLETE_CONTRACT_COMMIT = (
+    "62b13062c7b3deea30fd924d6cf585fd637a58f8"
+)
+PRODUCTION_FIRST_COMPLETE_CONTRACT_TREE = (
+    "e65c8dd8000abdb02f31949e1fed5d73ced3d22d"
+)
+PRODUCTION_WORKTREE_BASE_COMMIT = PRODUCTION_CONTENT_SOURCE_COMMIT
 VALIDATION_INPUT_MODE = "named_worktree_files"
 PRODUCTION_EVIDENCE_CLOSURE_COMMIT = PRODUCTION_APPROVED_COMMIT
 PRODUCTION_EVIDENCE_BASE_COMMIT = "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53"
@@ -76,8 +82,8 @@ PRODUCTION_MAP_OBSERVATION_COMMIT = "61b9d5cab6441b8fa02e34630d7145a916f0ea37"
 PRODUCTION_FILE_IDENTITIES = {
     "board": (
         "manifests/adopt.json",
-        82281,
-        "bba918fd8255d07af7a312577d7cf92be1052f8fe39f2c1caa9afb8be05f2a6e",
+        114084,
+        "c76ec481adef9e6aeec048e5a7efd0bc4f8f0e318952ae68fad7075e68c3c9ee",
     ),
     "schema": (
         "manifests/adopt.schema.json",
@@ -86,8 +92,8 @@ PRODUCTION_FILE_IDENTITIES = {
     ),
     "check": (
         "manifests/adopt.check.json",
-        5661,
-        "013f6766aab6c0dfec598af03fde64a00bcc3225cc1f90f14abf8abfa3baec56",
+        5664,
+        "cf6ee9c81aac5114e6a91d8f4e0cc095677477418a8c74a2dc20923c524e6368",
     ),
     "map_manifest": (
         "manifests/github-custody/20260807_maps_r5.json",
@@ -96,28 +102,28 @@ PRODUCTION_FILE_IDENTITIES = {
     ),
 }
 PRODUCTION_EXPECTED_AGGREGATE = {
-    "items": 46,
+    "items": 66,
     "mirrors": 0,
-    "current_work": 3,
-    "ready_for_adoption": 38,
+    "current_work": 8,
+    "ready_for_adoption": 53,
     "future": 5,
     "required_maps": 19,
     "queue_sources": 2,
     "queue_snapshot_sources": 2,
     "queue_snapshot_bytes": 93584,
-    "human_board_rows": 46,
-    "represented_human_board_items": 46,
+    "human_board_rows": 66,
+    "represented_human_board_items": 66,
     "missing_human_board_items": 0,
     "unknown_human_board_ids": 0,
     "duplicate_human_board_ids": 0,
-    "human_index_rows": 46,
-    "human_index_authors": 38,
-    "human_index_works": 46,
-    "human_index_series": 16,
-    "human_index_languages": 16,
+    "human_index_rows": 66,
+    "human_index_authors": 43,
+    "human_index_works": 66,
+    "human_index_series": 18,
+    "human_index_languages": 20,
     "human_index_corpora": 21,
-    "repository_path_checks": 135,
-    "tracked_repository_paths": 135,
+    "repository_path_checks": 214,
+    "tracked_repository_paths": 214,
     "issue_labels": 4,
     "issue_label_templates": 6,
     "consumer_modes": 2,
@@ -127,8 +133,8 @@ PRODUCTION_EXPECTED_AGGREGATE = {
     "workflow_registry": 14,
     "workflow_tokens_used": 14,
     "unreferenced_workflows": 0,
-    "named_owner_rows": 3,
-    "unclaimed_owner_rows": 43,
+    "named_owner_rows": 8,
+    "unclaimed_owner_rows": 58,
 }
 
 REPOSITORY_URL = "https://github.com/KokunoYumeto/modern-latex-manuscripts"
@@ -156,8 +162,8 @@ HUMAN_WORKFLOWS_PATH = "docs/adopt-flows.md"
 ISSUE_LABELS_PATH = ".github/labels.json"
 HUMAN_BOARD_IDENTITY = (
     HUMAN_BOARD_PATH,
-    30105,
-    "8996cc8bdcdddfd72e10865386b3555bb2edf065f1e8a6421cac4cdc155cec7c",
+    34850,
+    "8a5af3586a61df4cdc2b2eb270273462da75e8e6f59d0ab13a38931c67e9b3c4",
 )
 CONSUMER_HELPER_IDENTITY = (
     CONSUMER_HELPER_PATH,
@@ -186,8 +192,8 @@ CONTINUOUS_VALIDATION_IDENTITY = (
 )
 HUMAN_INDEX_IDENTITY = (
     HUMAN_INDEX_PATH,
-    8025,
-    "e8a9708f72f2f5042cca278fdbb8fe2563aac64eb0af7a494d5e21253a2c662d",
+    21392,
+    "bb3985c85dd5f20602096a3e341aeadf42951c123a61cc683e58ea63755f2334",
 )
 HUMAN_WORKFLOWS_IDENTITY = (
     HUMAN_WORKFLOWS_PATH,
@@ -201,16 +207,16 @@ ISSUE_LABELS_IDENTITY = (
 )
 SEALED_PUBLIC_RECEIPTS = (
     (
-        "continuous_validation_readback",
-        "manifests/published-github/20260809_adopt_ci_rb.json",
-        7332,
-        "ad7e38d1604e7e5f5e6ed31848117b8d3d8ec2210610329f1d27d31e929499b1",
+        "scope_source_readback",
+        "manifests/published-github/20260809_scope_rb.json",
+        7322,
+        "65eed606572ce7fa01d6e0868da263b53ae009129fcf683e89b74e0cde5f038e",
     ),
     (
-        "source_link_audit",
-        "manifests/github-custody/20260809_links_r28.json",
-        10767,
-        "93745d9cc5f64f148ecdcaec026a52c4cb6da87dd323bade03264cf5f6df89de",
+        "scope_exact_contract_closure",
+        "manifests/published-github/20260809_scope_close.json",
+        3745,
+        "e4d1148b269a9239818fdc15090e2de758597a3ad8c2464b96984ff7ccdc8f58",
     ),
 )
 
@@ -358,6 +364,15 @@ WORKFLOW_IDS = (
     "source_recovery",
     "table_audit",
 )
+RETIRED_UMBRELLA_ITEM_IDS = frozenset(
+    {"noether-multilingual", "grothendieck-school"}
+)
+RETIRED_ID_MIGRATION = {
+    "retired_ids": sorted(RETIRED_UMBRELLA_ITEM_IDS),
+    "change": "stable_id_breaking_one_to_many_scope_split",
+    "automatic_remap": "forbidden",
+    "replacement_selection": "human_selection_of_one_or_more_bounded_ids_required",
+}
 WORKFLOW_REGISTRY_SHA256 = (
     "21c6803abe09fb240be4e7863c5500a6471e3a44eff3a6082e392205a3ebe4ae"
 )
@@ -724,6 +739,8 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "approved_snapshot_tree",
         "content_source_commit",
         "content_source_tree",
+        "first_complete_contract_commit",
+        "first_complete_contract_tree",
         "evidence_closure_commit",
         "evidence_base_commit",
         "map_observation_commit",
@@ -732,6 +749,7 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "snapshot_paths",
         "files",
         "optional_human_projection",
+        "optional_human_index_projection",
         "optional_consumer_helper_identity",
         "optional_consumer_regression_identity",
         "optional_claim_auditor_identity",
@@ -743,7 +761,7 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
     )
     if not _require_keys(pin, required, "pin", errors, exact=True):
         return
-    if pin.get("schema") != "mathematics-commons-adoption-pin-v2":
+    if pin.get("schema") != "mathematics-commons-adoption-pin-v3":
         _error(errors, "pin.schema", "has an unsupported value")
     if pin.get("repository") != REPOSITORY_URL:
         _error(errors, "pin.repository", "does not name the approved repository")
@@ -751,6 +769,16 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
     _valid_commit(pin.get("approved_snapshot_tree"), "pin.approved_snapshot_tree", errors)
     _valid_commit(pin.get("content_source_commit"), "pin.content_source_commit", errors)
     _valid_commit(pin.get("content_source_tree"), "pin.content_source_tree", errors)
+    _valid_commit(
+        pin.get("first_complete_contract_commit"),
+        "pin.first_complete_contract_commit",
+        errors,
+    )
+    _valid_commit(
+        pin.get("first_complete_contract_tree"),
+        "pin.first_complete_contract_tree",
+        errors,
+    )
     _valid_commit(pin.get("evidence_closure_commit"), "pin.evidence_closure_commit", errors)
     _valid_commit(pin.get("evidence_base_commit"), "pin.evidence_base_commit", errors)
     _valid_commit(pin.get("map_observation_commit"), "pin.map_observation_commit", errors)
@@ -842,6 +870,51 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
             _error(
                 errors,
                 "pin.optional_human_projection.machine_required",
+                "must remain false for the four-file machine contract",
+            )
+
+    human_index_projection = pin.get("optional_human_index_projection")
+    if _require_keys(
+        human_index_projection,
+        ("role", "path", "bytes", "sha256", "machine_required"),
+        "pin.optional_human_index_projection",
+        errors,
+        exact=True,
+    ):
+        assert isinstance(human_index_projection, dict)
+        if human_index_projection.get("role") != "human_index":
+            _error(
+                errors,
+                "pin.optional_human_index_projection.role",
+                "must be human_index",
+            )
+        _valid_repo_locator(
+            human_index_projection.get("path"),
+            "pin.optional_human_index_projection.path",
+            errors,
+            allow_null=False,
+            allow_empty=False,
+        )
+        if (
+            type(human_index_projection.get("bytes")) is not int
+            or human_index_projection.get("bytes") <= 0
+        ):
+            _error(
+                errors,
+                "pin.optional_human_index_projection.bytes",
+                "must be a positive integer",
+            )
+        digest = human_index_projection.get("sha256")
+        if not isinstance(digest, str) or SHA256_RE.fullmatch(digest) is None:
+            _error(
+                errors,
+                "pin.optional_human_index_projection.sha256",
+                "must be lowercase SHA-256",
+            )
+        if human_index_projection.get("machine_required") is not False:
+            _error(
+                errors,
+                "pin.optional_human_index_projection.machine_required",
                 "must remain false for the four-file machine contract",
             )
 
@@ -972,6 +1045,24 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
             _error(errors, "pin.content_source_commit", "does not match the compiled production pin")
         if pin.get("content_source_tree") != PRODUCTION_CONTENT_SOURCE_TREE:
             _error(errors, "pin.content_source_tree", "does not match the compiled production pin")
+        if (
+            pin.get("first_complete_contract_commit")
+            != PRODUCTION_FIRST_COMPLETE_CONTRACT_COMMIT
+        ):
+            _error(
+                errors,
+                "pin.first_complete_contract_commit",
+                "does not match the compiled production pin",
+            )
+        if (
+            pin.get("first_complete_contract_tree")
+            != PRODUCTION_FIRST_COMPLETE_CONTRACT_TREE
+        ):
+            _error(
+                errors,
+                "pin.first_complete_contract_tree",
+                "does not match the compiled production pin",
+            )
         if pin.get("evidence_closure_commit") != PRODUCTION_EVIDENCE_CLOSURE_COMMIT:
             _error(errors, "pin.evidence_closure_commit", "does not match the compiled production pin")
         if pin.get("evidence_base_commit") != PRODUCTION_EVIDENCE_BASE_COMMIT:
@@ -999,6 +1090,18 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
                     errors,
                     "pin.optional_human_projection",
                     "does not match the compiled optional human-board identity",
+                )
+        if isinstance(human_index_projection, dict):
+            actual_human_index = (
+                human_index_projection.get("path"),
+                human_index_projection.get("bytes"),
+                human_index_projection.get("sha256"),
+            )
+            if actual_human_index != HUMAN_INDEX_IDENTITY:
+                _error(
+                    errors,
+                    "pin.optional_human_index_projection",
+                    "does not match the compiled optional human-index identity",
                 )
         for field, _expected_role, expected_identity in optional_code_specs:
             identity = optional_code_identities.get(field)
@@ -1691,7 +1794,7 @@ def _validate_workflow_registry(value: Any, errors: list[str]) -> set[str]:
 def _repository_path_references(board: dict[str, Any]) -> list[str]:
     references: list[str] = []
     # schema_url and validation are already counted in same_commit_paths.  This
-    # mirrors the sealed producer check's exact 135-reference accounting.
+    # Mirrors the sealed producer check's exact repository-reference accounting.
     for key in (
         "human_board",
         "human_index",
@@ -1885,6 +1988,12 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         _error(errors, "board.items", f"exceeds the {MAX_ITEMS}-item bound")
     for index, item in enumerate(items[:MAX_ITEMS]):
         _validate_item(item, index, value.get("claim_interface"), errors)
+        if isinstance(item, dict) and item.get("id") in RETIRED_UMBRELLA_ITEM_IDS:
+            _error(
+                errors,
+                f"board.items[{index}].id",
+                f"retired umbrella item ID {item.get('id')!r} must not be an operational row",
+            )
 
     named_owner_rows = 0
     unclaimed_owner_rows = 0
@@ -2298,8 +2407,6 @@ def _validate_check(
     aggregate: dict[str, int],
     identities: dict[str, dict[str, Any]],
     errors: list[str],
-    *,
-    production: bool,
 ) -> None:
     label = "validation check"
     required_keys = (
@@ -2351,17 +2458,17 @@ def _validate_check(
         f"{label}.worktree_base_commit",
         errors,
     )
-    if production and value.get("worktree_base_commit") != PRODUCTION_WORKTREE_BASE_COMMIT:
+    if value.get("worktree_base_commit") != PRODUCTION_WORKTREE_BASE_COMMIT:
         _error(
             errors,
             f"{label}.worktree_base_commit",
-            "does not match the compiled production predecessor",
+            "does not match the compiled clean-validation base",
         )
-    if value.get("worktree_dirty") is not True:
+    if value.get("worktree_dirty") is not False:
         _error(
             errors,
             f"{label}.worktree_dirty",
-            "must preserve the producer's explicit dirty-worktree qualification",
+            "must preserve the producer's explicit clean-worktree qualification",
         )
 
     declarations = {
@@ -2402,10 +2509,23 @@ def _validate_check(
             _error(errors, f"{label}.human_board", "does not match the pinned optional projection")
 
     human_index = value.get("human_index")
+    human_index_pin = pin.get("optional_human_index_projection")
     expected_human_index = {
-        "path": HUMAN_INDEX_IDENTITY[0],
-        "bytes": HUMAN_INDEX_IDENTITY[1],
-        "sha256": HUMAN_INDEX_IDENTITY[2].upper(),
+        "path": (
+            human_index_pin.get("path")
+            if isinstance(human_index_pin, dict)
+            else None
+        ),
+        "bytes": (
+            human_index_pin.get("bytes")
+            if isinstance(human_index_pin, dict)
+            else None
+        ),
+        "sha256": (
+            str(human_index_pin.get("sha256", "")).upper()
+            if isinstance(human_index_pin, dict)
+            else ""
+        ),
         "rows": aggregate.get("human_index_rows"),
         "authors": aggregate.get("human_index_authors"),
         "works": aggregate.get("human_index_works"),
@@ -2607,7 +2727,6 @@ def validate_snapshot(
             aggregate,
             identities,
             errors,
-            production=production,
         )
     else:
         _error(errors, "board", "must be an object")
@@ -2713,23 +2832,49 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             copied["pinned_archive_url"] = None
         candidates.append(copied)
     return {
-        "schema": "mathematics-commons-adoption-candidates-v1",
+        "schema": "mathematics-commons-adoption-candidates-v2",
         "source": {
+            "pin_schema": snapshot.pin["schema"],
             "repository": repository,
             "approved_snapshot_commit": commit,
             "approved_snapshot_tree": snapshot.pin["approved_snapshot_tree"],
             "content_source_commit": snapshot.pin["content_source_commit"],
             "content_source_tree": snapshot.pin["content_source_tree"],
+            "content_source_role": (
+                "row_content_origin_three_of_four_final_contract_identities"
+            ),
+            "first_complete_contract_commit": snapshot.pin[
+                "first_complete_contract_commit"
+            ],
+            "first_complete_contract_tree": snapshot.pin[
+                "first_complete_contract_tree"
+            ],
+            "first_complete_contract_role": (
+                "first_commit_with_all_four_approved_contract_identities"
+            ),
+            "contract_identity_relation": {
+                "content_source_matches_approved": "three_of_four",
+                "first_complete_contract_matches_approved": "four_of_four",
+            },
             "input_mode": snapshot.check["input_mode"],
             "worktree_base_commit": snapshot.check["worktree_base_commit"],
             "worktree_dirty": snapshot.check["worktree_dirty"],
             "evidence_closure_commit": snapshot.pin["evidence_closure_commit"],
+            "evidence_closure_role": (
+                "reviewed_snapshot_decision_point_not_cryptographically_attested"
+            ),
             "evidence_base_commit": snapshot.pin["evidence_base_commit"],
             "map_observation_commit": snapshot.pin["map_observation_commit"],
             "discovery_ref_role": snapshot.pin["discovery_ref_role"],
             "contract_files": [dict(value) for value in snapshot.pin["files"]],
             "optional_human_projection": dict(
                 snapshot.pin["optional_human_projection"]
+            ),
+            "optional_human_index_projection": dict(
+                snapshot.pin["optional_human_index_projection"]
+            ),
+            "optional_human_projections_role": (
+                "same_commit_human_guidance_only_not_machine_contract_inputs"
             ),
             "optional_consumer_helper_identity": dict(
                 snapshot.pin["optional_consumer_helper_identity"]
@@ -2774,6 +2919,7 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "claim_regression": snapshot.board["claim_regression"],
             "continuous_validation": snapshot.board["continuous_validation"],
         },
+        "migration": dict(RETIRED_ID_MIGRATION),
         "application_http_api_requests_performed": 0,
         "snapshot_storage_requirement": "caller_supplied_local_non_on_demand_private_directory",
         "live_packets_created": 0,
@@ -2787,8 +2933,13 @@ def _render_text(snapshot: ValidatedSnapshot, items: list[dict[str, Any]]) -> st
         f"approved snapshot: {snapshot.pin['approved_snapshot_commit']}",
         f"content source: {snapshot.pin['content_source_commit']}",
         (
+            "first complete four-file contract: "
+            f"{snapshot.pin['first_complete_contract_commit']}"
+        ),
+        "contract identity: content source 3/4; first complete state to approved closure 4/4",
+        (
             f"producer validation input: {snapshot.check['input_mode']} on a "
-            f"dirty worktree based at {snapshot.check['worktree_base_commit']} "
+            f"clean worktree based at {snapshot.check['worktree_base_commit']} "
             "(receipt context; not snapshot authority)"
         ),
         (
@@ -2798,6 +2949,10 @@ def _render_text(snapshot: ValidatedSnapshot, items: list[dict[str, Any]]) -> st
             f"{snapshot.aggregate['ready_for_adoption']} ready, "
             f"{snapshot.aggregate['future']} future), "
             f"{snapshot.aggregate['mirrors']} mirrors"
+        ),
+        (
+            "migration: retired umbrella IDs are one-to-many scope splits; "
+            "do not auto-remap state, and require human selection of bounded replacements"
         ),
         "authority: coordination metadata only; the application fetched or executed no board URL or command",
         f"selected candidates: {len(items)}",
