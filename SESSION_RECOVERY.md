@@ -1,6 +1,6 @@
 # Session recovery record
 
-**Last updated:** 7 August 2026
+**Last updated:** 9 August 2026
 **Active goal identifier:** Publish and verify the public, citable Mathematics Commons concept repository and first DOI-bearing pilot release.  
 **Authoritative continuation contract:** the complete workflow below. The goal tool's initial objective was created too briefly and cannot be edited while active; do not treat that technical limitation as permission to omit any requirement below.
 
@@ -125,3 +125,13 @@ Phase B starts directly from exact `A` and preserves every Phase A record and ar
 4. Push only Phase B, pass protected native CI, rebase-merge without rewriting `A`, and verify the complete public 19-record repository-aware collection plus anonymous readback.
 5. Create the public recruitment, capacity, candidate-selection, independent-audit, and mirror-drill issues; freeze a capacity-backed six-to-ten-record live set from the docket; create the initial problem/packet histories; and begin one bounded 30-day pilot without claiming an open-problem solution or journal peer review.
 6. Update branch protection to one code-owner and last-push approval as soon as an independent write steward exists. Mark the durable goal complete only when publication and launch receipts are current and no required work remains.
+
+## Post-Phase-B adapter checkpoint — 9 August 2026
+
+Protected Phase A is already public at exact commit `5ab08ac8d96c5b355285b8306c00d1d5dc6b2d95`. Active Phase B is maintained in a separate worktree directly on that commit; its current local graph has 15 records through `under_review`. The remaining acceptance records must not be created until a different actual person from the responsible producer completes the bounded offline manual reconstruction requested in public issue 5. Neither earlier AI review qualifies under the frozen resource/capability envelope.
+
+This worktree is the separate branch `codex/interlanguage-adapter`, also based on exact Phase A. It contains a locally passing, uncommitted post-Phase-B adapter for the `modern-latex-manuscripts` adoption board. The adapter pins human-approved upstream commit `5f41b18467c315aee5f465894dd85a277081c74e`, tree `ac9630785b2f8d0534c9e35da95f957538158a47`, and four exact same-commit files. It records the optional human-board identity and two public audit receipts as explicitly non-input provenance. The application makes no HTTP/API request, renders only inert coordination pointers, exposes claim and handback separately, and cannot create a live Commons record. Floating upstream refs have already advanced beyond `5f41b...` and remain discovery locators only.
+
+The exact 5f41 four-file snapshot, optional board identity, two public receipt identities, all commit-ancestry comparisons, and an independent Draft 2020-12 validation have passed. The corrected focused adapter suite passes 34 tests with one expected local Windows symlink-permission skip; the complete repository passes 135 tests with two expected skips. Seven-schema, 13-record calibration/default/CLI, repository-aware `C0`, structural/public-artifact, Python compilation, nine-file YAML, three-document source parity, exact-snapshot human/JSON projection, and whitespace/text gates pass. Earlier independent security and scientific/UX findings have been incorporated except for the intentional publication-order constraint below.
+
+Exact continuation: the final rerun and exact-diff audit pass, so freeze the adapter branch locally without pushing it. Public issue 10 now carries the anonymously verified append-only 5f41 supersession receipt at `https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/10#issuecomment-5231874328`. When a qualified human review arrives, finish and publish Phase B first. Then replay the adapter onto the resulting protected Phase-B commit, replace the inherited one-shot Phase-A CI base/predecessor assertions with durable post-Phase-B logic, run both native platforms, and publish the adapter through its own protected pull request. Only after public readback may archive rows be used as candidate intake for steward-created Commons packets.

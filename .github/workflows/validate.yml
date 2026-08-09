@@ -43,9 +43,16 @@ jobs:
           tools/validate_repository.py
           tools/validate_packets.py
           tools/commons.py
+          tools/validate_adoption_snapshot.py
 
       - name: Run valid and adversarial tests
         run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Validate the exact approved interlanguage adoption snapshot
+        run: >-
+          python tools/validate_adoption_snapshot.py
+          tests/fixtures/interlanguage-adoption/5f41b18467c315aee5f465894dd85a277081c74e
+          --limit 1
 
       - name: Validate calibration, default collection, and CLI projection
         run: |

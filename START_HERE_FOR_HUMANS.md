@@ -6,6 +6,8 @@ If you have ten minutes, read [README.md](README.md) and [STATUS.md](STATUS.md).
 
 If you want to help launch the first bounded cycle, inspect the [launch board](PILOT_LAUNCH.md) and [candidate docket](PILOT_CANDIDATES.md). You can offer a specific production or independent-review lane through the repository's **Pilot volunteer** issue form. A public pseudonym is enough; describe what you can check and the limits of that scope.
 
+If you want bounded transcription, translation, archive repair, or source-review work rather than an open-problem packet, the [prepared interlanguage adoption adapter](INTERLANGUAGE_ADOPTION.md) explains how to inspect one exact external archive snapshot without treating its coordination metadata as mathematical authority. That adapter is staged for a separate post-Phase-B integration; it is not a live queue yet.
+
 You do not need to agree with the proposal to contribute. Useful contributions include:
 
 - identifying a mathematical or governance failure;

@@ -1,0 +1,90 @@
+{
+  "schema": "mathematics-commons-adoption-pin-v1",
+  "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
+  "approved_snapshot_commit": "5f41b18467c315aee5f465894dd85a277081c74e",
+  "approved_snapshot_tree": "ac9630785b2f8d0534c9e35da95f957538158a47",
+  "validation_source_commit": "2695dbfe84726329267c71ba7a0af3486435f4c8",
+  "evidence_closure_commit": "9f30531f669fc7c62e1d512d4b2460921464727e",
+  "evidence_base_commit": "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53",
+  "map_observation_commit": "61b9d5cab6441b8fa02e34630d7145a916f0ea37",
+  "discovery_ref": "main",
+  "discovery_ref_role": "locator_only_not_an_immutable_snapshot",
+  "snapshot_paths": [
+    "manifests/adopt.json",
+    "manifests/adopt.schema.json",
+    "manifests/adopt.check.json",
+    "manifests/github-custody/20260807_maps_r5.json"
+  ],
+  "files": [
+    {
+      "role": "board",
+      "path": "manifests/adopt.json",
+      "bytes": 62952,
+      "sha256": "24b2deab6684b4714d7a555c6c78c4ecf57b3df96829fd13441d2773491af678"
+    },
+    {
+      "role": "schema",
+      "path": "manifests/adopt.schema.json",
+      "bytes": 11922,
+      "sha256": "fb0539f375937bf5fc68fc45363b501b2733559ac54953f08b6ce21f5e139b9d"
+    },
+    {
+      "role": "check",
+      "path": "manifests/adopt.check.json",
+      "bytes": 2536,
+      "sha256": "6c665fe849214af638975eb8bba52e88d7f339c2706bb842566d997d514d014d"
+    },
+    {
+      "role": "map_manifest",
+      "path": "manifests/github-custody/20260807_maps_r5.json",
+      "bytes": 17998,
+      "sha256": "ec0f2b625455efa88ffc3c376c46fad8024114f1f87819d776accf6837f1864d"
+    }
+  ],
+  "optional_human_projection": {
+    "role": "human_board",
+    "path": "docs/adopt.md",
+    "bytes": 22929,
+    "sha256": "341b4878e11436130f6c3481eb27775e2926afdba6500ed71f5a1fa15672b230",
+    "machine_required": false
+  },
+  "sealed_public_receipts": [
+    {
+      "role": "source_readback",
+      "path": "manifests/published-github/20260809_handback_rb.json",
+      "bytes": 4641,
+      "sha256": "1230fb8c16f79ecee057f7fa0269c5f27c71b4cca8522bfe436cba82d7dc327f",
+      "machine_required": false
+    },
+    {
+      "role": "link_audit",
+      "path": "manifests/github-custody/20260809_links_r19.json",
+      "bytes": 10293,
+      "sha256": "fe990865c2b21bce9487a5090c28bd5e580e7d99e657f3941b154a11102beb53",
+      "machine_required": false
+    }
+  ],
+  "expected_aggregate": {
+    "items": 46,
+    "mirrors": 0,
+    "current_work": 3,
+    "ready_for_adoption": 38,
+    "future": 5,
+    "required_maps": 19,
+    "queue_sources": 2,
+    "human_board_rows": 46,
+    "represented_human_board_items": 46,
+    "missing_human_board_items": 0,
+    "unknown_human_board_ids": 0,
+    "duplicate_human_board_ids": 0,
+    "repository_path_checks": 122,
+    "tracked_repository_paths": 122
+  },
+  "trust_boundary": {
+    "application_http_api_fetch": "forbidden",
+    "snapshot_storage": "caller_supplied_local_non_on_demand_private_directory",
+    "contributed_urls": "data_only_never_fetched_or_executed",
+    "mathematical_authority": "none",
+    "live_packet_creation": "forbidden"
+  }
+}

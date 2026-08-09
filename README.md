@@ -27,7 +27,8 @@ The long-term concept is broader—translation, transcription, archival recovery
 9. [Versioned record-schema contract](schemas/README.md)
 10. [GitHub 2FA continuity runbook](GITHUB_2FA_CONTINUITY.md)
 11. [One-way Git mirror runbook](MIRROR_RUNBOOK.md)
-12. [How to contribute](CONTRIBUTING.md)
+12. [Prepared interlanguage archive adoption adapter](INTERLANGUAGE_ADOPTION.md)
+13. [How to contribute](CONTRIBUTING.md)
 
 ## Try the calibration MVP
 
