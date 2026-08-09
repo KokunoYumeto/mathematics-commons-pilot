@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import codecs
 import hashlib
+import json
 import os
 import re
 import subprocess
@@ -949,6 +950,38 @@ def check_workflow_protected_base_policy(errors: list[str]) -> None:
             break
 
 
+def check_adoption_fixture_binding(errors: list[str]) -> None:
+    """Bind native CI's only production fixture to the reviewed pin commit."""
+
+    pin_path = ROOT / "tools" / "interlanguage_adoption_pin.json"
+    workflow_path = ROOT / ".github" / "workflows" / "validate.yml"
+    fixture_root = ROOT / "tests" / "fixtures" / "interlanguage-adoption"
+    try:
+        pin = json.loads(pin_path.read_text(encoding="utf-8"))
+        workflow = workflow_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        errors.append(f"cannot read adoption fixture binding: {exc}")
+        return
+    commit = pin.get("approved_snapshot_commit") if isinstance(pin, dict) else None
+    if not isinstance(commit, str) or re.fullmatch(r"[0-9a-f]{40}", commit) is None:
+        errors.append("adoption pin lacks one full lowercase approved snapshot commit")
+        return
+    expected = f"tests/fixtures/interlanguage-adoption/{commit}"
+    if expected not in workflow:
+        errors.append("validation workflow does not use the exact pinned adoption fixture")
+    try:
+        fixture_directories = sorted(
+            path.name for path in fixture_root.iterdir() if path.is_dir()
+        )
+    except OSError as exc:
+        errors.append(f"cannot inspect adoption production fixtures: {exc}")
+        return
+    if fixture_directories != [commit]:
+        errors.append(
+            "adoption production fixtures must contain exactly the approved commit directory"
+        )
+
+
 def main() -> int:
     errors: list[str] = []
     check_required(errors)
@@ -964,6 +997,7 @@ def main() -> int:
         if not errors:
             check_policy(errors)
             check_workflow_protected_base_policy(errors)
+            check_adoption_fixture_binding(errors)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

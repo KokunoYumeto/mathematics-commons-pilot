@@ -64,29 +64,32 @@ BIDI_FORMATTING_CODEPOINTS = {
     *range(0x2066, 0x206A),
 }
 
-PRODUCTION_APPROVED_COMMIT = "5f41b18467c315aee5f465894dd85a277081c74e"
-PRODUCTION_APPROVED_TREE = "ac9630785b2f8d0534c9e35da95f957538158a47"
-PRODUCTION_VALIDATION_SOURCE_COMMIT = (
-    "2695dbfe84726329267c71ba7a0af3486435f4c8"
+PRODUCTION_APPROVED_COMMIT = "1ecde9651d5fa508c5a3c0056021bfa89c4ea888"
+PRODUCTION_APPROVED_TREE = "8962d9c5a74ed9758d9e551e0ac3da174aab16c0"
+PRODUCTION_CONTENT_SOURCE_COMMIT = "24fe25af7e593dee03280c46cf941ec6d83a4f84"
+PRODUCTION_CONTENT_SOURCE_TREE = "cc8bbb2b79ae84125ab85e7713b86a53cf76cf03"
+PRODUCTION_VALIDATION_CONTEXT_COMMIT = "9a892452bba8f484ccef449c2d6d6dd49f05e41d"
+PRODUCTION_VALIDATION_CONTEXT_ROLE = (
+    "producer_recorded_precommit_context_not_publicly_resolvable_not_a_trust_anchor"
 )
-PRODUCTION_EVIDENCE_CLOSURE_COMMIT = "9f30531f669fc7c62e1d512d4b2460921464727e"
+PRODUCTION_EVIDENCE_CLOSURE_COMMIT = PRODUCTION_APPROVED_COMMIT
 PRODUCTION_EVIDENCE_BASE_COMMIT = "9c858b61c57f0c7e7281c275e0bb9c6c0f999d53"
 PRODUCTION_MAP_OBSERVATION_COMMIT = "61b9d5cab6441b8fa02e34630d7145a916f0ea37"
 PRODUCTION_FILE_IDENTITIES = {
     "board": (
         "manifests/adopt.json",
-        62952,
-        "24b2deab6684b4714d7a555c6c78c4ecf57b3df96829fd13441d2773491af678",
+        81818,
+        "37a58ce18133d99d7492753e795f146d6764611c88682c0ce813a3ea05035fb7",
     ),
     "schema": (
         "manifests/adopt.schema.json",
-        11922,
-        "fb0539f375937bf5fc68fc45363b501b2733559ac54953f08b6ce21f5e139b9d",
+        17236,
+        "9512088cc7a823c0470b0931e68a2bf1cf9095e94577288ba530c2c164ac3b9a",
     ),
     "check": (
         "manifests/adopt.check.json",
-        2536,
-        "6c665fe849214af638975eb8bba52e88d7f339c2706bb842566d997d514d014d",
+        5005,
+        "4b45b540aa243d623737fcdeeedc4b8a60cbd1b4b8ff758627c263cb5ff35ee5",
     ),
     "map_manifest": (
         "manifests/github-custody/20260807_maps_r5.json",
@@ -102,13 +105,31 @@ PRODUCTION_EXPECTED_AGGREGATE = {
     "future": 5,
     "required_maps": 19,
     "queue_sources": 2,
+    "queue_snapshot_sources": 2,
+    "queue_snapshot_bytes": 93584,
     "human_board_rows": 46,
     "represented_human_board_items": 46,
     "missing_human_board_items": 0,
     "unknown_human_board_ids": 0,
     "duplicate_human_board_ids": 0,
-    "repository_path_checks": 122,
-    "tracked_repository_paths": 122,
+    "human_index_rows": 46,
+    "human_index_authors": 38,
+    "human_index_works": 46,
+    "human_index_series": 16,
+    "human_index_languages": 16,
+    "human_index_corpora": 21,
+    "repository_path_checks": 133,
+    "tracked_repository_paths": 133,
+    "issue_labels": 4,
+    "issue_label_templates": 6,
+    "consumer_modes": 2,
+    "claim_auditor_board_modes": 2,
+    "claim_auditor_issue_modes": 2,
+    "workflow_registry": 14,
+    "workflow_tokens_used": 14,
+    "unreferenced_workflows": 0,
+    "named_owner_rows": 3,
+    "unclaimed_owner_rows": 43,
 }
 
 REPOSITORY_URL = "https://github.com/KokunoYumeto/modern-latex-manuscripts"
@@ -126,24 +147,59 @@ HANDBACK_URL = (
     "issues/new?template=handback.yml"
 )
 CONSUMER_HELPER_PATH = "scripts/get-adopt.py"
+CONSUMER_REGRESSION_PATH = "scripts/test-adopt-offline.py"
+CLAIM_AUDITOR_PATH = "scripts/check-claims.py"
 HUMAN_BOARD_PATH = "docs/adopt.md"
+HUMAN_INDEX_PATH = "docs/adopt-index.md"
+HUMAN_WORKFLOWS_PATH = "docs/adopt-flows.md"
+ISSUE_LABELS_PATH = ".github/labels.json"
 HUMAN_BOARD_IDENTITY = (
     HUMAN_BOARD_PATH,
-    22929,
-    "341b4878e11436130f6c3481eb27775e2926afdba6500ed71f5a1fa15672b230",
+    28917,
+    "006e210d24b79945543b46942a9230dd938705418a146eb80fe0ce7f6751e9c7",
+)
+CONSUMER_HELPER_IDENTITY = (
+    CONSUMER_HELPER_PATH,
+    10952,
+    "0351d7c759ce8825e3dcdd7fb36b1ce29b58ff1e6676e7be07f660ab21edda15",
+)
+CONSUMER_REGRESSION_IDENTITY = (
+    CONSUMER_REGRESSION_PATH,
+    7526,
+    "68f1cfee2af3d2fb74ca86b8bd9266ad026699809239d4a6a09cbd24122a0b74",
+)
+CLAIM_AUDITOR_IDENTITY = (
+    CLAIM_AUDITOR_PATH,
+    13596,
+    "100f8d72f2f6beedd979c69d99bfc519b8d19351e73ae01516b1e86bd32591b6",
+)
+HUMAN_INDEX_IDENTITY = (
+    HUMAN_INDEX_PATH,
+    8025,
+    "e8a9708f72f2f5042cca278fdbb8fe2563aac64eb0af7a494d5e21253a2c662d",
+)
+HUMAN_WORKFLOWS_IDENTITY = (
+    HUMAN_WORKFLOWS_PATH,
+    6390,
+    "03a643656961c27b2aafb8bd8e4c5dc52926b35f55e847f22b0c06ae2decbdd2",
+)
+ISSUE_LABELS_IDENTITY = (
+    ISSUE_LABELS_PATH,
+    1104,
+    "b0e1267fb5e0e5db0aaba796755cb4806c4775b26297ed4bbcf6e9989c084e61",
 )
 SEALED_PUBLIC_RECEIPTS = (
     (
-        "source_readback",
-        "manifests/published-github/20260809_handback_rb.json",
-        4641,
-        "1230fb8c16f79ecee057f7fa0269c5f27c71b4cca8522bfe436cba82d7dc327f",
+        "claims_offline_readback",
+        "manifests/published-github/20260809_claims_offline_rb.json",
+        7154,
+        "9085b14d5bfb872b0cbfd8c43929844ecbb124802bc1ebe50e81470f999b020a",
     ),
     (
-        "link_audit",
-        "manifests/github-custody/20260809_links_r19.json",
-        10293,
-        "fe990865c2b21bce9487a5090c28bd5e580e7d99e657f3941b154a11102beb53",
+        "source_link_audit",
+        "manifests/github-custody/20260809_links_r27.json",
+        10767,
+        "96d6574817c13981d5c4f030d76039259103907bbdd2e264778126b0809f0f35",
     ),
 )
 
@@ -156,14 +212,24 @@ TOP_REQUIRED = (
     "evidence_base_commit",
     "repository",
     "human_board",
+    "human_index",
     "archive_authority",
+    "ownership_policy",
     "map_manifest",
     "required_maps",
     "queue_sources",
+    "queue_snapshot",
     "snapshot_policy",
     "consumer_helper",
+    "consumer_modes",
+    "consumer_regression",
+    "claim_auditor",
+    "claim_auditor_modes",
     "claim_interface",
     "handback_interface",
+    "human_workflows",
+    "workflow_fields",
+    "workflows",
     "enums",
     "fields",
     "mirror_fields",
@@ -216,6 +282,67 @@ ADOPTION_STATUSES = (
 )
 MIRROR_STATUSES = ("declared", "active", "returned", "paused", "withdrawn")
 QUEUE_SOURCES = ("docs/known-gaps.md", "docs/work-queue.md")
+QUEUE_SNAPSHOT = (
+    (
+        "docs/known-gaps.md",
+        37422,
+        "72125D27EDBD1C38BC1BCF70D887A976FC1AE1E39114EFBFEA00F62F3552BDC2",
+    ),
+    (
+        "docs/work-queue.md",
+        56162,
+        "3A1431FB3DF8F18942BABAE4F411DBC156C4BC5A1742B81ECBFB74E8F087BA46",
+    ),
+)
+OWNERSHIP_POLICY = {
+    "named_owner_required_for": ["current_work"],
+    "null_owner_means": "unclaimed",
+    "null_owner_allowed_for": ["ready_for_adoption", "future"],
+    "unclaimed_scope_prefix": "unclaimed",
+    "claims_are_nonexclusive": True,
+}
+CONSUMER_MODES = ("raw_github", "local_git_object_database")
+CLAIM_AUDITOR_MODES = {
+    "board": list(CONSUMER_MODES),
+    "issues": ["public_github_api", "json_fixture"],
+}
+WORKFLOW_FIELDS = (
+    "id",
+    "purpose",
+    "start_when",
+    "inputs",
+    "steps",
+    "evidence",
+    "stop_conditions",
+    "handback",
+)
+WORKFLOW_IDS = (
+    "assembly_review",
+    "bounded_continuation",
+    "bounded_pilot",
+    "bounded_repair",
+    "bounded_transcription",
+    "bounded_translation",
+    "correction_propagation",
+    "independent_mirror",
+    "independent_review",
+    "source_audit",
+    "source_discovery",
+    "source_intake",
+    "source_recovery",
+    "table_audit",
+)
+WORKFLOW_REGISTRY_SHA256 = (
+    "21c6803abe09fb240be4e7863c5500a6471e3a44eff3a6082e392205a3ebe4ae"
+)
+ISSUE_TEMPLATE_PATHS = (
+    ".github/ISSUE_TEMPLATE/adopt.yml",
+    ".github/ISSUE_TEMPLATE/correction.yml",
+    ".github/ISSUE_TEMPLATE/handback.yml",
+    ".github/ISSUE_TEMPLATE/rendering_problem.md",
+    ".github/ISSUE_TEMPLATE/source-suggestion.yml",
+    ".github/ISSUE_TEMPLATE/source_or_translation_correction.md",
+)
 SNAPSHOT_PATHS = (BOARD_PATH, SCHEMA_PATH, CHECK_PATH, MAP_PATH)
 REQUIRED_CHECKS = (
     "validation_status_pass",
@@ -240,15 +367,62 @@ CHECK_FLAGS = {
     "required_maps_represented": True,
     "queue_source_contract": True,
     "queue_sources_represented": True,
+    "queue_snapshot_contract": True,
     "human_board_complete": True,
+    "human_dimension_index_complete": True,
     "consumer_helper_contract": True,
+    "consumer_regression_contract": True,
+    "claim_auditor_contract": True,
     "contributor_interface_contract": True,
+    "issue_label_contract": True,
+    "workflow_registry_contract": True,
+    "ownership_semantics": True,
     "snapshot_policy_contract": True,
     "external_network_queried": False,
     "producer_files_mutated": False,
     "compile_render_or_ocr_run": False,
     "global_filesystem_search": False,
 }
+CHECK_AGGREGATE_FIELDS = (
+    "items",
+    "mirrors",
+    "current_work",
+    "ready_for_adoption",
+    "future",
+    "unique_item_ids",
+    "unique_mirror_ids",
+    "required_maps",
+    "represented_required_maps",
+    "missing_required_maps",
+    "queue_sources",
+    "represented_queue_sources",
+    "missing_queue_sources",
+    "queue_snapshot_sources",
+    "queue_snapshot_bytes",
+    "human_board_rows",
+    "represented_human_board_items",
+    "missing_human_board_items",
+    "unknown_human_board_ids",
+    "duplicate_human_board_ids",
+    "human_index_rows",
+    "human_index_authors",
+    "human_index_works",
+    "human_index_series",
+    "human_index_languages",
+    "human_index_corpora",
+    "repository_path_checks",
+    "tracked_repository_paths",
+    "issue_labels",
+    "issue_label_templates",
+    "consumer_modes",
+    "claim_auditor_board_modes",
+    "claim_auditor_issue_modes",
+    "workflow_registry",
+    "workflow_tokens_used",
+    "unreferenced_workflows",
+    "named_owner_rows",
+    "unclaimed_owner_rows",
+)
 TRUST_BOUNDARY = {
     "application_http_api_fetch": "forbidden",
     "snapshot_storage": "caller_supplied_local_non_on_demand_private_directory",
@@ -519,7 +693,10 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "repository",
         "approved_snapshot_commit",
         "approved_snapshot_tree",
-        "validation_source_commit",
+        "content_source_commit",
+        "content_source_tree",
+        "validation_context_commit",
+        "validation_context_role",
         "evidence_closure_commit",
         "evidence_base_commit",
         "map_observation_commit",
@@ -528,22 +705,39 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
         "snapshot_paths",
         "files",
         "optional_human_projection",
+        "optional_consumer_helper_identity",
+        "optional_consumer_regression_identity",
+        "optional_claim_auditor_identity",
         "sealed_public_receipts",
         "expected_aggregate",
         "trust_boundary",
     )
     if not _require_keys(pin, required, "pin", errors, exact=True):
         return
-    if pin.get("schema") != "mathematics-commons-adoption-pin-v1":
+    if pin.get("schema") != "mathematics-commons-adoption-pin-v2":
         _error(errors, "pin.schema", "has an unsupported value")
     if pin.get("repository") != REPOSITORY_URL:
         _error(errors, "pin.repository", "does not name the approved repository")
     _valid_commit(pin.get("approved_snapshot_commit"), "pin.approved_snapshot_commit", errors)
     _valid_commit(pin.get("approved_snapshot_tree"), "pin.approved_snapshot_tree", errors)
-    _valid_commit(pin.get("validation_source_commit"), "pin.validation_source_commit", errors)
+    _valid_commit(pin.get("content_source_commit"), "pin.content_source_commit", errors)
+    _valid_commit(pin.get("content_source_tree"), "pin.content_source_tree", errors)
+    _valid_commit(pin.get("validation_context_commit"), "pin.validation_context_commit", errors)
+    if pin.get("validation_context_role") != PRODUCTION_VALIDATION_CONTEXT_ROLE:
+        _error(
+            errors,
+            "pin.validation_context_role",
+            "must identify the opaque producer-recorded context as a non-trust-anchor",
+        )
     _valid_commit(pin.get("evidence_closure_commit"), "pin.evidence_closure_commit", errors)
     _valid_commit(pin.get("evidence_base_commit"), "pin.evidence_base_commit", errors)
     _valid_commit(pin.get("map_observation_commit"), "pin.map_observation_commit", errors)
+    if pin.get("evidence_closure_commit") != pin.get("approved_snapshot_commit"):
+        _error(
+            errors,
+            "pin.evidence_closure_commit",
+            "must equal the immutable approved snapshot closure",
+        )
     if pin.get("discovery_ref") != "main":
         _error(errors, "pin.discovery_ref", "must remain the discovery-only main ref")
     if pin.get("discovery_ref_role") != "locator_only_not_an_immutable_snapshot":
@@ -629,12 +823,64 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
                 "must remain false for the four-file machine contract",
             )
 
+    optional_code_specs = (
+        (
+            "optional_consumer_helper_identity",
+            "consumer_helper",
+            CONSUMER_HELPER_IDENTITY,
+        ),
+        (
+            "optional_consumer_regression_identity",
+            "consumer_regression",
+            CONSUMER_REGRESSION_IDENTITY,
+        ),
+        (
+            "optional_claim_auditor_identity",
+            "claim_auditor",
+            CLAIM_AUDITOR_IDENTITY,
+        ),
+    )
+    optional_code_identities: dict[str, Any] = {}
+    for field, expected_role, _expected_identity in optional_code_specs:
+        identity = pin.get(field)
+        optional_code_identities[field] = identity
+        label = f"pin.{field}"
+        if not _require_keys(
+            identity,
+            ("role", "path", "bytes", "sha256", "machine_required"),
+            label,
+            errors,
+            exact=True,
+        ):
+            continue
+        assert isinstance(identity, dict)
+        if identity.get("role") != expected_role:
+            _error(errors, f"{label}.role", f"must be {expected_role}")
+        _valid_repo_locator(
+            identity.get("path"),
+            f"{label}.path",
+            errors,
+            allow_null=False,
+            allow_empty=False,
+        )
+        if type(identity.get("bytes")) is not int or identity.get("bytes") <= 0:
+            _error(errors, f"{label}.bytes", "must be a positive integer")
+        digest = identity.get("sha256")
+        if not isinstance(digest, str) or SHA256_RE.fullmatch(digest) is None:
+            _error(errors, f"{label}.sha256", "must be lowercase SHA-256")
+        if identity.get("machine_required") is not False:
+            _error(
+                errors,
+                f"{label}.machine_required",
+                "must remain false for the four-file machine contract",
+            )
+
     receipts = pin.get("sealed_public_receipts")
     if not isinstance(receipts, list) or len(receipts) != len(SEALED_PUBLIC_RECEIPTS):
         _error(
             errors,
             "pin.sealed_public_receipts",
-            "must contain the two reviewed non-input receipt identities",
+            "must contain exactly the two reviewed non-input receipt identities",
         )
     else:
         seen_receipt_roles: set[str] = set()
@@ -690,8 +936,22 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
             _error(errors, "pin.approved_snapshot_commit", "does not match the compiled production pin")
         if pin.get("approved_snapshot_tree") != PRODUCTION_APPROVED_TREE:
             _error(errors, "pin.approved_snapshot_tree", "does not match the compiled production pin")
-        if pin.get("validation_source_commit") != PRODUCTION_VALIDATION_SOURCE_COMMIT:
-            _error(errors, "pin.validation_source_commit", "does not match the compiled production pin")
+        if pin.get("content_source_commit") != PRODUCTION_CONTENT_SOURCE_COMMIT:
+            _error(errors, "pin.content_source_commit", "does not match the compiled production pin")
+        if pin.get("content_source_tree") != PRODUCTION_CONTENT_SOURCE_TREE:
+            _error(errors, "pin.content_source_tree", "does not match the compiled production pin")
+        if pin.get("validation_context_commit") != PRODUCTION_VALIDATION_CONTEXT_COMMIT:
+            _error(
+                errors,
+                "pin.validation_context_commit",
+                "does not match the compiled production pin",
+            )
+        if pin.get("validation_context_role") != PRODUCTION_VALIDATION_CONTEXT_ROLE:
+            _error(
+                errors,
+                "pin.validation_context_role",
+                "does not match the compiled validation-context qualification",
+            )
         if pin.get("evidence_closure_commit") != PRODUCTION_EVIDENCE_CLOSURE_COMMIT:
             _error(errors, "pin.evidence_closure_commit", "does not match the compiled production pin")
         if pin.get("evidence_base_commit") != PRODUCTION_EVIDENCE_BASE_COMMIT:
@@ -719,6 +979,21 @@ def _validate_pin(pin: dict[str, Any], errors: list[str], *, production: bool) -
                     errors,
                     "pin.optional_human_projection",
                     "does not match the compiled optional human-board identity",
+                )
+        for field, _expected_role, expected_identity in optional_code_specs:
+            identity = optional_code_identities.get(field)
+            if not isinstance(identity, dict):
+                continue
+            actual_identity = (
+                identity.get("path"),
+                identity.get("bytes"),
+                identity.get("sha256"),
+            )
+            if actual_identity != expected_identity:
+                _error(
+                    errors,
+                    f"pin.{field}",
+                    "does not match the compiled optional code identity",
                 )
         if isinstance(receipts, list):
             actual_receipts = tuple(
@@ -988,18 +1263,129 @@ def _validate_schema_document(value: Any, errors: list[str]) -> None:
             _error(errors, f"{label}.properties.validation", "does not bind the check path")
         if properties.get("map_manifest", {}).get("const") != MAP_PATH:
             _error(errors, f"{label}.properties.map_manifest", "does not bind the map path")
+        if properties.get("human_index", {}).get("const") != HUMAN_INDEX_PATH:
+            _error(errors, f"{label}.properties.human_index", "does not bind the human index")
         if properties.get("consumer_helper", {}).get("const") != CONSUMER_HELPER_PATH:
             _error(errors, f"{label}.properties.consumer_helper", "does not bind the helper path")
+        consumer_modes_schema = properties.get("consumer_modes")
+        expected_consumer_modes_schema = {
+            "type": "array",
+            "prefixItems": [{"const": mode} for mode in CONSUMER_MODES],
+            "items": False,
+            "minItems": len(CONSUMER_MODES),
+            "maxItems": len(CONSUMER_MODES),
+        }
+        if consumer_modes_schema != expected_consumer_modes_schema:
+            _error(
+                errors,
+                f"{label}.properties.consumer_modes",
+                "does not bind the exact offline/remote mode contract",
+            )
+        if properties.get("consumer_regression", {}).get("const") != CONSUMER_REGRESSION_PATH:
+            _error(
+                errors,
+                f"{label}.properties.consumer_regression",
+                "does not bind the offline consumer regression path",
+            )
+        if properties.get("claim_auditor", {}).get("const") != CLAIM_AUDITOR_PATH:
+            _error(errors, f"{label}.properties.claim_auditor", "does not bind the claim auditor")
+        expected_claim_auditor_modes_schema = {
+            "type": "object",
+            "required": ["board", "issues"],
+            "properties": {
+                key: {
+                    "type": "array",
+                    "prefixItems": [{"const": mode} for mode in modes],
+                    "items": False,
+                    "minItems": len(modes),
+                    "maxItems": len(modes),
+                }
+                for key, modes in CLAIM_AUDITOR_MODES.items()
+            },
+            "additionalProperties": False,
+        }
+        if properties.get("claim_auditor_modes") != expected_claim_auditor_modes_schema:
+            _error(
+                errors,
+                f"{label}.properties.claim_auditor_modes",
+                "does not bind the exact board/issue auditor mode contract",
+            )
         if properties.get("claim_interface", {}).get("const") != CLAIM_URL:
             _error(errors, f"{label}.properties.claim_interface", "does not bind the claim form")
         if properties.get("handback_interface", {}).get("const") != HANDBACK_URL:
             _error(errors, f"{label}.properties.handback_interface", "does not bind the handback form")
+        if properties.get("human_workflows", {}).get("const") != HUMAN_WORKFLOWS_PATH:
+            _error(
+                errors,
+                f"{label}.properties.human_workflows",
+                "does not bind the human workflow guide",
+            )
+        expected_workflow_fields_schema = {
+            "type": "array",
+            "prefixItems": [{"const": field} for field in WORKFLOW_FIELDS],
+            "items": False,
+            "minItems": len(WORKFLOW_FIELDS),
+            "maxItems": len(WORKFLOW_FIELDS),
+        }
+        if properties.get("workflow_fields") != expected_workflow_fields_schema:
+            _error(
+                errors,
+                f"{label}.properties.workflow_fields",
+                "does not bind the exact ordered workflow fields",
+            )
     definitions = value.get("$defs")
     if not isinstance(definitions, dict):
         _error(errors, f"{label}.$defs", "must be an object")
         return
     item = definitions.get("item")
     mirror = definitions.get("mirror")
+    source_identity = definitions.get("sourceIdentity")
+    workflow = definitions.get("workflow")
+    expected_source_identity = {
+        "type": "object",
+        "required": ["path", "bytes", "sha256"],
+        "properties": {
+            "path": {"type": "string", "minLength": 1},
+            "bytes": {"type": "integer", "minimum": 0},
+            "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+        },
+        "additionalProperties": False,
+    }
+    if source_identity != expected_source_identity:
+        _error(
+            errors,
+            f"{label}.$defs.sourceIdentity",
+            "does not match the exact queue identity contract",
+        )
+    string_list_schema = {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": True,
+        "items": {"type": "string", "minLength": 1},
+    }
+    expected_workflow = {
+        "type": "object",
+        "required": list(WORKFLOW_FIELDS),
+        "properties": {
+            "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$",
+            },
+            "purpose": {"type": "string", "minLength": 1},
+            "start_when": {"type": "string", "minLength": 1},
+            **{
+                field: dict(string_list_schema)
+                for field in ("inputs", "steps", "evidence", "stop_conditions", "handback")
+            },
+        },
+        "additionalProperties": False,
+    }
+    if workflow != expected_workflow:
+        _error(
+            errors,
+            f"{label}.$defs.workflow",
+            "does not match the exact workflow field contract",
+        )
     if not isinstance(item, dict) or item.get("required") != list(ITEM_FIELDS):
         _error(errors, f"{label}.$defs.item.required", "does not match the compiled item fields")
     if not isinstance(item, dict) or item.get("additionalProperties") is not False:
@@ -1140,11 +1526,113 @@ def _represented_paths(items: list[Any]) -> set[str]:
     return represented
 
 
+def _canonical_json_sha256(value: Any) -> str:
+    payload = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _validate_queue_snapshot(value: Any, errors: list[str]) -> list[dict[str, Any]]:
+    label = "board.queue_snapshot"
+    if not isinstance(value, list):
+        _error(errors, label, "must be an array")
+        return []
+    if len(value) != len(QUEUE_SNAPSHOT):
+        _error(errors, label, "must contain exactly two source identities")
+    observed: list[dict[str, Any]] = []
+    for index, identity in enumerate(value):
+        identity_label = f"{label}[{index}]"
+        if not _require_keys(
+            identity,
+            ("path", "bytes", "sha256"),
+            identity_label,
+            errors,
+            exact=True,
+        ):
+            continue
+        assert isinstance(identity, dict)
+        _valid_repo_locator(
+            identity.get("path"),
+            f"{identity_label}.path",
+            errors,
+            allow_null=False,
+            allow_empty=False,
+        )
+        if type(identity.get("bytes")) is not int or identity.get("bytes") < 0:
+            _error(errors, f"{identity_label}.bytes", "must be a nonnegative integer")
+        digest = identity.get("sha256")
+        if not isinstance(digest, str) or re.fullmatch(r"[0-9A-F]{64}", digest) is None:
+            _error(errors, f"{identity_label}.sha256", "must be uppercase SHA-256")
+        observed.append(identity)
+    expected = [
+        {"path": path, "bytes": size, "sha256": digest}
+        for path, size, digest in QUEUE_SNAPSHOT
+    ]
+    if observed != expected:
+        _error(errors, label, "does not match the two compiled queue-source identities")
+    return observed
+
+
+def _validate_workflow_registry(value: Any, errors: list[str]) -> set[str]:
+    label = "board.workflows"
+    if not isinstance(value, list):
+        _error(errors, label, "must be an array")
+        return set()
+    if len(value) != len(WORKFLOW_IDS):
+        _error(errors, label, f"must contain exactly {len(WORKFLOW_IDS)} definitions")
+    observed_ids: list[str] = []
+    for index, workflow in enumerate(value):
+        workflow_label = f"{label}[{index}]"
+        if not _require_keys(
+            workflow,
+            WORKFLOW_FIELDS,
+            workflow_label,
+            errors,
+            exact=True,
+        ):
+            continue
+        assert isinstance(workflow, dict)
+        workflow_id = workflow.get("id")
+        if not isinstance(workflow_id, str) or SNAKE_RE.fullmatch(workflow_id) is None:
+            _error(errors, f"{workflow_label}.id", "must be a lowercase snake-case token")
+        else:
+            observed_ids.append(workflow_id)
+        for field in ("purpose", "start_when"):
+            _safe_text(workflow.get(field), f"{workflow_label}.{field}", errors, min_length=1)
+        for field in ("inputs", "steps", "evidence", "stop_conditions", "handback"):
+            _unique_string_list(
+                workflow.get(field),
+                f"{workflow_label}.{field}",
+                errors,
+                min_items=1,
+                min_length=1,
+            )
+    if observed_ids != list(WORKFLOW_IDS):
+        _error(errors, label, "does not contain the exact ordered workflow ID registry")
+    if len(observed_ids) != len(set(observed_ids)):
+        _error(errors, label, "contains duplicate workflow IDs")
+    if _canonical_json_sha256(value) != WORKFLOW_REGISTRY_SHA256:
+        _error(errors, label, "does not match the compiled exact workflow definitions")
+    return set(observed_ids)
+
+
 def _repository_path_references(board: dict[str, Any]) -> list[str]:
     references: list[str] = []
     # schema_url and validation are already counted in same_commit_paths.  This
-    # mirrors the sealed producer check's exact 122-reference accounting.
-    for key in ("human_board", "map_manifest", "consumer_helper"):
+    # mirrors the sealed producer check's exact 133-reference accounting.
+    for key in (
+        "human_board",
+        "human_index",
+        "map_manifest",
+        "consumer_helper",
+        "consumer_regression",
+        "claim_auditor",
+        "human_workflows",
+    ):
         value = board.get(key)
         if isinstance(value, str) and value:
             references.append(value)
@@ -1158,17 +1646,21 @@ def _repository_path_references(board: dict[str, Any]) -> list[str]:
         values = board.get(key)
         if isinstance(values, list):
             references.extend(value for value in values if isinstance(value, str) and value)
+    queue_snapshot = board.get("queue_snapshot")
+    if isinstance(queue_snapshot, list):
+        references.extend(
+            value.get("path")
+            for value in queue_snapshot
+            if isinstance(value, dict)
+            and isinstance(value.get("path"), str)
+            and value.get("path")
+        )
     policy = board.get("snapshot_policy")
     if isinstance(policy, dict):
         values = policy.get("same_commit_paths")
         if isinstance(values, list):
             references.extend(value for value in values if isinstance(value, str) and value)
-    references.extend(
-        (
-            ".github/ISSUE_TEMPLATE/adopt.yml",
-            ".github/ISSUE_TEMPLATE/handback.yml",
-        )
-    )
+    references.extend((ISSUE_LABELS_PATH, *ISSUE_TEMPLATE_PATHS))
     items = board.get("items")
     if isinstance(items, list):
         for item in items:
@@ -1196,8 +1688,12 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         "board_role": "operational_layer",
         "repository": REPOSITORY_URL,
         "human_board": HUMAN_BOARD_PATH,
+        "human_index": HUMAN_INDEX_PATH,
         "map_manifest": MAP_PATH,
         "consumer_helper": CONSUMER_HELPER_PATH,
+        "consumer_regression": CONSUMER_REGRESSION_PATH,
+        "claim_auditor": CLAIM_AUDITOR_PATH,
+        "human_workflows": HUMAN_WORKFLOWS_PATH,
     }
     for key, expected in constants.items():
         if value.get(key) != expected:
@@ -1229,6 +1725,20 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
                 _error(errors, f"board.required_maps[{index}]", "is not a canonical map path")
     if value.get("queue_sources") != list(QUEUE_SOURCES):
         _error(errors, "board.queue_sources", "must preserve the two ordered queue sources")
+    queue_snapshot = _validate_queue_snapshot(value.get("queue_snapshot"), errors)
+    if [entry.get("path") for entry in queue_snapshot] != list(QUEUE_SOURCES):
+        _error(
+            errors,
+            "board.queue_snapshot",
+            "must bind the same ordered paths as board.queue_sources",
+        )
+
+    if value.get("ownership_policy") != OWNERSHIP_POLICY:
+        _error(
+            errors,
+            "board.ownership_policy",
+            "does not match the non-exclusive named/unclaimed ownership contract",
+        )
 
     policy = value.get("snapshot_policy")
     policy_fields = (
@@ -1254,6 +1764,21 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
     _valid_https_uri(value.get("handback_interface"), "board.handback_interface", errors)
     if value.get("handback_interface") != HANDBACK_URL:
         _error(errors, "board.handback_interface", "does not match the approved handback route")
+    if value.get("workflow_fields") != list(WORKFLOW_FIELDS):
+        _error(errors, "board.workflow_fields", "does not match the exact workflow field contract")
+    workflow_ids = _validate_workflow_registry(value.get("workflows"), errors)
+    if value.get("consumer_modes") != list(CONSUMER_MODES):
+        _error(
+            errors,
+            "board.consumer_modes",
+            "does not match the exact remote/offline consumer modes",
+        )
+    if value.get("claim_auditor_modes") != CLAIM_AUDITOR_MODES:
+        _error(
+            errors,
+            "board.claim_auditor_modes",
+            "does not match the exact board/issue auditor mode contract",
+        )
 
     expected_enums = {
         "lane_state": list(LANE_STATES),
@@ -1279,6 +1804,52 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         _error(errors, "board.items", f"exceeds the {MAX_ITEMS}-item bound")
     for index, item in enumerate(items[:MAX_ITEMS]):
         _validate_item(item, index, value.get("claim_interface"), errors)
+
+    named_owner_rows = 0
+    unclaimed_owner_rows = 0
+    used_workflows: set[str] = set()
+    for index, item in enumerate(items):
+        if not isinstance(item, dict):
+            continue
+        lane = item.get("lane_state")
+        owner = item.get("owner")
+        owner_scope = item.get("owner_scope")
+        if lane == "current_work":
+            if isinstance(owner, str) and owner:
+                named_owner_rows += 1
+        elif lane in {"ready_for_adoption", "future"}:
+            if owner is not None:
+                _error(
+                    errors,
+                    f"board.items[{index}].owner",
+                    "must be null for an unclaimed ready or future row",
+                )
+            else:
+                unclaimed_owner_rows += 1
+            if not isinstance(owner_scope, str) or not owner_scope.startswith("unclaimed"):
+                _error(
+                    errors,
+                    f"board.items[{index}].owner_scope",
+                    "must begin with the compiled unclaimed scope prefix",
+                )
+        workflow_tokens = item.get("workflow")
+        if isinstance(workflow_tokens, list):
+            for token in workflow_tokens:
+                if isinstance(token, str):
+                    used_workflows.add(token)
+                    if token not in workflow_ids:
+                        _error(
+                            errors,
+                            f"board.items[{index}].workflow",
+                            f"uses undefined workflow token {token!r}",
+                        )
+    unused_workflows = workflow_ids - used_workflows
+    if unused_workflows:
+        _error(
+            errors,
+            "board.workflows",
+            f"contains unreferenced workflow definitions {sorted(unused_workflows)}",
+        )
 
     mirrors = value.get("mirrors")
     if not isinstance(mirrors, list):
@@ -1308,7 +1879,14 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
     if missing_queue:
         _error(errors, "board.queue_sources", f"not represented by operational rows: {missing_queue}")
 
-    counts = {state: sum(1 for item in items if isinstance(item, dict) and item.get("lane_state") == state) for state in LANE_STATES}
+    counts = {
+        state: sum(
+            1
+            for item in items
+            if isinstance(item, dict) and item.get("lane_state") == state
+        )
+        for state in LANE_STATES
+    }
     path_references = _repository_path_references(value)
     casefold_paths: dict[str, str] = {}
     for index, locator in enumerate(path_references):
@@ -1331,7 +1909,34 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
                 f"portable-path collision between {previous!r} and {base!r}",
             )
         casefold_paths[key] = base
-    return {
+    authors = {
+        item.get("author")
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("author"), str)
+    }
+    works = {
+        item.get("work")
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("work"), str)
+    }
+    series = {
+        item.get("series")
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("series"), str)
+    }
+    corpora = {
+        item.get("corpus")
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("corpus"), str)
+    }
+    languages = {
+        language
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("languages"), list)
+        for language in item.get("languages", [])
+        if isinstance(language, str)
+    }
+    aggregate = {
         "items": len(items),
         "mirrors": len(mirrors),
         **counts,
@@ -1343,8 +1948,37 @@ def _validate_board(value: Any, pin: dict[str, Any], errors: list[str]) -> dict[
         "queue_sources": len(QUEUE_SOURCES),
         "represented_queue_sources": len(set(QUEUE_SOURCES) & represented),
         "missing_queue_sources": len(missing_queue),
+        "queue_snapshot_sources": len(queue_snapshot),
+        "queue_snapshot_bytes": sum(
+            entry.get("bytes", 0)
+            for entry in queue_snapshot
+            if type(entry.get("bytes")) is int
+        ),
+        "human_board_rows": len(items),
+        "represented_human_board_items": len(set(item_ids)),
+        "missing_human_board_items": 0,
+        "unknown_human_board_ids": 0,
+        "duplicate_human_board_ids": len(item_ids) - len(set(item_ids)),
+        "human_index_rows": len(items),
+        "human_index_authors": len(authors),
+        "human_index_works": len(works),
+        "human_index_series": len(series),
+        "human_index_languages": len(languages),
+        "human_index_corpora": len(corpora),
         "repository_path_checks": len(path_references),
+        "tracked_repository_paths": len(path_references),
+        "issue_labels": 4,
+        "issue_label_templates": len(ISSUE_TEMPLATE_PATHS),
+        "consumer_modes": len(CONSUMER_MODES),
+        "claim_auditor_board_modes": len(CLAIM_AUDITOR_MODES["board"]),
+        "claim_auditor_issue_modes": len(CLAIM_AUDITOR_MODES["issues"]),
+        "workflow_registry": len(workflow_ids),
+        "workflow_tokens_used": len(used_workflows),
+        "unreferenced_workflows": len(unused_workflows),
+        "named_owner_rows": named_owner_rows,
+        "unclaimed_owner_rows": unclaimed_owner_rows,
     }
+    return aggregate
 
 
 def _validate_exact_file_set(
@@ -1589,8 +2223,17 @@ def _validate_check(
         "schema_file",
         "map_manifest",
         "human_board",
+        "human_index",
+        "human_workflows",
+        "issue_labels",
         "snapshot_policy",
         "consumer_helper",
+        "consumer_modes",
+        "consumer_regression",
+        "claim_auditor",
+        "claim_auditor_modes",
+        "ownership_policy",
+        "queue_snapshot",
         "aggregate",
         "checks",
     )
@@ -1604,8 +2247,8 @@ def _validate_check(
     if value.get("errors") != []:
         _error(errors, f"{label}.errors", "must be an empty array")
     _valid_date(value.get("observed_date"), f"{label}.observed_date", errors)
-    if value.get("observed_commit") != pin.get("validation_source_commit"):
-        _error(errors, f"{label}.observed_commit", "does not match the pinned validation source")
+    if value.get("observed_commit") != pin.get("validation_context_commit"):
+        _error(errors, f"{label}.observed_commit", "does not match the pinned validation context")
 
     declarations = {
         "board": ("board", "schema", "math-commons-adoption-v1"),
@@ -1643,10 +2286,88 @@ def _validate_check(
         }
         if human_board != expected_human:
             _error(errors, f"{label}.human_board", "does not match the pinned optional projection")
+
+    human_index = value.get("human_index")
+    expected_human_index = {
+        "path": HUMAN_INDEX_IDENTITY[0],
+        "bytes": HUMAN_INDEX_IDENTITY[1],
+        "sha256": HUMAN_INDEX_IDENTITY[2].upper(),
+        "rows": aggregate.get("human_index_rows"),
+        "authors": aggregate.get("human_index_authors"),
+        "works": aggregate.get("human_index_works"),
+        "series": aggregate.get("human_index_series"),
+        "languages": aggregate.get("human_index_languages"),
+        "corpora": aggregate.get("human_index_corpora"),
+    }
+    if human_index != expected_human_index:
+        _error(errors, f"{label}.human_index", "does not match the compiled index receipt")
+
+    human_workflows = value.get("human_workflows")
+    expected_human_workflows = {
+        "path": HUMAN_WORKFLOWS_IDENTITY[0],
+        "bytes": HUMAN_WORKFLOWS_IDENTITY[1],
+        "sha256": HUMAN_WORKFLOWS_IDENTITY[2].upper(),
+        "flows": aggregate.get("workflow_registry"),
+        "headings": aggregate.get("workflow_registry"),
+    }
+    if human_workflows != expected_human_workflows:
+        _error(
+            errors,
+            f"{label}.human_workflows",
+            "does not match the compiled workflow-guide receipt",
+        )
+
+    issue_labels = value.get("issue_labels")
+    expected_issue_labels = {
+        "path": ISSUE_LABELS_IDENTITY[0],
+        "bytes": ISSUE_LABELS_IDENTITY[1],
+        "sha256": ISSUE_LABELS_IDENTITY[2].upper(),
+        "labels": aggregate.get("issue_labels"),
+        "templates": aggregate.get("issue_label_templates"),
+    }
+    if issue_labels != expected_issue_labels:
+        _error(errors, f"{label}.issue_labels", "does not match the compiled label receipt")
+
     if value.get("consumer_helper") != CONSUMER_HELPER_PATH:
         _error(errors, f"{label}.consumer_helper", "does not match the compiled helper path")
     if board.get("consumer_helper") != value.get("consumer_helper"):
         _error(errors, "board.consumer_helper", "does not match the validation receipt")
+    if value.get("consumer_modes") != list(CONSUMER_MODES):
+        _error(errors, f"{label}.consumer_modes", "does not match the exact mode contract")
+    if board.get("consumer_modes") != value.get("consumer_modes"):
+        _error(errors, "board.consumer_modes", "does not match the validation receipt")
+    if value.get("consumer_regression") != CONSUMER_REGRESSION_PATH:
+        _error(
+            errors,
+            f"{label}.consumer_regression",
+            "does not match the compiled offline regression path",
+        )
+    if board.get("consumer_regression") != value.get("consumer_regression"):
+        _error(errors, "board.consumer_regression", "does not match the validation receipt")
+    if value.get("claim_auditor") != CLAIM_AUDITOR_PATH:
+        _error(errors, f"{label}.claim_auditor", "does not match the compiled claim auditor")
+    if board.get("claim_auditor") != value.get("claim_auditor"):
+        _error(errors, "board.claim_auditor", "does not match the validation receipt")
+    if value.get("claim_auditor_modes") != CLAIM_AUDITOR_MODES:
+        _error(
+            errors,
+            f"{label}.claim_auditor_modes",
+            "does not match the exact board/issue auditor modes",
+        )
+    if board.get("claim_auditor_modes") != value.get("claim_auditor_modes"):
+        _error(errors, "board.claim_auditor_modes", "does not match the validation receipt")
+    if value.get("ownership_policy") != OWNERSHIP_POLICY:
+        _error(errors, f"{label}.ownership_policy", "does not match the ownership contract")
+    if board.get("ownership_policy") != value.get("ownership_policy"):
+        _error(errors, "board.ownership_policy", "does not match the validation receipt")
+    expected_queue_snapshot = [
+        {"path": path, "bytes": size, "sha256": digest}
+        for path, size, digest in QUEUE_SNAPSHOT
+    ]
+    if value.get("queue_snapshot") != expected_queue_snapshot:
+        _error(errors, f"{label}.queue_snapshot", "does not match the exact queue identities")
+    if board.get("queue_snapshot") != value.get("queue_snapshot"):
+        _error(errors, "board.queue_snapshot", "does not match the validation receipt")
 
     expected_policy = {
         "stable_locator_ref": "main",
@@ -1659,9 +2380,14 @@ def _validate_check(
         _error(errors, f"{label}.snapshot_policy", "does not match the board's snapshot policy")
 
     recorded_aggregate = value.get("aggregate")
-    if not isinstance(recorded_aggregate, dict):
-        _error(errors, f"{label}.aggregate", "must be an object")
-    else:
+    if _require_keys(
+        recorded_aggregate,
+        CHECK_AGGREGATE_FIELDS,
+        f"{label}.aggregate",
+        errors,
+        exact=True,
+    ):
+        assert isinstance(recorded_aggregate, dict)
         for key, expected in aggregate.items():
             if recorded_aggregate.get(key) != expected:
                 _error(errors, f"{label}.aggregate.{key}", f"must equal {expected}")
@@ -1850,7 +2576,10 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "repository": repository,
             "approved_snapshot_commit": commit,
             "approved_snapshot_tree": snapshot.pin["approved_snapshot_tree"],
-            "validation_source_commit": snapshot.pin["validation_source_commit"],
+            "content_source_commit": snapshot.pin["content_source_commit"],
+            "content_source_tree": snapshot.pin["content_source_tree"],
+            "validation_context_commit": snapshot.pin["validation_context_commit"],
+            "validation_context_role": snapshot.pin["validation_context_role"],
             "evidence_closure_commit": snapshot.pin["evidence_closure_commit"],
             "evidence_base_commit": snapshot.pin["evidence_base_commit"],
             "map_observation_commit": snapshot.pin["map_observation_commit"],
@@ -1859,9 +2588,24 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "optional_human_projection": dict(
                 snapshot.pin["optional_human_projection"]
             ),
+            "optional_consumer_helper_identity": dict(
+                snapshot.pin["optional_consumer_helper_identity"]
+            ),
+            "optional_consumer_regression_identity": dict(
+                snapshot.pin["optional_consumer_regression_identity"]
+            ),
+            "optional_claim_auditor_identity": dict(
+                snapshot.pin["optional_claim_auditor_identity"]
+            ),
+            "optional_code_identities_role": (
+                "non_input_executable_provenance_only_not_a_trust_anchor"
+            ),
             "sealed_public_receipts": [
                 dict(value) for value in snapshot.pin["sealed_public_receipts"]
             ],
+            "sealed_public_receipts_role": (
+                "non_input_provenance_only_not_mathematical_source_or_rights_certification"
+            ),
         },
         "validation": {
             "status": "PASS",
@@ -1874,6 +2618,10 @@ def _candidate_payload(snapshot: ValidatedSnapshot, items: list[dict[str, Any]])
             "claim": snapshot.board["claim_interface"],
             "handback": snapshot.board["handback_interface"],
             "consumer_helper": snapshot.board["consumer_helper"],
+            "consumer_modes": snapshot.board["consumer_modes"],
+            "consumer_regression": snapshot.board["consumer_regression"],
+            "claim_auditor": snapshot.board["claim_auditor"],
+            "claim_auditor_modes": snapshot.board["claim_auditor_modes"],
         },
         "application_http_api_requests_performed": 0,
         "snapshot_storage_requirement": "caller_supplied_local_non_on_demand_private_directory",
@@ -1886,7 +2634,11 @@ def _render_text(snapshot: ValidatedSnapshot, items: list[dict[str, Any]]) -> st
     lines = [
         "PASS: pinned local interlanguage adoption snapshot",
         f"approved snapshot: {snapshot.pin['approved_snapshot_commit']}",
-        f"validation source: {snapshot.pin['validation_source_commit']}",
+        f"content source: {snapshot.pin['content_source_commit']}",
+        (
+            f"validation context: {snapshot.pin['validation_context_commit']} "
+            "(producer-recorded precommit context; not publicly resolvable; not a trust anchor)"
+        ),
         (
             "board: "
             f"{snapshot.aggregate['items']} items "

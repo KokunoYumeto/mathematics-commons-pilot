@@ -24,6 +24,46 @@ import validate_repository  # noqa: E402
 
 
 class RepositoryValidationTests(unittest.TestCase):
+    def test_workflow_fixture_is_bound_to_the_approved_adoption_commit(self) -> None:
+        errors: list[str] = []
+        validate_repository.check_adoption_fixture_binding(errors)
+        self.assertEqual([], errors)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            pin_path = repository / "tools" / "interlanguage_adoption_pin.json"
+            workflow_path = repository / ".github" / "workflows" / "validate.yml"
+            pin_path.parent.mkdir(parents=True)
+            workflow_path.parent.mkdir(parents=True)
+            pin = json.loads(
+                (ROOT / "tools" / "interlanguage_adoption_pin.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            commit = pin["approved_snapshot_commit"]
+            pin_path.write_text(
+                json.dumps(pin, indent=2) + "\n", encoding="utf-8"
+            )
+            workflow = (
+                ROOT / ".github" / "workflows" / "validate.yml"
+            ).read_text(encoding="utf-8")
+            workflow_path.write_text(workflow, encoding="utf-8")
+            (repository / "tests" / "fixtures" / "interlanguage-adoption" / commit).mkdir(
+                parents=True
+            )
+            errors = []
+            with mock.patch.object(validate_repository, "ROOT", repository):
+                validate_repository.check_adoption_fixture_binding(errors)
+            self.assertEqual([], errors)
+
+            workflow_path.write_text(
+                workflow.replace(commit, "0" * 40), encoding="utf-8"
+            )
+            errors = []
+            with mock.patch.object(validate_repository, "ROOT", repository):
+                validate_repository.check_adoption_fixture_binding(errors)
+            self.assertIn("exact pinned adoption fixture", "\n".join(errors))
+
     def test_workflow_binds_append_only_guard_to_actual_protected_base(self) -> None:
         errors: list[str] = []
         validate_repository.check_workflow_protected_base_policy(errors)

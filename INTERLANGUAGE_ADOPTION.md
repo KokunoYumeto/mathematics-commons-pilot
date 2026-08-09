@@ -1,6 +1,6 @@
 # Interlanguage archive adoption adapter
 
-This is an **infrastructure-only integration on top of protected Phase A**. It makes the existing `modern-latex-manuscripts` archive board inspectable as a source of bounded transcription, translation, source-recovery, repair, and review work while the elementary calibration remains submitted and under review. It does not turn archive metadata into a live Research Packet, mathematical evidence, or an accepted result.
+This is an **infrastructure-only integration on top of protected Phase A**. It makes the existing `modern-latex-manuscripts` archive board inspectable as a source of bounded transcription, translation, source-recovery, repair, and review work while the elementary calibration remains submitted and awaits independent review. It does not turn archive metadata into a live Research Packet, mathematical evidence, or an accepted result.
 
 The adapter is intentionally one-way. Its validation application makes no HTTP/API request:
 
@@ -13,35 +13,37 @@ The adapter is intentionally one-way. Its validation application makes no HTTP/A
 
 ## Approved snapshot
 
-The current approved snapshot is upstream commit [`5f41b18467c315aee5f465894dd85a277081c74e`](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/5f41b18467c315aee5f465894dd85a277081c74e), tree `ac9630785b2f8d0534c9e35da95f957538158a47`. Floating `main` is only a discovery locator. It is not an immutable snapshot and must not silently replace this commit.
+The current approved snapshot is upstream closure commit [`1ecde9651d5fa508c5a3c0056021bfa89c4ea888`](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/1ecde9651d5fa508c5a3c0056021bfa89c4ea888), tree `8962d9c5a74ed9758d9e551e0ac3da174aab16c0`. It supersedes the earlier `7f791dfb…` interface before that adapter was merged and closes the independently reported promisor-clone gap. Floating `main` is only a discovery locator. It is not an immutable snapshot and must not silently replace this commit.
 
 | Role | Exact path | Bytes | SHA-256 |
 |---|---|---:|---|
-| Board | `manifests/adopt.json` | 62,952 | `24b2deab6684b4714d7a555c6c78c4ecf57b3df96829fd13441d2773491af678` |
-| Draft 2020-12 schema | `manifests/adopt.schema.json` | 11,922 | `fb0539f375937bf5fc68fc45363b501b2733559ac54953f08b6ce21f5e139b9d` |
-| Validation receipt | `manifests/adopt.check.json` | 2,536 | `6c665fe849214af638975eb8bba52e88d7f339c2706bb842566d997d514d014d` |
+| Board | `manifests/adopt.json` | 81,818 | `37a58ce18133d99d7492753e795f146d6764611c88682c0ce813a3ea05035fb7` |
+| Draft 2020-12 schema | `manifests/adopt.schema.json` | 17,236 | `9512088cc7a823c0470b0931e68a2bf1cf9095e94577288ba530c2c164ac3b9a` |
+| Validation receipt | `manifests/adopt.check.json` | 5,005 | `4b45b540aa243d623737fcdeeedc4b8a60cbd1b4b8ff758627c263cb5ff35ee5` |
 | Map manifest | `manifests/github-custody/20260807_maps_r5.json` | 17,998 | `ec0f2b625455efa88ffc3c376c46fad8024114f1f87819d776accf6837f1864d` |
 
 The commit identities inside those files have different jobs and are deliberately not equal:
 
-- approved four-file snapshot and human decision point: `5f41b18467c315aee5f465894dd85a277081c74e`;
-- validation/content source recorded by the receipt: `2695dbfe84726329267c71ba7a0af3486435f4c8`;
-- evidence closure: `9f30531f669fc7c62e1d512d4b2460921464727e`;
+- approved four-file evidence closure and human decision point: `1ecde9651d5fa508c5a3c0056021bfa89c4ea888`;
+- content/source state: `24fe25af7e593dee03280c46cf941ec6d83a4f84`, tree `cc8bbb2b79ae84125ab85e7713b86a53cf76cf03`;
+- producer-recorded pre-commit validation context in `adopt.check.json`: `9a892452bba8f484ccef449c2d6d6dd49f05e41d`. That object is not publicly resolvable and is not in the public source-to-closure ancestry, so it is an opaque receipt datum rather than a trust anchor;
 - board evidence basis: `9c858b61c57f0c7e7281c275e0bb9c6c0f999d53`; and
 - archive-map observation recorded upstream: `61b9d5cab6441b8fa02e34630d7145a916f0ea37`.
 
-Their ancestry and the human decision to approve `5f41b184…` are provenance assertions reviewed outside this four-file adapter. Exact file hashes prove byte equality to the reviewed snapshot; they do not prove Git ancestry by themselves. The optional human board `docs/adopt.md` is not a fifth machine requirement; when displayed or audited, pin its same-commit identity: 22,929 bytes, SHA-256 `341b4878e11436130f6c3481eb27775e2926afdba6500ed71f5a1fa15672b230`.
+Public Git ancestry independently places `7f791dfb…`, source `24fe25af…`, and closure `1ecde965…` in that exact order. The four contract blobs are byte-identical at source and closure. Exact file hashes prove equality to the reviewed snapshot but do not themselves prove ancestry or human approval. The optional human board `docs/adopt.md` is not a fifth machine requirement; when displayed or audited, pin its same-commit identity: 28,917 bytes, SHA-256 `006e210d24b79945543b46942a9230dd938705418a146eb80fe0ce7f6751e9c7`.
 
-Two public receipts are also pinned as **non-input provenance**, not additional machine requirements: source readback `manifests/published-github/20260809_handback_rb.json`, 4,641 bytes, SHA-256 `1230fb8c16f79ecee057f7fa0269c5f27c71b4cca8522bfe436cba82d7dc327f`; and r19 link audit `manifests/github-custody/20260809_links_r19.json`, 10,293 bytes, SHA-256 `fe990865c2b21bce9487a5090c28bd5e580e7d99e657f3941b154a11102beb53`. They record the upstream source readback and 37-document/1,160-link/786-target audit. The adapter neither fetches nor treats them as substitutes for the four required files.
+Two exact public receipts are pinned as **non-input provenance**, not additional machine requirements: claims/offline receipt `manifests/published-github/20260809_claims_offline_rb.json`, 7,154 bytes, SHA-256 `9085b14d5bfb872b0cbfd8c43929844ecbb124802bc1ebe50e81470f999b020a`; and source link audit `manifests/github-custody/20260809_links_r27.json`, 10,767 bytes, SHA-256 `96d6574817c13981d5c4f030d76039259103907bbdd2e264778126b0809f0f35`. The latter audits source commit `24fe25af…`—39 documents, 1,199 links, and 799 targets with no missing or prohibited target—not the later closure tree. The reported post-closure replay covers 1,203 links, but no separate pinned r28 receipt is claimed. Neither receipt certifies mathematical correctness, source correctness, or rights.
+
+Three upstream programs are identified as **optional executable provenance**, never as machine inputs or trust anchors: `scripts/get-adopt.py`, 10,952 bytes / SHA-256 `0351d7c759ce8825e3dcdd7fb36b1ce29b58ff1e6676e7be07f660ab21edda15`; `scripts/test-adopt-offline.py`, 7,526 / `68f1cfee2af3d2fb74ca86b8bd9266ad026699809239d4a6a09cbd24122a0b74`; and `scripts/check-claims.py`, 13,596 / `100f8d72f2f6beedd979c69d99bfc519b8d19351e73ae01516b1e86bd32591b6`.
 
 ## Try it
 
-Python 3.10 or newer on Windows or Linux is sufficient; the tool has no third-party dependency. Its stable opened-handle binding currently fails closed on other operating systems. The archive repository is many gigabytes, so do not download its full ZIP merely to inspect this 95 KB interface. The following PowerShell block acquires only the four fixed files from the exact approved commit into a new local directory:
+Python 3.10 or newer on Windows or Linux is sufficient; the Commons tool has no third-party dependency. Its stable opened-handle binding currently fails closed on other operating systems. The archive repository is many gigabytes, so do not download its full ZIP merely to inspect this 122,057-byte interface. The following PowerShell block acquires only the four fixed files from the exact approved commit into a new local directory:
 
 ```powershell
-$SnapshotRoot = Join-Path ([IO.Path]::GetTempPath()) ('adoption-snapshot-5f41b184-' + [Guid]::NewGuid().ToString('N'))
+$SnapshotRoot = Join-Path ([IO.Path]::GetTempPath()) ('adoption-snapshot-1ecde965-' + [Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path (Join-Path $SnapshotRoot 'manifests/github-custody') | Out-Null
-$PinnedBase = 'https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/5f41b18467c315aee5f465894dd85a277081c74e'
+$PinnedBase = 'https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/1ecde9651d5fa508c5a3c0056021bfa89c4ea888'
 Invoke-WebRequest "$PinnedBase/manifests/adopt.json" -OutFile (Join-Path $SnapshotRoot 'manifests/adopt.json')
 Invoke-WebRequest "$PinnedBase/manifests/adopt.schema.json" -OutFile (Join-Path $SnapshotRoot 'manifests/adopt.schema.json')
 Invoke-WebRequest "$PinnedBase/manifests/adopt.check.json" -OutFile (Join-Path $SnapshotRoot 'manifests/adopt.check.json')
@@ -54,9 +56,9 @@ The acquisition step uses network access only for four hard-coded exact-commit r
 On Linux, the equivalent bounded acquisition is:
 
 ```bash
-SnapshotRoot="$(mktemp -d -t adoption-snapshot-5f41b184-XXXXXXXX)"
+SnapshotRoot="$(mktemp -d -t adoption-snapshot-1ecde965-XXXXXXXX)"
 mkdir -p "$SnapshotRoot/manifests/github-custody"
-PinnedBase='https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/5f41b18467c315aee5f465894dd85a277081c74e'
+PinnedBase='https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/1ecde9651d5fa508c5a3c0056021bfa89c4ea888'
 curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.json" --output "$SnapshotRoot/manifests/adopt.json"
 curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.schema.json" --output "$SnapshotRoot/manifests/adopt.schema.json"
 curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.check.json" --output "$SnapshotRoot/manifests/adopt.check.json"
@@ -81,7 +83,7 @@ python tools/validate_adoption_snapshot.py C:\path\to\snapshot --all-lanes --jso
 
 The production CLI has no `--pin` override and no download mode. Updating the approved snapshot requires a reviewed code-and-pin change, not a user-supplied checksum file.
 
-Machine-readable `--json` output repeats the approved commit and tree, the four exact input identities, the explicitly optional human-board identity, the two non-input public receipts, and the separate claim, handback, and consumer-helper interfaces. It still emits only candidate coordination data and creates no Commons record.
+Machine-readable `--json` output repeats the approved closure commit and tree, content-source role, qualified non-public validation-context datum, the four exact input identities, the explicitly optional human-board and three executable identities, both non-input receipts, board and issue transport modes, and the separate claim and handback interfaces. It still emits only candidate coordination data and creates no Commons record.
 
 ## What a PASS establishes
 
@@ -92,17 +94,22 @@ A PASS establishes that:
 - JSON is strict UTF-8/LF without BOM, duplicate keys, non-finite numbers, unsafe nesting, or trailing ambiguity;
 - the exact schema bytes declare Draft 2020-12 and the adapter's compiled board/item/mirror semantics agree with that reviewed schema; the adapter does not claim to be a general-purpose JSON Schema engine;
 - the exact item, mirror, lane, enum, date, HTTPS, terminal-safety, portable-path, and conditional contracts hold;
+- the board, schema, and receipt agree on exactly two ordered upstream consumer modes, `raw_github` and `local_git_object_database`;
+- the board, schema, and receipt bind the offline consumer regression path and the exact claim-auditor mode composition: board via `raw_github` or `local_git_object_database`, issues via `public_github_api` or `json_fixture`;
 - item and mirror IDs are unique and mirror references resolve;
 - the 46 rows partition as three current, 38 ready, and five future, with zero integrated mirrors;
+- exactly the three current rows have named owners; the other 43 rows are explicitly unclaimed, and claims are non-exclusive;
 - all 19 required archive maps and both queue sources have an operational row reference;
-- the 122 declared repository-path references and all predecessor/current/evidence canonical manifest streams recompute;
+- the board and receipt co-bind exact declarations for the two queue files totaling 93,584 bytes;
+- all 14 reusable workflow definitions have the exact eight-field contract, every item workflow token resolves, and no workflow is unused;
+- the 133 declared repository-path references and all predecessor/current/evidence canonical manifest streams recompute;
 - the claim and handback forms are separately machine-bound, while the optional human-board identity and its 46-row completeness remain sealed upstream assertions;
 - the receipt says `PASS`, reports no errors, binds the observed board/schema/map bytes, and preserves every required check flag; and
 - candidate projection is deterministic and makes no application HTTP/API request or record creation.
 
 ## What a PASS does not establish
 
-The four files alone cannot prove that every referenced upstream path still exists, that all 19 map files or 31 evidence files have the bytes described by the map manifest, that a human actually approved a commit, or that an adoption-row description is mathematically or historically correct. The receipt's `122/122 tracked` value and human-board completeness are sealed upstream assertions; this adapter recomputes the 122 references but has no upstream Git object database with which to re-run that tracked-path check.
+The four files alone cannot prove that every referenced upstream path still exists, that the two queue-source files currently have their declared bytes, that all 19 map files or 31 evidence files have the bytes described by the map manifest, that a human actually approved a commit, or that an adoption-row description is mathematically or historically correct. The receipt's `133/133 tracked`, human-board/index completeness, queue-byte replay, label, and upstream-link results are sealed assertions. This Commons adapter validates their mutually bound declarations and recomputes the 133 references, but this four-file invocation has neither the extra source bytes nor an upstream Git object database with which to repeat those external checks.
 
 The board is coordination metadata. Priority is queue ordering, ownership is non-exclusive scope coordination, and an empty `mirrors` array means no inspectable mirror has been integrated into that board—not that no outside work exists.
 
@@ -119,7 +126,19 @@ No adapter command promotes a row into `packets/`, imports third-party manuscrip
 
 ## Upstream helper boundary
 
-The upstream `scripts/get-adopt.py` is a separate network acquisition helper, not this offline validator. It requires a human-approved full commit and Python plus `jsonschema`; it defaults to the upstream repository but exposes a general `--repository owner/name` override, while its four contract paths are fixed. It rejects floating refs, approval or identity mismatch, schema failure, and mixed revisions, but carries no independent trust pin for a repository chosen by the caller. It cannot establish trust, signatures, Git ancestry, source correctness, rights, or mathematical validity, and it does not fetch the optional Markdown human board. The Commons quickstart uses explicit exact-commit raw downloads so the acquisition and validation boundaries stay visible.
+The upstream `scripts/get-adopt.py` is a separate acquisition and validation helper, not the Commons validator. It requires the same explicit 40-hex commit twice, Python, and `jsonschema`; raw-GitHub mode also requires network access. It defaults to the upstream repository but exposes a general `--repository owner/name` override, while its four contract paths are fixed. Repetition is not cryptographic attestation, and the helper carries no independent trust pin for a repository chosen by the caller.
+
+The reviewed helper also exposes a local Git-object mode. Execute only the exact 10,952-byte helper identified above from commit `1ecde965…`, after verifying its SHA-256; never execute a helper silently taken from floating `main`.
+
+```console
+cmd /d /s /c "python scripts/get-adopt.py --commit 1ecde9651d5fa508c5a3c0056021bfa89c4ea888 --approve 1ecde9651d5fa508c5a3c0056021bfa89c4ea888 --git C:\path\to\fully-materialized-repository > board.json"
+```
+
+Use a checkout or bare-repository root, not a linked-worktree `.git` indirection file. The `cmd.exe` wrapper preserves the helper's binary stdout on Windows; native-output redirection in Windows PowerShell 5.1 and older PowerShell 7 releases can transcode it, so do not use an unqualified `> board.json` there. The helper reads the four fixed `commit:path` blobs and ignores dirty or untracked working-tree bytes. Every local Git subprocess sets `GIT_NO_LAZY_FETCH=1`. The exact pinned regression independently passed against an unreachable promisor remote: a missing blob failed, made no remote attempt, and the fully materialized four-blob case reproduced all 122,057 bytes. This is a tested fail-closed Git contract, not an operating-system network sandbox; strict offline operation still requires a Git build that honors the variable, local materialization of all four blobs, and an operator-controlled network boundary where categorical isolation matters.
+
+Board acquisition and issue-state auditing are separate transport choices. A fully offline upstream claim audit requires both local board transport (`--git`) and a local issue fixture (`--issues-file`); combining `--git` with the public GitHub issue API is not offline. The Commons validator itself neither invokes these scripts nor reads issue state.
+
+The helper rejects floating refs, approval or identity mismatch, schema failure, and mixed revisions. It does not fetch the human docs, queue-source bytes, issue/claim state, producer artifacts, signatures, or complete repository history, and it does not recrawl every map target. It cannot establish human approval, trust, source correctness, rights, or mathematical validity. Its output is not a Commons Research Packet. The Commons quickstart keeps acquisition and local four-file validation visibly separate.
 
 ## Current integration state
 
