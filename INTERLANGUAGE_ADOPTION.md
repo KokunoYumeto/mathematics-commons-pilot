@@ -1,6 +1,6 @@
 # Interlanguage archive adoption adapter
 
-This is a prepared **post-Phase-B** integration surface. It makes the existing `modern-latex-manuscripts` archive board inspectable as a source of bounded transcription, translation, source-recovery, repair, and review work. It does not turn archive metadata into a live Research Packet, mathematical evidence, or an accepted result.
+This is an **infrastructure-only integration on top of protected Phase A**. It makes the existing `modern-latex-manuscripts` archive board inspectable as a source of bounded transcription, translation, source-recovery, repair, and review work while the elementary calibration remains submitted and under review. It does not turn archive metadata into a live Research Packet, mathematical evidence, or an accepted result.
 
 The adapter is intentionally one-way. Its validation application makes no HTTP/API request:
 
@@ -50,6 +50,19 @@ python tools/validate_adoption_snapshot.py $SnapshotRoot --limit 10
 ```
 
 The acquisition step uses network access only for four hard-coded exact-commit raw URLs. The adapter application itself makes no HTTP/API request and rejects even a syntactically valid mixed or altered download. Keep this new directory local, private, and unchanged while validation runs; on Windows the tool also rejects UNC or remote drives, links, junctions, reparse points, and on-demand files. A portable program cannot prove every operating-system mount or ACL property, so the private, non-concurrent directory is also an operator requirement.
+
+On Linux, the equivalent bounded acquisition is:
+
+```bash
+SnapshotRoot="$(mktemp -d -t adoption-snapshot-5f41b184-XXXXXXXX)"
+mkdir -p "$SnapshotRoot/manifests/github-custody"
+PinnedBase='https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/5f41b18467c315aee5f465894dd85a277081c74e'
+curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.json" --output "$SnapshotRoot/manifests/adopt.json"
+curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.schema.json" --output "$SnapshotRoot/manifests/adopt.schema.json"
+curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/adopt.check.json" --output "$SnapshotRoot/manifests/adopt.check.json"
+curl --fail --location --proto '=https' --tlsv1.2 "$PinnedBase/manifests/github-custody/20260807_maps_r5.json" --output "$SnapshotRoot/manifests/github-custody/20260807_maps_r5.json"
+python tools/validate_adoption_snapshot.py "$SnapshotRoot" --limit 10
+```
 
 If you already have those four files in their repository layout, point the adapter at that local root directly:
 
@@ -110,4 +123,4 @@ The upstream `scripts/get-adopt.py` is a separate network acquisition helper, no
 
 ## Current integration state
 
-The adapter is prepared on a separate branch while the Commons calibration awaits a qualified independent human review. It must be replayed onto the final protected Phase-B commit, pass the normal cross-platform review, and merge as its own post-Phase-B change. Until then, the public coordination record is [issue 10](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/10), not an operational claim.
+The adapter is deliberately independent of calibration acceptance. It preserves every protected Phase A scientific byte, passes through the normal cross-platform protected-review path, and may be used to inspect coordination candidates while the calibration awaits a qualified independent human review. The public coordination record is [issue 10](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/10). A returned archive handback can inform a later steward-created Research Packet, but it is not itself an operational or mathematical claim.

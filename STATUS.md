@@ -1,9 +1,9 @@
 # Current status
 
-**Release stage:** published concept / operational MVP Phase A submitted freeze; independent review pending; live pilot not launched
+**Release stage:** published concept / operational MVP Phase A submitted freeze; infrastructure-only archive adapter available; independent review pending; live pilot not launched
 **Protocol version:** 0.1.1
 **Pilot schema version:** 0.1.0
-**Date:** 7 August 2026
+**Date:** 9 August 2026
 
 ## Completed
 
@@ -21,6 +21,7 @@
 - A deterministic exact-ref release builder produces a strict USTAR archive, commit/tree/file manifest, reader files, and byte-exact SHA-256 checksums through an atomic no-overwrite publication step; adversarial local audit has passed.
 - The operational MVP includes strict versioned record schemas, a standard-library semantic validator, a fail-closed manual packet/agent CLI, valid and adversarial fixtures, and a no-novelty elementary Phase A calibration collection.
 - Phase A freezes exactly 13 records: five packet snapshots through `submitted`, four transitions, a problem and source, one producer run, and one complete evidence record. The evidence explicitly remains not independently reproduced and not accepted.
+- A read-only interlanguage adoption adapter pins and validates one exact external archive snapshot and projects bounded transcription, translation, source-recovery, repair, and review candidates. It creates no Research Packet, imports no manuscript bytes, and grants no mathematical authority.
 - Local integration checks cover schema shape and references, cross-record rights and acceptance semantics, statement/evidence hashes, packet transitions, resource limits, formalization/correspondence gates, repository-aware handoff state, and structural policy checks. These checks establish process conformance, not mathematical truth.
 - A dated source audit produced a nine-record candidate docket: seven established-problem records and two provisionally shortlisted community-originated status-reconciliation records. None has yet been admitted to the live queue.
 - A pre-launch board and structured volunteer intake make the missing stewardship, review, source-audit, formalization, infrastructure, rights, and access capacity explicit.
@@ -36,7 +37,7 @@
 
 ## Immediate next milestone
 
-Merge the exact Phase A submitted freeze through protected validation, independently reconstruct its immutable evidence, add the review and acceptance records only in Phase B, then recruit the initial steward/reviewer group through the [launch board](PILOT_LAUNCH.md), freeze a capacity-backed six-to-ten-record set from the [candidate docket](PILOT_CANDIDATES.md), and run one bounded 30-day review-and-release cycle.
+Use the protected Phase A freeze and the infrastructure-only archive adapter to exercise bounded intake without acceptance claims. Independently reconstruct the immutable calibration evidence before adding its review and acceptance records, then recruit the initial steward/reviewer group through the [launch board](PILOT_LAUNCH.md), freeze a capacity-backed six-to-ten-record set from the [candidate docket](PILOT_CANDIDATES.md), and run one bounded 30-day review-and-release cycle.
 
 ## How feedback will be handled
 

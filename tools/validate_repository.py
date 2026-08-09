@@ -911,6 +911,44 @@ def check_policy(errors: list[str]) -> None:
         errors.append("GitHub 2FA continuity runbook lacks recovery or automation guidance")
 
 
+def check_workflow_protected_base_policy(errors: list[str]) -> None:
+    """Keep append-only validation bound to the actual protected predecessor."""
+
+    workflow_path = ROOT / ".github" / "workflows" / "validate.yml"
+    try:
+        workflow = workflow_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"cannot read validation workflow: {exc}")
+        return
+
+    required_fragments = {
+        "pull-request base": (
+            "--protected-base ${{ github.event.pull_request.base.sha }}"
+        ),
+        "main-push predecessor": "--protected-base ${{ github.event.before }}",
+        "manual first-parent resolution": "['git','rev-parse','HEAD^']",
+        "manual full-SHA handoff": "'--repository-aware','--protected-base',base",
+    }
+    for purpose, fragment in required_fragments.items():
+        if fragment not in workflow:
+            errors.append(
+                f"validation workflow lacks event-bound {purpose} protected-base policy"
+            )
+
+    forbidden_fragments = (
+        "Require the exact C0 base for the Phase A pull request",
+        "Require the exact C0 predecessor for the Phase A main push",
+        "Phase A must target exact C0",
+        "Phase A must follow exact C0",
+    )
+    for fragment in forbidden_fragments:
+        if fragment in workflow:
+            errors.append(
+                "validation workflow retains obsolete one-shot Phase A base logic"
+            )
+            break
+
+
 def main() -> int:
     errors: list[str] = []
     check_required(errors)
@@ -925,6 +963,7 @@ def main() -> int:
             check_relative_links(errors, public_files)
         if not errors:
             check_policy(errors)
+            check_workflow_protected_base_policy(errors)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

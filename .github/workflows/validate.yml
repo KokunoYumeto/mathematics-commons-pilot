@@ -64,39 +64,21 @@ jobs:
         if: github.event_name == 'pull_request'
         run: >-
           python tools/validate_packets.py --repository-aware
-          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
-
-      - name: Require the exact C0 base for the Phase A pull request
-        if: github.event_name == 'pull_request'
-        env:
-          ACTUAL_BASE: ${{ github.event.pull_request.base.sha }}
-        run: >-
-          python -c "import os; expected='3fd7a29560e78ac3ecaa131707b61727c25ae9fd';
-          actual=os.environ.get('ACTUAL_BASE');
-          raise SystemExit(0 if actual == expected else
-          f'Phase A must target exact C0 {expected}, found {actual}')"
+          --protected-base ${{ github.event.pull_request.base.sha }}
 
       - name: Verify Git-backed provenance and protected-base immutability after main integration
         if: github.event_name == 'push'
         run: >-
           python tools/validate_packets.py --repository-aware
-          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
-
-      - name: Require the exact C0 predecessor for the Phase A main push
-        if: github.event_name == 'push'
-        env:
-          ACTUAL_PREDECESSOR: ${{ github.event.before }}
-        run: >-
-          python -c "import os; expected='3fd7a29560e78ac3ecaa131707b61727c25ae9fd';
-          actual=os.environ.get('ACTUAL_PREDECESSOR');
-          raise SystemExit(0 if actual == expected else
-          f'Phase A must follow exact C0 {expected}, found {actual}')"
+          --protected-base ${{ github.event.before }}
 
       - name: Verify Git-backed provenance on a manual readback
         if: github.event_name == 'workflow_dispatch'
         run: >-
-          python tools/validate_packets.py --repository-aware
-          --protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd
+          python -c "import subprocess,sys;
+          base=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip();
+          raise SystemExit(subprocess.call([sys.executable,'tools/validate_packets.py',
+          '--repository-aware','--protected-base',base]))"
 
       - name: Require the live gate whenever live records exist
         run: >-

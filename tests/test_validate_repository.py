@@ -24,6 +24,33 @@ import validate_repository  # noqa: E402
 
 
 class RepositoryValidationTests(unittest.TestCase):
+    def test_workflow_binds_append_only_guard_to_actual_protected_base(self) -> None:
+        errors: list[str] = []
+        validate_repository.check_workflow_protected_base_policy(errors)
+        self.assertEqual([], errors)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            workflow = repository / ".github" / "workflows" / "validate.yml"
+            workflow.parent.mkdir(parents=True)
+            original = (
+                ROOT / ".github" / "workflows" / "validate.yml"
+            ).read_text(encoding="utf-8")
+            workflow.write_text(
+                original.replace(
+                    "--protected-base ${{ github.event.pull_request.base.sha }}",
+                    "--protected-base 3fd7a29560e78ac3ecaa131707b61727c25ae9fd",
+                ),
+                encoding="utf-8",
+            )
+            errors = []
+            with mock.patch.object(validate_repository, "ROOT", repository):
+                validate_repository.check_workflow_protected_base_policy(errors)
+            self.assertIn(
+                "event-bound pull-request base protected-base policy",
+                "\n".join(errors),
+            )
+
     def _write_evidence_manifest(
         self,
         repository: Path,
