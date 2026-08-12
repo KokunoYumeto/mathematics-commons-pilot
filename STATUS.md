@@ -1,9 +1,9 @@
 # Current status
 
-**Release stage:** published concept / operational MVP Phase A submitted freeze; infrastructure-only archive adapter available; independent review pending; live pilot not launched
+**Release stage:** published concept / operational MVP Phase A submitted freeze; infrastructure-only archive adapter candidate open but not merged; independent review pending; live pilot not launched
 **Protocol version:** 0.1.1
 **Pilot schema version:** 0.1.0
-**Date:** 9 August 2026
+**Date:** 12 August 2026
 
 ## Completed
 
@@ -34,10 +34,11 @@
 - No live `packets/` queue exists, and the manual handoff has not yet completed a real multi-contributor review cycle.
 - No Commons submission or live-pilot claim is represented as newly solving or network-checking a problem. The docket does include sourced solved/known results as calibration and status-reconciliation candidates.
 - No external journal or community peer review has occurred.
+- Pull request 11's 06f adoption snapshot passes all technical gates but remains unmerged. Exact predecessor comparison found two retired umbrella cards, unrepresented SGA and Spanish scope from the former Grothendieck card, and a narrowed Noether coordination assignment. Five of six Grothendieck successors retain `independent_mirror`, but no one-to-one successor preserves the old stable umbrella ID or SGA-wide meaning. Technical receipts do not prove editorial authorization; explicit Floris ratification or a reviewed restoring source contract is required before merge.
 
 ## Immediate next milestone
 
-Use the protected Phase A freeze and the infrastructure-only archive adapter to exercise bounded intake without acceptance claims. Independently reconstruct the immutable calibration evidence before adding its review and acceptance records, then recruit the initial steward/reviewer group through the [launch board](PILOT_LAUNCH.md), freeze a capacity-backed six-to-ten-record set from the [candidate docket](PILOT_CANDIDATES.md), and run one bounded 30-day review-and-release cycle.
+Resolve the archive adapter's card-conservation authorization hold without silently deleting or remapping prior scope. Then use the protected Phase A freeze and the infrastructure-only adapter to exercise bounded intake without acceptance claims. Independently reconstruct the immutable calibration evidence before adding its review and acceptance records, recruit the initial steward/reviewer group through the [launch board](PILOT_LAUNCH.md), freeze a capacity-backed six-to-ten-record set from the [candidate docket](PILOT_CANDIDATES.md), and run one bounded 30-day review-and-release cycle.
 
 ## How feedback will be handled
 
