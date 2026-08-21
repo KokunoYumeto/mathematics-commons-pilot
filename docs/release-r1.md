@@ -19,7 +19,7 @@ Poincaré’s *Oeuvres*, Tome I is the only multipart job. Both parts belong to 
 
 ## Trust boundary
 
-The package builder used deterministic member names, fixed ZIP timestamps, bounded parts, and exact source hashes. The validator independently reopened every ZIP and replayed every member, CRC, byte count, and SHA-256. The public delivery gate additionally requires anonymous download and SHA-256 readback for all 30 assets.
+The package builder used deterministic member names, fixed ZIP timestamps, bounded parts, and exact source hashes. The validator independently reopened every ZIP and replayed every member, CRC, byte count, and SHA-256. The public delivery gate is closed by [`catalog/readback.json`](../catalog/readback.json): anonymous HTTPS readback matched all 30 assets and 6,599,622,703 bytes with zero mismatches or errors.
 
 Input readiness is not output certification. Every job starts an edition workflow; none of its requested editions becomes correct merely by being packaged.
 

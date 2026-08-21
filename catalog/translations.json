@@ -1,10 +1,10 @@
 {
   "schema": "math-commons-translation-catalog/v1",
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "evidence": {
-    "note": "This catalog is a bounded discovery and planning projection derived from two exact non-public coordination snapshots at extraction time. Their hashes are retained for provenance, but their bytes and line references are not public in this repository and therefore are not independently replayable evidence. Null means the field was not established by those snapshots; no URL, author, page count, license, commit, or tree was inferred. A translation becomes runnable only after its public source, commit or edition, derivative license, component boundary, and baseline build are independently frozen.",
+    "note": "This catalog combines a bounded discovery and planning projection derived from two exact non-public coordination snapshots at extraction time with one independently verified public upstream boundary, R020, added on 2026-08-21. The snapshot hashes are retained for provenance, but their bytes and line references are not public in this repository and therefore are not independently replayable evidence. R020 identifies public upstream commit, tree, root evidence files, license, and the doc gitlink exactly, but its full submodule/component census and baseline build remain open. The public_evidence_included flag remains false because no upstream source-evidence bytes are vendored here; R020 supplies exact public locators and identities instead. Null means a field was not established by the evidence for that row; no URL, author, page count, license, commit, or tree was inferred. A translation becomes runnable only after its public source, commit or edition, derivative license, component boundary, and baseline build are independently frozen.",
     "public_evidence_included": false,
-    "consumer_rule": "Treat each row as discovery or status metadata only. Independently verify every source, license, current-production claim, build, and language gap before adopting work.",
+    "consumer_rule": "Treat every row as discovery or status metadata until its stated build gate closes. R020 has an independently verified public source and license boundary, but it is conditional and not runnable; independently verify component closure, the baseline build, current-production claims, and language gaps before adopting work.",
     "sources": [
       {
         "file": "09_CANDIDATE_SEARCH_CURRENT.md",
@@ -538,6 +538,40 @@
       "adoption_state": "reference",
       "rationale": "Encyclopedic downstream reference, not a sequenced teaching spine.",
       "evidence_refs": ["09:L18-L20", "09:L69"]
+    },
+    {
+      "id": "R020",
+      "title": "Open Logic core source",
+      "authors": ["The Open Logic Project"],
+      "authors_note": null,
+      "category": "source_ready_candidate",
+      "current_status": "independently verified public source and license boundary; conditional candidate only; not runnable",
+      "curricular_role": "configurable open logic curriculum and translation source",
+      "pages": null,
+      "page_note": "Not established: the root pins its document content as a submodule, and no complete component or rendered-page census has been admitted.",
+      "source_url": "https://github.com/OpenLogicProject/OpenLogic",
+      "source_repo": "OpenLogicProject/OpenLogic",
+      "source_commit": "1e960beff9ed7835bf3e3f1335e21af3439cd107",
+      "source_tree": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+      "license": "CC BY 4.0",
+      "derivative_allowed": true,
+      "component_caveats": [
+        "The pinned root uses default branch master and records doc as gitlink b46686df0e06f302a7b75a74b379c802f7c7b565.",
+        "The doc submodule and every other included component require an exact content, license, and asset census before admission.",
+        "No baseline build has been independently replayed, so this row is not a runnable translation job.",
+        "This core-source boundary is separate from R013, whose reported configured Indonesian edition remains unverified and unchanged."
+      ],
+      "source_format": "configurable LaTeX root with pinned doc git submodule",
+      "build_gate": "freeze and replay the complete submodule/component census and license boundaries, establish the exact edition and toolchain, and pass an independent baseline build before adoption",
+      "adoption_state": "conditional_candidate",
+      "rationale": "An exact public CC BY 4.0 core-source boundary makes Open Logic a strong translation candidate, but submodule closure and a reproducible baseline build are still required.",
+      "evidence_refs": [
+        "https://github.com/OpenLogicProject/OpenLogic/tree/1e960beff9ed7835bf3e3f1335e21af3439cd107",
+        "README.md: 1843 bytes; SHA-256 5CAF9C104FD864181BE05951028041799AAAA9F3DD52321B678B944D1BE60176",
+        "LICENSE.md: 17068 bytes; SHA-256 BB5E0179A1E9BDB55634A4303784CF73C297A1DCEE27B92CD546BF398075531C",
+        ".gitmodules: 92 bytes; SHA-256 151BEA19E90E928D718A74C75DCCA8B2439DA5BFE1A4821CF55D9468E9DDC0E2",
+        "doc gitlink: b46686df0e06f302a7b75a74b379c802f7c7b565"
+      ]
     },
     {
       "id": "O001",

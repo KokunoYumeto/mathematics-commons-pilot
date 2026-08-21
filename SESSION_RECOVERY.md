@@ -1,5 +1,7 @@
 # Session recovery record
 
+> **Historical record, not current instructions.** This file preserves the concept-pilot recovery state through 7 August 2026. The current GitHub-only practical program is defined by [`STATUS.md`](STATUS.md), [`catalog/jobs.json`](catalog/jobs.json), [`catalog/check.json`](catalog/check.json), and the post-publication readback receipt in `catalog/readback.json`. Do not resume the obsolete Zenodo, Phase A, or two-PR procedure below. Historical bytes remain here for provenance.
+
 **Last updated:** 7 August 2026
 **Active goal identifier:** Publish and verify the public, citable Mathematics Commons concept repository and first DOI-bearing pilot release.  
 **Authoritative continuation contract:** the complete workflow below. The goal tool's initial objective was created too briefly and cannot be edited while active; do not treat that technical limitation as permission to omit any requirement below.

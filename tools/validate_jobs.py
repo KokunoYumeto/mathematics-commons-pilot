@@ -43,10 +43,25 @@ PRACTICAL_SCHEMAS = {
     "asset": "job-asset.schema.json",
     "translations": "translation-catalog.schema.json",
     "check": "catalog-check.schema.json",
+    "readback": "release-readback.schema.json",
 }
 CHUNK = 1024 * 1024
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 REGULAR_0644 = 0o100644
+READBACK_COMMIT = "049a2c9c351e827c85e69f21c2ebd0c3a98db705"
+READBACK_TAG = "jobs-2026-08-21-r1"
+READBACK_RELEASE_ID = 374306971
+READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
+READBACK_DATE = "2026-08-21"
+READBACK_RAW_FILES = (
+    ("README.md", 9024, "1995D1D472156E9B783526A8F61215AEEBDCBA315387C7498D53F5AE5F86092E"),
+    ("docs/workbench.md", 13375, "49680CCC16A4455EF14FC9294546F72E1C8CCD048E2A16D17B8A85874BE1A88D"),
+    ("docs/roadmap.md", 1316, "844C76C2B104B845C6C6695BD2022FB078631BC835D86C98F11973AE58D913B1"),
+    ("catalog/jobs.json", 105768, "2441250EA70F194B87CBC8AEB338DBFFBEE45419B82C7CAE95DBB75770B72BCB"),
+    ("catalog/check.json", 3226, "A9594073F93DF814FB43348A7D2F9B55688766DA0F7187552B2AFB9E5FE983FD"),
+    ("schemas/catalog-check.schema.json", 4729, "81ADBFA1C22FE336DBC2031B905617CB818291E709BC77B204BD5096AC087D28"),
+    ("tools/validate_jobs.py", 47343, "353D08F3ADF1736D703B2D2B0BAFD8767C80349333F5AABB74B73DE31A1FDA97"),
+)
 
 
 class DuplicateKey(ValueError):
@@ -940,6 +955,184 @@ def validate_translations(errors: list[str]) -> int:
     return len(entries)
 
 
+def expected_readback_assets(catalog: dict[str, Any]) -> list[dict[str, Any]]:
+    assets: list[dict[str, Any]] = []
+    sources = [
+        job.get("assets", [])
+        for job in catalog.get("jobs", [])
+        if isinstance(job, dict)
+    ]
+    kit = catalog.get("translation_kit", {})
+    if isinstance(kit, dict):
+        sources.append(kit.get("assets", []))
+    for source in sources:
+        if not isinstance(source, list):
+            continue
+        for asset in source:
+            if not isinstance(asset, dict):
+                continue
+            assets.append(
+                {
+                    "name": asset.get("name"),
+                    "url": asset.get("url"),
+                    "expected_bytes": asset.get("zip_bytes"),
+                    "observed_bytes": asset.get("zip_bytes"),
+                    "expected_sha256": asset.get("zip_sha256"),
+                    "observed_sha256": asset.get("zip_sha256"),
+                    "match": True,
+                }
+            )
+    return assets
+
+
+def expected_readback_raw_files() -> list[dict[str, Any]]:
+    base = (
+        "https://raw.githubusercontent.com/"
+        f"{READBACK_REPOSITORY}/{READBACK_COMMIT}/"
+    )
+    return [
+        {
+            "path": path,
+            "name": PurePosixPath(path).name,
+            "url": f"{base}{path}",
+            "expected_bytes": size,
+            "observed_bytes": size,
+            "expected_sha256": digest,
+            "observed_sha256": digest,
+            "match": True,
+        }
+        for path, size, digest in READBACK_RAW_FILES
+    ]
+
+
+def failed_readback_contract() -> dict[str, Any]:
+    return {
+        "status": "FAIL",
+        "subject_commit": READBACK_COMMIT,
+        "release_tag": READBACK_TAG,
+        "release_id": READBACK_RELEASE_ID,
+        "transport": "anonymous_https",
+        "observed_date": READBACK_DATE,
+        "release_assets": 0,
+        "release_asset_bytes": 0,
+        "raw_files": 0,
+        "mismatches": 0,
+        "errors": 1,
+    }
+
+
+def validate_public_readback_projection(
+    catalog: dict[str, Any], receipt: dict[str, Any], errors: list[str]
+) -> dict[str, Any]:
+    before = len(errors)
+    release_url = (
+        "https://github.com/KokunoYumeto/mathematics-commons-pilot/"
+        f"releases/tag/{READBACK_TAG}"
+    )
+    expected_subject = {
+        "repository": READBACK_REPOSITORY,
+        "commit": READBACK_COMMIT,
+        "main_commit_at_readback": READBACK_COMMIT,
+        "tag": READBACK_TAG,
+        "tag_commit": READBACK_COMMIT,
+        "release_id": READBACK_RELEASE_ID,
+        "release_url": release_url,
+    }
+    expected_transport = {
+        "method": "anonymous_https",
+        "authorization": "none",
+        "cookies": "none",
+        "persistence": "none",
+    }
+    assets = expected_readback_assets(catalog)
+    asset_bytes = sum(
+        int(row["expected_bytes"])
+        for row in assets
+        if isinstance(row.get("expected_bytes"), int)
+        and not isinstance(row.get("expected_bytes"), bool)
+    )
+    expected_aggregate = {
+        "expected_assets": len(assets),
+        "observed_assets": len(assets),
+        "matched_assets": len(assets),
+        "expected_bytes": asset_bytes,
+        "observed_bytes": asset_bytes,
+        "mismatches": 0,
+    }
+    raw_files = expected_readback_raw_files()
+    expected_raw_aggregate = {
+        "expected_files": len(raw_files),
+        "observed_files": len(raw_files),
+        "matched_files": len(raw_files),
+        "mismatches": 0,
+    }
+    expect(
+        catalog.get("release", {}).get("tag") == READBACK_TAG,
+        errors,
+        "public readback: catalog release tag",
+    )
+    expect(
+        catalog.get("release", {}).get("url") == release_url,
+        errors,
+        "public readback: catalog release URL",
+    )
+    expect(
+        receipt.get("schema") == "math-commons-release-readback/v1",
+        errors,
+        "public readback: schema",
+    )
+    expect(receipt.get("status") == "PASS", errors, "public readback: status")
+    expect(
+        receipt.get("observed_date") == READBACK_DATE,
+        errors,
+        "public readback: observed date",
+    )
+    expect(receipt.get("errors") == [], errors, "public readback: errors")
+    expect(receipt.get("subject") == expected_subject, errors, "public readback: subject")
+    expect(
+        receipt.get("transport") == expected_transport,
+        errors,
+        "public readback: anonymous transport",
+    )
+    expect(receipt.get("assets") == assets, errors, "public readback: exact asset projection")
+    expect(
+        receipt.get("aggregate") == expected_aggregate,
+        errors,
+        "public readback: asset aggregate",
+    )
+    expect(
+        receipt.get("raw_files") == raw_files,
+        errors,
+        "public readback: exact raw-file projection",
+    )
+    expect(
+        receipt.get("raw_aggregate") == expected_raw_aggregate,
+        errors,
+        "public readback: raw-file aggregate",
+    )
+    new_errors = len(errors) - before
+    return {
+        "status": "PASS" if new_errors == 0 else "FAIL",
+        "subject_commit": READBACK_COMMIT,
+        "release_tag": READBACK_TAG,
+        "release_id": READBACK_RELEASE_ID,
+        "transport": "anonymous_https",
+        "observed_date": READBACK_DATE,
+        "release_assets": len(assets),
+        "release_asset_bytes": asset_bytes,
+        "raw_files": len(raw_files),
+        "mismatches": 0,
+        "errors": new_errors,
+    }
+
+
+def validate_public_readback(errors: list[str]) -> dict[str, Any]:
+    catalog, _ = load(ROOT / "catalog" / "jobs.json")
+    receipt, _ = load(ROOT / "catalog" / "readback.json")
+    validate_schema(receipt, "readback", "public release readback", errors)
+    return validate_public_readback_projection(catalog, receipt, errors)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--asset-dir", type=Path)
@@ -948,6 +1141,7 @@ def main() -> int:
     parser.add_argument("--verify-receipt", action="store_true")
     args = parser.parse_args()
     errors: list[str] = []
+    public_readback = failed_readback_contract()
     try:
         (
             jobs,
@@ -959,6 +1153,7 @@ def main() -> int:
             nested_authorities,
         ) = validate_jobs(args.asset_dir.resolve() if args.asset_dir else None, errors)
         translations = validate_translations(errors)
+        public_readback = validate_public_readback(errors)
     except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
         errors.append(str(exc))
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
@@ -970,6 +1165,7 @@ def main() -> int:
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
+            "readback": input_identity(ROOT / "catalog" / "readback.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
@@ -977,6 +1173,7 @@ def main() -> int:
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),
+            "readback_schema": input_identity(ROOT / "schemas" / "release-readback.schema.json"),
             "check_schema": input_identity(ROOT / "schemas" / "catalog-check.schema.json"),
             "schema_validator": input_identity(ROOT / "tools" / "validate_packets.py"),
             "packer": input_identity(ROOT / "tools" / "pack_job.py"),
@@ -993,6 +1190,7 @@ def main() -> int:
         "nested_authorities_replayed": nested_authorities if args.asset_dir else 0,
         "asset_mode": "local_zip_replay" if args.asset_dir else "catalog_only",
         "translation_entries": translations,
+        "public_readback": public_readback,
         "errors": errors,
     }
     if args.verify_receipt:
@@ -1011,6 +1209,7 @@ def main() -> int:
                 "packet_source_files",
                 "packet_source_bytes",
                 "translation_entries",
+                "public_readback",
             ):
                 expect(receipt.get(key) == result[key], errors, f"tracked receipt {key}")
             expect(receipt.get("asset_mode") == "local_zip_replay", errors, "tracked receipt asset mode")

@@ -35,7 +35,7 @@ class JobCatalogTests(unittest.TestCase):
         translations = validate_jobs.validate_translations(errors)
         self.assertEqual(errors, [])
         self.assertEqual(result, (28, 30, 488, 6_691_065_999, 6_599_622_703, 492, 2))
-        self.assertEqual(translations, 39)
+        self.assertEqual(translations, 40)
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
@@ -43,6 +43,54 @@ class JobCatalogTests(unittest.TestCase):
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
+
+    def test_public_readback_binds_release_and_raw_files(self) -> None:
+        errors: list[str] = []
+        contract = validate_jobs.validate_public_readback(errors)
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            contract,
+            {
+                "status": "PASS",
+                "subject_commit": "049a2c9c351e827c85e69f21c2ebd0c3a98db705",
+                "release_tag": "jobs-2026-08-21-r1",
+                "release_id": 374306971,
+                "transport": "anonymous_https",
+                "observed_date": "2026-08-21",
+                "release_assets": 30,
+                "release_asset_bytes": 6_599_622_703,
+                "raw_files": 7,
+                "mismatches": 0,
+                "errors": 0,
+            },
+        )
+
+    def test_public_readback_rejects_observed_hash_drift(self) -> None:
+        catalog, _ = validate_jobs.load(ROOT / "catalog" / "jobs.json")
+        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback.json")
+        mutated = copy.deepcopy(receipt)
+        mutated["assets"][0]["observed_sha256"] = "0" * 64
+        errors: list[str] = []
+        contract = validate_jobs.validate_public_readback_projection(
+            catalog, mutated, errors
+        )
+        self.assertEqual(contract["status"], "FAIL")
+        self.assertGreater(contract["errors"], 0)
+        self.assertTrue(
+            any(error.endswith("exact asset projection") for error in errors), errors
+        )
+
+    def test_public_readback_rejects_subject_drift(self) -> None:
+        catalog, _ = validate_jobs.load(ROOT / "catalog" / "jobs.json")
+        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback.json")
+        mutated = copy.deepcopy(receipt)
+        mutated["subject"]["commit"] = "0" * 40
+        errors: list[str] = []
+        contract = validate_jobs.validate_public_readback_projection(
+            catalog, mutated, errors
+        )
+        self.assertEqual(contract["status"], "FAIL")
+        self.assertTrue(any(error.endswith("subject") for error in errors), errors)
 
     def test_global_audit_rows_bind_exact_direct_snapshots(self) -> None:
         meta, _ = validate_jobs.load(ROOT / "catalog" / "job-meta.json")
@@ -232,7 +280,7 @@ class JobCatalogTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("PASS: 28 jobs, 30 release assets, 39 translation entries", completed.stdout)
+        self.assertIn("PASS: 28 jobs, 30 release assets, 40 translation entries", completed.stdout)
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (
@@ -241,6 +289,7 @@ class JobCatalogTests(unittest.TestCase):
             "job-asset.schema.json",
             "translation-catalog.schema.json",
             "catalog-check.schema.json",
+            "release-readback.schema.json",
         ):
             value = json.loads((ROOT / "schemas" / name).read_text(encoding="utf-8"))
             self.assertEqual(value["$schema"], "https://json-schema.org/draft/2020-12/schema")

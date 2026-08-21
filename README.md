@@ -23,8 +23,9 @@ The first release contains **29 packet assets** for 28 jobs (one large Poincaré
 - [Runnable transcription jobs](catalog/jobs.json) — exact author/work/language/scope, pages, authority, difficulty, planning heuristic, validation receipt, assets, bytes, and SHA-256.
 - [Asset manifests](catalog/assets/) — exact ZIP parts and every represented source member.
 - [Catalog validation receipt](catalog/check.json) — machine-replayed catalog, manifest, member, and release-size invariants.
+- [Public release readback](catalog/readback.json) — post-publication anonymous HTTPS verification of all 30 R1 assets and seven principal raw files at the delivered commit.
 - [Fidelity contract](docs/fidelity.md) — diplomatic source edition, separate monolingual target edition, restrained apparatus, exact figures, cumulative state, and cold audit.
-- [Open-textbook translation lane](docs/translations.md) — 39 bounded discovery/status rows and eight explicit exclusions, with non-public source snapshots, licenses, and production claims clearly distinguished.
+- [Open-textbook translation lane](docs/translations.md) — 40 bounded discovery/status rows and eight explicit exclusions, including one exact public Open Logic source boundary while non-public snapshot claims remain clearly distinguished.
 - [Translation kit](kits/translate/README.md) — a model-agnostic prompt, QA contract, and source-freeze template for a useful language not yet served.
 - [Interlanguage adoption board](docs/adopt.md) — an exact-commit interface to 78 author/work scopes in the source archive: 9 active, 64 open for adoption, and 5 future-evidence scopes.
 
@@ -59,6 +60,8 @@ The public contract is deliberately small and inspectable:
 - [`catalog/translations.json`](catalog/translations.json)
 - [`schemas/translation-catalog.schema.json`](schemas/translation-catalog.schema.json)
 - [`catalog/check.json`](catalog/check.json)
+- [`catalog/readback.json`](catalog/readback.json)
+- [`schemas/release-readback.schema.json`](schemas/release-readback.schema.json)
 - [`catalog/assets/`](catalog/assets/)
 
 Fetch all related files from one exact Git commit. Do not mix a catalog, schema, validation receipt, or asset manifest across revisions. Release URLs are stable locators; byte length and SHA-256 are the immutable asset identities.

@@ -19,9 +19,13 @@ A translation candidate needs all of the following:
 
 ## Strong current starting points
 
-The machine catalog separates reported current production, existing editions, source-ready candidates, optional specializations, donors, references, and rejected sources. Its two extraction snapshots are hash-identified but not public in this repository, so every row is discovery/status metadata until its source, license, edition, components, and build are independently frozen. Particularly reusable public foundations include:
+The machine catalog separates reported current production, existing editions, source-ready candidates, optional specializations, donors, references, and rejected sources. Most rows derive from two hash-identified extraction snapshots that are not public in this repository, so they remain discovery/status metadata until their source, license, edition, components, and build are independently frozen. R020 is different: its Open Logic repository, commit, tree, CC BY 4.0 license file, root README, `.gitmodules`, and `doc` gitlink have been independently verified against public upstream bytes. R020 still is not runnable because its submodule/component census and baseline build have not closed.
 
-- Open Logic, whose configurable LaTeX build and existing language editions provide a strong modular pattern;
+R020 does not verify or replace R013. R013 preserves a separate snapshot report that a configured Indonesian edition already exists; its exact public edition identity remains unverified.
+
+Particularly reusable public foundations include:
+
+- Open Logic core source (R020), pinned at commit `1e960beff9ed7835bf3e3f1335e21af3439cd107` and tree `45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8`, whose configurable LaTeX root is a strong modular candidate once its pinned `doc` submodule and baseline build are fully replayed;
 - *Applied Combinatorics* (PreTeXt, CC BY-SA 4.0);
 - *Yet Another Introductory Number Theory Textbook* (LaTeX, CC BY-SA with retained upstream attribution);
 - *Open Optimization Book 1* (LaTeX/TikZ/Python, CC BY-SA text and MIT code);

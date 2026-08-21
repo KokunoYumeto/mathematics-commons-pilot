@@ -17,6 +17,18 @@ Fetch all four files from that same commit. Never mix revisions or treat floatin
 
 The receipt reports `PASS`, `errors=[]`, 19/19 map identities replayed, and a 78-row human-board projection. A consumer still must human-approve the commit, verify all four bytes and hashes, validate the board against the same-commit schema, and inspect the referenced source/map evidence before starting work. The board is coordination metadata, not mathematical or translation certification.
 
+### Exact-commit upstream helper
+
+The approved snapshot already contains its generic consumer; Commons does not vendor a second schema compiler. At the same commit, `scripts/get-adopt.py` is 11,387 bytes / SHA-256 `BD45CC4D7845712A7609489CD48095E6931E87F2073115FD7E39AA6BBE8E62F2`, and its offline regression `scripts/test-adopt-offline.py` is 7,706 bytes / `F87A539BC1CAFA912CD78134EE173C4EAD428CBF761581E9AAB06D763D4BA537`.
+
+After independently verifying the helper byte identity, a network consumer can require the same human-selected commit twice:
+
+```console
+python scripts/get-adopt.py --commit 7a00b564ace8230c57309df2d66325e57d1c4043 --approve 7a00b564ace8230c57309df2d66325e57d1c4043
+```
+
+For a fully materialized local clone, add `--git PATH_TO_REPOSITORY`; the helper reads exact Git objects, ignores working-tree bytes, and sets `GIT_NO_LAZY_FETCH=1`. That environment variable is a tested fail-closed request to Git, not an operating-system network sandbox, so enforce network isolation separately when categorical offline execution matters. The helper validates acquisition and the same-commit contract; it does not certify any row's mathematics, source, rights, or translation.
+
 ## Human views
 
 - [Adoption board](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/7a00b564ace8230c57309df2d66325e57d1c4043/docs/adopt.md)

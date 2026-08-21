@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/raw/main/schemas/release-readback.schema.json",
+  "title": "Mathematics Commons immutable release public-readback receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "observed_date",
+    "subject",
+    "transport",
+    "assets",
+    "aggregate",
+    "raw_files",
+    "raw_aggregate",
+    "errors"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-release-readback/v1"
+    },
+    "status": {
+      "enum": ["PASS", "FAIL"]
+    },
+    "observed_date": {
+      "const": "2026-08-21"
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "commit",
+        "main_commit_at_readback",
+        "tag",
+        "tag_commit",
+        "release_id",
+        "release_url"
+      ],
+      "properties": {
+        "repository": {
+          "const": "KokunoYumeto/mathematics-commons-pilot"
+        },
+        "commit": {
+          "$ref": "#/$defs/commit"
+        },
+        "main_commit_at_readback": {
+          "$ref": "#/$defs/commit"
+        },
+        "tag": {
+          "pattern": "^jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+$",
+          "type": "string"
+        },
+        "tag_commit": {
+          "$ref": "#/$defs/commit"
+        },
+        "release_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "release_url": {
+          "type": "string",
+          "pattern": "^https://github\\.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+$"
+        }
+      }
+    },
+    "transport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "authorization", "cookies", "persistence"],
+      "properties": {
+        "method": {
+          "const": "anonymous_https"
+        },
+        "authorization": {
+          "const": "none"
+        },
+        "cookies": {
+          "const": "none"
+        },
+        "persistence": {
+          "const": "none"
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/readback_row"
+      }
+    },
+    "aggregate": {
+      "$ref": "#/$defs/aggregate"
+    },
+    "raw_files": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/readback_row"},
+          {
+            "type": "object",
+            "required": ["path"],
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "raw_aggregate": {
+      "$ref": "#/$defs/file_aggregate"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "errors": {"maxItems": 0}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"const": "FAIL"},
+        "errors": {"minItems": 1}
+      }
+    }
+  ],
+  "$defs": {
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "readback_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "url",
+        "expected_bytes",
+        "observed_bytes",
+        "expected_sha256",
+        "observed_sha256",
+        "match"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://.+$"
+        },
+        "expected_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "observed_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "expected_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "observed_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "match": {
+          "type": "boolean"
+        }
+      }
+    },
+    "aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_assets",
+        "observed_assets",
+        "matched_assets",
+        "expected_bytes",
+        "observed_bytes",
+        "mismatches"
+      ],
+      "properties": {
+        "expected_assets": {"type": "integer", "minimum": 0},
+        "observed_assets": {"type": "integer", "minimum": 0},
+        "matched_assets": {"type": "integer", "minimum": 0},
+        "expected_bytes": {"type": "integer", "minimum": 0},
+        "observed_bytes": {"type": "integer", "minimum": 0},
+        "mismatches": {"type": "integer", "minimum": 0}
+      }
+    },
+    "file_aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_files",
+        "observed_files",
+        "matched_files",
+        "mismatches"
+      ],
+      "properties": {
+        "expected_files": {"type": "integer", "minimum": 0},
+        "observed_files": {"type": "integer", "minimum": 0},
+        "matched_files": {"type": "integer", "minimum": 0},
+        "mismatches": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}
