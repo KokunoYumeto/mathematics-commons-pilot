@@ -5,11 +5,11 @@
   "catalogs": {
     "open_education": {
       "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
-      "commit": "149b9afbfc96a6956a2183e63b1eb9d37697e7e0",
-      "tree": "0f7c755c786fe5a743e57f38180da6fc804a652f",
+      "commit": "435b9180f5e74e1d519711b546d4dcfb5ba9a454",
+      "tree": "e5189d910efbdd7811333a53186f1e479830e02e",
       "path": "catalog/translations.json",
-      "bytes": 75729,
-      "sha256": "7EC0DF473CA695EC04A4D24643A5203437093B97F5362524998AB2AA1218BE9D",
+      "bytes": 76156,
+      "sha256": "2A91D58E680CEA5A0342E0BB144C2347CA0CD567DBC7B8D5233EAC4F0583F07E",
       "rows": 40,
       "state": "non_exhaustive_suggestions_and_reported_coverage",
       "warning": "All choices require an independent public source, license, component, and baseline-build freeze. Reported editions are not independently verified unless their row says so."
@@ -363,7 +363,7 @@
           "language_tag": "id",
           "language_name": "Indonesian",
           "state": "reported_active",
-          "scope_note": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+          "scope_note": "Reported active. The snapshot records a backend replay of 10,172 records and 2,805 relations, but the identities and exact scopes of its referenced seventh and eighth components are unresolved.",
           "evidence_status": "non_public_coordination_snapshot"
         }
       ],
@@ -467,7 +467,7 @@
     },
     {
       "id": "functional-analysis-operator-algebras",
-      "title": "Functional Analysis and Operator Algebras",
+      "title": "Functional Analysis and Operator Algebras: An Introduction",
       "catalog_role": "work",
       "translation_readiness": "preflight_required",
       "known_editions": [],
