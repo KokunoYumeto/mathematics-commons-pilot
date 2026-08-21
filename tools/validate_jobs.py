@@ -930,7 +930,7 @@ def validate_jobs(
 def validate_translations(errors: list[str]) -> int:
     catalog, _ = load(ROOT / "catalog" / "translations.json")
     validate_schema(catalog, "translations", "translation catalog", errors)
-    expect(catalog.get("schema") == "math-commons-translation-catalog/v2", errors, "translation catalog schema")
+    expect(catalog.get("schema") == "math-commons-translation-catalog/v3", errors, "translation catalog schema")
     entries = catalog.get("entries")
     if not isinstance(entries, list) or not entries:
         errors.append("translation catalog has no entries")
@@ -988,10 +988,25 @@ def validate_translations(errors: list[str]) -> int:
         "translation catalog non-exclusive scope",
     )
     priority = catalog.get("language_priority")
+    language_study = (
+        priority.get("uis_96_language_study") if isinstance(priority, dict) else None
+    )
+    language_labels = (
+        language_study.get("language_labels")
+        if isinstance(language_study, dict)
+        else None
+    )
     expect(
         isinstance(priority, dict)
         and priority.get("any_language_welcome") is True
-        and priority.get("official_96_language_list") is False,
+        and priority.get("unesco_fixed_translation_priority_list") is False
+        and isinstance(priority.get("education_access_source"), dict)
+        and isinstance(language_study, dict)
+        and language_study.get("country_count") == 48
+        and language_study.get("alphabetic_language_count") == 96
+        and isinstance(language_labels, list)
+        and len(language_labels) == 96
+        and len(set(language_labels)) == 96,
         errors,
         "translation catalog language-priority contract",
     )
