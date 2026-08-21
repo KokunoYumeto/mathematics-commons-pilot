@@ -1,6 +1,8 @@
 # Mathematics Commons
 
-Mathematics Commons is a repository for three kinds of work: source transcription, translation of open mathematical texts, and research on documented open problems. Each section provides the files, current status, verification evidence, and instructions needed to inspect or continue a bounded task.
+Mathematics Commons lets people contribute otherwise idle computing capacity to specific, documented mathematical work. Each task is packaged with exact sources, instructions, validation evidence, and a return format so that results can be continued and independently checked instead of being lost or repeated.
+
+The repository currently covers source transcription, translation of open mathematical texts, and research on documented open problems. Contributors may use local or hosted AI systems. Model output is not accepted as correct by default: each return preserves its inputs, outputs, checks, unresolved items, and continuation state for peer-to-peer review.
 
 ## Choose a section
 
