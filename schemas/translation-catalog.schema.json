@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schema", "updated", "scope", "language_priority", "evidence", "page_accounting", "entries", "exclusions"],
   "properties": {
-    "schema": {"const": "math-commons-translation-catalog/v2"},
+    "schema": {"const": "math-commons-translation-catalog/v3"},
     "updated": {"type": "string", "format": "date"},
     "scope": {
       "type": "object",
@@ -23,11 +23,11 @@
     "language_priority": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["any_language_welcome", "priority_rule", "unesco_source", "official_96_language_list", "note"],
+      "required": ["any_language_welcome", "priority_rule", "education_access_source", "uis_96_language_study", "unesco_fixed_translation_priority_list", "note"],
       "properties": {
         "any_language_welcome": {"const": true},
         "priority_rule": {"type": "string", "minLength": 1},
-        "unesco_source": {
+        "education_access_source": {
           "type": "object",
           "additionalProperties": false,
           "required": ["title", "published", "url", "reported_facts"],
@@ -38,7 +38,42 @@
             "reported_facts": {"$ref": "#/$defs/stringArray"}
           }
         },
-        "official_96_language_list": {"const": false},
+        "uis_96_language_study": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "publisher", "published", "url", "page", "cited_study", "country_count", "alphabetic_language_count", "reported_facts", "language_labels", "label_note", "translation_use"],
+          "properties": {
+            "title": {"const": "Benchmarking by Language Groups Framework"},
+            "publisher": {"const": "UNESCO Institute for Statistics"},
+            "published": {"type": "string", "format": "date"},
+            "url": {"type": "string", "format": "uri", "pattern": "^https://www\\.uis\\.unesco\\.org/.*$"},
+            "page": {"const": 22},
+            "cited_study": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["title", "doi_url", "supplement_url", "language_table"],
+              "properties": {
+                "title": {"type": "string", "minLength": 1},
+                "doi_url": {"const": "https://doi.org/10.1038/s41562-024-02028-x"},
+                "supplement_url": {"type": "string", "format": "uri", "pattern": "^https://static-content\\.springer\\.com/.*$"},
+                "language_table": {"const": "Table S1"}
+              }
+            },
+            "country_count": {"const": 48},
+            "alphabetic_language_count": {"const": 96},
+            "reported_facts": {"$ref": "#/$defs/stringArray"},
+            "language_labels": {
+              "type": "array",
+              "minItems": 96,
+              "maxItems": 96,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "label_note": {"type": "string", "minLength": 1},
+            "translation_use": {"type": "string", "minLength": 1}
+          }
+        },
+        "unesco_fixed_translation_priority_list": {"const": false},
         "note": {"type": "string", "minLength": 1}
       }
     },
