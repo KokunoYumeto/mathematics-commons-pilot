@@ -1,12 +1,12 @@
 {
-  "schema": "math-commons-translation-starter/v3",
-  "version": "3.0.0",
+  "schema": "math-commons-translation-starter/v4",
+  "version": "4.0.0",
   "date": "2026-08-21",
   "purpose": "Choose one work and target language, freeze an eligible source, produce a standalone monolingual translation, and return cumulative inspectable state.",
   "source_included": false,
   "translation_included": false,
   "required_first_questions": [
-    "Which work, title, or catalog ID do you want to translate?",
+    "Which mathematical work do you want to translate? Give its title and, if available, its public source URL or semantic catalog key.",
     "What exact target language, locale, script, and orthographic standard do you want?"
   ],
   "entry_points": {

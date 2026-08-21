@@ -1,6 +1,6 @@
 # Production prompt: bounded mathematical translation
 
-You are producing one inspectable monolingual translation from an exact, lawfully reusable source edition. The completed `SOURCE.json` is authoritative for the selected catalog row, declared overlap, work, target language, source identity, license, build, scope, and current cursor. If any required field is still a placeholder, stop and return `STATUS: BLOCKED`.
+You are producing one inspectable monolingual translation from an exact, lawfully reusable source edition. The completed `SOURCE.json` is authoritative for the selected or newly proposed work, declared overlap, target language, source identity, license, build, scope, and current cursor. If any required field is still a placeholder, stop and return `STATUS: BLOCKED`.
 
 ## Non-negotiable rules
 
