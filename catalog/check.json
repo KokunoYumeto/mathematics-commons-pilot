@@ -19,13 +19,18 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 3147,
-      "sha256": "876E052C8DA3AF2FBDB2189E5CB8B43D9FBA3949B8F9B82ED6C79C870CF8670A"
+      "bytes": 3267,
+      "sha256": "EBABC0EBE274347A9CD06D1D7D3A0AB0DD3CA08D4AF626DFD07332C2C8BFEAC5"
     },
     "readback": {
       "path": "catalog/readback.json",
       "bytes": 19125,
       "sha256": "60EF221B444E27FDF98C1A618DE5B556DBB8D718A526930A332B078E528F83FC"
+    },
+    "translate_readback": {
+      "path": "catalog/translate-rb.json",
+      "bytes": 1201,
+      "sha256": "3FEE1E4E4B74AD1267B01ABB8B0D19E976899DAA733F2154B40C935331628728"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -59,8 +64,8 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 3805,
-      "sha256": "F639A539F8EE9712CF6A6AFBBA0FB3F8730F1D66CDCBE2597934DC46A88CC179"
+      "bytes": 3923,
+      "sha256": "8C92C0F01D918056D0F0C28E3E4C64477740E87A5F8FE9B895912670BDA3A93B"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
@@ -72,10 +77,15 @@
       "bytes": 5713,
       "sha256": "108A6B22909C543A6DFC614460A9DF2AC2CBF050D7E2E462FEBFCD8D98ADDCAB"
     },
+    "portal_readback_schema": {
+      "path": "schemas/portal-readback.schema.json",
+      "bytes": 2843,
+      "sha256": "9BA7B321F813C35F316FEA59920F60AC238F190936205750264441504AD41CB5"
+    },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 6607,
-      "sha256": "4612B031B250E2A76EC724A2DB8B1473390B89FBE88F7AB71D04FEF3E342C855"
+      "bytes": 6835,
+      "sha256": "FEE46B1A91652638E81E8EA0CFF258CDA9B76228BB6E8E6A5C27303232124F8D"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -94,8 +104,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 59985,
-      "sha256": "1D8FF49FB2F4F0317A45D95E4730152CD19F3191BF7432F7C39DE529F2422C42"
+      "bytes": 62792,
+      "sha256": "4056B802FF678BA99CEE6373A740C55C5823570E90E85922EEAD0317DA502322"
     }
   },
   "asset_manifests": {

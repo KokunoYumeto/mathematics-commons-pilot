@@ -45,6 +45,7 @@ PRACTICAL_SCHEMAS = {
     "check": "catalog-check.schema.json",
     "readback": "release-readback.schema.json",
     "portals": "portal-catalog.schema.json",
+    "portal_readback": "portal-readback.schema.json",
 }
 CHUNK = 1024 * 1024
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
@@ -1056,9 +1057,81 @@ def validate_portals(errors: list[str]) -> int:
         and translate_release.get("url")
         == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3"
         and translate_release.get("asset_catalog")
-        == "catalog/assets/translate-v3.json",
+        == "catalog/assets/translate-v3.json"
+        and translate_release.get("readback") == "catalog/translate-rb.json",
         errors,
         "portal translation release contract",
+    )
+
+    translate_readback, _ = load(ROOT / "catalog" / "translate-rb.json")
+    validate_schema(
+        translate_readback,
+        "portal_readback",
+        "translation starter public readback",
+        errors,
+    )
+    expect(
+        translate_readback.get("release")
+        == {
+            "id": 374488729,
+            "tag": "translate-v3",
+            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3",
+            "target_commit": "372a3fe9cba8d0f8296f4ee958e2ff03abd449e8",
+            "target_tree": "71ea9e8a1f185803b2f59d1a846ac56b5add31d0",
+        },
+        errors,
+        "translation starter readback subject",
+    )
+    expect(
+        translate_readback.get("assets")
+        == [
+            {
+                "id": 523889339,
+                "name": "translation-starter-v3.zip",
+                "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-v3/translation-starter-v3.zip",
+                "expected_bytes": 11307,
+                "observed_bytes": 11307,
+                "expected_sha256": "CA298E89206237555C33957D8E1EC4360F5AE3482F6473FBC61AB8720AE14ABA",
+                "observed_sha256": "CA298E89206237555C33957D8E1EC4360F5AE3482F6473FBC61AB8720AE14ABA",
+                "match": True,
+            }
+        ],
+        errors,
+        "translation starter readback exact asset",
+    )
+    expect(
+        [
+            {
+                "name": row.get("name"),
+                "bytes": row.get("observed_bytes"),
+                "sha256": row.get("observed_sha256"),
+            }
+            for row in translate_readback.get("assets", [])
+            if isinstance(row, dict)
+        ]
+        == expected_translate_assets,
+        errors,
+        "translation starter readback asset projection",
+    )
+    expect(
+        translate_readback.get("status") == "PASS"
+        and translate_readback.get("transport")
+        == {
+            "method": "anonymous_https",
+            "authorization": False,
+            "cookies": False,
+            "payload_persisted": False,
+        }
+        and translate_readback.get("summary")
+        == {
+            "assets": 1,
+            "bytes": 11307,
+            "matches": 1,
+            "mismatches": 0,
+            "errors": [],
+        },
+        errors,
+        "translation starter readback result",
     )
 
     expect(
@@ -1067,7 +1140,8 @@ def validate_portals(errors: list[str]) -> int:
         and trans_release.get("tag") == "jobs-2026-08-21-r1"
         and trans_release.get("url")
         == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1"
-        and trans_release.get("asset_catalog") == "catalog/jobs.json",
+        and trans_release.get("asset_catalog") == "catalog/jobs.json"
+        and trans_release.get("readback") == "catalog/readback.json",
         errors,
         "portal transcription release contract",
     )
@@ -1082,6 +1156,7 @@ def validate_portals(errors: list[str]) -> int:
             "asset_count": 0,
             "asset_bytes": 0,
             "asset_catalog": None,
+            "readback": None,
             "assets": [],
         },
         errors,
@@ -1319,6 +1394,7 @@ def main() -> int:
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
+            "translate_readback": input_identity(ROOT / "catalog" / "translate-rb.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
@@ -1328,6 +1404,7 @@ def main() -> int:
             "portal_schema": input_identity(ROOT / "schemas" / "portal-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),
             "readback_schema": input_identity(ROOT / "schemas" / "release-readback.schema.json"),
+            "portal_readback_schema": input_identity(ROOT / "schemas" / "portal-readback.schema.json"),
             "check_schema": input_identity(ROOT / "schemas" / "catalog-check.schema.json"),
             "schema_validator": input_identity(ROOT / "tools" / "validate_packets.py"),
             "packer": input_identity(ROOT / "tools" / "pack_job.py"),

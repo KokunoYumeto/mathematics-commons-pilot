@@ -16,6 +16,7 @@
         "asset_count": 29,
         "asset_bytes": 6599619260,
         "asset_catalog": "catalog/jobs.json",
+        "readback": "catalog/readback.json",
         "assets": []
       },
       "limitations": [
@@ -36,6 +37,7 @@
         "asset_count": 1,
         "asset_bytes": 11307,
         "asset_catalog": "catalog/assets/translate-v3.json",
+        "readback": "catalog/translate-rb.json",
         "assets": [
           {
             "name": "translation-starter-v3.zip",
@@ -62,6 +64,7 @@
         "asset_count": 0,
         "asset_bytes": 0,
         "asset_catalog": null,
+        "readback": null,
         "assets": []
       },
       "expected_asset": {

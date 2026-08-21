@@ -36,26 +36,28 @@
     "publishedRelease": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "assets"],
+      "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "readback", "assets"],
       "properties": {
         "tag": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
         "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
         "asset_count": {"type": "integer", "minimum": 1},
         "asset_bytes": {"type": "integer", "minimum": 1},
         "asset_catalog": {"$ref": "#/$defs/nullablePath"},
+        "readback": {"type": "string", "minLength": 1},
         "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
       }
     },
     "pendingRelease": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "assets"],
+      "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "readback", "assets"],
       "properties": {
         "tag": {"type": "null"},
         "url": {"type": "null"},
         "asset_count": {"const": 0},
         "asset_bytes": {"const": 0},
         "asset_catalog": {"type": "null"},
+        "readback": {"type": "null"},
         "assets": {"type": "array", "maxItems": 0}
       }
     },
