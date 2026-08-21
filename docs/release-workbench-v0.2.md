@@ -1,6 +1,6 @@
 # Open Problem Workbench v0.2 expected release
 
-This file records the exact identity expected for a future release of the dated discovery and curation package supplied on 21 August 2026. The exact source ZIP is not currently available in the publication workspace, so no release is claimed.
+This file records the exact identity expected for a future release of the dated discovery and curation package supplied on 21 August 2026. The exact source ZIP is currently unavailable, so no release is claimed.
 
 - Asset: `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip`
 - ZIP bytes: 13,308,489

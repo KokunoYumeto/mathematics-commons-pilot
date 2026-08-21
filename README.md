@@ -56,7 +56,7 @@ Workbench v0.2 was independently replayed as an exact supplied discovery package
 - 159/159 payload entries replayed against its self-excluding manifest; and
 - internal validation PASS with 59 checks and zero failures.
 
-The exact ZIP is not currently available in the publication workspace, so no `workbench-v0.2` release is being claimed. Publication requires restoration of the exact 13,308,489-byte file with the SHA-256 above, followed by another replay and public readback.
+The exact ZIP is currently unavailable, so no `workbench-v0.2` release is being claimed. Publication requires restoration of the exact 13,308,489-byte file with the SHA-256 above, followed by another replay and public readback.
 
 The package contains 8,785 secondary statement candidates from 13 collections, 1,246 preliminary candidates, 858 conservative triage candidates, 824 statement-integrity review rows, 4,831 provenance/status/rights review rows, 2,076 source-document rows, and 8,785 literature-query rows. Its Erdős snapshot contains 1,217 metadata records, including 608 classified as open in that snapshot, 556 with imported statement text, 52 statement gaps, and 76 status conflicts.
 

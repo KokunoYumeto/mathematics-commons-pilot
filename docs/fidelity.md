@@ -25,7 +25,7 @@ Reconstruct a figure or table editably only when every visible feature can be re
 
 Every response returns a cumulative full-state ZIP, checkpoint, and manifest. A later session verifies that exact trio before acting. A partial response is preserved, not summarized away. Decisions, errors, reversals, and superseded generations remain in append-only ledgers.
 
-## Completion gate
+## Completion requirements
 
 A terminal result requires deterministic integration, reproducible builds, complete page and topology accounting, rendered QA, formula/figure/link checks, and a fresh reviewer who audits without patching the candidate. A failed audit freezes that generation and reports the defect; it does not authorize the auditor to repair it invisibly.
 
