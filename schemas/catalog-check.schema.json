@@ -41,6 +41,7 @@
         "translations",
         "portals",
         "readback",
+        "translate_readback",
         "global_receipt",
         "gordan2_receipt",
         "mikami_receipt",
@@ -50,6 +51,7 @@
         "portal_schema",
         "asset_schema",
         "readback_schema",
+        "portal_readback_schema",
         "check_schema",
         "schema_validator",
         "packer",
@@ -70,6 +72,9 @@
           "$ref": "#/$defs/identity"
         },
         "readback": {
+          "$ref": "#/$defs/identity"
+        },
+        "translate_readback": {
           "$ref": "#/$defs/identity"
         },
         "global_receipt": {
@@ -97,6 +102,9 @@
           "$ref": "#/$defs/identity"
         },
         "readback_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "portal_readback_schema": {
           "$ref": "#/$defs/identity"
         },
         "check_schema": {

@@ -333,6 +333,7 @@ class JobCatalogTests(unittest.TestCase):
             "job-asset.schema.json",
             "translation-catalog.schema.json",
             "portal-catalog.schema.json",
+            "portal-readback.schema.json",
             "catalog-check.schema.json",
             "release-readback.schema.json",
         ):

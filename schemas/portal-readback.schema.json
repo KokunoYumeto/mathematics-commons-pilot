@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/raw/main/schemas/portal-readback.schema.json",
+  "title": "Mathematics Commons portal release readback",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "status", "observed_date", "repository", "release", "transport", "assets", "summary"],
+  "properties": {
+    "schema": {"const": "math-commons-portal-readback/v1"},
+    "status": {"const": "PASS"},
+    "observed_date": {"type": "string", "format": "date"},
+    "repository": {"const": "KokunoYumeto/mathematics-commons-pilot"},
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tag", "url", "target_commit", "target_tree"],
+      "properties": {
+        "id": {"type": "integer", "minimum": 1},
+        "tag": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
+        "target_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "target_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "transport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "authorization", "cookies", "payload_persisted"],
+      "properties": {
+        "method": {"const": "anonymous_https"},
+        "authorization": {"const": false},
+        "cookies": {"const": false},
+        "payload_persisted": {"const": false}
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "url", "expected_bytes", "observed_bytes", "expected_sha256", "observed_sha256", "match"],
+        "properties": {
+          "id": {"type": "integer", "minimum": 1},
+          "name": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+[.]zip$"},
+          "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
+          "expected_bytes": {"type": "integer", "minimum": 1},
+          "observed_bytes": {"type": "integer", "minimum": 1},
+          "expected_sha256": {"$ref": "#/$defs/sha256"},
+          "observed_sha256": {"$ref": "#/$defs/sha256"},
+          "match": {"const": true}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assets", "bytes", "matches", "mismatches", "errors"],
+      "properties": {
+        "assets": {"type": "integer", "minimum": 1},
+        "bytes": {"type": "integer", "minimum": 1},
+        "matches": {"type": "integer", "minimum": 1},
+        "mismatches": {"const": 0},
+        "errors": {"type": "array", "maxItems": 0}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+  }
+}
