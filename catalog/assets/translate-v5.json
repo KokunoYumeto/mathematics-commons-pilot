@@ -1,0 +1,94 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "translation-starter-v5",
+  "wrapper_directory": "translation-starter-v5",
+  "source_files": 12,
+  "source_bytes": 38657,
+  "canonical_stream_bytes": 955,
+  "source_tree_sha256": "67CD70437234B328F09DAEC2293CC4CFF26C8D78EC127404CE5117EAE737DDA7",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "translation-starter-v5.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 12,
+      "source_bytes": 38657,
+      "first_path": "KIT.json",
+      "last_path": "WORKS.json",
+      "zip_bytes": 14174,
+      "zip_sha256": "F1148482DC7FF96DE9B67C46962FC092F937ED3B6DEA6FCE4325A4C4E821F804"
+    }
+  ],
+  "members": [
+    {
+      "path": "KIT.json",
+      "bytes": 819,
+      "sha256": "50C3AE9B51FC9F65A81F141ADB85BC4EC423AF1E3A2B38795508B941C36C7ED4"
+    },
+    {
+      "path": "LANGS.md",
+      "bytes": 1951,
+      "sha256": "FC30610DBFE4FF960A073B81139D074E095F8B62616956064057647FF1069C7D"
+    },
+    {
+      "path": "LOCAL.md",
+      "bytes": 1762,
+      "sha256": "2B3034BCB31FFAA1226FDFA7BBC3231798AB12D0A4E7667EE99686C8C2812691"
+    },
+    {
+      "path": "MANIFEST.sha256",
+      "bytes": 828,
+      "sha256": "2A7A65CF1CA7350FCA431CD0B9136E86BFE679D6BCF5D243B698C54385ED3FB9"
+    },
+    {
+      "path": "PROMPT.md",
+      "bytes": 3370,
+      "sha256": "2907BD25C55711EFAB5DB560F2AEEB0B916048858816FB9FD15075D01F488C43"
+    },
+    {
+      "path": "QA.md",
+      "bytes": 896,
+      "sha256": "148CE381F6D9E963587802D3425DBBF5BFD956B12EB90C9F3ABD1D653DB75127"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1105,
+      "sha256": "E5F0663F8F9B9D12A2481E881B788A6D71976E1C94E162E6C862C4BDD6017D8F"
+    },
+    {
+      "path": "RETURN.md",
+      "bytes": 778,
+      "sha256": "B5D4F4EB8BE35F3B681B4FA6A0BED984DDDE2B84276A5C6366E2E263639E6FEB"
+    },
+    {
+      "path": "SOURCE.json",
+      "bytes": 1284,
+      "sha256": "E3C2902B6BC75B13A852B94AE7D3EBE0C1723AD610EC1FEF99931530F7C370AD"
+    },
+    {
+      "path": "START.md",
+      "bytes": 1326,
+      "sha256": "55AE8F4D4E55240BEDC154CA1B8EDAA7A9BA662BBEE3038F389ACFC8F3101BD6"
+    },
+    {
+      "path": "WEB.md",
+      "bytes": 1229,
+      "sha256": "6A6A8860CA008FDB05FAFA5EABBB08925D8A34F771F9DD56DB9EE18103E57C87"
+    },
+    {
+      "path": "WORKS.json",
+      "bytes": 23309,
+      "sha256": "6C1E2F1D4C2E8B144E6C13053F3320E3759B2CF210903570A3592805350C3FCD"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "12/12",
+    "zip_member_replay": "12/12",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}
