@@ -33,13 +33,15 @@ class JobCatalogTests(unittest.TestCase):
         errors: list[str] = []
         result = validate_jobs.validate_jobs(None, errors)
         translations = validate_jobs.validate_translations(errors)
+        portals = validate_jobs.validate_portals(errors)
         self.assertEqual(errors, [])
         self.assertEqual(result, (28, 30, 488, 6_691_065_999, 6_599_622_703, 492, 2))
         self.assertEqual(translations, 40)
+        self.assertEqual(portals, 3)
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 29)
+        self.assertEqual(identity["files"], 30)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
@@ -280,7 +282,10 @@ class JobCatalogTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("PASS: 28 jobs, 30 release assets, 40 translation entries", completed.stdout)
+        self.assertIn(
+            "PASS: 28 jobs, 30 release assets, 40 translation entries, 3 portal sections",
+            completed.stdout,
+        )
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (
@@ -288,6 +293,7 @@ class JobCatalogTests(unittest.TestCase):
             "job-catalog.schema.json",
             "job-asset.schema.json",
             "translation-catalog.schema.json",
+            "portal-catalog.schema.json",
             "catalog-check.schema.json",
             "release-readback.schema.json",
         ):

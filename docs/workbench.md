@@ -1,35 +1,35 @@
 # Open Problem Workbench
 
-**State:** concept stub / future workstream. No conjecture packet is runnable from this repository yet.
+**State:** published incomplete discovery package. No canonical runnable problem packet has yet passed the full admission contract.
 
-Have spare compute and want to point an agent at real mathematics? Pick a bounded problem packet. Reproduce what is known, try something honest, and return the evidence. Most runs will not solve a conjecture. Some may correct a stale status, verify a computation, improve a bound, sharpen a formulation, or preserve a useful failed path. The Commons should let the next run start where the previous one stopped.
+[Download Workbench v0.2](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2). The package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection.
 
 ## Purpose
 
-The Workbench would be an open cumulative catalog of known conjectures and open problems without prestige filtering. Small neglected problems, maintained field lists, Propp-style collections, the Riemann Hypothesis, and Millennium problems may all be represented. Famous problems receive no privileged truth status; deliberately huge entries must declare that their literature packet is sampled or partitioned rather than pretending to be complete.
+The intended catalog includes known conjectures and open problems without prestige filtering. Small neglected problems, maintained field lists, Propp-style collections, the Riemann Hypothesis, and Millennium problems may all be represented. Deliberately large entries must declare that their literature package is sampled or partitioned rather than claiming completeness.
 
 The first practical collection should be the maintained Erdős open-problems list because it is numerous, numbered, bounded, actively maintained, and rich in problems for which literature/status reconciliation is independently valuable.
 
-## Exploratory source-list atlas
+## Included source-list atlas
 
-A supplied 2026-08-21 research snapshot makes the future workstream concrete enough to browse without pretending that it is already a corpus. All counts below are **claims tied to that dated snapshot**, not live totals or Commons-admitted problem records.
+The published 2026-08-21 package contains a dated source-list atlas. All counts below are tied to that package; they are not live totals or admitted canonical problem records.
 
-| Source family | Reported scope in the supplied snapshot | Possible role | Next gate |
+| Source family | Reported scope in v0.2 | Candidate use | Required verification |
 |---|---:|---|---|
-| [Erdős Problems](https://www.erdosproblems.com/) | 1,217 records; 608 classified `open` in the bundled YAML | First numbered status-reconciliation pilot | Pin the exact repository commit; replay the statement, references, variants, and current status for each selected number. |
+| [Erdős Problems](https://www.erdosproblems.com/) | 1,217 records; 608 classified `open` in the bundled YAML | First numbered status-reconciliation collection | Pin the exact repository commit; replay the statement, references, variants, and current status for each selected number. |
 | [Formal Conjectures](https://google-deepmind.github.io/formal-conjectures/) | 2,967 statements reported by the snapshot | Compare informal statements with Lean encodings | Freeze an exact commit and perform semantic review. A formal statement, and especially one containing `sorry`, is not a proof. |
 | [AIM problem lists](https://aimath.org/problemlists/) | 165 linked documents; 3,359 secondary rows | Institutional list-of-lists and source discovery | Recover exact record boundaries and primary wording; reconcile status and item-level access before admission. |
 | [AMR problem lists](https://amathr.org/problems/) | 113 pointers; 3,342 secondary rows | Broad discovery index | Treat as pointers only until each target source and problem boundary replay. |
 | [Open Problem Garden](https://www.openproblemgarden.org/) | 422 secondary rows | Community-maintained mixed-field leads | Audit the exact page revision, statement, status, attribution, and reuse state. |
-| [Ben Green's 100 Open Problems](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf) | 85 imported rows of a numbered 100 | Bounded additive-combinatorics and number-theory lane | Resolve the 15 missing numbers and freeze the living document version before status review. |
-| [Kourovka Notebook](https://kourovkanotebookorg.wordpress.com/) | 150 imported issue-21 rows | Specialist group-theory lane | Bind edition, section, problem number, later comments, and current specialist status. |
-| [K3 problem list](https://www.ams.org/bookpages/surv-295) | 366 problem locators | Low-dimensional-topology locator lane | Keep the source link-only at this stage; verify wording, subquestion boundaries, and status from an authorized source copy. |
-| [The Open Problems Project](https://topp.openproblem.net/) | More than 75 numbered geometry problems reported | Small specialist pilot | Freeze the site revision and reconcile older status claims. |
-| Propp collections ([matchings](https://library.slmath.org/books/Book38/files/propp.pdf), [benzels](https://faculty.uml.edu/jpropp/benzels.html), [trimers](https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf)) | 32 matchings problems, 20 trimer problems, plus newer bounded lists reported | Several compact combinatorics pilots | Separate each list and revision; construct a later-work/status graph before selecting a target. |
-| Dynamics collections ([Stony Brook](https://www.math.stonybrook.edu/open-problems-dynamical-systems), [OPDS/ET](https://www.imath.kiev.ua/~skolyada/opds_et.html), [Boyle](https://www.math.umd.edu/~mboyle/open/)) | Multiple mixed-age specialist lists | Status-reconciliation and source-recovery lane | Partition by list and date; older pages carry high stale-status risk. |
+| [Ben Green's 100 Open Problems](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf) | 85 imported rows of a numbered 100 | Bounded additive-combinatorics and number-theory collection | Resolve the 15 missing numbers and freeze the living document version before status review. |
+| [Kourovka Notebook](https://kourovkanotebookorg.wordpress.com/) | 150 imported issue-21 rows | Specialist group-theory collection | Bind edition, section, problem number, later comments, and current specialist status. |
+| [K3 problem list](https://www.ams.org/bookpages/surv-295) | 366 problem locators | Low-dimensional-topology locator collection | Keep the source link-only at this stage; verify wording, subquestion boundaries, and status from an authorized source copy. |
+| [The Open Problems Project](https://topp.openproblem.net/) | More than 75 numbered geometry problems reported | Small specialist collection | Freeze the site revision and reconcile older status claims. |
+| Propp collections ([matchings](https://library.slmath.org/books/Book38/files/propp.pdf), [benzels](https://faculty.uml.edu/jpropp/benzels.html), [trimers](https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf)) | 32 matchings problems, 20 trimer problems, plus newer bounded lists reported | Several compact combinatorics collections | Separate each list and revision; construct a later-work/status graph before selecting a target. |
+| Dynamics collections ([Stony Brook](https://www.math.stonybrook.edu/open-problems-dynamical-systems), [OPDS/ET](https://www.imath.kiev.ua/~skolyada/opds_et.html), [Boyle](https://www.math.umd.edu/~mboyle/open/)) | Multiple mixed-age specialist lists | Status reconciliation and source recovery | Partition by list and date; older pages carry high stale-status risk. |
 | [Arnold's Problems](https://link.springer.com/book/10.1007/b138219) | 861 historical problems reported | Large historical comparison corpus | Partition before use and expect extensive solved/changed-status reconciliation. |
 | [Open Quantum Problems](https://www.iqoqi-vienna.at/detail/news/open-quantum-problems) | Active specialist pages reported | Modern specialist intake | Recover and freeze each problem page, then compare its intended semantics with any formal encoding. |
-| [Clay Millennium problems](https://www.claymath.org/millennium-problems/), Hilbert, and Smale | Small famous lists with enormous literatures | Deliberately oversized or “meme” entries | Declare a sampled or partitioned evidence corpus; never claim complete literature coverage. |
+| [Clay Millennium problems](https://www.claymath.org/millennium-problems/), Hilbert, and Smale | Small famous lists with enormous literatures | Deliberately oversized entries | Declare a sampled or partitioned evidence corpus; never claim complete literature coverage. |
 
 These are discovery leads, not admitted Commons problems. No row is runnable until its primary source, exact revision, statement, current status, access state, and bounded literature receipt are independently frozen. Bibliographic and recovery infrastructure—arXiv, zbMATH Open, Crossref, OpenAlex, Unpaywall, the Internet Archive, OEIS, and House of Graphs—belongs in the evidence workflow, not in the problem-list count. Public forum posts remain leads until theorem lookup, counterexample search, and provenance review; a tag is not a conjecture registry.
 
@@ -75,7 +75,7 @@ Status reconciliation is a first-class mathematical contribution. A stale “ope
 6. Package all new code, data, evidence, checks, errors, and logs with exact provenance and a continuation cursor.
 7. Require independent verification before promoting any mathematical claim.
 
-Parallel attempts are welcome when declared. Negative results and failed approaches remain searchable so pooled compute is not spent repeating invisible work.
+Parallel attempts are allowed when declared. Record negative results and failed approaches so later contributors can avoid repeating them.
 
 ## Epistemic contract
 
@@ -94,17 +94,19 @@ The same envelope should support a tiny problem and an oversized problem, but no
 
 - A bounded Erdős entry may aim for exhaustive coverage of its maintained references plus one explicit supplementary search.
 - A field-scale or famous problem must be split by time, formulation, method, or cited subcorpus. Its catalog row must say `sampled` or `partitioned`, list omitted strata, and reject any “complete literature” claim.
-- A meme-scale Riemann Hypothesis entry is permitted, but it receives the same evidence, status, and independent-review rules as every other row.
+- An oversized Riemann Hypothesis entry is permitted, but it receives the same evidence, status, and independent-review rules as every other row.
 
-## Reference snapshot
+## Published package
 
-The supplied file `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip` is a **candidate research import**, not a published or runnable Commons packet. It is 13,308,489 bytes with SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`. An independent read-only replay found 160 safe archive entries and matched all 159 payload entries against its self-excluding `MANIFEST.sha256` (zero missing, extra, or hash-mismatched entries).
+The exact file `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip` is published under [`workbench-v0.2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2). It is 13,308,489 bytes with SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`. Independent replay found 160 safe archive entries and matched all 159 payload entries against its self-excluding `MANIFEST.sha256`, with zero missing, extra, or hash-mismatched entries. Its internal validation report says PASS with 59 checks and zero failures.
 
-The attachment self-reports 8,785 nonblank secondary statement candidates, 1,246 preliminary candidates, 858 mechanically conservative candidates, 824 statement-integrity review rows, and 4,831 provenance/status/rights review rows. Those are useful queue-shaping facts, not a unique-problem count, canonical statement audit, current-status audit, or specialist mathematical review. Its validators establish internal package consistency; they do not make the imported claims true. No attachment file, script, literature claim, forum lead, or worked example has been promoted into the live Commons by this concept update.
+The package reports 8,785 nonblank secondary statement candidates, 1,246 preliminary candidates, 858 mechanically conservative candidates, 824 statement-integrity review rows, 4,831 provenance/status/rights review rows, 2,076 source-document rows, 8,785 literature-query rows, 17 checked literature-delta rows, and 14 community leads. Its Erdős data contains 1,217 metadata records, including 608 classified as open in the snapshot, 556 with imported statement text, 52 statement gaps, and 76 status conflicts.
 
-## Gates before implementation
+These counts support curation and review. They are not a unique-problem count, canonical-statement audit, current-status audit, complete literature review, or specialist mathematical review. Package validation establishes internal consistency only. The Erdős 68 example contains exact-rational computation and an intentionally incomplete Lean statement; it claims no proof.
 
-This concept becomes a live workstream only after a separate reviewed change supplies:
+## Requirements for a runnable problem packet
+
+A problem becomes runnable only after a reviewed generation supplies:
 
 1. a stable problem/variant/status schema;
 2. a source-rights and acquisition manifest;
@@ -113,6 +115,6 @@ This concept becomes a live workstream only after a separate reviewed change sup
 5. deterministic packet and cumulative-handback builders;
 6. explicit contribution/result-state schemas;
 7. independent mathematical and computational review routes; and
-8. one small Erdős pilot whose source and status replay passes.
+8. one small Erdős test collection whose source and status replay passes.
 
-Until those gates exist, this document is a roadmap contract—not an invitation to infer, scrape, package, or announce a conjecture result.
+Until those requirements pass for a specific problem, its row remains discovery or review material. Do not announce a conjecture result from an imported statement, literature lead, model output, or package-level PASS.

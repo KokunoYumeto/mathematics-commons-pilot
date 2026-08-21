@@ -1,29 +1,28 @@
-name: Concept feedback
-description: Criticize, extend, or ask a precise question about the white paper or pilot design.
-title: "[Concept]: "
-labels: ["concept", "triage"]
+name: Portal or documentation correction
+description: Report a specific error, omission, ambiguity, or interface proposal.
+title: "[documentation] "
+labels: ["documentation", "triage"]
 body:
   - type: dropdown
     id: area
     attributes:
       label: Area
       options:
-        - Leiden alignment
-        - Mathematical review
-        - GitHub architecture
-        - Participation and accessibility
+        - Transcription
+        - Translation
+        - Open problems
+        - Catalog or schema
+        - Validation or public readback
         - Rights and attribution
-        - Privacy and proportional disclosure
-        - Security and resource use
-        - Pilot scope
-        - Future direction
+        - Accessibility
+        - Repository structure
     validations:
       required: true
   - type: input
     id: location
     attributes:
       label: Exact section or file
-      placeholder: "WHITE_PAPER.md §6 or GITHUB_PILOT_GUIDE.md §10"
+      placeholder: "docs/translations.md or catalog/jobs.json"
     validations:
       required: true
   - type: textarea

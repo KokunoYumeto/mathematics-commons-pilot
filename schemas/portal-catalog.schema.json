@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/portal-catalog.schema.json",
+  "title": "Mathematics Commons portal catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "updated", "repository", "sections"],
+  "properties": {
+    "schema": {"const": "math-commons-portal-catalog/v1"},
+    "updated": {"type": "string", "format": "date"},
+    "repository": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
+    "sections": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/section"}
+    }
+  },
+  "$defs": {
+    "nullablePath": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "minLength": 1}
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "bytes", "sha256"],
+      "properties": {
+        "name": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+[.]zip$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "assets"],
+      "properties": {
+        "tag": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
+        "asset_count": {"type": "integer", "minimum": 1},
+        "asset_bytes": {"type": "integer", "minimum": 1},
+        "asset_catalog": {"$ref": "#/$defs/nullablePath"},
+        "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "state", "docs", "catalog", "summary", "release", "limitations"],
+      "properties": {
+        "id": {"enum": ["transcription", "translation", "open-problems"]},
+        "title": {"type": "string", "minLength": 1},
+        "state": {"enum": ["runnable", "starter_available", "incomplete_discovery_package"]},
+        "docs": {"type": "string", "pattern": "^docs/[A-Za-z0-9_.-]+\\.md$"},
+        "catalog": {"$ref": "#/$defs/nullablePath"},
+        "summary": {"type": "string", "minLength": 1},
+        "release": {"$ref": "#/$defs/release"},
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

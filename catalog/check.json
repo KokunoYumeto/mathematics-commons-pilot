@@ -17,6 +17,11 @@
       "bytes": 54731,
       "sha256": "D64A69C9A6055B4255A3B017BDF9686758D7869DFFA7C218AFEB530433596B29"
     },
+    "portals": {
+      "path": "catalog/portals.json",
+      "bytes": 3085,
+      "sha256": "615D35E46D15933509B251C5A0D90B273C1206D5BB69894CBE525DA775ED1894"
+    },
     "readback": {
       "path": "catalog/readback.json",
       "bytes": 19125,
@@ -52,6 +57,11 @@
       "bytes": 5327,
       "sha256": "8F2AA38839CBD0BC6DEB1BD76A807F46AB1F6902E4DA77D03A2682B63F0256A3"
     },
+    "portal_schema": {
+      "path": "schemas/portal-catalog.schema.json",
+      "bytes": 2580,
+      "sha256": "75B90C89C8F390E509F4C9AEB32A70F8C35BE65E880D18CCE3EEB858D32AEE99"
+    },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
       "bytes": 3040,
@@ -64,8 +74,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 6320,
-      "sha256": "ADFF0F2D140F7CB21988C44C4472F291F961A9B516BBF10BB6C3D59DEBE1B623"
+      "bytes": 6607,
+      "sha256": "4612B031B250E2A76EC724A2DB8B1473390B89FBE88F7AB71D04FEF3E342C855"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -79,20 +89,20 @@
     },
     "builder": {
       "path": "tools/build_jobs.py",
-      "bytes": 22052,
-      "sha256": "454BF2FB7A9E78F0AFE73E19B2FEFE1A3E6F5B7BC386CB11E80FBB348D63B1A8"
+      "bytes": 22266,
+      "sha256": "890E3A9DF733EA33F8C5F02FF442E006333223FBEC740E076ACA0AA51F08B855"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 54512,
-      "sha256": "40FCA2CB0C82E53AC66C2D0E5011CDAA6F9FB0C3973894B2A9EFA8D35A288C9A"
+      "bytes": 58568,
+      "sha256": "F5E482183A10549B671D5AA9EC89379D5F8BB66487C5CFC7A32B2E715D8AF9FF"
     }
   },
   "asset_manifests": {
-    "files": 29,
-    "bytes": 113057,
-    "canonical_stream_bytes": 3498,
-    "tree_sha256": "7D83DEEF95C44407EDDAD33223A2655D89C2F26B78C1FABA7A1229C17A52CF40"
+    "files": 30,
+    "bytes": 115657,
+    "canonical_stream_bytes": 3601,
+    "tree_sha256": "F4530828361F67815D6F3B70C4C4E4EEC333A97FCE38A3DFEDCCD2F6C29A2A5C"
   },
   "jobs": 28,
   "release_assets": 30,
@@ -103,6 +113,7 @@
   "nested_authorities_replayed": 2,
   "asset_mode": "local_zip_replay",
   "translation_entries": 40,
+  "portal_sections": 3,
   "public_readback": {
     "status": "PASS",
     "subject_commit": "049a2c9c351e827c85e69f21c2ebd0c3a98db705",

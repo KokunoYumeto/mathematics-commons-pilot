@@ -345,7 +345,10 @@ def build_one(
 
 def build_translation_kit(output_root: Path, maximum_part_bytes: int) -> None:
     job_id = "open-textbook-translation-kit"
-    source = ROOT / "kits" / "translate"
+    # The R1 release remains reproducible from its frozen four-file source.
+    # The current interactive starter is versioned separately under
+    # kits/translate and must not silently change the R1 asset.
+    source = ROOT / "kits" / "translate-r1"
     rows = pack_job.source_rows(source, direct_only=True)
     expected_manifest = load_json(ASSET_MANIFESTS / "translation-kit.json")
     canonical_bytes, represented_tree = pack_job.tree_hash(rows)
@@ -526,7 +529,7 @@ def main() -> int:
             output_root,
             (
                 ("producer packet root", packet_root),
-                ("translation-kit source", (ROOT / "kits" / "translate").resolve()),
+                ("translation-kit source", (ROOT / "kits" / "translate-r1").resolve()),
             ),
         )
 

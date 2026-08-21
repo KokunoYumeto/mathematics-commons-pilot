@@ -1,15 +1,22 @@
 # Start here
 
-The fastest useful contribution is one bounded job.
+Choose one section.
 
-1. Browse [`catalog/jobs.json`](catalog/jobs.json).
-2. Pick a job with `catalog_status: runnable`.
-3. Download and hash-check every release asset part listed for that job, then extract all parts into one job directory.
-4. Follow [`docs/run.md`](docs/run.md) through Prompt 45.
-5. Return the immutable result, manifest, checks, failures, and cursor.
+## Transcription
 
-If you want to translate an open textbook, browse [`catalog/translations.json`](catalog/translations.json) and use the [translation kit](kits/translate/README.md). If you want to adopt or independently mirror an author/work already mapped in the interlanguage archive, use the [adoption board](docs/adopt.md).
+Select one of the [28 verified packets](catalog/jobs.json), download every listed asset part, verify the hashes, and follow the [Prompt 1–45 instructions](docs/run.md). Return the cumulative result, manifest, checks, failures, and continuation cursor.
 
-Do not infer completion from a filename or from `strict-PASS`: that status validates the input job, not the requested output. Read the [fidelity contract](docs/fidelity.md) before spending compute.
+## Translation
 
-The older proposal, 30-day pilot, calibration, and governance documents remain available through [`docs/legacy.md`](docs/legacy.md). They are history and reusable infrastructure, not the current front page.
+Browse [works by subject and current language coverage](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2).
+
+- Local agent: open the extracted package and paste `LOCAL.md`.
+- Hosted web agent: upload the package and paste `WEB.md`.
+
+The agent first asks which work and which exact target language you want. It does not translate until the source, derivative license, component boundary, and baseline build are recorded.
+
+## Open problems
+
+Download the [Workbench v0.2 discovery package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2) or read its [status and contribution guide](docs/workbench.md). The package is incomplete. You can contribute statement checks, source recovery, status corrections, literature records, reproducible computations, failed approaches, or bounded mathematical work.
+
+Packet validation proves the stated input boundary, not the correctness or completion of the requested output. Earlier proposal and calibration material is indexed under [legacy material](docs/legacy.md).

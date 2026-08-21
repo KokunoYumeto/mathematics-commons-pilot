@@ -1,53 +1,51 @@
 # Current status
 
-**Public programme:** practical pooled-compute packet and translation library
+**Scope:** transcription, translation, and open-problem research
 
-**Packet release:** [`jobs-2026-08-21-r1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1)
-
-**Catalog date:** 21 August 2026
+**Date:** 21 August 2026
 
 **Output certification:** none implied
 
-## Runnable now
+## Transcription
 
-- 28 exact transcription jobs.
-- 29 packet ZIP assets plus one open-textbook translation-kit ZIP.
-- 488 admitted packet source files / 6,691,065,999 bytes.
-- 6,599,622,703 downloadable ZIP bytes.
-- 45 ordered prompts per transcription job, with cumulative full-state return on every response.
-- Exact asset/member manifests and a replayed machine validation receipt.
-- 40 bounded open-education discovery/status entries and eight explicit exclusions; one Open Logic core-source row has an exact public commit/tree/license boundary, while the underlying coordination snapshots are not public evidence.
-- A commit-pinned interface to the 78-row interlanguage adoption board.
+- Release: [`jobs-2026-08-21-r1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1)
+- Runnable jobs: 28
+- Packet asset parts: 29
+- Admitted packet files: 488
+- Admitted packet bytes: 6,691,065,999
+- Packet ZIP bytes: 6,599,619,260
+- Workflow: 45 ordered prompts with cumulative state returned after every response
+- Public readback: 29/29 packet assets plus the R1 predecessor translation-kit asset matched, for 30/30 assets and 6,599,622,703/6,599,622,703 bytes
 
-## Admission boundary
+Eleven current prepared staging roots remain byte-identical to R1. Seventeen contain later staging successors. None of those 17 currently passes the complete independent admission contract: ten explicitly await cold validation, five lack an accepted independent cold-audit basis, one has unlisted payload files, and one cites a missing independent audit report. R1 remains the newest verified transcription release.
 
-Only coherent roots that passed exact packet replay and contained no HOLD, unresolved placeholder, quarantine, supersession, incomplete-source, or unverified-root defect were admitted. The machine catalog lists every evaluated exclusion and reason. Mechanical packet PASS establishes input integrity and run readiness; it does not establish a finished or mathematically reviewed output.
+## Translation
 
-The ten Frobenius roots remain excluded because literal generator placeholders survive in their governing instructions and source receipts. Dirichlet HOLD roots, incomplete Gauss I and Maxwell work, explicit quarantine/superseded roots, QA-only directories, and root-unverified candidates are also not downloadable jobs.
+- Open-education discovery/status rows: 40
+- Explicit exclusions: 8
+- Subject groups in the starter: 10
+- Exact interlanguage discovery snapshot: 78 work rows at commit `7a00b564ace8230c57309df2d66325e57d1c4043`
+- Current translation starter: [`translate-v2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2)
 
-## Verification
+The starter asks for the work and exact target language before acting. It contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook and no completed translation.
 
-The checked-in validation receipt binds:
+Most open-education rows are discovery metadata and require an independent public source/license/component/build freeze. Open Logic R020 has an exact root repository commit, tree, license, README, `.gitmodules`, and `doc` gitlink, but its component census and baseline build remain incomplete. It is not yet a runnable translation source.
 
-- job and translation catalog identities;
-- all asset-manifest identities and their canonical tree;
-- catalog-to-manifest counts, bytes, paths, and hashes;
-- all represented source member identities;
-- all local release ZIP bytes, members, CRCs, and SHA-256 values at construction time; and
-- GitHub's per-asset size boundary.
+## Open problems
 
-After publication, the release is not considered delivered until the public ref, catalog bytes, release asset list, and every downloaded asset hash have been read back from GitHub.
+- Release: [`workbench-v0.2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2)
+- Archive: 13,308,489 bytes / SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`
+- Archive entries: 160 safe paths
+- Manifest replay: 159/159
+- Internal validation: PASS, 59 checks, zero failures
+- Candidate statement rows: 8,785
+- Conservative triage rows: 858
+- Canonical runnable problem packets: 0
 
-That gate is closed for R1 by [`catalog/readback.json`](catalog/readback.json): 30/30 release assets, 6,599,622,703/6,599,622,703 bytes, seven principal raw files, zero mismatches, and `errors=[]`, fetched over anonymous HTTPS against exact delivered commit `049a2c9c351e827c85e69f21c2ebd0c3a98db705`.
+Workbench v0.2 is a published incomplete discovery package. It does not establish canonical statements, current status for every problem, complete literature coverage, or any proof.
 
-## Still open
+## Admission and review boundary
 
-- Contributors have not yet returned terminal Prompt 45 results for these jobs.
-- The excluded candidates require their named defect or evidence gap to be corrected and independently replayed before a later release.
-- Translation entries marked candidate or conditional still require the exact preflight described in their catalog row.
-- Raw transcripts remain unpublished pending a separate approved redaction process.
-- The [Open Problem Workbench](docs/workbench.md) is a visible future concept only; no conjecture packet or Erdős corpus is currently runnable.
+Mechanical PASS establishes the declared file and validation boundary only. It does not establish completed scholarship or mathematical correctness. New transcription packets require their own independent cold audit. Translation sources require exact derivative rights and baseline-build closure. Problem records require independent statement, status, source, literature, and mathematical review.
 
-## Preserved predecessor
-
-The original Leiden-aligned proposal, Phase A calibration, record schemas, and immutable `v0.1.0` / `v0.1.1` releases remain preserved. See [the legacy index](docs/legacy.md). No mathematical result becomes accepted merely because it appears in either layer or passes a validator.
+The original proposal, calibration, record schemas, and immutable `v0.1.0` / `v0.1.1` releases remain indexed under [legacy material](docs/legacy.md).

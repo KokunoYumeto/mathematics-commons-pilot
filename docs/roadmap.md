@@ -1,21 +1,47 @@
 # Roadmap
 
-## Live now
+## Transcription
 
-- 28 strict-PASS transcription packets with exact release assets and manifests.
-- A reusable 45-prompt cumulative-state workflow.
-- A bounded open-textbook discovery/status catalog and a reusable translation kit; each adopted source still requires an independent public source/license/build freeze.
-- A commit-pinned bridge to the interlanguage author/work adoption board.
+Current:
 
-## Near-term
+- 28 verified source packets in `jobs-2026-08-21-r1`;
+- exact asset/member manifests and anonymous public readback;
+- 45-prompt cumulative-state workflow.
 
-- Accept inspectable packet results and independent cold audits.
-- Publish later packet generations only after their named HOLD, placeholder, source, or replay defects close.
-- Turn selected source-ready open textbooks into exact language-specific translation packets.
-- Add public readback receipts and contribution indexes without erasing prior generations.
+Next:
 
-## Concept stubs
+- accept terminal results and independent cold audits;
+- independently validate the 17 changed staging successors;
+- publish only successors whose exact current bytes, receipts, and cold-audit basis pass;
+- retain R1 and all prior identities as version history.
 
-- [Open Problem Workbench](workbench.md) — an Erdős-first, status-first catalog of reproducible conjecture packets for people and local or web agents. It now includes a dated exploratory atlas of concrete source lists, but still has zero admitted or runnable conjecture packets.
+## Translation
 
-Future workstreams must remain bounded, evidence-backed, cumulative, and subordinate to the live fidelity and independent-review contracts. A concept entry is not a completion claim or permission to publish an unverified mathematical result.
+Current:
+
+- 40 open-education discovery/status rows and 8 exclusions;
+- 10 subject groups;
+- an exact-commit interface to 78 interlanguage work scopes and their language coverage;
+- a local/web translation starter that asks for the work and exact target language before source acquisition.
+
+Next:
+
+- close Open Logic's component census and unchanged baseline build;
+- independently freeze the strongest selected sources, licenses, assets, and build receipts;
+- publish work-specific source packets only after those preflights pass;
+- record new language editions without overwriting active or complete generations.
+
+## Open problems
+
+Current:
+
+- Workbench v0.2 is published as an exact 13,308,489-byte discovery package;
+- the package contains source-list imports, candidate statements, review queues, literature queries, schemas, scripts, templates, and one non-proof computational example;
+- zero problem rows are admitted as canonical runnable packets.
+
+Next:
+
+- define and validate one stable problem/variant/status schema;
+- reconcile a small Erdős selection against primary statements and current literature;
+- bind lawful source files, claim graphs, search receipts, computation fixtures, and unresolved-source records;
+- admit the first runnable problem packet only after independent statement, status, source, and mathematical review.

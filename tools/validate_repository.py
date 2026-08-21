@@ -45,7 +45,9 @@ REQUIRED = {
     "schemas/job-catalog.schema.json",
     "schemas/job-asset.schema.json",
     "schemas/translation-catalog.schema.json",
+    "schemas/portal-catalog.schema.json",
     "schemas/catalog-check.schema.json",
+    "schemas/release-readback.schema.json",
     "schemas/problem-record.schema.json",
     "schemas/research-packet.schema.json",
     "schemas/packet-transition.schema.json",
@@ -69,6 +71,7 @@ REQUIRED = {
     "catalog/job-meta.json",
     "catalog/jobs.json",
     "catalog/translations.json",
+    "catalog/portals.json",
     "catalog/check.json",
     "docs/run.md",
     "docs/fidelity.md",
@@ -76,12 +79,27 @@ REQUIRED = {
     "docs/adopt.md",
     "docs/legacy.md",
     "docs/release-r1.md",
+    "docs/release-translate-v2.md",
+    "docs/release-workbench-v0.2.md",
     "docs/roadmap.md",
     "docs/workbench.md",
     "kits/translate/README.md",
+    "kits/translate/START.md",
+    "kits/translate/LOCAL.md",
+    "kits/translate/WEB.md",
+    "kits/translate/LANGS.md",
+    "kits/translate/WORKS.json",
+    "kits/translate/KIT.json",
+    "kits/translate/MANIFEST.sha256",
     "kits/translate/PROMPT.md",
     "kits/translate/QA.md",
+    "kits/translate/RETURN.md",
     "kits/translate/SOURCE.json",
+    "kits/translate-r1/README.md",
+    "kits/translate-r1/PROMPT.md",
+    "kits/translate-r1/QA.md",
+    "kits/translate-r1/SOURCE.json",
+    "catalog/assets/translate-v2.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
@@ -925,8 +943,9 @@ def check_policy(errors: list[str]) -> None:
     two_factor = (ROOT / "GITHUB_2FA_CONTINUITY.md").read_text(encoding="utf-8")
     if "CC0 1.0" not in rights or "pre-existing third-party" not in rights:
         errors.append("RIGHTS.md lacks the CC0 modulo third-party-rights rule")
-    if "self-assessed" not in readme:
-        errors.append("README.md lacks the self-assessed Leiden-alignment qualification")
+    for heading in ("## Transcription", "## Translation", "## Open problems"):
+        if heading not in readme:
+            errors.append(f"README.md lacks current section: {heading}")
     if (
         "private by default" not in alignment
         or "does not require publication of prompt histories or raw AI transcripts" not in alignment
