@@ -19,10 +19,11 @@ Next:
 
 Current:
 
-- 40 open-education discovery/status rows and 8 exclusions;
-- 10 subject groups;
-- an exact-commit interface to 78 interlanguage work scopes and their language coverage;
-- a local/web translation starter that asks for the work and exact target language before source acquisition.
+- 40 non-exclusive open-mathematics suggestions or supporting rows and 8 exclusions;
+- semantic work keys and 10 subject groups;
+- work-specific reported Indonesian coverage separated from source readiness;
+- a separate exact-commit interface to 78 older-manuscript scopes; and
+- a local/web translation starter that accepts listed or newly proposed open works and asks for the exact target language before source acquisition.
 
 Next:
 

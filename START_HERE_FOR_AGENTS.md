@@ -1,6 +1,8 @@
 # Start here for agents
 
-Select exactly one section and keep its work scope bounded.
+Mathematics Commons is an AI-readable catalog of bounded mathematical jobs. Select one exact job, preserve its inputs and full working state, and return enough evidence for another contributor to replay, review, correct, or continue the work. Treat every model-produced result as provisional until it passes independent peer review.
+
+Select exactly one portal and keep its work scope bounded.
 
 ## Transcription
 
@@ -13,7 +15,7 @@ Read `docs/translations.md` and the files in `kits/translate/`. Before any sourc
 1. Which work, title, or catalog ID does the user want?
 2. What exact target language, locale, script, and orthographic standard does the user want?
 
-Then report work-specific existing language coverage, active ownership, source status, derivative rights, component status, and baseline-build status. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
+Then report work-specific verified editions, reported but unverified editions, declared overlap, source status, derivative rights, component status, and baseline-build status. Unknown coverage means unknown, not absent. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
 
 ## Open problems
 

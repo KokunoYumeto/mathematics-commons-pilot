@@ -8,7 +8,7 @@ Each runnable job is a bounded, resumable compute assignment. Its listed release
 2. Download every asset part listed for the job from the linked GitHub Release.
 3. Verify every part's byte length and SHA-256 against `catalog/jobs.json`, then extract all parts into one job directory.
 4. Open the job's `00_READ_FIRST.md` and validation evidence. Do not substitute a similarly named scan or an earlier packet generation.
-5. Create one project in a capable long-context research or coding agent and upload every direct file from the reconstructed job directory.
+5. Use one capable long-context local or hosted AI system. Give it every direct file from the reconstructed job directory.
 
 `strict_pass` means the packet contract and source bundle replayed exactly. It does **not** mean that the edition has already been transcribed, translated, checked, or certified.
 
@@ -22,7 +22,7 @@ Twenty-six jobs include their terminal receipt directly. Gordan volume II and Mi
 4. Reply `next prompt` to advance to the next numbered prompt.
 5. Repeat through Prompt 45. Prompt 45 COMPLETE is terminal; do not ask for Prompt 46.
 
-Every response, including an IN_PROGRESS response, must return the packet's cumulative full-state trio. If the chat or model session must be replaced, attach the trio from the newest response—even if it was IN_PROGRESS. Never reconstruct state from a summary, roll back to the last completed prompt, or continue from memory.
+After every response, including an IN_PROGRESS response, preserve the returned cumulative state ZIP, checkpoint, and manifest. If the chat or model session must be replaced, attach that trio from the newest response—even if it was IN_PROGRESS. Never reconstruct state from a summary, roll back to the last completed prompt, or continue from memory.
 
 ## What the completed job returns
 
