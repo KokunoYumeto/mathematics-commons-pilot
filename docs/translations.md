@@ -7,7 +7,7 @@ This section lists mathematical works that may support new monolingual translati
 1. Choose a [subject](#subjects) and a work.
 2. Check the work's full row in [`catalog/translations.json`](../catalog/translations.json) or the exact [interlanguage adoption snapshot](adopt.md).
 3. Check work-specific existing language coverage and active ownership.
-4. Download the [`translation-starter-v2` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2).
+4. Download the [`translation-starter-v3` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3).
 5. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
 6. Answer the work and target-language questions. Translation begins only after the source and license preflight passes.
 

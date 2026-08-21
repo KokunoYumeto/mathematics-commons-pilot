@@ -1020,8 +1020,8 @@ def validate_portals(errors: list[str]) -> int:
     translation = by_id.get("translation", {})
     translate_release = translation.get("release", {})
     translate_manifest, _ = validate_asset_manifest(
-        ROOT / "catalog" / "assets" / "translate-v2.json",
-        "translation-starter-v2",
+        ROOT / "catalog" / "assets" / "translate-v3.json",
+        "translation-starter-v3",
         errors,
     )
     expected_translate_assets = [
@@ -1049,6 +1049,28 @@ def validate_portals(errors: list[str]) -> int:
         errors,
         "portal translation asset bytes",
     )
+    expect(
+        translation.get("state") == "starter_available"
+        and translation.get("catalog") == "catalog/translations.json"
+        and translate_release.get("tag") == "translate-v3"
+        and translate_release.get("url")
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3"
+        and translate_release.get("asset_catalog")
+        == "catalog/assets/translate-v3.json",
+        errors,
+        "portal translation release contract",
+    )
+
+    expect(
+        transcription.get("state") == "runnable"
+        and transcription.get("catalog") == "catalog/jobs.json"
+        and trans_release.get("tag") == "jobs-2026-08-21-r1"
+        and trans_release.get("url")
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1"
+        and trans_release.get("asset_catalog") == "catalog/jobs.json",
+        errors,
+        "portal transcription release contract",
+    )
 
     problems = by_id.get("open-problems", {})
     problem_release = problems.get("release", {})
@@ -1064,6 +1086,12 @@ def validate_portals(errors: list[str]) -> int:
         },
         errors,
         "portal Workbench publication state",
+    )
+    expect(
+        problems.get("state") == "source_recovery_required"
+        and problems.get("catalog") is None,
+        errors,
+        "portal Workbench recovery state",
     )
     expect(
         problems.get("expected_asset")

@@ -39,9 +39,48 @@ class JobCatalogTests(unittest.TestCase):
         self.assertEqual(translations, 40)
         self.assertEqual(portals, 3)
 
+    def test_portal_states_fail_closed(self) -> None:
+        portal, _ = validate_jobs.load(ROOT / "catalog" / "portals.json")
+        mutations = []
+
+        published_null = copy.deepcopy(portal)
+        published_null["sections"][0]["release"]["tag"] = None
+        published_null["sections"][0]["release"]["url"] = None
+        mutations.append(published_null)
+
+        missing_expected = copy.deepcopy(portal)
+        del missing_expected["sections"][2]["expected_asset"]
+        mutations.append(missing_expected)
+
+        empty_tag = copy.deepcopy(portal)
+        empty_tag["sections"][1]["release"]["tag"] = ""
+        mutations.append(empty_tag)
+
+        recovery_nonzero = copy.deepcopy(portal)
+        recovery_nonzero["sections"][2]["release"]["asset_count"] = 1
+        mutations.append(recovery_nonzero)
+
+        for mutated in mutations:
+            errors: list[str] = []
+            validate_jobs.validate_schema(mutated, "portals", "mutated portal", errors)
+            self.assertTrue(errors, mutated)
+
+    def test_translation_starter_catalogs_are_exactly_pinned(self) -> None:
+        choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
+        open_education = choices["catalogs"]["open_education"]
+        catalog_bytes = (ROOT / open_education["path"]).read_bytes()
+        self.assertEqual(open_education["commit"], "bade016f98f1516e86ceb0601e592f82a83a3035")
+        self.assertEqual(open_education["tree"], "f69682edae344c2730f1769505a9e9a4293c4547")
+        self.assertEqual(open_education["bytes"], len(catalog_bytes))
+        self.assertEqual(open_education["sha256"], validate_jobs.sha256(catalog_bytes))
+        interlanguage = choices["catalogs"]["interlanguage_archive"]
+        self.assertRegex(interlanguage["commit"], r"^[0-9a-f]{40}$")
+        self.assertRegex(interlanguage["tree"], r"^[0-9a-f]{40}$")
+        self.assertRegex(interlanguage["sha256"], r"^[0-9A-F]{64}$")
+
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 30)
+        self.assertEqual(identity["files"], 31)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")

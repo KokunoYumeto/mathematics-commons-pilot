@@ -1,4 +1,4 @@
-# Translation starter v2
+# Translation starter v3
 
 This package starts one mathematical translation project. It does not include a textbook and does not make every catalog row translation-ready.
 

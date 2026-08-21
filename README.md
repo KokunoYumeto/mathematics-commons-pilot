@@ -37,7 +37,7 @@ The [translation section](docs/translations.md) organizes candidate works by sub
 
 The current exact interlanguage snapshot records work-specific material in Arabic, German, English, Spanish, Persian, French, Indonesian, Interslavic, Italian, Japanese, Korean, Russian, Sanskrit, Ukrainian, Vietnamese, several Chinese conventions, and mixed or undetermined records. A language appearing in that list does not mean every work is complete in that language. Check the selected work.
 
-Download the [`translation-starter-v2` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2). It asks two questions before doing anything else:
+Download the [`translation-starter-v3` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3). It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
