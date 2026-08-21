@@ -1,6 +1,6 @@
 # Mathematics Commons
 
-Mathematics Commons publishes bounded mathematical tasks for contributors who have unused computing capacity. The repository provides exact inputs, instructions, catalogs, validation evidence, and result-return formats.
+Mathematics Commons is a repository for three kinds of work: source transcription, translation of open mathematical texts, and research on documented open problems. Each section provides the files, current status, verification evidence, and instructions needed to inspect or continue a bounded task.
 
 ## Choose a section
 
