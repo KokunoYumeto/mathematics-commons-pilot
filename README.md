@@ -14,6 +14,8 @@ The repository is written for both people and software. Its catalogs expose each
 | [Translation](docs/translations.md) | Non-exclusive work suggestions, work-specific edition reports, and a local/hosted-AI starter | Source selection and preflight available |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
+An additional [formalization concept](docs/formalize.md) describes how machine-readable LaTeX transcriptions could support bounded Lean projects and carefully reviewed Mathlib contributions. It is a future workstream, not a runnable packet or a claim that transcribed results are missing from Mathlib.
+
 ## Transcription
 
 The [`jobs-2026-08-21-r1` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1) contains 29 packet ZIP parts for 28 jobs. One Poincaré packet uses two parts. The admitted packet roots contain 488 files / 6,691,065,999 bytes; the release ZIPs contain 6,599,619,260 bytes.
@@ -39,7 +41,7 @@ The [translation portal](docs/translations.md) is a non-exclusive set of useful 
 - composite curriculum ideas; and
 - supporting components, infrastructure, references, and excluded sources.
 
-Older internal `R…` and `O…` values are retained only as deprecated snapshot provenance. Public choices use meaningful semantic keys such as `openstax-prealgebra-2e`. Earlier `current production` labels have been replaced with explicit work-specific reports: the affected rows concerned Indonesian activity and did not describe every language in which a work exists.
+Public choices use titles and readable semantic keys such as `openstax-prealgebra-2e`. Historical planning keys remain only in the machine catalog for provenance; they are not public work labels.
 
 Download the [`translation-starter-v5` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5). It asks two questions before doing anything else:
 
@@ -48,7 +50,7 @@ Download the [`translation-starter-v5` package](https://github.com/KokunoYumeto/
 
 The package supports both local repository-aware agents and hosted web agents. It checks work-specific verified and reported editions, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook and no completed translation.
 
-Translations into any language are welcome. UNESCO reports a broad shortage of education in languages learners understand, but no official UNESCO list of 96 underserved languages was identified. Contributors should document the intended learners, exact language standard, existing work-specific coverage, and available review capacity.
+Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO reports that 40% of learners do not receive education in their mother tongue and that only 351 of roughly 7,000 languages in current use serve as media of instruction. A separate UNESCO Institute for Statistics report cites a 48-country literacy study covering 96 alphabetic-script languages. The catalog includes those 96 study labels as concrete suggestions; they are an evidence set, not a ranked or exclusive translation queue. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
 
 ## Open problems
 

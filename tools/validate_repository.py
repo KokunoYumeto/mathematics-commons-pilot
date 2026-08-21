@@ -79,6 +79,7 @@ REQUIRED = {
     "catalog/check.json",
     "docs/run.md",
     "docs/fidelity.md",
+    "docs/formalize.md",
     "docs/translations.md",
     "docs/adopt.md",
     "docs/legacy.md",

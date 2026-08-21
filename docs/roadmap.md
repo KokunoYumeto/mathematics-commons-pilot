@@ -21,7 +21,7 @@ Current:
 
 - 40 non-exclusive open-mathematics suggestions or supporting rows and 8 exclusions;
 - semantic work keys and 10 subject groups;
-- work-specific reported Indonesian coverage separated from source readiness;
+- work-specific edition reports separated from source readiness;
 - a separate exact-commit interface to 78 older-manuscript scopes; and
 - a local/web translation starter that accepts listed or newly proposed open works and asks for the exact target language before source acquisition.
 
@@ -31,6 +31,19 @@ Next:
 - independently freeze the strongest selected sources, licenses, assets, and build receipts;
 - publish work-specific source packets only after those preflights pass;
 - record new language editions without overwriting active or complete generations.
+
+## Formalization
+
+Current:
+
+- [concept and proposed packet workflow](formalize.md) for using machine-readable LaTeX transcriptions as inputs to bounded Lean work;
+- no runnable formalization packet and no claim that a historical result is absent from Mathlib.
+
+Next:
+
+- define one source-to-Lean packet schema;
+- audit a short, independently checked theorem chain against one pinned Mathlib commit;
+- build and review one standalone Lean pilot before considering any upstream pull request.
 
 ## Open problems
 
