@@ -25,7 +25,7 @@ R1 remains the newest admitted transcription release. Later candidate generation
 - Explicit exclusions: 8
 - Subject groups in the starter: 10
 - Exact interlanguage discovery snapshot: 78 work rows at commit `7a00b564ace8230c57309df2d66325e57d1c4043`
-- Current translation starter: [`translate-v2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2)
+- Current translation starter: [`translate-v3`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3)
 
 The starter asks for the work and exact target language before acting. It contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook and no completed translation.
 

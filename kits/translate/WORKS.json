@@ -5,7 +5,11 @@
   "catalogs": {
     "open_education": {
       "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
+      "commit": "bade016f98f1516e86ceb0601e592f82a83a3035",
+      "tree": "f69682edae344c2730f1769505a9e9a4293c4547",
       "path": "catalog/translations.json",
+      "bytes": 54731,
+      "sha256": "D64A69C9A6055B4255A3B017BDF9686758D7869DFFA7C218AFEB530433596B29",
       "rows": 40,
       "state": "discovery_and_status_catalog",
       "warning": "Most rows require an independent public source, license, component, and baseline-build freeze before translation."

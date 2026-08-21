@@ -31,16 +31,16 @@
       "catalog": "catalog/translations.json",
       "summary": "Subject-organized work and language coverage with a local/web chooser and source-preflight workflow.",
       "release": {
-        "tag": "translate-v2",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2",
+        "tag": "translate-v3",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3",
         "asset_count": 1,
-        "asset_bytes": 11181,
-        "asset_catalog": "catalog/assets/translate-v2.json",
+        "asset_bytes": 11307,
+        "asset_catalog": "catalog/assets/translate-v3.json",
         "assets": [
           {
-            "name": "translation-starter-v2.zip",
-            "bytes": 11181,
-            "sha256": "90757C98A9E042209A3A86CEEC4F012EAF3B9B4EDF0667874A89EA617BC27315"
+            "name": "translation-starter-v3.zip",
+            "bytes": 11307,
+            "sha256": "CA298E89206237555C33957D8E1EC4360F5AE3482F6473FBC61AB8720AE14ABA"
           }
         ]
       },

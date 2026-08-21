@@ -8,7 +8,7 @@ Select one of the [28 verified packets](catalog/jobs.json), download every liste
 
 ## Translation
 
-Browse [works by subject and current language coverage](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2).
+Browse [works by subject and current language coverage](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3).
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
