@@ -38,10 +38,10 @@
       "additionalProperties": false,
       "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "assets"],
       "properties": {
-        "tag": {"type": "string", "minLength": 1},
-        "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
-        "asset_count": {"type": "integer", "minimum": 1},
-        "asset_bytes": {"type": "integer", "minimum": 1},
+        "tag": {"type": ["string", "null"]},
+        "url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.+$"}]},
+        "asset_count": {"type": "integer", "minimum": 0},
+        "asset_bytes": {"type": "integer", "minimum": 0},
         "asset_catalog": {"$ref": "#/$defs/nullablePath"},
         "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
       }
@@ -53,11 +53,12 @@
       "properties": {
         "id": {"enum": ["transcription", "translation", "open-problems"]},
         "title": {"type": "string", "minLength": 1},
-        "state": {"enum": ["runnable", "starter_available", "incomplete_discovery_package"]},
+        "state": {"enum": ["runnable", "starter_available", "source_recovery_required"]},
         "docs": {"type": "string", "pattern": "^docs/[A-Za-z0-9_.-]+\\.md$"},
         "catalog": {"$ref": "#/$defs/nullablePath"},
         "summary": {"type": "string", "minLength": 1},
         "release": {"$ref": "#/$defs/release"},
+        "expected_asset": {"$ref": "#/$defs/asset"},
         "limitations": {
           "type": "array",
           "minItems": 1,

@@ -1,8 +1,8 @@
 # Open Problem Workbench
 
-**State:** published incomplete discovery package. No canonical runnable problem packet has yet passed the full admission contract.
+**State:** independently replayed candidate package; exact source ZIP recovery is required before publication. No canonical runnable problem packet has yet passed the full admission contract.
 
-[Download Workbench v0.2](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2). The package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection.
+The supplied Workbench v0.2 package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection. Its exact ZIP is not currently available in the publication workspace, so this repository does not claim a downloadable release.
 
 ## Purpose
 
@@ -10,9 +10,9 @@ The intended catalog includes known conjectures and open problems without presti
 
 The first practical collection should be the maintained Erdős open-problems list because it is numerous, numbered, bounded, actively maintained, and rich in problems for which literature/status reconciliation is independently valuable.
 
-## Included source-list atlas
+## Included source-list index
 
-The published 2026-08-21 package contains a dated source-list atlas. All counts below are tied to that package; they are not live totals or admitted canonical problem records.
+The supplied 2026-08-21 package contains a dated source-list index. All counts below are tied to that independently replayed package; they are not live totals or admitted canonical problem records.
 
 | Source family | Reported scope in v0.2 | Candidate use | Required verification |
 |---|---:|---|---|
@@ -63,7 +63,7 @@ A one-line conjecture is not a runnable packet. The evidence boundary, omissions
 5. Reconcile status. If a problem appears solved or materially advanced beyond the maintained list, record a candidate status delta with exact evidence.
 6. Return that delta to review without silently changing the canonical-list layer or flooding maintainers with raw model output.
 
-Status reconciliation is a first-class mathematical contribution. A stale “open” label, missed partial result, or ambiguous variant should be corrected only through exact sources and independent checking.
+Status reconciliation is an accepted mathematical contribution. A stale “open” label, missed partial result, or ambiguous variant should be corrected only through exact sources and independent checking.
 
 ## Cumulative contribution loop
 
@@ -90,15 +90,17 @@ Parallel attempts are allowed when declared. Record negative results and failed 
 
 ## Packet scale
 
-The same envelope should support a tiny problem and an oversized problem, but not with the same completeness claim.
+The packet format should support a tiny problem and an oversized problem, but not with the same completeness claim.
 
 - A bounded Erdős entry may aim for exhaustive coverage of its maintained references plus one explicit supplementary search.
 - A field-scale or famous problem must be split by time, formulation, method, or cited subcorpus. Its catalog row must say `sampled` or `partitioned`, list omitted strata, and reject any “complete literature” claim.
 - An oversized Riemann Hypothesis entry is permitted, but it receives the same evidence, status, and independent-review rules as every other row.
 
-## Published package
+## Expected package identity
 
-The exact file `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip` is published under [`workbench-v0.2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2). It is 13,308,489 bytes with SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`. Independent replay found 160 safe archive entries and matched all 159 payload entries against its self-excluding `MANIFEST.sha256`, with zero missing, extra, or hash-mismatched entries. Its internal validation report says PASS with 59 checks and zero failures.
+The expected file is `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip`, 13,308,489 bytes, with SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`. Independent replay found 160 safe archive entries and matched all 159 payload entries against its self-excluding `MANIFEST.sha256`, with zero missing, extra, or hash-mismatched entries. Its internal validation report says PASS with 59 checks and zero failures.
+
+Those facts describe the previously inspected source package, not a current public release. Publication remains incomplete until those exact bytes are restored, replayed again, uploaded, and anonymously read back.
 
 The package reports 8,785 nonblank secondary statement candidates, 1,246 preliminary candidates, 858 mechanically conservative candidates, 824 statement-integrity review rows, 4,831 provenance/status/rights review rows, 2,076 source-document rows, 8,785 literature-query rows, 17 checked literature-delta rows, and 14 community leads. Its Erdős data contains 1,217 metadata records, including 608 classified as open in the snapshot, 556 with imported statement text, 52 statement gaps, and 76 status conflicts.
 

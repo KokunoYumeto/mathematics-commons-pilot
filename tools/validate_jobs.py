@@ -1053,16 +1053,27 @@ def validate_portals(errors: list[str]) -> int:
     problems = by_id.get("open-problems", {})
     problem_release = problems.get("release", {})
     expect(
-        problem_release.get("assets")
-        == [
-            {
-                "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
-                "bytes": 13308489,
-                "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A",
-            }
-        ],
+        problem_release
+        == {
+            "tag": None,
+            "url": None,
+            "asset_count": 0,
+            "asset_bytes": 0,
+            "asset_catalog": None,
+            "assets": [],
+        },
         errors,
-        "portal Workbench v0.2 asset identity",
+        "portal Workbench publication state",
+    )
+    expect(
+        problems.get("expected_asset")
+        == {
+            "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+            "bytes": 13308489,
+            "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A",
+        },
+        errors,
+        "portal Workbench expected asset identity",
     )
     return len(sections)
 

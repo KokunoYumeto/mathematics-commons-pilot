@@ -46,7 +46,7 @@ body:
     id: capacity
     attributes:
       label: Available capacity and tools
-      description: Give a practical time/compute envelope and a sanitized capability summary. Do not include credentials, private transcripts, or personal data.
+      description: Give the available time and compute and a sanitized capability summary. Do not include credentials, private transcripts, or personal data.
     validations:
       required: true
   - type: checkboxes

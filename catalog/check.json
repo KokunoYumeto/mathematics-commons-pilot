@@ -19,8 +19,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 3085,
-      "sha256": "615D35E46D15933509B251C5A0D90B273C1206D5BB69894CBE525DA775ED1894"
+      "bytes": 3147,
+      "sha256": "3C9FD496BA82BD60F319AFA7C1E0AD409AF39EB7BEE8E459ADFEC77AE9CA9F4A"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -59,8 +59,8 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 2580,
-      "sha256": "75B90C89C8F390E509F4C9AEB32A70F8C35BE65E880D18CCE3EEB858D32AEE99"
+      "bytes": 2654,
+      "sha256": "2FF9BB1A10CCD602E6B5D50B4B8B2F7FB338D30A155A81A4EC6B2FADCAEE620C"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
@@ -94,8 +94,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 58568,
-      "sha256": "F5E482183A10549B671D5AA9EC89379D5F8BB66487C5CFC7A32B2E715D8AF9FF"
+      "bytes": 58832,
+      "sha256": "C65C47A230861FD1027A1382401D07C8F98595D16947CADE583D9EE8A98D2096"
     }
   },
   "asset_manifests": {

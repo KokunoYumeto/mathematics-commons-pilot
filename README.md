@@ -8,7 +8,7 @@ Mathematics Commons publishes bounded mathematical tasks for contributors who ha
 |---|---|---|
 | [Transcription](docs/run.md) | 28 verified source packets with 45-prompt workflows | Runnable |
 | [Translation](docs/translations.md) | Subject index, work/language coverage, source catalog, and interactive starter ZIP | Source selection and preflight available |
-| [Open problems](docs/workbench.md) | Workbench v0.2 discovery package with 8,785 candidate rows and curation tools | Published but incomplete; no canonical runnable problem packet yet |
+| [Open problems](docs/workbench.md) | Workbench v0.2 discovery package with 8,785 candidate rows and curation tools | Validated candidate; source ZIP must be restored before publication |
 
 ## Transcription
 
@@ -24,7 +24,7 @@ To run a packet:
 
 `strict-PASS` validates the packet boundary and its recorded evidence. It does not certify a completed transcription, translation, edition, or mathematical result. The full [run instructions](docs/run.md) and [fidelity contract](docs/fidelity.md) apply.
 
-The prepared staging sources have continued to change since R1. Eleven of the 28 current staging roots still replay exactly against R1; 17 contain later bytes that have not yet passed the independent admission contract. R1 therefore remains the newest verified release. The changed staging successors are not presented as runnable until their own manifests, terminal receipts, and independent cold audits pass.
+R1 remains the newest admitted transcription release. Later candidate generations are not presented as runnable until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
 ## Translation
 
@@ -48,13 +48,15 @@ No authoritative UNESCO list of “96 underserved languages” was found. This r
 
 ## Open problems
 
-The [`workbench-v0.2` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2) publishes the exact supplied discovery package:
+Workbench v0.2 was independently replayed as an exact supplied discovery package:
 
 - 13,308,489-byte ZIP;
 - SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`;
 - 160 safe archive entries;
 - 159/159 payload entries replayed against its self-excluding manifest; and
 - internal validation PASS with 59 checks and zero failures.
+
+The exact ZIP is not currently available in the publication workspace, so no `workbench-v0.2` release is being claimed. Publication requires restoration of the exact 13,308,489-byte file with the SHA-256 above, followed by another replay and public readback.
 
 The package contains 8,785 secondary statement candidates from 13 collections, 1,246 preliminary candidates, 858 conservative triage candidates, 824 statement-integrity review rows, 4,831 provenance/status/rights review rows, 2,076 source-document rows, and 8,785 literature-query rows. Its Erdős snapshot contains 1,217 metadata records, including 608 classified as open in that snapshot, 556 with imported statement text, 52 statement gaps, and 76 status conflicts.
 

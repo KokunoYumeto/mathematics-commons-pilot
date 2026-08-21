@@ -20,7 +20,7 @@
       },
       "limitations": [
         "Packet PASS does not certify a completed transcription or edition.",
-        "Seventeen later staging successors are excluded until their own independent admission checks pass."
+        "Later candidate generations are excluded until their own independent admission checks pass."
       ]
     },
     {
@@ -52,25 +52,25 @@
     {
       "id": "open-problems",
       "title": "Open problems",
-      "state": "incomplete_discovery_package",
+      "state": "source_recovery_required",
       "docs": "docs/workbench.md",
       "catalog": null,
-      "summary": "Workbench v0.2 contains candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates.",
+      "summary": "Workbench v0.2 was independently replayed and contains candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates. Its exact source ZIP must be restored before publication.",
       "release": {
-        "tag": "workbench-v0.2",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2",
-        "asset_count": 1,
-        "asset_bytes": 13308489,
+        "tag": null,
+        "url": null,
+        "asset_count": 0,
+        "asset_bytes": 0,
         "asset_catalog": null,
-        "assets": [
-          {
-            "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
-            "bytes": 13308489,
-            "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A"
-          }
-        ]
+        "assets": []
+      },
+      "expected_asset": {
+        "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+        "bytes": 13308489,
+        "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A"
       },
       "limitations": [
+        "Publication is blocked until the exact expected ZIP bytes are restored and replayed.",
         "No problem record is yet admitted as a canonical runnable packet.",
         "Internal package PASS does not establish canonical wording, current status, complete literature, or a proof."
       ]
