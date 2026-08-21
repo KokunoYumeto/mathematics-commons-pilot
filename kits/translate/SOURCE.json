@@ -1,9 +1,9 @@
 {
-  "schema": "math-commons-translation-source/v2",
+  "schema": "math-commons-translation-source/v3",
   "selection": {
     "catalog": "REQUIRED_CATALOG_OR_BOARD",
     "catalog_commit": "REQUIRED_IMMUTABLE_ID",
-    "work_id": "REQUIRED",
+    "work_key": "REQUIRED_SEMANTIC_KEY_OR_NEW_WORK_SLUG",
     "known_existing_editions": [],
     "declared_overlap": "REQUIRED"
   },
