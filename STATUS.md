@@ -16,7 +16,7 @@
 - 6,599,622,703 downloadable ZIP bytes.
 - 45 ordered prompts per transcription job, with cumulative full-state return on every response.
 - Exact asset/member manifests and a replayed machine validation receipt.
-- 39 bounded open-education discovery/status entries and eight explicit exclusions; the underlying coordination snapshots are not public evidence.
+- 40 bounded open-education discovery/status entries and eight explicit exclusions; one Open Logic core-source row has an exact public commit/tree/license boundary, while the underlying coordination snapshots are not public evidence.
 - A commit-pinned interface to the 78-row interlanguage adoption board.
 
 ## Admission boundary
@@ -37,6 +37,8 @@ The checked-in validation receipt binds:
 - GitHub's per-asset size boundary.
 
 After publication, the release is not considered delivered until the public ref, catalog bytes, release asset list, and every downloaded asset hash have been read back from GitHub.
+
+That gate is closed for R1 by [`catalog/readback.json`](catalog/readback.json): 30/30 release assets, 6,599,622,703/6,599,622,703 bytes, seven principal raw files, zero mismatches, and `errors=[]`, fetched over anonymous HTTPS against exact delivered commit `049a2c9c351e827c85e69f21c2ebd0c3a98db705`.
 
 ## Still open
 

@@ -18,6 +18,7 @@
     "nested_authorities_replayed",
     "asset_mode",
     "translation_entries",
+    "public_readback",
     "errors"
   ],
   "properties": {
@@ -37,6 +38,7 @@
         "job_meta",
         "jobs",
         "translations",
+        "readback",
         "global_receipt",
         "gordan2_receipt",
         "mikami_receipt",
@@ -44,6 +46,7 @@
         "job_schema",
         "translation_schema",
         "asset_schema",
+        "readback_schema",
         "check_schema",
         "schema_validator",
         "packer",
@@ -58,6 +61,9 @@
           "$ref": "#/$defs/identity"
         },
         "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "readback": {
           "$ref": "#/$defs/identity"
         },
         "global_receipt": {
@@ -79,6 +85,9 @@
           "$ref": "#/$defs/identity"
         },
         "asset_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "readback_schema": {
           "$ref": "#/$defs/identity"
         },
         "check_schema": {
@@ -162,6 +171,66 @@
     "translation_entries": {
       "type": "integer",
       "minimum": 0
+    },
+    "public_readback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "subject_commit",
+        "release_tag",
+        "release_id",
+        "transport",
+        "observed_date",
+        "release_assets",
+        "release_asset_bytes",
+        "raw_files",
+        "mismatches",
+        "errors"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["PASS", "FAIL"]
+        },
+        "subject_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "release_tag": {
+          "type": "string",
+          "pattern": "^jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+$"
+        },
+        "release_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "transport": {
+          "const": "anonymous_https"
+        },
+        "observed_date": {
+          "const": "2026-08-21"
+        },
+        "release_assets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "release_asset_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mismatches": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "errors": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
     },
     "errors": {
       "type": "array",
