@@ -2,7 +2,7 @@
 
 Status: concept stub. No formalization packet is currently runnable.
 
-This workstream would use completed mathematical transcriptions as inputs for formalization in Lean. A LaTeX edition does not translate mechanically into Lean code. Its value is that definitions, theorem statements, proofs, notation, cross-references, and source locations are machine-readable rather than trapped in page images. A person or AI system can search that text, extract dependency chains, compare statements with an existing formal library, and work on bounded Lean goals.
+This workstream would use completed mathematical transcriptions as inputs for formalization in Lean. There are two separate conversions. Converting a scan into verified LaTeX exposes mathematical text and structure that software can search, quote, compare, and parse; the scan alone exposes only page images. Converting that LaTeX mathematics into checked Lean statements and proofs is a later formalization task and is not mechanical. The LaTeX nevertheless makes definitions, theorem statements, proofs, notation, cross-references, and source locations available to a person or AI system for dependency analysis, library comparison, and bounded Lean work.
 
 Possible source corpora include transcribed works by Emmy Noether, James Joseph Sylvester, and other authors represented in the source archive. Naming a corpus is not a claim that its results are absent from Mathlib. Every proposed theorem first needs a gap audit against one exact Mathlib commit.
 
