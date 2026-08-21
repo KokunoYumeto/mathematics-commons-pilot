@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "al-tusi-quadrilateral-french-1891",
   "wrapper_directory": "al-tusi-quadrilateral-french-1891",
-  "source_files": 32,
-  "source_bytes": 286754559,
-  "canonical_stream_bytes": 3634,
-  "source_tree_sha256": "1356FF142DDF3465ABB991277E5C8B8645F9889D6BBFCD8EED6ABE8F9ADEF990",
+  "source_files": 34,
+  "source_bytes": 286719536,
+  "canonical_stream_bytes": 3826,
+  "source_tree_sha256": "B903D2D2AA17BEFF29F88FFB03444A2CC2CFBC80858F9A5516A4BEE6906C01B2",
   "asset_count": 1,
   "assets": [
     {
       "name": "al-tusi-quadrilateral-french-1891.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 32,
-      "source_bytes": 286754559,
+      "source_files": 34,
+      "source_bytes": 286719536,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 285111794,
-      "zip_sha256": "80219F7424F0E42F8E9501132E22178CF973E4BA821CA0AD6A25B08A6F3BF599"
+      "zip_bytes": 285113722,
+      "zip_sha256": "C3664FB07831E30693BA19D20587CDA63F8D2DFEE2AEFF004B0304425902BB0B"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2854,
-      "sha256": "122A40C353E8AC203CBD79AAC52290D5F68B2107E935F05468290F23C0719520"
+      "bytes": 3227,
+      "sha256": "739C07B7E80D05B712577CC4A9AC5837D84E9C16371B6D139CA3218537BA5315"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -142,9 +142,19 @@
       "sha256": "56168C26DF341730822CA9EEB49EDFD61D4011E5D89E5C4E7D958B5407712E00"
     },
     {
-      "path": "29_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 249529,
-      "sha256": "7D41F44AFF6CF6CF832B9CCAD4630E427677B721B2E1A73DB3E72443EB423603"
+      "path": "29_ALL_39_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 208908,
+      "sha256": "9632B9C65BC246176A7B8F7BA6A770D1E7339F6335A8B9547ED5CDDF13DFBCBE"
+    },
+    {
+      "path": "30_WORK_SIZED_PROMPT_MAP.tsv",
+      "bytes": 3375,
+      "sha256": "ED0DD299DA0BECF1FECF9B33D7A8F8FC8497A83A86427A8C8E5031C010147A87"
+    },
+    {
+      "path": "31_INITIAL_STATE.json",
+      "bytes": 1104,
+      "sha256": "73821217A322B2247B9D3C95210E25F3DBF18C51809C51F9D91CD3D824301C38"
     },
     {
       "path": "37_PRIOR_SYNTHETIC_AND_BILINGUAL_READERS_UNTRUSTED.zip",
@@ -163,28 +173,28 @@
     },
     {
       "path": "40_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 477,
-      "sha256": "09CBF6A40C84FA3B051655CECB422396610812B582530978A0A9BED717D5CF61"
+      "bytes": 1644,
+      "sha256": "F0D9D9BA72C49C6BFC056AB463C84CE2BE79827A6095958EFBA5D5BEDE629660"
     },
     {
       "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
-      "bytes": 6576,
-      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+      "bytes": 6575,
+      "sha256": "9DC482BBF99DA7A04E6769A2ED67EA53CA0FC4E74C65F77A1B848B143F43C626"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 3459,
-      "sha256": "701BCA86BBF975629A4E94FADA4A5F75479C5D1996595F792AB2ABC56D981D2B"
+      "bytes": 3651,
+      "sha256": "A6C4D4EC1A892367019B138DF1DBCDD3EB794A714335FC943154CBFCA17BDC16"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2350,
-      "sha256": "23FBDAAE1E1AB80BFB5E647BAD707CC0F9FF9C5B4FA62F832EC9AFD1F72B0EB0"
+      "bytes": 1738,
+      "sha256": "3FC501E53EACA0E3B6AA7EC0F3C7776D9462D4C2A246394BF6EB059E39FD6784"
     }
   ],
   "checks": {
-    "source_hash_replay": "32/32",
-    "zip_member_replay": "32/32",
+    "source_hash_replay": "34/34",
+    "zip_member_replay": "34/34",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

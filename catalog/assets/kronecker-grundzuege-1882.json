@@ -2,54 +2,59 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "kronecker-grundzuege-1882",
   "wrapper_directory": "kronecker-grundzuege-1882",
-  "source_files": 18,
-  "source_bytes": 176016127,
-  "canonical_stream_bytes": 1951,
-  "source_tree_sha256": "D1E71DE671FC48FC8BD89E5E4B73A52BDE3A8E6C211687888DC0BB644C79CE7B",
+  "source_files": 19,
+  "source_bytes": 175855394,
+  "canonical_stream_bytes": 2050,
+  "source_tree_sha256": "692F4B38C38425F7FE64472D57773CCD2375BF7A7918BC2A779C65421666F3AD",
   "asset_count": 1,
   "assets": [
     {
       "name": "kronecker-grundzuege-1882.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 18,
-      "source_bytes": 176016127,
+      "source_files": 19,
+      "source_bytes": 175855394,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 175253356,
-      "zip_sha256": "FB6B361AE6A109EE1E9F7EE2475088F7196A9BF75866D1E402BC515AA2DDC984"
+      "zip_bytes": 175251578,
+      "zip_sha256": "30B064938C6CB40A3C200770AD8536FBE905A935A73FE4997F86AE60B305EF3F"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2019,
-      "sha256": "3C9878C953B877FD8C6984D88095E4C02E7C4E6C118935866A9DDFFA1C4249A1"
+      "bytes": 3047,
+      "sha256": "38A6477E25BA2080237C21B7DB992CD71EA1D06922128F83840E6254745CDBC5"
     },
     {
       "path": "01_GOVERNING_INSTRUCTIONS.md",
-      "bytes": 2186,
-      "sha256": "993170D4CF3967972173F19075D25568BE4C6B66C625BE1AAE0D2EEC0EB84002"
+      "bytes": 3350,
+      "sha256": "05E667D423214677E983F02F39F64B70519CA3433F16F850537FC657AFFDC413"
     },
     {
       "path": "02_SOURCE_OUTPUT_MAP.tsv",
-      "bytes": 857,
-      "sha256": "4FBD656324590E4379C5E87A35DFA64B02049DB32BA1EF3AB4F6F312114C4B1D"
+      "bytes": 856,
+      "sha256": "DDB6C1D8EC84D71AAB5F141F85CE77FACBE46BF803FFD1456CBFE8DE16135CA4"
     },
     {
       "path": "03_INITIAL_STATE.json",
-      "bytes": 928,
-      "sha256": "B779FD2D72D62DC02B8D1A1958992B36F54FEE8E013F049D33BAD9FFF4D2328A"
+      "bytes": 1167,
+      "sha256": "1CE60A3E49AD056606BE27B87C26CA4D9130A06AD1BA82980365D8BC61EAE9DC"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 239089,
-      "sha256": "F717483C05DDD4EF8556BC3040D46B8186EB564EB93E171BD5D98B0B799563FF"
+      "path": "04_ALL_16_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 75449,
+      "sha256": "AC6F00591E69933A91F9825DF033BF364DC0EADF0F1569641B444D8F4BB36617"
     },
     {
       "path": "05_SOURCE_ACQUISITION_RECEIPT.md",
       "bytes": 972,
       "sha256": "6968F82659C0B573379B53612E2A8C796ABF37FABB4A15CA9B16361F9BDEBAF2"
+    },
+    {
+      "path": "06_WORK_SIZED_PROMPT_MAP.tsv",
+      "bytes": 1157,
+      "sha256": "F526AACC5602B85F3F20F70B559238FA0095157E0E6D0D67707E15494C372E24"
     },
     {
       "path": "20_AUTHORITY_ERARA_GRUNDZUEGE_1882_COMPLETE.pdf",
@@ -103,18 +108,18 @@
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1772,
-      "sha256": "4C185360705E94970446A771E5256CD4B46CB38C9B8FB5BF6AC76B2329F8D818"
+      "bytes": 1950,
+      "sha256": "5E504446F6EC40083872CA4BF880333620D8D908308C87FE2E56C03A897A3B1B"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2296,
-      "sha256": "6C792E4B7D90FA678E66E2A56D9B9B8FA41769E3220C00CD788F8D4AABAE2645"
+      "bytes": 1438,
+      "sha256": "EF87C128E276E2889345289A88F3D7F89280B7D33CB6153C23C897104C0C290D"
     }
   ],
   "checks": {
-    "source_hash_replay": "18/18",
-    "zip_member_replay": "18/18",
+    "source_hash_replay": "19/19",
+    "zip_member_replay": "19/19",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

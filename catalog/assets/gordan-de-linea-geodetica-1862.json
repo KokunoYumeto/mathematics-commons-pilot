@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "gordan-de-linea-geodetica-1862",
   "wrapper_directory": "gordan-de-linea-geodetica-1862",
-  "source_files": 14,
-  "source_bytes": 5603757,
-  "canonical_stream_bytes": 1594,
-  "source_tree_sha256": "952446A825E60CF2EE18BDC73019B55C9A075104029BE8418BB573EA6160C906",
+  "source_files": 17,
+  "source_bytes": 106446316,
+  "canonical_stream_bytes": 2018,
+  "source_tree_sha256": "E1AA0E6DA36379590F9FEE78BD76551A5D465DAF209E810FFBCBC8EA29978A0F",
   "asset_count": 1,
   "assets": [
     {
       "name": "gordan-de-linea-geodetica-1862.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 14,
-      "source_bytes": 5603757,
+      "source_files": 17,
+      "source_bytes": 106446316,
       "first_path": "00_READ_ME_FIRST.md",
-      "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-      "zip_bytes": 5289425,
-      "zip_sha256": "DAFD37A69C4D210888B5CE53036BCDF6E7BDE2940E6BEC9354ED2C7426F0852B"
+      "last_path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+      "zip_bytes": 103247362,
+      "zip_sha256": "586B5BF7B0B2C3BC9BD0C69DD4977C2BCCADB065793925C79785BBF8F678746A"
     }
   ],
   "members": [
     {
       "path": "00_READ_ME_FIRST.md",
-      "bytes": 2772,
-      "sha256": "7D87B27B97E0C65F500D4E88EF70FF6447EAB9FDFE175EBB950B797BB7D59CBF"
+      "bytes": 3574,
+      "sha256": "2CF4DCAB5FFA790718D8FD04DD0BD522AD4A34839F3FAD2D01BB2B3585BCCD23"
     },
     {
       "path": "01_Paul_Gordan_De_linea_geodetica_1862_Authority_47_pages.pdf",
@@ -42,9 +42,9 @@
       "sha256": "797377BA13B4E37B6BD0DA0F1D8F4CB7D00B9545389E084087F04CE4E636BAE8"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 259260,
-      "sha256": "02DED192E5CE3B00F985E8CAC136EAC47D7119FB6F23FFD92AC2BF2C59767FCF"
+      "path": "04_ALL_05_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 21100,
+      "sha256": "75D05A7C40746F750F6E59AE35EE0EE78DE0232C0C18179C64B800269DFFCE16"
     },
     {
       "path": "05_EXACT_PHYSICAL_TO_PRINTED_PAGE_MAP.csv",
@@ -53,13 +53,13 @@
     },
     {
       "path": "06_SOURCE_HIERARCHY_AND_TOPOLOGY.md",
-      "bytes": 1954,
-      "sha256": "02DC4B0BFBDDCA9C5912C3A42F70F9202E367471F0E263977054E7C4B4BB3F74"
+      "bytes": 2804,
+      "sha256": "BE8DFE15D6D724BBE005C679510E6D6DAD777FF7AA50C31EB42C71FB49903B48"
     },
     {
       "path": "07_INHERITED_STATE_FILTERING_LEDGER.md",
-      "bytes": 919,
-      "sha256": "B5058C97C310A41875D1C8075053F183ACF52E45678CF98DC06CA236B527A514"
+      "bytes": 1350,
+      "sha256": "1674B45CDD70BAB3C7B8C3848E10DEE303E4DA090F2D2D38367A07EB241903E4"
     },
     {
       "path": "08_ISSUE_AND_UNCERTAINTY_LEDGER_TEMPLATE.csv",
@@ -73,28 +73,43 @@
     },
     {
       "path": "10_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 593,
-      "sha256": "15E15D3B4854704445FDED0AE6F150E33EB1EDDD365384E02D91E1F9EA2844E6"
+      "bytes": 1761,
+      "sha256": "AF30E077FDB56BEDD336EC0812CB8119EECDE8AC366073AF55F5181156CE09CD"
     },
     {
       "path": "11_REQUIRED_END_STATE.md",
-      "bytes": 948,
-      "sha256": "FD58921DCDC43CF46E743F58349184A7A0E71BA80DD60DB80D70292D31EA5337"
+      "bytes": 2116,
+      "sha256": "C5C326BB12E872B634F52ECDE01C9DA51CD225B49E4450831D6A346F6071B09F"
     },
     {
       "path": "12_PACKET_MANIFEST_SHA256.csv",
-      "bytes": 1636,
-      "sha256": "676467C1B95B6790814846E8FD40212BBC9EA35AFD6BBFAB80DAB5C476E4F3A1"
+      "bytes": 2272,
+      "sha256": "17147CEAB9E127758868345839CE2A9FE210F76AE71E50C00DEEA0B437A3A386"
     },
     {
       "path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-      "bytes": 2309,
-      "sha256": "2ADA87458E24A41AF75853C046A6BAE99BBB8DBE55DABBF37D1E727E26418E62"
+      "bytes": 1993,
+      "sha256": "6104CFB647F7D5AA8C23C52EE07E7058A278FF95BAF0C6CC5EED94B2CE4F7FDD"
+    },
+    {
+      "path": "14_ZENODO_20673409_Gordan_DL_complete_FIX02_LAT_EN_20260608.zip",
+      "bytes": 27860639,
+      "sha256": "16F555817B51C53601AEBE64996C8427B8B6DAF3912F471482A89098F4986B71"
+    },
+    {
+      "path": "15_LOCAL_POST_ZENODO_Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip",
+      "bytes": 27794885,
+      "sha256": "13F6113993B07FE45CACC371BC85EF626C6262A054AF007D534335D819F68AF4"
+    },
+    {
+      "path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+      "bytes": 45420456,
+      "sha256": "5492A4033FF65069F87B4848EC99874871877BBE0CFD325D722C6CC9E77ACA4C"
     }
   ],
   "checks": {
-    "source_hash_replay": "14/14",
-    "zip_member_replay": "14/14",
+    "source_hash_replay": "17/17",
+    "zip_member_replay": "17/17",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

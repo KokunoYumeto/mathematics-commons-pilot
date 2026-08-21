@@ -1,35 +1,53 @@
 {
-  "schema": "math-commons-job-catalog/v1",
+  "schema": "math-commons-job-catalog/v2",
   "updated": "2026-08-21",
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "release": {
-    "tag": "jobs-2026-08-21-r1",
-    "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1",
+    "tag": "jobs-2026-08-21-r2",
+    "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2",
     "asset_limit": "Each asset is below GitHub's 2 GiB per-file limit; multipart assets preserve one job when needed."
   },
   "interaction": {
-    "prompt_count": 45,
+    "prompt_count_rule": "Use each job's declared prompt_count; counts are workload-derived with no global minimum or maximum.",
     "in_progress_reply": "continue",
     "complete_reply": "next prompt",
-    "terminal": "Prompt 45 COMPLETE",
-    "state_rule": "Every response returns the newest cumulative full-state ZIP, checkpoint, and manifest."
+    "terminal_rule": "The final declared prompt completes only after PASS and requests no successor.",
+    "state_rule": "Every response returns the newest cumulative full-state ZIP, checkpoint, and manifest.",
+    "duration_rule": "No assumed time, runtime, token, response-count, or effort limit applies.",
+    "defect_rule": "Resolve defects from attached authority evidence, record the repair, and rerun a fresh nonpatching audit until PASS; ordinary HOLD or terminal FAIL is not an outcome."
   },
   "admission": {
-    "rule": "Only root-replayed, coherent, strict-PASS packets without HOLD, placeholder, quarantine, supersession, or incomplete-source defects are runnable.",
+    "rule": "Only exact root-replayed packets with complete attached authority, cumulative state continuity, recorded in-workflow repair, and a fresh PASS admission row are runnable.",
     "packet_count": 28,
-    "source_files": 488,
-    "source_bytes": 6691065999,
+    "source_files": 538,
+    "source_bytes": 8922333939,
     "audit_receipt": {
-      "basename": "STRICT_ALL_CURRENT_LANE_GLOBAL_COLD_AUDIT_20260820.json",
-      "bytes": 83290,
-      "sha256": "B22C68D85FE74B61680BD98877235038EC39B1AB92A467BAE74F74C1721FD9DA",
+      "basename": "r2-admission.json",
+      "bytes": 88449,
+      "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+      "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+      "included_in_packet": false,
       "public_projection": {
-        "path": "catalog/receipts/global.json",
-        "bytes": 81598,
-        "sha256": "F3FCA45C79995C3EE595DC65B22E319A0F4C629267B7AB2821C3875F60B5F3EF",
+        "path": "catalog/receipts/r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
         "transformations": [
-          "Replaced the exact private audit-root prefix in source_audit_tsv with <AUDIT_ROOT>.",
-          "Normalized the derived public JSON projection from mixed/CRLF line endings to UTF-8 LF without BOM."
+          "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+        ]
+      }
+    },
+    "hardening_receipt": {
+      "basename": "no-failure-hardening.json",
+      "bytes": 28430,
+      "sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66",
+      "receipt_scope": "Fresh bounded no-failure/no-time-limit control replay for the same frozen 28 packet roots.",
+      "included_in_packet": false,
+      "public_projection": {
+        "path": "catalog/receipts/no-failure-hardening.json",
+        "bytes": 28430,
+        "sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66",
+        "transformations": [
+          "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
         ]
       }
     }
@@ -51,7 +69,7 @@
         "last_path": "SOURCE.json",
         "zip_bytes": 3443,
         "zip_sha256": "22383513B060A7E08D7F693F833C6BC8DDBDF256C2816DC842C0D0F2E1BE929C",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/open-textbook-translation-kit.zip"
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/open-textbook-translation-kit.zip"
       }
     ]
   },
@@ -82,7 +100,7 @@
       "page_note": "Every physical PDF page 1-1162 receives a disposition; Part III contains the Arabic root in reverse scan order.",
       "pack_scope": "direct_files",
       "source_files": 17,
-      "source_bytes": 118207551,
+      "source_bytes": 118219716,
       "authority": [
         {
           "path": "20_AL_BATTANI_OPUS_ASTRONOMICUM_NALLINO_PARS_I_II_III_1162P_AUTHORITY.pdf",
@@ -96,14 +114,23 @@
       "prompt_count": 45,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1787,
-        "sha256": "A314BDC95D71F4F3D5FF00B51913E45243EB0745455191466CE8BAF27D1868CD"
+        "bytes": 1788,
+        "sha256": "F486847486D986B89099592806C3F1980075B5FE894AD5C4AB9F1F06B7DC3D4A"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2338,
-        "sha256": "F76B07348936A02115C1699344B56EC52F230321C7F3C6FAF326768C736158F6",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "al-battani-nallino-opus-astronomicum-1899-1907",
       "rights_note": "The complete master is attached, but the audited controls do not state the provider's scan-payload reuse license. No blanket scan license is claimed; preserve exact provenance and report any substantiated rights or attribution issue.",
@@ -113,11 +140,21 @@
         "rough_elapsed": "6-12 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; assumes the full 45-prompt workflow, continuation turns, deterministic builds, and at least one cold-audit cycle."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3592,
+        "sha256": "9753B6CD33FA69D48C3FF50DDE2027D1BC138C32F50636118F96D5E04FD990D1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 266631,
+        "sha256": "26F60303F710F269E977F2071DCDA29DF1D95368CC7FB281C00FAEFE2AC1FC8F"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/al-battani-nallino-opus-astronomicum-1899-1907.json",
-        "bytes": 4038,
-        "sha256": "29E4D1A270F99CD2211FCD7820DB4091EF5A3F81550F88C3A7D7284823BE24B4"
+        "bytes": 4039,
+        "sha256": "73549BC10EF893B85DDED51C7DA99B8A6008F1C9FD76DFDD6786FC646E307173"
       },
       "assets": [
         {
@@ -125,12 +162,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 17,
-          "source_bytes": 118207551,
+          "source_bytes": 118219716,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 116632760,
-          "zip_sha256": "8220D4A6B61807E8EF8BF1A2070D8DEFBCA41B1588EA907D93C37A5B82B3A8A6",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/al-battani-nallino-opus-astronomicum-1899-1907.zip"
+          "zip_bytes": 116634198,
+          "zip_sha256": "6E1F0960D265CF8038ACDA3A9C4A1EF60042855694E1C472BC710F249714225A",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-battani-nallino-opus-astronomicum-1899-1907.zip"
         }
       ]
     },
@@ -157,8 +194,8 @@
       "physical_pages": 130,
       "page_note": "Physical frames, not inferred printed pagination, are the controlling topology.",
       "pack_scope": "direct_files",
-      "source_files": 26,
-      "source_bytes": 406771312,
+      "source_files": 28,
+      "source_bytes": 406586698,
       "authority": [
         {
           "path": "20_AL_KHWARIZMI_AL_JABR_1939_AUTHORITY_FRAMES_001-035_400PPI.zip",
@@ -187,17 +224,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 13,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 2920,
-        "sha256": "077C6DA3F10C84A0140EBFC8CE3CC6D45101DB81BA7FD473C188A9B0C11FD1F5"
+        "bytes": 3130,
+        "sha256": "686FB3A9DB1821C411969D65ED5B1767170F367C7380D29E2C2A9E5EA459E930"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2312,
-        "sha256": "55DEAE318DF4FA9F6260C2EA61821A48E5C987EBD960769802AADA8A67C46770",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "al-khwarizmi-al-jabr-cairo-1939",
       "rights_note": "Columbia/ACO institutional provenance is preserved. The packet does not state a reusable license for the scan payload; no blanket scan license is claimed.",
@@ -207,24 +253,34 @@
         "rough_elapsed": "2-5 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; Arabic diplomatic work and diagram fidelity can require repeated continuation and audit cycles."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3552,
+        "sha256": "70E484CD5E1D9201ACA371E05843705D8C69AF303B29E33EA4BDD349DE3F4949"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 62783,
+        "sha256": "D63C7875AA7581273D7214294B0A46BF9EE96F3BC3244789EF285AAAFF9D9B5B"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/al-khwarizmi-al-jabr-cairo-1939.json",
-        "bytes": 5702,
-        "sha256": "7B072727B38ED637A4B17EFD4C8ED3C47172C3E3590096118F8F880FF2A3FCE5"
+        "bytes": 6040,
+        "sha256": "98549F6BB3F6F2AD7457DCED3FCEF4EF25AD63AA0D5DC9EB4BAC5CB5022455FE"
       },
       "assets": [
         {
           "name": "al-khwarizmi-al-jabr-cairo-1939.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 26,
-          "source_bytes": 406771312,
+          "source_files": 28,
+          "source_bytes": 406586698,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 363559181,
-          "zip_sha256": "4A21D9D017961B310AA809822B9A48F7940B4B7F6809EEC9BFD9C2807B57E979",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/al-khwarizmi-al-jabr-cairo-1939.zip"
+          "zip_bytes": 363563394,
+          "zip_sha256": "E1AC68C1497C5F339E281E5619C079DB56858F63DF3336C23C987DBA12DD2680",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-khwarizmi-al-jabr-cairo-1939.zip"
         }
       ]
     },
@@ -251,8 +307,8 @@
       "physical_pages": 386,
       "page_note": "Access 1-224 contains front matter and French edition; 225-382 Arabic control; 383-386 back matter.",
       "pack_scope": "direct_files",
-      "source_files": 32,
-      "source_bytes": 286754559,
+      "source_files": 34,
+      "source_bytes": 286719536,
       "authority": [
         {
           "path": "20_U01_NATIVE_RAW0001-0060_FRONT_AND_FRENCH001-054.zip",
@@ -299,17 +355,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 39,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 3459,
-        "sha256": "701BCA86BBF975629A4E94FADA4A5F75479C5D1996595F792AB2ABC56D981D2B"
+        "bytes": 3651,
+        "sha256": "A6C4D4EC1A892367019B138DF1DBCDD3EB794A714335FC943154CBFCA17BDC16"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2350,
-        "sha256": "23FBDAAE1E1AB80BFB5E647BAD707CC0F9FF9C5B4FA62F832EC9AFD1F72B0EB0",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "al-tusi-quadrilateral-french-1891",
       "rights_note": "IA/UofT native pixels are the best located source, but the audited controls do not state a reusable scan license. Preserve attribution language and do not present the Arabic control as an autograph or source edition.",
@@ -319,24 +384,34 @@
         "rough_elapsed": "3-6 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; includes French transcription, English translation, diagram fidelity, and control-page disposition."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3227,
+        "sha256": "739C07B7E80D05B712577CC4A9AC5837D84E9C16371B6D139CA3218537BA5315"
+      },
+      "prompt_file": {
+        "basename": "29_ALL_39_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 208908,
+        "sha256": "9632B9C65BC246176A7B8F7BA6A770D1E7339F6335A8B9547ED5CDDF13DFBCBE"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/al-tusi-quadrilateral-french-1891.json",
-        "bytes": 6631,
-        "sha256": "D951EBF40C5F9B61437BED7F387ACA3642EAF9E9C7C2DA4EAE2A37EDCF5CF232"
+        "bytes": 6951,
+        "sha256": "231519AD1738E616BDD3513206AA9B73450C1B6167E5BC50703AAB1E1D057280"
       },
       "assets": [
         {
           "name": "al-tusi-quadrilateral-french-1891.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 32,
-          "source_bytes": 286754559,
+          "source_files": 34,
+          "source_bytes": 286719536,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 285111794,
-          "zip_sha256": "80219F7424F0E42F8E9501132E22178CF973E4BA821CA0AD6A25B08A6F3BF599",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/al-tusi-quadrilateral-french-1891.zip"
+          "zip_bytes": 285113722,
+          "zip_sha256": "C3664FB07831E30693BA19D20587CDA63F8D2DFEE2AEFF004B0304425902BB0B",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-tusi-quadrilateral-french-1891.zip"
         }
       ]
     },
@@ -365,8 +440,8 @@
       "physical_pages": 134,
       "page_note": "KSU pages 1-134 control; excluded color cards remain provenance only. A distinct bitonal exemplar is rescue evidence, not silent replacement.",
       "pack_scope": "direct_files",
-      "source_files": 38,
-      "source_bytes": 217857657,
+      "source_files": 40,
+      "source_bytes": 217717460,
       "authority": [
         {
           "path": "10_KSU_COLOR_ORIGINAL_P001-020.zip",
@@ -413,17 +488,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 14,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 3909,
-        "sha256": "466E71BB9AE940ED2AE86F8F0395CFD82440FCF0EBD2BCDA45263E958A1A07A8"
+        "bytes": 4118,
+        "sha256": "A09D7628D1D05CEF9045522F0CA4B5756E1FACE86DEBFCF65B52C729E2AD1221"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2300,
-        "sha256": "EB1B7F4AE3DCC46C496EDBE333A6BF5C9C7CEC38A18C63EE777B4210D36FB2B0",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "aryabhatiya-jyotihsastram-1906",
       "rights_note": "The underlying 1906 edition is public domain by age. KSU metadata states no scan-specific license; do not claim one. The alternate exemplar carries Public Domain Mark 1.0.",
@@ -433,24 +517,34 @@
         "rough_elapsed": "3-6 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; script does not determine language responsibility, so stratification requires repeated visual and linguistic audit."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3550,
+        "sha256": "54E3F63BF4D0FA3CB22FB2AA77D128E50A571010D22248A207B9DC01A2CD6F16"
+      },
+      "prompt_file": {
+        "basename": "05_ALL_14_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 66531,
+        "sha256": "918A6328B9579222DDA7209E315AF9F03D6D24651CB95B25F6E6F60779C48B16"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/aryabhatiya-jyotihsastram-1906.json",
-        "bytes": 7456,
-        "sha256": "3869EB378D4022C9E7265B60F4F345EC456618637AAD5C28CE0315A38837F915"
+        "bytes": 7793,
+        "sha256": "C241B10C5567143CBFF2C965BC9FF7A19333A51A740E5D9F8C1429D9505565EB"
       },
       "assets": [
         {
           "name": "aryabhatiya-jyotihsastram-1906.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 38,
-          "source_bytes": 217857657,
+          "source_files": 40,
+          "source_bytes": 217717460,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 214008649,
-          "zip_sha256": "8E8209A1E5DB661DA65A2E7F0839DE9CB2C0EEF563D358AD6D0A60805BB508BE",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/aryabhatiya-jyotihsastram-1906.zip"
+          "zip_bytes": 214013352,
+          "zip_sha256": "53B1EE70008CFA9846CA17E08CE6E7A39C3B008F5CC2AA4DC89D507A715E6842",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/aryabhatiya-jyotihsastram-1906.zip"
         }
       ]
     },
@@ -478,8 +572,8 @@
       "physical_pages": 218,
       "page_note": "All 218 physical PDF pages require explicit dispositions.",
       "pack_scope": "direct_files",
-      "source_files": 14,
-      "source_bytes": 6723099,
+      "source_files": 16,
+      "source_bytes": 6600530,
       "authority": [
         {
           "path": "20_BIJAGANITA_APTE_1930_COMPLETE_218P.pdf",
@@ -490,17 +584,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 22,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1336,
-        "sha256": "7855B7A042C186439271FABBF48B1AF9C6CFE95619EE742A1D559B5F4F092590"
+        "bytes": 1546,
+        "sha256": "886352A6D18D892E96248BEFB0BB8696E3CFD6A8584B4C3EB4CCD434663ABCFE"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2316,
-        "sha256": "6041250BC5A401ED1DDECF085B3B66862B0C5103F0320B9F6F24F65444D5D576",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "bhaskara-bijaganita-apte-1930",
       "rights_note": "Vidyaprasarak Mandal/Anandashram provenance is retained. The audited packet does not state a reusable license for the digital file.",
@@ -510,24 +613,34 @@
         "rough_elapsed": "3-6 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; Sanskrit responsibility separation, formulas, and pagewise replay dominate effort."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3528,
+        "sha256": "3E637E2ADBB6C9C4642E5CEAD94AA4F3FC635D4E892CB79339F0BCC12076B2D1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 105714,
+        "sha256": "C8076399AF46EE08F23DFD6B44E3AC3F310B086DAAA79CD59FC5E33EA4F34432"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/bhaskara-bijaganita-apte-1930.json",
-        "bytes": 3338,
-        "sha256": "7BA0AFA86BAB8C561B0096A31B7C3EC6F42E4AB7B71BF8985202B19E50D02EEF"
+        "bytes": 3676,
+        "sha256": "46DB730ED10F6D908079C6C025F0987FA8A2FFC5CA69F9495690960F6EBE2EBA"
       },
       "assets": [
         {
           "name": "bhaskara-bijaganita-apte-1930.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 14,
-          "source_bytes": 6723099,
+          "source_files": 16,
+          "source_bytes": 6600530,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 5684311,
-          "zip_sha256": "49AEF771FD526FE554B4425A90DE0EE8FF7ECC2313ACEEB00F3F488F340FE52F",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/bhaskara-bijaganita-apte-1930.zip"
+          "zip_bytes": 5688884,
+          "zip_sha256": "B8D6989F39B2899EAF653FBE97133EB367DF7F6959C3870D44CC7563912B4A4C",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/bhaskara-bijaganita-apte-1930.zip"
         }
       ]
     },
@@ -555,8 +668,8 @@
       "physical_pages": 280,
       "page_note": "All native frames require dispositions; reported printed pagination through 262 must be proved from pixels and scandata.",
       "pack_scope": "direct_files",
-      "source_files": 21,
-      "source_bytes": 512388402,
+      "source_files": 23,
+      "source_bytes": 512296220,
       "authority": [
         {
           "path": "20_LILAVATI_1907_NATIVE_JP2_MASTER_280_FRAMES.zip",
@@ -567,17 +680,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 28,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 2154,
-        "sha256": "1AD448FE66EFE008DFC979AFBC8A3F88D991259D1B3E8F6DB7F4684C1BED8386"
+        "bytes": 2364,
+        "sha256": "361824663D5F98246C4A24EEEA32B53F56D0BBFC2BF5B80116AFC279DA38BCE1"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2312,
-        "sha256": "D02E09A44FE904BDB9BE81FB7560CC3D04DF5A09A1115B2BFCA9A6BFD8DA4AC1",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "bhaskara-lilavati-1907",
       "rights_note": "Institutional/IA provenance is retained, but the audited packet does not state a reusable scan-payload license.",
@@ -587,24 +709,34 @@
         "rough_elapsed": "4-8 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; two language layers, formulas, and full frame topology increase audit cost."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3577,
+        "sha256": "EE4831316E6A47B3E49BE4FA43D0BB0B7960E12C0CA882F2FCE0E9AC4208BF23"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_28_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 135025,
+        "sha256": "829195FEAF4EC03BF4AD717ABC4A15078057678B7ACC8B493C5AA0EBD230F9E9"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/bhaskara-lilavati-1907.json",
-        "bytes": 4589,
-        "sha256": "B6A2F991D916BA80D6AECCE9C384804F90AF9FE40404A2663B6AC8C7A5A681E7"
+        "bytes": 4927,
+        "sha256": "C3408D97A45020385FD675FC42F2994AF2232CD75FCCFCE81E44A39610149D69"
       },
       "assets": [
         {
           "name": "bhaskara-lilavati-1907.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 21,
-          "source_bytes": 512388402,
+          "source_files": 23,
+          "source_bytes": 512296220,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 509068073,
-          "zip_sha256": "55BAC857810A2CAA8B7F02F3E24E10867E16F43A725287C2D5471CDC8C73956B",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/bhaskara-lilavati-1907.zip"
+          "zip_bytes": 509073950,
+          "zip_sha256": "60C3E58E59C03062D399B94E8DDA03779967240FB99828D1A3735A05CFC60015",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/bhaskara-lilavati-1907.zip"
         }
       ]
     },
@@ -629,7 +761,7 @@
       "page_note": "624 unique JP2 entries; provider filename ordinals 0001-0625 with 0621 absent and preserved as provenance.",
       "pack_scope": "direct_files",
       "source_files": 11,
-      "source_bytes": 175991821,
+      "source_bytes": 176004219,
       "authority": [
         {
           "path": "cayley_source_master_vol01_collectedmathema01cayluoft_jp2.zip",
@@ -644,13 +776,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 996,
-        "sha256": "C3F68EAA54811A1538BD4E53B7576B95E6A9CF12A59D642E192AD14D22F0BAD1"
+        "sha256": "F34642E1643A17E43095DDF351AF102807D59B53C3E5B1E9B930940A59750B14"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2286,
-        "sha256": "3A8C963672711153B87FC0B821F2BC47FC943FE64D5907B858EDB7C58693CF91",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "cayley-collected-papers-v01",
       "rights_note": "UofT/IA source identity is retained. The packet does not state a reusable license for the scan payload; no blanket scan license is claimed.",
@@ -660,11 +801,21 @@
         "rough_elapsed": "5-10 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; paper boundaries, language changes, tables, and diagrams all require independent replay."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 5219,
+        "sha256": "955C623F1F181D3B9214CD310AFDDFE7C2530D5A2AACF0C1931EB435017AFC47"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 173331,
+        "sha256": "D345E95110791779BEDCDC995F577FF7159B26B855BAAB6037209D6B7B32DF69"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/cayley-collected-papers-v01.json",
         "bytes": 2835,
-        "sha256": "D94B3205DD6C6B08C8E26C7B286DE4D65A85468ABE13CA88194DA6713B693037"
+        "sha256": "A4D0F4AB80034D5A4AA8C6208FED731A95C7DC116CF035E1D78475D2156FF5C6"
       },
       "assets": [
         {
@@ -672,18 +823,18 @@
           "part": 1,
           "parts": 1,
           "source_files": 11,
-          "source_bytes": 175991821,
+          "source_bytes": 176004219,
           "first_path": "00_READ_FIRST.md",
           "last_path": "cayley_source_master_vol01_collectedmathema01cayluoft_jp2.zip",
-          "zip_bytes": 171920031,
-          "zip_sha256": "16809E3B0DE820B69AFF2DCD1250171850A67D745C44CE5208DFCAAD8CA8DDE1",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/cayley-collected-papers-v01.zip"
+          "zip_bytes": 171921441,
+          "zip_sha256": "AC33E330ECAC16E7C283CD33B15BD849AE3B7ED329753F5AF7FFC3247A318F36",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/cayley-collected-papers-v01.zip"
         }
       ]
     },
     {
       "id": "clebsch-gordan-abelian-functions-1866",
-      "packet_id": "CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_REPAIR",
+      "packet_id": "CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_GLOBAL_PACKET_CORRECTED_COMPLETE",
       "authors": [
         "Alfred Clebsch",
         "Paul Gordan"
@@ -700,16 +851,16 @@
       ],
       "scope": "Exactly one complete work and witness; no Gordan author corpus.",
       "physical_pages": 362,
-      "page_note": "Physical 23-355 correspond to printed pages 1-333; every physical page 1-362 requires disposition.",
+      "page_note": "All 362 physical pages of the corrected composite receive a disposition; the Toronto backfill supplies the printed page 30 missing from the Oxford access object.",
       "pack_scope": "direct_files",
-      "source_files": 11,
-      "source_bytes": 33797508,
+      "source_files": 25,
+      "source_bytes": 1765661140,
       "authority": [
         {
-          "path": "20_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_full_362_physical_pages.pdf",
+          "path": "20_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_CONTROLLING_362_physical_pages_Oxford_with_Toronto_printed_page_30.pdf",
           "pages": 362,
-          "note": "Complete controlling Google/Oxford witness.",
-          "sha256": "17FD42069383A63FA74BF0D724697ED87E16B26A7C6D023D33BEC9785608921C"
+          "note": "Corrected controlling composite: Oxford witness with Toronto authority backfill for printed page 30.",
+          "sha256": "8C324DAC59E58A71930AA1712764781B551DB2D6E9EFF89D9DA719B46A746CFB"
         }
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
@@ -717,14 +868,23 @@
       "prompt_count": 45,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1066,
-        "sha256": "4285EE92405D7F678A1BC3A5A52847B4415B410910994003DD94EE93ED83C7F7"
+        "bytes": 4299,
+        "sha256": "130B100A4DED9A48199BCB0363A5918AD5775C6A96C6DF5BFCAD76B67E0708BA"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2350,
-        "sha256": "E8DCC038ACBC1E95EE1834B57077EAFB90294689A3BF2C2258BB243F088B5C4D",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "clebsch-gordan-abelian-functions-1866",
       "rights_note": "Google/Oxford witness provenance is retained; the scan-payload reuse terms are not stated in audited controls.",
@@ -734,24 +894,46 @@
         "rough_elapsed": "3-6 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; formula density and inherited-state replay can substantially increase continuation turns."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 4397,
+        "sha256": "A828E2DEB2F0FF9CB97FBC2808DB3A25B530427C9CB74C92F2E940F2A66AF0EB"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 302794,
+        "sha256": "5E3E4A94646C4FE3E12EB8F3E7CA7EC2733D6C6473DD1CC49591BB5867D5D43F"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/clebsch-gordan-abelian-functions-1866.json",
-        "bytes": 2903,
-        "sha256": "670BA4C5E6E5F502E845E0A9F709438A7F381C71AE6139EF8A45C954B949D30A"
+        "bytes": 6478,
+        "sha256": "56A84F1FAFD35EC07DEF56486EDC690B5384F954BE123F09D56FBB31212CCDDF"
       },
       "assets": [
         {
-          "name": "clebsch-gordan-abelian-functions-1866.zip",
+          "name": "clebsch-gordan-abelian-functions-1866.part01.zip",
           "part": 1,
-          "parts": 1,
-          "source_files": 11,
-          "source_bytes": 33797508,
+          "parts": 2,
+          "source_files": 20,
+          "source_bytes": 1589327172,
           "first_path": "00_READ_FIRST.md",
+          "last_path": "24_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_279_342_and_audit_UNTRUSTED.zip",
+          "zip_bytes": 1573636853,
+          "zip_sha256": "159AE4ECEDCF1DA1D87345346168DCF6BFC8C60090AFB28D54FEA2AECED58214",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/clebsch-gordan-abelian-functions-1866.part01.zip"
+        },
+        {
+          "name": "clebsch-gordan-abelian-functions-1866.part02.zip",
+          "part": 2,
+          "parts": 2,
+          "source_files": 5,
+          "source_bytes": 176333968,
+          "first_path": "25_Clebsch_Gordan_newer_local_and_superseded_work_through_source_page_355_UNTRUSTED.zip",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 33257102,
-          "zip_sha256": "847F2DD240BA3D960F175FB1144C4E272A2B2963100F654C6A878A02FCB76C5E",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/clebsch-gordan-abelian-functions-1866.zip"
+          "zip_bytes": 176249461,
+          "zip_sha256": "8F3723A0EDB96680BADC5F7E321A3AAB0358748132A88DBA17D3AFF53CF74E52",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/clebsch-gordan-abelian-functions-1866.part02.zip"
         }
       ]
     },
@@ -776,7 +958,7 @@
       "page_note": "Physical 6-402 map to printed pages 1-397; physical 403 is correction matter.",
       "pack_scope": "direct_files",
       "source_files": 15,
-      "source_bytes": 19892603,
+      "source_bytes": 19955522,
       "authority": [
         {
           "path": "10_DEDEKIND_GMW_I_AUTHORITY_EXACT.pdf",
@@ -787,17 +969,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 41,
       "packet_manifest": {
         "basename": "07_PACKET_MANIFEST.tsv",
-        "bytes": 2282,
-        "sha256": "9CCF88008D6EDA53544A5A1B87F7C8B06AB444DC2D110424C3202F73B42B2F9E"
+        "bytes": 2012,
+        "sha256": "A9F833976CA76FAACA4E3896F8468D8340452516E46A87630F16ED71C3952F8D"
       },
       "validation_receipt": {
-        "basename": "08_PACKET_VALIDATION_RECEIPT.json",
-        "bytes": 2254,
-        "sha256": "C6A2368A28ED73D551365DEF73D7D9BCA9464F5277D703C164630ABFD5567466",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "dedekind-werke-v01",
       "rights_note": "The authority is sealed locally, but provider and scan-payload reuse terms are not explicit in the audited controls.",
@@ -807,11 +998,21 @@
         "rough_elapsed": "3-7 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; multiple works and original-language responsibility must be preserved page by page."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 2867,
+        "sha256": "5976E1878A16900A6D16CD37442581053C46BA6C838AEF69E38B8448BF4B4F03"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_41_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 200100,
+        "sha256": "D6D0668F5B73845722E2E0F65C2D40253971355B105B270C95644D168314416D"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/dedekind-werke-v01.json",
-        "bytes": 3392,
-        "sha256": "3015F8F4E9B86498203454322C8C15E32306DAFD5C384697B6386392FBDC1897"
+        "bytes": 3405,
+        "sha256": "2A82F24F40D852E87E398BAE110EECF4378B6E688345568CD18CC6C61383FFBD"
       },
       "assets": [
         {
@@ -819,12 +1020,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 15,
-          "source_bytes": 19892603,
+          "source_bytes": 19955522,
           "first_path": "00_READ_FIRST.txt",
           "last_path": "20_GMW_I_PRIOR_READER_UNTRUSTED_EXACT_CAPTURE.zip",
-          "zip_bytes": 18586622,
-          "zip_sha256": "1CAA2B4F590D2E3B184722A58068A5AB82FAF92C976DDCF64F6A704D834D4CBC",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/dedekind-werke-v01.zip"
+          "zip_bytes": 18584694,
+          "zip_sha256": "49235543C1C09F9C43DC6ECB37CDA181735169ECB7A4FE9D21C3F708C48FCE74",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/dedekind-werke-v01.zip"
         }
       ]
     },
@@ -849,7 +1050,7 @@
       "page_note": "Physical 5-512 map to printed pages 1-508.",
       "pack_scope": "direct_files",
       "source_files": 14,
-      "source_bytes": 26650298,
+      "source_bytes": 26663523,
       "authority": [
         {
           "path": "10_DEDEKIND_GMW_III_AUTHORITY_EXACT.pdf",
@@ -864,13 +1065,22 @@
       "packet_manifest": {
         "basename": "07_PACKET_MANIFEST.tsv",
         "bytes": 2134,
-        "sha256": "872C48C1B60C161D026B642DB40C770409668FD5BEBBC2E75E5982672D12551F"
+        "sha256": "4AAB547378F17ED6D8AB57BAB0F0C30F8CFA24BDDDDF3FA79FF49F444AD76371"
       },
       "validation_receipt": {
-        "basename": "08_PACKET_VALIDATION_RECEIPT.json",
-        "bytes": 2258,
-        "sha256": "A00D57A65A5BCC966DFE1AFA9953796E9AC44EFDFAD7BF8C81D48C0F17FB5372",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "dedekind-werke-v03",
       "rights_note": "The authority is sealed locally, but provider and scan-payload reuse terms are not explicit in the audited controls.",
@@ -880,11 +1090,21 @@
         "rough_elapsed": "4-8 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; volume length, work boundaries, formulas, and multilingual responsibility drive cost."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 4455,
+        "sha256": "5B5E7E892EF11B90CD49417CC0E8802E788A2EE1935DF1DB6D0B5AA1DF23E672"
+      },
+      "prompt_file": {
+        "basename": "02_SESSION_PROMPTS.txt",
+        "bytes": 146404,
+        "sha256": "BBE73970CBEF91E8B216653F91A80FCE0C307726C40A3FFCD1CE279743B6839E"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/dedekind-werke-v03.json",
         "bytes": 3235,
-        "sha256": "FA58939A2F66F2BF3C9335A573E092520F1ACC01670E3EF3ADB60D56D7462187"
+        "sha256": "7400B6EA08A3DE6EC989621CD21D56FD9658D7D888074AB431D18F686AD0E566"
       },
       "assets": [
         {
@@ -892,12 +1112,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 14,
-          "source_bytes": 26650298,
+          "source_bytes": 26663523,
           "first_path": "00_READ_FIRST.txt",
           "last_path": "20_GMW_III_PRIOR_READERS_UNTRUSTED_EXACT_CAPTURE.zip",
-          "zip_bytes": 25297321,
-          "zip_sha256": "07585C124865618181F9DD5F80339C253DEAAAE907ED32DC13107AACF150150E",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/dedekind-werke-v03.zip"
+          "zip_bytes": 25299372,
+          "zip_sha256": "C87698B9336CA3BE9A2825954255C92BC661F7FD237BDCB262C5D9DEB79CE140",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/dedekind-werke-v03.zip"
         }
       ]
     },
@@ -926,7 +1146,7 @@
       "page_note": "509 main-volume PDF pages plus 38 Nachtrag PDF pages; each source division begins with an extrinsic provider wrapper.",
       "pack_scope": "direct_files",
       "source_files": 16,
-      "source_bytes": 37437447,
+      "source_bytes": 37450200,
       "authority": [
         {
           "path": "05_GDZ_MAIN_BAND_II_COMPLETE_PDF001-509.pdf",
@@ -947,13 +1167,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 1504,
-        "sha256": "8CB23511AB46AA6F180C70B86005984740082C81BCA3B5837BD84E03BF1DB109"
+        "sha256": "F3DC1E86A38B481482F0F4C7C9197F5615F7A6E575CB67F98BBD0F648522B1CB"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2269,
-        "sha256": "37444FC4CE1E7B0532D25A062A553F4BFD4C4305F1E52B96755149AADF23368D",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gauss-werke-v02-with-nachtrag",
       "rights_note": "GDZ/SUB source provenance is explicit; the audited controls do not quote scan-payload reuse terms. Main and Nachtrag source divisions must remain distinct.",
@@ -963,11 +1192,21 @@
         "rough_elapsed": "4-9 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; multiple source languages and deliberately overlapping historic pagination increase audit effort."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 4448,
+        "sha256": "FDD9A7D32034D4FF2B1B3CB139D0A2D1EFBDA0A75BD66E9C8F8B6EEFFD2F8EE2"
+      },
+      "prompt_file": {
+        "basename": "04_SESSION_PROMPTS.md",
+        "bytes": 163056,
+        "sha256": "DFE7C28E09E47F7F9A40A4D12E1AC19B1C5F9B6BC1A95EB7958079584FC89DDB"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gauss-werke-v02-with-nachtrag.json",
         "bytes": 3637,
-        "sha256": "8ADA1DBF6A6E8E3BE2C1C7CF56C17B8783A05BB1216189C0474307022550BF95"
+        "sha256": "3D171A229B704AB301FC8ECFBA44B707B4A92D087B9FFD6DBEDEAE368119FA77"
       },
       "assets": [
         {
@@ -975,12 +1214,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 16,
-          "source_bytes": 37437447,
+          "source_bytes": 37450200,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 34492446,
-          "zip_sha256": "DB83D1543D18B1BAF5090D0E45F48D26A71726123E04E126793A852659C8813B",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gauss-werke-v02-with-nachtrag.zip"
+          "zip_bytes": 34493928,
+          "zip_sha256": "2A9B161CA1059B56F6FF2A4CC26D087ADE06EDE3EFE1A47316BE79CCEF282E1D",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gauss-werke-v02-with-nachtrag.zip"
         }
       ]
     },
@@ -1007,8 +1246,8 @@
       "physical_pages": 474,
       "page_note": "Printed page 1 equals PDF page 33; production body is printed 1-434.",
       "pack_scope": "direct_files",
-      "source_files": 11,
-      "source_bytes": 103636565,
+      "source_files": 12,
+      "source_bytes": 103674579,
       "authority": [
         {
           "path": "22_SP1_NAVIGATION.pdf",
@@ -1019,17 +1258,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 44,
       "packet_manifest": {
         "basename": "99_MANIFEST_SHA256.json",
-        "bytes": 1946,
-        "sha256": "390B720A1FF38605C473E62D86C615297ED1906D8EE34AD860C9555849AC04E3"
+        "bytes": 2141,
+        "sha256": "E31D4E51C7A2702B47CABAE340BFC7D50BEC916EDB27FC3BCD592CFB05FF934C"
       },
       "validation_receipt": {
-        "basename": "98_PACKET_VALIDATION.json",
-        "bytes": 2293,
-        "sha256": "ED3B5196A95D10A001BCC42AEAC2F487C744AF1473509904F6932FE1946B0B42",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gibbs-scientific-papers-v01",
       "rights_note": "The audited map does not state the provider or a reusable license for the navigation PDF. The sibling quarantine is explicitly forbidden input.",
@@ -1039,24 +1287,34 @@
         "rough_elapsed": "3-7 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; English-source work still requires equation, figure, page-boundary, and editorial-responsibility replay."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3015,
+        "sha256": "6EFDF134D3AD53EDC16BC6979007376C9109ACC42A6D563FAC06C050522F1D04"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_44_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 226129,
+        "sha256": "F970DE8986C1AC3031D6ABC8183B81203F0DD8227DB4E2B1D86A9DED83F4E78B"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gibbs-scientific-papers-v01.json",
-        "bytes": 2740,
-        "sha256": "CF7493FD803131EBF57F35567915B1D331EB67076D7CAD3A43E33F2AB1A2F174"
+        "bytes": 2918,
+        "sha256": "6F3B5836CB867C3C33084976B892F803184872D3137DF14D48FAE53E7CA45733"
       },
       "assets": [
         {
           "name": "gibbs-scientific-papers-v01.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 11,
-          "source_bytes": 103636565,
+          "source_files": 12,
+          "source_bytes": 103674579,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_MANIFEST_SHA256.json",
-          "zip_bytes": 101594634,
-          "zip_sha256": "9454671A66D04571C6D1CB9ECDB3D452D62743C0102981E3CA10A7D799A14197",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gibbs-scientific-papers-v01.zip"
+          "zip_bytes": 101592856,
+          "zip_sha256": "7FCACC4181AD7DF04DCF03FE70AD2D8445E72E66A236F03A0307B13C1E38C641",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gibbs-scientific-papers-v01.zip"
         }
       ]
     },
@@ -1080,8 +1338,8 @@
       "physical_pages": 47,
       "page_note": "Complete authority PDF and aligned page-image convenience witness cover pages 1-47.",
       "pack_scope": "direct_files",
-      "source_files": 14,
-      "source_bytes": 5603757,
+      "source_files": 17,
+      "source_bytes": 106446316,
       "authority": [
         {
           "path": "01_Paul_Gordan_De_linea_geodetica_1862_Authority_47_pages.pdf",
@@ -1098,17 +1356,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 5,
       "packet_manifest": {
         "basename": "12_PACKET_MANIFEST_SHA256.csv",
-        "bytes": 1636,
-        "sha256": "676467C1B95B6790814846E8FD40212BBC9EA35AFD6BBFAB80DAB5C476E4F3A1"
+        "bytes": 2272,
+        "sha256": "17147CEAB9E127758868345839CE2A9FE210F76AE71E50C00DEEA0B437A3A386"
       },
       "validation_receipt": {
-        "basename": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-        "bytes": 2309,
-        "sha256": "2ADA87458E24A41AF75853C046A6BAE99BBB8DBE55DABBF37D1E727E26418E62",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gordan-de-linea-geodetica-1862",
       "rights_note": "Authority files are sealed, but provider and scan-payload reuse terms are not explicit in audited controls.",
@@ -1118,24 +1385,34 @@
         "rough_elapsed": "1-3 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
       },
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3574,
+        "sha256": "2CF4DCAB5FFA790718D8FD04DD0BD522AD4A34839F3FAD2D01BB2B3585BCCD23"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_05_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 21100,
+        "sha256": "75D05A7C40746F750F6E59AE35EE0EE78DE0232C0C18179C64B800269DFFCE16"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gordan-de-linea-geodetica-1862.json",
-        "bytes": 3444,
-        "sha256": "24F39FB0F36F24C38F5F24E58FF0B75E51A233508862788E75E6E5EBD457EC03"
+        "bytes": 4081,
+        "sha256": "DB35D070575003CA52B1EC5300855BA37B1C5F696E4E3CF42DD925E2C54F1687"
       },
       "assets": [
         {
           "name": "gordan-de-linea-geodetica-1862.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 14,
-          "source_bytes": 5603757,
+          "source_files": 17,
+          "source_bytes": 106446316,
           "first_path": "00_READ_ME_FIRST.md",
-          "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-          "zip_bytes": 5289425,
-          "zip_sha256": "DAFD37A69C4D210888B5CE53036BCDF6E7BDE2940E6BEC9354ED2C7426F0852B",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gordan-de-linea-geodetica-1862.zip"
+          "last_path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+          "zip_bytes": 103247362,
+          "zip_sha256": "586B5BF7B0B2C3BC9BD0C69DD4977C2BCCADB065793925C79785BBF8F678746A",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-de-linea-geodetica-1862.zip"
         }
       ]
     },
@@ -1159,8 +1436,8 @@
       "physical_pages": 62,
       "page_note": "Complete authority PDF and aligned page-image convenience witness cover pages 1-62.",
       "pack_scope": "direct_files",
-      "source_files": 14,
-      "source_bytes": 29175485,
+      "source_files": 17,
+      "source_bytes": 127259026,
       "authority": [
         {
           "path": "01_Paul_Gordan_Ueber_das_Formensystem_binaerer_Formen_Authority_62_pages.pdf",
@@ -1177,17 +1454,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 7,
       "packet_manifest": {
         "basename": "12_PACKET_MANIFEST_SHA256.csv",
-        "bytes": 1685,
-        "sha256": "8257CF7F24C4E8AB0B9EE5556956C198A14A92E5CC935E648A4F36E96D9512BA"
+        "bytes": 2300,
+        "sha256": "707FD94F33263A3FE9EB673EB06430BEA2AB0DEB41F0125843E32F821FB145B0"
       },
       "validation_receipt": {
-        "basename": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-        "bytes": 2319,
-        "sha256": "69297E0075EE75FDAFE7C8A42E5A976E4F0CA35D7CE774EA5CF90FEB82636345",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gordan-formensystem-binaerer-formen",
       "rights_note": "Authority files are sealed, but provider and scan-payload reuse terms are not explicit in audited controls.",
@@ -1197,24 +1483,34 @@
         "rough_elapsed": "1-3 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
       },
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3493,
+        "sha256": "35A4E0CFBA71072ACEB165635D90AAEC36F5A303390266B13123C18C5B630205"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_07_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 29032,
+        "sha256": "943E6EC803E7EC428FB69F6BEDE9519BA95B76FFF3CA4973607EA0D632D50322"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gordan-formensystem-binaerer-formen.json",
-        "bytes": 3511,
-        "sha256": "50C5F6EDE378551889A2251AF727227CE6CEA33CA778A00B3AF37DD3B398BEB2"
+        "bytes": 4120,
+        "sha256": "BF162456FFF385EA052DBFB7036ED40E61E98E6544A614A462D5B3341CEE1B5B"
       },
       "assets": [
         {
           "name": "gordan-formensystem-binaerer-formen.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 14,
-          "source_bytes": 29175485,
+          "source_files": 17,
+          "source_bytes": 127259026,
           "first_path": "00_READ_ME_FIRST.md",
-          "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-          "zip_bytes": 28838866,
-          "zip_sha256": "FDE297476D20434B53E5BB429B939036272861180D52E0D41AA8CC570FA76A47",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gordan-formensystem-binaerer-formen.zip"
+          "last_path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+          "zip_bytes": 123817522,
+          "zip_sha256": "4CD3712633AB563F82F029D5F2D38E17FCE099B8180F38D5DD2958183239E90A",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-formensystem-binaerer-formen.zip"
         }
       ]
     },
@@ -1238,8 +1534,8 @@
       "physical_pages": 20,
       "page_note": "Complete authority PDF and aligned page-image convenience witness cover PA01-PA20.",
       "pack_scope": "direct_files",
-      "source_files": 14,
-      "source_bytes": 10057828,
+      "source_files": 19,
+      "source_bytes": 140763577,
       "authority": [
         {
           "path": "01_Paul_Gordan_Ueber_die_Transformation_der_Thetafunctionen_Authority_20_pages.pdf",
@@ -1256,17 +1552,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 2,
       "packet_manifest": {
         "basename": "12_PACKET_MANIFEST_SHA256.csv",
-        "bytes": 1700,
-        "sha256": "5D744ABA587813F16968905AA55A623D5101356FDB6AD04D16ADFC3C47E227C9"
+        "bytes": 2714,
+        "sha256": "96350F650314A930EEBE142D5B51EEC669526953CC0D69898DA29787E58E0FC9"
       },
       "validation_receipt": {
-        "basename": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-        "bytes": 2323,
-        "sha256": "CFB35FFFAE729892A342060F21376D8380162E0F4415CE8399364FD0B3E7CC97",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gordan-transformation-thetafunctionen-1863",
       "rights_note": "Authority files are sealed, but provider and scan-payload reuse terms are not explicit in audited controls.",
@@ -1276,24 +1581,34 @@
         "rough_elapsed": "1-3 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
       },
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3531,
+        "sha256": "1FC7790C0C69A77EA96CB6D75B696D5E34BF7D3C0A8C71DF18E448A3B47472D6"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_02_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 9861,
+        "sha256": "5FBE2E41EB94B5CE09527E3F28C982239366DD2ADBBBF5609B63F3C9B49BCC3C"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gordan-transformation-thetafunctionen-1863.json",
-        "bytes": 3546,
-        "sha256": "F37EF29458459D027562B08578E8A6FC509D54F6317900813B3E78E5CDA16C75"
+        "bytes": 4555,
+        "sha256": "E08E1D4B2F71E4CE9760E70DA41022C984757D76B6052D85CE936D33DDBB01DD"
       },
       "assets": [
         {
           "name": "gordan-transformation-thetafunctionen-1863.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 14,
-          "source_bytes": 10057828,
+          "source_files": 19,
+          "source_bytes": 140763577,
           "first_path": "00_READ_ME_FIRST.md",
-          "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-          "zip_bytes": 9662068,
-          "zip_sha256": "52C9E7AC49D3648D447ACC18E567C07CFD12B2F7A2CEE01C4CCD06A2AD5D6AD2",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gordan-transformation-thetafunctionen-1863.zip"
+          "last_path": "18_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+          "zip_bytes": 140514019,
+          "zip_sha256": "8724C013965076B398052B88DBC1EB31FACBBC5F4E4D247963B55200CD1503F9",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-transformation-thetafunctionen-1863.zip"
         }
       ]
     },
@@ -1317,8 +1632,8 @@
       "physical_pages": 220,
       "page_note": "220 GDZ canvases; the navigation PDF has 221 pages because page 1 is a provider wrapper.",
       "pack_scope": "direct_files",
-      "source_files": 13,
-      "source_bytes": 62470202,
+      "source_files": 16,
+      "source_bytes": 123337741,
       "authority": [
         {
           "path": "21_Paul_Gordan_Invariantentheorie_Band_I_GDZ_full_220_canvas_600ppi_TIFF_source.zip",
@@ -1335,17 +1650,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 22,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1346,
-        "sha256": "8F0C30EC74CD199F462775D814F96660A54669C1282A8C572193587A94C0DF8A"
+        "bytes": 1704,
+        "sha256": "5D8CACE9D09E4862932DE42E0D45F232DFDFD2912C9F7E78BBB3665C078FF24D"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2346,
-        "sha256": "678769BD2156F5E01C56D4594F1E40602284EC7F325FAA9219DA51EF1523E1D5",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "gordan-invariantentheorie-v01-1885",
       "rights_note": "GDZ provenance is explicit; the audited controls do not quote scan-payload reuse terms.",
@@ -1355,24 +1679,34 @@
         "rough_elapsed": "2-5 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; formulas, figures, and exact canvas mapping require repeated visual verification."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3424,
+        "sha256": "DFA8E59ACCE7FEF863116024E1D70D2ECA9E9C9297AAB439419926B6D1B0192F"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 92075,
+        "sha256": "30869C025BCC667C6F1B0F784BE835C0380D9AE4FA02004839BA8378D8687880"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gordan-invariantentheorie-v01-1885.json",
-        "bytes": 3302,
-        "sha256": "A27441FC3D21EDC84D6440A81F37B52F0261D1CBB286742447DE244587103EB6"
+        "bytes": 3855,
+        "sha256": "F61FCE11C0D08B4969BF3D624C8CC636EDA5E7937C4E9296BCEB276AAA1632F0"
       },
       "assets": [
         {
           "name": "gordan-invariantentheorie-v01-1885.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 13,
-          "source_bytes": 62470202,
+          "source_files": 16,
+          "source_bytes": 123337741,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 61540374,
-          "zip_sha256": "44838A95D1FD4A7BAD3FA01DB7A4009BF2A510312B45959DF9E9D54145FE09BE",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gordan-invariantentheorie-v01-1885.zip"
+          "zip_bytes": 122573954,
+          "zip_sha256": "366C4A268129940A359F2813647F2E24E34A9F39B5C480DD9D3B98730E409587",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-invariantentheorie-v01-1885.zip"
         }
       ]
     },
@@ -1397,8 +1731,8 @@
       "physical_pages": 376,
       "page_note": "376 TIFF canvases; navigation PDF has 377 pages because PDF page 1 is a provider wrapper.",
       "pack_scope": "direct_files",
-      "source_files": 9,
-      "source_bytes": 64775459,
+      "source_files": 16,
+      "source_bytes": 168898588,
       "authority": [
         {
           "path": "GORDAN_BAND_II_S00_CUMULATIVE_FULL_STATE.zip!/source/Gordan_Vorlesungen_Bd2_Binaere_Formen_GDZ_600ppi_Source_20260613.zip",
@@ -1407,25 +1741,27 @@
           "sha256": "945EC59C3FCF8BCA90C24B1BD0C291BC09CC4D14A0BDAB69F293672EA76F5B49"
         }
       ],
-      "status": "PASS_FINAL_NONPATCHING",
-      "audit_basis": "terminal_sidecar",
-      "prompt_count": 45,
+      "status": "PASS_GLOBAL_COLD_AUDIT",
+      "audit_basis": "global_receipt",
+      "prompt_count": 38,
       "packet_manifest": {
-        "basename": "GORDAN_BAND_II_S00_CUMULATIVE_MANIFEST.tsv",
-        "bytes": 2432,
-        "sha256": "277BDDC2998932E0076603A0DD387FC07FD24C78FDA51462693120A604DB70DB"
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1709,
+        "sha256": "D54FFAF0626496CB4EAD9D1E4D4D1FCC53E7CEB35AF733C3E3698105D5B4CEC1"
       },
       "validation_receipt": {
-        "basename": "packet_cold_audit_receipt.txt",
-        "bytes": 1805,
-        "sha256": "872FA5281555852C8069C0ABB9E4B581DB968E837AAA2ED7F5DBD92BE5977A34",
-        "receipt_scope": "Final staged-packet fresh nonpatching cold audit of the nine-file upload set and its seed cumulative state.",
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
         "included_in_packet": false,
         "public_projection": {
-          "path": "catalog/receipts/gordan2.txt",
-          "bytes": 1805,
-          "sha256": "872FA5281555852C8069C0ABB9E4B581DB968E837AAA2ED7F5DBD92BE5977A34",
-          "transformations": []
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
         }
       },
       "proposed_asset_base_name": "gordan-invariantentheorie-v02-1887",
@@ -1436,24 +1772,34 @@
         "rough_elapsed": "3-7 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; exact 376-canvas coverage, image fallback, deterministic readers, and cumulative-state packaging are required."
       },
+      "start_file": {
+        "basename": "READ_FIRST.md",
+        "bytes": 3795,
+        "sha256": "A58504DE1A1325087F7F635EDCF1FC3EA30ACF600337C9393EE0D420FAF0B82B"
+      },
+      "prompt_file": {
+        "basename": "GORDAN_BAND_II_38_LITERAL_PROMPTS.md",
+        "bytes": 138450,
+        "sha256": "84E0804C7D2F765BA4C3638102A42CCDDD914ECDA4A5BAB0B12019CE2D50F971"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/gordan-invariantentheorie-v02-1887.json",
-        "bytes": 2480,
-        "sha256": "AD1D91B949BADF54F422BCF5A7544B990CD69A0FDB1BC79B27ACB5E1B3C2DE02"
+        "bytes": 3885,
+        "sha256": "A4E6C5C12041F770E6CD90E6187C1529793B81961492535BE9ED14F29265A16D"
       },
       "assets": [
         {
           "name": "gordan-invariantentheorie-v02-1887.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 9,
-          "source_bytes": 64775459,
-          "first_path": "GORDAN_BAND_II_45_LITERAL_PROMPTS.md",
+          "source_files": 16,
+          "source_bytes": 168898588,
+          "first_path": "00_PACKET_UPDATE_AND_LOCAL_SALVAGE_INVENTORY.md",
           "last_path": "READ_FIRST.md",
-          "zip_bytes": 64524465,
-          "zip_sha256": "BEF538E2B95FA108E830ED098C37E4F7F3A4F1D0FF797A41EED225C7B048010F",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/gordan-invariantentheorie-v02-1887.zip"
+          "zip_bytes": 166503918,
+          "zip_sha256": "4778EECA82513796603539EF75CABA0B2C457CC896721F80A9D69EA4195D56DC",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-invariantentheorie-v02-1887.zip"
         }
       ]
     },
@@ -1478,8 +1824,8 @@
       "physical_pages": 288,
       "page_note": "288 raw 500-ppi JP2 members; 284-page navigation derivative plus four raw-only terminal copy units.",
       "pack_scope": "direct_files",
-      "source_files": 12,
-      "source_bytes": 367778967,
+      "source_files": 15,
+      "source_bytes": 373277164,
       "authority": [
         {
           "path": "20_AUTHORITY_HECKE_1923_RAW_JP2_500PPI.zip",
@@ -1490,17 +1836,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 29,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1072,
-        "sha256": "398CB64217DEF30985360511B88FD5DA7CE74132A0218CEA85A15366F7EDEF73"
+        "bytes": 1509,
+        "sha256": "D07F318FA001752CFD66C0943D5C564B455533443DFB1F6E18FF98BB80F05B6F"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2290,
-        "sha256": "0839DC5341068BFB653BA360AA51046939DFBD6A8FA8B1ED480C55CD15066FD2",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "hecke-algebraische-zahlen-1923",
       "rights_note": "Raw source, scandata, and metadata are retained, but the audited controls do not state a reusable scan-payload license.",
@@ -1510,24 +1865,34 @@
         "rough_elapsed": "3-6 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; raw-member topology and formula-heavy German require full pixel replay."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3926,
+        "sha256": "EF554FEE16AD84BA7F6A868ED12D713E1832E0E54DF8A68FB371848939DC552E"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_29_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 162351,
+        "sha256": "4A7E68F090F3B5E94A72A49E1539017C17EC0A593F83198C53AD97BF7AFFCD23"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/hecke-algebraische-zahlen-1923.json",
-        "bytes": 2959,
-        "sha256": "60C2AFF9F038A891C75933F023384273A606FB9097E2038619EB0AAB1984BEE5"
+        "bytes": 3509,
+        "sha256": "34842B7B684DB8E975E541C7BCF4DE57D21F19684283796D381A30E3220B4589"
       },
       "assets": [
         {
           "name": "hecke-algebraische-zahlen-1923.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 12,
-          "source_bytes": 367778967,
+          "source_files": 15,
+          "source_bytes": 373277164,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 364181159,
-          "zip_sha256": "5D599DDB2E6243A992F4CF252380F20538D78EFC7E06DCEFB1AB862900333797",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/hecke-algebraische-zahlen-1923.zip"
+          "zip_bytes": 369489513,
+          "zip_sha256": "A3A347361ADC2463C3E9E7672BE42E0E964AAA818DABDE288C9A524B096C0B3C",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/hecke-algebraische-zahlen-1923.zip"
         }
       ]
     },
@@ -1553,7 +1918,7 @@
       "page_note": "124 frames total; 97-frame manuscript text and diagram body, with all other scans individually disposed.",
       "pack_scope": "direct_files",
       "source_files": 10,
-      "source_bytes": 331525495,
+      "source_bytes": 331443345,
       "authority": [
         {
           "path": "10_COLUMBIA_MS_OR34_SOURCE_AND_PRIOR_STATE_EXACT.zip!/10_PRIMARY_AUTHORITY_IA_COLUMBIA_124FRAMES_600PPI_JP2.zip",
@@ -1564,17 +1929,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 13,
       "packet_manifest": {
         "basename": "07_PACKET_MANIFEST.tsv",
-        "bytes": 3274,
-        "sha256": "CD7747FA971899684334188030B3A50C421943EC9E9F7CC452A3BBC0E781FEF9"
+        "bytes": 3039,
+        "sha256": "DD561FD2EE687E9E1AFD482A4452DC5A2BBD0A7F03DFA0B8E2AEC10BA76C8A77"
       },
       "validation_receipt": {
-        "basename": "08_PACKET_VALIDATION_RECEIPT.json",
-        "bytes": 2256,
-        "sha256": "05DB301270CC1BBED12EBC5429FDDD78296A8AECB10DEFE731897D2E24018F6B",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "khayyam-columbia-ms-or34-algebra",
       "rights_note": "The audited controls do not state manuscript or Columbia/IA digital-scan redistribution terms. No blanket scan license is claimed; preserve the exact manuscript and institutional provenance.",
@@ -1584,11 +1958,21 @@
         "rough_elapsed": "3-7 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; Arabic manuscript reading, diagrams, damage, and provenance require specialist-level visual reasoning."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 3555,
+        "sha256": "3D74F69D3F9285C85836759C9A2411DFE483AD8496D80A2305DC25146BE4CCA8"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 60524,
+        "sha256": "D4AF7C3272E5958685A21A8DF86F5C5FA95ECF784E60E0D145774AB16F00BCF9"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/khayyam-columbia-ms-or34-algebra.json",
-        "bytes": 2605,
-        "sha256": "9684302AAB87B8433E69FF28124E8C5A4AEFBA102AEA87B055041E9409BAC3D6"
+        "bytes": 2620,
+        "sha256": "41194CD954B67D9A895919A3A1AAB4372BCBE694F42794A01734F2F933630A7F"
       },
       "assets": [
         {
@@ -1596,12 +1980,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 10,
-          "source_bytes": 331525495,
+          "source_bytes": 331443345,
           "first_path": "00_READ_FIRST.txt",
           "last_path": "10_COLUMBIA_MS_OR34_SOURCE_AND_PRIOR_STATE_EXACT.zip",
-          "zip_bytes": 331477722,
-          "zip_sha256": "A5BE6A85251CB160A6C015490AFC1000AC2FA00515853131BF03034CBA73F96C",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/khayyam-columbia-ms-or34-algebra.zip"
+          "zip_bytes": 331472031,
+          "zip_sha256": "8616DF219CDD6566DD298BA56BAFBF7B87DD0419581670DAA6E98F9A2D85C666",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/khayyam-columbia-ms-or34-algebra.zip"
         }
       ]
     },
@@ -1627,7 +2011,7 @@
       "page_note": "798 TIFF leaves and an aligned 798-page navigation PDF.",
       "pack_scope": "direct_files",
       "source_files": 13,
-      "source_bytes": 126031174,
+      "source_bytes": 126043418,
       "authority": [
         {
           "path": "21_AUTHORITY_1890_BAND_I_TIFF.zip",
@@ -1642,13 +2026,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 1123,
-        "sha256": "F293D6A9C89E37E2805780A4F4EE26E1B5EE2BFDA37C117B9F36FDEA9B0DA76A"
+        "sha256": "EA9FC00F8264DAA620A8A99BD77EDB620FC5968B56784FE3963097ACD4E09997"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2316,
-        "sha256": "9292BC4927E06A9A89289D409EE748D66D922548BB3967AC5B11B66209744D90",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "klein-fricke-modulfunctionen-v01-1890",
       "rights_note": "IA item vorlesungenberd05kleigoog is identified; the audited receipt does not state a reusable scan-payload license.",
@@ -1658,11 +2051,21 @@
         "rough_elapsed": "5-10 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; 798 leaves, figures, and dense formulas require extensive continuation and independent audit."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3359,
+        "sha256": "D70305848878194A3A96A4DFE3EECDBF3B32CD1FC662D14E9E60C1713402E685"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 283842,
+        "sha256": "FCE44BA11B090D7A5F468B7D06393B1DDF8987A1E7A6DE629C13A823EF425501"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/klein-fricke-modulfunctionen-v01-1890.json",
         "bytes": 3095,
-        "sha256": "5241C914E1A04EA71971E3DE26BEC98D2A63598A981C2F9E899D7013252128C0"
+        "sha256": "00856B7FCC3809C4561BE91B58ED68112FF90C4AC9732D7CF5FFAFFC296C92BC"
       },
       "assets": [
         {
@@ -1670,12 +2073,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 13,
-          "source_bytes": 126031174,
+          "source_bytes": 126043418,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 125172889,
-          "zip_sha256": "4154A9FD9D51657ABE4C210B66D3C9ECA25F2077D99CC03CBEF351F8F97CB384",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/klein-fricke-modulfunctionen-v01-1890.zip"
+          "zip_bytes": 125174358,
+          "zip_sha256": "E590C41823F18BDCBBD9DFAD4214823D7BA02F4F067C3EC8D2D69DE95DCC0EC4",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/klein-fricke-modulfunctionen-v01-1890.zip"
         }
       ]
     },
@@ -1699,8 +2102,8 @@
       "physical_pages": 153,
       "page_note": "Physical page 1 is an added e-rara notice; physical 152 is terminal printed work and 153 an intrinsic/copy blank.",
       "pack_scope": "direct_files",
-      "source_files": 18,
-      "source_bytes": 176016127,
+      "source_files": 19,
+      "source_bytes": 175855394,
       "authority": [
         {
           "path": "20_AUTHORITY_ERARA_GRUNDZUEGE_1882_COMPLETE.pdf",
@@ -1711,17 +2114,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 16,
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
-        "bytes": 1772,
-        "sha256": "4C185360705E94970446A771E5256CD4B46CB38C9B8FB5BF6AC76B2329F8D818"
+        "bytes": 1950,
+        "sha256": "5E504446F6EC40083872CA4BF880333620D8D908308C87FE2E56C03A897A3B1B"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2296,
-        "sha256": "6C792E4B7D90FA678E66E2A56D9B9B8FA41769E3220C00CD788F8D4AABAE2645",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "kronecker-grundzuege-1882",
       "rights_note": "e-rara/ETH-Bibliothek is the institutional provider. The audited acquisition receipt does not quote a scan-payload reuse license.",
@@ -1731,24 +2143,34 @@
         "rough_elapsed": "2-4 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; mathematical density and nine contradictory prior branches increase replay cost."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3047,
+        "sha256": "38A6477E25BA2080237C21B7DB992CD71EA1D06922128F83840E6254745CDBC5"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_16_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 75449,
+        "sha256": "AC6F00591E69933A91F9825DF033BF364DC0EADF0F1569641B444D8F4BB36617"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/kronecker-grundzuege-1882.json",
-        "bytes": 4028,
-        "sha256": "D02874178BF3D264F40F625156C27700617BAD1F69CA21825F7E38E720F9866B"
+        "bytes": 4191,
+        "sha256": "C1C41DF849329B3259E0CC32CF0B0EFB7F11AF048E7C704EA40ADF890C1F4035"
       },
       "assets": [
         {
           "name": "kronecker-grundzuege-1882.zip",
           "part": 1,
           "parts": 1,
-          "source_files": 18,
-          "source_bytes": 176016127,
+          "source_files": 19,
+          "source_bytes": 175855394,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 175253356,
-          "zip_sha256": "FB6B361AE6A109EE1E9F7EE2475088F7196A9BF75866D1E402BC515AA2DDC984",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/kronecker-grundzuege-1882.zip"
+          "zip_bytes": 175251578,
+          "zip_sha256": "30B064938C6CB40A3C200770AD8536FBE905A935A73FE4997F86AE60B305EF3F",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/kronecker-grundzuege-1882.zip"
         }
       ]
     },
@@ -1773,7 +2195,7 @@
       "page_note": "PDF 1-366; accepted coverage starts empty. Prior proposals through PDF 169 are untrusted salvage and PDF 170-366 is the untouched source frontier at packet creation.",
       "pack_scope": "direct_files",
       "source_files": 37,
-      "source_bytes": 41602588,
+      "source_bytes": 41607753,
       "authority": [
         {
           "path": "12_YOSHIO_MIKAMI_THE_DEVELOPMENT_OF_MATHEMATICS_IN_CHINA_AND_JAPAN_1913_AUTHORITY_366_PHYSICAL_PAGES.pdf",
@@ -1782,27 +2204,26 @@
           "sha256": "C285515E543F8D60F1158EFE8ABEF93470B1D0BC8E164B9E55FF28DDB6BB333E"
         }
       ],
-      "status": "PASS_COLD_PACKET_VALIDATION",
-      "audit_basis": "terminal_sidecar",
+      "status": "PASS_GLOBAL_COLD_AUDIT",
+      "audit_basis": "global_receipt",
       "prompt_count": 45,
       "packet_manifest": {
         "basename": "99_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 4429,
-        "sha256": "58370D312A788065B0C3949BF5F63D4120291ACD3F2F38CD054149A8F2652BE1"
+        "sha256": "8AB11B3E5D82D79211C01BD595A715A3CEC73900EE3BF87CE7E29445CD1FA5BC"
       },
       "validation_receipt": {
-        "basename": "MIKAMI_DEVELOPMENT_MATHEMATICS_1913_PACKET_COLD_VALIDATION_20260820.json",
-        "bytes": 6599,
-        "sha256": "9C82EFB21623C85D6FCC55424EFEACC12023E68BE7B22826723A48959ED2D99F",
-        "receipt_scope": "Independent cold packet validation after prompt-map correction; manifest replay and 366-page authority checks passed.",
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
         "included_in_packet": false,
         "public_projection": {
-          "path": "catalog/receipts/mikami.json",
-          "bytes": 6143,
-          "sha256": "313587214FF5FFA6EF76518E429451B2EEE0398E14C9A5F8795180A33E1BCF3A",
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
           "transformations": [
-            "Replaced the exact private packet-root prefix in packet and bound-file path fields with <PACKET_ROOT>.",
-            "Replaced the exact private source-custody prefix in retained and excluded-source fields with <SOURCE_CUSTODY>."
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
           ]
         }
       },
@@ -1814,11 +2235,21 @@
         "rough_elapsed": "3-7 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the workflow includes full English replay, a separate Japanese edition, 67 figures, and independent acceptance audits."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3333,
+        "sha256": "5AA9E6B71536D820671CD840CAD89CA273333DE530FDFA83DF625E3BEE888EEE"
+      },
+      "prompt_file": {
+        "basename": "02_ORDERED_PROMPTS_EXACTLY_45.md",
+        "bytes": 221824,
+        "sha256": "6E6D278E24835C1249801B1C8835BF3AD95108761CB7347B0AE4E5D873DE2539"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/mikami-development-mathematics-china-japan-1913.json",
         "bytes": 7861,
-        "sha256": "05AE06D5F5570F492E8A93CA6E2544A7550B87E7D7A71B6FB41C47B38370E1C5"
+        "sha256": "3959F6CE45BC9DAD4EEB82634E63853FB33FFC9B40ED21D0CCBF1C18DA4C2457"
       },
       "assets": [
         {
@@ -1826,12 +2257,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 37,
-          "source_bytes": 41602588,
+          "source_bytes": 41607753,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_PACKET_MANIFEST_SHA256.tsv",
-          "zip_bytes": 40457086,
-          "zip_sha256": "0CD53BCD1A5050AC3306FA79D249BD08E97F8D71EAE91F6F73D92FD1331EAB2E",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/mikami-development-mathematics-china-japan-1913.zip"
+          "zip_bytes": 40458723,
+          "zip_sha256": "E045772E8CFB4E12D3BF96CB40E8F7C1EC5D2FB3F5C8FA05B0367C71B07A96D7",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/mikami-development-mathematics-china-japan-1913.zip"
         }
       ]
     },
@@ -1856,7 +2287,7 @@
       "page_note": "496 raw leaves, 488 access pages; scandata asserts printed page 1 at raw leaf 21 and printed 457 at raw leaf 479.",
       "pack_scope": "direct_files",
       "source_files": 19,
-      "source_bytes": 378471925,
+      "source_bytes": 378484086,
       "authority": [
         {
           "path": "21_AUTHORITY_IA_TRAITE_TOME_I_JP2.zip",
@@ -1871,13 +2302,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 1890,
-        "sha256": "65BAACEB432540D5AB423170C58E9BAD203BF0E6750C9DC79704F1F29A96BA5D"
+        "sha256": "505E156416A4DF6912550BE706CA31E4976BE01BC3D85D62A4F30D8BF2C85F2A"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2312,
-        "sha256": "E93B4E593FBD691FC44C70D5D74C70AE5123198312D1B93F54FC42AC6DD8CAEF",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "picard-traite-analyse-v01-1891",
       "rights_note": "Internet Archive item traitdanalyse01pica is identified; the audited receipt does not state a reusable scan-payload license.",
@@ -1887,11 +2327,21 @@
         "rough_elapsed": "4-8 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; 496 raw leaves, formulas, and figure reconstruction require extensive visual QA."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 2908,
+        "sha256": "BD3627C5E3BCB1A6E872CBF423B41939D7F49D33C618B4A8A6BF4F468B7D636C"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 250319,
+        "sha256": "9A55F2615D857F2740E8DDBEC4D8F7C43E69237215623D07226DE9EBBE69F9C2"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/picard-traite-analyse-v01-1891.json",
         "bytes": 4225,
-        "sha256": "DA5871BFE903BDF738056FF21B4CC264D139E652D7F2714CF6309A73CCEF9401"
+        "sha256": "121B985C060FA7A5982513BB31636BD6B7547E6879DD9D9AD3CFAFB00AB82B9F"
       },
       "assets": [
         {
@@ -1899,12 +2349,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 19,
-          "source_bytes": 378471925,
+          "source_bytes": 378484086,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 375956816,
-          "zip_sha256": "167070903EAD4AA0C9870D9E4500CD749E74B2290C52D8812284D9932F214D30",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/picard-traite-analyse-v01-1891.zip"
+          "zip_bytes": 375958253,
+          "zip_sha256": "8E9CDCC30C1F0C9CE75C0E48BDED0B7058A2FCC6CD5CB51AEBD3C57F6FB1310B",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/picard-traite-analyse-v01-1891.zip"
         }
       ]
     },
@@ -1929,7 +2379,7 @@
       "page_note": "542 raw leaves and 534 access pages; complete topology must be established rather than inferred from PDF position.",
       "pack_scope": "direct_files",
       "source_files": 38,
-      "source_bytes": 2901452639,
+      "source_bytes": 2901464800,
       "authority": [
         {
           "path": "21_AUTHORITY_IA_OEUVRES_TOME_I_JP2.zip",
@@ -1944,13 +2394,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 3917,
-        "sha256": "DE82FCBEFEBE28BDDB201D80C5766239E025164481A1719C87C97489B95CACC8"
+        "sha256": "1BDC87685FE23D6010E0831CA502332CD603AE61AEDE527EE4420ED76BBDC7DE"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2292,
-        "sha256": "66F12FAFCC070433B5FDDC94EC30286F5513B78844A52DAB021AB643551585E1",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "poincare-oeuvres-v01-1928",
       "rights_note": "Primary lineage is Gallica with an IA access copy; the audited receipt does not quote digital-image reuse terms. The direct packet is approximately 2.90 GB before public ZIP packaging.",
@@ -1960,11 +2419,21 @@
         "rough_elapsed": "5-12 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; large source topology, many inherited branches, formulas, and asset volume make this an especially heavy job."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3074,
+        "sha256": "150935355C8FBAD2E7EBF0F84ABDBE8676D30F816F3D6E207FB5FA2823A3A075"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 253539,
+        "sha256": "10FFA6CEC44985067FFE92A3932C498558C2A376B37A0A0DFD1F4965CBDBADFD"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/poincare-oeuvres-v01-1928.json",
         "bytes": 7844,
-        "sha256": "AA91AF7CCA6328BB84AB95C1F18CA276C55E4A1C1C0A077950C1DAD5B36C230C"
+        "sha256": "C0F60ADC10CE29C892AAEDE1B0BB1CDFCAF7876380EB57B15DA5AD63D488A30F"
       },
       "assets": [
         {
@@ -1972,12 +2441,12 @@
           "part": 1,
           "parts": 2,
           "source_files": 28,
-          "source_bytes": 1555798108,
+          "source_bytes": 1555810269,
           "first_path": "00_READ_FIRST.md",
           "last_path": "47_PRIOR_poincare_v1_16.zip",
-          "zip_bytes": 1552442187,
-          "zip_sha256": "D858590A49B28D40060A9844383CDBF690CB4C584EE180737E8A7D3CABEE6731",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/poincare-oeuvres-v01-1928.part01.zip"
+          "zip_bytes": 1552443647,
+          "zip_sha256": "8047CD2378667908B3608A69807DB5FE35F35F980CF2B8EF8B2894337F1BC4BB",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/poincare-oeuvres-v01-1928.part01.zip"
         },
         {
           "name": "poincare-oeuvres-v01-1928.part02.zip",
@@ -1987,9 +2456,9 @@
           "source_bytes": 1345654531,
           "first_path": "48_PRIOR_poincare_v1_17.zip",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 1345670769,
-          "zip_sha256": "9E484733E87D7E7878E93A05B60ACCB030B22759CBE759531087C0511E17F01A",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/poincare-oeuvres-v01-1928.part02.zip"
+          "zip_bytes": 1345670767,
+          "zip_sha256": "106DCACBEDBFE3B877B21FA6BE95AFAFD9103B2837FC784977ABD94A976DB749",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/poincare-oeuvres-v01-1928.part02.zip"
         }
       ]
     },
@@ -2015,7 +2484,7 @@
       "page_note": "Twenty-five JPEG authority images, each requiring source-order and topology disposition.",
       "pack_scope": "direct_files",
       "source_files": 12,
-      "source_bytes": 71080746,
+      "source_bytes": 70952147,
       "authority": [
         {
           "path": "10_KOKUSHO_PRIMARY_25_IMAGES_EXACT.zip",
@@ -2026,17 +2495,26 @@
       ],
       "status": "PASS_GLOBAL_COLD_AUDIT",
       "audit_basis": "global_receipt",
-      "prompt_count": 45,
+      "prompt_count": 3,
       "packet_manifest": {
         "basename": "07_PACKET_MANIFEST.tsv",
-        "bytes": 2138,
-        "sha256": "B61425FF45B3163089F73B44078743AD27F2DC1669832834B63C5BC4BC25A583"
+        "bytes": 2368,
+        "sha256": "AE319DAEF54927C6ADF6A6D74956F917D082E5E9120C19D1D29037CC81B8D532"
       },
       "validation_receipt": {
-        "basename": "08_PACKET_VALIDATION_RECEIPT.json",
-        "bytes": 2262,
-        "sha256": "5ED50D0A1660011FA0BA4273B0034C15DBE5A656839B2BE0C183948DC139E848",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "seki-hatsubi-sanpo",
       "rights_note": "Kokusho is the named source. The audited packet does not state a reusable license for the scan images.",
@@ -2046,11 +2524,21 @@
         "rough_elapsed": "2-5 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; short page count does not reflect the specialist difficulty of historical Japanese reading order, notation, seals, and diagrams."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 3523,
+        "sha256": "A22A3D634A0FF137B7E6A5443D79895BBC316109DC5C70ADFDE066CED2181D0F"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_03_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 14764,
+        "sha256": "F3CDC48E7E76FC908618F708AFF7527CC39CAAD1B4C93D73CBA030B31677B3B0"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/seki-hatsubi-sanpo.json",
-        "bytes": 2880,
-        "sha256": "A760A4B8AAB25805DDD32D16C7B2926139EBED54F1FC80FA83923A748B464210"
+        "bytes": 2894,
+        "sha256": "1F1DC12C085AF7EA4E5A74B150B5260BF8ED1601A36D9615BA850F243803B6A3"
       },
       "assets": [
         {
@@ -2058,12 +2546,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 12,
-          "source_bytes": 71080746,
+          "source_bytes": 70952147,
           "first_path": "00_READ_FIRST.txt",
           "last_path": "20_PRIOR_OUTPUTS_UNTRUSTED_EXACT.zip",
-          "zip_bytes": 65514968,
-          "zip_sha256": "30BB301862A5CE710BD07CB485D47BD2557021012473CFE48E69349F008B1446",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/seki-hatsubi-sanpo.zip"
+          "zip_bytes": 65507557,
+          "zip_sha256": "27D86A28D05607EA8FE4014E5E35A049F06E4ECC0AF02C8A6D0D873D12C8EAE6",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/seki-hatsubi-sanpo.zip"
         }
       ]
     },
@@ -2088,7 +2576,7 @@
       "page_note": "All physical pages 1-686 are in production scope; inherited completion claims begin with zero accepted pages.",
       "pack_scope": "direct_files",
       "source_files": 14,
-      "source_bytes": 58959794,
+      "source_bytes": 58971946,
       "authority": [
         {
           "path": "20_AUTHORITY_BAND_I_686P.pdf",
@@ -2103,13 +2591,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 1271,
-        "sha256": "BD938910CC412FF064190EA485A832142A42066DB875E07720EB3A9465174ED7"
+        "sha256": "F74D58A5EA9820FBEBCF3DC2F9A10154C3F320C031156E7BCA9CE4C6B10B1D1D"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2288,
-        "sha256": "6DD8B09928C21409BA205D714238E8403C772E6A1310EF2F43DA8A66906ECABB",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "weber-lehrbuch-algebra-v01",
       "rights_note": "Provider and scan-payload reuse terms are not explicit in the audited controls; no blanket scan license is claimed.",
@@ -2119,11 +2616,21 @@
         "rough_elapsed": "5-10 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; 686 pages, formulas, and full inherited-state replay require sustained compute and audit."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3857,
+        "sha256": "CBA5E9C2BE43931B21BF41A2A244A44CA3CA112A24F81A8AE6E0E762D24E9CA1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 240260,
+        "sha256": "F01C11A155B385324C8816755294C67017595FE802AE56C54B0AB19AC0E418C1"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/weber-lehrbuch-algebra-v01.json",
         "bytes": 3271,
-        "sha256": "93617363730C4B81DF500F4379C6190C9438FFC6106846F267CDA257ED3E763E"
+        "sha256": "4E3E937D9922A40503EBE5220247355BB7788D5DDBC35A6E8E61D86629D7C852"
       },
       "assets": [
         {
@@ -2131,12 +2638,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 14,
-          "source_bytes": 58959794,
+          "source_bytes": 58971946,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 57694928,
-          "zip_sha256": "D809296FEC2CD7E6CECFE57066A44390995F2A16889C6B793B58C2E9A08686D4",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/weber-lehrbuch-algebra-v01.zip"
+          "zip_bytes": 57696369,
+          "zip_sha256": "DA40D448766978C2F1BBEB146E81A49DB17A4E8BD6E6322401A0EF97E41B562C",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v01.zip"
         }
       ]
     },
@@ -2161,7 +2668,7 @@
       "page_note": "All physical pages 1-828 are in production scope; English beyond inherited printed page 500 is absent and no page is accepted initially.",
       "pack_scope": "direct_files",
       "source_files": 14,
-      "source_bytes": 71061751,
+      "source_bytes": 71073903,
       "authority": [
         {
           "path": "21_AUTHORITY_BAND_II_828P.pdf",
@@ -2176,13 +2683,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 1303,
-        "sha256": "BD38690F605604A560E7750157A05EDDD382A7474EA5A7F830512C625F4DED40"
+        "sha256": "FDF5D87E98F5C811F0F60B475FD2C10E6B66E998C9FB4FEFDB2299C8CB5C42AC"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2290,
-        "sha256": "317D84FF8C8C563301FB9ADA0EFBF71F4C73AD9897176B6E177CC28F17282A51",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "weber-lehrbuch-algebra-v02",
       "rights_note": "Provider and scan-payload reuse terms are not explicit in the audited controls; no blanket scan license is claimed.",
@@ -2192,11 +2708,21 @@
         "rough_elapsed": "6-12 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; this is the longest Weber packet and includes substantial untranslated remainder plus complete replay."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3880,
+        "sha256": "FCD1803BD91BC35275BFE5BC5BEC359D1FB2FEAA8B8FCF2EDC8BC942E1C2C1E6"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 240886,
+        "sha256": "3C2E5589FFF1CD9FB369780FDB48423DCA823EBB0DCFBCB1D6CEBE8B60CE6CD5"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/weber-lehrbuch-algebra-v02.json",
         "bytes": 3303,
-        "sha256": "E92C464A054225251907756C1A4AEFEC06486A9324FBB1818D93CDB47E7EF8D5"
+        "sha256": "9A42C614E3CA1629640191140268B1A40B8CB9F1305675CD6BF6A1918DD86896"
       },
       "assets": [
         {
@@ -2204,12 +2730,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 14,
-          "source_bytes": 71061751,
+          "source_bytes": 71073903,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 69662204,
-          "zip_sha256": "DFA9066D42085BEBE0550AF1FC3682FCACE1C97B4B7328B4E0B13651C27EEF01",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/weber-lehrbuch-algebra-v02.zip"
+          "zip_bytes": 69663648,
+          "zip_sha256": "234C3AC2C17F257895DB0C060305E0609DEA61DAF75B56A088DB98461E2C92E6",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v02.zip"
         }
       ]
     },
@@ -2234,7 +2760,7 @@
       "page_note": "All physical pages 1-772 are in production scope; no inherited English edition exists and no page is accepted initially.",
       "pack_scope": "direct_files",
       "source_files": 11,
-      "source_bytes": 48893240,
+      "source_bytes": 48905392,
       "authority": [
         {
           "path": "22_AUTHORITY_BAND_III_772P.pdf",
@@ -2249,13 +2775,22 @@
       "packet_manifest": {
         "basename": "98_PACKET_MANIFEST_SHA256.tsv",
         "bytes": 936,
-        "sha256": "9A1175B91457A273A42600A3AA3A3C20719617F0E3F3728D90A5527F9B30FAEA"
+        "sha256": "B3719885A3C7543B480D91ED8D471D9300AE627D99C657C0E0B7C996FA8DE96C"
       },
       "validation_receipt": {
-        "basename": "99_VALIDATION_RECEIPT.json",
-        "bytes": 2292,
-        "sha256": "E585464E7411A31CF5BC605C5EE94712A14959515558A6ED7ED942F02B085247",
-        "receipt_scope": "Packet-local terminal strict-UX receipt; independently included in the global cold audit."
+        "basename": "r2-admission.json",
+        "bytes": 88449,
+        "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "included_in_packet": false,
+        "public_projection": {
+          "path": "catalog/receipts/r2-admission.json",
+          "bytes": 88449,
+          "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+          "transformations": [
+            "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+          ]
+        }
       },
       "proposed_asset_base_name": "weber-lehrbuch-algebra-v03",
       "rights_note": "Provider and scan-payload reuse terms are not explicit in the audited controls; no blanket scan license is claimed.",
@@ -2265,11 +2800,21 @@
         "rough_elapsed": "5-11 weeks",
         "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; complete German replay and a wholly new English edition make this a sustained compute job."
       },
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3646,
+        "sha256": "0DD800EBF0AB0C5616597A04954F074FB32AF9314A6C29C406D748A34979F75A"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 241327,
+        "sha256": "59A99E81FA910F53FD2C025666F122F685D4E6409356BFCCA41CFF98E7285503"
+      },
       "catalog_status": "runnable",
       "asset_manifest": {
         "path": "catalog/assets/weber-lehrbuch-algebra-v03.json",
         "bytes": 2743,
-        "sha256": "77E7C7B521003909131CAF4A891AA863AC8467E9AF1CBF40B863A9C1F27F507B"
+        "sha256": "FD7AE92F036E16D02C9A8BEC7434FCD299E99641320E9870950F71B5B6AF74FC"
       },
       "assets": [
         {
@@ -2277,12 +2822,12 @@
           "part": 1,
           "parts": 1,
           "source_files": 11,
-          "source_bytes": 48893240,
+          "source_bytes": 48905392,
           "first_path": "00_READ_FIRST.md",
           "last_path": "99_VALIDATION_RECEIPT.json",
-          "zip_bytes": 47067054,
-          "zip_sha256": "8F3B21A3F2EBC60E59C2A7593CEF5DBA4AE07FF0AE77ED795BDF469B5D2768A0",
-          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r1/weber-lehrbuch-algebra-v03.zip"
+          "zip_bytes": 47068502,
+          "zip_sha256": "2BA4BC628519337D484EADF167EA8D60BAAD81393DB0B494C0898DBC9CEFA51F",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v03.zip"
         }
       ]
     }
@@ -2291,62 +2836,62 @@
     {
       "id": "DIRICHLET_WERKE_BAND_I_HOLD",
       "root": "DIRICHLET_WERKE_BAND_I_HOLD",
-      "reason": "Exact root name remains HOLD. Later control prose cannot override the public no-HOLD admission rule without rename and fresh validation."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "DIRICHLET_WERKE_BAND_II_HOLD",
       "root": "DIRICHLET_WERKE_BAND_II_HOLD",
-      "reason": "Exact root name remains HOLD. Later control prose cannot override the public no-HOLD admission rule without rename and fresh validation."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_053_GRUPPENCHARAKTERE_REPAIR",
       "root": "FROBENIUS_053_GRUPPENCHARAKTERE_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_054_PRIMFACTOREN_GRUPPENDETERMINANTE_REPAIR",
       "root": "FROBENIUS_054_PRIMFACTOREN_GRUPPENDETERMINANTE_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_056_DARSTELLUNG_ENDLICHER_GRUPPEN_I_REPAIR",
       "root": "FROBENIUS_056_DARSTELLUNG_ENDLICHER_GRUPPEN_I_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_057_RELATIONEN_CHARAKTERE_UNTERGRUPPEN_REPAIR",
       "root": "FROBENIUS_057_RELATIONEN_CHARAKTERE_UNTERGRUPPEN_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_058_COMPOSITION_DER_CHARAKTERE_REPAIR",
       "root": "FROBENIUS_058_COMPOSITION_DER_CHARAKTERE_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_059_DARSTELLUNG_ENDLICHER_GRUPPEN_II_REPAIR",
       "root": "FROBENIUS_059_DARSTELLUNG_ENDLICHER_GRUPPEN_II_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_060_CHARAKTERE_SYMMETRISCHEN_GRUPPE_REPAIR",
       "root": "FROBENIUS_060_CHARAKTERE_SYMMETRISCHEN_GRUPPE_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_061_CHARAKTERE_ALTERNIRENDEN_GRUPPE_REPAIR",
       "root": "FROBENIUS_061_CHARAKTERE_ALTERNIRENDEN_GRUPPE_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_070_HYPERKOMPLEXE_GROESSEN_I_REPAIR",
       "root": "FROBENIUS_070_HYPERKOMPLEXE_GROESSEN_I_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "FROBENIUS_071_HYPERKOMPLEXE_GROESSEN_II_REPAIR",
       "root": "FROBENIUS_071_HYPERKOMPLEXE_GROESSEN_II_REPAIR",
-      "reason": "Unresolved generator variables remain in 01_GOVERNING_INSTRUCTIONS.md and 05_SOURCE_AND_SALVAGE_RECEIPT.md."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "GIBBS_TIER_A_AUTHORIAL_REPAIR_20260820_R1_QUARANTINE",
@@ -2371,27 +2916,27 @@
     {
       "id": "FGA_REPAIR_20260820_R1",
       "root": "FGA_REPAIR_20260820_R1",
-      "reason": "Completed and explicitly outside the current repair lane; not a new volunteer compute job."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "ILLUSIE_COTANGENT_COMPLEX_I_II_REPAIR",
       "root": "ILLUSIE_COTANGENT_COMPLEX_I_II_REPAIR",
-      "reason": "Active local production lane and excluded from the current strict packet audit."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "GAUSS_WERKE_BAND_I_REPAIR",
       "root": "GAUSS_WERKE_BAND_I_REPAIR",
-      "reason": "Active and incomplete; no final independent cold-PASS receipt in the audited roots."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "Maxwell_Treatise_Vol_I_Repair",
       "root": "Maxwell_Treatise_Vol_I_Repair",
-      "reason": "Active and incomplete; no current strict-PASS receipt."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "Maxwell_Scientific_Papers_Vol_I_Repair",
       "root": "Maxwell_Scientific_Papers_Vol_I_Repair",
-      "reason": "No current strict-PASS receipt."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "gordan_short_superseded_pre_final_validation",
@@ -2416,12 +2961,12 @@
     {
       "id": "gordan-band-ii-supporting-builder-qa",
       "root": "GORDAN_VORLESUNGEN_UEBER_INVARIANTENTHEORIE_BAND_II_REPAIR/web-intake-reader-repair-20260820",
-      "reason": "Excluded supporting evidence: 23 nested builder, receipt, and visual-QA files totaling 6724069 bytes. The public packet is the nine direct files only."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     },
     {
       "id": "eisenstein-chatgpt-project",
       "root": "eisenstein-chatgpt-project",
-      "reason": "An R4 PASS receipt exists, but the packet root is outside the two authorized audit roots and was not root-verified for this catalog."
+      "reason": "Outside the frozen 28-job R2 cutoff. This release makes no claim about its current production state; admission requires a separately sealed exact-byte projection, validator receipt, deterministic asset mapping, and public readback."
     }
   ]
 }

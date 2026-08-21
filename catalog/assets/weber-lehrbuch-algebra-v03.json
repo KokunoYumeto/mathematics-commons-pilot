@@ -3,9 +3,9 @@
   "job_id": "weber-lehrbuch-algebra-v03",
   "wrapper_directory": "weber-lehrbuch-algebra-v03",
   "source_files": 11,
-  "source_bytes": 48893240,
+  "source_bytes": 48905392,
   "canonical_stream_bytes": 1114,
-  "source_tree_sha256": "72BD53145243A0BAA06FC3829EBA818E6BD8E705A618DB92265D010E01369930",
+  "source_tree_sha256": "3F8FF2AAEC103A34CC7BF9B9ACEB434B024969F32A237CD39D0C0553D5FD9565",
   "asset_count": 1,
   "assets": [
     {
@@ -13,23 +13,23 @@
       "part": 1,
       "parts": 1,
       "source_files": 11,
-      "source_bytes": 48893240,
+      "source_bytes": 48905392,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 47067054,
-      "zip_sha256": "8F3B21A3F2EBC60E59C2A7593CEF5DBA4AE07FF0AE77ED795BDF469B5D2768A0"
+      "zip_bytes": 47068502,
+      "zip_sha256": "2BA4BC628519337D484EADF167EA8D60BAAD81393DB0B494C0898DBC9CEFA51F"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2479,
-      "sha256": "C0E58584353D23B82E14E5C13905B8516058BC996DC79DCB09A814ACBD01D376"
+      "bytes": 3646,
+      "sha256": "0DD800EBF0AB0C5616597A04954F074FB32AF9314A6C29C406D748A34979F75A"
     },
     {
       "path": "01_GOVERNING_INSTRUCTIONS.md",
-      "bytes": 1914,
-      "sha256": "F5F691E27DAEF5454993F21A10D79B08407F10E6B9CD9F52D7A2185D60252251"
+      "bytes": 3079,
+      "sha256": "2505BAF576F74B55E750E6699A4A6ED922FCB1C5116F2C6D913873121DB39757"
     },
     {
       "path": "02_SOURCE_OUTPUT_MAP.tsv",
@@ -43,8 +43,8 @@
     },
     {
       "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 231507,
-      "sha256": "0D26DC5D185E92203F60A7A91AC4BDBC53B09172E1C6F78BB1B34732EFC7E082"
+      "bytes": 241327,
+      "sha256": "59A99E81FA910F53FD2C025666F122F685D4E6409356BFCCA41CFF98E7285503"
     },
     {
       "path": "22_AUTHORITY_BAND_III_772P.pdf",
@@ -69,7 +69,7 @@
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
       "bytes": 936,
-      "sha256": "9A1175B91457A273A42600A3AA3A3C20719617F0E3F3728D90A5527F9B30FAEA"
+      "sha256": "B3719885A3C7543B480D91ED8D471D9300AE627D99C657C0E0B7C996FA8DE96C"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",

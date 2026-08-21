@@ -1,0 +1,2377 @@
+{
+  "schema": "math-commons-packet-r2-admission/v1",
+  "date": "2026-08-21",
+  "release_tag": "jobs-2026-08-21-r2",
+  "publication_state": "LOCAL_NONPUBLISHED",
+  "nonmutating": true,
+  "published": false,
+  "row_count": 28,
+  "pass_count": 28,
+  "fail_count": 0,
+  "nonmutating_packet_audit": true,
+  "published_or_promoted": false,
+  "scope": {
+    "rule": "exactly the 28 frozen R1 job IDs; no packet-root discovery",
+    "jobs": 28,
+    "pack_scope": "direct_files"
+  },
+  "hardening_receipt": {
+    "path": "catalog/receipts/no-failure-hardening.json",
+    "bytes": 28430,
+    "sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66",
+    "transformations": [
+      "Generated directly from frozen packet identifiers and exact byte replays; no private filesystem path is emitted."
+    ]
+  },
+  "archive_member_aggregate_semantics": "normalized ZipArchiveEntry full name + TAB + decimal uncompressed length + TAB + uppercase SHA-256; true ordinal path sort; UTF-8 without BOM; LF separators; no header; no trailing LF",
+  "local_release": {
+    "directory_recorded": false,
+    "asset_count": 31,
+    "asset_bytes": 8808381269,
+    "zip_set_replay": "PASS",
+    "remote_readback": "NOT_RUN"
+  },
+  "rows": [
+    {
+      "job_id": "al-battani-nallino-opus-astronomicum-1899-1907",
+      "packet_id": "AL_BATTANI_OPUS_ASTRONOMICUM_NALLINO_1899_1907_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 17,
+      "direct_total_bytes": 118219716,
+      "direct_snapshot_sha256": "32F148D75C552E0A83D30DEE31D516153A682499692DFFAF10A0E62F630018D3",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3592,
+        "sha256": "9753B6CD33FA69D48C3FF50DDE2027D1BC138C32F50636118F96D5E04FD990D1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 266631,
+        "sha256": "26F60303F710F269E977F2071DCDA29DF1D95368CC7FB281C00FAEFE2AC1FC8F"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1788,
+        "sha256": "F486847486D986B89099592806C3F1980075B5FE894AD5C4AB9F1F06B7DC3D4A"
+      },
+      "direct_snapshot": {
+        "files": 17,
+        "bytes": 118219716,
+        "canonical_stream_bytes": 1963,
+        "source_tree_sha256": "32F148D75C552E0A83D30DEE31D516153A682499692DFFAF10A0E62F630018D3"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3592,
+          "sha256": "9753B6CD33FA69D48C3FF50DDE2027D1BC138C32F50636118F96D5E04FD990D1"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 266631,
+          "sha256": "26F60303F710F269E977F2071DCDA29DF1D95368CC7FB281C00FAEFE2AC1FC8F"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 15,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1788,
+          "sha256": "F486847486D986B89099592806C3F1980075B5FE894AD5C4AB9F1F06B7DC3D4A"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/al-battani-nallino-opus-astronomicum-1899-1907.json",
+        "bytes": 4039,
+        "sha256": "73549BC10EF893B85DDED51C7DA99B8A6008F1C9FD76DFDD6786FC646E307173",
+        "source_tree_sha256": "32F148D75C552E0A83D30DEE31D516153A682499692DFFAF10A0E62F630018D3"
+      },
+      "local_release_assets": [
+        {
+          "name": "al-battani-nallino-opus-astronomicum-1899-1907.zip",
+          "bytes": 116634198,
+          "sha256": "6E1F0960D265CF8038ACDA3A9C4A1EF60042855694E1C472BC710F249714225A",
+          "source_files": 17,
+          "source_bytes": 118219716,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "al-khwarizmi-al-jabr-cairo-1939",
+      "packet_id": "AL_KHWARIZMI_AL_JABR_1939_EDITION_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 28,
+      "direct_total_bytes": 406586698,
+      "direct_snapshot_sha256": "0EE14C6D85E8ABECB78F22027BAAE002C3AE570226671AFA35A5BA8FB5BC0FD3",
+      "prompt_count": 13,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3552,
+        "sha256": "70E484CD5E1D9201ACA371E05843705D8C69AF303B29E33EA4BDD349DE3F4949"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 62783,
+        "sha256": "D63C7875AA7581273D7214294B0A46BF9EE96F3BC3244789EF285AAAFF9D9B5B"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 3130,
+        "sha256": "686FB3A9DB1821C411969D65ED5B1767170F367C7380D29E2C2A9E5EA459E930"
+      },
+      "direct_snapshot": {
+        "files": 28,
+        "bytes": 406586698,
+        "canonical_stream_bytes": 3305,
+        "source_tree_sha256": "0EE14C6D85E8ABECB78F22027BAAE002C3AE570226671AFA35A5BA8FB5BC0FD3"
+      },
+      "prompts": {
+        "declared_count": 13,
+        "replayed_count": 13,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3552,
+          "sha256": "70E484CD5E1D9201ACA371E05843705D8C69AF303B29E33EA4BDD349DE3F4949"
+        },
+        "prompt_file": {
+          "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 62783,
+          "sha256": "D63C7875AA7581273D7214294B0A46BF9EE96F3BC3244789EF285AAAFF9D9B5B"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 26,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 3130,
+          "sha256": "686FB3A9DB1821C411969D65ED5B1767170F367C7380D29E2C2A9E5EA459E930"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/al-khwarizmi-al-jabr-cairo-1939.json",
+        "bytes": 6040,
+        "sha256": "98549F6BB3F6F2AD7457DCED3FCEF4EF25AD63AA0D5DC9EB4BAC5CB5022455FE",
+        "source_tree_sha256": "0EE14C6D85E8ABECB78F22027BAAE002C3AE570226671AFA35A5BA8FB5BC0FD3"
+      },
+      "local_release_assets": [
+        {
+          "name": "al-khwarizmi-al-jabr-cairo-1939.zip",
+          "bytes": 363563394,
+          "sha256": "E1AC68C1497C5F339E281E5619C079DB56858F63DF3336C23C987DBA12DD2680",
+          "source_files": 28,
+          "source_bytes": 406586698,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 4,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "al-tusi-quadrilateral-french-1891",
+      "packet_id": "AL_TUSI_ATTRIBUTED_QUADRILATERAL_1891_FRENCH_EDITION_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 34,
+      "direct_total_bytes": 286719536,
+      "direct_snapshot_sha256": "B903D2D2AA17BEFF29F88FFB03444A2CC2CFBC80858F9A5516A4BEE6906C01B2",
+      "prompt_count": 39,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3227,
+        "sha256": "739C07B7E80D05B712577CC4A9AC5837D84E9C16371B6D139CA3218537BA5315"
+      },
+      "prompt_file": {
+        "basename": "29_ALL_39_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 208908,
+        "sha256": "9632B9C65BC246176A7B8F7BA6A770D1E7339F6335A8B9547ED5CDDF13DFBCBE"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 3651,
+        "sha256": "A6C4D4EC1A892367019B138DF1DBCDD3EB794A714335FC943154CBFCA17BDC16"
+      },
+      "direct_snapshot": {
+        "files": 34,
+        "bytes": 286719536,
+        "canonical_stream_bytes": 3826,
+        "source_tree_sha256": "B903D2D2AA17BEFF29F88FFB03444A2CC2CFBC80858F9A5516A4BEE6906C01B2"
+      },
+      "prompts": {
+        "declared_count": 39,
+        "replayed_count": 39,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3227,
+          "sha256": "739C07B7E80D05B712577CC4A9AC5837D84E9C16371B6D139CA3218537BA5315"
+        },
+        "prompt_file": {
+          "basename": "29_ALL_39_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 208908,
+          "sha256": "9632B9C65BC246176A7B8F7BA6A770D1E7339F6335A8B9547ED5CDDF13DFBCBE"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 32,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 3651,
+          "sha256": "A6C4D4EC1A892367019B138DF1DBCDD3EB794A714335FC943154CBFCA17BDC16"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/al-tusi-quadrilateral-french-1891.json",
+        "bytes": 6951,
+        "sha256": "231519AD1738E616BDD3513206AA9B73450C1B6167E5BC50703AAB1E1D057280",
+        "source_tree_sha256": "B903D2D2AA17BEFF29F88FFB03444A2CC2CFBC80858F9A5516A4BEE6906C01B2"
+      },
+      "local_release_assets": [
+        {
+          "name": "al-tusi-quadrilateral-french-1891.zip",
+          "bytes": 285113722,
+          "sha256": "C3664FB07831E30693BA19D20587CDA63F8D2DFEE2AEFF004B0304425902BB0B",
+          "source_files": 34,
+          "source_bytes": 286719536,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 7,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "aryabhatiya-jyotihsastram-1906",
+      "packet_id": "ARYABHATIYA_1906_STRATIFIED_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 40,
+      "direct_total_bytes": 217717460,
+      "direct_snapshot_sha256": "994EB94E776ACEE86E791128F9E8EEE89B4520643E3A5CECD7B287EE77A58AA2",
+      "prompt_count": 14,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3550,
+        "sha256": "54E3F63BF4D0FA3CB22FB2AA77D128E50A571010D22248A207B9DC01A2CD6F16"
+      },
+      "prompt_file": {
+        "basename": "05_ALL_14_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 66531,
+        "sha256": "918A6328B9579222DDA7209E315AF9F03D6D24651CB95B25F6E6F60779C48B16"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 4118,
+        "sha256": "A09D7628D1D05CEF9045522F0CA4B5756E1FACE86DEBFCF65B52C729E2AD1221"
+      },
+      "direct_snapshot": {
+        "files": 40,
+        "bytes": 217717460,
+        "canonical_stream_bytes": 4293,
+        "source_tree_sha256": "994EB94E776ACEE86E791128F9E8EEE89B4520643E3A5CECD7B287EE77A58AA2"
+      },
+      "prompts": {
+        "declared_count": 14,
+        "replayed_count": 14,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3550,
+          "sha256": "54E3F63BF4D0FA3CB22FB2AA77D128E50A571010D22248A207B9DC01A2CD6F16"
+        },
+        "prompt_file": {
+          "basename": "05_ALL_14_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 66531,
+          "sha256": "918A6328B9579222DDA7209E315AF9F03D6D24651CB95B25F6E6F60779C48B16"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 38,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 4118,
+          "sha256": "A09D7628D1D05CEF9045522F0CA4B5756E1FACE86DEBFCF65B52C729E2AD1221"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/aryabhatiya-jyotihsastram-1906.json",
+        "bytes": 7793,
+        "sha256": "C241B10C5567143CBFF2C965BC9FF7A19333A51A740E5D9F8C1429D9505565EB",
+        "source_tree_sha256": "994EB94E776ACEE86E791128F9E8EEE89B4520643E3A5CECD7B287EE77A58AA2"
+      },
+      "local_release_assets": [
+        {
+          "name": "aryabhatiya-jyotihsastram-1906.zip",
+          "bytes": 214013352,
+          "sha256": "53B1EE70008CFA9846CA17E08CE6E7A39C3B008F5CC2AA4DC89D507A715E6842",
+          "source_files": 40,
+          "source_bytes": 217717460,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 7,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "bhaskara-bijaganita-apte-1930",
+      "packet_id": "BHASKARA_II_BIJAGANITA_1930_EDITION_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 16,
+      "direct_total_bytes": 6600530,
+      "direct_snapshot_sha256": "B28DE077854B42AB594EFC61892E371970B3903DA297A512C1A0C12BD8CF4086",
+      "prompt_count": 22,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3528,
+        "sha256": "3E637E2ADBB6C9C4642E5CEAD94AA4F3FC635D4E892CB79339F0BCC12076B2D1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 105714,
+        "sha256": "C8076399AF46EE08F23DFD6B44E3AC3F310B086DAAA79CD59FC5E33EA4F34432"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1546,
+        "sha256": "886352A6D18D892E96248BEFB0BB8696E3CFD6A8584B4C3EB4CCD434663ABCFE"
+      },
+      "direct_snapshot": {
+        "files": 16,
+        "bytes": 6600530,
+        "canonical_stream_bytes": 1721,
+        "source_tree_sha256": "B28DE077854B42AB594EFC61892E371970B3903DA297A512C1A0C12BD8CF4086"
+      },
+      "prompts": {
+        "declared_count": 22,
+        "replayed_count": 22,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3528,
+          "sha256": "3E637E2ADBB6C9C4642E5CEAD94AA4F3FC635D4E892CB79339F0BCC12076B2D1"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 105714,
+          "sha256": "C8076399AF46EE08F23DFD6B44E3AC3F310B086DAAA79CD59FC5E33EA4F34432"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 14,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1546,
+          "sha256": "886352A6D18D892E96248BEFB0BB8696E3CFD6A8584B4C3EB4CCD434663ABCFE"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/bhaskara-bijaganita-apte-1930.json",
+        "bytes": 3676,
+        "sha256": "46DB730ED10F6D908079C6C025F0987FA8A2FFC5CA69F9495690960F6EBE2EBA",
+        "source_tree_sha256": "B28DE077854B42AB594EFC61892E371970B3903DA297A512C1A0C12BD8CF4086"
+      },
+      "local_release_assets": [
+        {
+          "name": "bhaskara-bijaganita-apte-1930.zip",
+          "bytes": 5688884,
+          "sha256": "B8D6989F39B2899EAF653FBE97133EB367DF7F6959C3870D44CC7563912B4A4C",
+          "source_files": 16,
+          "source_bytes": 6600530,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "bhaskara-lilavati-1907",
+      "packet_id": "BHASKARA_II_LILAVATI_1907_EDITION_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 23,
+      "direct_total_bytes": 512296220,
+      "direct_snapshot_sha256": "E8E11CFAB09C01ADAE9A5EF06FE0EDD374B33CC185A1E93C554A203AB75F715E",
+      "prompt_count": 28,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3577,
+        "sha256": "EE4831316E6A47B3E49BE4FA43D0BB0B7960E12C0CA882F2FCE0E9AC4208BF23"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_28_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 135025,
+        "sha256": "829195FEAF4EC03BF4AD717ABC4A15078057678B7ACC8B493C5AA0EBD230F9E9"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 2364,
+        "sha256": "361824663D5F98246C4A24EEEA32B53F56D0BBFC2BF5B80116AFC279DA38BCE1"
+      },
+      "direct_snapshot": {
+        "files": 23,
+        "bytes": 512296220,
+        "canonical_stream_bytes": 2539,
+        "source_tree_sha256": "E8E11CFAB09C01ADAE9A5EF06FE0EDD374B33CC185A1E93C554A203AB75F715E"
+      },
+      "prompts": {
+        "declared_count": 28,
+        "replayed_count": 28,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3577,
+          "sha256": "EE4831316E6A47B3E49BE4FA43D0BB0B7960E12C0CA882F2FCE0E9AC4208BF23"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_28_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 135025,
+          "sha256": "829195FEAF4EC03BF4AD717ABC4A15078057678B7ACC8B493C5AA0EBD230F9E9"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 21,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 2364,
+          "sha256": "361824663D5F98246C4A24EEEA32B53F56D0BBFC2BF5B80116AFC279DA38BCE1"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/bhaskara-lilavati-1907.json",
+        "bytes": 4927,
+        "sha256": "C3408D97A45020385FD675FC42F2994AF2232CD75FCCFCE81E44A39610149D69",
+        "source_tree_sha256": "E8E11CFAB09C01ADAE9A5EF06FE0EDD374B33CC185A1E93C554A203AB75F715E"
+      },
+      "local_release_assets": [
+        {
+          "name": "bhaskara-lilavati-1907.zip",
+          "bytes": 509073950,
+          "sha256": "60C3E58E59C03062D399B94E8DDA03779967240FB99828D1A3735A05CFC60015",
+          "source_files": 23,
+          "source_bytes": 512296220,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "cayley-collected-papers-v01",
+      "packet_id": "CAYLEY_AUTHOR_CORPUS_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 11,
+      "direct_total_bytes": 176004219,
+      "direct_snapshot_sha256": "BAE0F85813B5C3295BF126FAB08B0F00AC9681327D578304E0119B3956442F20",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 5219,
+        "sha256": "955C623F1F181D3B9214CD310AFDDFE7C2530D5A2AACF0C1931EB435017AFC47"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 173331,
+        "sha256": "D345E95110791779BEDCDC995F577FF7159B26B855BAAB6037209D6B7B32DF69"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 996,
+        "sha256": "F34642E1643A17E43095DDF351AF102807D59B53C3E5B1E9B930940A59750B14"
+      },
+      "direct_snapshot": {
+        "files": 11,
+        "bytes": 176004219,
+        "canonical_stream_bytes": 1165,
+        "source_tree_sha256": "1A07697AE3DC613CCACD9D9FD3967EDE005C1A637EC34EF99A85E56FB07E857E"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 5219,
+          "sha256": "955C623F1F181D3B9214CD310AFDDFE7C2530D5A2AACF0C1931EB435017AFC47"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 173331,
+          "sha256": "D345E95110791779BEDCDC995F577FF7159B26B855BAAB6037209D6B7B32DF69"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 9,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 996,
+          "sha256": "F34642E1643A17E43095DDF351AF102807D59B53C3E5B1E9B930940A59750B14"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/cayley-collected-papers-v01.json",
+        "bytes": 2835,
+        "sha256": "A4D0F4AB80034D5A4AA8C6208FED731A95C7DC116CF035E1D78475D2156FF5C6",
+        "source_tree_sha256": "1A07697AE3DC613CCACD9D9FD3967EDE005C1A637EC34EF99A85E56FB07E857E"
+      },
+      "local_release_assets": [
+        {
+          "name": "cayley-collected-papers-v01.zip",
+          "bytes": 171921441,
+          "sha256": "AC33E330ECAC16E7C283CD33B15BD849AE3B7ED329753F5AF7FFC3247A318F36",
+          "source_files": 11,
+          "source_bytes": 176004219,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "clebsch-gordan-abelian-functions-1866",
+      "packet_id": "CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_GLOBAL_PACKET_CORRECTED_COMPLETE",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 25,
+      "direct_total_bytes": 1765661140,
+      "direct_snapshot_sha256": "FBDBE513C0B7E0DD58CD1A725A805C3EF9F90D58DB8126D27EC3FD1AA5D015BE",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 4397,
+        "sha256": "A828E2DEB2F0FF9CB97FBC2808DB3A25B530427C9CB74C92F2E940F2A66AF0EB"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 302794,
+        "sha256": "5E3E4A94646C4FE3E12EB8F3E7CA7EC2733D6C6473DD1CC49591BB5867D5D43F"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 4299,
+        "sha256": "130B100A4DED9A48199BCB0363A5918AD5775C6A96C6DF5BFCAD76B67E0708BA"
+      },
+      "direct_snapshot": {
+        "files": 25,
+        "bytes": 1765661140,
+        "canonical_stream_bytes": 3388,
+        "source_tree_sha256": "FBDBE513C0B7E0DD58CD1A725A805C3EF9F90D58DB8126D27EC3FD1AA5D015BE"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 4397,
+          "sha256": "A828E2DEB2F0FF9CB97FBC2808DB3A25B530427C9CB74C92F2E940F2A66AF0EB"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 302794,
+          "sha256": "5E3E4A94646C4FE3E12EB8F3E7CA7EC2733D6C6473DD1CC49591BB5867D5D43F"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 23,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 4299,
+          "sha256": "130B100A4DED9A48199BCB0363A5918AD5775C6A96C6DF5BFCAD76B67E0708BA"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/clebsch-gordan-abelian-functions-1866.json",
+        "bytes": 6478,
+        "sha256": "56A84F1FAFD35EC07DEF56486EDC690B5384F954BE123F09D56FBB31212CCDDF",
+        "source_tree_sha256": "FBDBE513C0B7E0DD58CD1A725A805C3EF9F90D58DB8126D27EC3FD1AA5D015BE"
+      },
+      "local_release_assets": [
+        {
+          "name": "clebsch-gordan-abelian-functions-1866.part01.zip",
+          "bytes": 1573636853,
+          "sha256": "159AE4ECEDCF1DA1D87345346168DCF6BFC8C60090AFB28D54FEA2AECED58214",
+          "source_files": 20,
+          "source_bytes": 1589327172,
+          "crc_and_member_stream_replay": "PASS"
+        },
+        {
+          "name": "clebsch-gordan-abelian-functions-1866.part02.zip",
+          "bytes": 176249461,
+          "sha256": "8F3723A0EDB96680BADC5F7E321A3AAB0358748132A88DBA17D3AFF53CF74E52",
+          "source_files": 5,
+          "source_bytes": 176333968,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "dedekind-werke-v01",
+      "packet_id": "DEDEKIND_GMW_I_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 15,
+      "direct_total_bytes": 19955522,
+      "direct_snapshot_sha256": "C6D32CAA86DC50A945C8982085841869FD3ADC603CE20362CF32343939DA5832",
+      "prompt_count": 41,
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 2867,
+        "sha256": "5976E1878A16900A6D16CD37442581053C46BA6C838AEF69E38B8448BF4B4F03"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_41_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 200100,
+        "sha256": "D6D0668F5B73845722E2E0F65C2D40253971355B105B270C95644D168314416D"
+      },
+      "packet_manifest": {
+        "basename": "07_PACKET_MANIFEST.tsv",
+        "bytes": 2012,
+        "sha256": "A9F833976CA76FAACA4E3896F8468D8340452516E46A87630F16ED71C3952F8D"
+      },
+      "direct_snapshot": {
+        "files": 15,
+        "bytes": 19955522,
+        "canonical_stream_bytes": 1520,
+        "source_tree_sha256": "C6D32CAA86DC50A945C8982085841869FD3ADC603CE20362CF32343939DA5832"
+      },
+      "prompts": {
+        "declared_count": 41,
+        "replayed_count": 41,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.txt",
+          "bytes": 2867,
+          "sha256": "5976E1878A16900A6D16CD37442581053C46BA6C838AEF69E38B8448BF4B4F03"
+        },
+        "prompt_file": {
+          "basename": "02_ALL_41_LITERAL_SESSION_PROMPTS.txt",
+          "bytes": 200100,
+          "sha256": "D6D0668F5B73845722E2E0F65C2D40253971355B105B270C95644D168314416D"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 13,
+        "excluded_direct_files": [
+          "07_PACKET_MANIFEST.tsv",
+          "08_PACKET_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "07_PACKET_MANIFEST.tsv",
+          "bytes": 2012,
+          "sha256": "A9F833976CA76FAACA4E3896F8468D8340452516E46A87630F16ED71C3952F8D"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/dedekind-werke-v01.json",
+        "bytes": 3405,
+        "sha256": "2A82F24F40D852E87E398BAE110EECF4378B6E688345568CD18CC6C61383FFBD",
+        "source_tree_sha256": "C6D32CAA86DC50A945C8982085841869FD3ADC603CE20362CF32343939DA5832"
+      },
+      "local_release_assets": [
+        {
+          "name": "dedekind-werke-v01.zip",
+          "bytes": 18584694,
+          "sha256": "49235543C1C09F9C43DC6ECB37CDA181735169ECB7A4FE9D21C3F708C48FCE74",
+          "source_files": 15,
+          "source_bytes": 19955522,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "dedekind-werke-v03",
+      "packet_id": "DEDEKIND_GMW_III_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 14,
+      "direct_total_bytes": 26663523,
+      "direct_snapshot_sha256": "2CE7CC41D460E20F366B84BD6FDC8B796F6BD6115417CDBB8FA08FEA6F733C11",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 4455,
+        "sha256": "5B5E7E892EF11B90CD49417CC0E8802E788A2EE1935DF1DB6D0B5AA1DF23E672"
+      },
+      "prompt_file": {
+        "basename": "02_SESSION_PROMPTS.txt",
+        "bytes": 146404,
+        "sha256": "BBE73970CBEF91E8B216653F91A80FCE0C307726C40A3FFCD1CE279743B6839E"
+      },
+      "packet_manifest": {
+        "basename": "07_PACKET_MANIFEST.tsv",
+        "bytes": 2134,
+        "sha256": "4AAB547378F17ED6D8AB57BAB0F0C30F8CFA24BDDDDF3FA79FF49F444AD76371"
+      },
+      "direct_snapshot": {
+        "files": 14,
+        "bytes": 26663523,
+        "canonical_stream_bytes": 1411,
+        "source_tree_sha256": "2CE7CC41D460E20F366B84BD6FDC8B796F6BD6115417CDBB8FA08FEA6F733C11"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.txt",
+          "bytes": 4455,
+          "sha256": "5B5E7E892EF11B90CD49417CC0E8802E788A2EE1935DF1DB6D0B5AA1DF23E672"
+        },
+        "prompt_file": {
+          "basename": "02_SESSION_PROMPTS.txt",
+          "bytes": 146404,
+          "sha256": "BBE73970CBEF91E8B216653F91A80FCE0C307726C40A3FFCD1CE279743B6839E"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 12,
+        "excluded_direct_files": [
+          "07_PACKET_MANIFEST.tsv",
+          "08_PACKET_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "07_PACKET_MANIFEST.tsv",
+          "bytes": 2134,
+          "sha256": "4AAB547378F17ED6D8AB57BAB0F0C30F8CFA24BDDDDF3FA79FF49F444AD76371"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/dedekind-werke-v03.json",
+        "bytes": 3235,
+        "sha256": "7400B6EA08A3DE6EC989621CD21D56FD9658D7D888074AB431D18F686AD0E566",
+        "source_tree_sha256": "2CE7CC41D460E20F366B84BD6FDC8B796F6BD6115417CDBB8FA08FEA6F733C11"
+      },
+      "local_release_assets": [
+        {
+          "name": "dedekind-werke-v03.zip",
+          "bytes": 25299372,
+          "sha256": "C87698B9336CA3BE9A2825954255C92BC661F7FD237BDCB262C5D9DEB79CE140",
+          "source_files": 14,
+          "source_bytes": 26663523,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gauss-werke-v02-with-nachtrag",
+      "packet_id": "Gauss_Werke_Band_II_Repair",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 16,
+      "direct_total_bytes": 37450200,
+      "direct_snapshot_sha256": "B3FA260DAA25E9B11CBC6D057FF2C6150E53652E141610463455D9921EFF3F81",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 4448,
+        "sha256": "FDD9A7D32034D4FF2B1B3CB139D0A2D1EFBDA0A75BD66E9C8F8B6EEFFD2F8EE2"
+      },
+      "prompt_file": {
+        "basename": "04_SESSION_PROMPTS.md",
+        "bytes": 163056,
+        "sha256": "DFE7C28E09E47F7F9A40A4D12E1AC19B1C5F9B6BC1A95EB7958079584FC89DDB"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1504,
+        "sha256": "F3DC1E86A38B481482F0F4C7C9197F5615F7A6E575CB67F98BBD0F648522B1CB"
+      },
+      "direct_snapshot": {
+        "files": 16,
+        "bytes": 37450200,
+        "canonical_stream_bytes": 1679,
+        "source_tree_sha256": "B3FA260DAA25E9B11CBC6D057FF2C6150E53652E141610463455D9921EFF3F81"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 4448,
+          "sha256": "FDD9A7D32034D4FF2B1B3CB139D0A2D1EFBDA0A75BD66E9C8F8B6EEFFD2F8EE2"
+        },
+        "prompt_file": {
+          "basename": "04_SESSION_PROMPTS.md",
+          "bytes": 163056,
+          "sha256": "DFE7C28E09E47F7F9A40A4D12E1AC19B1C5F9B6BC1A95EB7958079584FC89DDB"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 14,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1504,
+          "sha256": "F3DC1E86A38B481482F0F4C7C9197F5615F7A6E575CB67F98BBD0F648522B1CB"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gauss-werke-v02-with-nachtrag.json",
+        "bytes": 3637,
+        "sha256": "3D171A229B704AB301FC8ECFBA44B707B4A92D087B9FFD6DBEDEAE368119FA77",
+        "source_tree_sha256": "B3FA260DAA25E9B11CBC6D057FF2C6150E53652E141610463455D9921EFF3F81"
+      },
+      "local_release_assets": [
+        {
+          "name": "gauss-werke-v02-with-nachtrag.zip",
+          "bytes": 34493928,
+          "sha256": "2A9B161CA1059B56F6FF2A4CC26D087ADE06EDE3EFE1A47316BE79CCEF282E1D",
+          "source_files": 16,
+          "source_bytes": 37450200,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 2,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gibbs-scientific-papers-v01",
+      "packet_id": "GIBBS_TIER_A_AUTHORIAL_REPAIR_20260820_R1",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 12,
+      "direct_total_bytes": 103674579,
+      "direct_snapshot_sha256": "97E74475E5715B6FADFE1402025BF4DA05A511116B2F55AF4C90B7D98C2DE4E1",
+      "prompt_count": 44,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3015,
+        "sha256": "6EFDF134D3AD53EDC16BC6979007376C9109ACC42A6D563FAC06C050522F1D04"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_44_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 226129,
+        "sha256": "F970DE8986C1AC3031D6ABC8183B81203F0DD8227DB4E2B1D86A9DED83F4E78B"
+      },
+      "packet_manifest": {
+        "basename": "99_MANIFEST_SHA256.json",
+        "bytes": 2141,
+        "sha256": "E31D4E51C7A2702B47CABAE340BFC7D50BEC916EDB27FC3BCD592CFB05FF934C"
+      },
+      "direct_snapshot": {
+        "files": 12,
+        "bytes": 103674579,
+        "canonical_stream_bytes": 1222,
+        "source_tree_sha256": "97E74475E5715B6FADFE1402025BF4DA05A511116B2F55AF4C90B7D98C2DE4E1"
+      },
+      "prompts": {
+        "declared_count": 44,
+        "replayed_count": 44,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3015,
+          "sha256": "6EFDF134D3AD53EDC16BC6979007376C9109ACC42A6D563FAC06C050522F1D04"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_44_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 226129,
+          "sha256": "F970DE8986C1AC3031D6ABC8183B81203F0DD8227DB4E2B1D86A9DED83F4E78B"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "self_excluding_json",
+        "result": "PASS",
+        "declared_outer_files": 11,
+        "excluded_direct_files": [
+          "99_MANIFEST_SHA256.json"
+        ],
+        "identity": {
+          "basename": "99_MANIFEST_SHA256.json",
+          "bytes": 2141,
+          "sha256": "E31D4E51C7A2702B47CABAE340BFC7D50BEC916EDB27FC3BCD592CFB05FF934C"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gibbs-scientific-papers-v01.json",
+        "bytes": 2918,
+        "sha256": "6F3B5836CB867C3C33084976B892F803184872D3137DF14D48FAE53E7CA45733",
+        "source_tree_sha256": "97E74475E5715B6FADFE1402025BF4DA05A511116B2F55AF4C90B7D98C2DE4E1"
+      },
+      "local_release_assets": [
+        {
+          "name": "gibbs-scientific-papers-v01.zip",
+          "bytes": 101592856,
+          "sha256": "7FCACC4181AD7DF04DCF03FE70AD2D8445E72E66A236F03A0307B13C1E38C641",
+          "source_files": 12,
+          "source_bytes": 103674579,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gordan-de-linea-geodetica-1862",
+      "packet_id": "GORDAN_DE_LINEA_GEODETICA_1862_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 17,
+      "direct_total_bytes": 106446316,
+      "direct_snapshot_sha256": "E1AA0E6DA36379590F9FEE78BD76551A5D465DAF209E810FFBCBC8EA29978A0F",
+      "prompt_count": 5,
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3574,
+        "sha256": "2CF4DCAB5FFA790718D8FD04DD0BD522AD4A34839F3FAD2D01BB2B3585BCCD23"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_05_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 21100,
+        "sha256": "75D05A7C40746F750F6E59AE35EE0EE78DE0232C0C18179C64B800269DFFCE16"
+      },
+      "packet_manifest": {
+        "basename": "12_PACKET_MANIFEST_SHA256.csv",
+        "bytes": 2272,
+        "sha256": "17147CEAB9E127758868345839CE2A9FE210F76AE71E50C00DEEA0B437A3A386"
+      },
+      "direct_snapshot": {
+        "files": 17,
+        "bytes": 106446316,
+        "canonical_stream_bytes": 2018,
+        "source_tree_sha256": "E1AA0E6DA36379590F9FEE78BD76551A5D465DAF209E810FFBCBC8EA29978A0F"
+      },
+      "prompts": {
+        "declared_count": 5,
+        "replayed_count": 5,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_ME_FIRST.md",
+          "bytes": 3574,
+          "sha256": "2CF4DCAB5FFA790718D8FD04DD0BD522AD4A34839F3FAD2D01BB2B3585BCCD23"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_05_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 21100,
+          "sha256": "75D05A7C40746F750F6E59AE35EE0EE78DE0232C0C18179C64B800269DFFCE16"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 15,
+        "excluded_direct_files": [
+          "12_PACKET_MANIFEST_SHA256.csv",
+          "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "12_PACKET_MANIFEST_SHA256.csv",
+          "bytes": 2272,
+          "sha256": "17147CEAB9E127758868345839CE2A9FE210F76AE71E50C00DEEA0B437A3A386"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gordan-de-linea-geodetica-1862.json",
+        "bytes": 4081,
+        "sha256": "DB35D070575003CA52B1EC5300855BA37B1C5F696E4E3CF42DD925E2C54F1687",
+        "source_tree_sha256": "E1AA0E6DA36379590F9FEE78BD76551A5D465DAF209E810FFBCBC8EA29978A0F"
+      },
+      "local_release_assets": [
+        {
+          "name": "gordan-de-linea-geodetica-1862.zip",
+          "bytes": 103247362,
+          "sha256": "586B5BF7B0B2C3BC9BD0C69DD4977C2BCCADB065793925C79785BBF8F678746A",
+          "source_files": 17,
+          "source_bytes": 106446316,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 2,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gordan-formensystem-binaerer-formen",
+      "packet_id": "GORDAN_FORMENSYSTEM_BINAERER_FORMEN_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 17,
+      "direct_total_bytes": 127259026,
+      "direct_snapshot_sha256": "3B3BFD92B52F91DACD2DCA650D1C97F7406CC04625B69651DA7032E65EECF2D0",
+      "prompt_count": 7,
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3493,
+        "sha256": "35A4E0CFBA71072ACEB165635D90AAEC36F5A303390266B13123C18C5B630205"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_07_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 29032,
+        "sha256": "943E6EC803E7EC428FB69F6BEDE9519BA95B76FFF3CA4973607EA0D632D50322"
+      },
+      "packet_manifest": {
+        "basename": "12_PACKET_MANIFEST_SHA256.csv",
+        "bytes": 2300,
+        "sha256": "707FD94F33263A3FE9EB673EB06430BEA2AB0DEB41F0125843E32F821FB145B0"
+      },
+      "direct_snapshot": {
+        "files": 17,
+        "bytes": 127259026,
+        "canonical_stream_bytes": 2042,
+        "source_tree_sha256": "3B3BFD92B52F91DACD2DCA650D1C97F7406CC04625B69651DA7032E65EECF2D0"
+      },
+      "prompts": {
+        "declared_count": 7,
+        "replayed_count": 7,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_ME_FIRST.md",
+          "bytes": 3493,
+          "sha256": "35A4E0CFBA71072ACEB165635D90AAEC36F5A303390266B13123C18C5B630205"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_07_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 29032,
+          "sha256": "943E6EC803E7EC428FB69F6BEDE9519BA95B76FFF3CA4973607EA0D632D50322"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 15,
+        "excluded_direct_files": [
+          "12_PACKET_MANIFEST_SHA256.csv",
+          "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "12_PACKET_MANIFEST_SHA256.csv",
+          "bytes": 2300,
+          "sha256": "707FD94F33263A3FE9EB673EB06430BEA2AB0DEB41F0125843E32F821FB145B0"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gordan-formensystem-binaerer-formen.json",
+        "bytes": 4120,
+        "sha256": "BF162456FFF385EA052DBFB7036ED40E61E98E6544A614A462D5B3341CEE1B5B",
+        "source_tree_sha256": "3B3BFD92B52F91DACD2DCA650D1C97F7406CC04625B69651DA7032E65EECF2D0"
+      },
+      "local_release_assets": [
+        {
+          "name": "gordan-formensystem-binaerer-formen.zip",
+          "bytes": 123817522,
+          "sha256": "4CD3712633AB563F82F029D5F2D38E17FCE099B8180F38D5DD2958183239E90A",
+          "source_files": 17,
+          "source_bytes": 127259026,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 2,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gordan-transformation-thetafunctionen-1863",
+      "packet_id": "GORDAN_TRANSFORMATION_THETAFUNCTIONEN_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 19,
+      "direct_total_bytes": 140763577,
+      "direct_snapshot_sha256": "6C622873EEDA81FFE4CA0A7BB6FB793133E3D4F0EA6EF5B3F26E647BD97AECAA",
+      "prompt_count": 2,
+      "start_file": {
+        "basename": "00_READ_ME_FIRST.md",
+        "bytes": 3531,
+        "sha256": "1FC7790C0C69A77EA96CB6D75B696D5E34BF7D3C0A8C71DF18E448A3B47472D6"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_02_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 9861,
+        "sha256": "5FBE2E41EB94B5CE09527E3F28C982239366DD2ADBBBF5609B63F3C9B49BCC3C"
+      },
+      "packet_manifest": {
+        "basename": "12_PACKET_MANIFEST_SHA256.csv",
+        "bytes": 2714,
+        "sha256": "96350F650314A930EEBE142D5B51EEC669526953CC0D69898DA29787E58E0FC9"
+      },
+      "direct_snapshot": {
+        "files": 19,
+        "bytes": 140763577,
+        "canonical_stream_bytes": 2328,
+        "source_tree_sha256": "6C622873EEDA81FFE4CA0A7BB6FB793133E3D4F0EA6EF5B3F26E647BD97AECAA"
+      },
+      "prompts": {
+        "declared_count": 2,
+        "replayed_count": 2,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_ME_FIRST.md",
+          "bytes": 3531,
+          "sha256": "1FC7790C0C69A77EA96CB6D75B696D5E34BF7D3C0A8C71DF18E448A3B47472D6"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_02_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 9861,
+          "sha256": "5FBE2E41EB94B5CE09527E3F28C982239366DD2ADBBBF5609B63F3C9B49BCC3C"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 17,
+        "excluded_direct_files": [
+          "12_PACKET_MANIFEST_SHA256.csv",
+          "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "12_PACKET_MANIFEST_SHA256.csv",
+          "bytes": 2714,
+          "sha256": "96350F650314A930EEBE142D5B51EEC669526953CC0D69898DA29787E58E0FC9"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gordan-transformation-thetafunctionen-1863.json",
+        "bytes": 4555,
+        "sha256": "E08E1D4B2F71E4CE9760E70DA41022C984757D76B6052D85CE936D33DDBB01DD",
+        "source_tree_sha256": "6C622873EEDA81FFE4CA0A7BB6FB793133E3D4F0EA6EF5B3F26E647BD97AECAA"
+      },
+      "local_release_assets": [
+        {
+          "name": "gordan-transformation-thetafunctionen-1863.zip",
+          "bytes": 140514019,
+          "sha256": "8724C013965076B398052B88DBC1EB31FACBBC5F4E4D247963B55200CD1503F9",
+          "source_files": 19,
+          "source_bytes": 140763577,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 2,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gordan-invariantentheorie-v01-1885",
+      "packet_id": "GORDAN_VORLESUNGEN_UEBER_INVARIANTENTHEORIE_BAND_I_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 16,
+      "direct_total_bytes": 123337741,
+      "direct_snapshot_sha256": "5C571E86F2084A3025C6845489838CD49CD2EAE48C8C4B98AAAD475939A767EC",
+      "prompt_count": 22,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3424,
+        "sha256": "DFA8E59ACCE7FEF863116024E1D70D2ECA9E9C9297AAB439419926B6D1B0192F"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 92075,
+        "sha256": "30869C025BCC667C6F1B0F784BE835C0380D9AE4FA02004839BA8378D8687880"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1704,
+        "sha256": "5D8CACE9D09E4862932DE42E0D45F232DFDFD2912C9F7E78BBB3665C078FF24D"
+      },
+      "direct_snapshot": {
+        "files": 16,
+        "bytes": 123337741,
+        "canonical_stream_bytes": 1879,
+        "source_tree_sha256": "5C571E86F2084A3025C6845489838CD49CD2EAE48C8C4B98AAAD475939A767EC"
+      },
+      "prompts": {
+        "declared_count": 22,
+        "replayed_count": 22,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3424,
+          "sha256": "DFA8E59ACCE7FEF863116024E1D70D2ECA9E9C9297AAB439419926B6D1B0192F"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 92075,
+          "sha256": "30869C025BCC667C6F1B0F784BE835C0380D9AE4FA02004839BA8378D8687880"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 14,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1704,
+          "sha256": "5D8CACE9D09E4862932DE42E0D45F232DFDFD2912C9F7E78BBB3665C078FF24D"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gordan-invariantentheorie-v01-1885.json",
+        "bytes": 3855,
+        "sha256": "F61FCE11C0D08B4969BF3D624C8CC636EDA5E7937C4E9296BCEB276AAA1632F0",
+        "source_tree_sha256": "5C571E86F2084A3025C6845489838CD49CD2EAE48C8C4B98AAAD475939A767EC"
+      },
+      "local_release_assets": [
+        {
+          "name": "gordan-invariantentheorie-v01-1885.zip",
+          "bytes": 122573954,
+          "sha256": "366C4A268129940A359F2813647F2E24E34A9F39B5C480DD9D3B98730E409587",
+          "source_files": 16,
+          "source_bytes": 123337741,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 2,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "gordan-invariantentheorie-v02-1887",
+      "packet_id": "GORDAN_VORLESUNGEN_UEBER_INVARIANTENTHEORIE_BAND_II_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 16,
+      "direct_total_bytes": 168898588,
+      "direct_snapshot_sha256": "CD57188E19053056366B1B14787070B78558F7E9C5F4DD598480D6613D13C6CF",
+      "prompt_count": 38,
+      "start_file": {
+        "basename": "READ_FIRST.md",
+        "bytes": 3795,
+        "sha256": "A58504DE1A1325087F7F635EDCF1FC3EA30ACF600337C9393EE0D420FAF0B82B"
+      },
+      "prompt_file": {
+        "basename": "GORDAN_BAND_II_38_LITERAL_PROMPTS.md",
+        "bytes": 138450,
+        "sha256": "84E0804C7D2F765BA4C3638102A42CCDDD914ECDA4A5BAB0B12019CE2D50F971"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1709,
+        "sha256": "D54FFAF0626496CB4EAD9D1E4D4D1FCC53E7CEB35AF733C3E3698105D5B4CEC1"
+      },
+      "direct_snapshot": {
+        "files": 16,
+        "bytes": 168898588,
+        "canonical_stream_bytes": 1891,
+        "source_tree_sha256": "CD57188E19053056366B1B14787070B78558F7E9C5F4DD598480D6613D13C6CF"
+      },
+      "prompts": {
+        "declared_count": 38,
+        "replayed_count": 38,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "READ_FIRST.md",
+          "bytes": 3795,
+          "sha256": "A58504DE1A1325087F7F635EDCF1FC3EA30ACF600337C9393EE0D420FAF0B82B"
+        },
+        "prompt_file": {
+          "basename": "GORDAN_BAND_II_38_LITERAL_PROMPTS.md",
+          "bytes": 138450,
+          "sha256": "84E0804C7D2F765BA4C3638102A42CCDDD914ECDA4A5BAB0B12019CE2D50F971"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 14,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_PACKET_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1709,
+          "sha256": "D54FFAF0626496CB4EAD9D1E4D4D1FCC53E7CEB35AF733C3E3698105D5B4CEC1"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/gordan-invariantentheorie-v02-1887.json",
+        "bytes": 3885,
+        "sha256": "A4E6C5C12041F770E6CD90E6187C1529793B81961492535BE9ED14F29265A16D",
+        "source_tree_sha256": "CD57188E19053056366B1B14787070B78558F7E9C5F4DD598480D6613D13C6CF"
+      },
+      "local_release_assets": [
+        {
+          "name": "gordan-invariantentheorie-v02-1887.zip",
+          "bytes": 166503918,
+          "sha256": "4778EECA82513796603539EF75CABA0B2C457CC896721F80A9D69EA4195D56DC",
+          "source_files": 16,
+          "source_bytes": 168898588,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "hecke-algebraische-zahlen-1923",
+      "packet_id": "HECKE_VORLESUNGEN_1923_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 15,
+      "direct_total_bytes": 373277164,
+      "direct_snapshot_sha256": "4B5D9EFB94FBB1C62A6D81E034053A498BC01C0CA7329F0BB5EBFBA04F35CA62",
+      "prompt_count": 29,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3926,
+        "sha256": "EF554FEE16AD84BA7F6A868ED12D713E1832E0E54DF8A68FB371848939DC552E"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_29_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 162351,
+        "sha256": "4A7E68F090F3B5E94A72A49E1539017C17EC0A593F83198C53AD97BF7AFFCD23"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1509,
+        "sha256": "D07F318FA001752CFD66C0943D5C564B455533443DFB1F6E18FF98BB80F05B6F"
+      },
+      "direct_snapshot": {
+        "files": 15,
+        "bytes": 373277164,
+        "canonical_stream_bytes": 1609,
+        "source_tree_sha256": "4B5D9EFB94FBB1C62A6D81E034053A498BC01C0CA7329F0BB5EBFBA04F35CA62"
+      },
+      "prompts": {
+        "declared_count": 29,
+        "replayed_count": 29,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3926,
+          "sha256": "EF554FEE16AD84BA7F6A868ED12D713E1832E0E54DF8A68FB371848939DC552E"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_29_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 162351,
+          "sha256": "4A7E68F090F3B5E94A72A49E1539017C17EC0A593F83198C53AD97BF7AFFCD23"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 14,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1509,
+          "sha256": "D07F318FA001752CFD66C0943D5C564B455533443DFB1F6E18FF98BB80F05B6F"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/hecke-algebraische-zahlen-1923.json",
+        "bytes": 3509,
+        "sha256": "34842B7B684DB8E975E541C7BCF4DE57D21F19684283796D381A30E3220B4589",
+        "source_tree_sha256": "4B5D9EFB94FBB1C62A6D81E034053A498BC01C0CA7329F0BB5EBFBA04F35CA62"
+      },
+      "local_release_assets": [
+        {
+          "name": "hecke-algebraische-zahlen-1923.zip",
+          "bytes": 369489513,
+          "sha256": "A3A347361ADC2463C3E9E7672BE42E0E964AAA818DABDE288C9A524B096C0B3C",
+          "source_files": 15,
+          "source_bytes": 373277164,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "khayyam-columbia-ms-or34-algebra",
+      "packet_id": "KHAYYAM_ALGEBRA_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 10,
+      "direct_total_bytes": 331443345,
+      "direct_snapshot_sha256": "5BF6C314386E229BA378DEBE6B53BA901D64F2E530CB5942000261C2A35F0A2B",
+      "prompt_count": 13,
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 3555,
+        "sha256": "3D74F69D3F9285C85836759C9A2411DFE483AD8496D80A2305DC25146BE4CCA8"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 60524,
+        "sha256": "D4AF7C3272E5958685A21A8DF86F5C5FA95ECF784E60E0D145774AB16F00BCF9"
+      },
+      "packet_manifest": {
+        "basename": "07_PACKET_MANIFEST.tsv",
+        "bytes": 3039,
+        "sha256": "DD561FD2EE687E9E1AFD482A4452DC5A2BBD0A7F03DFA0B8E2AEC10BA76C8A77"
+      },
+      "direct_snapshot": {
+        "files": 10,
+        "bytes": 331443345,
+        "canonical_stream_bytes": 1007,
+        "source_tree_sha256": "5BF6C314386E229BA378DEBE6B53BA901D64F2E530CB5942000261C2A35F0A2B"
+      },
+      "prompts": {
+        "declared_count": 13,
+        "replayed_count": 13,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.txt",
+          "bytes": 3555,
+          "sha256": "3D74F69D3F9285C85836759C9A2411DFE483AD8496D80A2305DC25146BE4CCA8"
+        },
+        "prompt_file": {
+          "basename": "02_ALL_13_LITERAL_SESSION_PROMPTS.txt",
+          "bytes": 60524,
+          "sha256": "D4AF7C3272E5958685A21A8DF86F5C5FA95ECF784E60E0D145774AB16F00BCF9"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "structured_outer_and_archive_member_sets",
+        "archive_member_stream": "normalized full name + TAB + decimal bytes + TAB + uppercase SHA-256; true ordinal path sort; UTF-8; LF separators; no BOM; no header; no trailing LF",
+        "result": "PASS",
+        "declared_outer_files": 8,
+        "archive_member_sets": 9,
+        "archive_members_replayed": 288,
+        "excluded_direct_files": [
+          "07_PACKET_MANIFEST.tsv",
+          "08_PACKET_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "07_PACKET_MANIFEST.tsv",
+          "bytes": 3039,
+          "sha256": "DD561FD2EE687E9E1AFD482A4452DC5A2BBD0A7F03DFA0B8E2AEC10BA76C8A77"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/khayyam-columbia-ms-or34-algebra.json",
+        "bytes": 2620,
+        "sha256": "41194CD954B67D9A895919A3A1AAB4372BCBE694F42794A01734F2F933630A7F",
+        "source_tree_sha256": "5BF6C314386E229BA378DEBE6B53BA901D64F2E530CB5942000261C2A35F0A2B"
+      },
+      "local_release_assets": [
+        {
+          "name": "khayyam-columbia-ms-or34-algebra.zip",
+          "bytes": 331472031,
+          "sha256": "8616DF219CDD6566DD298BA56BAFBF7B87DD0419581670DAA6E98F9A2D85C666",
+          "source_files": 10,
+          "source_bytes": 331443345,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "klein-fricke-modulfunctionen-v01-1890",
+      "packet_id": "KLEIN_FRICKE_MODULFUNCTIONEN_BAND_I_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 13,
+      "direct_total_bytes": 126043418,
+      "direct_snapshot_sha256": "2B3C60BF1F44881AAE4D1052577C73D2994497C072E1DAC7A983E92A1E0EFD10",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3359,
+        "sha256": "D70305848878194A3A96A4DFE3EECDBF3B32CD1FC662D14E9E60C1713402E685"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 283842,
+        "sha256": "FCE44BA11B090D7A5F468B7D06393B1DDF8987A1E7A6DE629C13A823EF425501"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1123,
+        "sha256": "EA9FC00F8264DAA620A8A99BD77EDB620FC5968B56784FE3963097ACD4E09997"
+      },
+      "direct_snapshot": {
+        "files": 13,
+        "bytes": 126043418,
+        "canonical_stream_bytes": 1302,
+        "source_tree_sha256": "2B3C60BF1F44881AAE4D1052577C73D2994497C072E1DAC7A983E92A1E0EFD10"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3359,
+          "sha256": "D70305848878194A3A96A4DFE3EECDBF3B32CD1FC662D14E9E60C1713402E685"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 283842,
+          "sha256": "FCE44BA11B090D7A5F468B7D06393B1DDF8987A1E7A6DE629C13A823EF425501"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 11,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1123,
+          "sha256": "EA9FC00F8264DAA620A8A99BD77EDB620FC5968B56784FE3963097ACD4E09997"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/klein-fricke-modulfunctionen-v01-1890.json",
+        "bytes": 3095,
+        "sha256": "00856B7FCC3809C4561BE91B58ED68112FF90C4AC9732D7CF5FFAFFC296C92BC",
+        "source_tree_sha256": "2B3C60BF1F44881AAE4D1052577C73D2994497C072E1DAC7A983E92A1E0EFD10"
+      },
+      "local_release_assets": [
+        {
+          "name": "klein-fricke-modulfunctionen-v01-1890.zip",
+          "bytes": 125174358,
+          "sha256": "E590C41823F18BDCBBD9DFAD4214823D7BA02F4F067C3EC8D2D69DE95DCC0EC4",
+          "source_files": 13,
+          "source_bytes": 126043418,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "kronecker-grundzuege-1882",
+      "packet_id": "KRONECKER_GRUNDZUEGE_1882_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 19,
+      "direct_total_bytes": 175855394,
+      "direct_snapshot_sha256": "692F4B38C38425F7FE64472D57773CCD2375BF7A7918BC2A779C65421666F3AD",
+      "prompt_count": 16,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3047,
+        "sha256": "38A6477E25BA2080237C21B7DB992CD71EA1D06922128F83840E6254745CDBC5"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_16_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 75449,
+        "sha256": "AC6F00591E69933A91F9825DF033BF364DC0EADF0F1569641B444D8F4BB36617"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1950,
+        "sha256": "5E504446F6EC40083872CA4BF880333620D8D908308C87FE2E56C03A897A3B1B"
+      },
+      "direct_snapshot": {
+        "files": 19,
+        "bytes": 175855394,
+        "canonical_stream_bytes": 2050,
+        "source_tree_sha256": "692F4B38C38425F7FE64472D57773CCD2375BF7A7918BC2A779C65421666F3AD"
+      },
+      "prompts": {
+        "declared_count": 16,
+        "replayed_count": 16,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3047,
+          "sha256": "38A6477E25BA2080237C21B7DB992CD71EA1D06922128F83840E6254745CDBC5"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_16_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 75449,
+          "sha256": "AC6F00591E69933A91F9825DF033BF364DC0EADF0F1569641B444D8F4BB36617"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 18,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1950,
+          "sha256": "5E504446F6EC40083872CA4BF880333620D8D908308C87FE2E56C03A897A3B1B"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/kronecker-grundzuege-1882.json",
+        "bytes": 4191,
+        "sha256": "C1C41DF849329B3259E0CC32CF0B0EFB7F11AF048E7C704EA40ADF890C1F4035",
+        "source_tree_sha256": "692F4B38C38425F7FE64472D57773CCD2375BF7A7918BC2A779C65421666F3AD"
+      },
+      "local_release_assets": [
+        {
+          "name": "kronecker-grundzuege-1882.zip",
+          "bytes": 175251578,
+          "sha256": "30B064938C6CB40A3C200770AD8536FBE905A935A73FE4997F86AE60B305EF3F",
+          "source_files": 19,
+          "source_bytes": 175855394,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "mikami-development-mathematics-china-japan-1913",
+      "packet_id": "MIKAMI_DEVELOPMENT_MATHEMATICS_1913_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 37,
+      "direct_total_bytes": 41607753,
+      "direct_snapshot_sha256": "A34494653F56CD576D6E1FBE42187ADD970A7B5628CA2150FF2D26235800124E",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3333,
+        "sha256": "5AA9E6B71536D820671CD840CAD89CA273333DE530FDFA83DF625E3BEE888EEE"
+      },
+      "prompt_file": {
+        "basename": "02_ORDERED_PROMPTS_EXACTLY_45.md",
+        "bytes": 221824,
+        "sha256": "6E6D278E24835C1249801B1C8835BF3AD95108761CB7347B0AE4E5D873DE2539"
+      },
+      "packet_manifest": {
+        "basename": "99_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 4429,
+        "sha256": "8AB11B3E5D82D79211C01BD595A715A3CEC73900EE3BF87CE7E29445CD1FA5BC"
+      },
+      "direct_snapshot": {
+        "files": 37,
+        "bytes": 41607753,
+        "canonical_stream_bytes": 4502,
+        "source_tree_sha256": "A34494653F56CD576D6E1FBE42187ADD970A7B5628CA2150FF2D26235800124E"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3333,
+          "sha256": "5AA9E6B71536D820671CD840CAD89CA273333DE530FDFA83DF625E3BEE888EEE"
+        },
+        "prompt_file": {
+          "basename": "02_ORDERED_PROMPTS_EXACTLY_45.md",
+          "bytes": 221824,
+          "sha256": "6E6D278E24835C1249801B1C8835BF3AD95108761CB7347B0AE4E5D873DE2539"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 36,
+        "excluded_direct_files": [
+          "99_PACKET_MANIFEST_SHA256.tsv"
+        ],
+        "identity": {
+          "basename": "99_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 4429,
+          "sha256": "8AB11B3E5D82D79211C01BD595A715A3CEC73900EE3BF87CE7E29445CD1FA5BC"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/mikami-development-mathematics-china-japan-1913.json",
+        "bytes": 7861,
+        "sha256": "3959F6CE45BC9DAD4EEB82634E63853FB33FFC9B40ED21D0CCBF1C18DA4C2457",
+        "source_tree_sha256": "A34494653F56CD576D6E1FBE42187ADD970A7B5628CA2150FF2D26235800124E"
+      },
+      "local_release_assets": [
+        {
+          "name": "mikami-development-mathematics-china-japan-1913.zip",
+          "bytes": 40458723,
+          "sha256": "E045772E8CFB4E12D3BF96CB40E8F7C1EC5D2FB3F5C8FA05B0367C71B07A96D7",
+          "source_files": 37,
+          "source_bytes": 41607753,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "picard-traite-analyse-v01-1891",
+      "packet_id": "PICARD_TRAITE_ANALYSE_TOME_I_1891_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 19,
+      "direct_total_bytes": 378484086,
+      "direct_snapshot_sha256": "05E0A7EADED8AA8F454039DBBA3CF56B16774DCA3D9C15C471D80DC29BCCD540",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 2908,
+        "sha256": "BD3627C5E3BCB1A6E872CBF423B41939D7F49D33C618B4A8A6BF4F468B7D636C"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 250319,
+        "sha256": "9A55F2615D857F2740E8DDBEC4D8F7C43E69237215623D07226DE9EBBE69F9C2"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1890,
+        "sha256": "505E156416A4DF6912550BE706CA31E4976BE01BC3D85D62A4F30D8BF2C85F2A"
+      },
+      "direct_snapshot": {
+        "files": 19,
+        "bytes": 378484086,
+        "canonical_stream_bytes": 2069,
+        "source_tree_sha256": "05E0A7EADED8AA8F454039DBBA3CF56B16774DCA3D9C15C471D80DC29BCCD540"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 2908,
+          "sha256": "BD3627C5E3BCB1A6E872CBF423B41939D7F49D33C618B4A8A6BF4F468B7D636C"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 250319,
+          "sha256": "9A55F2615D857F2740E8DDBEC4D8F7C43E69237215623D07226DE9EBBE69F9C2"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 17,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1890,
+          "sha256": "505E156416A4DF6912550BE706CA31E4976BE01BC3D85D62A4F30D8BF2C85F2A"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/picard-traite-analyse-v01-1891.json",
+        "bytes": 4225,
+        "sha256": "121B985C060FA7A5982513BB31636BD6B7547E6879DD9D9AD3CFAFB00AB82B9F",
+        "source_tree_sha256": "05E0A7EADED8AA8F454039DBBA3CF56B16774DCA3D9C15C471D80DC29BCCD540"
+      },
+      "local_release_assets": [
+        {
+          "name": "picard-traite-analyse-v01-1891.zip",
+          "bytes": 375958253,
+          "sha256": "8E9CDCC30C1F0C9CE75C0E48BDED0B7058A2FCC6CD5CB51AEBD3C57F6FB1310B",
+          "source_files": 19,
+          "source_bytes": 378484086,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "poincare-oeuvres-v01-1928",
+      "packet_id": "POINCARE_OEUVRES_TOME_I_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 38,
+      "direct_total_bytes": 2901464800,
+      "direct_snapshot_sha256": "32EA10638E2C77F963D359F7C1EBE67CAB333904C88883080B4E5AF67DA6CF4F",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3074,
+        "sha256": "150935355C8FBAD2E7EBF0F84ABDBE8676D30F816F3D6E207FB5FA2823A3A075"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 253539,
+        "sha256": "10FFA6CEC44985067FFE92A3932C498558C2A376B37A0A0DFD1F4965CBDBADFD"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 3917,
+        "sha256": "1BDC87685FE23D6010E0831CA502332CD603AE61AEDE527EE4420ED76BBDC7DE"
+      },
+      "direct_snapshot": {
+        "files": 38,
+        "bytes": 2901464800,
+        "canonical_stream_bytes": 4096,
+        "source_tree_sha256": "32EA10638E2C77F963D359F7C1EBE67CAB333904C88883080B4E5AF67DA6CF4F"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3074,
+          "sha256": "150935355C8FBAD2E7EBF0F84ABDBE8676D30F816F3D6E207FB5FA2823A3A075"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 253539,
+          "sha256": "10FFA6CEC44985067FFE92A3932C498558C2A376B37A0A0DFD1F4965CBDBADFD"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 36,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 3917,
+          "sha256": "1BDC87685FE23D6010E0831CA502332CD603AE61AEDE527EE4420ED76BBDC7DE"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/poincare-oeuvres-v01-1928.json",
+        "bytes": 7844,
+        "sha256": "C0F60ADC10CE29C892AAEDE1B0BB1CDFCAF7876380EB57B15DA5AD63D488A30F",
+        "source_tree_sha256": "32EA10638E2C77F963D359F7C1EBE67CAB333904C88883080B4E5AF67DA6CF4F"
+      },
+      "local_release_assets": [
+        {
+          "name": "poincare-oeuvres-v01-1928.part01.zip",
+          "bytes": 1552443647,
+          "sha256": "8047CD2378667908B3608A69807DB5FE35F35F980CF2B8EF8B2894337F1BC4BB",
+          "source_files": 28,
+          "source_bytes": 1555810269,
+          "crc_and_member_stream_replay": "PASS"
+        },
+        {
+          "name": "poincare-oeuvres-v01-1928.part02.zip",
+          "bytes": 1345670767,
+          "sha256": "106DCACBEDBFE3B877B21FA6BE95AFAFD9103B2837FC784977ABD94A976DB749",
+          "source_files": 10,
+          "source_bytes": 1345654531,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "seki-hatsubi-sanpo",
+      "packet_id": "SEKI_HATSUBI_SANPO_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 12,
+      "direct_total_bytes": 70952147,
+      "direct_snapshot_sha256": "E36F26786A9B3A7E8B9A8BA38BBAC9CFED567B8DE96AFE2F2FF3DA738A729D32",
+      "prompt_count": 3,
+      "start_file": {
+        "basename": "00_READ_FIRST.txt",
+        "bytes": 3523,
+        "sha256": "A22A3D634A0FF137B7E6A5443D79895BBC316109DC5C70ADFDE066CED2181D0F"
+      },
+      "prompt_file": {
+        "basename": "02_ALL_03_LITERAL_SESSION_PROMPTS.txt",
+        "bytes": 14764,
+        "sha256": "F3CDC48E7E76FC908618F708AFF7527CC39CAAD1B4C93D73CBA030B31677B3B0"
+      },
+      "packet_manifest": {
+        "basename": "07_PACKET_MANIFEST.tsv",
+        "bytes": 2368,
+        "sha256": "AE319DAEF54927C6ADF6A6D74956F917D082E5E9120C19D1D29037CC81B8D532"
+      },
+      "direct_snapshot": {
+        "files": 12,
+        "bytes": 70952147,
+        "canonical_stream_bytes": 1214,
+        "source_tree_sha256": "E36F26786A9B3A7E8B9A8BA38BBAC9CFED567B8DE96AFE2F2FF3DA738A729D32"
+      },
+      "prompts": {
+        "declared_count": 3,
+        "replayed_count": 3,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.txt",
+          "bytes": 3523,
+          "sha256": "A22A3D634A0FF137B7E6A5443D79895BBC316109DC5C70ADFDE066CED2181D0F"
+        },
+        "prompt_file": {
+          "basename": "02_ALL_03_LITERAL_SESSION_PROMPTS.txt",
+          "bytes": 14764,
+          "sha256": "F3CDC48E7E76FC908618F708AFF7527CC39CAAD1B4C93D73CBA030B31677B3B0"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "structured_outer_and_archive_member_sets",
+        "archive_member_stream": "normalized full name + TAB + decimal bytes + TAB + uppercase SHA-256; true ordinal path sort; UTF-8; LF separators; no BOM; no header; no trailing LF",
+        "result": "PASS",
+        "declared_outer_files": 10,
+        "archive_member_sets": 3,
+        "archive_members_replayed": 78,
+        "excluded_direct_files": [
+          "07_PACKET_MANIFEST.tsv",
+          "08_PACKET_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "07_PACKET_MANIFEST.tsv",
+          "bytes": 2368,
+          "sha256": "AE319DAEF54927C6ADF6A6D74956F917D082E5E9120C19D1D29037CC81B8D532"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/seki-hatsubi-sanpo.json",
+        "bytes": 2894,
+        "sha256": "1F1DC12C085AF7EA4E5A74B150B5260BF8ED1601A36D9615BA850F243803B6A3",
+        "source_tree_sha256": "E36F26786A9B3A7E8B9A8BA38BBAC9CFED567B8DE96AFE2F2FF3DA738A729D32"
+      },
+      "local_release_assets": [
+        {
+          "name": "seki-hatsubi-sanpo.zip",
+          "bytes": 65507557,
+          "sha256": "27D86A28D05607EA8FE4014E5E35A049F06E4ECC0AF02C8A6D0D873D12C8EAE6",
+          "source_files": 12,
+          "source_bytes": 70952147,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "weber-lehrbuch-algebra-v01",
+      "packet_id": "WEBER_LEHRBUCH_BAND_I_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 14,
+      "direct_total_bytes": 58971946,
+      "direct_snapshot_sha256": "73C68417644463BABC41926D96F4DC20C6523BD8F2DC6709DBA4A58A429F8473",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3857,
+        "sha256": "CBA5E9C2BE43931B21BF41A2A244A44CA3CA112A24F81A8AE6E0E762D24E9CA1"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 240260,
+        "sha256": "F01C11A155B385324C8816755294C67017595FE802AE56C54B0AB19AC0E418C1"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1271,
+        "sha256": "F74D58A5EA9820FBEBCF3DC2F9A10154C3F320C031156E7BCA9CE4C6B10B1D1D"
+      },
+      "direct_snapshot": {
+        "files": 14,
+        "bytes": 58971946,
+        "canonical_stream_bytes": 1450,
+        "source_tree_sha256": "73C68417644463BABC41926D96F4DC20C6523BD8F2DC6709DBA4A58A429F8473"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3857,
+          "sha256": "CBA5E9C2BE43931B21BF41A2A244A44CA3CA112A24F81A8AE6E0E762D24E9CA1"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 240260,
+          "sha256": "F01C11A155B385324C8816755294C67017595FE802AE56C54B0AB19AC0E418C1"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 12,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1271,
+          "sha256": "F74D58A5EA9820FBEBCF3DC2F9A10154C3F320C031156E7BCA9CE4C6B10B1D1D"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/weber-lehrbuch-algebra-v01.json",
+        "bytes": 3271,
+        "sha256": "4E3E937D9922A40503EBE5220247355BB7788D5DDBC35A6E8E61D86629D7C852",
+        "source_tree_sha256": "73C68417644463BABC41926D96F4DC20C6523BD8F2DC6709DBA4A58A429F8473"
+      },
+      "local_release_assets": [
+        {
+          "name": "weber-lehrbuch-algebra-v01.zip",
+          "bytes": 57696369,
+          "sha256": "DA40D448766978C2F1BBEB146E81A49DB17A4E8BD6E6322401A0EF97E41B562C",
+          "source_files": 14,
+          "source_bytes": 58971946,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "weber-lehrbuch-algebra-v02",
+      "packet_id": "WEBER_LEHRBUCH_BAND_II_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 14,
+      "direct_total_bytes": 71073903,
+      "direct_snapshot_sha256": "D6EDBC11177912310222A9B57EBE323B972FBF8567897D002CE2D697EC977138",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3880,
+        "sha256": "FCD1803BD91BC35275BFE5BC5BEC359D1FB2FEAA8B8FCF2EDC8BC942E1C2C1E6"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 240886,
+        "sha256": "3C2E5589FFF1CD9FB369780FDB48423DCA823EBB0DCFBCB1D6CEBE8B60CE6CD5"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 1303,
+        "sha256": "FDF5D87E98F5C811F0F60B475FD2C10E6B66E998C9FB4FEFDB2299C8CB5C42AC"
+      },
+      "direct_snapshot": {
+        "files": 14,
+        "bytes": 71073903,
+        "canonical_stream_bytes": 1482,
+        "source_tree_sha256": "D6EDBC11177912310222A9B57EBE323B972FBF8567897D002CE2D697EC977138"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3880,
+          "sha256": "FCD1803BD91BC35275BFE5BC5BEC359D1FB2FEAA8B8FCF2EDC8BC942E1C2C1E6"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 240886,
+          "sha256": "3C2E5589FFF1CD9FB369780FDB48423DCA823EBB0DCFBCB1D6CEBE8B60CE6CD5"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 12,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 1303,
+          "sha256": "FDF5D87E98F5C811F0F60B475FD2C10E6B66E998C9FB4FEFDB2299C8CB5C42AC"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/weber-lehrbuch-algebra-v02.json",
+        "bytes": 3303,
+        "sha256": "9A42C614E3CA1629640191140268B1A40B8CB9F1305675CD6BF6A1918DD86896",
+        "source_tree_sha256": "D6EDBC11177912310222A9B57EBE323B972FBF8567897D002CE2D697EC977138"
+      },
+      "local_release_assets": [
+        {
+          "name": "weber-lehrbuch-algebra-v02.zip",
+          "bytes": 69663648,
+          "sha256": "234C3AC2C17F257895DB0C060305E0609DEA61DAF75B56A088DB98461E2C92E6",
+          "source_files": 14,
+          "source_bytes": 71073903,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    },
+    {
+      "job_id": "weber-lehrbuch-algebra-v03",
+      "packet_id": "WEBER_LEHRBUCH_BAND_III_REPAIR",
+      "result": "PASS",
+      "overall": "PASS",
+      "direct_file_count": 11,
+      "direct_total_bytes": 48905392,
+      "direct_snapshot_sha256": "3F8FF2AAEC103A34CC7BF9B9ACEB434B024969F32A237CD39D0C0553D5FD9565",
+      "prompt_count": 45,
+      "start_file": {
+        "basename": "00_READ_FIRST.md",
+        "bytes": 3646,
+        "sha256": "0DD800EBF0AB0C5616597A04954F074FB32AF9314A6C29C406D748A34979F75A"
+      },
+      "prompt_file": {
+        "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+        "bytes": 241327,
+        "sha256": "59A99E81FA910F53FD2C025666F122F685D4E6409356BFCCA41CFF98E7285503"
+      },
+      "packet_manifest": {
+        "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+        "bytes": 936,
+        "sha256": "B3719885A3C7543B480D91ED8D471D9300AE627D99C657C0E0B7C996FA8DE96C"
+      },
+      "direct_snapshot": {
+        "files": 11,
+        "bytes": 48905392,
+        "canonical_stream_bytes": 1114,
+        "source_tree_sha256": "3F8FF2AAEC103A34CC7BF9B9ACEB434B024969F32A237CD39D0C0553D5FD9565"
+      },
+      "prompts": {
+        "declared_count": 45,
+        "replayed_count": 45,
+        "count_rule": "workload-derived; no global minimum or maximum",
+        "start_file": {
+          "basename": "00_READ_FIRST.md",
+          "bytes": 3646,
+          "sha256": "0DD800EBF0AB0C5616597A04954F074FB32AF9314A6C29C406D748A34979F75A"
+        },
+        "prompt_file": {
+          "basename": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+          "bytes": 241327,
+          "sha256": "59A99E81FA910F53FD2C025666F122F685D4E6409356BFCCA41CFF98E7285503"
+        }
+      },
+      "native_packet_manifest": {
+        "format": "flat",
+        "result": "PASS",
+        "declared_outer_files": 9,
+        "excluded_direct_files": [
+          "98_PACKET_MANIFEST_SHA256.tsv",
+          "99_VALIDATION_RECEIPT.json"
+        ],
+        "identity": {
+          "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+          "bytes": 936,
+          "sha256": "B3719885A3C7543B480D91ED8D471D9300AE627D99C657C0E0B7C996FA8DE96C"
+        }
+      },
+      "asset_manifest": {
+        "path": "catalog/assets/weber-lehrbuch-algebra-v03.json",
+        "bytes": 2743,
+        "sha256": "FD7AE92F036E16D02C9A8BEC7434FCD299E99641320E9870950F71B5B6AF74FC",
+        "source_tree_sha256": "3F8FF2AAEC103A34CC7BF9B9ACEB434B024969F32A237CD39D0C0553D5FD9565"
+      },
+      "local_release_assets": [
+        {
+          "name": "weber-lehrbuch-algebra-v03.zip",
+          "bytes": 47068502,
+          "sha256": "2BA4BC628519337D484EADF167EA8D60BAAD81393DB0B494C0898DBC9CEFA51F",
+          "source_files": 11,
+          "source_bytes": 48905392,
+          "crc_and_member_stream_replay": "PASS"
+        }
+      ],
+      "authority_count": 1,
+      "authority_identity_replay": "PASS",
+      "controlling_instruction_policy": {
+        "result": "PASS",
+        "forbidden_controlling_outcome_conditions": 0
+      }
+    }
+  ],
+  "translation_kit": {
+    "asset_manifest": {
+      "path": "catalog/assets/translation-kit.json",
+      "bytes": 1464,
+      "sha256": "706C80D8B90BF65717BED7A650ED4AC5D475657B6084CEC074F2972A6576172A",
+      "source_tree_sha256": "9BB1B62A38E6847D052AB693E52FE4BA691E7D6F1E6165CD769B92F73F0992E6"
+    },
+    "local_release_assets": [
+      {
+        "name": "open-textbook-translation-kit.zip",
+        "bytes": 3443,
+        "sha256": "22383513B060A7E08D7F693F833C6BC8DDBDF256C2816DC842C0D0F2E1BE929C",
+        "source_files": 4,
+        "source_bytes": 5650,
+        "crc_and_member_stream_replay": "PASS"
+      }
+    ]
+  },
+  "summary": {
+    "rows": 28,
+    "pass": 28,
+    "fail": 0,
+    "direct_files": 538,
+    "direct_bytes": 8922333939,
+    "release_assets": 31,
+    "release_bytes": 8808381269
+  }
+}

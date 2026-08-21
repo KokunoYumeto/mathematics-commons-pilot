@@ -1,16 +1,16 @@
 {
-  "schema": "math-commons-catalog-check/v1",
-  "status": "PASS",
+  "schema": "math-commons-catalog-check/v2",
+  "status": "FAIL",
   "inputs": {
     "job_meta": {
       "path": "catalog/job-meta.json",
-      "bytes": 72043,
-      "sha256": "06DAAF4445FCFE9C605B8E7E5987F00CF503EDC9D9928EDBFE0BFD749AA34BA3"
+      "bytes": 105230,
+      "sha256": "2B04E3D43BB6FBB43C2FC4B78B02986D8930DEA4CEF0985007ABAE1C9956E810"
     },
     "jobs": {
       "path": "catalog/jobs.json",
-      "bytes": 105768,
-      "sha256": "2441250EA70F194B87CBC8AEB338DBFFBEE45419B82C7CAE95DBB75770B72BCB"
+      "bytes": 131843,
+      "sha256": "81C83746817B82F71BBCE337B338D87A95E8240693D4F645F78888F88B3AABD5"
     },
     "translations": {
       "path": "catalog/translations.json",
@@ -37,30 +37,25 @@
       "bytes": 1201,
       "sha256": "541174E5DDC424652CD2ED56CC3EBD7EB8C9F087E83A0F9767451A71BFB4E5A1"
     },
-    "global_receipt": {
-      "path": "catalog/receipts/global.json",
-      "bytes": 81598,
-      "sha256": "F3FCA45C79995C3EE595DC65B22E319A0F4C629267B7AB2821C3875F60B5F3EF"
+    "r2_admission_receipt": {
+      "path": "catalog/receipts/r2-admission.json",
+      "bytes": 88449,
+      "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC"
     },
-    "gordan2_receipt": {
-      "path": "catalog/receipts/gordan2.txt",
-      "bytes": 1805,
-      "sha256": "872FA5281555852C8069C0ABB9E4B581DB968E837AAA2ED7F5DBD92BE5977A34"
-    },
-    "mikami_receipt": {
-      "path": "catalog/receipts/mikami.json",
-      "bytes": 6143,
-      "sha256": "313587214FF5FFA6EF76518E429451B2EEE0398E14C9A5F8795180A33E1BCF3A"
+    "no_failure_hardening_receipt": {
+      "path": "catalog/receipts/no-failure-hardening.json",
+      "bytes": 28430,
+      "sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66"
     },
     "job_meta_schema": {
       "path": "schemas/job-meta.schema.json",
-      "bytes": 6674,
-      "sha256": "2BD73BA516C980A64BCAC6A95E353F2AA3E2D4337060E5669A8879916C686258"
+      "bytes": 7028,
+      "sha256": "886125FFA1686E5B64A923FE2F3FB8C836A98B07713C2CEB70D8853EB187C284"
     },
     "job_schema": {
       "path": "schemas/job-catalog.schema.json",
-      "bytes": 8687,
-      "sha256": "06DAF945DAE70F0F55CC63ECD1809D0CE47B1811669D0ACAB5F78BA64BC82F0B"
+      "bytes": 9533,
+      "sha256": "6E3C2C3C385DCF040DCF3B514314E407B6B6CC3CD208F8C6B0236DA8671329B5"
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
@@ -109,8 +104,23 @@
     },
     "builder": {
       "path": "tools/build_jobs.py",
-      "bytes": 22266,
-      "sha256": "890E3A9DF733EA33F8C5F02FF442E006333223FBEC740E076ACA0AA51F08B855"
+      "bytes": 23508,
+      "sha256": "5321F616498503F5AF6C503B4AC4DD3455043689CA4725109D87C6F90310559F"
+    },
+    "admission_builder": {
+      "path": "tools/build_r2_admission.py",
+      "bytes": 51955,
+      "sha256": "8531F2623EF562A40022D944C074CC7CC2FF71D1144769BAE7394ECAEDD40033"
+    },
+    "manifest_repair": {
+      "path": "tools/repair_stale_packet_manifests.py",
+      "bytes": 5922,
+      "sha256": "4A4CD7F3B714452E8BBD681AFB701297260D5D3F0316640392D52DA5474DCDFE"
+    },
+    "readback_tool": {
+      "path": "tools/readback_jobs_release.py",
+      "bytes": 31359,
+      "sha256": "03CB85C66694E5BA096B099F73C332E778FC9FDE34DE84616B19941833150C7E"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
@@ -125,28 +135,35 @@
     "tree_sha256": "135E881A96D60AC1FC47920EA9C221E884EC9EA5B8FC978EEB192751310D3835"
   },
   "jobs": 28,
-  "release_assets": 30,
-  "release_asset_bytes": 6599622703,
-  "packet_source_files": 488,
-  "packet_source_bytes": 6691065999,
-  "zip_member_files_replayed": 492,
-  "nested_authorities_replayed": 2,
-  "asset_mode": "local_zip_replay",
+  "release_assets": 31,
+  "release_asset_bytes": 8808381269,
+  "packet_source_files": 538,
+  "packet_source_bytes": 8922333939,
+  "zip_member_files_replayed": 0,
+  "nested_authorities_replayed": 0,
+  "asset_mode": "catalog_only",
   "translation_entries": 40,
   "formalization_entries": 19,
   "portal_sections": 3,
   "public_readback": {
-    "status": "PASS",
+    "status": "FAIL",
     "subject_commit": "049a2c9c351e827c85e69f21c2ebd0c3a98db705",
     "release_tag": "jobs-2026-08-21-r1",
     "release_id": 374306971,
     "transport": "anonymous_https",
     "observed_date": "2026-08-21",
-    "release_assets": 30,
-    "release_asset_bytes": 6599622703,
+    "release_assets": 31,
+    "release_asset_bytes": 8808381269,
     "raw_files": 7,
     "mismatches": 0,
-    "errors": 0
+    "errors": 4
   },
-  "errors": []
+  "errors": [
+    "portal transcription asset count",
+    "portal transcription asset bytes",
+    "public readback: catalog release tag",
+    "public readback: catalog release URL",
+    "public readback: exact asset projection",
+    "public readback: asset aggregate"
+  ]
 }

@@ -2,49 +2,54 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "hecke-algebraische-zahlen-1923",
   "wrapper_directory": "hecke-algebraische-zahlen-1923",
-  "source_files": 12,
-  "source_bytes": 367778967,
-  "canonical_stream_bytes": 1251,
-  "source_tree_sha256": "D74A19A2D6D1EA074A72C3CF4111754B629ACBAE7850620399BD851D27475884",
+  "source_files": 15,
+  "source_bytes": 373277164,
+  "canonical_stream_bytes": 1609,
+  "source_tree_sha256": "4B5D9EFB94FBB1C62A6D81E034053A498BC01C0CA7329F0BB5EBFBA04F35CA62",
   "asset_count": 1,
   "assets": [
     {
       "name": "hecke-algebraische-zahlen-1923.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 12,
-      "source_bytes": 367778967,
+      "source_files": 15,
+      "source_bytes": 373277164,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 364181159,
-      "zip_sha256": "5D599DDB2E6243A992F4CF252380F20538D78EFC7E06DCEFB1AB862900333797"
+      "zip_bytes": 369489513,
+      "zip_sha256": "A3A347361ADC2463C3E9E7672BE42E0E964AAA818DABDE288C9A524B096C0B3C"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2096,
-      "sha256": "904BE2C16DF2E9591A705FED837575D714CB3C08BBCF2632D26451049BC8B943"
+      "bytes": 3926,
+      "sha256": "EF554FEE16AD84BA7F6A868ED12D713E1832E0E54DF8A68FB371848939DC552E"
     },
     {
       "path": "01_GOVERNING_INSTRUCTIONS.md",
-      "bytes": 1918,
-      "sha256": "45CA24219CE943994B0DB9B177DA3D57703E9095EF243AFDDF83D512C655884F"
+      "bytes": 3900,
+      "sha256": "A0E7006E5B3641C56100EE03C3ED6C0F37BC3B7BC3424F962D360AC78E137E77"
     },
     {
       "path": "02_SOURCE_OUTPUT_MAP.tsv",
-      "bytes": 937,
-      "sha256": "F580ACC51ABE4238EB37C81953D8B2C158BB3CCE68974C86B657E93552148600"
+      "bytes": 1530,
+      "sha256": "B85E56FCE2241A691316B76CDACDB7795511E16DB18B5C316C97D7225F62B507"
     },
     {
       "path": "03_INITIAL_STATE.json",
-      "bytes": 906,
-      "sha256": "8DFBFFEFDA784D85721CA2FDC837021461BED7D659334591E0E79672984D3739"
+      "bytes": 2246,
+      "sha256": "5FC35EA130E0E99B183B47B85659A8C8CA6387E72D73DD89027E0310059EE5A2"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 227106,
-      "sha256": "4244E197EAFE8AC5800495EECA8786D0F7AB33483D22D4C207D8E38997406CD7"
+      "path": "04_ALL_29_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 162351,
+      "sha256": "4A7E68F090F3B5E94A72A49E1539017C17EC0A593F83198C53AD97BF7AFFCD23"
+    },
+    {
+      "path": "06_WORK_SIZED_PROMPT_MAP.tsv",
+      "bytes": 2080,
+      "sha256": "61E6CDEF3361E051B3B929EE314934D049E0EF0949AB477DBF0CA4A7BD4AAF50"
     },
     {
       "path": "20_AUTHORITY_HECKE_1923_RAW_JP2_500PPI.zip",
@@ -72,19 +77,29 @@
       "sha256": "5F91F05B6C21AC8806B9200A04E64534B51357861DB982CFBE31A28E6DCAFE49"
     },
     {
+      "path": "31_PRIOR_PUBLIC_READER_180P_ZERO_ACCEPTED_UNTRUSTED.pdf",
+      "bytes": 1488119,
+      "sha256": "9595A30AAAFBA9D1871F034F38BAB75388AFF3DC79F031F0838898264703779A"
+    },
+    {
+      "path": "32_PRIOR_ARTIFACT_ZIP_187P_ZERO_ACCEPTED_UNTRUSTED.zip",
+      "bytes": 4064688,
+      "sha256": "43C95E24ADE4245F8E640C03C3283EDF9D3A5760FDCA6B0B2551A97C57405271"
+    },
+    {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1072,
-      "sha256": "398CB64217DEF30985360511B88FD5DA7CE74132A0218CEA85A15366F7EDEF73"
+      "bytes": 1509,
+      "sha256": "D07F318FA001752CFD66C0943D5C564B455533443DFB1F6E18FF98BB80F05B6F"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2290,
-      "sha256": "0839DC5341068BFB653BA360AA51046939DFBD6A8FA8B1ED480C55CD15066FD2"
+      "bytes": 4173,
+      "sha256": "FC42058C1C9DBA499268A63C05979FDA9CCD9FA3BF9D0044033F5A4C288CBD90"
     }
   ],
   "checks": {
-    "source_hash_replay": "12/12",
-    "zip_member_replay": "12/12",
+    "source_hash_replay": "15/15",
+    "zip_member_replay": "15/15",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,
