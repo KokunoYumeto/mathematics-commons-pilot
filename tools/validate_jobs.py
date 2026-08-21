@@ -553,7 +553,7 @@ def replay_nested_authority(
                 except KeyError:
                     continue
                 found += 1
-                with tempfile.SpooledTemporaryFile(max_size=8 * CHUNK) as staged:
+                with tempfile.TemporaryFile(mode="w+b") as staged:
                     with release.open(outer_info, "r") as source:
                         while block := source.read(CHUNK):
                             staged.write(block)

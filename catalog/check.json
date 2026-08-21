@@ -74,8 +74,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 47358,
-      "sha256": "E51F771B0C5FA369E5A5E21ABA7306A41A811606D5E255B6A2359848ECB077D9"
+      "bytes": 47343,
+      "sha256": "353D08F3ADF1736D703B2D2B0BAFD8767C80349333F5AABB74B73DE31A1FDA97"
     }
   },
   "asset_manifests": {
