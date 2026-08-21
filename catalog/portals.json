@@ -1,0 +1,79 @@
+{
+  "schema": "math-commons-portal-catalog/v1",
+  "updated": "2026-08-21",
+  "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
+  "sections": [
+    {
+      "id": "transcription",
+      "title": "Transcription",
+      "state": "runnable",
+      "docs": "docs/run.md",
+      "catalog": "catalog/jobs.json",
+      "summary": "Twenty-eight verified source packets with exact release assets, 45-prompt workflows, and public readback.",
+      "release": {
+        "tag": "jobs-2026-08-21-r1",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1",
+        "asset_count": 29,
+        "asset_bytes": 6599619260,
+        "asset_catalog": "catalog/jobs.json",
+        "assets": []
+      },
+      "limitations": [
+        "Packet PASS does not certify a completed transcription or edition.",
+        "Seventeen later staging successors are excluded until their own independent admission checks pass."
+      ]
+    },
+    {
+      "id": "translation",
+      "title": "Translation",
+      "state": "starter_available",
+      "docs": "docs/translations.md",
+      "catalog": "catalog/translations.json",
+      "summary": "Subject-organized work and language coverage with a local/web chooser and source-preflight workflow.",
+      "release": {
+        "tag": "translate-v2",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v2",
+        "asset_count": 1,
+        "asset_bytes": 11181,
+        "asset_catalog": "catalog/assets/translate-v2.json",
+        "assets": [
+          {
+            "name": "translation-starter-v2.zip",
+            "bytes": 11181,
+            "sha256": "90757C98A9E042209A3A86CEEC4F012EAF3B9B4EDF0667874A89EA617BC27315"
+          }
+        ]
+      },
+      "limitations": [
+        "The starter contains no textbook and no completed translation.",
+        "Most catalog rows require independent source, license, component, and baseline-build preflight."
+      ]
+    },
+    {
+      "id": "open-problems",
+      "title": "Open problems",
+      "state": "incomplete_discovery_package",
+      "docs": "docs/workbench.md",
+      "catalog": null,
+      "summary": "Workbench v0.2 contains candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates.",
+      "release": {
+        "tag": "workbench-v0.2",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2",
+        "asset_count": 1,
+        "asset_bytes": 13308489,
+        "asset_catalog": null,
+        "assets": [
+          {
+            "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+            "bytes": 13308489,
+            "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A"
+          }
+        ]
+      },
+      "limitations": [
+        "No problem record is yet admitted as a canonical runnable packet.",
+        "Internal package PASS does not establish canonical wording, current status, complete literature, or a proof."
+      ]
+    }
+  ]
+}

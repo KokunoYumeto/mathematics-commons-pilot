@@ -18,6 +18,7 @@
     "nested_authorities_replayed",
     "asset_mode",
     "translation_entries",
+    "portal_sections",
     "public_readback",
     "errors"
   ],
@@ -38,6 +39,7 @@
         "job_meta",
         "jobs",
         "translations",
+        "portals",
         "readback",
         "global_receipt",
         "gordan2_receipt",
@@ -45,6 +47,7 @@
         "job_meta_schema",
         "job_schema",
         "translation_schema",
+        "portal_schema",
         "asset_schema",
         "readback_schema",
         "check_schema",
@@ -61,6 +64,9 @@
           "$ref": "#/$defs/identity"
         },
         "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "portals": {
           "$ref": "#/$defs/identity"
         },
         "readback": {
@@ -82,6 +88,9 @@
           "$ref": "#/$defs/identity"
         },
         "translation_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "portal_schema": {
           "$ref": "#/$defs/identity"
         },
         "asset_schema": {
@@ -169,6 +178,10 @@
       ]
     },
     "translation_entries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "portal_sections": {
       "type": "integer",
       "minimum": 0
     },

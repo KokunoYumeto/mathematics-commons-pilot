@@ -10,6 +10,7 @@ This directory contains both the practical packet-library contracts and the pres
 | `job-catalog.schema.json` | Public 28-job release catalog, interaction contract, assets, and hashes. |
 | `job-asset.schema.json` | Exact ZIP-part and source-member manifest for one job or the translation kit. |
 | `translation-catalog.schema.json` | Open-education source, license, state, QA, and language-adoption catalog. |
+| `portal-catalog.schema.json` | Exact Transcription, Translation, and Open-problems section index with release asset identities and limitations. |
 | `catalog-check.schema.json` | Generated replay receipt binding the catalogs, schemas, asset-manifest tree, counts, bytes, and ZIP-member validation state. |
 | `release-readback.schema.json` | Anonymous HTTPS post-publication receipt for one immutable release, its exact asset set, and commit-pinned raw files. |
 

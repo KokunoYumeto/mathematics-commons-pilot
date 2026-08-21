@@ -1,0 +1,21 @@
+{
+  "schema": "math-commons-translation-starter/v2",
+  "version": "2.0.0",
+  "date": "2026-08-21",
+  "purpose": "Choose one work and target language, freeze an eligible source, produce a standalone monolingual translation, and return cumulative inspectable state.",
+  "source_included": false,
+  "translation_included": false,
+  "required_first_questions": [
+    "Which work, title, or catalog ID do you want to translate?",
+    "What exact target language, locale, script, and orthographic standard do you want?"
+  ],
+  "entry_points": {
+    "local": "LOCAL.md",
+    "web": "WEB.md"
+  },
+  "catalog": "WORKS.json",
+  "source_freeze": "SOURCE.json",
+  "production": "PROMPT.md",
+  "independent_review": "QA.md",
+  "return_contract": "RETURN.md"
+}

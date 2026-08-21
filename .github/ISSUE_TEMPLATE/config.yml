@@ -1,6 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Leiden Declaration
-    url: https://leidendeclaration.ai/
-    about: Read the leading scientific and ethical framework used by this proposal.
-
+  - name: Transcription
+    url: https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/docs/run.md
+    about: Select and run one verified transcription packet.
+  - name: Translation
+    url: https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/docs/translations.md
+    about: Select a work, target language, and source-preflight route.
+  - name: Open problems
+    url: https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/docs/workbench.md
+    about: Review the Workbench package and open-problem contribution types.

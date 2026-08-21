@@ -1,11 +1,11 @@
-name: Adopt an open-textbook translation
-description: Declare one source, language, edition, license boundary, and inspectable handback plan.
+name: Start a mathematical translation
+description: Declare one work, target language, source boundary, license, coverage check, and handback plan.
 title: "[translation] "
 body:
   - type: markdown
     attributes:
       value: |
-        Start from a discovery row in catalog/translations.json, then independently freeze its public source, edition, component rights, and baseline build. Candidate or conditional status does not waive that preflight. No-Derivatives, rights-unknown, donor, reference, and rejected entries are not translation jobs.
+        Start from docs/translations.md, catalog/translations.json, or the exact interlanguage adoption snapshot. Candidate or conditional status does not waive source, license, component, and baseline-build preflight. No-Derivatives, rights-unknown, donor, reference, and rejected entries are not translation jobs.
   - type: input
     id: source
     attributes:
@@ -16,7 +16,7 @@ body:
     id: language
     attributes:
       label: Target language
-      description: Name one language and the educational need you intend to serve.
+      description: Give the exact language, locale, script, orthographic standard, and educational use.
     validations:
       required: true
   - type: textarea
@@ -37,7 +37,7 @@ body:
     id: overlap
     attributes:
       label: Existing editions and declared overlap
-      description: Link any known edition or parallel mirror and explain why this generation remains independently useful.
+      description: Link work-specific language coverage and active work. Explain why a parallel edition is independently useful, or state that no overlap was identified after checking the exact snapshot.
     validations:
       required: true
   - type: textarea

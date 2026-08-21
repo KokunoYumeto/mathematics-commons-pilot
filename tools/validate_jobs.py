@@ -44,6 +44,7 @@ PRACTICAL_SCHEMAS = {
     "translations": "translation-catalog.schema.json",
     "check": "catalog-check.schema.json",
     "readback": "release-readback.schema.json",
+    "portals": "portal-catalog.schema.json",
 }
 CHUNK = 1024 * 1024
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
@@ -955,6 +956,117 @@ def validate_translations(errors: list[str]) -> int:
     return len(entries)
 
 
+def validate_portals(errors: list[str]) -> int:
+    catalog, _ = load(ROOT / "catalog" / "portals.json")
+    validate_schema(catalog, "portals", "portal catalog", errors)
+    expect(
+        catalog.get("schema") == "math-commons-portal-catalog/v1",
+        errors,
+        "portal catalog schema",
+    )
+    sections = catalog.get("sections")
+    if not isinstance(sections, list):
+        errors.append("portal catalog sections are not an array")
+        return 0
+    expect(
+        [row.get("id") for row in sections if isinstance(row, dict)]
+        == ["transcription", "translation", "open-problems"],
+        errors,
+        "portal catalog exact section order",
+    )
+    for row in sections:
+        if not isinstance(row, dict):
+            errors.append("portal catalog has a malformed section")
+            continue
+        docs = row.get("docs")
+        expect(
+            isinstance(docs, str) and (ROOT / docs).is_file(),
+            errors,
+            f"portal {row.get('id')}: documentation path",
+        )
+        catalog_path = row.get("catalog")
+        expect(
+            catalog_path is None
+            or (isinstance(catalog_path, str) and (ROOT / catalog_path).is_file()),
+            errors,
+            f"portal {row.get('id')}: catalog path",
+        )
+
+    by_id = {
+        row.get("id"): row for row in sections if isinstance(row, dict)
+    }
+    jobs_catalog, _ = load(ROOT / "catalog" / "jobs.json")
+    transcription = by_id.get("transcription", {})
+    trans_release = transcription.get("release", {})
+    packet_assets = [
+        asset
+        for job in jobs_catalog.get("jobs", [])
+        if isinstance(job, dict)
+        for asset in job.get("assets", [])
+        if isinstance(asset, dict)
+    ]
+    expect(
+        trans_release.get("asset_count") == len(packet_assets),
+        errors,
+        "portal transcription asset count",
+    )
+    expect(
+        trans_release.get("asset_bytes")
+        == sum(int(asset.get("zip_bytes", 0)) for asset in packet_assets),
+        errors,
+        "portal transcription asset bytes",
+    )
+
+    translation = by_id.get("translation", {})
+    translate_release = translation.get("release", {})
+    translate_manifest, _ = validate_asset_manifest(
+        ROOT / "catalog" / "assets" / "translate-v2.json",
+        "translation-starter-v2",
+        errors,
+    )
+    expected_translate_assets = [
+        {
+            "name": asset.get("name"),
+            "bytes": asset.get("zip_bytes"),
+            "sha256": asset.get("zip_sha256"),
+        }
+        for asset in translate_manifest.get("assets", [])
+        if isinstance(asset, dict)
+    ]
+    expect(
+        translate_release.get("assets") == expected_translate_assets,
+        errors,
+        "portal translation asset projection",
+    )
+    expect(
+        translate_release.get("asset_count") == len(expected_translate_assets),
+        errors,
+        "portal translation asset count",
+    )
+    expect(
+        translate_release.get("asset_bytes")
+        == sum(int(asset["bytes"]) for asset in expected_translate_assets),
+        errors,
+        "portal translation asset bytes",
+    )
+
+    problems = by_id.get("open-problems", {})
+    problem_release = problems.get("release", {})
+    expect(
+        problem_release.get("assets")
+        == [
+            {
+                "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+                "bytes": 13308489,
+                "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A",
+            }
+        ],
+        errors,
+        "portal Workbench v0.2 asset identity",
+    )
+    return len(sections)
+
+
 def expected_readback_assets(catalog: dict[str, Any]) -> list[dict[str, Any]]:
     assets: list[dict[str, Any]] = []
     sources = [
@@ -1153,11 +1265,12 @@ def main() -> int:
             nested_authorities,
         ) = validate_jobs(args.asset_dir.resolve() if args.asset_dir else None, errors)
         translations = validate_translations(errors)
+        portals = validate_portals(errors)
         public_readback = validate_public_readback(errors)
     except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
         errors.append(str(exc))
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
-        nested_authorities = translations = 0
+        nested_authorities = translations = portals = 0
     result = {
         "schema": "math-commons-catalog-check/v1",
         "status": "PASS" if not errors else "FAIL",
@@ -1165,6 +1278,7 @@ def main() -> int:
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
+            "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
@@ -1172,6 +1286,7 @@ def main() -> int:
             "job_meta_schema": input_identity(ROOT / "schemas" / "job-meta.schema.json"),
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
+            "portal_schema": input_identity(ROOT / "schemas" / "portal-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),
             "readback_schema": input_identity(ROOT / "schemas" / "release-readback.schema.json"),
             "check_schema": input_identity(ROOT / "schemas" / "catalog-check.schema.json"),
@@ -1190,6 +1305,7 @@ def main() -> int:
         "nested_authorities_replayed": nested_authorities if args.asset_dir else 0,
         "asset_mode": "local_zip_replay" if args.asset_dir else "catalog_only",
         "translation_entries": translations,
+        "portal_sections": portals,
         "public_readback": public_readback,
         "errors": errors,
     }
@@ -1209,6 +1325,7 @@ def main() -> int:
                 "packet_source_files",
                 "packet_source_bytes",
                 "translation_entries",
+                "portal_sections",
                 "public_readback",
             ):
                 expect(receipt.get(key) == result[key], errors, f"tracked receipt {key}")
@@ -1242,7 +1359,10 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
     else:
-        print(f"PASS: {jobs} jobs, {assets} release assets, {translations} translation entries")
+        print(
+            f"PASS: {jobs} jobs, {assets} release assets, "
+            f"{translations} translation entries, {portals} portal sections"
+        )
     return 0 if not errors else 1
 
 

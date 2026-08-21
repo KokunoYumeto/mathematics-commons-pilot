@@ -1,8 +1,12 @@
 name: Propose an established open problem
-description: Suggest a sourced problem with bounded pilot work that remains useful without a complete solution.
+description: Suggest a sourced problem with bounded statement, status, literature, computation, or mathematical work.
 title: "[Problem]: "
 labels: ["problem-proposal", "triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Submission does not make a statement canonical, a status current, or a mathematical claim verified. Bind exact sources and identify what remains unchecked.
   - type: input
     id: statement_source
     attributes:

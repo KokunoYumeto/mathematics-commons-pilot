@@ -3,6 +3,10 @@ description: Submit a precise conjecture with definitions, motivation, evidence,
 title: "[Conjecture]: "
 labels: ["community-conjecture", "triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Submission does not make the conjecture canonical, current, or admitted. Mathematical claims remain unverified until appropriate independent review.
   - type: textarea
     id: statement
     attributes:

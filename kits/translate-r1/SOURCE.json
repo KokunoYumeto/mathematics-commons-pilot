@@ -1,21 +1,11 @@
 {
-  "schema": "math-commons-translation-source/v2",
-  "selection": {
-    "catalog": "REQUIRED_CATALOG_OR_BOARD",
-    "catalog_commit": "REQUIRED_IMMUTABLE_ID",
-    "work_id": "REQUIRED",
-    "known_existing_editions": [],
-    "declared_overlap": "REQUIRED"
-  },
+  "schema": "math-commons-translation-source/v1",
   "work": {
     "title": "REQUIRED",
     "author": "REQUIRED",
     "edition": "REQUIRED",
     "source_language": "REQUIRED",
-    "target_language": "REQUIRED",
-    "target_locale": "REQUIRED",
-    "target_script": "REQUIRED",
-    "orthographic_standard": "REQUIRED"
+    "target_language": "REQUIRED"
   },
   "source": {
     "repository_url": "REQUIRED_HTTPS_URL",
@@ -35,8 +25,7 @@
   "build": {
     "toolchain": "REQUIRED",
     "command": "REQUIRED",
-    "baseline_status": "not_run",
-    "receipt": "REQUIRED_PATH"
+    "baseline_status": "not_run"
   },
   "scope": {
     "included": "REQUIRED",

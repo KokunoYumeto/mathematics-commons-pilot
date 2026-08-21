@@ -1,51 +1,54 @@
 # Contributing
 
-The Mathematics Commons makes bounded mathematical work easy to adopt, run, inspect, and return. You do not need to operate the whole programme: one exact packet, textbook, language, source-recovery task, build repair, or independent review is useful.
+Contributions are accepted through Transcription, Translation, and Open problems. Each contribution must identify exact inputs, outputs, checks, unresolved items, and a continuation cursor.
 
-## Run a ready job
+## Transcription
 
 1. Choose a `runnable` entry in [`catalog/jobs.json`](catalog/jobs.json).
-2. Verify every listed release asset part, extract all parts into one job directory, and upload every job file to a capable agent project.
-3. Follow the exact [`continue` / `next prompt` loop](docs/run.md).
-4. Preserve every cumulative checkpoint and return a public immutable result plus manifest, checks, failures, and continuation cursor.
+2. Verify and extract every listed asset part.
+3. Follow the exact [`continue` / `next prompt` workflow](docs/run.md).
+4. Preserve every cumulative checkpoint.
+5. Return an immutable result, manifest, checks, failures, and cursor through [Return a packet result](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=job_return.yml).
 
-Packet integrity is not edition certification. Keep the job's diplomatic, monolingual, apparatus, figure, state, and cold-audit boundaries intact.
+Packet integrity is not edition certification. Preserve the diplomatic source edition, separate monolingual target edition, restrained apparatus, figures, page topology, build receipts, and cold-audit boundary.
 
-## Translate an open textbook
+## Translation
 
-Choose a source from [`catalog/translations.json`](catalog/translations.json) whose derivative rights and source/build boundary are adequate. Existing production is not an invitation to overwrite someone else's edition; declare a new language or parallel mirror. Use the [translation kit](kits/translate/README.md), preserve component licenses, and return a standalone monolingual edition.
+1. Choose a work from the [subject index](docs/translations.md) or the exact [interlanguage adoption snapshot](docs/adopt.md).
+2. State the exact target language, locale, script, and orthographic standard.
+3. Report existing editions and active work for that exact scope.
+4. Freeze the immutable source, derivative license, component inventory, and baseline build.
+5. Use the [translation starter](kits/translate/README.md) and return a standalone monolingual edition with cumulative state and independent QA.
 
-Do not translate a source marked ND, free-to-read-only, rights-unknown, donor, reference, or rejected. Candidate status means the recorded preflight remains to be closed; it is not permission to invent missing source identities.
+Open a [translation issue](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=translation.yml) to declare the scope. Current production and complete rows are coverage information, not permission to overwrite another edition. Candidate status does not waive source or rights preflight. No-Derivatives, free-to-read-only, rights-unknown, donor, reference, and rejected sources are not translation assignments.
 
-## Adopt or mirror other work
+## Open problems
 
-The [interlanguage adoption board](docs/adopt.md) exposes active, partial, scattered, weak, source-only, and unworked author/work scopes. Pin its exact four-file snapshot, read the work map and cursor, and declare overlap. Parallel work is welcome when it is independently inspectable.
+Valid contributions include:
 
-## Return standard
+- canonical-statement or variant corrections;
+- status corrections supported by exact sources;
+- source recovery and rights/access metadata;
+- bounded literature and claim-graph additions;
+- reproduced computations or counterexample searches;
+- failed approaches with enough detail to avoid repetition;
+- sharper bounds or new lemmas marked unverified; and
+- suspected proofs or refutations clearly marked `CLAIMED_UNVERIFIED`.
 
-Use [Return a packet result](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=job_return.yml) or [Adopt an open-textbook translation](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=translation.yml), as applicable. The handback must include:
+Use [Propose an established open problem](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=open_problem.yml) or [Submit a literature lead](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=literature_lead.yml). Do not send raw model output to list maintainers or mathematicians. Return a concise evidence-backed delta with exact citations, code/data identities, checks, contradictions, and next steps.
 
-- exact job, source, edition, language, and immutable input identities;
-- a public commit or versioned result URL;
+## Required handback fields
+
+- exact work, source, edition, language or problem ID;
+- immutable input identities;
+- public result commit or versioned URL;
 - manifest path, bytes, and SHA-256;
-- source/build/toolchain and component-license identities;
-- typed source, mathematical, language, exercise, build, visual, and accessibility checks;
+- checks actually run and their receipts;
 - every failure, correction, reversal, and unresolved item; and
-- an exact continuation cursor.
+- exact terminal or continuation cursor.
 
-Do not paste a large unreviewed model output and ask other people to recover its state. A useful contribution is bounded, hash-backed, resumable, and honest about what has not been checked.
+## Credit, privacy, and repository discipline
 
-## Credit and privacy
+Record human contributors, public pseudonyms, source leads, reviewers, correctors, and material tools by role. Models are tools, not authors. Third-party rights remain attached as described in [RIGHTS.md](RIGHTS.md).
 
-Record human contributors, public pseudonyms, source leads, reviewers, correctors, and material tools by role. Models are tools, not authors. Commons-created contributions are CC0 where possible; third-party terms remain attached as described in [RIGHTS.md](RIGHTS.md).
-
-Raw transcripts, credentials, private communications, and unrelated local data are not accepted evidence. Use sanitized task specifications, manifests, decisions, corrections, and test receipts. Transcript publication requires a separate approved redaction process.
-
-## Repository discipline
-
-- Keep names short and trees shallow.
-- Do not commit packet ZIPs or other large binaries; use GitHub Release assets.
-- Do not rewrite or delete producer bytes.
-- Preserve distinct generations and supersession history.
-- Add exact tests for schema, catalog, member, link, and hash invariants.
-- Push through a reviewable branch and verify the public result after merge.
+Do not publish raw transcripts, credentials, private communications, chain-of-thought, or unrelated local data. Keep names short and trees shallow. Do not rewrite producer bytes or erase prior generations. Large packet ZIPs belong in versioned GitHub Releases, not Git history.

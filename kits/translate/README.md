@@ -1,7 +1,12 @@
-# Open textbook translation kit
+# Translation starter v2
 
-This kit turns one lawfully translatable, source-available textbook into a bounded monolingual edition project. It is model-agnostic: use a capable coding or research agent that can preserve files, run builds, and return cumulative checkpoints.
+This package starts one mathematical translation project. It does not include a textbook and does not make every catalog row translation-ready.
 
-Start by completing `SOURCE.json`. Then give the agent `PROMPT.md` and follow its state loop. Use `QA.md` for the independent review.
+Choose how you are working:
 
-Do not begin if the exact source, derivative license, component rights, or edition boundary is unknown. Do not combine unrelated books, volumes, or license regimes merely because they cover the same subject.
+- Local Codex or another repository-aware agent: open this directory and paste [`LOCAL.md`](LOCAL.md).
+- Web or hosted agent: upload this ZIP and paste [`WEB.md`](WEB.md).
+
+The agent must first ask which work and which target language you want. It then checks existing language coverage and source eligibility. Translation begins only after the exact source, license, component boundary, and baseline build are recorded in `SOURCE.json`.
+
+Use [`WORKS.json`](WORKS.json) for the subject index and current catalog locators. Use [`LANGS.md`](LANGS.md) to choose and identify a language precisely. The production rules are in [`PROMPT.md`](PROMPT.md); independent review is defined in [`QA.md`](QA.md).
