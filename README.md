@@ -68,6 +68,8 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/assets/`](catalog/assets/): exact ZIP/member manifests.
 - [`catalog/check.json`](catalog/check.json): catalog and local-build validation receipt.
 - [`catalog/readback.json`](catalog/readback.json): anonymous public readback of R1.
+- [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
+- [`catalog/translate-rb.json`](catalog/translate-rb.json): anonymous public readback of translation starter v3.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`kits/translate/WORKS.json`](kits/translate/WORKS.json): translation subject and coverage index.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.
