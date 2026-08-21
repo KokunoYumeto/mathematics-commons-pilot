@@ -1,10 +1,33 @@
 {
-  "schema": "math-commons-translation-catalog/v1",
+  "schema": "math-commons-translation-catalog/v2",
   "updated": "2026-08-21",
+  "scope": {
+    "non_exhaustive": true,
+    "other_open_works_welcome": true,
+    "description": "These are non-exclusive suggestions for useful mathematical translation work. Contributors may propose any other mathematical work whose source identity and permission for translation derivatives can be verified.",
+    "coverage_rule": "Language coverage is work-specific. Empty or unknown coverage never means that no translation exists.",
+    "legacy_id_rule": "legacy_id preserves a key from a non-public planning snapshot for backward compatibility only; it is not a public work identifier."
+  },
+  "language_priority": {
+    "any_language_welcome": true,
+    "priority_rule": "Prefer languages for which communities document limited access to university-level mathematical material, and record the exact locale, script, orthographic standard, intended learners, and available reviewers.",
+    "unesco_source": {
+      "title": "New UNESCO report calls for multilingual education to unlock learning and inclusion",
+      "published": "2025-02-18",
+      "url": "https://www.unesco.org/en/articles/new-unesco-report-calls-multilingual-education-unlock-learning-and-inclusion",
+      "reported_facts": [
+        "40% of people globally lack access to education in a language they speak and understand fluently.",
+        "More than a quarter-billion learners are affected.",
+        "Only 351 of roughly 7,000 spoken or signed languages are used as a medium of instruction."
+      ]
+    },
+    "official_96_language_list": false,
+    "note": "No official UNESCO list of 96 underserved languages was identified. The Commons will not attribute a numbered priority list to UNESCO without an exact source."
+  },
   "evidence": {
-    "note": "This catalog combines a bounded discovery and planning projection derived from two exact non-public coordination snapshots at extraction time with one independently verified public upstream boundary, R020, added on 2026-08-21. The snapshot hashes are retained for provenance, but their bytes and line references are not public in this repository and therefore are not independently replayable evidence. R020 identifies public upstream commit, tree, root evidence files, license, and the doc gitlink exactly, but its full submodule/component census and baseline build remain open. The public_evidence_included flag remains false because no upstream source-evidence bytes are vendored here; R020 supplies exact public locators and identities instead. Null means a field was not established by the evidence for that row; no URL, author, page count, license, commit, or tree was inferred. A translation becomes runnable only after its public source, commit or edition, derivative license, component boundary, and baseline build are independently frozen.",
+    "note": "This catalog preserves a bounded planning projection derived from two exact non-public coordination snapshots, plus one independently verified public upstream boundary for openlogic-core. Snapshot claims are retained as reported provenance, not independently replayable public facts. Null means unknown, never absent.",
     "public_evidence_included": false,
-    "consumer_rule": "Treat every row as discovery or status metadata until its stated build gate closes. R020 has an independently verified public source and license boundary, but it is conditional and not runnable; independently verify component closure, the baseline build, current-production claims, and language gaps before adopting work.",
+    "consumer_rule": "Use semantic id as the public key. Treat legacy_id and reported_status as historical planning provenance. Begin translation only after the selected work's source identity, derivative license, component boundary, editable source, and baseline build are independently frozen.",
     "sources": [
       {
         "file": "09_CANDIDATE_SEARCH_CURRENT.md",
@@ -29,12 +52,23 @@
   },
   "entries": [
     {
-      "id": "R001a",
+      "id": "openstax-prealgebra-2e",
+      "legacy_id": "R001a",
       "title": "OpenStax Prealgebra 2e",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; all 71 instructional modules reported translated, preface translation completed, final admission and whole-volume/backend closure active",
+      "catalog_role": "work",
+      "reported_status": "producing; all 71 instructional modules reported translated, preface translation completed, final admission and whole-volume/backend closure active",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; all 71 instructional modules reported translated, preface translation completed, final admission and whole-volume/backend closure active",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -44,22 +78,37 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact collection, media, build, and rights authority is not recorded in current evidence."
       ],
       "source_format": "instructional modules; exact format not stated in current evidence",
-      "build_gate": "finish exact preface, collection, and whole-volume build closure",
-      "adoption_state": "current_production",
-      "rationale": "Dedicated Prealgebra-only foundation lane under the no-overlap ownership lock.",
-      "evidence_refs": ["10:L22", "10:L39-L46"]
+      "preflight_needed": "finish exact preface, collection, and whole-volume build closure",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Dedicated Prealgebra-only foundation lane under the no-overlap ownership lock.",
+      "evidence_refs": [
+        "10:L22",
+        "10:L39-L46"
+      ]
     },
     {
-      "id": "R001b",
+      "id": "openstax-elementary-algebra-2e",
+      "legacy_id": "R001b",
       "title": "OpenStax Elementary Algebra 2e",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; first block admitted with durable QA receipt; Section 1.2 source/accessibility audit active",
+      "catalog_role": "work",
+      "reported_status": "producing; first block admitted with durable QA receipt; Section 1.2 source/accessibility audit active",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; first block admitted with durable QA receipt; Section 1.2 source/accessibility audit active",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -69,22 +118,37 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact upstream, media, build, and rights authority is not recorded in current evidence."
       ],
       "source_format": "instructional modules; exact format not stated in current evidence",
-      "build_gate": "continue module sequence and record source-description corrections",
-      "adoption_state": "current_production",
-      "rationale": "Dedicated Elementary Algebra-only lane under the no-overlap ownership lock.",
-      "evidence_refs": ["10:L30", "10:L39-L46"]
+      "preflight_needed": "continue module sequence and record source-description corrections",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Dedicated Elementary Algebra-only lane under the no-overlap ownership lock.",
+      "evidence_refs": [
+        "10:L30",
+        "10:L39-L46"
+      ]
     },
     {
-      "id": "R001c",
+      "id": "openstax-intermediate-algebra-2e",
+      "legacy_id": "R001c",
       "title": "OpenStax Intermediate Algebra 2e",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; initial admitted work exists; exact media-rights closure active",
+      "catalog_role": "work",
+      "reported_status": "producing; initial admitted work exists; exact media-rights closure active",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; initial admitted work exists; exact media-rights closure active",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -94,23 +158,30 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "One public-domain asset was resolved and ten assets remained open at the recorded snapshot.",
         "Exact upstream and license authority is not recorded in current evidence."
       ],
       "source_format": "instructional modules with media; exact format not stated in current evidence",
-      "build_gate": "resolve bounded asset rights while translating safe units",
-      "adoption_state": "current_production",
-      "rationale": "Dedicated Intermediate Algebra-only lane under the no-overlap ownership lock.",
-      "evidence_refs": ["10:L31", "10:L39-L46"]
+      "preflight_needed": "resolve bounded asset rights while translating safe units",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Dedicated Intermediate Algebra-only lane under the no-overlap ownership lock.",
+      "evidence_refs": [
+        "10:L31",
+        "10:L39-L46"
+      ]
     },
     {
-      "id": "R002",
+      "id": "openstax-precalculus-2e",
+      "legacy_id": "R002",
       "title": "OpenStax Precalculus 2e",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting; complete bounded R002/A30-only assignment delivered",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting; a bounded OpenStax Precalculus-only assignment was reported delivered",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "A30",
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -120,23 +191,38 @@
       "source_tree": "05b39123f698772482c0c33a43fa2d2d4ea562ae",
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact collection, module, media, build, and component-rights closure remains open.",
         "A repository handle is recorded, but current evidence does not print a full URL."
       ],
       "source_format": "collection/modules/media; exact serialization not stated in current evidence",
-      "build_gate": "freeze collection, modules, media, build, and component rights before translating front matter and the first complete instructional module",
-      "adoption_state": "selected_start",
-      "rationale": "Separate A30 Precalculus corpus with exclusive ownership.",
-      "evidence_refs": ["10:L32", "10:L39-L46"]
+      "preflight_needed": "freeze collection, modules, media, build, and component rights before translating front matter and the first complete instructional module",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Separate A30 Precalculus corpus with exclusive ownership.",
+      "evidence_refs": [
+        "10:L32",
+        "10:L39-L46"
+      ]
     },
     {
-      "id": "R003",
+      "id": "clp-calculus-series",
+      "legacy_id": "R003",
       "title": "CLP Calculus 1-4 and problem books",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; CLP-2 exercise blocks are being translated contiguously with formulas preserved",
+      "catalog_role": "series",
+      "reported_status": "producing; CLP-2 exercise blocks are being translated contiguously with formulas preserved",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; CLP-2 exercise blocks are being translated contiguously with formulas preserved",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -146,22 +232,36 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact upstream and rights authority is not stated in current evidence."
       ],
       "source_format": "multi-volume text and problem-book corpus; exact format not stated in current evidence",
-      "build_gate": "continue source order, then close all CLP volumes, problem books, and backend",
-      "adoption_state": "current_production",
-      "rationale": "A bounded calculus corpus whose text, exercises, formulas, and support books must remain linked.",
-      "evidence_refs": ["10:L23"]
+      "preflight_needed": "continue source order, then close all CLP volumes, problem books, and backend",
+      "translation_readiness": "preflight_required",
+      "why_listed": "A bounded calculus corpus whose text, exercises, formulas, and support books must remain linked.",
+      "evidence_refs": [
+        "10:L23"
+      ]
     },
     {
-      "id": "R004",
+      "id": "dmoi4",
+      "legacy_id": "R004",
       "title": "DMOI4",
       "authors": null,
       "authors_note": "The current evidence identifies the corpus as DMOI4 but does not print its author list or expanded title.",
-      "category": "selected_resource",
-      "current_status": "active maintenance/backend; Indonesian edition complete and public",
+      "catalog_role": "work",
+      "reported_status": "active maintenance/backend; Indonesian edition complete and public",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_complete",
+          "scope_note": "active maintenance/backend; Indonesian edition complete and public",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -171,22 +271,38 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact public release and license identity is not stated in current evidence."
       ],
       "source_format": "existing source and modular backend; exact upstream format not stated in current evidence",
-      "build_gate": "finish bounded release-source allowlist and backend closure; do not retranslate",
-      "adoption_state": "existing_edition",
-      "rationale": "Preserve and integrate an already complete public Indonesian edition rather than duplicating work.",
-      "evidence_refs": ["10:L24"]
+      "preflight_needed": "finish bounded release-source allowlist and backend closure; do not retranslate",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Preserve and integrate an already complete public Indonesian edition rather than duplicating work.",
+      "evidence_refs": [
+        "10:L24"
+      ]
     },
     {
-      "id": "R005",
+      "id": "hefferon-linear-algebra",
+      "legacy_id": "R005",
       "title": "Hefferon Linear Algebra",
-      "authors": ["Hefferon"],
+      "authors": [
+        "Hefferon"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; first full Chapter 2 subsection with exercises and answers translated",
+      "catalog_role": "work",
+      "reported_status": "producing; first full Chapter 2 subsection with exercises and answers translated",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; first full Chapter 2 subsection with exercises and answers translated",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -196,22 +312,38 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact archive, solution-book, Sage-lab, and rights identities are not stated in current evidence."
       ],
       "source_format": "LaTeX translation lane with exercises/answers and modular backend; exact upstream form not stated",
-      "build_gate": "continue contiguous translation and source-correction ledger",
-      "adoption_state": "current_production",
-      "rationale": "A coherent linear-algebra corpus whose exposition and answer surfaces are translated together.",
-      "evidence_refs": ["10:L25"]
+      "preflight_needed": "continue contiguous translation and source-correction ledger",
+      "translation_readiness": "preflight_required",
+      "why_listed": "A coherent linear-algebra corpus whose exposition and answer surfaces are translated together.",
+      "evidence_refs": [
+        "10:L25"
+      ]
     },
     {
-      "id": "R006",
-      "title": "Lebl analysis corpus (R006; exact volume title unknown in current evidence)",
-      "authors": ["Lebl"],
+      "id": "lebl-analysis-volume-unresolved",
+      "legacy_id": "R006",
+      "title": "Lebl analysis volume (exact title unresolved)",
+      "authors": [
+        "Lebl"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; Indonesian corpus work exists and R006 is first in the lane",
+      "catalog_role": "work",
+      "reported_status": "producing; Indonesian corpus work exists and the analysis volume is first in the lane",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; Indonesian corpus work exists and the analysis volume is first in the lane",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -221,20 +353,38 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact title, upstream, license, and page witness are unknown in current evidence."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact title, upstream, license, and page witness are unknown in current evidence."
+      ],
       "source_format": "source translation with PDF output; exact upstream form not stated",
-      "build_gate": "complete Unicode-mapping QA without changing typography, then continue source-order translation",
-      "adoption_state": "current_production",
-      "rationale": "First separately bounded volume in the Lebl analysis/ODE/complex-analysis lane.",
-      "evidence_refs": ["10:L26"]
+      "preflight_needed": "complete Unicode-mapping QA without changing typography, then continue source-order translation",
+      "translation_readiness": "preflight_required",
+      "why_listed": "First separately bounded volume in the Lebl analysis/ODE/complex-analysis lane.",
+      "evidence_refs": [
+        "10:L26"
+      ]
     },
     {
-      "id": "R007",
-      "title": "Lebl ODE corpus (R007; exact volume title unknown in current evidence)",
-      "authors": ["Lebl"],
+      "id": "lebl-ode-volume-unresolved",
+      "legacy_id": "R007",
+      "title": "Lebl ordinary differential equations volume (exact title unresolved)",
+      "authors": [
+        "Lebl"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "selected within a producing multi-corpus lane; separately bounded after R006",
+      "catalog_role": "work",
+      "reported_status": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_planned",
+          "scope_note": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -244,20 +394,38 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact title, upstream, license, page witness, and production cursor are unknown in current evidence."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact title, upstream, license, page witness, and production cursor are unknown in current evidence."
+      ],
       "source_format": "unknown in current evidence",
-      "build_gate": "bind and process separately after R006",
-      "adoption_state": "current_production",
-      "rationale": "Distinct ODE volume retained as a separately bound corpus within the Lebl lane.",
-      "evidence_refs": ["10:L26"]
+      "preflight_needed": "bind and process separately after the analysis volume",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Distinct ODE volume retained as a separately bound corpus within the Lebl lane.",
+      "evidence_refs": [
+        "10:L26"
+      ]
     },
     {
-      "id": "R008",
-      "title": "Lebl complex-analysis corpus (R008; exact volume title unknown in current evidence)",
-      "authors": ["Lebl"],
+      "id": "lebl-complex-analysis-volume-unresolved",
+      "legacy_id": "R008",
+      "title": "Lebl complex analysis volume (exact title unresolved)",
+      "authors": [
+        "Lebl"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "selected within a producing multi-corpus lane; separately bounded after R006",
+      "catalog_role": "work",
+      "reported_status": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_planned",
+          "scope_note": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -267,20 +435,38 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact title, upstream, license, page witness, and production cursor are unknown in current evidence."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact title, upstream, license, page witness, and production cursor are unknown in current evidence."
+      ],
       "source_format": "unknown in current evidence",
-      "build_gate": "bind and process separately after R006/R007",
-      "adoption_state": "current_production",
-      "rationale": "Distinct complex-analysis volume retained as a separately bound corpus within the Lebl lane.",
-      "evidence_refs": ["10:L26"]
+      "preflight_needed": "bind and process separately after the analysis and ordinary-differential-equations volumes",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Distinct complex-analysis volume retained as a separately bound corpus within the Lebl lane.",
+      "evidence_refs": [
+        "10:L26"
+      ]
     },
     {
-      "id": "R009",
+      "id": "judson-abstract-algebra",
+      "legacy_id": "R009",
       "title": "Judson Abstract Algebra",
-      "authors": ["Judson"],
+      "authors": [
+        "Judson"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; id-ID locale harness passes; diagram regeneration and web build active",
+      "catalog_role": "work",
+      "reported_status": "producing; id-ID locale harness passes; diagram regeneration and web build active",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; id-ID locale harness passes; diagram regeneration and web build active",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -290,20 +476,39 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact upstream and license identity is unknown in current evidence."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact upstream and license identity is unknown in current evidence."
+      ],
       "source_format": "localized structured source with diagrams and web build; exact upstream form not stated",
-      "build_gate": "complete reader build and continue source-order translation",
-      "adoption_state": "current_production",
-      "rationale": "Structured abstract-algebra corpus with localized diagrams and stable locale handling.",
-      "evidence_refs": ["10:L27"]
+      "preflight_needed": "complete reader build and continue source-order translation",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Structured abstract-algebra corpus with localized diagrams and stable locale handling.",
+      "evidence_refs": [
+        "10:L27"
+      ]
     },
     {
-      "id": "R010",
+      "id": "grinstead-snell-probability",
+      "legacy_id": "R010",
       "title": "Grinstead-Snell Probability",
-      "authors": ["Grinstead", "Snell"],
+      "authors": [
+        "Grinstead",
+        "Snell"
+      ],
       "authors_note": "Surnames only in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; Section 6.3 prose admitted and final 29 exercises active",
+      "catalog_role": "work",
+      "reported_status": "producing; Section 6.3 prose admitted and final 29 exercises active",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; Section 6.3 prose admitted and final 29 exercises active",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -313,20 +518,28 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact upstream and license identity is unknown in current evidence."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact upstream and license identity is unknown in current evidence."
+      ],
       "source_format": "source-order prose and exercise translation; exact upstream form not stated",
-      "build_gate": "close Chapter 6 and continue source order",
-      "adoption_state": "current_production",
-      "rationale": "Probability corpus being translated contiguously with exercises preserved.",
-      "evidence_refs": ["10:L28"]
+      "preflight_needed": "close Chapter 6 and continue source order",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Probability corpus being translated contiguously with exercises preserved.",
+      "evidence_refs": [
+        "10:L28"
+      ]
     },
     {
-      "id": "R011",
+      "id": "openintro-statistics",
+      "legacy_id": "R011",
       "title": "OpenIntro Statistics",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting; complete R011-only assignment delivered and acknowledged",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting; an OpenIntro Statistics-only assignment was reported delivered and acknowledged",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -336,23 +549,29 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact source, data, figures, build, and component-rights closure remains open.",
         "A repository handle is recorded, but current evidence does not print a full URL."
       ],
       "source_format": "source/data/figure corpus; exact authoring format not stated in current evidence",
-      "build_gate": "freeze source, data, figures, build, and rights before translating the first complete Chapter 1 unit",
-      "adoption_state": "selected_start",
-      "rationale": "Selected statistics corpus with its own bounded lane and exact source commit.",
-      "evidence_refs": ["10:L33"]
+      "preflight_needed": "freeze source, data, figures, build, and rights before translating the first complete Chapter 1 unit",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Selected statistics corpus with its own bounded lane and exact source commit.",
+      "evidence_refs": [
+        "10:L33"
+      ]
     },
     {
-      "id": "R012",
+      "id": "applied-combinatorics",
+      "legacy_id": "R012",
       "title": "Applied Combinatorics",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting; complete R012-only assignment delivered and acknowledged",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting; an Applied Combinatorics-only assignment was reported delivered and acknowledged",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -362,23 +581,37 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact include, ID, xref, asset, build, and license closure remains open.",
         "A repository handle is recorded, but current evidence does not print a full URL."
       ],
       "source_format": "PreTeXt",
-      "build_gate": "freeze include/ID/xref/asset/build closure before translating the first complete Chapter 1 unit",
-      "adoption_state": "selected_start",
-      "rationale": "Selected combinatorics corpus with its own source-precise translation lane.",
-      "evidence_refs": ["10:L34"]
+      "preflight_needed": "freeze include/ID/xref/asset/build closure before translating the first complete Chapter 1 unit",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Selected combinatorics corpus with its own source-precise translation lane.",
+      "evidence_refs": [
+        "10:L34"
+      ]
     },
     {
-      "id": "R013",
-      "title": "Open Logic configured Indonesian edition",
+      "id": "openlogic-indonesian-edition-unresolved",
+      "legacy_id": "R013",
+      "title": "Reported Indonesian edition of Open Logic (exact edition unresolved)",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "already public; backend and hub integration only, no retranslation",
+      "catalog_role": "work",
+      "reported_status": "already public; backend and hub integration only, no retranslation",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_complete",
+          "scope_note": "already public; backend and hub integration only, no retranslation",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -388,20 +621,28 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact public edition identity, source authority, and license are not printed in current evidence 09/10."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact public edition identity, source authority, and license are not printed in current evidence 09/10."
+      ],
       "source_format": "configured public edition; exact source form not stated in current evidence",
-      "build_gate": "integrate the existing edition into the backend/hub without retranslation",
-      "adoption_state": "existing_edition",
-      "rationale": "A completed public edition should be reused and integrated rather than duplicated.",
-      "evidence_refs": ["10:L84-L89"]
+      "preflight_needed": "integrate the existing edition into the backend/hub without retranslation",
+      "translation_readiness": "preflight_required",
+      "why_listed": "A completed public edition should be reused and integrated rather than duplicated.",
+      "evidence_refs": [
+        "10:L84-L89"
+      ]
     },
     {
-      "id": "R014",
+      "id": "yet-another-introductory-number-theory-textbook",
+      "legacy_id": "R014",
       "title": "Yet Another Introductory Number Theory Textbook",
       "authors": null,
       "authors_note": "The current evidence identifies a Poritz-only assignment but does not print a full author name.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting; complete R014-only assignment delivered and acknowledged",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting; a number-theory-textbook-only assignment was reported delivered and acknowledged",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -411,20 +652,36 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Each official source, PDF, and asset URL still requires hash binding; license is unknown in current evidence 09/10."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Each official source, PDF, and asset URL still requires hash binding; license is unknown in current evidence 09/10."
+      ],
       "source_format": "yaintt.tex, BibTeX, and EPS distribution",
-      "build_gate": "hash and bind every official source, PDF, and asset URL before translating the first complete Chapter 1 unit",
-      "adoption_state": "selected_start",
-      "rationale": "Selected bounded number-theory corpus with an official author-controlled distribution.",
-      "evidence_refs": ["10:L35"]
+      "preflight_needed": "hash and bind every official source, PDF, and asset URL before translating the first complete Chapter 1 unit",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Selected bounded number-theory corpus with an official author-controlled distribution.",
+      "evidence_refs": [
+        "10:L35"
+      ]
     },
     {
-      "id": "R015",
+      "id": "tea-time-numerical-analysis",
+      "legacy_id": "R015",
       "title": "Tea Time Numerical Analysis",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+      "catalog_role": "work",
+      "reported_status": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+      "known_editions": [
+        {
+          "language_tag": "id",
+          "language_name": "Indonesian",
+          "state": "reported_active",
+          "scope_note": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+          "evidence_status": "non_public_coordination_snapshot"
+        }
+      ],
+      "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -434,43 +691,59 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact v3.0 authority, code components, URL, and license are not printed in current evidence 09/10."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact v3.0 authority, code components, URL, and license are not printed in current evidence 09/10."
+      ],
       "source_format": "LyX translation with deterministic backend exports",
-      "build_gate": "continue translation and deterministic backend exports",
-      "adoption_state": "current_production",
-      "rationale": "Numerical-analysis corpus already demonstrating deterministic backend replay at substantial scale.",
-      "evidence_refs": ["10:L29"]
+      "preflight_needed": "continue translation and deterministic backend exports",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Numerical-analysis corpus already demonstrating deterministic backend replay at substantial scale.",
+      "evidence_refs": [
+        "10:L29"
+      ]
     },
     {
-      "id": "R016",
+      "id": "fubini-tonelli-donor",
+      "legacy_id": "R016",
       "title": "Fubini-Tonelli real/functional-analysis source",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "donor",
-      "current_status": "donor/reference component only; not a complete selected course spine",
+      "catalog_role": "component",
+      "reported_status": "donor/reference component only; not a complete selected course spine",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "measure and integration / functional analysis donor",
       "pages": null,
-      "page_note": "No exact R016 page count in current evidence 09/10.",
+      "page_note": "No exact page count is established in the current evidence.",
       "source_url": null,
       "source_repo": null,
       "source_commit": null,
       "source_tree": null,
       "license": "CC BY-NC-SA 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["Thin exercise closure; does not independently fill O007 or O008."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Thin exercise closure; does not independently fill the measure/integration or functional-analysis suggestions."
+      ],
       "source_format": "LaTeX donor source",
-      "build_gate": "must not be promoted to a complete translation job without course and solution closure",
-      "adoption_state": "donor",
-      "rationale": "Useful lawful modules, but not a complete independent-study spine.",
-      "evidence_refs": ["09:L41"]
+      "preflight_needed": "must not be promoted to a complete translation job without course and solution closure",
+      "translation_readiness": "not_standalone",
+      "why_listed": "Useful lawful modules, but not a complete independent-study spine.",
+      "evidence_refs": [
+        "09:L41"
+      ]
     },
     {
-      "id": "R017",
+      "id": "open-optimization-book-1",
+      "legacy_id": "R017",
       "title": "Open Optimization Book 1",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting with the O018 open-solver lab",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting with the open-solver laboratory adaptation",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "mathematical programming and operations research",
       "pages": 542,
       "page_note": "Exact page count stated in 09 as the existing Book 1 witness.",
@@ -480,23 +753,30 @@
       "source_tree": null,
       "license": "CC BY-SA 4.0 text/figures; MIT code",
       "derivative_allowed": true,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
-        "Excel/Gurobi and commercial-only paths must be replaced or excluded through separately attributed O018 work.",
+        "Excel/Gurobi and commercial-only paths must be replaced or excluded through a separately attributed open-solver adaptation.",
         "A repository handle is recorded, but current evidence does not print a full URL."
       ],
       "source_format": "LaTeX, TikZ, Python, Excel, and build scripts",
-      "build_gate": "freeze LaTeX/TikZ/code/build closure, map proprietary dependencies, then translate the first Book 1 unit",
-      "adoption_state": "selected_start",
-      "rationale": "A selected optimization textbook coupled to a mandatory open-solver adaptation.",
-      "evidence_refs": ["09:L52", "10:L36"]
+      "preflight_needed": "freeze LaTeX/TikZ/code/build closure, map proprietary dependencies, then translate the first Book 1 unit",
+      "translation_readiness": "preflight_required",
+      "why_listed": "A selected optimization textbook coupled to a mandatory open-solver adaptation.",
+      "evidence_refs": [
+        "09:L52",
+        "10:L36"
+      ]
     },
     {
-      "id": "R018",
+      "id": "mathematics-in-lean",
+      "legacy_id": "R018",
       "title": "Mathematics in Lean",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "selected_resource",
-      "current_status": "assigned/starting; complete R018-only assignment delivered and acknowledged",
+      "catalog_role": "work",
+      "reported_status": "assigned/starting; a Mathematics in Lean-only assignment was reported delivered and acknowledged",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": null,
       "pages": null,
       "page_note": "No exact page count in current evidence.",
@@ -506,24 +786,30 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Exact Lean toolchain, dependency, build, and license closure remains open.",
         "A repository handle is recorded, but current evidence does not print a full URL."
       ],
       "source_format": "Lean source with generated instructional artifacts",
-      "build_gate": "freeze toolchain/dependencies/build, then translate and compile the first complete instructional chapter",
-      "adoption_state": "selected_start",
-      "rationale": "Selected formal-mathematics corpus whose prose translation must remain executable against a pinned toolchain.",
-      "evidence_refs": ["10:L37"]
+      "preflight_needed": "freeze toolchain/dependencies/build, then translate and compile the first complete instructional chapter",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Selected formal-mathematics corpus whose prose translation must remain executable against a pinned toolchain.",
+      "evidence_refs": [
+        "10:L37"
+      ]
     },
     {
-      "id": "R019",
+      "id": "stacks-project-reference",
+      "legacy_id": "R019",
       "title": "Stacks Project",
       "authors": null,
       "authors_note": "Project authorship not enumerated in current evidence.",
-      "category": "reference",
-      "current_status": "downstream tagged reference only; never a wholesale translation assignment",
-      "curricular_role": "reference after O016",
+      "catalog_role": "reference",
+      "reported_status": "downstream tagged reference only; never a wholesale translation assignment",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
+      "curricular_role": "reference for the algebraic-geometry bridge",
       "pages": null,
       "page_note": "No exact page count in current evidence 09/10.",
       "source_url": null,
@@ -532,20 +818,31 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Reference status does not authorize or justify cover-to-cover translation."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Reference status does not authorize or justify cover-to-cover translation."
+      ],
       "source_format": "tagged research reference; exact source form not stated in current evidence",
-      "build_gate": "not a runnable translation job",
-      "adoption_state": "reference",
-      "rationale": "Encyclopedic downstream reference, not a sequenced teaching spine.",
-      "evidence_refs": ["09:L18-L20", "09:L69"]
+      "preflight_needed": "not a runnable translation job",
+      "translation_readiness": "not_standalone",
+      "why_listed": "Encyclopedic downstream reference, not a sequenced teaching spine.",
+      "evidence_refs": [
+        "09:L18-L20",
+        "09:L69"
+      ]
     },
     {
-      "id": "R020",
+      "id": "openlogic-core",
+      "legacy_id": "R020",
       "title": "Open Logic core source",
-      "authors": ["The Open Logic Project"],
+      "authors": [
+        "The Open Logic Project"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "independently verified public source and license boundary; conditional candidate only; not runnable",
+      "catalog_role": "source_project",
+      "reported_status": "independently verified public source and license boundary; conditional candidate only; not runnable",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "configurable open logic curriculum and translation source",
       "pages": null,
       "page_note": "Not established: the root pins its document content as a submodule, and no complete component or rendered-page census has been admitted.",
@@ -555,16 +852,17 @@
       "source_tree": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
       "license": "CC BY 4.0",
       "derivative_allowed": true,
+      "source_evidence_status": "independently_verified_public_boundary",
       "component_caveats": [
         "The pinned root uses default branch master and records doc as gitlink b46686df0e06f302a7b75a74b379c802f7c7b565.",
         "The doc submodule and every other included component require an exact content, license, and asset census before admission.",
         "No baseline build has been independently replayed, so this row is not a runnable translation job.",
-        "This core-source boundary is separate from R013, whose reported configured Indonesian edition remains unverified and unchanged."
+        "This core-source boundary is separate from the reported Indonesian edition, whose exact public identity remains unverified."
       ],
       "source_format": "configurable LaTeX root with pinned doc git submodule",
-      "build_gate": "freeze and replay the complete submodule/component census and license boundaries, establish the exact edition and toolchain, and pass an independent baseline build before adoption",
-      "adoption_state": "conditional_candidate",
-      "rationale": "An exact public CC BY 4.0 core-source boundary makes Open Logic a strong translation candidate, but submodule closure and a reproducible baseline build are still required.",
+      "preflight_needed": "freeze and replay the complete submodule/component census and license boundaries, establish the exact edition and toolchain, and pass an independent baseline build before adoption",
+      "translation_readiness": "preflight_required",
+      "why_listed": "An exact public CC BY 4.0 core-source boundary makes Open Logic a strong translation candidate, but submodule closure and a reproducible baseline build are still required.",
       "evidence_refs": [
         "https://github.com/OpenLogicProject/OpenLogic/tree/1e960beff9ed7835bf3e3f1335e21af3439cd107",
         "README.md: 1843 bytes; SHA-256 5CAF9C104FD864181BE05951028041799AAAA9F3DD52321B678B944D1BE60176",
@@ -574,12 +872,15 @@
       ]
     },
     {
-      "id": "O001",
+      "id": "cross-corpus-assessment-infrastructure",
+      "legacy_id": "O001",
       "title": "Cross-corpus mastery, hints, solutions, and alternate-assessment infrastructure",
       "authors": null,
       "authors_note": "Not a single authored textbook.",
-      "category": "infrastructure",
-      "current_status": "current infrastructure design; not a missing textbook",
+      "catalog_role": "infrastructure",
+      "reported_status": "current infrastructure design; not a missing textbook",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "all courses",
       "pages": null,
       "page_note": "No meaningful page count.",
@@ -589,20 +890,30 @@
       "source_tree": null,
       "license": "component-specific",
       "derivative_allowed": null,
-      "component_caveats": ["Imported exercise expression retains its own component license."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Imported exercise expression retains its own component license."
+      ],
       "source_format": "PreTeXt exercise model, QTI 3 export, and selectively licensed WeBWorK items",
-      "build_gate": "design original cross-corpus selection and feedback system with component-level rights",
-      "adoption_state": "infrastructure",
-      "rationale": "Supplies reusable mastery and feedback surfaces across the complete corpus.",
-      "evidence_refs": ["09:L35"]
+      "preflight_needed": "design original cross-corpus selection and feedback system with component-level rights",
+      "translation_readiness": "not_standalone",
+      "why_listed": "Supplies reusable mastery and feedback surfaces across the complete corpus.",
+      "evidence_refs": [
+        "09:L35"
+      ]
     },
     {
-      "id": "O002",
+      "id": "mathematical-python-rse-composite",
+      "legacy_id": "O002",
       "title": "Mathematical Python plus Research Software Engineering with Python",
-      "authors": ["Patrick Walls"],
+      "authors": [
+        "Patrick Walls"
+      ],
       "authors_note": "Patrick Walls is recorded for Mathematical Python; the second work's authors are unknown in current evidence.",
-      "category": "composite_candidate",
-      "current_status": "current non-exhaustive composite candidate; not selected or dispatched",
+      "catalog_role": "composite",
+      "reported_status": "current non-exhaustive composite candidate; not selected or dispatched",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "mathematical computing and reproducibility",
       "pages": 528,
       "page_note": "RSE with Python is 528 pages; Mathematical Python is unpaginated. The optional SageMath book is 464 pages but lacks verified editable source.",
@@ -612,20 +923,31 @@
       "source_tree": null,
       "license": "CC BY-NC-SA 4.0 plus CC BY 4.0 text/MIT code",
       "derivative_allowed": true,
-      "component_caveats": ["Requires per-work notices and a bounded original bridge."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Requires per-work notices and a bounded original bridge."
+      ],
       "source_format": "Jupyter/MkDocs plus R Markdown/Bookdown/Make",
-      "build_gate": "add Sage, exact-versus-floating computation, experiment design, and proof/evidence bridge",
-      "adoption_state": "candidate",
-      "rationale": "Strong lawful computing and reproducibility components, but no single work closes the mathematical role.",
-      "evidence_refs": ["09:L36", "09:L56-L60"]
+      "preflight_needed": "add Sage, exact-versus-floating computation, experiment design, and proof/evidence bridge",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Strong lawful computing and reproducibility components, but no single work closes the mathematical role.",
+      "evidence_refs": [
+        "09:L36",
+        "09:L56-L60"
+      ]
     },
     {
-      "id": "O003",
+      "id": "topology-inquiry-based-approach",
+      "legacy_id": "O003",
       "title": "Topology: An Inquiry-Based Approach",
-      "authors": ["Steven Schlicker"],
+      "authors": [
+        "Steven Schlicker"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "conditional source-ready spine; not selected or dispatched",
+      "catalog_role": "work",
+      "reported_status": "conditional source-ready spine; not selected or dispatched",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "point-set topology",
       "pages": 210,
       "page_note": "Committed PDF exact physical page count.",
@@ -635,24 +957,33 @@
       "source_tree": null,
       "license": "CC BY-NC-SA 3.0 conservatively; two project XSL files have separate GPL notices",
       "derivative_allowed": true,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "License metadata conflicts between 3.0 and 4.0; use conservative 3.0 authority.",
         "No answers or solutions.",
         "Figure descriptions are inadequate."
       ],
       "source_format": "PreTeXt XML",
-      "build_gate": "rebuild at pinned PreTeXt 1.7.5, close descriptions, and decide inquiry-based/no-solution pedagogy",
-      "adoption_state": "conditional_candidate",
-      "rationale": "Exact include, asset, ID, and xref closure is complete and topical coverage is coherent, but solution and build-policy gates remain.",
-      "evidence_refs": ["09:L37", "09:L82-L113"]
+      "preflight_needed": "rebuild at pinned PreTeXt 1.7.5, close descriptions, and decide inquiry-based/no-solution pedagogy",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Exact include, asset, ID, and xref closure is complete and topical coverage is coherent, but solution and build-policy gates remain.",
+      "evidence_refs": [
+        "09:L37",
+        "09:L82-L113"
+      ]
     },
     {
-      "id": "O004",
+      "id": "euclidean-plane-and-its-relatives",
+      "legacy_id": "O004",
       "title": "Euclidean Plane and Its Relatives",
-      "authors": ["Anton Petrunin"],
+      "authors": [
+        "Anton Petrunin"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "conditional source-ready core candidate; not selected or dispatched",
+      "catalog_role": "work",
+      "reported_status": "conditional source-ready core candidate; not selected or dispatched",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "Euclidean, affine, projective, hyperbolic, and spherical geometry",
       "pages": 199,
       "page_note": "Official arXiv 1302.1630v25; third edition, tenth printing.",
@@ -662,23 +993,32 @@
       "source_tree": null,
       "license": "CC BY-SA 4.0",
       "derivative_allowed": true,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Two P22 Underground cover fonts have no recorded font-specific license and should be omitted or replaced.",
         "Extensive hints are not a worked-solution manual."
       ],
       "source_format": "41-file LaTeX/MetaPost source",
-      "build_gate": "obtain a clean current build, complete component-rights review, create semantic reader/backend, and decide worked-solution policy",
-      "adoption_state": "conditional_candidate",
-      "rationale": "Unusually broad geometry coverage and strong editable-source/rights evidence, with bounded build and rights defects.",
-      "evidence_refs": ["09:L38", "09:L115-L147"]
+      "preflight_needed": "obtain a clean current build, complete component-rights review, create semantic reader/backend, and decide worked-solution policy",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Unusually broad geometry coverage and strong editable-source/rights evidence, with bounded build and rights defects.",
+      "evidence_refs": [
+        "09:L38",
+        "09:L115-L147"
+      ]
     },
     {
-      "id": "O005",
+      "id": "modeling-nonlinear-dynamics-composite",
+      "legacy_id": "O005",
       "title": "Sayama plus ModSimPy; source-first fallback ModSimPy plus Ordinary Differential Equations Project",
-      "authors": ["Sayama"],
+      "authors": [
+        "Sayama"
+      ],
       "authors_note": "Surname only for one component; other authors unknown in current evidence.",
-      "category": "open_search",
-      "current_status": "open; no candidate passes all hard gates",
+      "catalog_role": "composite",
+      "reported_status": "open; no candidate passes all hard gates",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "modeling and nonlinear dynamics",
       "pages": null,
       "page_note": "Sayama has 19 chapters; exact page totals are unknown.",
@@ -688,20 +1028,31 @@
       "source_tree": null,
       "license": "Sayama CC BY-NC-SA 3.0; remaining component licenses not fully stated",
       "derivative_allowed": null,
-      "component_caveats": ["Best-breadth work has no public authoring source."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Best-breadth work has no public authoring source."
+      ],
       "source_format": "PDF/Python/partial solutions plus Jupyter components",
-      "build_gate": "find editable-source breadth and close validation, identifiability, bifurcation, and chaos",
-      "adoption_state": "candidate",
-      "rationale": "Current breadth and source-first routes each fail a different hard gate.",
-      "evidence_refs": ["09:L39"]
+      "preflight_needed": "find editable-source breadth and close validation, identifiability, bifurcation, and chaos",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Current breadth and source-first routes each fail a different hard gate.",
+      "evidence_refs": [
+        "09:L39"
+      ]
     },
     {
-      "id": "O006",
+      "id": "distribution-statistical-methods-composite",
+      "legacy_id": "O006",
       "title": "Dunn-Axelsen distribution theory plus Spiegler statistical methods",
-      "authors": ["Dunn-Axelsen", "Spiegler"],
+      "authors": [
+        "Dunn-Axelsen",
+        "Spiegler"
+      ],
       "authors_note": "Names are recorded only in abbreviated form.",
-      "category": "composite_candidate",
-      "current_status": "composite/open; no complete selection",
+      "catalog_role": "composite",
+      "reported_status": "composite/open; no complete selection",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "mathematical statistics",
       "pages": null,
       "page_note": "Exact page totals open.",
@@ -711,20 +1062,31 @@
       "source_tree": null,
       "license": "principally CC BY-NC-SA; exact component licenses not fully stated",
       "derivative_allowed": null,
-      "component_caveats": ["Exact component-level rights and complete proof/solution spine are unresolved."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact component-level rights and complete proof/solution spine are unresolved."
+      ],
       "source_format": "Bookdown/R Markdown plus Quarto/QMD/Jupyter",
-      "build_gate": "close sufficiency, completeness, exponential families, Fisher information/CRLB, likelihood ratios, regression, asymptotics, and solutions",
-      "adoption_state": "candidate",
-      "rationale": "Editable components exist, but major mathematical and solved-proof coverage is missing.",
-      "evidence_refs": ["09:L40"]
+      "preflight_needed": "close sufficiency, completeness, exponential families, Fisher information/CRLB, likelihood ratios, regression, asymptotics, and solutions",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Editable components exist, but major mathematical and solved-proof coverage is missing.",
+      "evidence_refs": [
+        "09:L40"
+      ]
     },
     {
-      "id": "O007",
+      "id": "measure-integration-real-analysis-composite",
+      "legacy_id": "O007",
       "title": "Measure, Integration & Real Analysis plus Fubini-Tonelli RFA and Gautam Iyer Math 720 notes",
-      "authors": ["Axler", "Gautam Iyer"],
+      "authors": [
+        "Axler",
+        "Gautam Iyer"
+      ],
       "authors_note": "The Fubini-Tonelli component's authors are unknown in current evidence.",
-      "category": "open_search",
-      "current_status": "open; no complete candidate",
+      "catalog_role": "composite",
+      "reported_status": "open; no complete candidate",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "measure and integration",
       "pages": null,
       "page_note": "Axler is 426 pages; Iyer notes are 24 pages; composite total is intentionally not summed.",
@@ -734,24 +1096,32 @@
       "source_tree": null,
       "license": "Axler CC BY-NC 4.0; RFA and Iyer CC BY-NC-SA 4.0",
       "derivative_allowed": true,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "Axler has no public authoring source or solutions.",
         "RFA has thin exercise closure.",
         "Iyer homework solutions are enrolled-only."
       ],
       "source_format": "PDF benchmark plus LaTeX donor plus TeX slide notes",
-      "build_gate": "find a complete editable proof-first spine with counterexamples and public solved mastery problems",
-      "adoption_state": "candidate",
-      "rationale": "No lawful component currently satisfies source, scope, and self-study closure together.",
-      "evidence_refs": ["09:L41"]
+      "preflight_needed": "find a complete editable proof-first spine with counterexamples and public solved mastery problems",
+      "translation_readiness": "preflight_required",
+      "why_listed": "No lawful component currently satisfies source, scope, and self-study closure together.",
+      "evidence_refs": [
+        "09:L41"
+      ]
     },
     {
-      "id": "O008",
+      "id": "functional-analysis-operator-algebras",
+      "legacy_id": "O008",
       "title": "Functional Analysis and Operator Algebras",
-      "authors": ["Erdman"],
+      "authors": [
+        "Erdman"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "source_ready_candidate",
-      "current_status": "conditional source-ready spine; not selected or dispatched",
+      "catalog_role": "work",
+      "reported_status": "conditional source-ready spine; not selected or dispatched",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "functional analysis",
       "pages": 230,
       "page_note": "Official PDF is 230 pages; clean modern rebuild reflows to 232 pages.",
@@ -761,20 +1131,31 @@
       "source_tree": null,
       "license": "CC BY-SA 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["No answers or solutions; historical pagination and modern reflow differ."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "No answers or solutions; historical pagination and modern reflow differ."
+      ],
       "source_format": "27-file LaTeX/BibTeX/EPS archive",
-      "build_gate": "choose historical 230-page reproduction or QA the 232-page reflow; complete visual/component-rights/solution policy",
-      "adoption_state": "conditional_candidate",
-      "rationale": "Topical core and editable-source closure are strong; remaining issues are bounded production and mastery gaps.",
-      "evidence_refs": ["09:L42", "09:L149-L183"]
+      "preflight_needed": "choose historical 230-page reproduction or QA the 232-page reflow; complete visual/component-rights/solution policy",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Topical core and editable-source closure are strong; remaining issues are bounded production and mastery gaps.",
+      "evidence_refs": [
+        "09:L42",
+        "09:L149-L183"
+      ]
     },
     {
-      "id": "O009",
+      "id": "measure-probability-stochastic-composite",
+      "legacy_id": "O009",
       "title": "Imperial probability notes plus Siegrist, or MIT 6.436J plus MIT 18.445",
-      "authors": ["Siegrist"],
+      "authors": [
+        "Siegrist"
+      ],
       "authors_note": "Other authors unknown in current evidence.",
-      "category": "composite_candidate",
-      "current_status": "open between two composites",
+      "catalog_role": "composite",
+      "reported_status": "open between two composites",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "measure-theoretic probability and stochastic processes",
       "pages": null,
       "page_note": "Imperial notes are 125 pages; other totals are unknown.",
@@ -784,20 +1165,30 @@
       "source_tree": null,
       "license": "Imperial CC BY 4.0; MIT packages CC BY-NC-SA; Siegrist exact license not stated here",
       "derivative_allowed": null,
-      "component_caveats": ["Source-first route lacks proof/solution upgrades; MIT route lacks verified editable TeX closure."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Source-first route lacks proof/solution upgrades; MIT route lacks verified editable TeX closure."
+      ],
       "source_format": "LaTeX notes or HTML/PDF course packages",
-      "build_gate": "select only after one composite closes editable source, proof breadth, and public solutions",
-      "adoption_state": "candidate",
-      "rationale": "Each route supplies different strengths, but neither closes all hard gates.",
-      "evidence_refs": ["09:L43"]
+      "preflight_needed": "select only after one composite closes editable source, proof breadth, and public solutions",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Each route supplies different strengths, but neither closes all hard gates.",
+      "evidence_refs": [
+        "09:L43"
+      ]
     },
     {
-      "id": "O010",
+      "id": "partial-differential-equations",
+      "legacy_id": "O010",
       "title": "Partial Differential Equations",
-      "authors": ["Victor Ivrii"],
+      "authors": [
+        "Victor Ivrii"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "conditional source-ready classical core; incomplete O010 spine",
+      "catalog_role": "work",
+      "reported_status": "conditional source-ready classical core; incomplete partial-differential-equations spine",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "partial differential equations",
       "pages": 415,
       "page_note": "Current official US-Letter PDF.",
@@ -807,20 +1198,29 @@
       "source_tree": null,
       "license": "CC BY-SA 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["No systematic Sobolev/Lax-Milgram development, numerical interface, or solution layer."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "No systematic Sobolev/Lax-Milgram development, numerical interface, or solution layer."
+      ],
       "source_format": "83 Markdown, 76 TeX, and 75 SVG files after resource-fork exclusion",
-      "build_gate": "establish deterministic whole-book build and add lawful weak-theory/numerical/solution closure",
-      "adoption_state": "conditional_candidate",
-      "rationale": "Verified lawful classical core with substantial source coverage, but not the complete specified course.",
-      "evidence_refs": ["09:L44", "09:L185-L214"]
+      "preflight_needed": "establish deterministic whole-book build and add lawful weak-theory/numerical/solution closure",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Verified lawful classical core with substantial source coverage, but not the complete specified course.",
+      "evidence_refs": [
+        "09:L44",
+        "09:L185-L214"
+      ]
     },
     {
-      "id": "O011",
+      "id": "smooth-manifolds-differential-geometry-composite",
+      "legacy_id": "O011",
       "title": "van der Vorst manifolds plus Analysis on Manifolds and manifolds-notes",
       "authors": null,
       "authors_note": "Candidate names and repository handles are recorded, but a complete author list is unknown.",
-      "category": "open_search",
-      "current_status": "open; optional later specialization",
+      "catalog_role": "composite",
+      "reported_status": "open; optional later specialization",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "smooth manifolds and differential geometry",
       "pages": null,
       "page_note": "AoM release variants are 191 and 193 pages; other totals unknown.",
@@ -830,24 +1230,33 @@
       "source_tree": null,
       "license": "mixed CC BY-NC-SA and CC BY-SA components",
       "derivative_allowed": null,
+      "source_evidence_status": "reported_not_independently_replayed",
       "component_caveats": [
         "No component closes manifolds, forms, Lie groups, Riemannian connections, geodesics, curvature, and solutions together.",
         "One unfinished candidate has a bundled-font boundary.",
         "Handwritten third-party lecture scans are not editable textbook source."
       ],
       "source_format": "LaTeX components; one scan archive is explicitly excluded as an editable spine",
-      "build_gate": "find or compose a complete rights-clean source with Riemannian and solution closure",
-      "adoption_state": "optional",
-      "rationale": "Useful lawful components split the required scope and cannot yet form one admitted course.",
-      "evidence_refs": ["09:L45", "09:L216-L247"]
+      "preflight_needed": "find or compose a complete rights-clean source with Riemannian and solution closure",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Useful lawful components split the required scope and cannot yet form one admitted course.",
+      "evidence_refs": [
+        "09:L45",
+        "09:L216-L247"
+      ]
     },
     {
-      "id": "O012",
+      "id": "algebraic-topology-2019",
+      "legacy_id": "O012",
       "title": "AlgebraicTopology2019",
-      "authors": ["Roberts"],
+      "authors": [
+        "Roberts"
+      ],
       "authors_note": "Surname only in current evidence.",
-      "category": "open_search",
-      "current_status": "open; optional later specialization",
+      "catalog_role": "work",
+      "reported_status": "open; optional later specialization",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "algebraic topology",
       "pages": 119,
       "page_note": "Committed official PDF.",
@@ -857,20 +1266,31 @@
       "source_tree": "aa1d3edb85818e7176e2d0bbc06d9b4bd1e247f5",
       "license": "CC BY 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["Cellular homology, required breadth, and solutions are missing."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Cellular homology, required breadth, and solutions are missing."
+      ],
       "source_format": "single-file LaTeX/Tufte/TikZ/xy course",
-      "build_gate": "add or find lawful cellular/simplicial homology, cohomology, exact-sequence, computation, and solution closure",
-      "adoption_state": "optional",
-      "rationale": "Lawful coherent compact lecture core, but not a complete O012 spine.",
-      "evidence_refs": ["09:L46", "09:L249-L273"]
+      "preflight_needed": "add or find lawful cellular/simplicial homology, cohomology, exact-sequence, computation, and solution closure",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Lawful coherent compact lecture core, but not a complete algebraic-topology selection.",
+      "evidence_refs": [
+        "09:L46",
+        "09:L249-L273"
+      ]
     },
     {
-      "id": "O013",
+      "id": "methods-of-algebra-volume-1",
+      "legacy_id": "O013",
       "title": "Methods of Algebra, Volume 1",
-      "authors": ["Wen-Wei Li"],
+      "authors": [
+        "Wen-Wei Li"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "source-ready candidate only if optional specialization is chosen",
+      "catalog_role": "work",
+      "reported_status": "source-ready candidate only if optional specialization is chosen",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "graduate algebra",
       "pages": null,
       "page_note": "Exact pages still to freeze.",
@@ -880,20 +1300,31 @@
       "source_tree": null,
       "license": "CC BY 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["No full solutions; representation-theory breadth and terminology crosswalk remain."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "No full solutions; representation-theory breadth and terminology crosswalk remain."
+      ],
       "source_format": "Chinese XeLaTeX/PDF/Makefile",
-      "build_gate": "freeze pages, build, solutions, and Chinese-to-target terminology before selection",
-      "adoption_state": "optional",
-      "rationale": "Unusually strong editable and permissively licensed candidate for a deliberately chosen specialization.",
-      "evidence_refs": ["09:L47", "09:L54-L65"]
+      "preflight_needed": "freeze pages, build, solutions, and Chinese-to-target terminology before selection",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Unusually strong editable and permissively licensed candidate for a deliberately chosen specialization.",
+      "evidence_refs": [
+        "09:L47",
+        "09:L54-L65"
+      ]
     },
     {
-      "id": "O014",
+      "id": "methods-of-algebra-volume-2",
+      "legacy_id": "O014",
       "title": "Methods of Algebra, Volume 2",
-      "authors": ["Wen-Wei Li"],
+      "authors": [
+        "Wen-Wei Li"
+      ],
       "authors_note": null,
-      "category": "source_ready_candidate",
-      "current_status": "source-ready candidate only if optional specialization is chosen",
+      "catalog_role": "work",
+      "reported_status": "source-ready candidate only if optional specialization is chosen",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "category and homological methods",
       "pages": null,
       "page_note": "Exact pages still to freeze.",
@@ -903,20 +1334,29 @@
       "source_tree": null,
       "license": "CC BY 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["Requires Volume 1 and a worked diagram-chasing/solutions layer."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Requires Volume 1 and a worked diagram-chasing/solutions layer."
+      ],
       "source_format": "Chinese XeLaTeX/PDF/Makefile",
-      "build_gate": "freeze pages/build and add dependency and worked-solution closure before selection",
-      "adoption_state": "optional",
-      "rationale": "Strong source-ready continuation only when the algebra/category specialization is deliberately commissioned.",
-      "evidence_refs": ["09:L48", "09:L54-L65"]
+      "preflight_needed": "freeze pages/build and add dependency and worked-solution closure before selection",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Strong source-ready continuation only when the algebra/category specialization is deliberately commissioned.",
+      "evidence_refs": [
+        "09:L48",
+        "09:L54-L65"
+      ]
     },
     {
-      "id": "O015",
+      "id": "mit-ocw-6-253",
+      "legacy_id": "O015",
       "title": "MIT OCW 6.253",
       "authors": null,
       "authors_note": "Unknown in current evidence.",
-      "category": "open_search",
-      "current_status": "open; optional specialization",
+      "catalog_role": "course",
+      "reported_status": "open; optional specialization",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "advanced optimization and convex analysis",
       "pages": null,
       "page_note": "Twenty-five lecture units; no exact page total.",
@@ -926,20 +1366,31 @@
       "source_tree": null,
       "license": "CC BY-NC-SA 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["No public editable TeX; fmin.xyz is excluded for lack of explicit content license."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "No public editable TeX; fmin.xyz is excluded for lack of explicit content license."
+      ],
       "source_format": "HTML plus one notes PDF, solved homework sets, and solved exams",
-      "build_gate": "find public editable source or a different complete source-ready candidate",
-      "adoption_state": "optional",
-      "rationale": "Excellent lawful content and solutions, but fails the hard editable-source gate.",
-      "evidence_refs": ["09:L49", "09:L78"]
+      "preflight_needed": "find public editable source or a different complete source-ready candidate",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Excellent lawful content and solutions, but fails the hard editable-source gate.",
+      "evidence_refs": [
+        "09:L49",
+        "09:L78"
+      ]
     },
     {
-      "id": "O016",
+      "id": "algebraic-geometry-bridge-composite",
+      "legacy_id": "O016",
       "title": "Bundel, Garben und Kohomologie plus MIT 18.725",
-      "authors": ["Brenner"],
+      "authors": [
+        "Brenner"
+      ],
       "authors_note": "Surname only for one component; MIT author list unknown.",
-      "category": "open_search",
-      "current_status": "open; optional specialization",
+      "catalog_role": "composite",
+      "reported_status": "open; optional specialization",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "algebraic-geometry bridge",
       "pages": null,
       "page_note": "Brenner is 265 pages; MIT supplies 25 lecture PDFs and 11 assignments; composite total intentionally not summed.",
@@ -949,20 +1400,29 @@
       "source_tree": null,
       "license": "Brenner CC BY-SA 4.0; MIT CC BY-NC-SA 4.0",
       "derivative_allowed": true,
-      "component_caveats": ["Brenner has no solutions and a bundle-first route; MIT has no TeX/solutions. Stacks is only downstream reference."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Brenner has no solutions and a bundle-first route; MIT has no TeX/solutions. Stacks is only downstream reference."
+      ],
       "source_format": "German MediaWiki plus MIT PDF course package",
-      "build_gate": "close one coherent editable bridge with solutions before linking learners into Stacks",
-      "adoption_state": "optional",
-      "rationale": "Complementary lawful sources exist, but no complete bridge is currently admitted.",
-      "evidence_refs": ["09:L50", "09:L18-L20"]
+      "preflight_needed": "close one coherent editable bridge with solutions before linking learners into Stacks",
+      "translation_readiness": "preflight_required",
+      "why_listed": "Complementary lawful sources exist, but no complete bridge is currently admitted.",
+      "evidence_refs": [
+        "09:L50",
+        "09:L18-L20"
+      ]
     },
     {
-      "id": "O017",
+      "id": "research-reading-reproducibility-composite",
+      "legacy_id": "O017",
       "title": "MIT 18.821 plus selected Research Software Engineering with Python and Turing Way units",
       "authors": null,
       "authors_note": "Component author list unknown in current evidence.",
-      "category": "composite_candidate",
-      "current_status": "original compact composite capstone; not selected or dispatched",
+      "catalog_role": "composite",
+      "reported_status": "original compact composite capstone; not selected or dispatched",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "research reading, exposition, and reproducibility",
       "pages": null,
       "page_note": "RSE with Python is 528 pages, but the current design explicitly rejects translating all 528 pages as the course.",
@@ -972,35 +1432,50 @@
       "source_tree": null,
       "license": null,
       "derivative_allowed": null,
-      "component_caveats": ["Exact component licenses and bounded selections require a manifest."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Exact component licenses and bounded selections require a manifest."
+      ],
       "source_format": "HTML/PDF/video, R Markdown/Bookdown, and MyST/Markdown components",
-      "build_gate": "define bounded lawful selections and add math-paper reading, proof reconstruction, exposition, errata, and review response",
-      "adoption_state": "candidate",
-      "rationale": "No single donor combines mathematical research practice and computational reproducibility.",
-      "evidence_refs": ["09:L51", "09:L56-L60"]
+      "preflight_needed": "define bounded lawful selections and add math-paper reading, proof reconstruction, exposition, errata, and review response",
+      "translation_readiness": "preflight_required",
+      "why_listed": "No single donor combines mathematical research practice and computational reproducibility.",
+      "evidence_refs": [
+        "09:L51",
+        "09:L56-L60"
+      ]
     },
     {
-      "id": "O018",
+      "id": "open-solver-operations-research-lab",
+      "legacy_id": "O018",
       "title": "Open-solver operations-research lab",
       "authors": null,
       "authors_note": "Not a standalone authored textbook.",
-      "category": "adaptation",
-      "current_status": "selected adaptation coupled to R017",
+      "catalog_role": "adaptation",
+      "reported_status": "selected adaptation coupled to Open Optimization Book 1",
+      "known_editions": [],
+      "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
       "curricular_role": "open-solver operations-research lab",
       "pages": null,
-      "page_note": "Uses selected examples from the existing 542-page R017 book; no standalone page count.",
+      "page_note": "Uses selected examples from the existing 542-page Open Optimization Book 1; no standalone page count.",
       "source_url": null,
       "source_repo": "mobook/MO-book",
       "source_commit": null,
       "source_tree": null,
-      "license": "R017 CC BY-SA 4.0/MIT plus MO-book Jupyter/MIT",
+      "license": "Open Optimization Book 1 CC BY-SA 4.0/MIT plus MO-book Jupyter/MIT",
       "derivative_allowed": true,
-      "component_caveats": ["Commercial-only paths must be replaced or excluded without silently altering the source book."],
+      "source_evidence_status": "reported_not_independently_replayed",
+      "component_caveats": [
+        "Commercial-only paths must be replaced or excluded without silently altering the source book."
+      ],
       "source_format": "LaTeX/TikZ/Python/Excel plus Jupyter and open-solver material",
-      "build_gate": "port selected examples to Pyomo and HiGHS with fixtures, tests, provenance, and reproducible builds",
-      "adoption_state": "infrastructure",
-      "rationale": "Makes the selected optimization corpus runnable without mandatory proprietary solvers.",
-      "evidence_refs": ["09:L52", "10:L36"]
+      "preflight_needed": "port selected examples to Pyomo and HiGHS with fixtures, tests, provenance, and reproducible builds",
+      "translation_readiness": "not_standalone",
+      "why_listed": "Makes the selected optimization corpus runnable without mandatory proprietary solvers.",
+      "evidence_refs": [
+        "09:L52",
+        "10:L36"
+      ]
     }
   ],
   "exclusions": [
@@ -1011,7 +1486,9 @@
       "license": "ND; exact license/version not printed in current evidence",
       "derivative_allowed": false,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L73-L74"]
+      "evidence_refs": [
+        "09:L73-L74"
+      ]
     },
     {
       "id": "X-ND-MIT-CATEGORICAL-TOPOLOGY",
@@ -1020,7 +1497,9 @@
       "license": "ND; exact license/version not printed in current evidence",
       "derivative_allowed": false,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L73-L74"]
+      "evidence_refs": [
+        "09:L73-L74"
+      ]
     },
     {
       "id": "X-RESTRICTIVE-TOPOLOGY-WITHOUT-TEARS",
@@ -1029,7 +1508,9 @@
       "license": "restrictive; exact terms not printed in current evidence",
       "derivative_allowed": false,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L75"]
+      "evidence_refs": [
+        "09:L75"
+      ]
     },
     {
       "id": "X-NO-LICENSE-EPFL-OPTML",
@@ -1038,7 +1519,9 @@
       "license": null,
       "derivative_allowed": null,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L78"]
+      "evidence_refs": [
+        "09:L78"
+      ]
     },
     {
       "id": "X-NO-LICENSE-FMIN",
@@ -1047,17 +1530,24 @@
       "license": null,
       "derivative_allowed": null,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L49", "09:L78"]
+      "evidence_refs": [
+        "09:L49",
+        "09:L78"
+      ]
     },
     {
       "id": "X-AMBIGUOUS-BLACKADAR",
       "title": "Real Analysis",
-      "authors": ["Bruce Blackadar"],
+      "authors": [
+        "Bruce Blackadar"
+      ],
       "reason": "Approximately 2,805-page work-in-progress PDF; no public TeX or precisely named derivative license found.",
       "license": null,
       "derivative_allowed": null,
       "catalog_disposition": "reference_only",
-      "evidence_refs": ["09:L70-L72"]
+      "evidence_refs": [
+        "09:L70-L72"
+      ]
     },
     {
       "id": "X-BENCHMARKS-UNVERIFIED",
@@ -1066,7 +1556,9 @@
       "license": null,
       "derivative_allowed": null,
       "catalog_disposition": "rejected_until_verified",
-      "evidence_refs": ["09:L76-L77"]
+      "evidence_refs": [
+        "09:L76-L77"
+      ]
     },
     {
       "id": "X-SCAN-DIFFERENTIAL-GEOMETRY-NOTES",
@@ -1075,7 +1567,9 @@
       "license": null,
       "derivative_allowed": null,
       "catalog_disposition": "rejected",
-      "evidence_refs": ["09:L216-L225"]
+      "evidence_refs": [
+        "09:L216-L225"
+      ]
     }
   ]
 }

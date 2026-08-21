@@ -930,19 +930,44 @@ def validate_jobs(
 def validate_translations(errors: list[str]) -> int:
     catalog, _ = load(ROOT / "catalog" / "translations.json")
     validate_schema(catalog, "translations", "translation catalog", errors)
-    expect(catalog.get("schema") == "math-commons-translation-catalog/v1", errors, "translation catalog schema")
+    expect(catalog.get("schema") == "math-commons-translation-catalog/v2", errors, "translation catalog schema")
     entries = catalog.get("entries")
     if not isinstance(entries, list) or not entries:
         errors.append("translation catalog has no entries")
         return 0
     ids = [entry.get("id") for entry in entries]
     expect(len(ids) == len(set(ids)), errors, "translation IDs are not unique")
+    legacy_ids = [entry.get("legacy_id") for entry in entries]
+    expect(len(legacy_ids) == len(set(legacy_ids)), errors, "translation legacy IDs are not unique")
     for entry in entries:
         if not isinstance(entry, dict):
             errors.append("translation catalog has a malformed entry row")
             continue
         entry_id = entry.get("id")
-        expect(entry.get("adoption_state") in {"candidate", "conditional_candidate", "current_production", "donor", "existing_edition", "infrastructure", "optional", "reference", "selected_start"}, errors, f"translation {entry_id}: state")
+        expect(
+            isinstance(entry_id, str) and SLUG.fullmatch(entry_id) is not None,
+            errors,
+            f"translation {entry_id}: semantic ID",
+        )
+        expect(
+            entry.get("translation_readiness") in {"preflight_required", "not_standalone"},
+            errors,
+            f"translation {entry_id}: readiness",
+        )
+        editions = entry.get("known_editions")
+        expect(isinstance(editions, list), errors, f"translation {entry_id}: editions")
+        if isinstance(editions, list):
+            edition_keys = [
+                (row.get("language_tag"), row.get("state"))
+                for row in editions
+                if isinstance(row, dict)
+            ]
+            expect(
+                len(edition_keys) == len(editions)
+                and len(edition_keys) == len(set(edition_keys)),
+                errors,
+                f"translation {entry_id}: edition identities",
+            )
         url = entry.get("source_url")
         expect(url is None or (isinstance(url, str) and url.startswith("https://")), errors, f"translation {entry_id}: source URL")
         commit = entry.get("source_commit")
@@ -953,6 +978,22 @@ def validate_translations(errors: list[str]) -> int:
         and evidence.get("public_evidence_included") is False,
         errors,
         "translation catalog evidence boundary",
+    )
+    scope = catalog.get("scope")
+    expect(
+        isinstance(scope, dict)
+        and scope.get("non_exhaustive") is True
+        and scope.get("other_open_works_welcome") is True,
+        errors,
+        "translation catalog non-exclusive scope",
+    )
+    priority = catalog.get("language_priority")
+    expect(
+        isinstance(priority, dict)
+        and priority.get("any_language_welcome") is True
+        and priority.get("official_96_language_list") is False,
+        errors,
+        "translation catalog language-priority contract",
     )
     return len(entries)
 
