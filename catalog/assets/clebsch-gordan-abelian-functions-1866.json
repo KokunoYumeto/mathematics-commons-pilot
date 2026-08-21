@@ -1,0 +1,89 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "clebsch-gordan-abelian-functions-1866",
+  "wrapper_directory": "clebsch-gordan-abelian-functions-1866",
+  "source_files": 11,
+  "source_bytes": 33797508,
+  "canonical_stream_bytes": 1241,
+  "source_tree_sha256": "08F84FBD87443E3BE089B46886090A9A87498133FBAA3D2FDE6B6A4D38C736AD",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "clebsch-gordan-abelian-functions-1866.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 11,
+      "source_bytes": 33797508,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 33257102,
+      "zip_sha256": "847F2DD240BA3D960F175FB1144C4E272A2B2963100F654C6A878A02FCB76C5E"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2459,
+      "sha256": "65D5ADE6AFF5AF460682D8E769CE28D50DA94799F27FCA28D0F4EE38E3C542D3"
+    },
+    {
+      "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
+      "bytes": 1005,
+      "sha256": "91C07FB79B253D2ED80E145D6E24223088F9E5AB01E93AF0FE008C8D89C1C84C"
+    },
+    {
+      "path": "02_PHYSICAL_TO_PRINTED_PAGE_MAP.tsv",
+      "bytes": 33590,
+      "sha256": "443A37D28BAC2362BDF4576960A815A4BCFBB5DBF554D2FDE0975484B422CC12"
+    },
+    {
+      "path": "03_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
+      "bytes": 15071,
+      "sha256": "CF839C4ABE4FCEE2A8B4CAD5B3CA5978B2A5FAC5666361A117348CD24FB31A83"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 269479,
+      "sha256": "273900946287959A37E36FAF5559E7FDD069F43454F1C12DB1B63745A73A7673"
+    },
+    {
+      "path": "05_ISSUE_LEDGER_TEMPLATE.tsv",
+      "bytes": 105,
+      "sha256": "56D5EB126C3B8C73A76729F9E86E8DD1D27F5EB3D0E4058D7075DED05FDF706C"
+    },
+    {
+      "path": "06_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
+      "bytes": 375,
+      "sha256": "3CEAE2B56CA32BA69F0E34655409C705A4993F56109C99F2FD2403DDF4C85322"
+    },
+    {
+      "path": "20_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_full_362_physical_pages.pdf",
+      "bytes": 8248357,
+      "sha256": "17FD42069383A63FA74BF0D724697ED87E16B26A7C6D023D33BEC9785608921C"
+    },
+    {
+      "path": "21_Clebsch_Gordan_Abelsche_Functionen_existing_German_English_state_UNTRUSTED.zip",
+      "bytes": 25223651,
+      "sha256": "A706FB9608A8E36B8A8EDDC9215904F5CE98D4FDD6CBD8A085881F7A8347E5C8"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1066,
+      "sha256": "4285EE92405D7F678A1BC3A5A52847B4415B410910994003DD94EE93ED83C7F7"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2350,
+      "sha256": "E8DCC038ACBC1E95EE1834B57077EAFB90294689A3BF2C2258BB243F088B5C4D"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "11/11",
+    "zip_member_replay": "11/11",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

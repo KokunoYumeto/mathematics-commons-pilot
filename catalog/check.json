@@ -1,0 +1,97 @@
+{
+  "schema": "math-commons-catalog-check/v1",
+  "status": "PASS",
+  "inputs": {
+    "job_meta": {
+      "path": "catalog/job-meta.json",
+      "bytes": 72043,
+      "sha256": "06DAAF4445FCFE9C605B8E7E5987F00CF503EDC9D9928EDBFE0BFD749AA34BA3"
+    },
+    "jobs": {
+      "path": "catalog/jobs.json",
+      "bytes": 105768,
+      "sha256": "2441250EA70F194B87CBC8AEB338DBFFBEE45419B82C7CAE95DBB75770B72BCB"
+    },
+    "translations": {
+      "path": "catalog/translations.json",
+      "bytes": 51636,
+      "sha256": "4BBF7DEE79BD24B7F8A674CC07AB0AE1E0BAD538396C8FFF0F539B875B321722"
+    },
+    "global_receipt": {
+      "path": "catalog/receipts/global.json",
+      "bytes": 81598,
+      "sha256": "F3FCA45C79995C3EE595DC65B22E319A0F4C629267B7AB2821C3875F60B5F3EF"
+    },
+    "gordan2_receipt": {
+      "path": "catalog/receipts/gordan2.txt",
+      "bytes": 1805,
+      "sha256": "872FA5281555852C8069C0ABB9E4B581DB968E837AAA2ED7F5DBD92BE5977A34"
+    },
+    "mikami_receipt": {
+      "path": "catalog/receipts/mikami.json",
+      "bytes": 6143,
+      "sha256": "313587214FF5FFA6EF76518E429451B2EEE0398E14C9A5F8795180A33E1BCF3A"
+    },
+    "job_meta_schema": {
+      "path": "schemas/job-meta.schema.json",
+      "bytes": 6674,
+      "sha256": "2BD73BA516C980A64BCAC6A95E353F2AA3E2D4337060E5669A8879916C686258"
+    },
+    "job_schema": {
+      "path": "schemas/job-catalog.schema.json",
+      "bytes": 8687,
+      "sha256": "06DAF945DAE70F0F55CC63ECD1809D0CE47B1811669D0ACAB5F78BA64BC82F0B"
+    },
+    "translation_schema": {
+      "path": "schemas/translation-catalog.schema.json",
+      "bytes": 5327,
+      "sha256": "8F2AA38839CBD0BC6DEB1BD76A807F46AB1F6902E4DA77D03A2682B63F0256A3"
+    },
+    "asset_schema": {
+      "path": "schemas/job-asset.schema.json",
+      "bytes": 3040,
+      "sha256": "B24F006DE8A82505666B5E5CD2F7CCB9E8A719A0E7F402C0BA3F62BC43465C79"
+    },
+    "check_schema": {
+      "path": "schemas/catalog-check.schema.json",
+      "bytes": 4729,
+      "sha256": "81ADBFA1C22FE336DBC2031B905617CB818291E709BC77B204BD5096AC087D28"
+    },
+    "schema_validator": {
+      "path": "tools/validate_packets.py",
+      "bytes": 209399,
+      "sha256": "271448527D52AADB52B1B0409A56C887CD2FEADD72BBB3D80BD5BF2D4BDC019E"
+    },
+    "packer": {
+      "path": "tools/pack_job.py",
+      "bytes": 10938,
+      "sha256": "AD33861A718BBAF2846A516D506BA66A0F3C9237248CDFB1EBD7944EC497903D"
+    },
+    "builder": {
+      "path": "tools/build_jobs.py",
+      "bytes": 22052,
+      "sha256": "454BF2FB7A9E78F0AFE73E19B2FEFE1A3E6F5B7BC386CB11E80FBB348D63B1A8"
+    },
+    "validator": {
+      "path": "tools/validate_jobs.py",
+      "bytes": 47358,
+      "sha256": "E51F771B0C5FA369E5A5E21ABA7306A41A811606D5E255B6A2359848ECB077D9"
+    }
+  },
+  "asset_manifests": {
+    "files": 29,
+    "bytes": 113057,
+    "canonical_stream_bytes": 3498,
+    "tree_sha256": "7D83DEEF95C44407EDDAD33223A2655D89C2F26B78C1FABA7A1229C17A52CF40"
+  },
+  "jobs": 28,
+  "release_assets": 30,
+  "release_asset_bytes": 6599622703,
+  "packet_source_files": 488,
+  "packet_source_bytes": 6691065999,
+  "zip_member_files_replayed": 492,
+  "nested_authorities_replayed": 2,
+  "asset_mode": "local_zip_replay",
+  "translation_entries": 39,
+  "errors": []
+}

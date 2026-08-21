@@ -1,0 +1,54 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "open-textbook-translation-kit",
+  "wrapper_directory": "open-textbook-translation-kit",
+  "source_files": 4,
+  "source_bytes": 5650,
+  "canonical_stream_bytes": 315,
+  "source_tree_sha256": "9BB1B62A38E6847D052AB693E52FE4BA691E7D6F1E6165CD769B92F73F0992E6",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "open-textbook-translation-kit.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 4,
+      "source_bytes": 5650,
+      "first_path": "PROMPT.md",
+      "last_path": "SOURCE.json",
+      "zip_bytes": 3443,
+      "zip_sha256": "22383513B060A7E08D7F693F833C6BC8DDBDF256C2816DC842C0D0F2E1BE929C"
+    }
+  ],
+  "members": [
+    {
+      "path": "PROMPT.md",
+      "bytes": 3228,
+      "sha256": "3EDB6BBEE28A7BCAB542D3B6B9F32F09B422CC148546C3D7C814EFFCEDF37EEA"
+    },
+    {
+      "path": "QA.md",
+      "bytes": 896,
+      "sha256": "148CE381F6D9E963587802D3425DBBF5BFD956B12EB90C9F3ABD1D653DB75127"
+    },
+    {
+      "path": "README.md",
+      "bytes": 622,
+      "sha256": "9C973A882ADED04AF0165AD9485C3F1CEFBF0553D04289A99F25ACCDA55E4429"
+    },
+    {
+      "path": "SOURCE.json",
+      "bytes": 904,
+      "sha256": "1580E5304571C889246F3AD0CD071DE6F34A1ED1DA6E97CE8A19FA291F0768F3"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "4/4",
+    "zip_member_replay": "4/4",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "cayley-collected-papers-v01",
+  "wrapper_directory": "cayley-collected-papers-v01",
+  "source_files": 11,
+  "source_bytes": 175991821,
+  "canonical_stream_bytes": 1165,
+  "source_tree_sha256": "0D3B1D69E95561A670A101CB57AE332CFE6C2D1DEAE2F1AC2241DFF6CAB62A4A",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "cayley-collected-papers-v01.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 11,
+      "source_bytes": 175991821,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "cayley_source_master_vol01_collectedmathema01cayluoft_jp2.zip",
+      "zip_bytes": 171920031,
+      "zip_sha256": "16809E3B0DE820B69AFF2DCD1250171850A67D745C44CE5208DFCAAD8CA8DDE1"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 3931,
+      "sha256": "7079A4CA76540F736E5C95BB65FA28A4FEEF193D6248FCF35CC207994DCFCAC8"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 3090,
+      "sha256": "D4F1595F66E31EE08F03FA1C2982AFB936959D080DF5833F7F7B20068E26CCCE"
+    },
+    {
+      "path": "02_VOLUME_SOURCE_MAP.tsv",
+      "bytes": 715,
+      "sha256": "DCFBC89556AA61DFD3551C3C52BE9BDA711175AA5E0E52A81352447085011115"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 1987,
+      "sha256": "5FF84BADB1791A3CAA070A81DC0904A86AA9C9069B7EC8A8A2594197BB7A0CFB"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 163387,
+      "sha256": "288F248135C26856AC51AF70B7AD4D8313C1AB0DC691E34B7849B205D541D575"
+    },
+    {
+      "path": "30_PRIOR_VOLUME_I_LINEAGES_UNTRUSTED.zip",
+      "bytes": 3698728,
+      "sha256": "28C159ADA0D13B92383240944FBA452D9607F9A6A4DD6241E80D267EEE8E3BA6"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 996,
+      "sha256": "C3F68EAA54811A1538BD4E53B7576B95E6A9CF12A59D642E192AD14D22F0BAD1"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2286,
+      "sha256": "3A8C963672711153B87FC0B821F2BC47FC943FE64D5907B858EDB7C58693CF91"
+    },
+    {
+      "path": "CODEX_STRICT_AUDIT_cayley_vol_i_clean_20260605.md",
+      "bytes": 6128,
+      "sha256": "36E7048497CC67969B0DC86EB42ADD0477ABBE9DA3A7B121F3B8977A01E3CAB7"
+    },
+    {
+      "path": "Cayley_unitized_index_v01_CODEX_20260607.zip",
+      "bytes": 303542,
+      "sha256": "680121F68B11D451B6452BECF8708D5938C06E79F79DE5F4D5D3BB6B7C5CE7FE"
+    },
+    {
+      "path": "cayley_source_master_vol01_collectedmathema01cayluoft_jp2.zip",
+      "bytes": 171807031,
+      "sha256": "23A0A59D90BDC94FE5AB2B97655F2A6C1581C8BE5F8E513D4F59DCDB95ED49C1"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "11/11",
+    "zip_member_replay": "11/11",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

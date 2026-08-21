@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/translation-catalog.schema.json",
+  "title": "Mathematics Commons translation catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "updated", "evidence", "page_accounting", "entries", "exclusions"],
+  "properties": {
+    "schema": {"const": "math-commons-translation-catalog/v1"},
+    "updated": {"type": "string", "format": "date"},
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["note", "public_evidence_included", "consumer_rule", "sources"],
+      "properties": {
+        "note": {"type": "string", "minLength": 1},
+        "public_evidence_included": {"const": false},
+        "consumer_rule": {"type": "string", "minLength": 1},
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["file", "sha256", "role", "availability"],
+            "properties": {
+              "file": {"type": "string", "pattern": "^[^/\\\\]+$"},
+              "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "role": {"type": "string", "minLength": 1},
+              "availability": {"const": "not_public_in_this_repository"}
+            }
+          }
+        }
+      }
+    },
+    "page_accounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aggregate_selected_pages", "aggregate_teaching_package_pages", "aggregate_reference_pages", "fact", "individual_page_policy"],
+      "properties": {
+        "aggregate_selected_pages": {"type": ["integer", "null"], "minimum": 0},
+        "aggregate_teaching_package_pages": {"type": ["integer", "null"], "minimum": 0},
+        "aggregate_reference_pages": {"type": ["integer", "null"], "minimum": 0},
+        "fact": {"type": "string", "minLength": 1},
+        "individual_page_policy": {"type": "string", "minLength": 1}
+      }
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entry"}
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/exclusion"}
+    }
+  },
+  "$defs": {
+    "nullableString": {"type": ["string", "null"]},
+    "stringArray": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "authors", "authors_note", "category", "current_status", "curricular_role", "pages", "page_note", "source_url", "source_repo", "source_commit", "source_tree", "license", "derivative_allowed", "component_caveats", "source_format", "build_gate", "adoption_state", "rationale", "evidence_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^(?:R|O)[0-9]{3}[a-z]?$"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/stringArray"}]},
+        "authors_note": {"$ref": "#/$defs/nullableString"},
+        "category": {"enum": ["adaptation", "composite_candidate", "donor", "infrastructure", "open_search", "reference", "selected_resource", "source_ready_candidate"]},
+        "current_status": {"type": "string", "minLength": 1},
+        "curricular_role": {"$ref": "#/$defs/nullableString"},
+        "pages": {"type": ["integer", "null"], "minimum": 1},
+        "page_note": {"type": "string", "minLength": 1},
+        "source_url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.+$"}]},
+        "source_repo": {"$ref": "#/$defs/nullableString"},
+        "source_commit": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[0-9a-f]{40}$"}]},
+        "source_tree": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[0-9a-f]{40}$"}]},
+        "license": {"$ref": "#/$defs/nullableString"},
+        "derivative_allowed": {"type": ["boolean", "null"]},
+        "component_caveats": {"$ref": "#/$defs/stringArray"},
+        "source_format": {"type": "string", "minLength": 1},
+        "build_gate": {"type": "string", "minLength": 1},
+        "adoption_state": {"enum": ["candidate", "conditional_candidate", "current_production", "donor", "existing_edition", "infrastructure", "optional", "reference", "selected_start"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "evidence_refs": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "reason", "license", "derivative_allowed", "catalog_disposition", "evidence_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^X-[A-Z0-9-]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/stringArray"}]},
+        "reason": {"type": "string", "minLength": 1},
+        "license": {"$ref": "#/$defs/nullableString"},
+        "derivative_allowed": {"type": ["boolean", "null"]},
+        "catalog_disposition": {"enum": ["rejected", "reference_only", "rejected_until_verified"]},
+        "evidence_refs": {"$ref": "#/$defs/stringArray"}
+      }
+    }
+  }
+}

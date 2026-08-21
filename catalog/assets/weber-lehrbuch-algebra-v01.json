@@ -1,0 +1,104 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "weber-lehrbuch-algebra-v01",
+  "wrapper_directory": "weber-lehrbuch-algebra-v01",
+  "source_files": 14,
+  "source_bytes": 58959794,
+  "canonical_stream_bytes": 1450,
+  "source_tree_sha256": "37631771CE98A6B92B5D4ACC3442A25002E33C1D46FA5E71693A843D7F6A50D6",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "weber-lehrbuch-algebra-v01.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 14,
+      "source_bytes": 58959794,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 57694928,
+      "zip_sha256": "D809296FEC2CD7E6CECFE57066A44390995F2A16889C6B793B58C2E9A08686D4"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2690,
+      "sha256": "23626506CB8285E3E2970449D5582C88CEB874C077E9DEC27F13D25CD1FC46A5"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 1910,
+      "sha256": "CF1D3DCF0F391F43DEEFB4552A2DF560CAECC5D780BD941DBA8033BA87FFFFB0"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 823,
+      "sha256": "134E05A9A5EC57F5236F2739CA9C1E7CD8B711C4352C588E1B41659BF326443A"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 852,
+      "sha256": "6CEF420C3D9BBE063BD1D7BCB934B6A55195B74DDB1248FC91724AE3A321724C"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 230440,
+      "sha256": "E81437918CF06B83ADD02E55E9DAA1629CD6338E6426DBFD3501A30B5DA6F296"
+    },
+    {
+      "path": "20_AUTHORITY_BAND_I_686P.pdf",
+      "bytes": 51955203,
+      "sha256": "50BA482A39C9918AC81B31D631B65B11C37C5E67BEC42C559F6D504A28196DEB"
+    },
+    {
+      "path": "31_PRIOR_BAND_I_GERMAN_UNTRUSTED.pdf",
+      "bytes": 1810964,
+      "sha256": "14908DEE1FB1BB425F2C814B1D51AB1BC53D1E577FBC5DB5E5C62288027809F2"
+    },
+    {
+      "path": "34_PRIOR_BAND_I_GERMAN_TEX_UNTRUSTED.zip",
+      "bytes": 1131679,
+      "sha256": "4129435CBCB4939A06A2AEB7E5201E4B944550FF7BCFD0B2C84610B74385BF3C"
+    },
+    {
+      "path": "37_PRIOR_BAND_I_ENGLISH_UNTRUSTED.pdf",
+      "bytes": 1814690,
+      "sha256": "EDE33C55F80DC4557F9F547C2BB11DC6549B843E537FFA42AC992793A66C7565"
+    },
+    {
+      "path": "38_PRIOR_BAND_I_ENGLISH_TEX_UNTRUSTED.zip",
+      "bytes": 1998326,
+      "sha256": "B8A061A2270885756FC5A691B69EAB022A67D82E7CB7BBF157D7AFAA342E1B9B"
+    },
+    {
+      "path": "41_PAGEMAP_BAND_I_UNTRUSTED.json",
+      "bytes": 7755,
+      "sha256": "82CEA7F85DDCD91F0AA111E8995A5AEB9FC563E923BC5DAEF81E94D51E39DE0B"
+    },
+    {
+      "path": "46_PRIOR_BAND_I_RELEASE_MANIFEST_UNTRUSTED.json",
+      "bytes": 903,
+      "sha256": "4E7FE4B00B2C91C6C2BDFFBC38D04E3113D3D075745A841ED55B9B9AF6C5F1E0"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1271,
+      "sha256": "BD938910CC412FF064190EA485A832142A42066DB875E07720EB3A9465174ED7"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2288,
+      "sha256": "6DD8B09928C21409BA205D714238E8403C772E6A1310EF2F43DA8A66906ECABB"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "14/14",
+    "zip_member_replay": "14/14",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

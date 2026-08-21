@@ -1,0 +1,36 @@
+{
+  "schema": "math-commons-translation-source/v1",
+  "work": {
+    "title": "REQUIRED",
+    "author": "REQUIRED",
+    "edition": "REQUIRED",
+    "source_language": "REQUIRED",
+    "target_language": "REQUIRED"
+  },
+  "source": {
+    "repository_url": "REQUIRED_HTTPS_URL",
+    "commit_or_tag": "REQUIRED_IMMUTABLE_ID",
+    "tree": "REQUIRED_IF_GIT",
+    "archive_bytes": 0,
+    "archive_sha256": "REQUIRED_64_HEX",
+    "reader_bytes": 0,
+    "reader_sha256": "REQUIRED_64_HEX"
+  },
+  "rights": {
+    "work_license": "REQUIRED",
+    "license_url": "REQUIRED_HTTPS_URL",
+    "derivative_translation_allowed": false,
+    "component_manifest": "REQUIRED_PATH"
+  },
+  "build": {
+    "toolchain": "REQUIRED",
+    "command": "REQUIRED",
+    "baseline_status": "not_run"
+  },
+  "scope": {
+    "included": "REQUIRED",
+    "excluded": "REQUIRED",
+    "first_unit": "REQUIRED",
+    "next_cursor": "REQUIRED"
+  }
+}

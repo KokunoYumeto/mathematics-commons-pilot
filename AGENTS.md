@@ -1,34 +1,27 @@
-# Agent recovery and operating instructions
+# Repository instructions
 
-These instructions apply to every task in this repository.
+Follow the current user request and inspect only the exact files needed for it. Do not bootstrap from old recovery prose or treat a summary as evidence.
 
-## Context-loss protocol
+## Public contract
 
-After any context compaction, handoff, restart, or uncertainty about prior work, do not mutate files or external systems until you have:
+- This repository is the practical GitHub front door for pooled mathematical compute.
+- Runnable jobs are defined only by `catalog/jobs.json`, its schema, exact asset manifests, and public release receipts.
+- Preserve the historical pilot, tags, releases, and Git history unless a separately reviewed migration explicitly supersedes their presentation.
+- Never edit producer packet roots. Copy exact admitted bytes into a deterministic release wrapper and bind every member.
+- HOLD, incomplete, quarantine, superseded, rights-forbidden textbook, and failed-audit material is never presented as runnable.
+- Packet PASS proves the packet boundary, not the completed mathematics or translation.
+- Keep source-language, target-language, and apparatus outputs separate and monolingual.
+- Raw transcripts are not public artifacts. A later transcript needs an explicit redaction proposal and user approval.
+- Do not mutate Zenodo from this repository.
 
-1. read `SESSION_RECOVERY.md` completely;
-2. read `PROJECT_LOGBOOK.md` completely;
-3. read `STATUS.md`, `RIGHTS.md`, and `START_HERE_FOR_AGENTS.md` completely;
-4. checked `git status`, the current branch, remotes, and recent commits;
-5. checked the active durable goal, if the environment provides one;
-6. verified the live GitHub and Zenodo state before creating, publishing, or repeating anything; and
-7. appended a recovery entry to `PROJECT_LOGBOOK.md` stating what was verified.
+## Machine safety and Git
 
-Treat a compacted summary as a pointer to the durable record, not as a substitute for it.
+- Do not scan broad parent workspaces. Work only inside this small repository and explicitly named packet roots.
+- Keep new names short and trees shallow.
+- Do not commit large packet ZIPs; use GitHub Release assets.
+- Stage exact paths, push through a feature branch, run the full cross-platform validation, and verify remote bytes after merge.
+- Never expose credentials or machine-local paths in public files or receipts.
 
-## Logging rule
+## Evidence
 
-Append every material decision, correction, scope change, publication action, DOI action, failed external operation, and unresolved blocker to `PROJECT_LOGBOOK.md`. Update `SESSION_RECOVERY.md` whenever the exact next action or external state changes.
-
-Never log credentials, access tokens, private identity linkage, private conversations, or unnecessary personal data.
-
-## Governing boundaries
-
-- Current goal: publish and verify the public concept repository and its first citable release.
-- Current pilot: a small GitHub-native conjecture/literature/proof-review workflow for the initial AI-literate group.
-- Future only: broad one-click onboarding, archival/translation project trees, marginal-intelligibility translation at scale, volunteered local CPU/GPU work, and genuinely local peer-to-peer model inference.
-- Leiden is the leading framework, interpreted as enabling trustworthy AI-assisted mathematics.
-- AI interactions and local context are private by default. Publish only the packet's sanitized, contributor-approved evidence bundle; never demand raw prompts, transcripts, chain-of-thought, personal data, credentials, unpublished communications, or unrelated local files.
-- Commons-originated material is CC0 modulo pre-existing third-party rights.
-- Academic authorship, credit, priority, and responsibility remain distinct from copyright.
-- Do not claim official Leiden certification, journal peer review, a solved problem, or implemented future infrastructure.
+Use exact commits, trees, paths, byte lengths, SHA-256 values, manifests, receipts, and public readback. Preserve errors, reversals, exclusions, and superseded generations. Do not infer source truth from filenames or mechanical PASS alone.

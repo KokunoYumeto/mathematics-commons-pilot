@@ -1,0 +1,104 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "bhaskara-bijaganita-apte-1930",
+  "wrapper_directory": "bhaskara-bijaganita-apte-1930",
+  "source_files": 14,
+  "source_bytes": 6723099,
+  "canonical_stream_bytes": 1511,
+  "source_tree_sha256": "8A40C92FBFFF2A28DAF29AE682A8D946F4B4CA511A119381038CFBFF098F4E6C",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "bhaskara-bijaganita-apte-1930.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 14,
+      "source_bytes": 6723099,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 5684311,
+      "zip_sha256": "49AEF771FD526FE554B4425A90DE0EE8FF7ECC2313ACEEB00F3F488F340FE52F"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2002,
+      "sha256": "E82441E5F2E1A3B1CC0BC65321F16DDCEBC7EEED214430C882A14090C02B6B04"
+    },
+    {
+      "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
+      "bytes": 896,
+      "sha256": "DB0536BFD8B43018F642332076CB46AB929C2D5A36BD6F023D3D5CD05D5D73E9"
+    },
+    {
+      "path": "03_PHYSICAL_AND_STRATUM_DISPOSITION_TEMPLATE.tsv",
+      "bytes": 10693,
+      "sha256": "FBC3C394FB9A5B3244BEE11A2973747AC020EC60787A8D7DDF7D4C6F02A249ED"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 244156,
+      "sha256": "8B8E3817EEC3F838E24BF6EC029863614C2B5D08403C0EE09997E2C564162944"
+    },
+    {
+      "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
+      "bytes": 2408,
+      "sha256": "5231A5F655F54E4A92DF603DC58ECE91225B2ACBBE9BA53733F5125C2DF65010"
+    },
+    {
+      "path": "06_ISSUE_LEDGER_TEMPLATE.tsv",
+      "bytes": 102,
+      "sha256": "92AF2253EE4FC72A2127543024DEAE1DF1CA3D7D7ABE81B99E7303A785907DE8"
+    },
+    {
+      "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
+      "bytes": 405,
+      "sha256": "B05C9223E11A908011DA20FA44941D12AD236FE78FB44EB620D5BE4E5030AFD0"
+    },
+    {
+      "path": "20_BIJAGANITA_APTE_1930_COMPLETE_218P.pdf",
+      "bytes": 4509171,
+      "sha256": "0F69610F16CC4B2EB12E512070C1318FFD596CF003C5F6C897C891BBB007D610"
+    },
+    {
+      "path": "21_BHASKARA_II_BIBLIOGRAPHY_REFERENCE.pdf",
+      "bytes": 674310,
+      "sha256": "B09BD977BC09D9D3F6A32E28FE3B942987869DFD048D15F324CD7E31DEE975AB"
+    },
+    {
+      "path": "22_VPM_SOURCE_INDEX_EVIDENCE.html",
+      "bytes": 26849,
+      "sha256": "D84890365612471E51DEC9F56CC5F1D62BBC9D807509DDA8C8429BA832D382FE"
+    },
+    {
+      "path": "30_PRIOR_BIJAGANITA_OUTPUTS_UNTRUSTED.zip",
+      "bytes": 1241879,
+      "sha256": "542DE6ED6BE55D3704DDB9AACAB0DE9C2C410D8118F65BB3913653F703DD8BBB"
+    },
+    {
+      "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
+      "bytes": 6576,
+      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1336,
+      "sha256": "7855B7A042C186439271FABBF48B1AF9C6CFE95619EE742A1D559B5F4F092590"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2316,
+      "sha256": "6041250BC5A401ED1DDECF085B3B66862B0C5103F0320B9F6F24F65444D5D576"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "14/14",
+    "zip_member_replay": "14/14",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

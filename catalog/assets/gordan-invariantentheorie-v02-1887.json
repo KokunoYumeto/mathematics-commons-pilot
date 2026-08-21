@@ -1,0 +1,79 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "gordan-invariantentheorie-v02-1887",
+  "wrapper_directory": "gordan-invariantentheorie-v02-1887",
+  "source_files": 9,
+  "source_bytes": 64775459,
+  "canonical_stream_bytes": 955,
+  "source_tree_sha256": "3A41C5EC5A3B4F8D9D27E120C4B857B5EC6323FDDA7D4B1CD796D1C39EF02144",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "gordan-invariantentheorie-v02-1887.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 9,
+      "source_bytes": 64775459,
+      "first_path": "GORDAN_BAND_II_45_LITERAL_PROMPTS.md",
+      "last_path": "READ_FIRST.md",
+      "zip_bytes": 64524465,
+      "zip_sha256": "BEF538E2B95FA108E830ED098C37E4F7F3A4F1D0FF797A41EED225C7B048010F"
+    }
+  ],
+  "members": [
+    {
+      "path": "GORDAN_BAND_II_45_LITERAL_PROMPTS.md",
+      "bytes": 152846,
+      "sha256": "5541AD565E9E699BFCCA6BC67A33AE4A6D5DBFE36C80219F7D2685BC909238F3"
+    },
+    {
+      "path": "GORDAN_BAND_II_OUTPUT_CONTRACT.md",
+      "bytes": 6454,
+      "sha256": "CF4DB22A3CA3B26A0AE948D1662AAC7902AE4409FF81F0D2000442D2D2F7D183"
+    },
+    {
+      "path": "GORDAN_BAND_II_S00_CUMULATIVE_CHECKPOINT.json",
+      "bytes": 879,
+      "sha256": "A60A59EB0C7B54B65C2C1E212673D5D4D46F4907D757C2FCD237FC390612734A"
+    },
+    {
+      "path": "GORDAN_BAND_II_S00_CUMULATIVE_FULL_STATE.zip",
+      "bytes": 64533539,
+      "sha256": "1EF2FF082DE016A3B7C4C4D1EF7F11BAC294102E332E6513A06138FEC875B08C"
+    },
+    {
+      "path": "GORDAN_BAND_II_S00_CUMULATIVE_MANIFEST.tsv",
+      "bytes": 2432,
+      "sha256": "277BDDC2998932E0076603A0DD387FC07FD24C78FDA51462693120A604DB70DB"
+    },
+    {
+      "path": "GORDAN_BAND_II_SESSION_PLAN.tsv",
+      "bytes": 2906,
+      "sha256": "2B2E58EA6123F23A6DB8F6A742BB4EB862C1323776FE6C6D1361E8FB72E77D70"
+    },
+    {
+      "path": "GORDAN_BAND_II_SOURCE_PDF_MAP.tsv",
+      "bytes": 61491,
+      "sha256": "88845569D6D0A4ABFF4935646C5B7CE3653C9BC907EDA0DB10A9F0BAF30A7F51"
+    },
+    {
+      "path": "GORDAN_BAND_II_VERIFY_PACKET.ps1",
+      "bytes": 12808,
+      "sha256": "ED600CD0744AF7FD2FF4C2D77682877AF51C97DFD9A73C9F40A95B4EAA263870"
+    },
+    {
+      "path": "READ_FIRST.md",
+      "bytes": 2104,
+      "sha256": "6C684E537C29251C2B96EF678A6FFB9B2807794D22AD430334A0F1059A4B1D39"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "9/9",
+    "zip_member_replay": "9/9",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

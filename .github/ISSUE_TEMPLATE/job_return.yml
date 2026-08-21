@@ -1,0 +1,67 @@
+name: Return a packet result
+description: Hand back an immutable result, evidence, failures, and continuation cursor for one runnable job.
+title: "[job return] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Publication is not certification. Bind one exact job and preserve every failure, reversal, unresolved item, and cumulative state identity.
+  - type: input
+    id: job
+    attributes:
+      label: Catalog job ID
+      placeholder: al-battani-nallino-opus-astronomicum-1899-1907
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Exact input asset identity
+      description: Asset name, byte length, SHA-256, and catalog commit.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Immutable result
+      description: Public commit or versioned result URL, plus the result manifest path, bytes, and SHA-256.
+    validations:
+      required: true
+  - type: dropdown
+    id: state
+    attributes:
+      label: Terminal state
+      options:
+        - Prompt 45 COMPLETE
+        - Paused with cumulative state
+        - Failed with cumulative state
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks and receipts
+      description: Source, topology, formula, figure, language, build, visual, link, and cold-audit checks actually run.
+    validations:
+      required: true
+  - type: textarea
+    id: failures
+    attributes:
+      label: Failures, corrections, reversals, and open items
+      description: Use an exact none-identified statement only after an appropriate check.
+    validations:
+      required: true
+  - type: textarea
+    id: cursor
+    attributes:
+      label: Continuation cursor
+      description: Exact next prompt, page, unit, file, or terminal cursor.
+    validations:
+      required: true
+  - type: checkboxes
+    id: fidelity
+    attributes:
+      label: Preservation declaration
+      options:
+        - label: I preserved the cumulative state, separate monolingual edition layers, source authority, and all reported failures without silently overwriting another generation.
+          required: true

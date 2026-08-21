@@ -1,0 +1,56 @@
+name: Adopt an open-textbook translation
+description: Declare one source, language, edition, license boundary, and inspectable handback plan.
+title: "[translation] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start from a discovery row in catalog/translations.json, then independently freeze its public source, edition, component rights, and baseline build. Candidate or conditional status does not waive that preflight. No-Derivatives, rights-unknown, donor, reference, and rejected entries are not translation jobs.
+  - type: input
+    id: source
+    attributes:
+      label: Translation-catalog ID
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Target language
+      description: Name one language and the educational need you intend to serve.
+    validations:
+      required: true
+  - type: textarea
+    id: source_identity
+    attributes:
+      label: Exact source and license identity
+      description: Repository URL, commit/tag/tree, edition, license version, component boundary, and baseline build receipt.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Bounded scope and cursor
+      description: Complete work or first complete unit, included/excluded components, and exact next cursor.
+    validations:
+      required: true
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Existing editions and declared overlap
+      description: Link any known edition or parallel mirror and explain why this generation remains independently useful.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Planned production and independent QA
+      description: Source, mathematical, language, exercise/solution, build, visual, accessibility, and component-license checks.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contract
+    attributes:
+      label: Translation contract
+      options:
+        - label: I will produce a standalone monolingual edition, preserve stable semantics and component licenses, return cumulative full state, and publish exact manifests, failures, and a continuation cursor.
+          required: true

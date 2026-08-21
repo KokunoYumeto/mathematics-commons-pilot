@@ -1,55 +1,51 @@
 # Contributing
 
-The project welcomes criticism, corrections, technical help, mathematical proposals, and review.
+The Mathematics Commons makes bounded mathematical work easy to adopt, run, inspect, and return. You do not need to operate the whole programme: one exact packet, textbook, language, source-recovery task, build repair, or independent review is useful.
 
-## Current scope
+## Run a ready job
 
-The current work is to review and calibrate the GitHub-native operational MVP, recruit stewards and reviewers, and select six to ten records spanning selected Erdős/comparable open problems and precise community conjectures. The broad archive, translation, one-click onboarding, and local volunteer-compute ideas are recorded future programs.
+1. Choose a `runnable` entry in [`catalog/jobs.json`](catalog/jobs.json).
+2. Verify every listed release asset part, extract all parts into one job directory, and upload every job file to a capable agent project.
+3. Follow the exact [`continue` / `next prompt` loop](docs/run.md).
+4. Preserve every cumulative checkpoint and return a public immutable result plus manifest, checks, failures, and continuation cursor.
 
-## Good first contributions
+Packet integrity is not edition certification. Keep the job's diplomatic, monolingual, apparatus, figure, state, and cold-audit boundaries intact.
 
-- Comment on one exact section of the white paper.
-- Test the Leiden crosswalk for a missing or overstated obligation.
-- Identify a security, rights, attribution, or reviewer-load failure.
-- Propose a calibration problem with an exact source and bounded useful tasks.
-- Suggest a reviewer or public-infrastructure partner.
-- Improve the GitHub workflow without adding unnecessary platform complexity.
-- Run the calibration schemas, validator, CLI, and adversarial tests from a clean clone and report a reproducible failure.
-- Review whether one record field or transition gate actually captures the mathematical or operational obligation it claims to enforce.
+## Translate an open textbook
 
-## Working a Research Packet
+Choose a source from [`catalog/translations.json`](catalog/translations.json) whose derivative rights and source/build boundary are adequate. Existing production is not an invitation to overwrite someone else's edition; declare a new language or parallel mirror. Use the [translation kit](kits/translate/README.md), preserve component licenses, and return a standalone monolingual edition.
 
-Do not start mathematical research from an issue comment alone. A steward must first commit and assign an exact packet with a live lease, branch, base commit, outputs, acceptance commands, resource caps, rights boundary, and independent-review route. Follow [NODE_HANDOFF.md](NODE_HANDOFF.md). The CLI may reject a handoff even when a JSON file is structurally valid; that refusal is a safety gate, not an invitation to bypass it.
+Do not translate a source marked ND, free-to-read-only, rights-unknown, donor, reference, or rejected. Candidate status means the recorded preflight remains to be closed; it is not permission to invent missing source identities.
 
-## Submission standard
+## Adopt or mirror other work
 
-Please state:
+The [interlanguage adoption board](docs/adopt.md) exposes active, partial, scattered, weak, source-only, and unworked author/work scopes. Pin its exact four-file snapshot, read the work map and cursor, and declare overlap. Parallel work is welcome when it is independently inspectable.
 
-1. what you are proposing or objecting to;
-2. which exact file, section, problem, or claim it concerns;
-3. the evidence or reasoning;
-4. what remains uncertain;
-5. material AI/tool use in a sanitized, proportionate form; and
-6. any conflict of interest or relevant rights issue.
+## Return standard
 
-Do not paste an unreviewed AI-generated proof and ask the community to find all of its errors. The producer is responsible for making a submission reviewable.
+Use [Return a packet result](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=job_return.yml) or [Adopt an open-textbook translation](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=translation.yml), as applicable. The handback must include:
 
-## Privacy and disclosure
+- exact job, source, edition, language, and immutable input identities;
+- a public commit or versioned result URL;
+- manifest path, bytes, and SHA-256;
+- source/build/toolchain and component-license identities;
+- typed source, mathematical, language, exercise, build, visual, and accessibility checks;
+- every failure, correction, reversal, and unresolved item; and
+- an exact continuation cursor.
 
-AI interactions, prompt histories, raw transcripts, private notes, unpublished communications, personal context, credentials, and unrelated local data are private by default. Contributing an artifact does not give the Commons permission to publish them. Do not include raw interaction records unless you affirmatively choose to publish a reviewed, redacted excerpt and have any other authority or consent required.
+Do not paste a large unreviewed model output and ask other people to recover its state. A useful contribution is bounded, hash-backed, resumable, and honest about what has not been checked.
 
-Ordinary academic-integrity disclosure is still required: identify the material tools and their role, give a sanitized functional task specification where it matters, identify material human interventions, attach the mathematical or computational evidence, and state checks, limitations, and disclosure gaps. A prompt is provenance, not proof. A claim must stand on the submitted evidence; if an undisclosed detail prevents evaluation, narrow the claim rather than surrendering unrelated private material.
+## Credit and privacy
 
-## Rights and credit
+Record human contributors, public pseudonyms, source leads, reviewers, correctors, and material tools by role. Models are tools, not authors. Commons-created contributions are CC0 where possible; third-party terms remain attached as described in [RIGHTS.md](RIGHTS.md).
 
-By submitting work created through this workflow, you agree that each newly created component you intentionally submit enters the Commons under CC0 1.0. To the extent you control copyright or related rights through authorship, selection, arrangement, editing, or another contribution, you dedicate those rights under CC0 to the fullest extent legally possible. If no such rights exist, the notice confirms the intended commons status. This does not affect third-party rights, which you must identify with their terms.
+Raw transcripts, credentials, private communications, and unrelated local data are not accepted evidence. Use sanitized task specifications, manifests, decisions, corrections, and test receipts. Transcript publication requires a separate approved redaction process.
 
-CC0 does not erase scientific credit. Accepted contributions are recorded by specific role and provenance. AI systems are disclosed as tools, never listed as authors.
+## Repository discipline
 
-Preserve the provenance of materially influential ideas as well as files and final artifacts. Credit problem nominations, workflow proposals, source leads, sanitized task specifications or voluntarily disclosed prompts, prior attempts, and conceptual suggestions when their origin is known and the contributor has made it lawfully publishable. A public pseudonym is a valid attribution handle; do not attempt to deanonymize a contributor or demand a raw transcript as proof of origin. Record uncertainty instead of silently assigning an idea to a later contributor.
-
-You may later participate as a human author on a scholarly paper when your contribution and responsibility support authorship under the Leiden framework and the destination venue's rules. You may not place Commons-originated material under exclusive control, remove its CC0 public copy, or grant a publisher rights that conflict with the existing dedication. Academic credit, priority, responsibility, and prizes are separate from copyright control.
-
-## Conduct
-
-Critique claims and methods directly. Do not use credentials, biography, compute expenditure, or model access as a substitute for evidence. Persistent good-faith disagreement may remain in the record.
+- Keep names short and trees shallow.
+- Do not commit packet ZIPs or other large binaries; use GitHub Release assets.
+- Do not rewrite or delete producer bytes.
+- Preserve distinct generations and supersession history.
+- Add exact tests for schema, catalog, member, link, and hash invariants.
+- Push through a reviewable branch and verify the public result after merge.

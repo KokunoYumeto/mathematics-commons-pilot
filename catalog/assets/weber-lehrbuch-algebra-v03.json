@@ -1,0 +1,89 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "weber-lehrbuch-algebra-v03",
+  "wrapper_directory": "weber-lehrbuch-algebra-v03",
+  "source_files": 11,
+  "source_bytes": 48893240,
+  "canonical_stream_bytes": 1114,
+  "source_tree_sha256": "72BD53145243A0BAA06FC3829EBA818E6BD8E705A618DB92265D010E01369930",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "weber-lehrbuch-algebra-v03.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 11,
+      "source_bytes": 48893240,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 47067054,
+      "zip_sha256": "8F3B21A3F2EBC60E59C2A7593CEF5DBA4AE07FF0AE77ED795BDF469B5D2768A0"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2479,
+      "sha256": "C0E58584353D23B82E14E5C13905B8516058BC996DC79DCB09A814ACBD01D376"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 1914,
+      "sha256": "F5F691E27DAEF5454993F21A10D79B08407F10E6B9CD9F52D7A2185D60252251"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 603,
+      "sha256": "C9CCF0839FECB93D127593014BA57FE27E492997B13004C80C6B5800EC4B5E18"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 788,
+      "sha256": "1B54566F616466460D4A56A40E68375A6F14E00DF3267C0A94255221376B37F9"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 231507,
+      "sha256": "0D26DC5D185E92203F60A7A91AC4BDBC53B09172E1C6F78BB1B34732EFC7E082"
+    },
+    {
+      "path": "22_AUTHORITY_BAND_III_772P.pdf",
+      "bytes": 44789436,
+      "sha256": "25C31D0E2D8E17989C3FBB2B773142508BB405BA211C230D130E63D73A945387"
+    },
+    {
+      "path": "33_PRIOR_BAND_III_GERMAN_UNTRUSTED.pdf",
+      "bytes": 2637972,
+      "sha256": "05AB8858D309A9CC429818D34A75EB89206087F7CF7440ECC678D5E11475CAE1"
+    },
+    {
+      "path": "36_PRIOR_BAND_III_GERMAN_TEX_UNTRUSTED.zip",
+      "bytes": 1216653,
+      "sha256": "447AB91702E7153663D6D411D1A6E753C10508D36E5DE51E27ACD8775FBB9A21"
+    },
+    {
+      "path": "43_PAGEMAP_BAND_III_UNTRUSTED.json",
+      "bytes": 8660,
+      "sha256": "DDD95E31EBE0AC7995195128B615BCD552891D12B1DC8F298453EA7EDB4A0F5D"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 936,
+      "sha256": "9A1175B91457A273A42600A3AA3A3C20719617F0E3F3728D90A5527F9B30FAEA"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2292,
+      "sha256": "E585464E7411A31CF5BC605C5EE94712A14959515558A6ED7ED942F02B085247"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "11/11",
+    "zip_member_replay": "11/11",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

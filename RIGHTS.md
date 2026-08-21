@@ -1,63 +1,30 @@
-# Rights policy
+# Rights and provenance
 
-## Default rule
+The Commons preserves exact provenance and never invents a blanket license for a mixed packet. CC0 applies only to eligible Commons-created material; all pre-existing third-party rights remain attached to their respective components.
 
-All Commons-originated material is made available under **CC0 1.0 Universal**, modulo pre-existing third-party copyright and other rights.
+## Commons-created material
 
-**Commons-originated material** means all new material created within and submitted through this workflow: candidate arguments, proofs, counterexamples, computations, formalizations, code, schemas, metadata, reviews, corrections, transcriptions, translations, exposition, indexes, and project documentation.
+New Commons metadata, schemas, validators, documentation, reviews, corrections, and workflow material are dedicated to the public domain under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) to the extent their contributors can do so. Scientific credit and version history remain recorded even when exclusive rights are waived.
 
-This includes AI-generated material and, to the extent a human contributor holds rights through selection, arrangement, editing, authorship, or another legally recognized contribution, their dedication of those rights under CC0. If no copyright or related right exists, the CC0 notice confirms rather than creates the material's commons status.
+## Historical transcription packets
 
-The submission boundary matters. CC0 applies to components a contributor intentionally submits to the Commons; it does not silently sweep in the contributor's underlying prompt history, raw AI transcript, private notes, unpublished communications, personal context, or unrelated local files. Those remain private by default unless the contributor specifically chooses to include reviewed material and has any authority or consent otherwise required. Privacy and confidentiality do not depend on whether a particular fragment is copyrightable.
+Runnable packets may include complete images of historical mathematical works so a contributor can reproduce page topology, formulas, figures, and difficult readings exactly. Each catalog row names the work, edition, provider where known, packet authority, and any missing scan-specific license statement. Publication of a packet does not claim that the Commons owns the underlying work, edition, manuscript, or provider image.
 
-CC0 legal code: <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
+Keep those authority files unchanged. Do not strip attribution, provenance, holding information, or source hashes. A substantiated rights or attribution problem should be reported through the repository so the public record can be corrected and, where necessary, access to the affected asset can be changed without falsifying the version history.
 
-## What CC0 does not do
+## Open educational translations
 
-The Commons cannot waive rights it does not own or control. A paper, scan, edition, translation, figure, dataset, software dependency, or formal library retains its existing legal status and license. AI processing does not erase those rights.
+The textbook translation lane admits a work only when an exact source and derivative-translation permission are recorded. “Free to read” is not enough. No-Derivatives material is excluded.
 
-A new translation, transcription, or edition may therefore contain a CC0 Commons contribution while still depending on pre-existing rights that restrict whether the combined artifact can be distributed. Such an artifact remains private or metadata-only until the underlying rights permit release.
+Component licenses remain component-specific:
 
-Every imported source must therefore record:
+- CC BY, BY-SA, and BY-NC-SA notices keep their exact version, attribution, ShareAlike, and non-commercial terms;
+- GFDL material retains its required notices and history;
+- Apache, MIT, GPL, data, code, font, image, and media terms remain separate; and
+- teacher-gated solutions or unlicensed third-party assets are not copied into a public translation merely because the surrounding textbook is open.
 
-- author and source identity;
-- version and integrity hash;
-- copyright or public-domain status where known;
-- license and jurisdictional uncertainty;
-- permissions for copying, translation, redistribution, extraction, and model training; and
-- any access or attribution requirements.
+The translated edition must carry a component manifest and a distinct title when the upstream license or branding rules require it. One component's license never silently relicenses another.
 
-Every submitted artifact must also carry a rights manifest identifying:
+## Private and unrelated material
 
-- `origin: commons_workflow` for newly created components;
-- `dedication: CC0-1.0` for those components;
-- all incorporated third-party components and their terms; and
-- whether public redistribution is permitted, restricted, or unresolved.
-
-Freely downloadable is not synonymous with openly licensed. Public-domain status of an old work may differ from the status of a modern edition, translation, annotation, scan, or photograph.
-
-## Attribution without ownership
-
-Mathematical and scholarly attribution remains mandatory as a scientific norm. The project records who proposed, found, proved, checked, translated, transcribed, formalized, reviewed, corrected, and maintained an idea or artifact even when no copyright restriction applies. Public pseudonyms are preserved as attribution handles without attempted deanonymization.
-
-Academic authorship is not copyright ownership. A human may be academically credited as an author or discoverer, accept responsibility under the Leiden framework, establish priority through the record, receive professional recognition, or receive a prize while the underlying Commons-originated artifact remains CC0.
-
-AI systems are not academic authors. Their material role is disclosed in provenance and tool records.
-
-## No enclosure after contribution
-
-Commons-originated output remains CC0 after later review, formalization, exposition, or publication. A contributor MUST NOT claim exclusive copyright over it, remove the public copy, or grant a publisher rights that would restrict the existing Commons record.
-
-Contributors MAY prepare academically authored papers from Commons work and submit them to any appropriate peer-reviewed venue whose terms are compatible with:
-
-- the continuing CC0 availability of the Commons-originated material;
-- accurate human authorship and contribution credit;
-- complete AI/tool disclosure;
-- attribution to prior mathematics and Commons contributors; and
-- preservation of the versioned evidence and correction record.
-
-A publisher may create rights in its own new editorial or typeset contribution where law permits, but receives no exclusive control over the pre-existing CC0 Commons artifact. If a venue demands rights the authors do not hold or demands removal or restriction of the Commons version, the work must use another venue.
-
-## Rights uncertainty
-
-Uncertain material remains metadata-only or private to a lawful review context until its public use is resolved. This repository does not treat assumed community approval as a substitute for permission or a documented legal basis.
+Credentials, private communications, unrelated files, and raw model transcripts are not project deliverables. A transcript can enter the public project only after a separate redaction proposal is shown to and approved by the project coordinator. Ordinary workflow provenance is supplied through bounded task specifications, manifests, decisions, corrections, tool identities, and test receipts instead.

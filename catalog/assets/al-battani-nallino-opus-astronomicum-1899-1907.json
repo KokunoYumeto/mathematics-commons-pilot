@@ -1,0 +1,119 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "al-battani-nallino-opus-astronomicum-1899-1907",
+  "wrapper_directory": "al-battani-nallino-opus-astronomicum-1899-1907",
+  "source_files": 17,
+  "source_bytes": 118207551,
+  "canonical_stream_bytes": 1962,
+  "source_tree_sha256": "AFD6D016A7A3E0C10DB5BAD010444BFCED17243EA25BCF9120A68450A215E1C7",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "al-battani-nallino-opus-astronomicum-1899-1907.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 17,
+      "source_bytes": 118207551,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 116632760,
+      "zip_sha256": "8220D4A6B61807E8EF8BF1A2070D8DEFBCA41B1588EA907D93C37A5B82B3A8A6"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2425,
+      "sha256": "DB7EBAEAE3144336AC051F324A68AB69956D0AAC133CB2C72FD3975B89FC1D46"
+    },
+    {
+      "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
+      "bytes": 1576,
+      "sha256": "FF6FF2499E4748F9CE49B8D08FDAA6887411F8BBAAA9CB52C5365DD0A2ACE501"
+    },
+    {
+      "path": "02_PHASE_AND_RANGE_MAP.tsv",
+      "bytes": 3431,
+      "sha256": "EE88E77E3DE89196E625E23BB6E73FDB086B3CCC56C7F7D46C08FBD9457A212F"
+    },
+    {
+      "path": "03_PHYSICAL_AND_STRATUM_DISPOSITION_TEMPLATE.tsv",
+      "bytes": 127569,
+      "sha256": "2588B8534DBBBFA5766D686D57EB4C0356F22D68766FDBF9F09F8370DB1F26C0"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 256801,
+      "sha256": "91CF95482AE9C69F5FFB19FC2A4D3B8DF7C3B8ABDA6CA05DB0759CC659681F5E"
+    },
+    {
+      "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
+      "bytes": 14739,
+      "sha256": "E05549F71A594809C6500283F1B30831884E728DFC043CCBBC09BE337F0B6770"
+    },
+    {
+      "path": "06_ISSUE_LEDGER_TEMPLATE.tsv",
+      "bytes": 116,
+      "sha256": "0C87061B30EFD003266E47C9EB2BA1488B9B71C0BCD4B35F4E7A2FA531DC51AF"
+    },
+    {
+      "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
+      "bytes": 574,
+      "sha256": "B1ADE6A8EF90EF4E1BEFCD3BB2E90CDA96F22AA4646B44D337187B694B843E15"
+    },
+    {
+      "path": "20_AL_BATTANI_OPUS_ASTRONOMICUM_NALLINO_PARS_I_II_III_1162P_AUTHORITY.pdf",
+      "bytes": 80946704,
+      "sha256": "544C16B6355C9B74E281ADED657D657224BFF738366D5260E1A610D31B0D6297"
+    },
+    {
+      "path": "21_AL_BATTANI_NALLINO_PARS_III_ARABIC_RGB_COMPARATOR_292P.pdf",
+      "bytes": 25151980,
+      "sha256": "F60D9C2D3A0FAA6D7841CEC0197A2B3F4FAABC5BBB32DFDC19DB9ECC3CC3DD67"
+    },
+    {
+      "path": "25_AL_BATTANI_BIBLIOGRAPHY_REFERENCE_BEA.pdf",
+      "bytes": 111326,
+      "sha256": "567EF9AF40C91634C709A0CFBDD0AAB9445658BE89F86CBDF14C9FE603D49DD2"
+    },
+    {
+      "path": "30_PRIOR_PART_II_PAGES_001_006_OUTPUTS_AND_CONTROLS_UNTRUSTED.zip",
+      "bytes": 968772,
+      "sha256": "6F7C4C278C57446943A7BA0CBCA36527A5BDCD49FCBE16F8D7FDBBFB07AFBAC5"
+    },
+    {
+      "path": "31_PRIOR_MULTILINGUAL_AND_TABLE_WORKING_STATE_UNTRUSTED.zip",
+      "bytes": 10413525,
+      "sha256": "D65D1B3455321307D0A12F84B7866D860F5AA5043D6EC2EEF1A7470C87D0AC73"
+    },
+    {
+      "path": "32_PRIOR_PART_III_PAGE_MAPS_AND_QA_REPLAY_REQUIRED.zip",
+      "bytes": 197312,
+      "sha256": "A0CAB6257B9E3A784835D5837E899C1F78A317A2E2769DFB4756B81D94E43EEE"
+    },
+    {
+      "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
+      "bytes": 6576,
+      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1787,
+      "sha256": "A314BDC95D71F4F3D5FF00B51913E45243EB0745455191466CE8BAF27D1868CD"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2338,
+      "sha256": "F76B07348936A02115C1699344B56EC52F230321C7F3C6FAF326768C736158F6"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "17/17",
+    "zip_member_replay": "17/17",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

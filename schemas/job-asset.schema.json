@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/job-asset.schema.json",
+  "title": "Mathematics Commons release asset manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "job_id", "wrapper_directory", "source_files", "source_bytes", "canonical_stream_bytes", "source_tree_sha256", "asset_count", "assets", "members", "checks"],
+  "properties": {
+    "schema": {"const": "math-commons-job-asset/v1"},
+    "job_id": {"$ref": "#/$defs/slug"},
+    "wrapper_directory": {"$ref": "#/$defs/slug"},
+    "source_files": {"type": "integer", "minimum": 1},
+    "source_bytes": {"type": "integer", "minimum": 1},
+    "canonical_stream_bytes": {"type": "integer", "minimum": 1},
+    "source_tree_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "asset_count": {"type": "integer", "minimum": 1},
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "part", "parts", "source_files", "source_bytes", "first_path", "last_path", "zip_bytes", "zip_sha256"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*\\.zip$"},
+          "part": {"type": "integer", "minimum": 1},
+          "parts": {"type": "integer", "minimum": 1},
+          "source_files": {"type": "integer", "minimum": 1},
+          "source_bytes": {"type": "integer", "minimum": 1},
+          "first_path": {"$ref": "#/$defs/safePath"},
+          "last_path": {"$ref": "#/$defs/safePath"},
+          "zip_bytes": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+          "zip_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+        }
+      }
+    },
+    "members": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "bytes", "sha256"],
+        "properties": {
+          "path": {"$ref": "#/$defs/safePath"},
+          "bytes": {"type": "integer", "minimum": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_hash_replay", "zip_member_replay", "crc_errors", "missing", "extra", "byte_mismatches", "hash_mismatches"],
+      "properties": {
+        "source_hash_replay": {"type": "string", "pattern": "^[1-9][0-9]*/[1-9][0-9]*$"},
+        "zip_member_replay": {"type": "string", "pattern": "^[1-9][0-9]*/[1-9][0-9]*$"},
+        "crc_errors": {"const": 0},
+        "missing": {"const": 0},
+        "extra": {"const": 0},
+        "byte_mismatches": {"const": 0},
+        "hash_mismatches": {"const": 0}
+      }
+    }
+  },
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "safePath": {"type": "string", "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\]+$"}
+  }
+}

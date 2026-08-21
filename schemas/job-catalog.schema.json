@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/job-catalog.schema.json",
+  "title": "Mathematics Commons runnable job catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "updated", "repository", "release", "interaction", "admission", "translation_kit", "jobs", "exclusions"],
+  "properties": {
+    "schema": {"const": "math-commons-job-catalog/v1"},
+    "updated": {"type": "string", "format": "date"},
+    "repository": {"type": "string", "const": "https://github.com/KokunoYumeto/mathematics-commons-pilot"},
+    "release": {"$ref": "#/$defs/release"},
+    "interaction": {"$ref": "#/$defs/interaction"},
+    "admission": {"$ref": "#/$defs/admission"},
+    "translation_kit": {"$ref": "#/$defs/translationKit"},
+    "jobs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/job"}},
+    "exclusions": {"type": "array", "items": {"$ref": "#/$defs/exclusion"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "safePath": {"type": "string", "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\]+$"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "stringArray": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": {"$ref": "#/$defs/safePath"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "packetIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basename", "bytes", "sha256"],
+      "properties": {
+        "basename": {"type": "string", "pattern": "^[^/\\\\]+$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "receipt_scope": {"type": "string", "minLength": 1},
+        "included_in_packet": {"type": "boolean"},
+        "public_projection": {"$ref": "#/$defs/publicProjection"}
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "part", "parts", "source_files", "source_bytes", "first_path", "last_path", "zip_bytes", "zip_sha256", "url"],
+      "properties": {
+        "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*\\.zip$"},
+        "part": {"type": "integer", "minimum": 1},
+        "parts": {"type": "integer", "minimum": 1},
+        "source_files": {"type": "integer", "minimum": 1},
+        "source_bytes": {"type": "integer", "minimum": 1},
+        "first_path": {"$ref": "#/$defs/safePath"},
+        "last_path": {"$ref": "#/$defs/safePath"},
+        "zip_bytes": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+        "zip_sha256": {"$ref": "#/$defs/sha256"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://github\\.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+/[a-z0-9][a-z0-9.-]*\\.zip$"}
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "url", "asset_limit"],
+      "properties": {
+        "tag": {"type": "string", "pattern": "^jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+$"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://github\\.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-[0-9]{4}-[0-9]{2}-[0-9]{2}-r[0-9]+$"},
+        "asset_limit": {"type": "string", "minLength": 1}
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt_count", "in_progress_reply", "complete_reply", "terminal", "state_rule"],
+      "properties": {
+        "prompt_count": {"const": 45},
+        "in_progress_reply": {"const": "continue"},
+        "complete_reply": {"const": "next prompt"},
+        "terminal": {"const": "Prompt 45 COMPLETE"},
+        "state_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule", "packet_count", "source_files", "source_bytes", "audit_receipt"],
+      "properties": {
+        "rule": {"type": "string", "minLength": 1},
+        "packet_count": {"type": "integer", "minimum": 1},
+        "source_files": {"type": "integer", "minimum": 1},
+        "source_bytes": {"type": "integer", "minimum": 1},
+        "audit_receipt": {"$ref": "#/$defs/packetIdentity"}
+      }
+    },
+    "translationKit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_manifest", "assets"],
+      "properties": {
+        "asset_manifest": {"$ref": "#/$defs/identity"},
+        "assets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/asset"}}
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "pages", "note", "sha256"],
+      "properties": {
+        "path": {"$ref": "#/$defs/safePath"},
+        "pages": {"type": "integer", "minimum": 1},
+        "note": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "effort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_tier", "scale", "rough_elapsed", "heuristic_note"],
+      "properties": {
+        "model_tier": {"enum": ["frontier_high_reasoning", "frontier_multimodal_high_reasoning", "high_multimodal_reasoning_or_better"]},
+        "scale": {"enum": ["small", "small_but_specialist", "medium", "large", "very_large", "extreme"]},
+        "rough_elapsed": {"type": "string", "pattern": "^[0-9]+-[0-9]+ (?:days|weeks)$"},
+        "heuristic_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "publicProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256", "transformations"],
+      "properties": {
+        "path": {"$ref": "#/$defs/safePath"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "transformations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "packet_id", "authors", "title", "edition", "source_languages", "target_outputs", "scope", "physical_pages", "page_note", "pack_scope", "source_files", "source_bytes", "authority", "status", "audit_basis", "prompt_count", "packet_manifest", "validation_receipt", "proposed_asset_base_name", "rights_note", "effort", "catalog_status", "asset_manifest", "assets"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "packet_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+        "authors": {"$ref": "#/$defs/stringArray"},
+        "title": {"type": "string", "minLength": 1},
+        "edition": {"type": "string", "minLength": 1},
+        "source_languages": {"$ref": "#/$defs/stringArray"},
+        "target_outputs": {"$ref": "#/$defs/stringArray"},
+        "scope": {"type": "string", "minLength": 1},
+        "physical_pages": {"type": "integer", "minimum": 1},
+        "page_note": {"type": "string", "minLength": 1},
+        "pack_scope": {"const": "direct_files"},
+        "source_files": {"type": "integer", "minimum": 1},
+        "source_bytes": {"type": "integer", "minimum": 1},
+        "authority": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/authority"}},
+        "status": {"enum": ["PASS_GLOBAL_COLD_AUDIT", "PASS_COLD_PACKET_VALIDATION", "PASS_FINAL_NONPATCHING"]},
+        "audit_basis": {"enum": ["global_receipt", "terminal_sidecar"]},
+        "prompt_count": {"const": 45},
+        "packet_manifest": {"$ref": "#/$defs/packetIdentity"},
+        "validation_receipt": {"$ref": "#/$defs/packetIdentity"},
+        "proposed_asset_base_name": {"$ref": "#/$defs/slug"},
+        "rights_note": {"type": "string", "minLength": 1},
+        "effort": {"$ref": "#/$defs/effort"},
+        "catalog_status": {"const": "runnable"},
+        "asset_manifest": {"$ref": "#/$defs/identity"},
+        "assets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/asset"}}
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "root", "reason"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "root": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

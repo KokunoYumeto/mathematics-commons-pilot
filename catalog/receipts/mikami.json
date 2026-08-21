@@ -1,0 +1,181 @@
+{
+  "schema": "mikami-1913-web-intake-packet-cold-validation-v1",
+  "generated_utc": "2026-08-20T18:33:55.279229+00:00",
+  "revalidated_after_prompt_map_correction_utc": "2026-08-20T18:37:40.0041610Z",
+  "verdict": "PASS_COLD_PACKET_VALIDATION",
+  "packet": "<PACKET_ROOT>",
+  "direct_file_count": 37,
+  "direct_total_bytes": 41602588,
+  "largest_direct_file": {
+    "filename": "12_YOSHIO_MIKAMI_THE_DEVELOPMENT_OF_MATHEMATICS_IN_CHINA_AND_JAPAN_1913_AUTHORITY_366_PHYSICAL_PAGES.pdf",
+    "bytes": 24272514
+  },
+  "all_direct_files_under_500000000_bytes": true,
+  "read_first_characters": 2160,
+  "prompt_count": 45,
+  "every_prompt_returns_cumulative_triplet": true,
+  "prompt_contract_failures": [],
+  "physical_page_map_rows": 366,
+  "authority": {
+    "filename": "12_YOSHIO_MIKAMI_THE_DEVELOPMENT_OF_MATHEMATICS_IN_CHINA_AND_JAPAN_1913_AUTHORITY_366_PHYSICAL_PAGES.pdf",
+    "bytes": 24272514,
+    "sha256": "C285515E543F8D60F1158EFE8ABEF93470B1D0BC8E164B9E55FF28DDB6BB333E",
+    "pages": 366
+  },
+  "source_member_coverage": {
+    "authority_physical_pages": 366,
+    "untrusted_salvage_candidate_union": "PDF001-169",
+    "untrusted_salvage_candidate_pages": 169,
+    "accepted_text_pages_at_start": 0,
+    "untouched_completion_union": "PDF170-366",
+    "untouched_completion_pages": 197,
+    "navigation_slice_union_exact_once": true,
+    "archive_member_hash_rows": 121
+  },
+  "source_slice_page_union": {
+    "first": 170,
+    "last": 366,
+    "count": 197,
+    "exact_once": true
+  },
+  "source_slices": [
+    {
+      "filename": "21_YOSHIO_MIKAMI_1913_SOURCE_JOB_07_PDF170-191.pdf",
+      "first": 170,
+      "last": 191,
+      "pages": 22,
+      "bytes": 1737583,
+      "sha256": "2A9CCD76BF42FA66B680CAF39913F693BFC5A5B6609AD63EADBD759BB062B83C",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "22_YOSHIO_MIKAMI_1913_SOURCE_JOB_08_PDF192-204.pdf",
+      "first": 192,
+      "last": 204,
+      "pages": 13,
+      "bytes": 1108121,
+      "sha256": "6230359F6E2E788391998DF1560216E7F11855885B2B160D2A565B1ABA85AFAD",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "23_YOSHIO_MIKAMI_1913_SOURCE_JOB_09_PDF205-223.pdf",
+      "first": 205,
+      "last": 223,
+      "pages": 19,
+      "bytes": 1164654,
+      "sha256": "06531A2B6F7FE03AF243764B0F96C7EF5B3CF754B264557C03E44C1B0E33AA19",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "24_YOSHIO_MIKAMI_1913_SOURCE_JOB_10_PDF224-236.pdf",
+      "first": 224,
+      "last": 236,
+      "pages": 13,
+      "bytes": 677231,
+      "sha256": "642863301B0CCB69B23956FAF92EFC180A6DF389AADEADE159233B7940B6F3F4",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "25_YOSHIO_MIKAMI_1913_SOURCE_JOB_11_PDF237-250.pdf",
+      "first": 237,
+      "last": 250,
+      "pages": 14,
+      "bytes": 806188,
+      "sha256": "1A2049F269C8C157F24DB30327CA8284AD04F2190AEAFD9EC4A46D65BC659700",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "26_YOSHIO_MIKAMI_1913_SOURCE_JOB_12_PDF251-269.pdf",
+      "first": 251,
+      "last": 269,
+      "pages": 19,
+      "bytes": 1093842,
+      "sha256": "F572A016B7A19C56F652D1773844C8D9A532D190C7AA070E6D854658EC77BD26",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "27_YOSHIO_MIKAMI_1913_SOURCE_JOB_13_PDF270-281.pdf",
+      "first": 270,
+      "last": 281,
+      "pages": 12,
+      "bytes": 705524,
+      "sha256": "2E1C482C9BF60067B6315512F30F8C656B064BA74E33C389EFB2A75E7C2F4038",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "28_YOSHIO_MIKAMI_1913_SOURCE_JOB_14_PDF282-297.pdf",
+      "first": 282,
+      "last": 297,
+      "pages": 16,
+      "bytes": 828473,
+      "sha256": "4050676418B01FBCDF3AC272BA9A366FE73870AAD1004A651E4BC5539A19BA31",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "29_YOSHIO_MIKAMI_1913_SOURCE_JOB_15_PDF298-314.pdf",
+      "first": 298,
+      "last": 314,
+      "pages": 17,
+      "bytes": 960715,
+      "sha256": "0869EA248757E9E4B6764E704F13EBAE78169EC0C4EF5B1B91451927B437B906",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "30_YOSHIO_MIKAMI_1913_SOURCE_JOB_16_PDF315-324.pdf",
+      "first": 315,
+      "last": 324,
+      "pages": 10,
+      "bytes": 669628,
+      "sha256": "FF9B253028D7B80392F4209BFE5AF3C2159F975CD199DCFC267C4B4744896E7C",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "31_YOSHIO_MIKAMI_1913_SOURCE_JOB_17_PDF325-344.pdf",
+      "first": 325,
+      "last": 344,
+      "pages": 20,
+      "bytes": 1268285,
+      "sha256": "0C8A809852FA8E2290FA9C1A5E80EA686D4DF0DC4025A78E4CCEB0DFCCD9E7B2",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "32_YOSHIO_MIKAMI_1913_SOURCE_JOB_18_PDF345-361.pdf",
+      "first": 345,
+      "last": 361,
+      "pages": 17,
+      "bytes": 1460766,
+      "sha256": "D62557F4A6E67799033AF7294FADA6D5244ACF36B68E645F2A176A4633196807",
+      "raw_image_resource_match_all": true
+    },
+    {
+      "filename": "33_YOSHIO_MIKAMI_1913_SOURCE_JOB_19_PDF362-366.pdf",
+      "first": 362,
+      "last": 366,
+      "pages": 5,
+      "bytes": 286189,
+      "sha256": "94E5B59FD378EB2BB0BDBF05231B177FB1B7AD67F9DF0B96EACA7B99384B4524",
+      "raw_image_resource_match_all": true
+    }
+  ],
+  "duplicate_job03": {
+    "retained_source": "<SOURCE_CUSTODY>/MIKAMI_JOB_03_ARTIFACTS.zip",
+    "excluded_duplicate_source": "<SOURCE_CUSTODY>/MIKAMI_JOB_03_ARTIFACTS (1).zip",
+    "bytes_each": 1304779,
+    "sha256_each": "85FF0FA543BE49FD5A63B3989B00C901986D7BB90A16B2C422560D57892ECFB3",
+    "packet_copies": 1,
+    "excluded_source_untouched": true
+  },
+  "packet_validation_receipt": {
+    "path": "<PACKET_ROOT>/98_PACKET_VALIDATION_RECEIPT.json",
+    "bytes": 6352,
+    "sha256": "35B1DA7AF1168551B4A864134AF6ED1BF029DD336B9342EFD998D55F273592AB"
+  },
+  "packet_manifest": {
+    "path": "<PACKET_ROOT>/99_PACKET_MANIFEST_SHA256.tsv",
+    "rows": 36,
+    "bytes": 4429,
+    "sha256": "58370D312A788065B0C3949BF5F63D4120291ACD3F2F38CD054149A8F2652BE1",
+    "mismatches": []
+  },
+  "blockers": []
+}
