@@ -9,12 +9,13 @@
     "updated",
     "admission_note",
     "audit_receipt",
+    "hardening_receipt",
     "jobs",
     "exclusions"
   ],
   "properties": {
     "schema": {
-      "const": "math-commons-job-meta/v1"
+      "const": "math-commons-job-meta/v2"
     },
     "updated": {
       "type": "string",
@@ -25,6 +26,9 @@
       "minLength": 1
     },
     "audit_receipt": {
+      "$ref": "#/$defs/basenameIdentity"
+    },
+    "hardening_receipt": {
       "$ref": "#/$defs/basenameIdentity"
     },
     "jobs": {
@@ -50,6 +54,8 @@
           "status",
           "audit_basis",
           "prompt_count",
+          "start_file",
+          "prompt_file",
           "packet_manifest",
           "validation_receipt",
           "proposed_asset_base_name",
@@ -122,7 +128,14 @@
             "enum": ["global_receipt", "terminal_sidecar"]
           },
           "prompt_count": {
-            "const": 45
+            "type": "integer",
+            "minimum": 1
+          },
+          "start_file": {
+            "$ref": "#/$defs/basenameIdentity"
+          },
+          "prompt_file": {
+            "$ref": "#/$defs/basenameIdentity"
           },
           "packet_manifest": {
             "$ref": "#/$defs/basenameIdentity"

@@ -19,14 +19,14 @@ These jobs produce inspectable editions, not summaries. A packet is runnable onl
 
 ## Figures and difficult pages
 
-Reconstruct a figure or table editably only when every visible feature can be reproduced. Otherwise preserve an untouched crop from the authority and add a separately named conservative presentation derivative. The derivative never replaces the authoritative pixels.
+Reconstruct a glyph, formula, figure, or table editably only when every visible feature can be reproduced. Otherwise preserve an untouched exact crop from the authority in the edition, record the fallback in the apparatus, and add a separately named conservative presentation derivative when useful. The derivative never replaces the authoritative pixels, and encoding difficulty never licenses guessing, omission, or a terminal stop.
 
 ## State and interruption safety
 
-Every response returns a cumulative full-state ZIP, checkpoint, and manifest. A later session verifies that exact trio before acting. A partial response is preserved, not summarized away. Decisions, errors, reversals, and superseded generations remain in append-only ledgers.
+Every response returns a cumulative full-state ZIP, checkpoint, and manifest. A later session verifies that exact trio before acting. `IN_PROGRESS` is permitted only when the platform forces a response split; it is not a time, runtime, token, response-count, or effort limit. A partial response is preserved, not summarized away. Decisions, errors, reversals, and superseded generations remain in append-only ledgers.
 
 ## Completion requirements
 
-A terminal result requires deterministic integration, reproducible builds, complete page and topology accounting, rendered QA, formula/figure/link checks, and a fresh reviewer who audits without patching the candidate. A failed audit freezes that generation and reports the defect; it does not authorize the auditor to repair it invisibly.
+A terminal result requires deterministic integration, reproducible builds, complete page and topology accounting, rendered QA, formula/figure/link checks, and a fresh reviewer who audits without patching the candidate. If an audit finds a defect, preserve that failed generation and its report, repair the defect explicitly from the attached authority evidence in a new generation, then run a fresh nonpatching audit. Repeat until PASS. Ordinary `HOLD` or terminal `FAIL` is not an accepted workflow outcome.
 
 Packet validation proves packet integrity and workflow readiness. It is not a claim that the resulting mathematics or translation has already satisfied these completion requirements.

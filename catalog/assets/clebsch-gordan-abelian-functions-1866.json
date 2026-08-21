@@ -2,84 +2,165 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "clebsch-gordan-abelian-functions-1866",
   "wrapper_directory": "clebsch-gordan-abelian-functions-1866",
-  "source_files": 11,
-  "source_bytes": 33797508,
-  "canonical_stream_bytes": 1241,
-  "source_tree_sha256": "08F84FBD87443E3BE089B46886090A9A87498133FBAA3D2FDE6B6A4D38C736AD",
-  "asset_count": 1,
+  "source_files": 25,
+  "source_bytes": 1765661140,
+  "canonical_stream_bytes": 3388,
+  "source_tree_sha256": "FBDBE513C0B7E0DD58CD1A725A805C3EF9F90D58DB8126D27EC3FD1AA5D015BE",
+  "asset_count": 2,
   "assets": [
     {
-      "name": "clebsch-gordan-abelian-functions-1866.zip",
+      "name": "clebsch-gordan-abelian-functions-1866.part01.zip",
       "part": 1,
-      "parts": 1,
-      "source_files": 11,
-      "source_bytes": 33797508,
+      "parts": 2,
+      "source_files": 20,
+      "source_bytes": 1589327172,
       "first_path": "00_READ_FIRST.md",
+      "last_path": "24_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_279_342_and_audit_UNTRUSTED.zip",
+      "zip_bytes": 1573636853,
+      "zip_sha256": "159AE4ECEDCF1DA1D87345346168DCF6BFC8C60090AFB28D54FEA2AECED58214"
+    },
+    {
+      "name": "clebsch-gordan-abelian-functions-1866.part02.zip",
+      "part": 2,
+      "parts": 2,
+      "source_files": 5,
+      "source_bytes": 176333968,
+      "first_path": "25_Clebsch_Gordan_newer_local_and_superseded_work_through_source_page_355_UNTRUSTED.zip",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 33257102,
-      "zip_sha256": "847F2DD240BA3D960F175FB1144C4E272A2B2963100F654C6A878A02FCB76C5E"
+      "zip_bytes": 176249461,
+      "zip_sha256": "8F3723A0EDB96680BADC5F7E321A3AAB0358748132A88DBA17D3AFF53CF74E52"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2459,
-      "sha256": "65D5ADE6AFF5AF460682D8E769CE28D50DA94799F27FCA28D0F4EE38E3C542D3"
+      "bytes": 4397,
+      "sha256": "A828E2DEB2F0FF9CB97FBC2808DB3A25B530427C9CB74C92F2E940F2A66AF0EB"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
-      "bytes": 1005,
-      "sha256": "91C07FB79B253D2ED80E145D6E24223088F9E5AB01E93AF0FE008C8D89C1C84C"
+      "bytes": 3485,
+      "sha256": "B5F550CEFB741AC17A502530605191083F7A79C167430A8B5FB776220ED7E311"
     },
     {
       "path": "02_PHYSICAL_TO_PRINTED_PAGE_MAP.tsv",
-      "bytes": 33590,
-      "sha256": "443A37D28BAC2362BDF4576960A815A4BCFBB5DBF554D2FDE0975484B422CC12"
+      "bytes": 51447,
+      "sha256": "C5B7CE12AF71B0D7F28259AE0468D4C48F37660244B20BBCC7F55E46879A529E"
     },
     {
-      "path": "03_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
-      "bytes": 15071,
-      "sha256": "CF839C4ABE4FCEE2A8B4CAD5B3CA5978B2A5FAC5666361A117348CD24FB31A83"
+      "path": "03_ALL_PRIOR_WORK_ARCHIVE_INVENTORY.tsv",
+      "bytes": 10811,
+      "sha256": "29C34CF19144CD0C572EC5827BB55D95EEE96BB0C20F7E58A44C5AB1EFD4CF1E"
     },
     {
       "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 269479,
-      "sha256": "273900946287959A37E36FAF5559E7FDD069F43454F1C12DB1B63745A73A7673"
+      "bytes": 302794,
+      "sha256": "5E3E4A94646C4FE3E12EB8F3E7CA7EC2733D6C6473DD1CC49591BB5867D5D43F"
     },
     {
       "path": "05_ISSUE_LEDGER_TEMPLATE.tsv",
-      "bytes": 105,
-      "sha256": "56D5EB126C3B8C73A76729F9E86E8DD1D27F5EB3D0E4058D7075DED05FDF706C"
+      "bytes": 169,
+      "sha256": "9493B2252D2651520B02BB21400AFB120F7F58D0E49FF1CAD0A3FD63EC94DA41"
     },
     {
       "path": "06_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 375,
-      "sha256": "3CEAE2B56CA32BA69F0E34655409C705A4993F56109C99F2FD2403DDF4C85322"
+      "bytes": 1967,
+      "sha256": "46D6B31638AC8DEB035892C086C948A8017ADF5631E6C5A3903C1B920D51E1E3"
     },
     {
-      "path": "20_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_full_362_physical_pages.pdf",
+      "path": "07_ZENODO_RECORD_20673409_EXACT_BOOK_SALVAGE_PROVENANCE.json",
+      "bytes": 1228,
+      "sha256": "837BD6AD07D546AC7843E29E4B49DB1705C0A39F22D6ED6128D8747A58CD461C"
+    },
+    {
+      "path": "08_OBJECT_AND_FIGURE_INDEX_TEMPLATE.tsv",
+      "bytes": 152,
+      "sha256": "D01C0CB0F2215E58B89655852497AD11EDC8B6499E6E3993FE9B874DF1B432CE"
+    },
+    {
+      "path": "09_DETERMINISTIC_BUILD_AND_INTEGRATION_CONTRACT.md",
+      "bytes": 3816,
+      "sha256": "0323EE61B02FD4DA217090083A1314628999737A69335ABA9179874B4A4C0F00"
+    },
+    {
+      "path": "10_CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_S00_INITIAL_CUMULATIVE_STATE.zip",
+      "bytes": 17835,
+      "sha256": "2E5454D8C23B20B0DD3F4BD195EAE9DED6B943C7B15A50A2F2754AF1E39FE175"
+    },
+    {
+      "path": "11_CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_S00_INITIAL_CUMULATIVE_CHECKPOINT.json",
+      "bytes": 1762,
+      "sha256": "A47612D1DA59FE74A8F851789BDBADF202BED53BDFFCEF5193869F99D328B447"
+    },
+    {
+      "path": "12_CLEBSCH_GORDAN_THEORIE_DER_ABELSCHEN_FUNCTIONEN_1866_S00_INITIAL_CUMULATIVE_MANIFEST.tsv",
+      "bytes": 2578,
+      "sha256": "745D68513861ABCCBDC69D645BFA6856720141D84F2C4A52D3AC30A5E9F77148"
+    },
+    {
+      "path": "18_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_Oxford_Google_witness_WITH_DUPLICATE_PRINTED_PAGE_28.pdf",
       "bytes": 8248357,
       "sha256": "17FD42069383A63FA74BF0D724697ED87E16B26A7C6D023D33BEC9785608921C"
     },
     {
-      "path": "21_Clebsch_Gordan_Abelsche_Functionen_existing_German_English_state_UNTRUSTED.zip",
-      "bytes": 25223651,
-      "sha256": "A706FB9608A8E36B8A8EDDC9215904F5CE98D4FDD6CBD8A085881F7A8347E5C8"
+      "path": "19_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_Toronto_full_356_physical_pages.pdf",
+      "bytes": 17500025,
+      "sha256": "03C72FD34A781DA610F54173381FCCDD918735A5C41BE18F451761FAEB231147"
+    },
+    {
+      "path": "20_Clebsch_Gordan_Theorie_der_Abelschen_Functionen_1866_CONTROLLING_362_physical_pages_Oxford_with_Toronto_printed_page_30.pdf",
+      "bytes": 8280500,
+      "sha256": "8C324DAC59E58A71930AA1712764781B551DB2D6E9EFF89D9DA719B46A746CFB"
+    },
+    {
+      "path": "21_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_001_088_UNTRUSTED.zip",
+      "bytes": 430596143,
+      "sha256": "1300DB74A766BCC75CDB248F3567396E235A3180619E2C24FD97F879AE5A22B2"
+    },
+    {
+      "path": "22_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_089_161_UNTRUSTED.zip",
+      "bytes": 428355693,
+      "sha256": "64309B7F67B5A18A028F59C956844556B73EA7E1048D951850F35CEB0094666D"
+    },
+    {
+      "path": "23_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_162_270_UNTRUSTED.zip",
+      "bytes": 408378538,
+      "sha256": "911A28E3797AE6A15C2D1D5635FD96773F7CE9E2977E68C602DE67091A4A7695"
+    },
+    {
+      "path": "24_Clebsch_Gordan_Zenodo_20673409_original_archives_source_pages_279_342_and_audit_UNTRUSTED.zip",
+      "bytes": 287565475,
+      "sha256": "09B3351B43464881980E4EBD62FB074AAB136D8C595DA96A5F17669F6E9FF44E"
+    },
+    {
+      "path": "25_Clebsch_Gordan_newer_local_and_superseded_work_through_source_page_355_UNTRUSTED.zip",
+      "bytes": 175044923,
+      "sha256": "C7A81695EE6DF759E42C2B2A7B9A14E8CD25343BF887CBECD3A2AAE3869ADEB1"
+    },
+    {
+      "path": "26_Clebsch_Gordan_printed_page_30_Toronto_authority_repair_evidence.zip",
+      "bytes": 1274477,
+      "sha256": "ECA3992D6141310B9BBAC9D49C111D41FFD6F89CFB0DF3CDC32156204D4252A5"
+    },
+    {
+      "path": "97_PACKET_SELF_CHECK.ps1",
+      "bytes": 4660,
+      "sha256": "8681AC0C4F2F266CD87BA5100CAAEBB23AE405F881DC4884354F38BB939E2147"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1066,
-      "sha256": "4285EE92405D7F678A1BC3A5A52847B4415B410910994003DD94EE93ED83C7F7"
+      "bytes": 4299,
+      "sha256": "130B100A4DED9A48199BCB0363A5918AD5775C6A96C6DF5BFCAD76B67E0708BA"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2350,
-      "sha256": "E8DCC038ACBC1E95EE1834B57077EAFB90294689A3BF2C2258BB243F088B5C4D"
+      "bytes": 5609,
+      "sha256": "D217F7A056A7E440FE42D0A80602B42033F423DA517EB10756D5691B32F3799A"
     }
   ],
   "checks": {
-    "source_hash_replay": "11/11",
-    "zip_member_replay": "11/11",
+    "source_hash_replay": "25/25",
+    "zip_member_replay": "25/25",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

@@ -3,9 +3,9 @@
   "job_id": "mikami-development-mathematics-china-japan-1913",
   "wrapper_directory": "mikami-development-mathematics-china-japan-1913",
   "source_files": 37,
-  "source_bytes": 41602588,
+  "source_bytes": 41607753,
   "canonical_stream_bytes": 4502,
-  "source_tree_sha256": "671CBAD13722020E5CED7A9CA85A706F94915D0EAC589B09C4967B1AEAC75CC8",
+  "source_tree_sha256": "A34494653F56CD576D6E1FBE42187ADD970A7B5628CA2150FF2D26235800124E",
   "asset_count": 1,
   "assets": [
     {
@@ -13,28 +13,28 @@
       "part": 1,
       "parts": 1,
       "source_files": 37,
-      "source_bytes": 41602588,
+      "source_bytes": 41607753,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_PACKET_MANIFEST_SHA256.tsv",
-      "zip_bytes": 40457086,
-      "zip_sha256": "0CD53BCD1A5050AC3306FA79D249BD08E97F8D71EAE91F6F73D92FD1331EAB2E"
+      "zip_bytes": 40458723,
+      "zip_sha256": "E045772E8CFB4E12D3BF96CB40E8F7C1EC5D2FB3F5C8FA05B0367C71B07A96D7"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2166,
-      "sha256": "78EDFF3C4014A01B4B33AAAEBC325B214F3FE369BEAAEE1BD11C3E876A6158C6"
+      "bytes": 3333,
+      "sha256": "5AA9E6B71536D820671CD840CAD89CA273333DE530FDFA83DF625E3BEE888EEE"
     },
     {
       "path": "01_PROJECT_CONTRACT.md",
-      "bytes": 3506,
-      "sha256": "4A0BA27FD8A96D32A6CF37FBA9498E728A3762089D8176B1DC3471246031251B"
+      "bytes": 4673,
+      "sha256": "96F7BADB0844EC3A463EA03A3CF5506029659DDD4240DC6DFD1D1A7D9220104B"
     },
     {
       "path": "02_ORDERED_PROMPTS_EXACTLY_45.md",
-      "bytes": 218993,
-      "sha256": "49E85306C4B4CFD6B01DFC0629B9F799B20533770BCE8B74E31C7B7C61000A8F"
+      "bytes": 221824,
+      "sha256": "6E6D278E24835C1249801B1C8835BF3AD95108761CB7347B0AE4E5D873DE2539"
     },
     {
       "path": "03_PHYSICAL_PAGE_OWNERSHIP_AND_TOPOLOGY_MAP.csv",
@@ -204,7 +204,7 @@
     {
       "path": "99_PACKET_MANIFEST_SHA256.tsv",
       "bytes": 4429,
-      "sha256": "58370D312A788065B0C3949BF5F63D4120291ACD3F2F38CD054149A8F2652BE1"
+      "sha256": "8AB11B3E5D82D79211C01BD595A715A3CEC73900EE3BF87CE7E29445CD1FA5BC"
     }
   ],
   "checks": {

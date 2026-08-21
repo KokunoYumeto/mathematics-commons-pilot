@@ -29,6 +29,61 @@ BUILD_SPEC.loader.exec_module(build_jobs)
 
 
 class JobCatalogTests(unittest.TestCase):
+    def test_r2_prompt_counts_are_positive_integers_without_a_fixed_total(self) -> None:
+        for accepted in (1, 2, 13, 45, 91):
+            self.assertTrue(validate_jobs.valid_prompt_count(accepted))
+        for rejected in (True, False, 0, -1, 1.0, "45", None):
+            self.assertFalse(validate_jobs.valid_prompt_count(rejected))
+
+    def test_r2_control_files_are_independently_bound_to_packet_members(self) -> None:
+        members = {
+            "00_READ_FIRST.md": {
+                "path": "00_READ_FIRST.md",
+                "bytes": 11,
+                "sha256": "A" * 64,
+            },
+            "04_ALL_13_LITERAL_SESSION_PROMPTS.md": {
+                "path": "04_ALL_13_LITERAL_SESSION_PROMPTS.md",
+                "bytes": 22,
+                "sha256": "B" * 64,
+            },
+            "98_PACKET_MANIFEST_SHA256.tsv": {
+                "path": "98_PACKET_MANIFEST_SHA256.tsv",
+                "bytes": 33,
+                "sha256": "C" * 64,
+            },
+        }
+        job = {
+            "id": "bounded-test-job",
+            "start_file": {
+                "basename": "00_READ_FIRST.md",
+                "bytes": 11,
+                "sha256": "A" * 64,
+            },
+            "prompt_file": {
+                "basename": "04_ALL_13_LITERAL_SESSION_PROMPTS.md",
+                "bytes": 22,
+                "sha256": "B" * 64,
+            },
+            "packet_manifest": {
+                "basename": "98_PACKET_MANIFEST_SHA256.tsv",
+                "bytes": 33,
+                "sha256": "C" * 64,
+            },
+        }
+        errors: list[str] = []
+        validate_jobs.bind_job_control_members(job, members, errors)
+        self.assertEqual(errors, [])
+
+        mutated = copy.deepcopy(job)
+        mutated["prompt_file"]["sha256"] = "D" * 64
+        errors = []
+        validate_jobs.bind_job_control_members(mutated, members, errors)
+        self.assertEqual(
+            errors,
+            ["bounded-test-job: prompt file: member SHA-256"],
+        )
+
     def test_catalog_and_manifest_projection(self) -> None:
         errors: list[str] = []
         result = validate_jobs.validate_jobs(None, errors)
@@ -158,42 +213,75 @@ class JobCatalogTests(unittest.TestCase):
         self.assertEqual(contract["status"], "FAIL")
         self.assertTrue(any(error.endswith("subject") for error in errors), errors)
 
-    def test_global_audit_rows_bind_exact_direct_snapshots(self) -> None:
+    def test_r2_admission_rows_bind_every_job_and_control_file(self) -> None:
         meta, _ = validate_jobs.load(ROOT / "catalog" / "job-meta.json")
-        audit, _ = validate_jobs.load(ROOT / "catalog" / "receipts" / "global.json")
+        projection = meta["audit_receipt"]["public_projection"]
+        audit, _ = validate_jobs.load(ROOT / projection["path"])
         rows = {row["packet_id"]: row for row in audit["rows"]}
-        checked = 0
+        self.assertEqual(audit["schema"], "math-commons-packet-r2-admission/v1")
+        self.assertEqual(len(rows), len(meta["jobs"]))
         for job in meta["jobs"]:
-            if job["audit_basis"] != "global_receipt":
-                continue
+            self.assertEqual(job["audit_basis"], "global_receipt", job["id"])
+            self.assertTrue(validate_jobs.valid_prompt_count(job["prompt_count"]))
             manifest, _ = validate_jobs.load(
                 ROOT / "catalog" / "assets" / f"{job['id']}.json"
             )
+            row = rows[job["packet_id"]]
+            self.assertEqual(row["job_id"], job["id"])
             self.assertEqual(
-                rows[job["packet_id"]]["direct_snapshot_sha256"],
+                row["direct_snapshot_sha256"],
                 validate_jobs.audit_snapshot_sha256(manifest["members"]),
                 job["id"],
             )
-            checked += 1
-        self.assertEqual(checked, 26)
+            members = {member["path"]: member for member in manifest["members"]}
+            for field in ("start_file", "prompt_file", "packet_manifest"):
+                self.assertEqual(row[field], job[field], f"{job['id']} {field}")
+                identity = job[field]
+                self.assertEqual(
+                    members[identity["basename"]],
+                    {
+                        "path": identity["basename"],
+                        "bytes": identity["bytes"],
+                        "sha256": identity["sha256"],
+                    },
+                    f"{job['id']} {field}",
+                )
+            receipt = job["validation_receipt"]
+            self.assertIs(receipt["included_in_packet"], False)
+            self.assertEqual(receipt["public_projection"], projection)
 
-    def test_terminal_sidecars_bind_status_and_subject(self) -> None:
-        meta, _ = validate_jobs.load(ROOT / "catalog" / "job-meta.json")
-        sidecars = [job for job in meta["jobs"] if job["audit_basis"] == "terminal_sidecar"]
-        self.assertEqual(len(sidecars), 2)
-        for job in sidecars:
-            manifest, _ = validate_jobs.load(
-                ROOT / "catalog" / "assets" / f"{job['id']}.json"
-            )
-            errors: list[str] = []
-            validate_jobs.validate_terminal_sidecar(job, manifest, errors)
-            self.assertEqual(errors, [], job["id"])
-
-            mutated = copy.deepcopy(job)
-            mutated["status"] = "PASS_GLOBAL_COLD_AUDIT"
-            errors = []
-            validate_jobs.validate_terminal_sidecar(mutated, manifest, errors)
-            self.assertTrue(any(error.endswith(": status") for error in errors), errors)
+    def test_r2_validator_rejects_non_global_job_basis(self) -> None:
+        catalog = {
+            "admission": {
+                "audit_receipt": {
+                    "public_projection": {
+                        "path": "catalog/receipts/r2-admission.json",
+                    }
+                }
+            }
+        }
+        receipt = {
+            "included_in_packet": False,
+            "public_projection": {
+                "path": "catalog/receipts/r2-admission.json",
+            },
+        }
+        self.assertEqual(
+            validate_jobs.binds_global_admission_projection(
+                catalog,
+                {"audit_basis": "global_receipt"},
+                receipt,
+            ),
+            True,
+        )
+        self.assertEqual(
+            validate_jobs.binds_global_admission_projection(
+                catalog,
+                {"audit_basis": "terminal_sidecar"},
+                receipt,
+            ),
+            False,
+        )
 
     def test_nested_authority_replay_binds_inner_member_hash(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

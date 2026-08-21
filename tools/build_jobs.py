@@ -198,7 +198,13 @@ def validate_source_lock(
     expected_manifest: dict[str, object],
 ) -> None:
     job_id = str(job["id"])
-    if job.get("prompt_count") != 45 or job.get("pack_scope") != "direct_files":
+    prompt_count = job.get("prompt_count")
+    if (
+        not isinstance(prompt_count, int)
+        or isinstance(prompt_count, bool)
+        or prompt_count < 1
+        or job.get("pack_scope") != "direct_files"
+    ):
         raise ValueError(f"{job_id}: prompt or packet-scope contract differs")
     if job.get("status") not in {
         "PASS_COLD_PACKET_VALIDATION",
@@ -240,6 +246,8 @@ def validate_source_lock(
         raise ValueError(f"{job_id}: admitted source-tree SHA-256 differs")
 
     rows_by_path = {str(row["path"]): row for row in rows}
+    verify_named_file(source, rows_by_path, job.get("start_file"), f"{job_id} start file")
+    verify_named_file(source, rows_by_path, job.get("prompt_file"), f"{job_id} prompt file")
     verify_named_file(source, rows_by_path, job.get("packet_manifest"), f"{job_id} packet manifest")
     validate_receipt_binding(
         source,
@@ -446,7 +454,7 @@ def generate_catalog(release_tag: str) -> None:
     kit_manifest_path = ASSET_MANIFESTS / "translation-kit.json"
     kit_manifest = load_json(kit_manifest_path)
     catalog = {
-        "schema": "math-commons-job-catalog/v1",
+        "schema": "math-commons-job-catalog/v2",
         "updated": "2026-08-21",
         "repository": f"https://github.com/{REPOSITORY}",
         "release": {
@@ -455,18 +463,21 @@ def generate_catalog(release_tag: str) -> None:
             "asset_limit": "Each asset is below GitHub's 2 GiB per-file limit; multipart assets preserve one job when needed.",
         },
         "interaction": {
-            "prompt_count": 45,
+            "prompt_count_rule": "Use each job's declared prompt_count; counts are workload-derived with no global minimum or maximum.",
             "in_progress_reply": "continue",
             "complete_reply": "next prompt",
-            "terminal": "Prompt 45 COMPLETE",
+            "terminal_rule": "The final declared prompt completes only after PASS and requests no successor.",
             "state_rule": "Every response returns the newest cumulative full-state ZIP, checkpoint, and manifest.",
+            "duration_rule": "No assumed time, runtime, token, response-count, or effort limit applies.",
+            "defect_rule": "Resolve defects from attached authority evidence, record the repair, and rerun a fresh nonpatching audit until PASS; ordinary HOLD or terminal FAIL is not an outcome.",
         },
         "admission": {
-            "rule": "Only root-replayed, coherent, strict-PASS packets without HOLD, placeholder, quarantine, supersession, or incomplete-source defects are runnable.",
+            "rule": "Only exact root-replayed packets with complete attached authority, cumulative state continuity, recorded in-workflow repair, and a fresh PASS admission row are runnable.",
             "packet_count": len(jobs),
             "source_files": sum(int(job["source_files"]) for job in jobs),
             "source_bytes": sum(int(job["source_bytes"]) for job in jobs),
             "audit_receipt": meta["audit_receipt"],
+            "hardening_receipt": meta["hardening_receipt"],
         },
         "translation_kit": {
             "asset_manifest": identity(kit_manifest_path),
@@ -485,7 +496,16 @@ def generate_catalog(release_tag: str) -> None:
 
 def verify_output_set(output_root: Path) -> None:
     expected: set[str] = set()
-    for path in sorted(ASSET_MANIFESTS.glob("*.json")):
+    meta = load_json(META)
+    reviewed = [
+        ASSET_MANIFESTS / f"{job['id']}.json"
+        for job in meta["jobs"]
+    ]
+    reviewed.append(ASSET_MANIFESTS / "translation-kit.json")
+    # Other portals keep their own independently released asset manifests in
+    # this directory.  A transcription release must not absorb them merely
+    # because they share the catalog namespace.
+    for path in reviewed:
         manifest = load_json(path)
         for asset in manifest.get("assets", []):
             if not isinstance(asset, dict) or not isinstance(asset.get("name"), str):
@@ -513,7 +533,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--packet-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--release-tag", default="jobs-2026-08-21-r1")
+    parser.add_argument("--release-tag", default="jobs-2026-08-21-r2")
     parser.add_argument("--max-part-bytes", type=int, default=1_700_000_000)
     parser.add_argument("--job", action="append", default=[])
     parser.add_argument("--catalog-only", action="store_true")

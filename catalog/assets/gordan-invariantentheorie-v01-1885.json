@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "gordan-invariantentheorie-v01-1885",
   "wrapper_directory": "gordan-invariantentheorie-v01-1885",
-  "source_files": 13,
-  "source_bytes": 62470202,
-  "canonical_stream_bytes": 1521,
-  "source_tree_sha256": "644CEB817BBBECB7056A1D64280525ACCC5C197D1E2ACD7BC7BFA75710AF4E0A",
+  "source_files": 16,
+  "source_bytes": 123337741,
+  "canonical_stream_bytes": 1879,
+  "source_tree_sha256": "5C571E86F2084A3025C6845489838CD49CD2EAE48C8C4B98AAAD475939A767EC",
   "asset_count": 1,
   "assets": [
     {
       "name": "gordan-invariantentheorie-v01-1885.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 13,
-      "source_bytes": 62470202,
+      "source_files": 16,
+      "source_bytes": 123337741,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 61540374,
-      "zip_sha256": "44838A95D1FD4A7BAD3FA01DB7A4009BF2A510312B45959DF9E9D54145FE09BE"
+      "zip_bytes": 122573954,
+      "zip_sha256": "366C4A268129940A359F2813647F2E24E34A9F39B5C480DD9D3B98730E409587"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2371,
-      "sha256": "A8A49F244F51E56C91AED3FDDA1100854C988A48E52756C37C03CCA3E6AAB2D0"
+      "bytes": 3424,
+      "sha256": "DFA8E59ACCE7FEF863116024E1D70D2ECA9E9C9297AAB439419926B6D1B0192F"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -42,9 +42,9 @@
       "sha256": "381313302379EB934452F6C14A60498D2BAFA2470F8D2A7FD6C14053F03671FC"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 274117,
-      "sha256": "9DB5A3D2B14824C2B73AEBBED86330521E0B0088E98B2F2C9C849CF41999A576"
+      "path": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 92075,
+      "sha256": "30869C025BCC667C6F1B0F784BE835C0380D9AE4FA02004839BA8378D8687880"
     },
     {
       "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
@@ -58,8 +58,18 @@
     },
     {
       "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 418,
-      "sha256": "C0B955B96C46032DF9D500B6E842DA71457DE05048980110752B5CC14640F110"
+      "bytes": 1585,
+      "sha256": "503A6441DF6470A28E88F8E32AD3A2120232622457D5EA44A9A1D69D229178B4"
+    },
+    {
+      "path": "08_STARTED_PROJECT_ADDITIVE_UPDATE.md",
+      "bytes": 2213,
+      "sha256": "ED1072D00674B2580CE414B40496061DC78317A44BECC551D89517FA55219B17"
+    },
+    {
+      "path": "09_ADDITIVE_SALVAGE_INVENTORY.tsv",
+      "bytes": 988,
+      "sha256": "DC9B2618DB54E282819E72E8A8C75C93D0F75DF2771C10A4E52545DB9A10AA02"
     },
     {
       "path": "20_Paul_Gordan_Vorlesungen_ueber_Invariantentheorie_Band_I_Determinanten_1885_navigable_221_pages.pdf",
@@ -77,19 +87,24 @@
       "sha256": "DA6280C7037D9C6C91966C1ACDE426F58272056D5EAAA5EA03B0DE7C14B77A5D"
     },
     {
+      "path": "23_Paul_Gordan_Band_I_all_distinct_local_work_branches_ZERO_ACCEPTED.zip",
+      "bytes": 61044521,
+      "sha256": "0A2E79A17EB7F3A60AB982423D2A2B56EEFD3F34BB2AA6AEDA8B486E52877134"
+    },
+    {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1346,
-      "sha256": "8F0C30EC74CD199F462775D814F96660A54669C1282A8C572193587A94C0DF8A"
+      "bytes": 1704,
+      "sha256": "5D8CACE9D09E4862932DE42E0D45F232DFDFD2912C9F7E78BBB3665C078FF24D"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2346,
-      "sha256": "678769BD2156F5E01C56D4594F1E40602284EC7F325FAA9219DA51EF1523E1D5"
+      "bytes": 1627,
+      "sha256": "427237D7125E81AB57E99A702B2117EF5EC728C8985C42200A08BB79F7195503"
     }
   ],
   "checks": {
-    "source_hash_replay": "13/13",
-    "zip_member_replay": "13/13",
+    "source_hash_replay": "16/16",
+    "zip_member_replay": "16/16",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,
