@@ -29,4 +29,4 @@ Every response returns a cumulative full-state ZIP, checkpoint, and manifest. A 
 
 A terminal result requires deterministic integration, reproducible builds, complete page and topology accounting, rendered QA, formula/figure/link checks, and a fresh reviewer who audits without patching the candidate. A failed audit freezes that generation and reports the defect; it does not authorize the auditor to repair it invisibly.
 
-Packet validation proves packet integrity and workflow readiness. It is not a claim that the resulting mathematics or translation has already passed these completion gates.
+Packet validation proves packet integrity and workflow readiness. It is not a claim that the resulting mathematics or translation has already satisfied these completion requirements.
