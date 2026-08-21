@@ -109,7 +109,7 @@ R020 is pinned to Open Logic commit `1e960beff9ed7835bf3e3f1335e21af3439cd107` a
 | R017 | Open Optimization Book 1 | selected start |
 | O002 | Mathematical Python plus Research Software Engineering with Python | candidate |
 | O005 | Modeling and nonlinear-dynamics composite | candidate |
-| O015 | MIT OCW 6.253 | optional; editable-source gate open |
+| O015 | MIT OCW 6.253 | optional; editable source not yet verified |
 | O018 | Open-solver operations-research lab | infrastructure |
 
 ### Functional analysis and operator theory

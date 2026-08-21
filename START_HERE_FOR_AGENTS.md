@@ -13,7 +13,7 @@ Read `docs/translations.md` and the files in `kits/translate/`. Before any sourc
 1. Which work, title, or catalog ID does the user want?
 2. What exact target language, locale, script, and orthographic standard does the user want?
 
-Then report work-specific existing language coverage, active ownership, source status, derivative rights, component status, and baseline-build status. If a required source gate is open, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
+Then report work-specific existing language coverage, active ownership, source status, derivative rights, component status, and baseline-build status. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
 
 ## Open problems
 

@@ -2,7 +2,7 @@
 
 **State:** independently replayed candidate package; exact source ZIP recovery is required before publication. No canonical runnable problem packet has yet passed the full admission contract.
 
-The supplied Workbench v0.2 package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection. Its exact ZIP is not currently available in the publication workspace, so this repository does not claim a downloadable release.
+The supplied Workbench v0.2 package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection. Its exact ZIP is currently unavailable, so this repository does not claim a downloadable release.
 
 ## Purpose
 
@@ -33,7 +33,7 @@ The supplied 2026-08-21 package contains a dated source-list index. All counts b
 
 These are discovery leads, not admitted Commons problems. No row is runnable until its primary source, exact revision, statement, current status, access state, and bounded literature receipt are independently frozen. Bibliographic and recovery infrastructure—arXiv, zbMATH Open, Crossref, OpenAlex, Unpaywall, the Internet Archive, OEIS, and House of Graphs—belongs in the evidence workflow, not in the problem-list count. Public forum posts remain leads until theorem lookup, counterexample search, and provenance review; a tag is not a conjecture registry.
 
-The spot check itself demonstrates why those gates matter. On 2026-08-21 the live Formal Conjectures front page displayed totals different from the supplied snapshot, and the live UnsolvedMath dataset card described a different row total from the bundled revision-specific workbook. The official Erdős Problems FAQ also says its status coverage is a work in progress and recommends an independent literature search. The Workbench must preserve such drift instead of silently choosing whichever number looks newest.
+The spot check itself demonstrates why those requirements matter. On 2026-08-21 the live Formal Conjectures front page displayed totals different from the supplied snapshot, and the live UnsolvedMath dataset card described a different row total from the bundled revision-specific workbook. The official Erdős Problems FAQ also says its status coverage is a work in progress and recommends an independent literature search. The Workbench must preserve such drift instead of silently choosing whichever number looks newest.
 
 The attachment's 858-row conservative queue is useful triage, not admission: Open Problem Garden 385, K3 189, Kourovka 118, Green 76, AMR 64, and Erdős 26. Of those rows, 832 have no reconciled `current_status`, 638 carry warning flags, and all retain an unresolved underlying-source provenance or reuse state. Its 2,076-row source-document manifest is almost entirely a link backlog and does not yet bind per-document acquisition dates, bytes, hashes, and licenses. A spot audit of the 17-row literature delta also found date, title, and author-metadata discrepancies. These are repair queues for a later reviewed generation, not evidence that a packet is ready to run.
 
