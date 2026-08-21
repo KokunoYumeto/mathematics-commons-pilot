@@ -8,7 +8,7 @@ The supplied Workbench v0.2 package supports statement verification, source reco
 
 The intended catalog includes known conjectures and open problems without prestige filtering. Small neglected problems, maintained field lists, Propp-style collections, the Riemann Hypothesis, and Millennium problems may all be represented. Deliberately large entries must declare that their literature package is sampled or partitioned rather than claiming completeness.
 
-The first practical collection should be the maintained Erdős open-problems list because it is numerous, numbered, bounded, actively maintained, and rich in problems for which literature/status reconciliation is independently valuable.
+The first planned runnable collection is based on the maintained Erdős open-problems list because it is numerous, numbered, bounded, actively maintained, and rich in problems for which literature and status reconciliation are independently valuable. No Erdős packet has yet passed admission.
 
 ## Included source-list index
 
@@ -35,7 +35,7 @@ These are discovery leads, not admitted Commons problems. No row is runnable unt
 
 The spot check itself demonstrates why those requirements matter. On 2026-08-21 the live Formal Conjectures front page displayed totals different from the supplied snapshot, and the live UnsolvedMath dataset card described a different row total from the bundled revision-specific workbook. The official Erdős Problems FAQ also says its status coverage is a work in progress and recommends an independent literature search. The Workbench must preserve such drift instead of silently choosing whichever number looks newest.
 
-The attachment's 858-row conservative queue is useful triage, not admission: Open Problem Garden 385, K3 189, Kourovka 118, Green 76, AMR 64, and Erdős 26. Of those rows, 832 have no reconciled `current_status`, 638 carry warning flags, and all retain an unresolved underlying-source provenance or reuse state. Its 2,076-row source-document manifest is almost entirely a link backlog and does not yet bind per-document acquisition dates, bytes, hashes, and licenses. A spot audit of the 17-row literature delta also found date, title, and author-metadata discrepancies. These are repair queues for a later reviewed generation, not evidence that a packet is ready to run.
+The previously replayed package's 858-row conservative queue is useful triage, not admission: Open Problem Garden 385, K3 189, Kourovka 118, Green 76, AMR 64, and Erdős 26. Of those rows, 832 have no reconciled `current_status`, 638 carry warning flags, and all retain an unresolved underlying-source provenance or reuse state. Its 2,076-row source-document manifest is almost entirely a link backlog and does not yet bind per-document acquisition dates, bytes, hashes, and licenses. A spot audit of the 17-row literature delta also found date, title, and author-metadata discrepancies. These are repair queues for a later reviewed generation, not evidence that a packet is ready to run.
 
 ## One problem entry
 
@@ -61,11 +61,13 @@ A one-line conjecture is not a runnable packet. The evidence boundary, omissions
 3. Perform one declared, bounded supplementary literature search.
 4. Build the claim graph and reproduce known calculations where feasible.
 5. Reconcile status. If a problem appears solved or materially advanced beyond the maintained list, record a candidate status delta with exact evidence.
-6. Return that delta to review without silently changing the canonical-list layer or flooding maintainers with raw model output.
+6. Return that delta for peer review without changing the preserved source-list record or sending unreviewed model output directly to maintainers.
 
 Status reconciliation is an accepted mathematical contribution. A stale “open” label, missed partial result, or ambiguous variant should be corrected only through exact sources and independent checking.
 
-## Cumulative contribution loop
+## Loop for a future runnable problem packet
+
+The following loop applies only after a specific problem packet passes the admission requirements above.
 
 1. Download and verify one bounded problem packet.
 2. Audit its literature and current status before attempting progress.

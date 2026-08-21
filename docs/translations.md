@@ -1,170 +1,124 @@
 # Translation
 
-This section lists mathematical works that may support new monolingual translations. It separates existing or active editions from unclaimed source candidates and rejects sources whose derivative rights are unsuitable or unknown.
+This portal helps people use local or hosted AI systems to produce inspectable monolingual translations of open mathematical works. The catalog is a non-exclusive set of useful suggestions, not a fixed curriculum. You may choose a listed work or propose any other mathematical work whose exact source and permission for translation derivatives can be verified.
 
-## Start
+No listed title is automatically ready to translate. Before production, the source edition, immutable bytes or commit, license, third-party components, editable source, and unchanged baseline build must be recorded. Unknown language coverage means unknown; it never means that no translation exists.
 
-1. Choose a [subject](#subjects) and a work.
-2. Check the work's full row in [`catalog/translations.json`](../catalog/translations.json) or the exact [interlanguage adoption snapshot](adopt.md).
-3. Check work-specific existing language coverage and active ownership.
-4. Download the [`translation-starter-v3` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3).
-5. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
-6. Answer the work and target-language questions. Translation begins only after the source and license preflight passes.
+## Start a project
 
-The starter contains no textbook and no completed translation. It provides the chooser, exact source-freeze template, production rules, cumulative return contract, and independent QA.
+1. Choose a work by title, creator, or semantic key in [`catalog/translations.json`](../catalog/translations.json), or propose another openly licensed mathematical work.
+2. Check that exact work for verified editions and reported but unverified editions. Do not use aggregate language counts as work-level coverage.
+3. Download the [`translation-starter-v4` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4).
+4. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
+5. State the exact target language, locale, script, orthographic standard, intended learners, and available reviewers.
+6. Translation begins only after the agent completes the source, rights, component, and baseline-build preflight in `SOURCE.json`.
 
-## Subjects
+The starter contains no textbook or completed translation. Each bounded unit returns cumulative source, reader, ledgers, checkpoint, and manifest so that another contributor can inspect, replay, correct, or continue the work.
 
-- [Foundations and school algebra](#foundations-and-school-algebra)
-- [Calculus, analysis, and differential equations](#calculus-analysis-and-differential-equations)
-- [Linear algebra, abstract algebra, and number theory](#linear-algebra-abstract-algebra-and-number-theory)
-- [Probability and statistics](#probability-and-statistics)
-- [Discrete mathematics and combinatorics](#discrete-mathematics-and-combinatorics)
-- [Logic and formal mathematics](#logic-and-formal-mathematics)
-- [Geometry, topology, manifolds, and algebraic geometry](#geometry-topology-manifolds-and-algebraic-geometry)
-- [Numerical mathematics, computing, optimization, and modeling](#numerical-mathematics-computing-optimization-and-modeling)
-- [Functional analysis and operator theory](#functional-analysis-and-operator-theory)
-- [Research and assessment infrastructure](#research-and-assessment-infrastructure)
+## How the catalog is organized
 
-Status meanings:
+The public key is a readable semantic slug such as `openstax-prealgebra-2e` or `openlogic-core`. Older `R…` and `O…` values survive only as `legacy_id` provenance from a non-public planning snapshot. They are not work identifiers and are not used in the tables below.
 
-- `current_production` or `existing_edition`: coverage information; do not overwrite it.
-- `selected_start`: named source of interest; public source/license/build preflight may still be required.
-- `conditional_candidate`: promising source with a recorded blocking preflight.
-- `candidate` or `optional`: not translation-ready without the listed source/component/build work.
-- `donor`, `reference`, or `infrastructure`: not a standalone translation assignment.
+Each machine row separates facts that the previous catalog conflated:
 
-### Foundations and school algebra
+- `catalog_role`: individual work, series, composite curriculum idea, component, course, reference, infrastructure, source project, or adaptation;
+- `known_editions`: work-specific language, state, scope, and evidence status;
+- `source_evidence_status`: whether the public source boundary was independently replayed or merely reported;
+- `translation_readiness`: whether source preflight is required or the row is not a standalone translation job; and
+- `preflight_needed`: the exact remaining source, rights, component, or build work.
 
-| ID | Work | State |
-|---|---|---|
-| R001a | OpenStax Prealgebra 2e | current production |
-| R001b | OpenStax Elementary Algebra 2e | current production |
-| R001c | OpenStax Intermediate Algebra 2e | current production |
-| R002 | OpenStax Precalculus 2e | selected start |
+There is no `current production` label. Earlier uses of that phrase described reported Indonesian task activity in one coordination snapshot; they did not describe all translations of a work.
 
-### Calculus, analysis, and differential equations
+## Reported Indonesian activity
 
-| ID | Work | State |
-|---|---|---|
-| R003 | CLP Calculus 1–4 and problem books | current production |
-| R006 | Lebl analysis corpus | current production; exact volume identity still required |
-| R007 | Lebl ODE corpus | current production; exact volume identity still required |
-| R008 | Lebl complex-analysis corpus | current production; exact volume identity still required |
-| O007 | Measure, Integration & Real Analysis composite | candidate |
-| O010 | Partial Differential Equations | conditional candidate |
+These reports come from a non-public coordination snapshot. They are useful leads, but their public edition identities have not been independently verified here. Other language coverage is unknown, not absent.
 
-### Linear algebra, abstract algebra, and number theory
+| Work | Reported language | Reported state | Public evidence state |
+|---|---|---|---|
+| OpenStax *Prealgebra 2e* | Indonesian | active | coordination report only |
+| OpenStax *Elementary Algebra 2e* | Indonesian | active | coordination report only |
+| OpenStax *Intermediate Algebra 2e* | Indonesian | active | coordination report only |
+| CLP Calculus series and problem books | Indonesian | active | coordination report only |
+| DMOI4 | Indonesian | complete/public reported | exact edition and license unresolved |
+| Hefferon, *Linear Algebra* | Indonesian | active | coordination report only |
+| Lebl analysis volume, exact title unresolved | Indonesian | active | coordination report only |
+| Lebl ordinary differential equations volume, exact title unresolved | Indonesian | planned in the same lane | coordination report only |
+| Lebl complex analysis volume, exact title unresolved | Indonesian | planned in the same lane | coordination report only |
+| Judson, *Abstract Algebra* | Indonesian (`id-ID` reported) | active | coordination report only |
+| Grinstead–Snell probability text | Indonesian | active | coordination report only |
+| *Tea Time Numerical Analysis* | Indonesian | active | coordination report only |
+| Open Logic, exact Indonesian edition unresolved | Indonesian | complete/public reported | exact edition, source, and license unresolved |
 
-| ID | Work | State |
-|---|---|---|
-| R005 | Hefferon Linear Algebra | current production |
-| R009 | Judson Abstract Algebra | current production |
-| R014 | Yet Another Introductory Number Theory Textbook | selected start |
-| O013 | Methods of Algebra, Volume 1 | optional |
-| O014 | Methods of Algebra, Volume 2 | optional |
+This table does not reserve these works or languages. A contributor may declare an independently useful parallel edition, but must preserve the other generation rather than overwrite it.
 
-### Probability and statistics
+## Suggested individual works and source projects
 
-| ID | Work | State |
-|---|---|---|
-| R010 | Grinstead–Snell Probability | current production |
-| R011 | OpenIntro Statistics | selected start |
-| O006 | Distribution theory and statistical methods composite | candidate |
-| O009 | Measure-theoretic probability and stochastic-processes composite | candidate |
+These are suggestions only. `Preflight required` means that at least one source, rights, component, or build identity is still open; it is not a ban on adopting the work.
 
-### Discrete mathematics and combinatorics
+| Work | Creator or project | What is publicly recorded | Next useful step |
+|---|---|---|---|
+| OpenStax *Prealgebra 2e* | OpenStax | reported Indonesian activity; no exact public source/license bound here | freeze the exact edition, license, assets, and baseline build |
+| OpenStax *Elementary Algebra 2e* | OpenStax | reported Indonesian activity; no exact public source/license bound here | freeze the exact edition, license, assets, and baseline build |
+| OpenStax *Intermediate Algebra 2e* | OpenStax | reported Indonesian activity; media-rights questions recorded | freeze the exact edition and resolve every media component |
+| OpenStax *Precalculus 2e* | OpenStax | repository handle recorded; full source/component boundary unresolved | verify the public repository, license, assets, and build |
+| CLP Calculus 1–4 and problem books | CLP project | reported Indonesian activity; exact upstream and rights unresolved | freeze each volume and support book as a separately identified source |
+| DMOI4 | exact expanded title/creators unresolved | Indonesian edition reported public | identify the work and exact edition before any new-language project |
+| *Linear Algebra* | Jim Hefferon | reported Indonesian activity; exact upstream/license unresolved | bind textbook, answer book, labs, license, and build |
+| Lebl analysis volume | Jiří Lebl; exact title unresolved | reported Indonesian activity | resolve the exact volume before treating it as a work choice |
+| Lebl ordinary differential equations volume | Jiří Lebl; exact title unresolved | Indonesian planning report | resolve title, edition, source, and license |
+| Lebl complex analysis volume | Jiří Lebl; exact title unresolved | Indonesian planning report | resolve title, edition, source, and license |
+| *Abstract Algebra* | Thomas W. Judson | Indonesian locale work reported | bind exact upstream, license, diagrams, and baseline build |
+| Probability text | Charles Grinstead and J. Laurie Snell | reported Indonesian activity | bind exact edition, source, license, exercises, and build |
+| *OpenIntro Statistics* | OpenIntro | repository commit reported | independently replay source, data, figures, license, and build |
+| *Applied Combinatorics* | Mitch Keller and contributors | repository commit and PreTeXt source reported | independently replay license, includes, assets, and build |
+| *Yet Another Introductory Number Theory Textbook* | Jonathan Poritz | author-controlled download page recorded | hash the exact source assets and establish the derivative license |
+| *Tea Time Numerical Analysis* | creators unresolved in current evidence | reported Indonesian activity and backend counts | identify the exact version, creators, source, license, and build |
+| *Open Optimization Book 1* | Open Optimization project | repository commit; CC BY-SA text/figures and MIT code reported | replay components/build and replace or exclude commercial-only paths |
+| *Mathematics in Lean* | Lean community | repository commit reported | freeze license, toolchain, dependencies, and an unchanged build |
+| Open Logic core | Open Logic Project | exact root commit/tree and CC BY 4.0 independently verified | finish the submodule/component census and baseline build |
+| *Topology: An Inquiry-Based Approach* | Steven Schlicker | public repository/commit and license reported | replay source, component licenses, and build |
+| *Euclidean Plane and Its Relatives* | Anton Petrunin | public repository/commit and CC BY-SA 4.0 reported | replay source, components, fonts, and build |
+| *Functional Analysis and Operator Algebras* | Bruce Blackadar Erdman | public ZIP and CC BY-SA 4.0 reported | freeze ZIP bytes and close solution/production policy |
+| *Partial Differential Equations* | Victor Ivrii | public source location and CC BY-SA 4.0 reported | freeze exact source, scope, figures, and build |
+| *AlgebraicTopology2019* | David Michael Roberts | repository commit/tree and CC BY 4.0 reported | replay source, scope, components, and build |
+| *Methods of Algebra*, Volumes 1 and 2 | Wen-Wei Li | commits and CC BY 4.0 reported; repository locator absent | identify the public repository, replay each volume, and freeze builds separately |
+| MIT OCW 6.253 | MIT OpenCourseWare | course package and CC BY-NC-SA 4.0 reported | verify editable source and exact component boundary |
 
-| ID | Work | State |
-|---|---|---|
-| R004 | DMOI4 | existing edition |
-| R012 | Applied Combinatorics | selected start |
+## Composite curriculum ideas
 
-### Logic and formal mathematics
+These are possible combinations, not single works. A contributor may adopt one component or propose a different combination. Each component needs its own source, license, and build record.
 
-| ID | Work | State |
-|---|---|---|
-| R013 | Open Logic configured Indonesian edition | existing edition reported; exact public edition still unverified |
-| R018 | Mathematics in Lean | selected start |
-| R020 | Open Logic core source | conditional candidate |
+- Mathematical Python plus *Research Software Engineering with Python*.
+- Sayama plus ModSimPy and an open ordinary-differential-equations project.
+- Dunn–Axelsen distribution theory plus Spiegler statistical methods.
+- Axler's *Measure, Integration & Real Analysis* plus Fubini–Tonelli and Gautam Iyer notes.
+- Imperial or MIT measure-theoretic probability and stochastic-process materials.
+- Smooth-manifold and differential-geometry materials from several open sources.
+- Brenner plus MIT 18.725 as an algebraic-geometry bridge.
+- MIT 18.821 plus selected reproducible-research materials.
 
-R020 is pinned to Open Logic commit `1e960beff9ed7835bf3e3f1335e21af3439cd107` and tree `45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8`. Its CC BY 4.0 license, root README, `.gitmodules`, and `doc` gitlink have been verified. The `doc` submodule census and unchanged baseline build have not yet passed, so R020 is a source-preflight assignment, not a runnable translation.
+The exact components, reported licenses, caveats, and suggested preflights are in the machine catalog.
 
-### Geometry, topology, manifolds, and algebraic geometry
+## Supporting material, tools, and references
 
-| ID | Work | State |
-|---|---|---|
-| O003 | Topology: An Inquiry-Based Approach | conditional candidate |
-| O004 | Euclidean Plane and Its Relatives | conditional candidate |
-| O011 | Smooth manifolds and differential geometry composite | optional |
-| O012 | AlgebraicTopology2019 | optional |
-| O016 | Algebraic-geometry bridge composite | optional |
-| R019 | Stacks Project | reference only |
+The Fubini–Tonelli component, Stacks Project reference, cross-corpus assessment design, and open-solver laboratory are useful supporting rows. They are not standalone cover-to-cover translation assignments. The Stacks Project should be linked semantically at selected tags rather than translated wholesale.
 
-### Numerical mathematics, computing, optimization, and modeling
+## Language choice
 
-| ID | Work | State |
-|---|---|---|
-| R015 | Tea Time Numerical Analysis | current production |
-| R017 | Open Optimization Book 1 | selected start |
-| O002 | Mathematical Python plus Research Software Engineering with Python | candidate |
-| O005 | Modeling and nonlinear-dynamics composite | candidate |
-| O015 | MIT OCW 6.253 | optional; editable source not yet verified |
-| O018 | Open-solver operations-research lab | infrastructure |
+Translations into any language are welcome. Contributors are especially encouraged to choose languages for which communities document limited access to university-level mathematical material and can identify intended learners, a written standard, and reviewers.
 
-### Functional analysis and operator theory
+UNESCO's [2025 multilingual-education report announcement](https://www.unesco.org/en/articles/new-unesco-report-calls-multilingual-education-unlock-learning-and-inclusion) reports that 40% of people lack access to education in a language they speak and understand fluently, more than a quarter-billion learners are affected, and only 351 of roughly 7,000 spoken or signed languages are used as a medium of instruction.
 
-| ID | Work | State |
-|---|---|---|
-| R016 | Fubini–Tonelli real/functional-analysis source | donor only |
-| O008 | Functional Analysis and Operator Algebras | conditional candidate |
+No official UNESCO list of 96 underserved languages was identified. The 96 figure appears to come from a different UNESCO statistic: roughly 3% of the world's population speaks 96% of its languages. The Commons will not label a numbered list as UNESCO's without an exact source. A Commons-maintained priority list is appropriate if it publishes its criteria and evidence for each language.
 
-### Research and assessment infrastructure
+## Separate older-manuscript archive
 
-| ID | Work | State |
-|---|---|---|
-| O001 | Cross-corpus mastery, hints, solutions, and alternate assessment | infrastructure |
-| O017 | Research reading, exposition, and reproducibility composite | candidate |
+The [interlanguage adoption snapshot](adopt.md) covers 78 rows of older mathematical manuscripts and research editions. Its aggregate tags include Arabic, German, English, Spanish, Persian, French, Indonesian, Interslavic, Italian, Japanese, Korean, Russian, Sanskrit, Ukrainian, Vietnamese, several Chinese conventions, mixed, and undetermined records.
 
-## Existing language coverage
+Those counts are row presence in a separate corpus. They do not describe the educational works above and do not establish whole-work completion. Read the selected manuscript's own map before starting or duplicating work.
 
-The exact interlanguage snapshot is commit [`7a00b564ace8230c57309df2d66325e57d1c4043`](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/7a00b564ace8230c57309df2d66325e57d1c4043), tree `e3d53eb3216a2d6e99cce32a358ecd06377e3115`. Its 78 work rows contain the following language-tag presence counts:
+## Review and handback
 
-| Tag | Rows | Tag | Rows | Tag | Rows |
-|---|---:|---|---:|---|---:|
-| ar | 6 | de | 26 | en | 44 |
-| es | 1 | fa-IR | 1 | fr | 9 |
-| id | 1 | isv | 1 | it | 1 |
-| ja | 1 | ko | 3 | mul | 1 |
-| ru | 1 | sa | 1 | uk | 2 |
-| vi | 1 | zh | 7 | zh-Hans-CN | 2 |
-| zh-Hant-controlled | 1 | und | 8 |  |  |
+Produce a standalone target-language edition, never a facing-page substitute. Preserve formulas, theorem structure, exercises, figures, code, stable identifiers, and accessibility semantics. Return cumulative source, reader, ledgers, checkpoint, manifest, build evidence, unresolved items, and continuation cursor after every bounded unit.
 
-These are row-presence counts, not whole-language completion. Complete-class rows include bounded Noether material in Spanish, French, Russian, Ukrainian, Interslavic, Korean, Simplified Chinese, controlled Traditional Chinese, Japanese, Indonesian, and Vietnamese; represented EGA English; FGA French/English; and bounded Dedekind/Dirichlet German/English items. Read the exact row and map before selecting a target language.
-
-The snapshot has 16 complete, 2 active, 16 partial, 6 scattered, 14 source-only, 21 weak, and 3 unworked scopes. Parallel editions are allowed when declared; active or complete material is not an invitation to overwrite an existing generation.
-
-## Choosing a target language
-
-Choose any language not already maintained for the selected work. Record the exact locale, script, and orthographic standard. Explain the educational use and identify who can review the mathematics and language.
-
-No authoritative UNESCO list of “96 underserved languages” was found. The project therefore does not publish such a list under UNESCO's name. UNESCO does report that many learners do not receive education in a language they speak or understand; contributors should use documented community needs and work-specific coverage instead of a fabricated ranking.
-
-## Source eligibility
-
-Translation begins only when all of the following are recorded:
-
-- exact public edition or source boundary;
-- immutable commit, tag, tree, or archive hash;
-- explicit permission for translation derivatives;
-- component-rights and notice inventory;
-- complete editable source;
-- unchanged baseline-build attempt and receipt;
-- exact source language and target language; and
-- work-specific existing-edition and ownership review.
-
-“Free to read” is not derivative permission. No-Derivatives, rights-unknown, donor, reference-only, and rejected rows are not translation assignments. If a candidate fails one of these conditions, contribute the missing source preflight instead.
-
-## Production and return
-
-Produce a standalone target-language edition, not a bilingual or facing-page substitute. Preserve formulas, theorem structure, identifiers, references, exercises, solutions, figures, code, build semantics, component licenses, and accessibility information. Return cumulative source, reader, ledgers, checkpoint, and manifest after each bounded unit. Independent cold QA is required before a release claim.
+Another contributor should be able to obtain the same source bytes, replay the build and checks, compare the translation against the source, record exact defects, and continue from the checkpoint. Model agreement is not independent review.

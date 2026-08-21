@@ -17,7 +17,7 @@ class OpenLogicSourceTests(unittest.TestCase):
         cls.rows = {row["id"]: row for row in cls.catalog["entries"]}
 
     def test_exact_public_core_source_boundary(self) -> None:
-        row = self.rows["R020"]
+        row = self.rows["openlogic-core"]
         self.assertEqual(row["source_repo"], "OpenLogicProject/OpenLogic")
         self.assertEqual(
             row["source_commit"], "1e960beff9ed7835bf3e3f1335e21af3439cd107"
@@ -27,8 +27,12 @@ class OpenLogicSourceTests(unittest.TestCase):
         )
         self.assertEqual(row["license"], "CC BY 4.0")
         self.assertIs(row["derivative_allowed"], True)
-        self.assertEqual(row["adoption_state"], "conditional_candidate")
-        self.assertIn("not runnable", row["current_status"])
+        self.assertEqual(row["legacy_id"], "R020")
+        self.assertEqual(row["translation_readiness"], "preflight_required")
+        self.assertEqual(
+            row["source_evidence_status"], "independently_verified_public_boundary"
+        )
+        self.assertIn("not runnable", row["reported_status"])
         evidence = "\n".join(row["evidence_refs"])
         self.assertIn(
             "5CAF9C104FD864181BE05951028041799AAAA9F3DD52321B678B944D1BE60176",
@@ -45,8 +49,17 @@ class OpenLogicSourceTests(unittest.TestCase):
         self.assertIn("b46686df0e06f302a7b75a74b379c802f7c7b565", evidence)
 
     def test_indonesian_snapshot_row_remains_separate_and_unverified(self) -> None:
-        row = self.rows["R013"]
-        self.assertEqual(row["title"], "Open Logic configured Indonesian edition")
+        row = self.rows["openlogic-indonesian-edition-unresolved"]
+        self.assertEqual(row["legacy_id"], "R013")
+        self.assertEqual(
+            row["title"],
+            "Reported Indonesian edition of Open Logic (exact edition unresolved)",
+        )
+        self.assertEqual(row["known_editions"][0]["language_tag"], "id")
+        self.assertEqual(
+            row["known_editions"][0]["evidence_status"],
+            "non_public_coordination_snapshot",
+        )
         self.assertIsNone(row["source_url"])
         self.assertIsNone(row["source_commit"])
         self.assertIsNone(row["license"])

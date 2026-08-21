@@ -1,16 +1,18 @@
 # Mathematics Commons
 
-Mathematics Commons lets people contribute otherwise idle computing capacity to specific, documented mathematical work. Each task is packaged with exact sources, instructions, validation evidence, and a return format so that results can be continued and independently checked instead of being lost or repeated.
+Mathematics Commons organizes specific mathematical jobs that people can run with spare computing capacity. The aim is to turn compute that would otherwise sit idle into useful, inspectable work: transcribing source texts, translating open mathematical works, and researching documented open problems.
 
-The repository currently covers source transcription, translation of open mathematical texts, and research on documented open problems. Contributors may use local or hosted AI systems. Model output is not accepted as correct by default: each return preserves its inputs, outputs, checks, unresolved items, and continuation state for peer-to-peer review.
+Each job has a bounded scope, exact inputs, instructions, expected outputs, validation rules, and a resumable checkpoint format. Contributors may use local or hosted AI systems. They return the complete working state rather than a summary, so another contributor can replay the inputs, inspect or correct the output, and continue from the recorded checkpoint.
 
-## Choose a section
+The repository is written for both people and software. Its catalogs expose each job's scope, state, files, checks, unresolved items, and continuation cursor in machine-readable form. Results remain provisional until they survive peer-to-peer review; an AI-generated answer is not accepted as correct merely because a model produced it.
 
-| Section | Available material | Current state |
+## Choose a portal
+
+| Portal | Available material | Current state |
 |---|---|---|
-| [Transcription](docs/run.md) | 28 verified source packets with 45-prompt workflows | Runnable |
-| [Translation](docs/translations.md) | Subject index, work/language coverage, source catalog, and interactive starter ZIP | Source selection and preflight available |
-| [Open problems](docs/workbench.md) | Workbench v0.2 discovery package with 8,785 candidate rows and curation tools | Validated candidate; source ZIP must be restored before publication |
+| [Transcription](docs/run.md) | 28 source packets with exact release assets and 45-prompt workflows | Runnable |
+| [Translation](docs/translations.md) | Non-exclusive work suggestions, work-specific edition reports, and a local/hosted-AI starter | Source selection and preflight available |
+| [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
 ## Transcription
 
@@ -30,23 +32,23 @@ R1 remains the newest admitted transcription release. Later candidate generation
 
 ## Translation
 
-The [translation section](docs/translations.md) organizes candidate works by subject and distinguishes:
+The [translation portal](docs/translations.md) is a non-exclusive set of useful open-mathematics suggestions. Contributors may choose a listed work or propose another mathematical work whose source and derivative license can be verified. It distinguishes:
 
-- existing or active editions, shown for language coverage;
-- selected or conditional sources that require exact source/license/build preflight;
-- optional and composite sources; and
-- rejected or reference-only material.
+- individual works and series;
+- reported but unverified editions, recorded per exact language;
+- composite curriculum ideas; and
+- supporting components, infrastructure, references, and excluded sources.
 
-The current exact interlanguage snapshot records work-specific material in Arabic, German, English, Spanish, Persian, French, Indonesian, Interslavic, Italian, Japanese, Korean, Russian, Sanskrit, Ukrainian, Vietnamese, several Chinese conventions, and mixed or undetermined records. A language appearing in that list does not mean every work is complete in that language. Check the selected work.
+Older internal `R…` and `O…` values are retained only as deprecated snapshot provenance. Public choices use meaningful semantic keys such as `openstax-prealgebra-2e`. Earlier `current production` labels have been replaced with explicit work-specific reports: the affected rows concerned Indonesian activity and did not describe every language in which a work exists.
 
-Download the [`translation-starter-v3` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3). It asks two questions before doing anything else:
+Download the [`translation-starter-v4` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4). It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
 
-The package supports both local repository-aware agents and hosted web agents. It checks current coverage and source eligibility, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook and no completed translation.
+The package supports both local repository-aware agents and hosted web agents. It checks work-specific verified and reported editions, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook and no completed translation.
 
-No authoritative UNESCO list of “96 underserved languages” was found. This repository does not publish an invented list under UNESCO's name. Contributors may select any language not already maintained for a chosen work and should document the educational need, community input, orthographic standard, and available review capacity.
+Translations into any language are welcome. UNESCO reports a broad shortage of education in languages learners understand, but no official UNESCO list of 96 underserved languages was identified. Contributors should document the intended learners, exact language standard, existing work-specific coverage, and available review capacity.
 
 ## Open problems
 
@@ -71,7 +73,7 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/check.json`](catalog/check.json): catalog and local-build validation receipt.
 - [`catalog/readback.json`](catalog/readback.json): anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
-- [`catalog/translate-rb.json`](catalog/translate-rb.json): anonymous public readback of translation starter v3.
+- [`catalog/translate-rb-v4.json`](catalog/translate-rb-v4.json): anonymous public readback of translation starter v4.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`kits/translate/WORKS.json`](kits/translate/WORKS.json): translation subject and coverage index.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.

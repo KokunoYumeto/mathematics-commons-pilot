@@ -5,11 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Start from docs/translations.md, catalog/translations.json, or the exact interlanguage adoption snapshot. Candidate or conditional status does not waive source, license, component, and baseline-build preflight. No-Derivatives, rights-unknown, donor, reference, and rejected entries are not translation jobs.
+        Start from docs/translations.md, catalog/translations.json, or propose another mathematical work with a verifiable open source and derivative license. The older-manuscript adoption snapshot is a separate catalog. Every work requires source, license, component, and baseline-build preflight; a reported edition is coverage information, not proof of source readiness.
   - type: input
     id: source
     attributes:
-      label: Translation-catalog ID
+      label: Work title and public identity
+      description: Give the semantic catalog key or an exact public source URL. Do not use a deprecated R/O planning key.
     validations:
       required: true
   - type: input
@@ -37,7 +38,7 @@ body:
     id: overlap
     attributes:
       label: Existing editions and declared overlap
-      description: Link work-specific language coverage and active work. Explain why a parallel edition is independently useful, or state that no overlap was identified after checking the exact snapshot.
+      description: Link work-specific verified editions and reported editions. Unknown coverage is not absence. Explain why a parallel edition is independently useful, or state exactly what sources you checked.
     validations:
       required: true
   - type: textarea

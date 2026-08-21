@@ -30,19 +30,19 @@
       "state": "starter_available",
       "docs": "docs/translations.md",
       "catalog": "catalog/translations.json",
-      "summary": "Subject-organized work and language coverage with a local/web chooser and source-preflight workflow.",
+      "summary": "Non-exclusive open-mathematics suggestions, work-specific verified or reported editions, and a local/web source-preflight starter.",
       "release": {
-        "tag": "translate-v3",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v3",
+        "tag": "translate-v4",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4",
         "asset_count": 1,
-        "asset_bytes": 11307,
-        "asset_catalog": "catalog/assets/translate-v3.json",
-        "readback": "catalog/translate-rb.json",
+        "asset_bytes": 14127,
+        "asset_catalog": "catalog/assets/translate-v4.json",
+        "readback": "catalog/translate-rb-v4.json",
         "assets": [
           {
-            "name": "translation-starter-v3.zip",
-            "bytes": 11307,
-            "sha256": "CA298E89206237555C33957D8E1EC4360F5AE3482F6473FBC61AB8720AE14ABA"
+            "name": "translation-starter-v4.zip",
+            "bytes": 14127,
+            "sha256": "58EA3AFB5C779CA988EFF75B4E236443E9F06C204DEBA9F0C1B3844E3657A698"
           }
         ]
       },
@@ -57,7 +57,7 @@
       "state": "source_recovery_required",
       "docs": "docs/workbench.md",
       "catalog": null,
-      "summary": "Workbench v0.2 was independently replayed and contains candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates. Its exact source ZIP must be restored before publication.",
+      "summary": "Workbench v0.2 was independently replayed. The unavailable ZIP contained candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates. Its exact bytes must be restored before publication.",
       "release": {
         "tag": null,
         "url": null,

@@ -1,6 +1,6 @@
 # Catalog
 
-`portals.json` is the three-section index. `jobs.json` is the runnable transcription catalog. `translations.json` is the open-education translation-source catalog. `check.json` is the generated validation receipt. `assets/*.json` binds release ZIPs and represented source members.
+`portals.json` is the three-portal index. `jobs.json` is the runnable transcription catalog. `translations.json` is a non-exclusive catalog of open-mathematics translation suggestions and supporting rows. Its semantic `id` is public; `legacy_id` is deprecated provenance from a non-public planning snapshot. Language coverage is work-specific and separate from source readiness. `check.json` is the generated validation receipt. `assets/*.json` binds release ZIPs and represented source members.
 
 `receipts/` exposes path-neutral public projections of the global admission audit and the two terminal sidecar audits that are not direct packet members. The catalogs retain each original receipt's byte length/SHA-256 and separately bind the public projection's path/bytes/SHA-256 plus every minimal path substitution.
 
