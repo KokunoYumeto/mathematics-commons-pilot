@@ -32,17 +32,17 @@
       "catalog": "catalog/translations.json",
       "summary": "Non-exclusive open-mathematics suggestions, work-specific verified or reported editions, and a local/web source-preflight starter.",
       "release": {
-        "tag": "translate-v4",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4",
+        "tag": "translate-v5",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5",
         "asset_count": 1,
-        "asset_bytes": 14127,
-        "asset_catalog": "catalog/assets/translate-v4.json",
-        "readback": "catalog/translate-rb-v4.json",
+        "asset_bytes": 14174,
+        "asset_catalog": "catalog/assets/translate-v5.json",
+        "readback": "catalog/translate-rb-v5.json",
         "assets": [
           {
-            "name": "translation-starter-v4.zip",
-            "bytes": 14127,
-            "sha256": "58EA3AFB5C779CA988EFF75B4E236443E9F06C204DEBA9F0C1B3844E3657A698"
+            "name": "translation-starter-v5.zip",
+            "bytes": 14174,
+            "sha256": "F1148482DC7FF96DE9B67C46962FC092F937ED3B6DEA6FCE4325A4C4E821F804"
           }
         ]
       },

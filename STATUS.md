@@ -15,7 +15,7 @@
 - Admitted packet bytes: 6,691,065,999
 - Packet ZIP bytes: 6,599,619,260
 - Workflow: 45 ordered prompts with cumulative state returned after every response
-- Transcription public readback: 29/29 packet assets matched, totaling 6,599,619,260 bytes. Translation starter v4 has a separate readback in `catalog/translate-rb-v4.json`.
+- Transcription public readback: 29/29 packet assets matched, totaling 6,599,619,260 bytes. Translation starter v5 has a separate readback in `catalog/translate-rb-v5.json`.
 
 R1 remains the newest admitted transcription release. Later candidate generations remain excluded until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
@@ -25,7 +25,7 @@ R1 remains the newest admitted transcription release. Later candidate generation
 - Explicit exclusions: 8
 - Subject groups in the starter: 10
 - Exact interlanguage discovery snapshot: 78 work rows at commit `7a00b564ace8230c57309df2d66325e57d1c4043`
-- Current translation starter: [`translate-v4`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4)
+- Current translation starter: [`translate-v5`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5)
 
 The starter asks for the work and exact target language before acting. It uses semantic work keys, accepts additional open works, separates reported editions from verified editions, and contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook and no completed translation.
 

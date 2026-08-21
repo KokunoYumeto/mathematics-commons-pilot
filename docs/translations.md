@@ -8,7 +8,7 @@ No listed title is automatically ready to translate. Before production, the sour
 
 1. Choose a work by title, creator, or semantic key in [`catalog/translations.json`](../catalog/translations.json), or propose another openly licensed mathematical work.
 2. Check that exact work for verified editions and reported but unverified editions. Do not use aggregate language counts as work-level coverage.
-3. Download the [`translation-starter-v4` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4).
+3. Download the [`translation-starter-v5` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5).
 4. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
 5. State the exact target language, locale, script, orthographic standard, intended learners, and available reviewers.
 6. Translation begins only after the agent completes the source, rights, component, and baseline-build preflight in `SOURCE.json`.
@@ -78,7 +78,7 @@ These are suggestions only. `Preflight required` means that at least one source,
 | Open Logic core | Open Logic Project | exact root commit/tree and CC BY 4.0 independently verified | finish the submodule/component census and baseline build |
 | *Topology: An Inquiry-Based Approach* | Steven Schlicker | public repository/commit and license reported | replay source, component licenses, and build |
 | *Euclidean Plane and Its Relatives* | Anton Petrunin | public repository/commit and CC BY-SA 4.0 reported | replay source, components, fonts, and build |
-| *Functional Analysis and Operator Algebras* | Bruce Blackadar Erdman | public ZIP and CC BY-SA 4.0 reported | freeze ZIP bytes and close solution/production policy |
+| *Functional Analysis and Operator Algebras: An Introduction* | John M. Erdman | official title page verified; public source ZIP and CC BY-SA 4.0 reported | freeze ZIP bytes and close solution/production policy |
 | *Partial Differential Equations* | Victor Ivrii | public source location and CC BY-SA 4.0 reported | freeze exact source, scope, figures, and build |
 | *AlgebraicTopology2019* | David Michael Roberts | repository commit/tree and CC BY 4.0 reported | replay source, scope, components, and build |
 | *Methods of Algebra*, Volumes 1 and 2 | Wen-Wei Li | commits and CC BY 4.0 reported; repository locator absent | identify the public repository, replay each volume, and freeze builds separately |
