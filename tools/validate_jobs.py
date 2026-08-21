@@ -240,6 +240,115 @@ def bind_declared_member(
     expect(row.get("sha256") == declared.get("sha256"), errors, f"{label}: member SHA-256")
 
 
+def valid_prompt_count(value: Any) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 1
+
+
+def bind_job_control_members(
+    job: dict[str, Any],
+    members_by_path: dict[str, dict[str, Any]],
+    errors: list[str],
+) -> None:
+    job_id = str(job.get("id"))
+    for field, label in (
+        ("start_file", "start file"),
+        ("prompt_file", "prompt file"),
+        ("packet_manifest", "packet manifest"),
+    ):
+        bind_declared_member(
+            members_by_path,
+            job.get(field),
+            f"{job_id}: {label}",
+            errors,
+        )
+
+
+def binds_global_admission_projection(
+    catalog: dict[str, Any], job: dict[str, Any], receipt: Any
+) -> bool:
+    admission = catalog.get("admission")
+    audit_receipt = admission.get("audit_receipt") if isinstance(admission, dict) else None
+    return (
+        isinstance(receipt, dict)
+        and isinstance(audit_receipt, dict)
+        and receipt.get("included_in_packet") is False
+        and job.get("audit_basis") == "global_receipt"
+        and receipt.get("public_projection")
+        == audit_receipt.get("public_projection")
+    )
+
+
+def validate_hardening_projection(
+    meta: dict[str, Any], packet_ids: list[str], errors: list[str]
+) -> None:
+    declared = meta.get("hardening_receipt")
+    projection = declared.get("public_projection") if isinstance(declared, dict) else None
+    path = ROOT / str(projection.get("path", "") if isinstance(projection, dict) else "")
+    try:
+        receipt, _ = load(path)
+    except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
+        errors.append(f"no-failure hardening receipt: cannot parse projection: {exc}")
+        return
+    rows = receipt.get("rows")
+    expect(
+        receipt.get("schema") == "math-commons-packet-no-failure-hardening/v1",
+        errors,
+        "no-failure hardening schema",
+    )
+    expect(
+        isinstance(rows, list)
+        and len(rows) == len(packet_ids)
+        and {str(row.get("packet_id")) for row in rows if isinstance(row, dict)}
+        == set(packet_ids),
+        errors,
+        "no-failure hardening packet projection",
+    )
+    expect(
+        isinstance(rows, list)
+        and all(
+            isinstance(row, dict)
+            and row.get("result") == "PASS"
+            and row.get("forbidden_controlling_outcome_conditions") == 0
+            for row in rows
+        ),
+        errors,
+        "no-failure hardening row result",
+    )
+    summary = receipt.get("summary")
+    expect(
+        isinstance(summary, dict)
+        and summary.get("rows") == len(packet_ids)
+        and summary.get("pass") == len(packet_ids)
+        and summary.get("fail") == 0
+        and summary.get("forbidden_controlling_outcome_conditions") == 0,
+        errors,
+        "no-failure hardening summary",
+    )
+    idempotence = receipt.get("idempotence")
+    expect(
+        isinstance(idempotence, dict)
+        and idempotence.get("result") == "PASS"
+        and idempotence.get("bounded_exact_28_scope") is True
+        and idempotence.get("policy_marker_reapplication_would_change_files") == 0
+        and idempotence.get("manifest_repair_second_run_changed_files") == 0,
+        errors,
+        "no-failure hardening idempotence",
+    )
+    repair = receipt.get("manifest_repair_source_identity")
+    expected_repair = input_identity(ROOT / "tools" / "repair_stale_packet_manifests.py")
+    expect(repair == expected_repair, errors, "manifest-repair script identity")
+    hardener = receipt.get("hardener_source_identity")
+    expect(
+        isinstance(hardener, dict)
+        and hardener.get("basename") == "harden_no_failure_controls_20260821.py"
+        and hardener.get("bytes") == 68969
+        and hardener.get("sha256")
+        == "60CABC6A375067F553F562CB006A61494A3D3F6F83708D67B8275F74D109BB56",
+        errors,
+        "bounded hardener source identity",
+    )
+
+
 def validate_terminal_sidecar(
     job: dict[str, Any], manifest: dict[str, Any], errors: list[str]
 ) -> None:
@@ -593,7 +702,7 @@ def replay_nested_authority(
 def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
     meta, _ = load(ROOT / "catalog" / "job-meta.json")
     validate_schema(meta, "job_meta", "job metadata", errors)
-    expect(meta.get("schema") == "math-commons-job-meta/v1", errors, "job metadata schema")
+    expect(meta.get("schema") == "math-commons-job-meta/v2", errors, "job metadata schema")
     meta_jobs = meta.get("jobs")
     public_jobs = catalog.get("jobs")
     if not isinstance(meta_jobs, list) or not isinstance(public_jobs, list):
@@ -612,105 +721,121 @@ def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
         errors,
         "job metadata audit receipt",
     )
-    verify_repo_identity(meta.get("audit_receipt"), "global admission receipt", errors)
+    expect(
+        meta.get("hardening_receipt")
+        == catalog.get("admission", {}).get("hardening_receipt"),
+        errors,
+        "job metadata hardening receipt",
+    )
+    verify_repo_identity(meta.get("audit_receipt"), "R2 admission receipt", errors)
+    verify_repo_identity(meta.get("hardening_receipt"), "no-failure hardening receipt", errors)
     audit_projection = meta.get("audit_receipt", {}).get("public_projection", {})
     audit_path = ROOT / str(audit_projection.get("path", ""))
     try:
         global_audit, _ = load(audit_path)
     except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
-        errors.append(f"global admission receipt: cannot parse public projection: {exc}")
+        errors.append(f"R2 admission receipt: cannot parse public projection: {exc}")
         global_audit = {}
     audit_rows = global_audit.get("rows") if isinstance(global_audit, dict) else None
     if not isinstance(audit_rows, list):
-        errors.append("global admission receipt: rows missing")
+        errors.append("R2 admission receipt: rows missing")
         rows_by_packet: dict[str, dict[str, Any]] = {}
     else:
         expect(
-            global_audit.get("schema") == "strict-current-lane-independent-cold-audit/v1",
+            global_audit.get("schema") == "math-commons-packet-r2-admission/v1",
             errors,
-            "global admission receipt schema",
+            "R2 admission receipt schema",
         )
-        expect(global_audit.get("row_count") == len(audit_rows), errors, "global audit row count")
-        expect(global_audit.get("pass_count") == len(audit_rows), errors, "global audit pass count")
-        expect(global_audit.get("fail_count") == 0, errors, "global audit fail count")
+        expect(global_audit.get("row_count") == len(audit_rows), errors, "R2 audit row count")
+        expect(global_audit.get("pass_count") == len(audit_rows), errors, "R2 audit pass count")
+        expect(global_audit.get("fail_count") == 0, errors, "R2 audit fail count")
         expect(
             global_audit.get("nonmutating_packet_audit") is True
             and global_audit.get("published_or_promoted") is False,
             errors,
-            "global audit boundary",
+            "R2 audit boundary",
         )
         packet_ids = [
             row.get("packet_id") for row in audit_rows if isinstance(row, dict)
         ]
-        expect(len(packet_ids) == len(audit_rows), errors, "global audit malformed row")
-        expect(len(packet_ids) == len(set(packet_ids)), errors, "global audit duplicate packet")
+        expect(len(packet_ids) == len(audit_rows), errors, "R2 audit malformed row")
+        expect(len(packet_ids) == len(set(packet_ids)), errors, "R2 audit duplicate packet")
         expect(
             all(isinstance(row, dict) and row.get("overall") == "PASS" for row in audit_rows),
             errors,
-            "global audit non-PASS row",
+            "R2 audit non-PASS row",
         )
         rows_by_packet = {
             str(row["packet_id"]): row
             for row in audit_rows
             if isinstance(row, dict) and isinstance(row.get("packet_id"), str)
         }
+    meta_packet_ids = [
+        str(job.get("packet_id")) for job in meta_jobs if isinstance(job, dict)
+    ]
+    expect(len(meta_packet_ids) == len(meta_jobs), errors, "R2 malformed metadata row")
+    expect(
+        len(meta_packet_ids) == len(set(meta_packet_ids)),
+        errors,
+        "R2 duplicate metadata packet",
+    )
+    expect(
+        set(rows_by_packet) == set(meta_packet_ids),
+        errors,
+        "R2 admission packet projection",
+    )
+    validate_hardening_projection(meta, meta_packet_ids, errors)
     for job in meta_jobs:
         if not isinstance(job, dict):
             continue
         job_id = str(job.get("id"))
         packet_id = job.get("packet_id")
-        basis = job.get("audit_basis")
-        if basis == "global_receipt":
-            row = rows_by_packet.get(str(packet_id))
-            if row is None:
-                errors.append(f"{job_id}: missing global audit row")
-                continue
-            expect(job.get("status") == "PASS_GLOBAL_COLD_AUDIT", errors, f"{job_id}: global status")
-            expect(row.get("direct_file_count") == job.get("source_files"), errors, f"{job_id}: global file count")
-            packet_manifest = job.get("packet_manifest", {})
-            validation_receipt = job.get("validation_receipt", {})
+        expect(job.get("audit_basis") == "global_receipt", errors, f"{job_id}: R2 audit basis")
+        row = rows_by_packet.get(str(packet_id))
+        if row is None:
+            errors.append(f"{job_id}: missing R2 admission row")
+            continue
+        expect(job.get("status") == "PASS_GLOBAL_COLD_AUDIT", errors, f"{job_id}: R2 status")
+        expect(row.get("job_id") == job_id, errors, f"{job_id}: R2 job identity")
+        expect(row.get("direct_file_count") == job.get("source_files"), errors, f"{job_id}: R2 file count")
+        expect(row.get("direct_total_bytes") == job.get("source_bytes"), errors, f"{job_id}: R2 byte count")
+        expect(row.get("prompt_count") == job.get("prompt_count"), errors, f"{job_id}: R2 prompt count")
+        for field in ("start_file", "prompt_file", "packet_manifest"):
+            declared = job.get(field, {})
+            row_identity = row.get(field, {})
             expect(
-                isinstance(packet_manifest, dict)
-                and row.get("manifest_file") == packet_manifest.get("basename")
-                and row.get("manifest_sha256") == packet_manifest.get("sha256"),
+                isinstance(declared, dict)
+                and isinstance(row_identity, dict)
+                and row_identity.get("basename") == declared.get("basename")
+                and row_identity.get("bytes") == declared.get("bytes")
+                and row_identity.get("sha256") == declared.get("sha256"),
                 errors,
-                f"{job_id}: global manifest identity",
+                f"{job_id}: R2 {field} identity",
             )
-            expect(
-                isinstance(validation_receipt, dict)
-                and validation_receipt.get("included_in_packet", True) is True
-                and row.get("receipt_file") == validation_receipt.get("basename")
-                and row.get("receipt_sha256") == validation_receipt.get("sha256"),
-                errors,
-                f"{job_id}: global receipt identity",
-            )
-            manifest_path = ROOT / "catalog" / "assets" / f"{job_id}.json"
-            try:
-                asset_manifest, _ = load(manifest_path)
-            except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
-                errors.append(f"{job_id}: cannot replay global snapshot against asset manifest: {exc}")
-            else:
-                members = asset_manifest.get("members")
-                if not isinstance(members, list) or not all(isinstance(item, dict) for item in members):
-                    errors.append(f"{job_id}: asset members unavailable for global snapshot replay")
-                else:
-                    expect(
-                        row.get("direct_snapshot_sha256") == audit_snapshot_sha256(members),
-                        errors,
-                        f"{job_id}: global direct snapshot SHA-256",
-                    )
-        elif basis == "terminal_sidecar":
-            expect(str(packet_id) not in rows_by_packet, errors, f"{job_id}: ambiguous audit basis")
-            receipt = job.get("validation_receipt")
-            expect(
-                isinstance(receipt, dict)
-                and receipt.get("included_in_packet") is False
-                and isinstance(receipt.get("public_projection"), dict),
-                errors,
-                f"{job_id}: terminal sidecar binding",
-            )
+        validation_receipt = job.get("validation_receipt")
+        expect(
+            isinstance(validation_receipt, dict)
+            and validation_receipt.get("included_in_packet") is False
+            and validation_receipt.get("public_projection")
+            == meta.get("audit_receipt", {}).get("public_projection"),
+            errors,
+            f"{job_id}: R2 receipt binding",
+        )
+        manifest_path = ROOT / "catalog" / "assets" / f"{job_id}.json"
+        try:
+            asset_manifest, _ = load(manifest_path)
+        except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
+            errors.append(f"{job_id}: cannot replay R2 snapshot against asset manifest: {exc}")
         else:
-            errors.append(f"{job_id}: unknown audit basis")
+            members = asset_manifest.get("members")
+            if not isinstance(members, list) or not all(isinstance(item, dict) for item in members):
+                errors.append(f"{job_id}: asset members unavailable for R2 snapshot replay")
+            else:
+                expect(
+                    row.get("direct_snapshot_sha256") == audit_snapshot_sha256(members),
+                    errors,
+                    f"{job_id}: R2 direct snapshot SHA-256",
+                )
     expect(
         sum(row.get("source_files", 0) for row in meta_jobs)
         == catalog.get("admission", {}).get("source_files"),
@@ -731,7 +856,7 @@ def validate_jobs(
     catalog_path = ROOT / "catalog" / "jobs.json"
     catalog, _ = load(catalog_path)
     validate_schema(catalog, "jobs", "job catalog", errors)
-    expect(catalog.get("schema") == "math-commons-job-catalog/v1", errors, "job catalog schema")
+    expect(catalog.get("schema") == "math-commons-job-catalog/v2", errors, "job catalog schema")
     validate_job_meta(catalog, errors)
     jobs = catalog.get("jobs")
     if not isinstance(jobs, list) or not jobs:
@@ -767,7 +892,11 @@ def validate_jobs(
         job_id = job["id"]
         expect(job.get("catalog_status") == "runnable", errors, f"{job_id}: status")
         expect(job.get("status") in ADMITTED_STATUSES, errors, f"{job_id}: terminal PASS status")
-        expect(job.get("prompt_count") == 45, errors, f"{job_id}: prompt count")
+        expect(
+            valid_prompt_count(job.get("prompt_count")),
+            errors,
+            f"{job_id}: prompt count",
+        )
         expect(job.get("pack_scope") == "direct_files", errors, f"{job_id}: pack scope")
         identity = job.get("asset_manifest", {})
         expect(
@@ -789,12 +918,7 @@ def validate_jobs(
             for row in manifest.get("members", [])
             if isinstance(row, dict) and isinstance(row.get("path"), str)
         }
-        bind_declared_member(
-            members_by_path,
-            job.get("packet_manifest"),
-            f"{job_id}: packet manifest",
-            errors,
-        )
+        bind_job_control_members(job, members_by_path, errors)
         receipt = job.get("validation_receipt")
         if isinstance(receipt, dict) and receipt.get("included_in_packet", True) is False:
             basename = receipt.get("basename")
@@ -804,7 +928,11 @@ def validate_jobs(
                 f"{job_id}: external receipt is unexpectedly a packet member",
             )
             verify_repo_identity(receipt, f"{job_id}: public validation receipt", errors)
-            validate_terminal_sidecar(job, manifest, errors)
+            expect(
+                binds_global_admission_projection(catalog, job, receipt),
+                errors,
+                f"{job_id}: global admission receipt projection",
+            )
         else:
             bind_declared_member(
                 members_by_path,
@@ -1386,7 +1514,7 @@ def main() -> int:
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
         nested_authorities = translations = portals = 0
     result = {
-        "schema": "math-commons-catalog-check/v1",
+        "schema": "math-commons-catalog-check/v2",
         "status": "PASS" if not errors else "FAIL",
         "inputs": {
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
@@ -1395,9 +1523,8 @@ def main() -> int:
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
             "translate_readback": input_identity(ROOT / "catalog" / "translate-rb.json"),
-            "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
-            "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
-            "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
+            "r2_admission_receipt": input_identity(ROOT / "catalog" / "receipts" / "r2-admission.json"),
+            "no_failure_hardening_receipt": input_identity(ROOT / "catalog" / "receipts" / "no-failure-hardening.json"),
             "job_meta_schema": input_identity(ROOT / "schemas" / "job-meta.schema.json"),
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
@@ -1409,6 +1536,9 @@ def main() -> int:
             "schema_validator": input_identity(ROOT / "tools" / "validate_packets.py"),
             "packer": input_identity(ROOT / "tools" / "pack_job.py"),
             "builder": input_identity(ROOT / "tools" / "build_jobs.py"),
+            "admission_builder": input_identity(ROOT / "tools" / "build_r2_admission.py"),
+            "manifest_repair": input_identity(ROOT / "tools" / "repair_stale_packet_manifests.py"),
+            "readback_tool": input_identity(ROOT / "tools" / "readback_jobs_release.py"),
             "validator": input_identity(ROOT / "tools" / "validate_jobs.py"),
         },
         "asset_manifests": manifest_set_identity(),

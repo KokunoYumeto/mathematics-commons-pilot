@@ -3,9 +3,9 @@
   "job_id": "al-battani-nallino-opus-astronomicum-1899-1907",
   "wrapper_directory": "al-battani-nallino-opus-astronomicum-1899-1907",
   "source_files": 17,
-  "source_bytes": 118207551,
-  "canonical_stream_bytes": 1962,
-  "source_tree_sha256": "AFD6D016A7A3E0C10DB5BAD010444BFCED17243EA25BCF9120A68450A215E1C7",
+  "source_bytes": 118219716,
+  "canonical_stream_bytes": 1963,
+  "source_tree_sha256": "32F148D75C552E0A83D30DEE31D516153A682499692DFFAF10A0E62F630018D3",
   "asset_count": 1,
   "assets": [
     {
@@ -13,18 +13,18 @@
       "part": 1,
       "parts": 1,
       "source_files": 17,
-      "source_bytes": 118207551,
+      "source_bytes": 118219716,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 116632760,
-      "zip_sha256": "8220D4A6B61807E8EF8BF1A2070D8DEFBCA41B1588EA907D93C37A5B82B3A8A6"
+      "zip_bytes": 116634198,
+      "zip_sha256": "6E1F0960D265CF8038ACDA3A9C4A1EF60042855694E1C472BC710F249714225A"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2425,
-      "sha256": "DB7EBAEAE3144336AC051F324A68AB69956D0AAC133CB2C72FD3975B89FC1D46"
+      "bytes": 3592,
+      "sha256": "9753B6CD33FA69D48C3FF50DDE2027D1BC138C32F50636118F96D5E04FD990D1"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -43,8 +43,8 @@
     },
     {
       "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 256801,
-      "sha256": "91CF95482AE9C69F5FFB19FC2A4D3B8DF7C3B8ABDA6CA05DB0759CC659681F5E"
+      "bytes": 266631,
+      "sha256": "26F60303F710F269E977F2071DCDA29DF1D95368CC7FB281C00FAEFE2AC1FC8F"
     },
     {
       "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
@@ -58,8 +58,8 @@
     },
     {
       "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 574,
-      "sha256": "B1ADE6A8EF90EF4E1BEFCD3BB2E90CDA96F22AA4646B44D337187B694B843E15"
+      "bytes": 1742,
+      "sha256": "2D711462DE0E30B3E838E0E5D2D3FA00E88763AC0D0CDF5814509DD28FB96211"
     },
     {
       "path": "20_AL_BATTANI_OPUS_ASTRONOMICUM_NALLINO_PARS_I_II_III_1162P_AUTHORITY.pdf",
@@ -93,13 +93,13 @@
     },
     {
       "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
-      "bytes": 6576,
-      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+      "bytes": 6575,
+      "sha256": "9DC482BBF99DA7A04E6769A2ED67EA53CA0FC4E74C65F77A1B848B143F43C626"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1787,
-      "sha256": "A314BDC95D71F4F3D5FF00B51913E45243EB0745455191466CE8BAF27D1868CD"
+      "bytes": 1788,
+      "sha256": "F486847486D986B89099592806C3F1980075B5FE894AD5C4AB9F1F06B7DC3D4A"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",

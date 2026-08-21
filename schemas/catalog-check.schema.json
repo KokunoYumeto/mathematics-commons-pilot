@@ -24,7 +24,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "math-commons-catalog-check/v1"
+      "const": "math-commons-catalog-check/v2"
     },
     "status": {
       "enum": [
@@ -42,9 +42,8 @@
         "portals",
         "readback",
         "translate_readback",
-        "global_receipt",
-        "gordan2_receipt",
-        "mikami_receipt",
+        "r2_admission_receipt",
+        "no_failure_hardening_receipt",
         "job_meta_schema",
         "job_schema",
         "translation_schema",
@@ -56,6 +55,9 @@
         "schema_validator",
         "packer",
         "builder",
+        "admission_builder",
+        "manifest_repair",
+        "readback_tool",
         "validator"
       ],
       "properties": {
@@ -77,13 +79,10 @@
         "translate_readback": {
           "$ref": "#/$defs/identity"
         },
-        "global_receipt": {
+        "r2_admission_receipt": {
           "$ref": "#/$defs/identity"
         },
-        "gordan2_receipt": {
-          "$ref": "#/$defs/identity"
-        },
-        "mikami_receipt": {
+        "no_failure_hardening_receipt": {
           "$ref": "#/$defs/identity"
         },
         "job_meta_schema": {
@@ -117,6 +116,15 @@
           "$ref": "#/$defs/identity"
         },
         "builder": {
+          "$ref": "#/$defs/identity"
+        },
+        "admission_builder": {
+          "$ref": "#/$defs/identity"
+        },
+        "manifest_repair": {
+          "$ref": "#/$defs/identity"
+        },
+        "readback_tool": {
           "$ref": "#/$defs/identity"
         },
         "validator": {

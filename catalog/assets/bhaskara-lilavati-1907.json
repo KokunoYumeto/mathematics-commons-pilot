@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "bhaskara-lilavati-1907",
   "wrapper_directory": "bhaskara-lilavati-1907",
-  "source_files": 21,
-  "source_bytes": 512388402,
-  "canonical_stream_bytes": 2329,
-  "source_tree_sha256": "D1BB47DCD3BDB75617BFF0B808A87F8E3983FA631C300DFD13A59AC079F6D3C0",
+  "source_files": 23,
+  "source_bytes": 512296220,
+  "canonical_stream_bytes": 2539,
+  "source_tree_sha256": "E8E11CFAB09C01ADAE9A5EF06FE0EDD374B33CC185A1E93C554A203AB75F715E",
   "asset_count": 1,
   "assets": [
     {
       "name": "bhaskara-lilavati-1907.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 21,
-      "source_bytes": 512388402,
+      "source_files": 23,
+      "source_bytes": 512296220,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 509068073,
-      "zip_sha256": "55BAC857810A2CAA8B7F02F3E24E10867E16F43A725287C2D5471CDC8C73956B"
+      "zip_bytes": 509073950,
+      "zip_sha256": "60C3E58E59C03062D399B94E8DDA03779967240FB99828D1A3735A05CFC60015"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 1990,
-      "sha256": "6D856FEC017793B0CDF05FD5C7BAD119FF439C9814C9EED6C5AD7530BA91AF1A"
+      "bytes": 3577,
+      "sha256": "EE4831316E6A47B3E49BE4FA43D0BB0B7960E12C0CA882F2FCE0E9AC4208BF23"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -33,13 +33,13 @@
     },
     {
       "path": "03_PHYSICAL_AND_STRATUM_DISPOSITION_TEMPLATE.tsv",
-      "bytes": 13744,
-      "sha256": "D79F554597FF316B3027C590E3E37612E35D40DD220A86EC6E4CD199802C42F6"
+      "bytes": 16003,
+      "sha256": "9140DF694D518794311AA2A5874C5D73409993EE7083ED6F19B930329C9414E9"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 245995,
-      "sha256": "F2389D1444632E81B2CB1880AABBABC872ADA549630385F17AC17E2943677805"
+      "path": "04_ALL_28_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 135025,
+      "sha256": "829195FEAF4EC03BF4AD717ABC4A15078057678B7ACC8B493C5AA0EBD230F9E9"
     },
     {
       "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
@@ -53,8 +53,8 @@
     },
     {
       "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 415,
-      "sha256": "B570C6452085996DBE2DB9E8BC27DB55D65B919834AC3E9CE25C3B94CE4D8087"
+      "bytes": 2220,
+      "sha256": "0116B111388F3601D4ECBCAECDEC3487C877EA24F1DDCB705D21BDEFE7AE6ED3"
     },
     {
       "path": "20_LILAVATI_1907_NATIVE_JP2_MASTER_280_FRAMES.zip",
@@ -112,24 +112,34 @@
       "sha256": "ECCEDB529783AE8C98296E0B002D66528838D1B2FC6428717DFF088498D697A8"
     },
     {
+      "path": "41_WORK_SIZED_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 3385,
+      "sha256": "C4CE25A4C58DF5AB3719DCC10FAD0D81EAF01146CB483EA20A45A038D2E83360"
+    },
+    {
       "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
-      "bytes": 6576,
-      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+      "bytes": 6575,
+      "sha256": "9DC482BBF99DA7A04E6769A2ED67EA53CA0FC4E74C65F77A1B848B143F43C626"
+    },
+    {
+      "path": "43_INITIAL_WORKFLOW_STATE.md",
+      "bytes": 3755,
+      "sha256": "10648DCA906CB86307995224825168E312A45E0EC1718A4F42F01AFE24B34CA4"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 2154,
-      "sha256": "1AD448FE66EFE008DFC979AFBC8A3F88D991259D1B3E8F6DB7F4684C1BED8386"
+      "bytes": 2364,
+      "sha256": "361824663D5F98246C4A24EEEA32B53F56D0BBFC2BF5B80116AFC279DA38BCE1"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2312,
-      "sha256": "D02E09A44FE904BDB9BE81FB7560CC3D04DF5A09A1115B2BFCA9A6BFD8DA4AC1"
+      "bytes": 8100,
+      "sha256": "D02DD7BD675D4922A0F8A5F753369F47EBF1C648C03444662839EF0DCBD7301D"
     }
   ],
   "checks": {
-    "source_hash_replay": "21/21",
-    "zip_member_replay": "21/21",
+    "source_hash_replay": "23/23",
+    "zip_member_replay": "23/23",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

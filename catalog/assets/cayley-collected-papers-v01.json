@@ -3,9 +3,9 @@
   "job_id": "cayley-collected-papers-v01",
   "wrapper_directory": "cayley-collected-papers-v01",
   "source_files": 11,
-  "source_bytes": 175991821,
+  "source_bytes": 176004219,
   "canonical_stream_bytes": 1165,
-  "source_tree_sha256": "0D3B1D69E95561A670A101CB57AE332CFE6C2D1DEAE2F1AC2241DFF6CAB62A4A",
+  "source_tree_sha256": "1A07697AE3DC613CCACD9D9FD3967EDE005C1A637EC34EF99A85E56FB07E857E",
   "asset_count": 1,
   "assets": [
     {
@@ -13,23 +13,23 @@
       "part": 1,
       "parts": 1,
       "source_files": 11,
-      "source_bytes": 175991821,
+      "source_bytes": 176004219,
       "first_path": "00_READ_FIRST.md",
       "last_path": "cayley_source_master_vol01_collectedmathema01cayluoft_jp2.zip",
-      "zip_bytes": 171920031,
-      "zip_sha256": "16809E3B0DE820B69AFF2DCD1250171850A67D745C44CE5208DFCAAD8CA8DDE1"
+      "zip_bytes": 171921441,
+      "zip_sha256": "AC33E330ECAC16E7C283CD33B15BD849AE3B7ED329753F5AF7FFC3247A318F36"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 3931,
-      "sha256": "7079A4CA76540F736E5C95BB65FA28A4FEEF193D6248FCF35CC207994DCFCAC8"
+      "bytes": 5219,
+      "sha256": "955C623F1F181D3B9214CD310AFDDFE7C2530D5A2AACF0C1931EB435017AFC47"
     },
     {
       "path": "01_GOVERNING_INSTRUCTIONS.md",
-      "bytes": 3090,
-      "sha256": "D4F1595F66E31EE08F03FA1C2982AFB936959D080DF5833F7F7B20068E26CCCE"
+      "bytes": 4257,
+      "sha256": "AA8BB1EDA988D2B5FA1884E05064C5D0C2239EA11C779665779F5D09FCC60483"
     },
     {
       "path": "02_VOLUME_SOURCE_MAP.tsv",
@@ -43,8 +43,8 @@
     },
     {
       "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 163387,
-      "sha256": "288F248135C26856AC51AF70B7AD4D8313C1AB0DC691E34B7849B205D541D575"
+      "bytes": 173331,
+      "sha256": "D345E95110791779BEDCDC995F577FF7159B26B855BAAB6037209D6B7B32DF69"
     },
     {
       "path": "30_PRIOR_VOLUME_I_LINEAGES_UNTRUSTED.zip",
@@ -54,7 +54,7 @@
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
       "bytes": 996,
-      "sha256": "C3F68EAA54811A1538BD4E53B7576B95E6A9CF12A59D642E192AD14D22F0BAD1"
+      "sha256": "F34642E1643A17E43095DDF351AF102807D59B53C3E5B1E9B930940A59750B14"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "CODEX_STRICT_AUDIT_cayley_vol_i_clean_20260605.md",
-      "bytes": 6128,
-      "sha256": "36E7048497CC67969B0DC86EB42ADD0477ABBE9DA3A7B121F3B8977A01E3CAB7"
+      "bytes": 6127,
+      "sha256": "49ED60DAE20249FF8CA3F5589A511EDC3BABF5CA8C29CF6E64D1CD23BD9557F7"
     },
     {
       "path": "Cayley_unitized_index_v01_CODEX_20260607.zip",

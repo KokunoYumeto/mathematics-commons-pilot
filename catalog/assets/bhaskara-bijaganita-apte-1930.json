@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "bhaskara-bijaganita-apte-1930",
   "wrapper_directory": "bhaskara-bijaganita-apte-1930",
-  "source_files": 14,
-  "source_bytes": 6723099,
-  "canonical_stream_bytes": 1511,
-  "source_tree_sha256": "8A40C92FBFFF2A28DAF29AE682A8D946F4B4CA511A119381038CFBFF098F4E6C",
+  "source_files": 16,
+  "source_bytes": 6600530,
+  "canonical_stream_bytes": 1721,
+  "source_tree_sha256": "B28DE077854B42AB594EFC61892E371970B3903DA297A512C1A0C12BD8CF4086",
   "asset_count": 1,
   "assets": [
     {
       "name": "bhaskara-bijaganita-apte-1930.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 14,
-      "source_bytes": 6723099,
+      "source_files": 16,
+      "source_bytes": 6600530,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 5684311,
-      "zip_sha256": "49AEF771FD526FE554B4425A90DE0EE8FF7ECC2313ACEEB00F3F488F340FE52F"
+      "zip_bytes": 5688884,
+      "zip_sha256": "B8D6989F39B2899EAF653FBE97133EB367DF7F6959C3870D44CC7563912B4A4C"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2002,
-      "sha256": "E82441E5F2E1A3B1CC0BC65321F16DDCEBC7EEED214430C882A14090C02B6B04"
+      "bytes": 3528,
+      "sha256": "3E637E2ADBB6C9C4642E5CEAD94AA4F3FC635D4E892CB79339F0BCC12076B2D1"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -33,13 +33,13 @@
     },
     {
       "path": "03_PHYSICAL_AND_STRATUM_DISPOSITION_TEMPLATE.tsv",
-      "bytes": 10693,
-      "sha256": "FBC3C394FB9A5B3244BEE11A2973747AC020EC60787A8D7DDF7D4C6F02A249ED"
+      "bytes": 12456,
+      "sha256": "A79C3153064BE62A97A5CC4D18D6B54EDE0BEBB6241203B944E9C096C58731CA"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 244156,
-      "sha256": "8B8E3817EEC3F838E24BF6EC029863614C2B5D08403C0EE09997E2C564162944"
+      "path": "04_ALL_22_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 105714,
+      "sha256": "C8076399AF46EE08F23DFD6B44E3AC3F310B086DAAA79CD59FC5E33EA4F34432"
     },
     {
       "path": "05_INHERITED_SALVAGE_MEMBER_INVENTORY.tsv",
@@ -53,8 +53,8 @@
     },
     {
       "path": "07_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 405,
-      "sha256": "B05C9223E11A908011DA20FA44941D12AD236FE78FB44EB620D5BE4E5030AFD0"
+      "bytes": 2212,
+      "sha256": "0B0C45065023CB2EBA2E476AD6DA9F11BBF3B0448DC417406EB6D7B652E871C5"
     },
     {
       "path": "20_BIJAGANITA_APTE_1930_COMPLETE_218P.pdf",
@@ -77,24 +77,34 @@
       "sha256": "542DE6ED6BE55D3704DDB9AACAB0DE9C2C410D8118F65BB3913653F703DD8BBB"
     },
     {
+      "path": "41_WORK_SIZED_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 3334,
+      "sha256": "584CBFCA692428CF928A6930634C31A7C6F94B338AED2C496434674B651EEAD4"
+    },
+    {
       "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
-      "bytes": 6576,
-      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+      "bytes": 6575,
+      "sha256": "9DC482BBF99DA7A04E6769A2ED67EA53CA0FC4E74C65F77A1B848B143F43C626"
+    },
+    {
+      "path": "43_INITIAL_WORKFLOW_STATE.md",
+      "bytes": 3096,
+      "sha256": "412455347F48ED10FA826CF9B2ECA2303C8691B5596844E7FCBC02BF591E2933"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 1336,
-      "sha256": "7855B7A042C186439271FABBF48B1AF9C6CFE95619EE742A1D559B5F4F092590"
+      "bytes": 1546,
+      "sha256": "886352A6D18D892E96248BEFB0BB8696E3CFD6A8584B4C3EB4CCD434663ABCFE"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2316,
-      "sha256": "6041250BC5A401ED1DDECF085B3B66862B0C5103F0320B9F6F24F65444D5D576"
+      "bytes": 6454,
+      "sha256": "AA159660E43B4BA4EE65C7045BC52E20556E73D7D28083A139A0E4CF18258316"
     }
   ],
   "checks": {
-    "source_hash_replay": "14/14",
-    "zip_member_replay": "14/14",
+    "source_hash_replay": "16/16",
+    "zip_member_replay": "16/16",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

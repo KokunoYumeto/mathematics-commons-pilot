@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "gordan-formensystem-binaerer-formen",
   "wrapper_directory": "gordan-formensystem-binaerer-formen",
-  "source_files": 14,
-  "source_bytes": 29175485,
-  "canonical_stream_bytes": 1643,
-  "source_tree_sha256": "97F91DDD65C8A3D6E7F3C685612D71C61FCEBDEF035782FE2C3DDB59B4456B3A",
+  "source_files": 17,
+  "source_bytes": 127259026,
+  "canonical_stream_bytes": 2042,
+  "source_tree_sha256": "3B3BFD92B52F91DACD2DCA650D1C97F7406CC04625B69651DA7032E65EECF2D0",
   "asset_count": 1,
   "assets": [
     {
       "name": "gordan-formensystem-binaerer-formen.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 14,
-      "source_bytes": 29175485,
+      "source_files": 17,
+      "source_bytes": 127259026,
       "first_path": "00_READ_ME_FIRST.md",
-      "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-      "zip_bytes": 28838866,
-      "zip_sha256": "FDE297476D20434B53E5BB429B939036272861180D52E0D41AA8CC570FA76A47"
+      "last_path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+      "zip_bytes": 123817522,
+      "zip_sha256": "4CD3712633AB563F82F029D5F2D38E17FCE099B8180F38D5DD2958183239E90A"
     }
   ],
   "members": [
     {
       "path": "00_READ_ME_FIRST.md",
-      "bytes": 2844,
-      "sha256": "37BAF1B47B6968D94B4B69A37BAA238EA1CA2FE0D9134FD554352A2AA318C645"
+      "bytes": 3493,
+      "sha256": "35A4E0CFBA71072ACEB165635D90AAEC36F5A303390266B13123C18C5B630205"
     },
     {
       "path": "01_Paul_Gordan_Ueber_das_Formensystem_binaerer_Formen_Authority_62_pages.pdf",
@@ -42,9 +42,9 @@
       "sha256": "402AA89A585F2A05BF1F447A3938E1A728B0A8403721DA236B63E38F3EE161C2"
     },
     {
-      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 271055,
-      "sha256": "FB678F57F23685167AF466328F6EE2F91CE43C4A4A610A86EAC53336D75F22B1"
+      "path": "04_ALL_07_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 29032,
+      "sha256": "943E6EC803E7EC428FB69F6BEDE9519BA95B76FFF3CA4973607EA0D632D50322"
     },
     {
       "path": "05_EXACT_PHYSICAL_TO_PRINTED_PAGE_MAP.csv",
@@ -53,13 +53,13 @@
     },
     {
       "path": "06_SOURCE_HIERARCHY_AND_TOPOLOGY.md",
-      "bytes": 2165,
-      "sha256": "F34CB1046B21550586B98A858E3611A30A77E8FF35BFD126BA9B81933DBF3B6D"
+      "bytes": 3033,
+      "sha256": "6A7650E0DB3D5F64EC64875B012F0381C7D5001A349875C4546D7E535822A1CC"
     },
     {
       "path": "07_INHERITED_STATE_FILTERING_LEDGER.md",
-      "bytes": 1307,
-      "sha256": "FE55ED39C213D98BDED33736F1B522D0EB607F0B59B38875C6DCF784811F9A81"
+      "bytes": 1646,
+      "sha256": "125E286D59624F1FB7242065019850B2BAA04A70BDE83E12A90F016AD9CD045F"
     },
     {
       "path": "08_ISSUE_AND_UNCERTAINTY_LEDGER_TEMPLATE.csv",
@@ -73,28 +73,43 @@
     },
     {
       "path": "10_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 607,
-      "sha256": "006FBE69C7B7DB118C53084B6C09689491A05A40D5FC4BE0248F84E55EA010AB"
+      "bytes": 1775,
+      "sha256": "D705F31E0AB7FF08C47E436C9D5FFCAF06CBB347EC2C8684F5DD04344411BFDA"
     },
     {
       "path": "11_REQUIRED_END_STATE.md",
-      "bytes": 963,
-      "sha256": "464B890EA175E9D0C9294E1369A75DB00AFD91C49BA4A22F7816B03437F837D2"
+      "bytes": 2131,
+      "sha256": "97A1BC25BE91DB4402125967857D7E336EA97FBCEB1DCCC0FE991C962594B9A6"
     },
     {
       "path": "12_PACKET_MANIFEST_SHA256.csv",
-      "bytes": 1685,
-      "sha256": "8257CF7F24C4E8AB0B9EE5556956C198A14A92E5CC935E648A4F36E96D9512BA"
+      "bytes": 2300,
+      "sha256": "707FD94F33263A3FE9EB673EB06430BEA2AB0DEB41F0125843E32F821FB145B0"
     },
     {
       "path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
-      "bytes": 2319,
-      "sha256": "69297E0075EE75FDAFE7C8A42E5A976E4F0CA35D7CE774EA5CF90FEB82636345"
+      "bytes": 2020,
+      "sha256": "2F1DFEAB4E943C6DA83107B8756AB2C3D8146F1CECD9B79DC48E5BB12047A3F5"
+    },
+    {
+      "path": "14_ZENODO_20673409_Gordan_Form_complete_DE_EN_20260608.zip",
+      "bytes": 47418778,
+      "sha256": "BEFB5D54750210CA9F70231F344F4B62E1B71672AD4657BC980775E3F574756B"
+    },
+    {
+      "path": "15_ZENODO_20673409_Gordan_AuditFix_theta_form_20260609.zip",
+      "bytes": 5481822,
+      "sha256": "FE4628CD50BD3EC46E0C198F28EDC4BE9FF708A91E6838974307844D22A964F1"
+    },
+    {
+      "path": "16_ZENODO_20673409_Gordan_AllPrior_AuditFix01_20260610.zip",
+      "bytes": 45420456,
+      "sha256": "5492A4033FF65069F87B4848EC99874871877BBE0CFD325D722C6CC9E77ACA4C"
     }
   ],
   "checks": {
-    "source_hash_replay": "14/14",
-    "zip_member_replay": "14/14",
+    "source_hash_replay": "17/17",
+    "zip_member_replay": "17/17",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

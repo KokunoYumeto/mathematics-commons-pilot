@@ -2,74 +2,109 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "gordan-invariantentheorie-v02-1887",
   "wrapper_directory": "gordan-invariantentheorie-v02-1887",
-  "source_files": 9,
-  "source_bytes": 64775459,
-  "canonical_stream_bytes": 955,
-  "source_tree_sha256": "3A41C5EC5A3B4F8D9D27E120C4B857B5EC6323FDDA7D4B1CD796D1C39EF02144",
+  "source_files": 16,
+  "source_bytes": 168898588,
+  "canonical_stream_bytes": 1891,
+  "source_tree_sha256": "CD57188E19053056366B1B14787070B78558F7E9C5F4DD598480D6613D13C6CF",
   "asset_count": 1,
   "assets": [
     {
       "name": "gordan-invariantentheorie-v02-1887.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 9,
-      "source_bytes": 64775459,
-      "first_path": "GORDAN_BAND_II_45_LITERAL_PROMPTS.md",
+      "source_files": 16,
+      "source_bytes": 168898588,
+      "first_path": "00_PACKET_UPDATE_AND_LOCAL_SALVAGE_INVENTORY.md",
       "last_path": "READ_FIRST.md",
-      "zip_bytes": 64524465,
-      "zip_sha256": "BEF538E2B95FA108E830ED098C37E4F7F3A4F1D0FF797A41EED225C7B048010F"
+      "zip_bytes": 166503918,
+      "zip_sha256": "4778EECA82513796603539EF75CABA0B2C457CC896721F80A9D69EA4195D56DC"
     }
   ],
   "members": [
     {
-      "path": "GORDAN_BAND_II_45_LITERAL_PROMPTS.md",
-      "bytes": 152846,
-      "sha256": "5541AD565E9E699BFCCA6BC67A33AE4A6D5DBFE36C80219F7D2685BC909238F3"
+      "path": "00_PACKET_UPDATE_AND_LOCAL_SALVAGE_INVENTORY.md",
+      "bytes": 2320,
+      "sha256": "729ECB2057A3693DF957215107DC3D2B8788FB4EDB1D50D5CB51000F089312E5"
+    },
+    {
+      "path": "20_Paul_Gordan_Vorlesungen_ueber_Invariantentheorie_Band_II_Binaere_Formen_1887_GDZ_600ppi_source.zip",
+      "bytes": 64497775,
+      "sha256": "945EC59C3FCF8BCA90C24B1BD0C291BC09CC4D14A0BDAB69F293672EA76F5B49"
+    },
+    {
+      "path": "21_Paul_Gordan_Vorlesungen_ueber_Invariantentheorie_Band_II_Binaere_Formen_1887_navigable_377_pages.pdf",
+      "bytes": 31686635,
+      "sha256": "E1DE2A36D79444BB67A2B479661C636F491601D9B72D7B45A1AAFE5ECF7E6ECA"
+    },
+    {
+      "path": "22_Paul_Gordan_Band_II_combined_OCR_witness_ZERO_ACCEPTED.md",
+      "bytes": 1445078,
+      "sha256": "760B25E7D5CD45A3F5C12656BBD918FAD031249EA76CF42BDBFEED5F7432F6F2"
+    },
+    {
+      "path": "90_Paul_Gordan_Band_II_build_and_audit_evidence.zip",
+      "bytes": 6494030,
+      "sha256": "6A66F1E8B068E76A8198AE2ADB854F99B5143646A6ED049F531B6B9133ABD29B"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1709,
+      "sha256": "D54FFAF0626496CB4EAD9D1E4D4D1FCC53E7CEB35AF733C3E3698105D5B4CEC1"
+    },
+    {
+      "path": "99_PACKET_VALIDATION_RECEIPT.json",
+      "bytes": 1977,
+      "sha256": "C067CFE57FA509D67CCF0DC96FDF534CA1A494A0AFB87C80C7AF97A4A9023486"
+    },
+    {
+      "path": "GORDAN_BAND_II_38_LITERAL_PROMPTS.md",
+      "bytes": 138450,
+      "sha256": "84E0804C7D2F765BA4C3638102A42CCDDD914ECDA4A5BAB0B12019CE2D50F971"
     },
     {
       "path": "GORDAN_BAND_II_OUTPUT_CONTRACT.md",
-      "bytes": 6454,
-      "sha256": "CF4DB22A3CA3B26A0AE948D1662AAC7902AE4409FF81F0D2000442D2D2F7D183"
+      "bytes": 7735,
+      "sha256": "3342D930C98EEE9B918F4ACFA7184064217AA83D29EEA12CCED0C7F6D4FE4EF1"
     },
     {
       "path": "GORDAN_BAND_II_S00_CUMULATIVE_CHECKPOINT.json",
-      "bytes": 879,
-      "sha256": "A60A59EB0C7B54B65C2C1E212673D5D4D46F4907D757C2FCD237FC390612734A"
+      "bytes": 1255,
+      "sha256": "27CB3AB9EA615AF86D65A078657B43E37F4E125397A981A9C25098B2B481A7E7"
     },
     {
       "path": "GORDAN_BAND_II_S00_CUMULATIVE_FULL_STATE.zip",
-      "bytes": 64533539,
-      "sha256": "1EF2FF082DE016A3B7C4C4D1EF7F11BAC294102E332E6513A06138FEC875B08C"
+      "bytes": 64535496,
+      "sha256": "AA88583CE14394440693E334CE4BE77B756843504A868781F1E42D1EF2082D63"
     },
     {
       "path": "GORDAN_BAND_II_S00_CUMULATIVE_MANIFEST.tsv",
-      "bytes": 2432,
-      "sha256": "277BDDC2998932E0076603A0DD387FC07FD24C78FDA51462693120A604DB70DB"
+      "bytes": 2434,
+      "sha256": "40F57A53EB27BAB8D97046A9FE46E3E93006B91B8D5CAE34784CECBC0625C21A"
     },
     {
       "path": "GORDAN_BAND_II_SESSION_PLAN.tsv",
-      "bytes": 2906,
-      "sha256": "2B2E58EA6123F23A6DB8F6A742BB4EB862C1323776FE6C6D1361E8FB72E77D70"
+      "bytes": 2531,
+      "sha256": "BB30DB73A5051FB3D0FBD765DC99EE07111F03D0EB69719956E5E8EB54D77525"
     },
     {
       "path": "GORDAN_BAND_II_SOURCE_PDF_MAP.tsv",
       "bytes": 61491,
-      "sha256": "88845569D6D0A4ABFF4935646C5B7CE3653C9BC907EDA0DB10A9F0BAF30A7F51"
+      "sha256": "36242A99CC57820B01DE601467DDF7598DE9CDFE0D64B124BE6688763844A392"
     },
     {
       "path": "GORDAN_BAND_II_VERIFY_PACKET.ps1",
-      "bytes": 12808,
-      "sha256": "ED600CD0744AF7FD2FF4C2D77682877AF51C97DFD9A73C9F40A95B4EAA263870"
+      "bytes": 15877,
+      "sha256": "80BE908B2B913F2CBF449CE122E2AB4AF8029D1C5E9FEA890C6034A4454FDE86"
     },
     {
       "path": "READ_FIRST.md",
-      "bytes": 2104,
-      "sha256": "6C684E537C29251C2B96EF678A6FFB9B2807794D22AD430334A0F1059A4B1D39"
+      "bytes": 3795,
+      "sha256": "A58504DE1A1325087F7F635EDCF1FC3EA30ACF600337C9393EE0D420FAF0B82B"
     }
   ],
   "checks": {
-    "source_hash_replay": "9/9",
-    "zip_member_replay": "9/9",
+    "source_hash_replay": "16/16",
+    "zip_member_replay": "16/16",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,

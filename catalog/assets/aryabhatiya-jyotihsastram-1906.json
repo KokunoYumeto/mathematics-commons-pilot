@@ -2,29 +2,29 @@
   "schema": "math-commons-job-asset/v1",
   "job_id": "aryabhatiya-jyotihsastram-1906",
   "wrapper_directory": "aryabhatiya-jyotihsastram-1906",
-  "source_files": 38,
-  "source_bytes": 217857657,
-  "canonical_stream_bytes": 4084,
-  "source_tree_sha256": "5A9192DC35E8511B5C4BC206890B6709B6ED1C3E9325982439F31F9C44F5C52C",
+  "source_files": 40,
+  "source_bytes": 217717460,
+  "canonical_stream_bytes": 4293,
+  "source_tree_sha256": "994EB94E776ACEE86E791128F9E8EEE89B4520643E3A5CECD7B287EE77A58AA2",
   "asset_count": 1,
   "assets": [
     {
       "name": "aryabhatiya-jyotihsastram-1906.zip",
       "part": 1,
       "parts": 1,
-      "source_files": 38,
-      "source_bytes": 217857657,
+      "source_files": 40,
+      "source_bytes": 217717460,
       "first_path": "00_READ_FIRST.md",
       "last_path": "99_VALIDATION_RECEIPT.json",
-      "zip_bytes": 214008649,
-      "zip_sha256": "8E8209A1E5DB661DA65A2E7F0839DE9CB2C0EEF563D358AD6D0A60805BB508BE"
+      "zip_bytes": 214013352,
+      "zip_sha256": "53B1EE70008CFA9846CA17E08CE6E7A39C3B008F5CC2AA4DC89D507A715E6842"
     }
   ],
   "members": [
     {
       "path": "00_READ_FIRST.md",
-      "bytes": 2680,
-      "sha256": "9F1E11C8064EB676862457D5C60AF37F5BEA957DB82BABE8306862431E973541"
+      "bytes": 3550,
+      "sha256": "54E3F63BF4D0FA3CB22FB2AA77D128E50A571010D22248A207B9DC01A2CD6F16"
     },
     {
       "path": "01_SOURCE_HIERARCHY_AND_BOUNDARY.md",
@@ -38,18 +38,18 @@
     },
     {
       "path": "03_PAGE_SOURCE_JOB_MAP.csv",
-      "bytes": 25470,
-      "sha256": "AE6E2875C627413A689B9A5C41D45840B0DB613DE4054B19D2D247FC95DB3B12"
+      "bytes": 26423,
+      "sha256": "5775A808451FF5B493CA52ACA63B1DB614E213FDF29ED4E51E8633301CE857BB"
     },
     {
       "path": "04_IMAGE_INVENTORY_SHA256.csv",
-      "bytes": 49688,
-      "sha256": "6932E6F9E5F3B4845C3128EB6456A17DB9FB6C732EA070FBAAF7CEFEE764D0FF"
+      "bytes": 49414,
+      "sha256": "91F3DDDA9ED902D5ACA8F0D833AD43FB9B8331AB6967A5BE270E1BB2E3243882"
     },
     {
-      "path": "05_ALL_45_LITERAL_SESSION_PROMPTS.md",
-      "bytes": 223269,
-      "sha256": "1E22999F33A8BB37FF7A023361E589A5D3E9864BD25FC67E2AC78D53889CEDCA"
+      "path": "05_ALL_14_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 66531,
+      "sha256": "918A6328B9579222DDA7209E315AF9F03D6D24651CB95B25F6E6F60779C48B16"
     },
     {
       "path": "06_KSU_IA_METADATA_API.json",
@@ -193,28 +193,38 @@
     },
     {
       "path": "40_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
-      "bytes": 492,
-      "sha256": "978EAA7858C8E93030C283BBE5D2A0A8FC711BBF15BEA47E15BD9677FCDA6CAB"
+      "bytes": 2226,
+      "sha256": "92AD6983C440B34712622E3D990A6472C76C3A1B96D278E5513D7B6A05137224"
+    },
+    {
+      "path": "41_WORK_SIZED_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 3398,
+      "sha256": "F9B1735FBE73178693BAF3490397457B27F8801A9EA2A417067247CF4F7A08E3"
     },
     {
       "path": "42_UNIVERSAL_SOURCE_FAITHFUL_PRODUCTION_STANDARD.txt",
-      "bytes": 6576,
-      "sha256": "504069B411632F330E6DFE43970E28B7FD6EE7DECC50288A846D920CAA7DC18B"
+      "bytes": 6575,
+      "sha256": "9DC482BBF99DA7A04E6769A2ED67EA53CA0FC4E74C65F77A1B848B143F43C626"
+    },
+    {
+      "path": "43_INITIAL_WORKFLOW_STATE.md",
+      "bytes": 2351,
+      "sha256": "2397FABD6CCE4D84A36D2AB4652D7F3919A5CF465FEE8995E59C58CE72DF20EF"
     },
     {
       "path": "98_PACKET_MANIFEST_SHA256.tsv",
-      "bytes": 3909,
-      "sha256": "466E71BB9AE940ED2AE86F8F0395CFD82440FCF0EBD2BCDA45263E958A1A07A8"
+      "bytes": 4118,
+      "sha256": "A09D7628D1D05CEF9045522F0CA4B5756E1FACE86DEBFCF65B52C729E2AD1221"
     },
     {
       "path": "99_VALIDATION_RECEIPT.json",
-      "bytes": 2300,
-      "sha256": "EB1B7F4AE3DCC46C496EDBE333A6BF5C9C7CEC38A18C63EE777B4210D36FB2B0"
+      "bytes": 9601,
+      "sha256": "2709C83319E9FA5158EFE8FF1FCE335DDD54004BF55D6A163042371323ECEED1"
     }
   ],
   "checks": {
-    "source_hash_replay": "38/38",
-    "zip_member_replay": "38/38",
+    "source_hash_replay": "40/40",
+    "zip_member_replay": "40/40",
     "crc_errors": 0,
     "missing": 0,
     "extra": 0,
