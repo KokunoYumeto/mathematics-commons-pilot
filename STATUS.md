@@ -17,7 +17,7 @@
 - Workflow: 45 ordered prompts with cumulative state returned after every response
 - Public readback: 29/29 packet assets plus the R1 predecessor translation-kit asset matched, for 30/30 assets and 6,599,622,703/6,599,622,703 bytes
 
-Eleven current prepared staging roots remain byte-identical to R1. Seventeen contain later staging successors. None of those 17 currently passes the complete independent admission contract: ten explicitly await cold validation, five lack an accepted independent cold-audit basis, one has unlisted payload files, and one cites a missing independent audit report. R1 remains the newest verified transcription release.
+R1 remains the newest admitted transcription release. Later candidate generations remain excluded until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
 ## Translation
 
@@ -33,8 +33,8 @@ Most open-education rows are discovery metadata and require an independent publi
 
 ## Open problems
 
-- Release: [`workbench-v0.2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2)
-- Archive: 13,308,489 bytes / SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`
+- Publication: pending restoration of the exact supplied ZIP
+- Expected archive: 13,308,489 bytes / SHA-256 `A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A`
 - Archive entries: 160 safe paths
 - Manifest replay: 159/159
 - Internal validation: PASS, 59 checks, zero failures
@@ -42,7 +42,7 @@ Most open-education rows are discovery metadata and require an independent publi
 - Conservative triage rows: 858
 - Canonical runnable problem packets: 0
 
-Workbench v0.2 is a published incomplete discovery package. It does not establish canonical statements, current status for every problem, complete literature coverage, or any proof.
+Workbench v0.2 is an independently replayed but currently unavailable source package. No public release is claimed. Its exact ZIP must be restored, replayed, published, and read back before the package is downloadable here. It does not establish canonical statements, current status for every problem, complete literature coverage, or any proof.
 
 ## Admission and review boundary
 

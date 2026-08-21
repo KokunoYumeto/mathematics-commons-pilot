@@ -1,6 +1,6 @@
-# Open Problem Workbench v0.2
+# Open Problem Workbench v0.2 expected release
 
-This release publishes the exact dated discovery and curation package supplied on 21 August 2026.
+This file records the exact identity expected for a future release of the dated discovery and curation package supplied on 21 August 2026. The exact source ZIP is not currently available in the publication workspace, so no release is claimed.
 
 - Asset: `Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip`
 - ZIP bytes: 13,308,489
@@ -14,3 +14,5 @@ The package reports 8,785 secondary statement candidates from 13 collections, 1,
 Its Erdős data contains 1,217 metadata records, including 608 classified as open in the package snapshot, 556 with imported statement text, 52 statement gaps, and 76 imported/current status conflicts.
 
 This is an incomplete discovery package. No entry is admitted as a canonical runnable problem packet. Package PASS does not establish canonical wording, current status, complete literature coverage, mathematical correctness, or a proof.
+
+Publication requires restoration of the exact ZIP above, a fresh replay, upload to the intended public release, and anonymous byte/hash readback.

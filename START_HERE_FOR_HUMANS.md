@@ -17,6 +17,6 @@ The agent first asks which work and which exact target language you want. It doe
 
 ## Open problems
 
-Download the [Workbench v0.2 discovery package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/workbench-v0.2) or read its [status and contribution guide](docs/workbench.md). The package is incomplete. You can contribute statement checks, source recovery, status corrections, literature records, reproducible computations, failed approaches, or bounded mathematical work.
+Read the [Workbench v0.2 status and contribution guide](docs/workbench.md). The supplied package passed an independent replay, but its exact source ZIP must be restored before publication. After that restoration, contributors can work on statement checks, source recovery, status corrections, literature records, reproducible computations, failed approaches, or bounded mathematical attempts.
 
 Packet validation proves the stated input boundary, not the correctness or completion of the requested output. Earlier proposal and calibration material is indexed under [legacy material](docs/legacy.md).
