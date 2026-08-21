@@ -1,0 +1,89 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "gibbs-scientific-papers-v01",
+  "wrapper_directory": "gibbs-scientific-papers-v01",
+  "source_files": 11,
+  "source_bytes": 103636565,
+  "canonical_stream_bytes": 1108,
+  "source_tree_sha256": "B2CDB1049F5A32175231C7A2E36149C200E59F93E3303CF9FEE00DD13EB261AF",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "gibbs-scientific-papers-v01.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 11,
+      "source_bytes": 103636565,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_MANIFEST_SHA256.json",
+      "zip_bytes": 101594634,
+      "zip_sha256": "9454671A66D04571C6D1CB9ECDB3D452D62743C0102981E3CA10A7D799A14197"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 4004,
+      "sha256": "687ECC25372D33F8931AB72F45A37B183A73D656BC216245A271054E826939AC"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 5343,
+      "sha256": "63CBD9B8C8385E56FFDC59AF8A489C6F28CCE20A92B798754E71E205282654E7"
+    },
+    {
+      "path": "02_EXACT_SOURCE_OUTPUT_MAP.json",
+      "bytes": 4068,
+      "sha256": "68517FA57CF04D465B0B9B44B2CE86C2B2D33484A0340BC15C973A25033E6B32"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 1679,
+      "sha256": "962AFB25EADF73D9DFCE9C84169FD31D58A49CE1035463A4421546A21B32702F"
+    },
+    {
+      "path": "04_SESSION_PROMPTS.md",
+      "bytes": 184994,
+      "sha256": "8A71482CB8C69F8EB3F28B17824382B138F07EEC026D4117B7424945D56FE1C9"
+    },
+    {
+      "path": "11_EXISTING_PUBLIC_WORKING_PP001-134_EXACT.zip",
+      "bytes": 30417741,
+      "sha256": "333A971F16DEFF240419D22CB2BB82F464B1C8351ECB507D9280B874E3E22F96"
+    },
+    {
+      "path": "12_EXISTING_PRINT135-143_PACKET_BYTE_EXACT.zip",
+      "bytes": 11618337,
+      "sha256": "1F0E15040E21C9E071B84EFCB44D5E9CF3153617CCF57645D5EF1872A429A66D"
+    },
+    {
+      "path": "22_SP1_NAVIGATION.pdf",
+      "bytes": 48996892,
+      "sha256": "7F6312FF2DAB6E618C99D136875BFA8ED67E52A278E6ECA1C296378D90E51FBF"
+    },
+    {
+      "path": "40_EQ_COMPARATOR_NAVIGATION.pdf",
+      "bytes": 12399268,
+      "sha256": "3323AF89D5381E4F9BE3D83E7637C8FD72A69D54E37AC83E165292E686BED77E"
+    },
+    {
+      "path": "98_PACKET_VALIDATION.json",
+      "bytes": 2293,
+      "sha256": "ED3B5196A95D10A001BCC42AEAC2F487C744AF1473509904F6932FE1946B0B42"
+    },
+    {
+      "path": "99_MANIFEST_SHA256.json",
+      "bytes": 1946,
+      "sha256": "390B720A1FF38605C473E62D86C615297ED1906D8EE34AD860C9555849AC04E3"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "11/11",
+    "zip_member_replay": "11/11",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

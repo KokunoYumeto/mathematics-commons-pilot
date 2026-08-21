@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/raw/main/schemas/catalog-check.schema.json",
+  "title": "Mathematics Commons catalog validation receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "inputs",
+    "asset_manifests",
+    "jobs",
+    "release_assets",
+    "release_asset_bytes",
+    "packet_source_files",
+    "packet_source_bytes",
+    "zip_member_files_replayed",
+    "nested_authorities_replayed",
+    "asset_mode",
+    "translation_entries",
+    "errors"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-catalog-check/v1"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "job_meta",
+        "jobs",
+        "translations",
+        "global_receipt",
+        "gordan2_receipt",
+        "mikami_receipt",
+        "job_meta_schema",
+        "job_schema",
+        "translation_schema",
+        "asset_schema",
+        "check_schema",
+        "schema_validator",
+        "packer",
+        "builder",
+        "validator"
+      ],
+      "properties": {
+        "job_meta": {
+          "$ref": "#/$defs/identity"
+        },
+        "jobs": {
+          "$ref": "#/$defs/identity"
+        },
+        "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "global_receipt": {
+          "$ref": "#/$defs/identity"
+        },
+        "gordan2_receipt": {
+          "$ref": "#/$defs/identity"
+        },
+        "mikami_receipt": {
+          "$ref": "#/$defs/identity"
+        },
+        "job_meta_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "job_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "asset_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "check_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "schema_validator": {
+          "$ref": "#/$defs/identity"
+        },
+        "packer": {
+          "$ref": "#/$defs/identity"
+        },
+        "builder": {
+          "$ref": "#/$defs/identity"
+        },
+        "validator": {
+          "$ref": "#/$defs/identity"
+        }
+      }
+    },
+    "asset_manifests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "files",
+        "bytes",
+        "canonical_stream_bytes",
+        "tree_sha256"
+      ],
+      "properties": {
+        "files": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "canonical_stream_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tree_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "jobs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "release_assets": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "release_asset_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "packet_source_files": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "packet_source_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "zip_member_files_replayed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nested_authorities_replayed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "asset_mode": {
+      "enum": [
+        "local_zip_replay",
+        "catalog_only"
+      ]
+    },
+    "translation_entries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "errors": {"maxItems": 0}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["status", "errors"],
+      "properties": {
+        "status": {"const": "FAIL"},
+        "errors": {"minItems": 1}
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

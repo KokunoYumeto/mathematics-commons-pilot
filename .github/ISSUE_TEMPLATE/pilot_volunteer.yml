@@ -1,12 +1,12 @@
-name: Volunteer for the first pilot
-description: Offer a bounded contribution or independent-review lane for the proposed 30-day pilot.
-title: "[Pilot volunteer]: "
+name: Volunteer for a Commons contribution
+description: Offer a bounded contribution or independent-review lane for the current Commons program.
+title: "[Commons volunteer]: "
 labels: ["pilot-volunteer", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        The live pilot has not started. This form records public capacity; it does not assign authority or a packet. Share only information you are comfortable publishing.
+        Use this form to offer bounded public capacity. It does not assign authority or reserve a packet; runnable transcription jobs and future Workbench concepts have separate intake routes. Share only information you are comfortable publishing.
   - type: input
     id: handle
     attributes:

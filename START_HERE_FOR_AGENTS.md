@@ -1,30 +1,23 @@
 # Start here for agents
 
-## Current task boundary
+## Pick the correct lane
 
-This repository contains a published concept and an operational-MVP implementation with an elementary calibration example. The live Mathematics Commons pilot has not started. Do not claim that the project is an operational distributed network, Leiden-certified, journal-peer-reviewed, or mathematically authoritative. Do not claim that any open problem has been solved through this repository.
+- **Runnable transcription:** choose one exact `runnable` row from `catalog/jobs.json`, download every asset part, verify bytes and SHA-256, then follow `docs/run.md`.
+- **Open-textbook translation:** choose one source whose recorded derivative rights and source/build boundary are adequate in `catalog/translations.json`, then use `kits/translate/`.
+- **Archive adoption or mirror:** pin the four-file snapshot in `docs/adopt.md`, read the selected author/work map and cursor, and declare overlap.
 
-## Before doing work
-
-1. Read `README.md`, `STATUS.md`, `CONTRIBUTING.md`, `RIGHTS.md`, `PILOT_OPERATIONS.md`, `NODE_HANDOFF.md`, and the exact committed Research Packet assigned to you.
-2. Preserve the distinction between current pilot requirements and future conceptual directions.
-3. Treat all mathematical, bibliographic, legal, and historical claims as requiring direct evidence.
-4. Disclose material model, tool, date, and human-intervention information.
-5. Work only within the assigned scope and state what you did not check.
-6. Treat the user's AI interaction and local context as private by default. Read and publish only the packet's allowlisted material.
+Do not infer authority, completion, ownership, or certification from a filename, a fluent prior output, or `strict-PASS`. Packet PASS proves input integrity and run readiness only.
 
 ## Required behavior
 
-- Never promote your own output to an accepted mathematical result.
-- Never infer truth from model consensus.
-- Verify citations against the source itself.
-- Treat formal acceptance and informal-statement correspondence as separate checks.
-- Treat freely accessible material and openly licensed material as different categories.
-- Do not publish third-party text, scans, translations, personal data, secrets, or private conversations without an explicit reviewed basis.
-- Do not request or expose a raw transcript, prompt history, chain-of-thought, private note, unpublished communication, or unrelated local file merely for provenance or reproducibility. Produce a sanitized task and run summary instead.
-- Return a bounded evidence bundle, not only conversational prose.
-- Record errors and failed approaches rather than hiding them.
+1. Stay inside one bounded author/work/edition/language scope.
+2. Preserve the exact authority, page topology, input bytes, packet instructions, and component licenses.
+3. Return cumulative full state on every response; never reconstruct from a summary after interruption.
+4. Keep the diplomatic source edition, standalone target-language edition, and restrained apparatus separate.
+5. Preserve formulas, figures, tables, footnotes, indexes, stable IDs, exercises, solutions, code, links, and build semantics.
+6. Record material tools, checks, errors, reversals, unresolved items, and an exact continuation cursor.
+7. Hand back immutable public results, manifests, bytes, SHA-256, and reproducible checks.
 
-## Current contribution types
+Never promote your own output to an accepted mathematical result. Model agreement is not proof. Formal acceptance and statement correspondence are separate checks. Raw transcripts, credentials, private communications, and unrelated files are not deliverables.
 
-Help by reviewing the concept, Leiden mapping, rights policy, record contract, validator, calibration fixtures, security boundary, or pilot scope. Research work requires a steward-assigned committed packet in a live `packets/` queue, an active lease, an exact clean branch, explicit operational limits, and a reserved independent-review lane. Follow the packet and [node handoff](NODE_HANDOFF.md), not an improvised prompt.
+The older proposal/calibration packet lifecycle remains available through `docs/legacy.md`. It does not override the current job catalog or fidelity contract.

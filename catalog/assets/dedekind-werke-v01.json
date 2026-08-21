@@ -1,0 +1,109 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "dedekind-werke-v01",
+  "wrapper_directory": "dedekind-werke-v01",
+  "source_files": 15,
+  "source_bytes": 19892603,
+  "canonical_stream_bytes": 1507,
+  "source_tree_sha256": "F4A5C4CA142DEAD2163F9CFF5720B0AAE4511174A35804588F87B332FB55FF97",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "dedekind-werke-v01.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 15,
+      "source_bytes": 19892603,
+      "first_path": "00_READ_FIRST.txt",
+      "last_path": "20_GMW_I_PRIOR_READER_UNTRUSTED_EXACT_CAPTURE.zip",
+      "zip_bytes": 18586622,
+      "zip_sha256": "1CAA2B4F590D2E3B184722A58068A5AB82FAF92C976DDCF64F6A704D834D4CBC"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.txt",
+      "bytes": 3221,
+      "sha256": "289D4F480ED6D580DD6C4EB794384D694117FA26A4EF4E74BB76D32753CAEF1B"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.txt",
+      "bytes": 2615,
+      "sha256": "4739A9A68EB107F82A1B6B875D21AD1B016ACC2FD8927D6FF847AA212087AC10"
+    },
+    {
+      "path": "02_SESSION_PROMPTS.txt",
+      "bytes": 136903,
+      "sha256": "24C7CD08C2CBFF394151F9067FF98D61994ABC3E2DFBD3D71404F981D54FBBB8"
+    },
+    {
+      "path": "03_SOURCE_PRIOR_MAP.tsv",
+      "bytes": 2347,
+      "sha256": "4E9FDE58E694DB353F4945F1DEE7307C801AA5786BC1B707102F3DFE4BBDC6B2"
+    },
+    {
+      "path": "04_SOURCE_PAGE_JOB_MAP.tsv",
+      "bytes": 1668,
+      "sha256": "73B1C791CA28844D3C151EDCC916D0A408746576DED5E7FF5A3E61618AEAD140"
+    },
+    {
+      "path": "05_INITIAL_STATE.md",
+      "bytes": 1487,
+      "sha256": "065E0A298A8E42074AF38618DBCD925AE8243A0BC1F50B44CE82B7597B35C02E"
+    },
+    {
+      "path": "06_RETURN_CONTRACT_AND_COLD_AUDIT.txt",
+      "bytes": 1895,
+      "sha256": "FA3F600BFD40C74B8DDE6DB236D4DD73A2D4CB97B23B15E839DB6CB4002B5CE4"
+    },
+    {
+      "path": "07_PACKET_MANIFEST.tsv",
+      "bytes": 2282,
+      "sha256": "9CCF88008D6EDA53544A5A1B87F7C8B06AB444DC2D110424C3202F73B42B2F9E"
+    },
+    {
+      "path": "08_PACKET_VALIDATION_RECEIPT.json",
+      "bytes": 2254,
+      "sha256": "C6A2368A28ED73D551365DEF73D7D9BCA9464F5277D703C164630ABFD5567466"
+    },
+    {
+      "path": "10_DEDEKIND_GMW_I_AUTHORITY_EXACT.pdf",
+      "bytes": 18033705,
+      "sha256": "9EA301E23DA8C9C0B40F49352625BF05C2F7D9050AC8A882A9E17BB372C1C43E"
+    },
+    {
+      "path": "11_QA_PHYS0001_FRONT.png",
+      "bytes": 78542,
+      "sha256": "931210C4351ED56F04589DF48DD8FDAEA3DA1AFAA9C1B43F27FCF73FFCC575EB"
+    },
+    {
+      "path": "12_QA_PHYS0006_PRINTED0001.png",
+      "bytes": 150084,
+      "sha256": "C5F8CD17C7654627009982BF89E2834286C1C0A43B3FE81D561B7447B0E2CD5D"
+    },
+    {
+      "path": "13_QA_PHYS0402_PRINTED0397.png",
+      "bytes": 152029,
+      "sha256": "01F4DA93563DEE864E9C60EAAE791CCEB24E1BCD21EA5EDA97A8E28AB4A9D4D2"
+    },
+    {
+      "path": "14_QA_PHYS0403_CORRECTION.png",
+      "bytes": 18291,
+      "sha256": "C02F1E60DC3EC771DBFE9867E14829B2EFAC041156D2D86A17D48B9EEC4A27A2"
+    },
+    {
+      "path": "20_GMW_I_PRIOR_READER_UNTRUSTED_EXACT_CAPTURE.zip",
+      "bytes": 1305280,
+      "sha256": "321BE7BBCAA6428F5E215050E691A2A15D95762736406386F962CEFD0A57ADAD"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "15/15",
+    "zip_member_replay": "15/15",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

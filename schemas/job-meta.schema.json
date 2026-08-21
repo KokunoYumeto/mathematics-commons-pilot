@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/raw/main/schemas/job-meta.schema.json",
+  "title": "Mathematics Commons job metadata input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "updated",
+    "admission_note",
+    "audit_receipt",
+    "jobs",
+    "exclusions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-job-meta/v1"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "admission_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audit_receipt": {
+      "$ref": "#/$defs/basenameIdentity"
+    },
+    "jobs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "packet_id",
+          "authors",
+          "title",
+          "edition",
+          "source_languages",
+          "target_outputs",
+          "scope",
+          "physical_pages",
+          "page_note",
+          "pack_scope",
+          "source_files",
+          "source_bytes",
+          "authority",
+          "status",
+          "audit_basis",
+          "prompt_count",
+          "packet_manifest",
+          "validation_receipt",
+          "proposed_asset_base_name",
+          "rights_note",
+          "effort"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/slug"
+          },
+          "packet_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_]+$"
+          },
+          "authors": {
+            "$ref": "#/$defs/nonemptyStrings"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "edition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_languages": {
+            "$ref": "#/$defs/nonemptyStrings"
+          },
+          "target_outputs": {
+            "$ref": "#/$defs/nonemptyStrings"
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "physical_pages": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "page_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pack_scope": {
+            "const": "direct_files"
+          },
+          "source_files": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "authority": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/authority"
+            }
+          },
+          "status": {
+            "enum": [
+              "PASS_COLD_PACKET_VALIDATION",
+              "PASS_FINAL_NONPATCHING",
+              "PASS_GLOBAL_COLD_AUDIT"
+            ]
+          },
+          "audit_basis": {
+            "enum": ["global_receipt", "terminal_sidecar"]
+          },
+          "prompt_count": {
+            "const": 45
+          },
+          "packet_manifest": {
+            "$ref": "#/$defs/basenameIdentity"
+          },
+          "validation_receipt": {
+            "$ref": "#/$defs/basenameIdentity"
+          },
+          "proposed_asset_base_name": {
+            "$ref": "#/$defs/slug"
+          },
+          "rights_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "effort": {
+            "$ref": "#/$defs/effort"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "root",
+          "reason"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "nonemptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "basenameIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basename",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "basename": {
+          "type": "string",
+          "pattern": "^[^/\\\\:]+$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "receipt_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "included_in_packet": {
+          "type": "boolean"
+        },
+        "public_projection": {
+          "$ref": "#/$defs/publicProjection"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "pages", "note", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\]+$"},
+        "pages": {"type": "integer", "minimum": 1},
+        "note": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "effort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_tier", "scale", "rough_elapsed", "heuristic_note"],
+      "properties": {
+        "model_tier": {"enum": ["frontier_high_reasoning", "frontier_multimodal_high_reasoning", "high_multimodal_reasoning_or_better"]},
+        "scale": {"enum": ["small", "small_but_specialist", "medium", "large", "very_large", "extreme"]},
+        "rough_elapsed": {"type": "string", "pattern": "^[0-9]+-[0-9]+ (?:days|weeks)$"},
+        "heuristic_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "publicProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256", "transformations"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\]+$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "transformations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

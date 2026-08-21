@@ -1,0 +1,99 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "klein-fricke-modulfunctionen-v01-1890",
+  "wrapper_directory": "klein-fricke-modulfunctionen-v01-1890",
+  "source_files": 13,
+  "source_bytes": 126031174,
+  "canonical_stream_bytes": 1302,
+  "source_tree_sha256": "75A94C547A73D17C5F58ACD66C85FFA93C970861B0D79CFFF1B93D91562E4DE1",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "klein-fricke-modulfunctionen-v01-1890.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 13,
+      "source_bytes": 126031174,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 125172889,
+      "zip_sha256": "4154A9FD9D51657ABE4C210B66D3C9ECA25F2077D99CC03CBEF351F8F97CB384"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2192,
+      "sha256": "258E95331B5CE9C8A946F64D73790549BA2D309E647C2DB221FDDC41971A9EC8"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 1995,
+      "sha256": "A235D74C6708DDD1B675ECFEA8CBBBE78C49A21DE8AF8AB6C23C379CC97C29EA"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 700,
+      "sha256": "2A1955E13A6CAF0A61A0C9A11FDD970BB90CDF23E0E426541A366D6D6E6E5633"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 1012,
+      "sha256": "A67BCB0D4521C6CD062D6336045BB97B37BDCC1C99D8EA75EA1AE2B4AD7A7BA9"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 273942,
+      "sha256": "D75BDB19B1B89E826EAED1ADED9E46145258CB1AF59311184FA661DB108CC5F2"
+    },
+    {
+      "path": "05_SOURCE_ACQUISITION_RECEIPT.md",
+      "bytes": 1158,
+      "sha256": "64D6EB2A0066EB5DBC4884AF8E97A5B10D37C81C7F192EDB8A4AA7C8F0459D1C"
+    },
+    {
+      "path": "20_AUTHORITY_1890_BAND_I_GOOGLE_PDF.pdf",
+      "bytes": 43607455,
+      "sha256": "8AB926403E373F5BA93C2FF412C1D99C780D05B8B4CB4A3A9E86133C46B169B6"
+    },
+    {
+      "path": "21_AUTHORITY_1890_BAND_I_TIFF.zip",
+      "bytes": 76119544,
+      "sha256": "B078B0498191EF25EBB6AB9CF70A85C8465A9DA9003350F759CA4D8C50989D5F"
+    },
+    {
+      "path": "22_AUTHORITY_SCANDATA.xml",
+      "bytes": 266538,
+      "sha256": "547A3364D5FA058592D1DA66130EBDD6597AAE2EB0B80DCE8C3C90632B4044C4"
+    },
+    {
+      "path": "23_AUTHORITY_META.xml",
+      "bytes": 1898,
+      "sha256": "C8F46CF03FAE8CF57680CBC846A139BB602C940C0F1F32164C8C414929A759D8"
+    },
+    {
+      "path": "30_PRIOR_CHAPTER_I_PACKET_EXACT.zip",
+      "bytes": 5751301,
+      "sha256": "9677C0321B63C606B22A7EFED327B6F8A6AA16D17D67757C6619771732327897"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1123,
+      "sha256": "F293D6A9C89E37E2805780A4F4EE26E1B5EE2BFDA37C117B9F36FDEA9B0DA76A"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2316,
+      "sha256": "9292BC4927E06A9A89289D409EE748D66D922548BB3967AC5B11B66209744D90"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "13/13",
+    "zip_member_replay": "13/13",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

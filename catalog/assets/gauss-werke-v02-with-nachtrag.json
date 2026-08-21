@@ -1,0 +1,114 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "gauss-werke-v02-with-nachtrag",
+  "wrapper_directory": "gauss-werke-v02-with-nachtrag",
+  "source_files": 16,
+  "source_bytes": 37437447,
+  "canonical_stream_bytes": 1679,
+  "source_tree_sha256": "C230042445126E80F64D102088897FCDED3DC8FC4292556ADB55CE62D1B2F9FF",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "gauss-werke-v02-with-nachtrag.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 16,
+      "source_bytes": 37437447,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 34492446,
+      "zip_sha256": "DB83D1543D18B1BAF5090D0E45F48D26A71726123E04E126793A852659C8813B"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 3281,
+      "sha256": "34B1F2A799D0AC6CBEB2AD44D1BEF541B2F25EC1565F9545AEC10BC65FC8A156"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 5242,
+      "sha256": "CCAE9A51653C721615E13DDFC7E4E964A688505C6DA3158F0146475A6D1EADB1"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 4746,
+      "sha256": "03458082FDEA4CD6DA18AFE0DD0D013A5297B01FD2DBFF4599908BC3C5FD4C7A"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 2444,
+      "sha256": "B42375C0C1F2C4736CD82914E1E0E752B55F38399FFEDECF96CD8A7EF6CF0659"
+    },
+    {
+      "path": "04_SESSION_PROMPTS.md",
+      "bytes": 152814,
+      "sha256": "EF34CF8D3C5D907C5FBDF2E39A5E219E11D6177940B7ACAB9F29B45B48AF0536"
+    },
+    {
+      "path": "05_GDZ_MAIN_BAND_II_COMPLETE_PDF001-509.pdf",
+      "bytes": 30856219,
+      "sha256": "D2D682F21FE97AB46371D466EDF518998D8337AB66375F5F35B3F6853FFA125D"
+    },
+    {
+      "path": "06_GDZ_NACHTRAG_COMPLETE_PDF001-038.pdf",
+      "bytes": 1745631,
+      "sha256": "A6AD4C27C0719190C3ECE4C8F61967EE463E8B32B26077D7507F76A4CED1F5FC"
+    },
+    {
+      "path": "07_GDZ_MAIN_IIIF_MANIFEST.json",
+      "bytes": 703557,
+      "sha256": "ADF376CA53D7ABEB9A3248F9C01FDAC36FA2D0BB83CD838B853978B45CC54948"
+    },
+    {
+      "path": "08_GDZ_NACHTRAG_IIIF_MANIFEST.json",
+      "bytes": 50931,
+      "sha256": "0379518A9418B0A34F512B17C388AEF67B858B4BCD7056F74D67EE3683B0E15D"
+    },
+    {
+      "path": "09_BASELINE_PRINTED001-312_SOURCE.tex.txt",
+      "bytes": 566337,
+      "sha256": "6BF8D6504C5FB2A7977868AF59E8DC953D3D84148C669D8208B0D2925CA71524"
+    },
+    {
+      "path": "10_BASELINE_PRINTED001-312_ENGLISH.tex.txt",
+      "bytes": 560407,
+      "sha256": "5720AE42E6F4915E1344D38CDABB83204A1056F061C0E45D962F9B3EE534514E"
+    },
+    {
+      "path": "11_BASELINE_PRINTED001-312_SOURCE_RENDER.pdf",
+      "bytes": 1402318,
+      "sha256": "85059ECB3282F4E6D13EAAA31621A1AE42C9D8822DCD9474C5E1B8541E247AE4"
+    },
+    {
+      "path": "12_BASELINE_PRINTED001-312_ENGLISH_RENDER.pdf",
+      "bytes": 1376291,
+      "sha256": "713697D980A3B485B10749BB1997369B14A983E9C0514A4D98839CDB010D480D"
+    },
+    {
+      "path": "13_BASELINE_R38_STATUS_AND_INDICES.zip",
+      "bytes": 3456,
+      "sha256": "3BFF38897050E0A51837244FB7CC60F96873D8480E554F9E55166B0EA0C9392A"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1504,
+      "sha256": "8CB23511AB46AA6F180C70B86005984740082C81BCA3B5837BD84E03BF1DB109"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2269,
+      "sha256": "37444FC4CE1E7B0532D25A062A553F4BFD4C4305F1E52B96755149AADF23368D"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "16/16",
+    "zip_member_replay": "16/16",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

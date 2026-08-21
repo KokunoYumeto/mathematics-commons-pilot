@@ -1,0 +1,235 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "poincare-oeuvres-v01-1928",
+  "wrapper_directory": "poincare-oeuvres-v01-1928",
+  "source_files": 38,
+  "source_bytes": 2901452639,
+  "canonical_stream_bytes": 4096,
+  "source_tree_sha256": "49975FDDA869F313ED029E99D54D47D91087BE9E26F4767C0B470FD932234185",
+  "asset_count": 2,
+  "assets": [
+    {
+      "name": "poincare-oeuvres-v01-1928.part01.zip",
+      "part": 1,
+      "parts": 2,
+      "source_files": 28,
+      "source_bytes": 1555798108,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "47_PRIOR_poincare_v1_16.zip",
+      "zip_bytes": 1552442187,
+      "zip_sha256": "D858590A49B28D40060A9844383CDBF690CB4C584EE180737E8A7D3CABEE6731"
+    },
+    {
+      "name": "poincare-oeuvres-v01-1928.part02.zip",
+      "part": 2,
+      "parts": 2,
+      "source_files": 10,
+      "source_bytes": 1345654531,
+      "first_path": "48_PRIOR_poincare_v1_17.zip",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 1345670769,
+      "zip_sha256": "9E484733E87D7E7878E93A05B60ACCB030B22759CBE759531087C0511E17F01A"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 1907,
+      "sha256": "78FB7EF8C16701F197212CA24CB2363B996BF59509F403C923F3886774F5245A"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 2297,
+      "sha256": "8A23110910B845B385D6522855A66166750C7884346AC0A65DA9D17E6D606DB4"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 848,
+      "sha256": "C956FA33CD18AD4903BE399B4C251B33A48D1440A1BC21E92E4ED4F9A86F6762"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 877,
+      "sha256": "1313160DF666F85335988D9F3FE8BF7EF276E3DDF069F095C0838A5905675E15"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 243708,
+      "sha256": "50BEE0BB2E6BCC8F6DB3EF0E50B634C1A2128E416A5A0B4A2B732040BED625E3"
+    },
+    {
+      "path": "05_SOURCE_ACQUISITION_RECEIPT.md",
+      "bytes": 1119,
+      "sha256": "7D8EFA7E5FD7B2768013E3FA8B5B952AF6F962373700048578410D5FE5E43438"
+    },
+    {
+      "path": "20_AUTHORITY_IA_OEUVRES_TOME_I_NAVIGATION.pdf",
+      "bytes": 22241884,
+      "sha256": "4D331ABD4BB7003267AAFD55917CB3B9E09D4BEE6C06DB006ECFAFD2A6C1C757"
+    },
+    {
+      "path": "21_AUTHORITY_IA_OEUVRES_TOME_I_JP2.zip",
+      "bytes": 132266387,
+      "sha256": "DCD315CD16844F9EEAA6F90AD8CD8B7992B2D043A9F389776796E6BA54E5055C"
+    },
+    {
+      "path": "22_AUTHORITY_IA_SCANDATA.xml",
+      "bytes": 275779,
+      "sha256": "2FDCBD898A5552CC7C0070BFC5E1E4A9DDD4F872C5D5638E52F1867B01E00CC1"
+    },
+    {
+      "path": "23_AUTHORITY_IA_META.xml",
+      "bytes": 3536,
+      "sha256": "8B811B0AA9776E506C57B85168E4BB6E3E9F8380D6EC28CB5D246D4059C5CD62"
+    },
+    {
+      "path": "30_PRIOR_Poincare_restart_v01_0001_0021_src_FR_EN_20260607.zip",
+      "bytes": 32179079,
+      "sha256": "67AC356E40CE2C77149640D09F8DA568E99137AE58D391818680C2258C10BE39"
+    },
+    {
+      "path": "31_PRIOR_Poincare_Restart_V01_p0001_p0021_SRC_FR_EN_20260607.zip",
+      "bytes": 33720774,
+      "sha256": "9132C9826E8BD8A9E32B09E1F39C4A24B14A6FBB49C4B4E6D11E67C71FA3EBBF"
+    },
+    {
+      "path": "32_PRIOR_Poincare_Restart_V01_p0001_p0024_SRC_FR_EN_20260607.zip",
+      "bytes": 61911266,
+      "sha256": "E4010BAD8F66C8218F3317B4C33C54483E4C529FC2EF4552361E0904D651F3BD"
+    },
+    {
+      "path": "33_PRIOR_Poincare_V01_p0001_p0021_FR_EN_20260605.zip",
+      "bytes": 18142407,
+      "sha256": "08BB71412A84985AB6A0A9D538CC2AA915433A3810916FBAF3068A5BE0C8FA1F"
+    },
+    {
+      "path": "34_PRIOR_Poincare_V01_p0001_p0030_SRC_FR_EN_20260605.zip",
+      "bytes": 36649175,
+      "sha256": "B7F51073FC68FA49D93049FD2DD6DCB8E6752825DDB5A108A91F26676C70DFCF"
+    },
+    {
+      "path": "35_PRIOR_Poincare_V01_p0001_p0046_SRC_FR_EN_20260606.zip",
+      "bytes": 28415055,
+      "sha256": "035DD2224C6260BA7DC81FBFD7D46984B8D943CBFF0BBBC51CE6A054BB0C7946"
+    },
+    {
+      "path": "36_PRIOR_Poincare_V01_p0001_p0056_SRC_FR_EN_20260606.zip",
+      "bytes": 17123710,
+      "sha256": "320D5AF5CE53C212F4BEAA5A140A6A35E8DEAF531709E6B050CB1EFE964E0538"
+    },
+    {
+      "path": "37_PRIOR_poincare_v1_01.zip",
+      "bytes": 9057721,
+      "sha256": "2C7A05AB93E9A2DD4D7EEA03BCD2D71CADC804850AB5FF7A91C5D2D23A85688A"
+    },
+    {
+      "path": "38_PRIOR_poincare_v1_02.zip",
+      "bytes": 19476080,
+      "sha256": "612B11121634D85937EB1A9413657076622AF34EB53C4D5E74B9EEF1D766B8C2"
+    },
+    {
+      "path": "39_PRIOR_poincare_v1_08.zip",
+      "bytes": 52144424,
+      "sha256": "B045464582E0204485C907AA712CFB787251824AD637CCC6FC1708A5D7EE17F7"
+    },
+    {
+      "path": "40_PRIOR_poincare_v1_09.zip",
+      "bytes": 94263103,
+      "sha256": "85147F581A50A42B3DDA9081DB18BEB23D907C8900C077780CD943EC81741C32"
+    },
+    {
+      "path": "41_PRIOR_poincare_v1_10.zip",
+      "bytes": 118524869,
+      "sha256": "A70B916F562C1ECB46E76A654766B95B5C348E0A7DEE5D9EAB41B95D3587D4A2"
+    },
+    {
+      "path": "42_PRIOR_poincare_v1_11.zip",
+      "bytes": 118048786,
+      "sha256": "DAA650EEF72D9041463ED66D89EA0E8E8F35739679D02DE2A86E4AAC0D6D0AD6"
+    },
+    {
+      "path": "43_PRIOR_poincare_v1_12.zip",
+      "bytes": 143553154,
+      "sha256": "B369F4A4C169745DFDC4E4EC10CD862F5846A9BB5441A77ED4B40889654DE894"
+    },
+    {
+      "path": "44_PRIOR_poincare_v1_13.zip",
+      "bytes": 136344062,
+      "sha256": "F127E988D83601CDA9C67957105406425E386571B06ABC2477B3186847B8D11F"
+    },
+    {
+      "path": "45_PRIOR_poincare_v1_14.zip",
+      "bytes": 138533002,
+      "sha256": "BE31563896A41DA0C9D0407B4F48B15FBE74B7994273C68901822F2F3212BFF0"
+    },
+    {
+      "path": "46_PRIOR_poincare_v1_15.zip",
+      "bytes": 180393062,
+      "sha256": "36A425368C0B900B7AF952B98D42A6C0646C09CAADE657BE544A648E6F0E86F8"
+    },
+    {
+      "path": "47_PRIOR_poincare_v1_16.zip",
+      "bytes": 162280037,
+      "sha256": "E773DD75FCEC1E5BBB9E19F7E43612BF103FEE70C47A4E4FB72A6AC448A90D15"
+    },
+    {
+      "path": "48_PRIOR_poincare_v1_17.zip",
+      "bytes": 160941751,
+      "sha256": "91E382DF05B5AEE18FF513FB45F0C8F1B23D4614D2763BD853763128D2735FB6"
+    },
+    {
+      "path": "49_PRIOR_poincare_v1_18.zip",
+      "bytes": 181601567,
+      "sha256": "9A9F90CD3C256336F2F3891454147AC3AAC0843BD9FD10891049BC172156766F"
+    },
+    {
+      "path": "50_PRIOR_poincare_v1_19.zip",
+      "bytes": 217286573,
+      "sha256": "5F694709AE088B7291DE7E36962314CF20642FECFE956C16DC4628B94D84FBF2"
+    },
+    {
+      "path": "51_PRIOR_poincare_v1_20.zip",
+      "bytes": 224628915,
+      "sha256": "8D5A12F4003CC28922F641703895480B834E6113F9E56554A40D4CA1F70C4CF0"
+    },
+    {
+      "path": "52_PRIOR_poincare_v1_21.zip",
+      "bytes": 242795100,
+      "sha256": "8F001198B0B8906BEC570986FBCB1FDDD40F3E3F9401D3B5C4762C013E4F9151"
+    },
+    {
+      "path": "53_PRIOR_poincare_v1_24.zip",
+      "bytes": 85707345,
+      "sha256": "A3AA261390E4CB94172A2DD1199D262D4B6A8749712909224923C92FBCF82AEB"
+    },
+    {
+      "path": "54_PRIOR_poincare_v1_25.zip",
+      "bytes": 125335460,
+      "sha256": "BD53ECBC26EE3D329AD6FE07CB6B29D8D1BEBF13EB6D6DF3FC9B9DE2124640D1"
+    },
+    {
+      "path": "55_PRIOR_poincare_v1_26.zip",
+      "bytes": 107351611,
+      "sha256": "2FE5406CB709E8FED874E4125052E5771E9136F3336752E83AB337195A6F5880"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 3917,
+      "sha256": "DE82FCBEFEBE28BDDB201D80C5766239E025164481A1719C87C97489B95CACC8"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2292,
+      "sha256": "66F12FAFCC070433B5FDDC94EC30286F5513B78844A52DAB021AB643551585E1"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "38/38",
+    "zip_member_replay": "38/38",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

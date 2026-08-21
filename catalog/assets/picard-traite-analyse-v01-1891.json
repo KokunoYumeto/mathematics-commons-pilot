@@ -1,0 +1,129 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "picard-traite-analyse-v01-1891",
+  "wrapper_directory": "picard-traite-analyse-v01-1891",
+  "source_files": 19,
+  "source_bytes": 378471925,
+  "canonical_stream_bytes": 2069,
+  "source_tree_sha256": "3AA0D2DC9D219E86F5E2062BC33A809269ACE97811B9263841704CBA3A3CE51F",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "picard-traite-analyse-v01-1891.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 19,
+      "source_bytes": 378471925,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 375956816,
+      "zip_sha256": "167070903EAD4AA0C9870D9E4500CD749E74B2290C52D8812284D9932F214D30"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 1741,
+      "sha256": "BC659DECA031A9126DB6FF36F219B49AEFFD83B771D0DC4684FE0A5825AF2D23"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 2186,
+      "sha256": "0010B4F810AE1CB9F63D6F53C30A82DA2DAD1EB501FC683B110DE0A696D3792B"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 762,
+      "sha256": "2B3D64B461BE00DCD1F614967C5A19752B38E35A56186D2EBAFF1DC3FB1E0D06"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 917,
+      "sha256": "3981D40E18B82D221AF1333180B74A4B9BBEBC5846B3684B63322ABCBB18287E"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 240488,
+      "sha256": "5936262D327A1791AB52B0E1C797F08C0D2E362BFABDEB7D0E57D669678B1794"
+    },
+    {
+      "path": "05_SOURCE_ACQUISITION_RECEIPT.md",
+      "bytes": 994,
+      "sha256": "7F2EDF1A4D533A3F2D5F0D4788C65B8CA0F77A37109AB83666809466B974756B"
+    },
+    {
+      "path": "20_AUTHORITY_IA_TRAITE_TOME_I_NAVIGATION.pdf",
+      "bytes": 25940727,
+      "sha256": "DBAA53976E926E97B11A2688CFF3E15CA72423A2F9ECEE992229348E0E270531"
+    },
+    {
+      "path": "21_AUTHORITY_IA_TRAITE_TOME_I_JP2.zip",
+      "bytes": 178941665,
+      "sha256": "60F72B2C462F1D886A70E245BEBC07366E94F787D8F1D3C3E907E41FE4A93384"
+    },
+    {
+      "path": "22_AUTHORITY_IA_SCANDATA.xml",
+      "bytes": 256109,
+      "sha256": "C3FA6DFF6688ED199786976EF4609439EADD011E0DDBFB8E02B3D8889A741BD0"
+    },
+    {
+      "path": "23_AUTHORITY_IA_META.xml",
+      "bytes": 2669,
+      "sha256": "4848C1B9AF7D30025DFCA1CCBBF2332BE78F0E475310D3CFF25B93B7279CF81F"
+    },
+    {
+      "path": "30_PRIOR_PIC_V1_p001_055_FR_EN_20260606.zip",
+      "bytes": 41974596,
+      "sha256": "F63EA9C5713F87D466C267466BFD781468753113DE5A048A6BE69836282EF8E9"
+    },
+    {
+      "path": "31_PRIOR_PIC_V1_p001_080_FR_EN_20260606.zip",
+      "bytes": 64348953,
+      "sha256": "DD56CB8E45D4C2C2DA74FC23932FFFEDB507B9EAD322B971850DA5E247FBB337"
+    },
+    {
+      "path": "32_PRIOR_PIC_V1_src_p001_035_20260605.zip",
+      "bytes": 36668020,
+      "sha256": "BA63A248BCD8B0C0730A346CB68FAB06BF58FA398255DF992E4F45C99E66806A"
+    },
+    {
+      "path": "33_PRIOR_Picard_Tome1_clean_FR_EN_20260607.zip",
+      "bytes": 6622771,
+      "sha256": "516DC867C2C550F7D79D2D24954924E9F12C485ABCB64D2B5B20ED0A1B62FD6D"
+    },
+    {
+      "path": "34_PRIOR_Picard_Tome1_p001_100_diagramfix_FR_EN_20260607.zip",
+      "bytes": 7573216,
+      "sha256": "C345C912EF983CE4A208514D5DD30702366B52F58D5C5A903EF8537534EEA230"
+    },
+    {
+      "path": "35_PRIOR_Picard_Tome1_p001_100_FR_EN_20260607.zip",
+      "bytes": 7573404,
+      "sha256": "390D4D43A34A27736F5DD57FC76D2B00FBA26CD24D52B28CC100B5922F92962C"
+    },
+    {
+      "path": "36_PRIOR_Picard_Tome1_p001_107_figrefine_FR_EN_20260607.zip",
+      "bytes": 8318505,
+      "sha256": "19D52125F9A26A6D3C1BD582C5C7230EE197C9E153F6F42E7B8B9957A1F9D169"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1890,
+      "sha256": "65BAACEB432540D5AB423170C58E9BAD203BF0E6750C9DC79704F1F29A96BA5D"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2312,
+      "sha256": "E93B4E593FBD691FC44C70D5D74C70AE5123198312D1B93F54FC42AC6DD8CAEF"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "19/19",
+    "zip_member_replay": "19/19",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

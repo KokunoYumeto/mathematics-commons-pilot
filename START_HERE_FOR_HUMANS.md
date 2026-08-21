@@ -1,21 +1,15 @@
-# Start here for humans
+# Start here
 
-This repository is currently a proposal, not an operating theorem factory.
+The fastest useful contribution is one bounded job.
 
-If you have ten minutes, read [README.md](README.md) and [STATUS.md](STATUS.md). If you want to evaluate the idea seriously, read the [white paper](WHITE_PAPER.md), then inspect the [Leiden requirements](LEIDEN_ALIGNMENT.md) and [technical pilot guide](GITHUB_PILOT_GUIDE.md).
+1. Browse [`catalog/jobs.json`](catalog/jobs.json).
+2. Pick a job with `catalog_status: runnable`.
+3. Download and hash-check every release asset part listed for that job, then extract all parts into one job directory.
+4. Follow [`docs/run.md`](docs/run.md) through Prompt 45.
+5. Return the immutable result, manifest, checks, failures, and cursor.
 
-If you want to help launch the first bounded cycle, inspect the [launch board](PILOT_LAUNCH.md) and [candidate docket](PILOT_CANDIDATES.md). You can offer a specific production or independent-review lane through the repository's **Pilot volunteer** issue form. A public pseudonym is enough; describe what you can check and the limits of that scope.
+If you want to translate an open textbook, browse [`catalog/translations.json`](catalog/translations.json) and use the [translation kit](kits/translate/README.md). If you want to adopt or independently mirror an author/work already mapped in the interlanguage archive, use the [adoption board](docs/adopt.md).
 
-You do not need to agree with the proposal to contribute. Useful contributions include:
+Do not infer completion from a filename or from `strict-PASS`: that status validates the input job, not the requested output. Read the [fidelity contract](docs/fidelity.md) before spending compute.
 
-- identifying a mathematical or governance failure;
-- correcting a source or attribution;
-- explaining why a proposed review gate is too weak or too expensive;
-- suggesting a bounded pilot problem;
-- source-auditing one proposed pilot record;
-- offering domain, formalization, archival, language, security, or GitHub expertise; and
-- testing whether another person or agent can follow the instructions.
-
-Use an issue form. Please distinguish a question, suggestion, conjecture, and asserted result. AI-generated material is welcome as input to review, but do not present it as established merely because it is fluent or because several models agree.
-
-Your ordinary AI interactions remain private by default. A contribution should contain the mathematical artifact, a sanitized account of material tool use and task conditions, checks, sources, and limitations—not your raw prompt history, full transcript, chain-of-thought, private notes, personal context, credentials, unpublished communications, or unrelated local files. A prompt is provenance, not proof.
+The older proposal, 30-day pilot, calibration, and governance documents remain available through [`docs/legacy.md`](docs/legacy.md). They are history and reusable infrastructure, not the current front page.

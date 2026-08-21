@@ -1,6 +1,22 @@
 # Pilot record schemas
 
-This directory contains the minimal machine-readable contract for the Mathematics Commons pilot. The contract is **Draft 2020-12 JSON Schema**, version **`0.1.0`**. It is deliberately small, strict, and provisional: passing validation means that a record has the required shape, not that a source is lawful, a review is independent in fact, or a mathematical claim is correct.
+This directory contains both the practical packet-library contracts and the preserved pilot record contracts. All use **Draft 2020-12 JSON Schema**. Passing validation proves declared structure and exact identities; it does not by itself establish source rights, mathematical correctness, linguistic quality, or independent certification.
+
+## Practical packet-library schemas
+
+| File | Purpose |
+|---|---|
+| `job-meta.schema.json` | Generator input for the exact admitted packet metadata and explicit exclusions. |
+| `job-catalog.schema.json` | Public 28-job release catalog, interaction contract, assets, and hashes. |
+| `job-asset.schema.json` | Exact ZIP-part and source-member manifest for one job or the translation kit. |
+| `translation-catalog.schema.json` | Open-education source, license, state, QA, and language-adoption catalog. |
+| `catalog-check.schema.json` | Generated replay receipt binding the catalogs, schemas, asset-manifest tree, counts, bytes, and ZIP-member validation state. |
+
+The executable validator is `tools/validate_jobs.py`. Consumers should fetch the related catalogs, schemas, receipt, and manifests from one exact Git commit. Release asset identities are byte length plus SHA-256; a mutable URL or filename is not sufficient.
+
+## Preserved pilot record schemas
+
+The original pilot contract is version **`0.1.0`**. It remains deliberately small, strict, and provisional.
 
 ## Schema inventory
 

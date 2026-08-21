@@ -1,0 +1,124 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "kronecker-grundzuege-1882",
+  "wrapper_directory": "kronecker-grundzuege-1882",
+  "source_files": 18,
+  "source_bytes": 176016127,
+  "canonical_stream_bytes": 1951,
+  "source_tree_sha256": "D1E71DE671FC48FC8BD89E5E4B73A52BDE3A8E6C211687888DC0BB644C79CE7B",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "kronecker-grundzuege-1882.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 18,
+      "source_bytes": 176016127,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 175253356,
+      "zip_sha256": "FB6B361AE6A109EE1E9F7EE2475088F7196A9BF75866D1E402BC515AA2DDC984"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2019,
+      "sha256": "3C9878C953B877FD8C6984D88095E4C02E7C4E6C118935866A9DDFFA1C4249A1"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 2186,
+      "sha256": "993170D4CF3967972173F19075D25568BE4C6B66C625BE1AAE0D2EEC0EB84002"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 857,
+      "sha256": "4FBD656324590E4379C5E87A35DFA64B02049DB32BA1EF3AB4F6F312114C4B1D"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 928,
+      "sha256": "B779FD2D72D62DC02B8D1A1958992B36F54FEE8E013F049D33BAD9FFF4D2328A"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 239089,
+      "sha256": "F717483C05DDD4EF8556BC3040D46B8186EB564EB93E171BD5D98B0B799563FF"
+    },
+    {
+      "path": "05_SOURCE_ACQUISITION_RECEIPT.md",
+      "bytes": 972,
+      "sha256": "6968F82659C0B573379B53612E2A8C796ABF37FABB4A15CA9B16361F9BDEBAF2"
+    },
+    {
+      "path": "20_AUTHORITY_ERARA_GRUNDZUEGE_1882_COMPLETE.pdf",
+      "bytes": 32478765,
+      "sha256": "66050F0B6D7BD72E57612A00DA5D8AAD80391F33AEBE3F4FB0E2991FA3C8B527"
+    },
+    {
+      "path": "30_PRIOR_Kron_author_restart_p005_041_DE_EN_20260607.zip",
+      "bytes": 35190184,
+      "sha256": "963EB05380E613D9D6B0F1383BABEA77525ABE00786501243756B39DAB23A92D"
+    },
+    {
+      "path": "31_PRIOR_Kron_real_p001_018_DE_EN_20260605.zip",
+      "bytes": 17138494,
+      "sha256": "4816E07383DE9F84AC94819FD67C92815D4F583BE061730C64263FEBB7FDE47E"
+    },
+    {
+      "path": "32_PRIOR_Kron_p019_028_DE_EN_20260606.zip",
+      "bytes": 18511290,
+      "sha256": "DD2C0F984E8683D067B683B1247EF498F00A27C0C8A6F5FE070DC2D23F69811C"
+    },
+    {
+      "path": "33_PRIOR_Kron_p029_041_DE_EN_20260606.zip",
+      "bytes": 26202349,
+      "sha256": "71F4C2ABE54F7741560B81DDC61F290998D0B17BC4C8DDFEF4F1F9F16068C01F"
+    },
+    {
+      "path": "34_PRIOR_Kron_bookclean_p001_014_DE_EN_20260607.zip",
+      "bytes": 11062247,
+      "sha256": "F2529FAD37004D2DBF495F5034FB2EAD6AC19BCCBB42D8DC19E3ED8B1F153286"
+    },
+    {
+      "path": "35_PRIOR_Kron_clean_p005_018_DE_EN_20260607.zip",
+      "bytes": 9625383,
+      "sha256": "9BBFB109EF144366331E032ED5BD67C972F3775E6E619E349D61F6D3FD0A7CEB"
+    },
+    {
+      "path": "36_PRIOR_Kron_restart_p001_014_DE_EN_20260607.zip",
+      "bytes": 12987219,
+      "sha256": "516D0AE96976BF3718AE51BCB7743C58AEEA62F943871B10FF0814F2E416B1F2"
+    },
+    {
+      "path": "37_PRIOR_kr_p01_20260607.zip",
+      "bytes": 6602529,
+      "sha256": "26FC8C60E9968EE67EDC3BA33AF5EF4F7E27FD46711EA1A3F8270E080D339A00"
+    },
+    {
+      "path": "38_PRIOR_kron01.zip",
+      "bytes": 5967548,
+      "sha256": "4E4EEF91088FC95918993498DB5CF44CB44705144E60A2DCEA82A72588E1A241"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1772,
+      "sha256": "4C185360705E94970446A771E5256CD4B46CB38C9B8FB5BF6AC76B2329F8D818"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2296,
+      "sha256": "6C792E4B7D90FA678E66E2A56D9B9B8FA41769E3220C00CD788F8D4AABAE2645"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "18/18",
+    "zip_member_replay": "18/18",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

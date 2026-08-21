@@ -1,0 +1,94 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "hecke-algebraische-zahlen-1923",
+  "wrapper_directory": "hecke-algebraische-zahlen-1923",
+  "source_files": 12,
+  "source_bytes": 367778967,
+  "canonical_stream_bytes": 1251,
+  "source_tree_sha256": "D74A19A2D6D1EA074A72C3CF4111754B629ACBAE7850620399BD851D27475884",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "hecke-algebraische-zahlen-1923.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 12,
+      "source_bytes": 367778967,
+      "first_path": "00_READ_FIRST.md",
+      "last_path": "99_VALIDATION_RECEIPT.json",
+      "zip_bytes": 364181159,
+      "zip_sha256": "5D599DDB2E6243A992F4CF252380F20538D78EFC7E06DCEFB1AB862900333797"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.md",
+      "bytes": 2096,
+      "sha256": "904BE2C16DF2E9591A705FED837575D714CB3C08BBCF2632D26451049BC8B943"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.md",
+      "bytes": 1918,
+      "sha256": "45CA24219CE943994B0DB9B177DA3D57703E9095EF243AFDDF83D512C655884F"
+    },
+    {
+      "path": "02_SOURCE_OUTPUT_MAP.tsv",
+      "bytes": 937,
+      "sha256": "F580ACC51ABE4238EB37C81953D8B2C158BB3CCE68974C86B657E93552148600"
+    },
+    {
+      "path": "03_INITIAL_STATE.json",
+      "bytes": 906,
+      "sha256": "8DFBFFEFDA784D85721CA2FDC837021461BED7D659334591E0E79672984D3739"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 227106,
+      "sha256": "4244E197EAFE8AC5800495EECA8786D0F7AB33483D22D4C207D8E38997406CD7"
+    },
+    {
+      "path": "20_AUTHORITY_HECKE_1923_RAW_JP2_500PPI.zip",
+      "bytes": 266027094,
+      "sha256": "6C06BB242675B8905272F48E49C398D3DA66C678A2A72E168DD3D2DCCE3E1F69"
+    },
+    {
+      "path": "21_AUTHORITY_HECKE_1923_SCANDATA.zip",
+      "bytes": 61956440,
+      "sha256": "D2D5E81F848A5C71C8E8B77066BCD629475BC97167F304023AB25F20FCFD032B"
+    },
+    {
+      "path": "22_AUTHORITY_HECKE_1923_BOOK_METADATA.zip",
+      "bytes": 26705,
+      "sha256": "2B4D99C036821C5A2E723D362FE5C9D75CFB4FC942DFAA209B220498FE3F4482"
+    },
+    {
+      "path": "23_AUTHORITY_HECKE_1923_NAVIGATION_284P.pdf",
+      "bytes": 25531777,
+      "sha256": "51840D86125E18855510E901BAF8BF3F8DDEC1B8533EFE10026DF958764541BA"
+    },
+    {
+      "path": "30_PRIOR_CHAPTER_I_PACKET_UNTRUSTED.zip",
+      "bytes": 14000626,
+      "sha256": "5F91F05B6C21AC8806B9200A04E64534B51357861DB982CFBE31A28E6DCAFE49"
+    },
+    {
+      "path": "98_PACKET_MANIFEST_SHA256.tsv",
+      "bytes": 1072,
+      "sha256": "398CB64217DEF30985360511B88FD5DA7CE74132A0218CEA85A15366F7EDEF73"
+    },
+    {
+      "path": "99_VALIDATION_RECEIPT.json",
+      "bytes": 2290,
+      "sha256": "0839DC5341068BFB653BA360AA51046939DFBD6A8FA8B1ED480C55CD15066FD2"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "12/12",
+    "zip_member_replay": "12/12",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

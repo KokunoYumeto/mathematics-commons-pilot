@@ -1,0 +1,104 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "gordan-transformation-thetafunctionen-1863",
+  "wrapper_directory": "gordan-transformation-thetafunctionen-1863",
+  "source_files": 14,
+  "source_bytes": 10057828,
+  "canonical_stream_bytes": 1658,
+  "source_tree_sha256": "36829BCEB79A63F75BF02222B6621C00AC2BA11D0C0270C23BD085CB24A056E2",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "gordan-transformation-thetafunctionen-1863.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 14,
+      "source_bytes": 10057828,
+      "first_path": "00_READ_ME_FIRST.md",
+      "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
+      "zip_bytes": 9662068,
+      "zip_sha256": "52C9E7AC49D3648D447ACC18E567C07CFD12B2F7A2CEE01C4CCD06A2AD5D6AD2"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_ME_FIRST.md",
+      "bytes": 2890,
+      "sha256": "F09E758C30275B65889906F75AC050AFE8DFA72F2585C01BDBA01EFBE8C91631"
+    },
+    {
+      "path": "01_Paul_Gordan_Ueber_die_Transformation_der_Thetafunctionen_Authority_20_pages.pdf",
+      "bytes": 551883,
+      "sha256": "C9B744640AA68F448F432BD495C68129A108DD15F6480FDB725AAD1B035F73AA"
+    },
+    {
+      "path": "02_Paul_Gordan_Ueber_die_Transformation_der_Thetafunctionen_Authority_Page_Images_PA01_PA20.zip",
+      "bytes": 513786,
+      "sha256": "34935F94F14CAA0F66F2F3C43590DE44A76A6419FBE2EA19E75E487D57F07CA9"
+    },
+    {
+      "path": "03_Paul_Gordan_Ueber_die_Transformation_der_Thetafunctionen_Inherited_Work_Local_Salvage_UNTRUSTED.zip",
+      "bytes": 8708542,
+      "sha256": "E36946E0E183D49006E0594B3D0C82DB4B82CE2475F9D9F142BA3E8226B9A2B6"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 268737,
+      "sha256": "835EB9814F3428EC360C4A998C1708A7E70484859C9516C610552608734C5747"
+    },
+    {
+      "path": "05_EXACT_PHYSICAL_TO_PRINTED_PAGE_MAP.csv",
+      "bytes": 3038,
+      "sha256": "5186749A6F7C3E580F65732505A418B9081A96B1AD245179FBDA2870B281D555"
+    },
+    {
+      "path": "06_SOURCE_HIERARCHY_AND_TOPOLOGY.md",
+      "bytes": 2102,
+      "sha256": "E6F834B05C94A9654DA6FD415896EAB35D3F04595773A97879D1B4064BDA3345"
+    },
+    {
+      "path": "07_INHERITED_STATE_FILTERING_LEDGER.md",
+      "bytes": 942,
+      "sha256": "6B64ED7854B63E04DEEDCE2EC23D0283399F618FD6C39395FD9F7057163A2D45"
+    },
+    {
+      "path": "08_ISSUE_AND_UNCERTAINTY_LEDGER_TEMPLATE.csv",
+      "bytes": 127,
+      "sha256": "F47CFDC4A547F796F23B3EC32DC15E06AF8A672469748C0D7ACCA4B3339C3225"
+    },
+    {
+      "path": "09_EVIDENCE_LEDGER_TEMPLATE.csv",
+      "bytes": 162,
+      "sha256": "2EB166E33DFE5DD312B2255A3DC7F050D9872623C4CF74E86EED318E2F7CB5B6"
+    },
+    {
+      "path": "10_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
+      "bytes": 620,
+      "sha256": "58036ED79471F9D95C7DEED0A9A9D03295DBC507C297EABE478FF489D4ED5FEA"
+    },
+    {
+      "path": "11_REQUIRED_END_STATE.md",
+      "bytes": 976,
+      "sha256": "898DAC047697F74392EFFCEEB3B55933B7D5A46ACBA2C668AA1C12C7355D0DCE"
+    },
+    {
+      "path": "12_PACKET_MANIFEST_SHA256.csv",
+      "bytes": 1700,
+      "sha256": "5D744ABA587813F16968905AA55A623D5101356FDB6AD04D16ADFC3C47E227C9"
+    },
+    {
+      "path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
+      "bytes": 2323,
+      "sha256": "CFB35FFFAE729892A342060F21376D8380162E0F4415CE8399364FD0B3E7CC97"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "14/14",
+    "zip_member_replay": "14/14",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "dedekind-werke-v03",
+  "wrapper_directory": "dedekind-werke-v03",
+  "source_files": 14,
+  "source_bytes": 26650298,
+  "canonical_stream_bytes": 1411,
+  "source_tree_sha256": "DB2C93C3D9954B7CA904D2E173CF8219FAD0C9B92E97B3DC3F9CC61231256E5C",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "dedekind-werke-v03.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 14,
+      "source_bytes": 26650298,
+      "first_path": "00_READ_FIRST.txt",
+      "last_path": "20_GMW_III_PRIOR_READERS_UNTRUSTED_EXACT_CAPTURE.zip",
+      "zip_bytes": 25297321,
+      "zip_sha256": "07585C124865618181F9DD5F80339C253DEAAAE907ED32DC13107AACF150150E"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_FIRST.txt",
+      "bytes": 3289,
+      "sha256": "2F29A45D538FE08BF1A32096FB8F476200C03554F8A220C50964C1880F2CCAB2"
+    },
+    {
+      "path": "01_GOVERNING_INSTRUCTIONS.txt",
+      "bytes": 2422,
+      "sha256": "D3D6FB17C5E7B4973593038D24541ECB6E373118428739E8BCD0D082B93A17D5"
+    },
+    {
+      "path": "02_SESSION_PROMPTS.txt",
+      "bytes": 136677,
+      "sha256": "55D4E23DBDA2EF71C2C3672CD3343DB5CE2A6664C2C51D35475F4F4A1199752D"
+    },
+    {
+      "path": "03_SOURCE_PRIOR_MAP.tsv",
+      "bytes": 2381,
+      "sha256": "F706922EA237BEC8791A4D7700F39B47D0D0B8EFAEB2313156998833649C60BC"
+    },
+    {
+      "path": "04_SOURCE_PAGE_JOB_MAP.tsv",
+      "bytes": 1889,
+      "sha256": "2F5E6CBCC9D843579495E1B5FFADD13CE62F625042ED08AD43F725868E8F74FC"
+    },
+    {
+      "path": "05_INITIAL_STATE.md",
+      "bytes": 1379,
+      "sha256": "9FB18F816F7830C8349DBD53AF8872C7F6CC9D9DF7F3DDB0C8162D6AB3AED955"
+    },
+    {
+      "path": "06_RETURN_CONTRACT_AND_COLD_AUDIT.txt",
+      "bytes": 1843,
+      "sha256": "C04C403B52BCC9BAE9BF9E1C554DE3E67871951F9D53207A9A8B095190FA9A17"
+    },
+    {
+      "path": "07_PACKET_MANIFEST.tsv",
+      "bytes": 2134,
+      "sha256": "872C48C1B60C161D026B642DB40C770409668FD5BEBBC2E75E5982672D12551F"
+    },
+    {
+      "path": "08_PACKET_VALIDATION_RECEIPT.json",
+      "bytes": 2258,
+      "sha256": "A00D57A65A5BCC966DFE1AFA9953796E9AC44EFDFAD7BF8C81D48C0F17FB5372"
+    },
+    {
+      "path": "10_DEDEKIND_GMW_III_AUTHORITY_EXACT.pdf",
+      "bytes": 23248174,
+      "sha256": "DFAD17018C1A6D076DF06E7111B68D447F27A49AC8F4CDE997553104596C1972"
+    },
+    {
+      "path": "11_QA_PHYS0001_FRONT.png",
+      "bytes": 56735,
+      "sha256": "E1065ED5498186286C4B82332AEBDE0F81D55FFC15E021935A1D4C7BFC137A4D"
+    },
+    {
+      "path": "12_QA_PHYS0005_PRINTED0001.png",
+      "bytes": 112680,
+      "sha256": "583ED345DAE5EF6CB1E63614E73A6E44480DF022C78DC2F8551D1A5D55558E54"
+    },
+    {
+      "path": "13_QA_PHYS0512_PRINTED0508.png",
+      "bytes": 134994,
+      "sha256": "14532521C53E229BEF8293EEB2147268D9E8319D09D5724C7C63F391C6207020"
+    },
+    {
+      "path": "20_GMW_III_PRIOR_READERS_UNTRUSTED_EXACT_CAPTURE.zip",
+      "bytes": 2943443,
+      "sha256": "73A43184C6366036F00179AA42023180CE36FFD38F82D6246463ADE3ABEAF162"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "14/14",
+    "zip_member_replay": "14/14",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

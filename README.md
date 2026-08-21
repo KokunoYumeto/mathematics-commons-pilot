@@ -1,91 +1,99 @@
-# Mathematics Commons Pilot
+# Mathematics Commons
 
-> A Leiden-led proposal for distributed, AI-integrated mathematical work using bounded Research Packets and peer-to-peer review.
+Not everyone has unlimited compute. The Mathematics Commons turns spare human–AI compute into bounded, inspectable work that can help build a global open mathematical library.
 
-**Status:** published concept plus the operational-MVP Phase A submitted freeze under protected review. Independent reconstruction and acceptance remain pending; the live 30-day pilot has not started. No mathematical result is claimed merely because it appears here or passes a validator.
+This repository is the practical front door: download one exact job, run its fixed workflow, preserve every cumulative state, and return an immutable result that another contributor can inspect. Parallel mirrors are welcome when they are declared and independently useful.
 
-**Privacy:** ordinary AI interactions are private by default. Contributions publish a sanitized, contributor-approved evidence bundle—not raw prompt histories, transcripts, chain-of-thought, personal context, credentials, or unrelated local files. A prompt is provenance, not proof.
+## Start a job
 
-## What this is
+1. Open the [runnable-job catalog](catalog/jobs.json) or the [human run guide](docs/run.md).
+2. Choose one of the **28 strict-PASS transcription packets**.
+3. Download every checksum-pinned asset part listed for that job from the [`jobs-2026-08-21-r1` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1).
+4. Verify every part's byte length and SHA-256, then extract all parts into one job directory.
+5. Upload every extracted job file to one capable long-context research or coding agent and run Prompt 1 exactly.
+6. Reply `continue` while that prompt reports `IN_PROGRESS`. Reply `next prompt` only after it reports `COMPLETE`. Stop after Prompt 45 COMPLETE.
+7. Preserve and return the newest cumulative state ZIP, checkpoint, manifest, checks, failures, and continuation cursor.
 
-The Mathematics Commons is a proposed workflow in which independently operated human–AI nodes work on exact, bounded mathematical tasks and review one another's artifacts against shared standards of proof, provenance, attribution, openness, and human responsibility.
+The first release contains **29 packet assets** for 28 jobs (one large Poincaré job has two parts), plus one reusable translation-kit asset. The admitted packet roots contain **488 source files / 6,691,065,999 bytes**; the 30 downloadable ZIPs total **6,599,622,703 bytes**. Every asset and member is bound in a checked-in manifest.
 
-The first experiment is intentionally small: use one protected and mirrored GitHub repository to coordinate selected Erdős/open-problem records and carefully stated community conjectures. Issue literature, proof, counterexample, computation, exposition, and formalization packets. Preserve the evidence and the failures. Test whether the review protocol works.
+`strict-PASS` means that the packet boundary, authority files, manifests, workflow, and validation receipt replayed exactly. It does **not** mean that the requested transcription, translation, mathematics, or edition is already complete or certified.
 
-The long-term concept is broader—translation, transcription, archival recovery, mathematical integration, and possibly volunteered local compute—but those are future directions, not features claimed by the first pilot.
+## What is available
 
-## Read this first
+- [Runnable transcription jobs](catalog/jobs.json) — exact author/work/language/scope, pages, authority, difficulty, planning heuristic, validation receipt, assets, bytes, and SHA-256.
+- [Asset manifests](catalog/assets/) — exact ZIP parts and every represented source member.
+- [Catalog validation receipt](catalog/check.json) — machine-replayed catalog, manifest, member, and release-size invariants.
+- [Fidelity contract](docs/fidelity.md) — diplomatic source edition, separate monolingual target edition, restrained apparatus, exact figures, cumulative state, and cold audit.
+- [Open-textbook translation lane](docs/translations.md) — 39 bounded discovery/status rows and eight explicit exclusions, with non-public source snapshots, licenses, and production claims clearly distinguished.
+- [Translation kit](kits/translate/README.md) — a model-agnostic prompt, QA contract, and source-freeze template for a useful language not yet served.
+- [Interlanguage adoption board](docs/adopt.md) — an exact-commit interface to 78 author/work scopes in the source archive: 9 active, 64 open for adoption, and 5 future-evidence scopes.
 
-1. [Current status](STATUS.md)
-2. [White paper discussion draft](WHITE_PAPER.md)
-3. [Leiden-led durable requirements](LEIDEN_ALIGNMENT.md)
-4. [Technical GitHub pilot guide](GITHUB_PILOT_GUIDE.md)
-5. [Thirty-day pilot operations](PILOT_OPERATIONS.md)
-6. [First-pilot launch board](PILOT_LAUNCH.md)
-7. [Source-audited candidate docket](PILOT_CANDIDATES.md)
-8. [Manual local-agent handoff](NODE_HANDOFF.md)
-9. [Versioned record-schema contract](schemas/README.md)
-10. [GitHub 2FA continuity runbook](GITHUB_2FA_CONTINUITY.md)
-11. [One-way Git mirror runbook](MIRROR_RUNBOOK.md)
-12. [How to contribute](CONTRIBUTING.md)
+Jobs currently include complete bounded packets for works by Al-Battani, al-Khwarizmi, al-Tusi, Aryabhata, Bhāskara II, Cayley, Clebsch and Gordan, Dedekind, Gauss, Gibbs, Hecke, Khayyam, Klein and Fricke, Kronecker, Mikami, Picard, Poincaré, Seki, and Weber. Excluded HOLD, incomplete, quarantined, superseded, placeholder-bearing, and root-unverified candidates remain listed with exact reasons; they are not silently presented as runnable.
 
-## Try the calibration MVP
+## The fidelity rule
 
-Python 3.10 or newer is required; the tooling otherwise uses only the standard library. From a clean clone, run:
+These jobs produce inspectable editions, not summaries.
 
-```powershell
-python --version
+- Use the named highest-resolution complete authority and account for every physical page.
+- Do not summarize, skip, silently normalize, modernize, invent ranges, or drop formulas, figures, tables, footnotes, or indexes.
+- Produce a symbol-level diplomatic source-language edition and a separate standalone English or target-language edition—never a facing-page substitute.
+- Put corrections and modern mathematical observations only in a separate restrained apparatus.
+- Preserve an untouched authority crop plus a separately named conservative derivative when editable reconstruction cannot be exact.
+- Return cumulative full state on every response so interruption never forces reconstruction from memory or a summary.
+- Finish with deterministic integration and a fresh, non-patching cold audit.
+
+See the complete [fidelity contract](docs/fidelity.md).
+
+## Translate an open textbook
+
+The translation lane is designed for university-grade and pre-university open educational resources in languages that learners and educators actually need. It includes Open Logic and carefully screened open textbooks in logic, algebra, analysis, combinatorics, geometry, probability, topology, numerical analysis, optimization, and formal mathematics. Its first catalog is a bounded discovery projection, not an independently replayable license or production receipt.
+
+Independently freeze an entry's exact public source, edition, component boundary, and derivative rights; then declare one language and one bounded edition and use the [translation kit](kits/translate/README.md). Preserve stable identifiers, formulas, exercises, solutions, assets, component licenses, build receipts, terminology decisions, and a monolingual reader. A work that is merely free to read, No-Derivatives, rights-unknown, or reference-only is not a runnable translation source.
+
+## Machine interface
+
+The public contract is deliberately small and inspectable:
+
+- [`catalog/jobs.json`](catalog/jobs.json)
+- [`schemas/job-catalog.schema.json`](schemas/job-catalog.schema.json)
+- [`catalog/translations.json`](catalog/translations.json)
+- [`schemas/translation-catalog.schema.json`](schemas/translation-catalog.schema.json)
+- [`catalog/check.json`](catalog/check.json)
+- [`catalog/assets/`](catalog/assets/)
+
+Fetch all related files from one exact Git commit. Do not mix a catalog, schema, validation receipt, or asset manifest across revisions. Release URLs are stable locators; byte length and SHA-256 are the immutable asset identities.
+
+From a clean clone:
+
+```console
+python tools/validate_jobs.py --verify-receipt
 python tools/validate_packets.py --schema-only
-python -m unittest discover -s tests -p 'test_*.py'
-python tools/commons.py validate
-python tools/commons.py list --packet-root examples/calibration
-python tools/commons.py show --packet-root examples/calibration CAL-PACKET-001
+python -m unittest discover -s tests -p "test_*.py" -v
 python tools/validate_repository.py
 ```
 
-The 13-record Phase A example is the elementary identity that the first `n` positive odd integers sum to `n²`. Five immutable packet snapshots and four exact transition events exercise the no-rewrite history from draft through the current `submitted` head; the problem, source, producer-run, and complete evidence records bind the exact historical snapshots and artifacts they used. The evidence has not yet been independently reconstructed or accepted. It is a no-novelty mechanics calibration, not evidence about open-problem research. The manual CLI derives the unique packet head after validating the complete repository record collection. It deliberately refuses to emit an agent brief for a submitted packet, an expired or mismatched lease, a wrong or dirty branch, untracked or non-HEAD inputs, a missing base commit, paths outside the packet-owned work directory, absent operational limits, or missing explicit safety approval.
+Release construction additionally requires the exact private packet roots named by the project coordinator; ordinary consumers do not need or receive those machine paths.
 
-There is no live `packets/` queue yet. Once stewards publish and claim a reviewed packet, follow [NODE_HANDOFF.md](NODE_HANDOFF.md); do not improvise a packet from an issue comment or prompt.
+## Future concept: Open Problem Workbench
 
-The actual launch checks deliberately fail at this pre-live stage:
+The [Open Problem Workbench](docs/workbench.md) is an Erdős-first concept for downloadable conjecture packets: exact statements and variants, maintained-list provenance, bounded literature, claim graphs, reproducible computations, cumulative attempts, failed-path preservation, and independent status/proof review. Its dated exploratory atlas now identifies concrete list families—from Erdős, Green, Kourovka, TOPP, Propp, and specialist dynamics collections to deliberately oversized famous problems—without treating a secondary import as a clean catalog. Oversized entries such as the Riemann Hypothesis must declare a sampled or partitioned corpus instead of claiming false completeness.
 
-```powershell
-python tools/validate_packets.py --require-live
-python tools/commons.py validate --require-live
-```
+This remains a roadmap stub with zero admitted or runnable conjecture packets, not a live conjecture collection. See the [current/future roadmap](docs/roadmap.md).
 
-Those commands exclude `examples/**`. A complete calibration example can test the machinery, but it cannot masquerade as an operating pilot.
+## Contribute or review
 
-## Comment or contribute
+Read [CONTRIBUTING.md](CONTRIBUTING.md). A useful handback identifies exact inputs and outputs, records bytes and hashes, preserves errors and reversals, declares overlap, and leaves a precise continuation cursor. Model fluency and model agreement are not proof.
 
-Start with the open discussion: **[Read the concept and break it: what would make this workflow work?](https://github.com/KokunoYumeto/mathematics-commons-pilot/discussions/1)**
+The project’s Leiden alignment is self-assessed. The Leiden working group, International Mathematical Union, upstream authors, publishers, repositories, and source providers have not certified or endorsed this project.
 
-You can:
+## Rights, privacy, and history
 
-- open **Concept feedback** to criticize or extend the proposal;
-- propose an established open problem;
-- propose a precisely stated community conjecture;
-- submit a literature or prior-art lead;
-- report a mathematical, attribution, rights, or workflow error; or
-- [volunteer for a bounded production, review, stewardship, access, or infrastructure lane](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=pilot_volunteer.yml).
+Commons-created metadata, schemas, validators, documentation, and workflow material are CC0 where their contributors can dedicate them. Historical works, editions, scans, translations, fonts, code, and media retain their own rights and provenance. See [RIGHTS.md](RIGHTS.md).
 
-Use the repository's issue forms for structured proposals and challenges. Discussion is welcome; agreement is not required. Specific objections are especially useful.
+Raw model transcripts, credentials, private communications, and unrelated personal material are not published. Any future transcript-derived reproducibility layer requires a separate proposed redaction diff and explicit approval.
 
-## Leading framework
-
-The project is designed to operationalize the complete [Leiden Declaration on Artificial Intelligence and Mathematics](https://leidendeclaration.ai/). Leiden is treated as enabling infrastructure for doing AI-assisted mathematics well, not as a prohibition on doing it.
-
-This is a self-assessed alignment claim. The Leiden working group and the International Mathematical Union have not certified or endorsed this project.
-
-## Rights
-
-Commons-originated material is dedicated to the public domain under **CC0 1.0**, modulo pre-existing third-party copyright and other rights. Scientific attribution, academic authorship, provenance, priority, and human responsibility remain mandatory project norms even where copyright does not require them. Later publication may not enclose or remove the CC0 Commons record. See [RIGHTS.md](RIGHTS.md).
+The original Leiden/pilot proposal, calibration collection, schemas, frozen releases, and governance documents remain intact and citable. They are preserved as the [legacy concept and calibration layer](docs/legacy.md), not presented as the current run interface.
 
 ## Citation
 
-The repository includes [CITATION.cff](CITATION.cff). Use the **concept DOI [`10.5281/zenodo.21828562`](https://doi.org/10.5281/zenodo.21828562)** for the evolving project and a version DOI when citing exact bytes:
-
-- frozen `v0.1.0`: [`10.5281/zenodo.21828563`](https://doi.org/10.5281/zenodo.21828563);
-- frozen citation/status follow-up `v0.1.1`: [`10.5281/zenodo.21830229`](https://doi.org/10.5281/zenodo.21830229).
-
-The concept DOI and version DOIs are deliberately distinct: the first follows the latest archived version, while each version DOI identifies one immutable deposit.
+[CITATION.cff](CITATION.cff) describes the preserved `v0.1.1` concept release. Earlier immutable concept deposits remain discoverable under concept DOI [`10.5281/zenodo.21828562`](https://doi.org/10.5281/zenodo.21828562); this GitHub maintenance does not mutate external DOI records.

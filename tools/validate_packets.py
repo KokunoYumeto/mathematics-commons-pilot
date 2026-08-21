@@ -27,6 +27,15 @@ from urllib.parse import urldefrag, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_DIR = ROOT / "schemas"
+PILOT_SCHEMA_NAMES = (
+    "evidence-record.schema.json",
+    "packet-transition.schema.json",
+    "problem-record.schema.json",
+    "research-packet.schema.json",
+    "review-record.schema.json",
+    "run-record.schema.json",
+    "source-record.schema.json",
+)
 LIVE_INSTANCE_DIRS = (
     "packets",
     "problems",
@@ -511,9 +520,12 @@ def lint_schema(document: SchemaDocument) -> list[str]:
 def load_schema_set(schema_dir: Path = SCHEMA_DIR) -> SchemaSet:
     if not schema_dir.is_dir():
         raise ValueError(f"missing schema directory: {schema_dir}")
-    paths = sorted(schema_dir.glob("*.schema.json"))
-    if not paths:
-        raise ValueError(f"no *.schema.json files found in {schema_dir}")
+    paths = [schema_dir / name for name in PILOT_SCHEMA_NAMES]
+    missing = [path.name for path in paths if not path.is_file()]
+    if missing:
+        raise ValueError(
+            f"missing pilot record schemas in {schema_dir}: {', '.join(missing)}"
+        )
     documents: list[SchemaDocument] = []
     for path in paths:
         body = load_json(path)

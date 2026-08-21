@@ -41,6 +41,11 @@ REQUIRED = {
     "LICENSE",
     "CITATION.cff",
     "schemas/README.md",
+    "schemas/job-meta.schema.json",
+    "schemas/job-catalog.schema.json",
+    "schemas/job-asset.schema.json",
+    "schemas/translation-catalog.schema.json",
+    "schemas/catalog-check.schema.json",
     "schemas/problem-record.schema.json",
     "schemas/research-packet.schema.json",
     "schemas/packet-transition.schema.json",
@@ -49,6 +54,9 @@ REQUIRED = {
     "schemas/evidence-record.schema.json",
     "schemas/review-record.schema.json",
     "tools/build_release_archive.py",
+    "tools/pack_job.py",
+    "tools/build_jobs.py",
+    "tools/validate_jobs.py",
     "tools/commons.py",
     "tools/validate_packets.py",
     "tests/test_validate_packets.py",
@@ -56,9 +64,29 @@ REQUIRED = {
     "tests/test_commons_cli_hardening.py",
     "tests/test_record_contracts.py",
     "tests/test_validate_repository.py",
+    "tests/test_job_catalog.py",
+    "catalog/README.md",
+    "catalog/job-meta.json",
+    "catalog/jobs.json",
+    "catalog/translations.json",
+    "catalog/check.json",
+    "docs/run.md",
+    "docs/fidelity.md",
+    "docs/translations.md",
+    "docs/adopt.md",
+    "docs/legacy.md",
+    "docs/release-r1.md",
+    "docs/roadmap.md",
+    "docs/workbench.md",
+    "kits/translate/README.md",
+    "kits/translate/PROMPT.md",
+    "kits/translate/QA.md",
+    "kits/translate/SOURCE.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
+    ".github/ISSUE_TEMPLATE/job_return.yml",
+    ".github/ISSUE_TEMPLATE/translation.yml",
 }
 
 PRIVATE_PATTERNS = (
@@ -117,7 +145,15 @@ INFRASTRUCTURE_ROOT_FILES = {
     "PROJECT_LOGBOOK.md",
     "SESSION_RECOVERY.md",
 }
-INFRASTRUCTURE_DIRECTORY_PREFIXES = {".github", "schemas", "tools", "tests"}
+INFRASTRUCTURE_DIRECTORY_PREFIXES = {
+    ".github",
+    "catalog",
+    "docs",
+    "kits",
+    "schemas",
+    "tools",
+    "tests",
+}
 ARTIFACT_MANIFEST_RECORD_PREFIXES = set(validate_packets.DEFAULT_INSTANCE_DIRS)
 
 PHASE_A_C0 = "3fd7a29560e78ac3ecaa131707b61727c25ae9fd"
@@ -925,7 +961,7 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print("PASS: public concept repository structural checks")
+    print("PASS: Mathematics Commons repository structural checks")
     return 0
 
 

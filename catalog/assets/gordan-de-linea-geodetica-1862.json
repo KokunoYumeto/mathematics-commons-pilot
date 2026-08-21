@@ -1,0 +1,104 @@
+{
+  "schema": "math-commons-job-asset/v1",
+  "job_id": "gordan-de-linea-geodetica-1862",
+  "wrapper_directory": "gordan-de-linea-geodetica-1862",
+  "source_files": 14,
+  "source_bytes": 5603757,
+  "canonical_stream_bytes": 1594,
+  "source_tree_sha256": "952446A825E60CF2EE18BDC73019B55C9A075104029BE8418BB573EA6160C906",
+  "asset_count": 1,
+  "assets": [
+    {
+      "name": "gordan-de-linea-geodetica-1862.zip",
+      "part": 1,
+      "parts": 1,
+      "source_files": 14,
+      "source_bytes": 5603757,
+      "first_path": "00_READ_ME_FIRST.md",
+      "last_path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
+      "zip_bytes": 5289425,
+      "zip_sha256": "DAFD37A69C4D210888B5CE53036BCDF6E7BDE2940E6BEC9354ED2C7426F0852B"
+    }
+  ],
+  "members": [
+    {
+      "path": "00_READ_ME_FIRST.md",
+      "bytes": 2772,
+      "sha256": "7D87B27B97E0C65F500D4E88EF70FF6447EAB9FDFE175EBB950B797BB7D59CBF"
+    },
+    {
+      "path": "01_Paul_Gordan_De_linea_geodetica_1862_Authority_47_pages.pdf",
+      "bytes": 1157598,
+      "sha256": "CB5F57BDC6D3E7DEE7EF10DABC1CBDDED703003BE4E1708574B2E1A166E727D3"
+    },
+    {
+      "path": "02_Paul_Gordan_De_linea_geodetica_1862_Authority_Page_Images_001_047.zip",
+      "bytes": 3421512,
+      "sha256": "ED4299F2177EF55480C8339F411868B405F0B0B0FDBD2F4A0183AE146F2CA2BA"
+    },
+    {
+      "path": "03_Paul_Gordan_De_linea_geodetica_1862_Inherited_Work_Local_Salvage_UNTRUSTED.zip",
+      "bytes": 749599,
+      "sha256": "797377BA13B4E37B6BD0DA0F1D8F4CB7D00B9545389E084087F04CE4E636BAE8"
+    },
+    {
+      "path": "04_ALL_45_LITERAL_SESSION_PROMPTS.md",
+      "bytes": 259260,
+      "sha256": "02DED192E5CE3B00F985E8CAC136EAC47D7119FB6F23FFD92AC2BF2C59767FCF"
+    },
+    {
+      "path": "05_EXACT_PHYSICAL_TO_PRINTED_PAGE_MAP.csv",
+      "bytes": 4368,
+      "sha256": "56D25F6F32F3AE3C33AD2840A82F907EFB7C4385F4F3E88A9A23E812F2C0D6FE"
+    },
+    {
+      "path": "06_SOURCE_HIERARCHY_AND_TOPOLOGY.md",
+      "bytes": 1954,
+      "sha256": "02DC4B0BFBDDCA9C5912C3A42F70F9202E367471F0E263977054E7C4B4BB3F74"
+    },
+    {
+      "path": "07_INHERITED_STATE_FILTERING_LEDGER.md",
+      "bytes": 919,
+      "sha256": "B5058C97C310A41875D1C8075053F183ACF52E45678CF98DC06CA236B527A514"
+    },
+    {
+      "path": "08_ISSUE_AND_UNCERTAINTY_LEDGER_TEMPLATE.csv",
+      "bytes": 127,
+      "sha256": "F47CFDC4A547F796F23B3EC32DC15E06AF8A672469748C0D7ACCA4B3339C3225"
+    },
+    {
+      "path": "09_EVIDENCE_LEDGER_TEMPLATE.csv",
+      "bytes": 162,
+      "sha256": "2EB166E33DFE5DD312B2255A3DC7F050D9872623C4CF74E86EED318E2F7CB5B6"
+    },
+    {
+      "path": "10_RETURN_TO_CODEX_CHECKPOINT_TEMPLATE.md",
+      "bytes": 593,
+      "sha256": "15E15D3B4854704445FDED0AE6F150E33EB1EDDD365384E02D91E1F9EA2844E6"
+    },
+    {
+      "path": "11_REQUIRED_END_STATE.md",
+      "bytes": 948,
+      "sha256": "FD58921DCDC43CF46E743F58349184A7A0E71BA80DD60DB80D70292D31EA5337"
+    },
+    {
+      "path": "12_PACKET_MANIFEST_SHA256.csv",
+      "bytes": 1636,
+      "sha256": "676467C1B95B6790814846E8FD40212BBC9EA35AFD6BBFAB80DAB5C476E4F3A1"
+    },
+    {
+      "path": "13_INDEPENDENT_COLD_VALIDATION_RECEIPT.json",
+      "bytes": 2309,
+      "sha256": "2ADA87458E24A41AF75853C046A6BAE99BBB8DBE55DABBF37D1E727E26418E62"
+    }
+  ],
+  "checks": {
+    "source_hash_replay": "14/14",
+    "zip_member_replay": "14/14",
+    "crc_errors": 0,
+    "missing": 0,
+    "extra": 0,
+    "byte_mismatches": 0,
+    "hash_mismatches": 0
+  }
+}

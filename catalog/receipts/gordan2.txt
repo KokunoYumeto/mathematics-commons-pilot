@@ -1,0 +1,42 @@
+RECEIPT: Gordan Band II staging-packet cold audit
+DATE: 2026-08-20
+SCOPE: final staged packet only; PPN588632678
+METHOD: fresh read of finished artifacts; no reliance on builder success output
+
+FINAL_NONPATCHING_PASS:
+  result: PASS
+  files_in_staging_before_this_receipt: 31
+  maximum_file_bytes: 64533539
+  READ_FIRST_characters: 2104
+  literal_ordered_prompt_blocks: 45 (P01-P45)
+  production_prompt_rows: 44 (P01-P44)
+  disjoint_production_canvas_cover: 376 (exactly 1-376)
+  cold_audit_prompt: P45, zero production ownership, nonpatching
+  mapped_PDF_rows: 377 (PDF 1 wrapper; PDF 2-377 = canvases 1-376)
+  controlling_source_members_cold_read: 386
+  authoritative_TIFFs_cold_hashed_against_embedded_ledger_and_map: 376
+  seed_accepted_coverage: 0
+  cumulative_state_members: 19
+  embedded_reader_tools_compile: PASS
+  deterministic_empty_readers: PASS
+  trio_hash_and_size_binding: PASS
+  unsafe_or_duplicate_member_paths: 0
+  control_characters_in_prompt_document: 0
+
+FINAL_TRIO_HASHES:
+  GORDAN_BAND_II_S00_CUMULATIVE_FULL_STATE.zip
+    SHA256 1EF2FF082DE016A3B7C4C4D1EF7F11BAC294102E332E6513A06138FEC875B08C
+  GORDAN_BAND_II_S00_CUMULATIVE_CHECKPOINT.json
+    SHA256 A60A59EB0C7B54B65C2C1E212673D5D4D46F4907D757C2FCD237FC390612734A
+  GORDAN_BAND_II_S00_CUMULATIVE_MANIFEST.tsv
+    SHA256 277BDDC2998932E0076603A0DD387FC07FD24C78FDA51462693120A604DB70DB
+
+AUDIT_HISTORY:
+  An earlier pre-final read detected and corrected two generator defects: escaped
+  prompt words had introduced control/newline characters, and the seed coverage
+  TSV had a shifted PDF-page column. The packet was rebuilt, and the state
+  validator was strengthened to enforce canonical records and paired uncertainty
+  assets. The final pass above re-read and re-hashed the rebuilt packet and made
+  no changes.
+
+RESULT: PASS
