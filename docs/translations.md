@@ -8,7 +8,7 @@ No listed title is automatically ready to translate. Before production, the sour
 
 1. Choose a work by title, creator, or semantic key in [`catalog/translations.json`](../catalog/translations.json), or propose another openly licensed mathematical work.
 2. Check that exact work for verified editions and reported but unverified editions. Do not use aggregate language counts as work-level coverage.
-3. Download the [`translation-starter-v5` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5).
+3. Download the [`translation-starter-v6` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6).
 4. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
 5. State the exact target language, locale, script, orthographic standard, intended learners, and available reviewers.
 6. Translation begins only after the agent completes the source, rights, component, and baseline-build preflight in `SOURCE.json`.
@@ -85,7 +85,7 @@ The Fubini–Tonelli component, Stacks Project reference, cross-corpus assessmen
 
 Translations into any language are welcome. Contributors are especially encouraged to choose languages for which communities document limited access to university-level mathematical material and can identify intended learners, a written standard, and reviewers.
 
-UNESCO's [2025 multilingual-education evidence](https://www.unesco.org/en/languages-education/need-know) reports that 40% of learners do not receive education in their mother tongue, more than a quarter-billion learners are affected, and only 351 of roughly 7,000 languages in current use serve as media of instruction.
+UNESCO's [multilingual-education evidence](https://www.unesco.org/en/languages-education/need-know) repeats an estimate that up to 40% of people lack access to education in a language they speak or understand, says more than a quarter-billion learners are affected, and reports that only 351 of roughly 7,000 languages in current use serve as media of instruction.
 
 A separate [UNESCO Institute for Statistics report](https://www.uis.unesco.org/sites/default/files/medias/fichiers/2025/09/GAML11_2.2_UIS-Benchmarking-by-Language-Group-2025.04.28.pdf) cites a 48-country literacy study covering 96 languages using alphabetic writing systems. It describes 75% of the assessments as conducted in a local or national language and 25% in English, French, Spanish, or Portuguese. The exact 96 labels from the cited study's Table S1 are recorded in `catalog/translations.json` under `language_priority.uis_96_language_study.language_labels`.
 

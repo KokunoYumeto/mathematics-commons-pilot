@@ -14,13 +14,13 @@
     },
     "translations": {
       "path": "catalog/translations.json",
-      "bytes": 76156,
-      "sha256": "2A91D58E680CEA5A0342E0BB144C2347CA0CD567DBC7B8D5233EAC4F0583F07E"
+      "bytes": 79765,
+      "sha256": "2F6C6AE0B9430E70B7D36E2F4D90400C5E37B650A19527FADFC23225529930B5"
     },
     "portals": {
       "path": "catalog/portals.json",
       "bytes": 3313,
-      "sha256": "0B14EFFE230035BE841925B15A837653832415DCEDC7BB1494AF82C64C5C3284"
+      "sha256": "675953D0FE0D6487C5ECC83BE7139155DED5EE6E7986BCE2CA1B67C16436BAD4"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -28,9 +28,9 @@
       "sha256": "60EF221B444E27FDF98C1A618DE5B556DBB8D718A526930A332B078E528F83FC"
     },
     "translate_readback": {
-      "path": "catalog/translate-rb-v5.json",
+      "path": "catalog/translate-rb-v6.json",
       "bytes": 1201,
-      "sha256": "9D7F3FA76CD15788A004E4B9C75DC921E781CEEFE12F5EE19F42C35846B99387"
+      "sha256": "541174E5DDC424652CD2ED56CC3EBD7EB8C9F087E83A0F9767451A71BFB4E5A1"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -59,8 +59,8 @@
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
-      "bytes": 7770,
-      "sha256": "273EF194FF37949D3A0221EAF5F94E8659F767F04B17683B7C2FBCCDA9966196"
+      "bytes": 9658,
+      "sha256": "73103B59423E840003ABC2BF477C87FCF2960D7A88E47AAD882EA55DC9C16C39"
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
@@ -104,15 +104,15 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 65884,
-      "sha256": "D783211F5EC4BC418C8F6F4076395827AF346BA5DA72DD31FFF0EB3F825505C8"
+      "bytes": 66662,
+      "sha256": "B2E6D098789705AEE602AFFEC75E278899C6EB6FFE94F4CE8B7BC49FB07372A9"
     }
   },
   "asset_manifests": {
-    "files": 33,
-    "bytes": 123461,
-    "canonical_stream_bytes": 3910,
-    "tree_sha256": "87383D4282CDC217A7786AA96D34D2A23E96CE4EC4286B77A84D79C22F4D62AC"
+    "files": 34,
+    "bytes": 126063,
+    "canonical_stream_bytes": 4013,
+    "tree_sha256": "135E881A96D60AC1FC47920EA9C221E884EC9EA5B8FC978EEB192751310D3835"
   },
   "jobs": 28,
   "release_assets": 30,

@@ -43,14 +43,14 @@ The [translation portal](docs/translations.md) is a non-exclusive set of useful 
 
 Public choices use titles and readable semantic keys such as `openstax-prealgebra-2e`. Historical planning keys remain only in the machine catalog for provenance; they are not public work labels.
 
-Download the [`translation-starter-v5` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5). It asks two questions before doing anything else:
+Download the [`translation-starter-v6` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6). It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
 
 The package supports both local repository-aware agents and hosted web agents. It checks work-specific verified and reported editions, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook and no completed translation.
 
-Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO reports that 40% of learners do not receive education in their mother tongue and that only 351 of roughly 7,000 languages in current use serve as media of instruction. A separate UNESCO Institute for Statistics report cites a 48-country literacy study covering 96 alphabetic-script languages. The catalog includes those 96 study labels as concrete suggestions; they are an evidence set, not a ranked or exclusive translation queue. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
+Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO has repeated an estimate that up to 40% of people lack access to education in a language they speak or understand; it separately reports that only 351 of roughly 7,000 languages in current use serve as media of instruction. A UNESCO Institute for Statistics report cites a different 48-country literacy study covering 96 alphabetic-script languages. The catalog includes those 96 study labels as concrete suggestions; they are an evidence set, not a ranked or exclusive translation queue. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
 
 ## Open problems
 
@@ -75,7 +75,7 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/check.json`](catalog/check.json): catalog and local-build validation receipt.
 - [`catalog/readback.json`](catalog/readback.json): anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
-- [`catalog/translate-rb-v5.json`](catalog/translate-rb-v5.json): anonymous public readback of translation starter v5.
+- [`catalog/translate-rb-v6.json`](catalog/translate-rb-v6.json): anonymous public readback of translation starter v6.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`kits/translate/WORKS.json`](kits/translate/WORKS.json): translation subject and coverage index.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.
