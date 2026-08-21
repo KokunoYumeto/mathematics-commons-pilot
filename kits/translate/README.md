@@ -1,4 +1,4 @@
-# Translation starter v5
+# Translation starter v6
 
 This package starts one mathematical translation project. It contains no textbook or completed translation. The catalog is a non-exclusive list of useful suggestions; you may instead propose any mathematical work whose exact source and permission for translation derivatives can be verified.
 

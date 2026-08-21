@@ -17,7 +17,7 @@ The starter contains no textbook or completed translation. Each bounded unit ret
 
 ## How the catalog is organized
 
-The public key is a readable semantic slug such as `openstax-prealgebra-2e` or `openlogic-core`. Older `R…` and `O…` values survive only as `legacy_id` provenance from a non-public planning snapshot. They are not work identifiers and are not used in the tables below.
+The public key is a readable semantic slug such as `openstax-prealgebra-2e` or `openlogic-core`. Historical planning keys survive only as machine provenance. They are not public work labels and are not used in the tables below.
 
 Each machine row separates facts that the previous catalog conflated:
 
@@ -27,29 +27,7 @@ Each machine row separates facts that the previous catalog conflated:
 - `translation_readiness`: whether source preflight is required or the row is not a standalone translation job; and
 - `preflight_needed`: the exact remaining source, rights, component, or build work.
 
-There is no `current production` label. Earlier uses of that phrase described reported Indonesian task activity in one coordination snapshot; they did not describe all translations of a work.
-
-## Reported Indonesian activity
-
-These reports come from a non-public coordination snapshot. They are useful leads, but their public edition identities have not been independently verified here. Other language coverage is unknown, not absent.
-
-| Work | Reported language | Reported state | Public evidence state |
-|---|---|---|---|
-| OpenStax *Prealgebra 2e* | Indonesian | active | coordination report only |
-| OpenStax *Elementary Algebra 2e* | Indonesian | active | coordination report only |
-| OpenStax *Intermediate Algebra 2e* | Indonesian | active | coordination report only |
-| CLP Calculus series and problem books | Indonesian | active | coordination report only |
-| DMOI4 | Indonesian | complete/public reported | exact edition and license unresolved |
-| Hefferon, *Linear Algebra* | Indonesian | active | coordination report only |
-| Lebl analysis volume, exact title unresolved | Indonesian | active | coordination report only |
-| Lebl ordinary differential equations volume, exact title unresolved | Indonesian | planned in the same lane | coordination report only |
-| Lebl complex analysis volume, exact title unresolved | Indonesian | planned in the same lane | coordination report only |
-| Judson, *Abstract Algebra* | Indonesian (`id-ID` reported) | active | coordination report only |
-| Grinstead–Snell probability text | Indonesian | active | coordination report only |
-| *Tea Time Numerical Analysis* | Indonesian | active | coordination report only |
-| Open Logic, exact Indonesian edition unresolved | Indonesian | complete/public reported | exact edition, source, and license unresolved |
-
-This table does not reserve these works or languages. A contributor may declare an independently useful parallel edition, but must preserve the other generation rather than overwrite it.
+Unverified edition reports remain in the machine catalog so existing work is not silently lost or overwritten. They are not presented as a public production-status table. Recheck the selected work's current public editions before beginning, and preserve independently useful parallel generations when overlap is declared.
 
 ## Suggested individual works and source projects
 
@@ -57,22 +35,22 @@ These are suggestions only. `Preflight required` means that at least one source,
 
 | Work | Creator or project | What is publicly recorded | Next useful step |
 |---|---|---|---|
-| OpenStax *Prealgebra 2e* | OpenStax | reported Indonesian activity; no exact public source/license bound here | freeze the exact edition, license, assets, and baseline build |
-| OpenStax *Elementary Algebra 2e* | OpenStax | reported Indonesian activity; no exact public source/license bound here | freeze the exact edition, license, assets, and baseline build |
-| OpenStax *Intermediate Algebra 2e* | OpenStax | reported Indonesian activity; media-rights questions recorded | freeze the exact edition and resolve every media component |
+| OpenStax *Prealgebra 2e* | OpenStax | no exact public source/license boundary is bound here | freeze the exact edition, license, assets, and baseline build |
+| OpenStax *Elementary Algebra 2e* | OpenStax | no exact public source/license boundary is bound here | freeze the exact edition, license, assets, and baseline build |
+| OpenStax *Intermediate Algebra 2e* | OpenStax | exact source unresolved; media-rights questions recorded | freeze the exact edition and resolve every media component |
 | OpenStax *Precalculus 2e* | OpenStax | repository handle recorded; full source/component boundary unresolved | verify the public repository, license, assets, and build |
-| CLP Calculus 1–4 and problem books | CLP project | reported Indonesian activity; exact upstream and rights unresolved | freeze each volume and support book as a separately identified source |
-| DMOI4 | exact expanded title/creators unresolved | Indonesian edition reported public | identify the work and exact edition before any new-language project |
-| *Linear Algebra* | Jim Hefferon | reported Indonesian activity; exact upstream/license unresolved | bind textbook, answer book, labs, license, and build |
-| Lebl analysis volume | Jiří Lebl; exact title unresolved | reported Indonesian activity | resolve the exact volume before treating it as a work choice |
-| Lebl ordinary differential equations volume | Jiří Lebl; exact title unresolved | Indonesian planning report | resolve title, edition, source, and license |
-| Lebl complex analysis volume | Jiří Lebl; exact title unresolved | Indonesian planning report | resolve title, edition, source, and license |
-| *Abstract Algebra* | Thomas W. Judson | Indonesian locale work reported | bind exact upstream, license, diagrams, and baseline build |
-| Probability text | Charles Grinstead and J. Laurie Snell | reported Indonesian activity | bind exact edition, source, license, exercises, and build |
+| CLP Calculus 1–4 and problem books | CLP project | exact upstream and rights unresolved | freeze each volume and support book as a separately identified source |
+| DMOI4 | exact expanded title/creators unresolved | work identity, source, and license unresolved | identify the work and exact edition before any new-language project |
+| *Linear Algebra* | Jim Hefferon | exact upstream and license unresolved | bind textbook, answer book, labs, license, and build |
+| Lebl analysis volume | Jiří Lebl; exact title unresolved | exact volume unresolved | resolve the exact volume before treating it as a work choice |
+| Lebl ordinary differential equations volume | Jiří Lebl; exact title unresolved | title, edition, source, and license unresolved | resolve title, edition, source, and license |
+| Lebl complex analysis volume | Jiří Lebl; exact title unresolved | title, edition, source, and license unresolved | resolve title, edition, source, and license |
+| *Abstract Algebra* | Thomas W. Judson | exact upstream, license, diagrams, and build not yet bound | bind exact upstream, license, diagrams, and baseline build |
+| Probability text | Charles Grinstead and J. Laurie Snell | exact edition, source, and license unresolved | bind exact edition, source, license, exercises, and build |
 | *OpenIntro Statistics* | OpenIntro | repository commit reported | independently replay source, data, figures, license, and build |
 | *Applied Combinatorics* | Mitch Keller and contributors | repository commit and PreTeXt source reported | independently replay license, includes, assets, and build |
 | *Yet Another Introductory Number Theory Textbook* | Jonathan Poritz | author-controlled download page recorded | hash the exact source assets and establish the derivative license |
-| *Tea Time Numerical Analysis* | creators unresolved in current evidence | reported Indonesian activity and backend counts | identify the exact version, creators, source, license, and build |
+| *Tea Time Numerical Analysis* | creators unresolved in current evidence | exact version, creators, source, license, and build unresolved | identify the exact version, creators, source, license, and build |
 | *Open Optimization Book 1* | Open Optimization project | repository commit; CC BY-SA text/figures and MIT code reported | replay components/build and replace or exclude commercial-only paths |
 | *Mathematics in Lean* | Lean community | repository commit reported | freeze license, toolchain, dependencies, and an unchanged build |
 | Open Logic core | Open Logic Project | exact root commit/tree and CC BY 4.0 independently verified | finish the submodule/component census and baseline build |
@@ -107,15 +85,15 @@ The Fubini–Tonelli component, Stacks Project reference, cross-corpus assessmen
 
 Translations into any language are welcome. Contributors are especially encouraged to choose languages for which communities document limited access to university-level mathematical material and can identify intended learners, a written standard, and reviewers.
 
-UNESCO's [2025 multilingual-education report announcement](https://www.unesco.org/en/articles/new-unesco-report-calls-multilingual-education-unlock-learning-and-inclusion) reports that 40% of people lack access to education in a language they speak and understand fluently, more than a quarter-billion learners are affected, and only 351 of roughly 7,000 spoken or signed languages are used as a medium of instruction.
+UNESCO's [2025 multilingual-education evidence](https://www.unesco.org/en/languages-education/need-know) reports that 40% of learners do not receive education in their mother tongue, more than a quarter-billion learners are affected, and only 351 of roughly 7,000 languages in current use serve as media of instruction.
 
-No official UNESCO list of 96 underserved languages was identified. The 96 figure appears to come from a different UNESCO statistic: roughly 3% of the world's population speaks 96% of its languages. The Commons will not label a numbered list as UNESCO's without an exact source. A Commons-maintained priority list is appropriate if it publishes its criteria and evidence for each language.
+A separate [UNESCO Institute for Statistics report](https://www.uis.unesco.org/sites/default/files/medias/fichiers/2025/09/GAML11_2.2_UIS-Benchmarking-by-Language-Group-2025.04.28.pdf) cites a 48-country literacy study covering 96 languages using alphabetic writing systems. It describes 75% of the assessments as conducted in a local or national language and 25% in English, French, Spanish, or Portuguese. The exact 96 labels from the cited study's Table S1 are recorded in `catalog/translations.json` under `language_priority.uis_96_language_study.language_labels`.
+
+Those 96 labels are a useful concrete source of candidate language communities. They are not a ranking, a closed queue, or a finding that every listed language is underserved. Before starting, verify current educational need, the intended learners, the exact written standard, work-specific coverage, and available reviewers. Any other language remains welcome.
 
 ## Separate older-manuscript archive
 
-The [interlanguage adoption snapshot](adopt.md) covers 78 rows of older mathematical manuscripts and research editions. Its aggregate tags include Arabic, German, English, Spanish, Persian, French, Indonesian, Interslavic, Italian, Japanese, Korean, Russian, Sanskrit, Ukrainian, Vietnamese, several Chinese conventions, mixed, and undetermined records.
-
-Those counts are row presence in a separate corpus. They do not describe the educational works above and do not establish whole-work completion. Read the selected manuscript's own map before starting or duplicating work.
+The [interlanguage adoption snapshot](adopt.md) covers older mathematical manuscripts and research editions as a separate corpus. Its aggregate language tags are not coverage for the educational works above and do not establish whole-work completion. Read the selected manuscript's own map before starting or duplicating work.
 
 ## Review and handback
 

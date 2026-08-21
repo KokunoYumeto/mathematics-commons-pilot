@@ -1012,9 +1012,14 @@ def validate_translations(errors: list[str]) -> int:
     )
     choices, _ = load(ROOT / "kits" / "translate" / "WORKS.json")
     expect(
-        choices.get("schema") == "math-commons-translation-choices/v2",
+        choices.get("schema") == "math-commons-translation-choices/v3",
         errors,
         "translation chooser schema",
+    )
+    expect(
+        choices.get("language_priority") == priority,
+        errors,
+        "translation chooser language-priority projection",
     )
     suggestions = choices.get("suggestions")
     suggestion_ids = [
