@@ -41,7 +41,7 @@ The [translation portal](docs/translations.md) is a non-exclusive set of useful 
 
 Older internal `R…` and `O…` values are retained only as deprecated snapshot provenance. Public choices use meaningful semantic keys such as `openstax-prealgebra-2e`. Earlier `current production` labels have been replaced with explicit work-specific reports: the affected rows concerned Indonesian activity and did not describe every language in which a work exists.
 
-Download the [`translation-starter-v4` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4). It asks two questions before doing anything else:
+Download the [`translation-starter-v5` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5). It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
@@ -73,7 +73,7 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/check.json`](catalog/check.json): catalog and local-build validation receipt.
 - [`catalog/readback.json`](catalog/readback.json): anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
-- [`catalog/translate-rb-v4.json`](catalog/translate-rb-v4.json): anonymous public readback of translation starter v4.
+- [`catalog/translate-rb-v5.json`](catalog/translate-rb-v5.json): anonymous public readback of translation starter v5.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`kits/translate/WORKS.json`](kits/translate/WORKS.json): translation subject and coverage index.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.

@@ -69,8 +69,8 @@ class JobCatalogTests(unittest.TestCase):
         choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
         open_education = choices["catalogs"]["open_education"]
         catalog_bytes = (ROOT / open_education["path"]).read_bytes()
-        self.assertEqual(open_education["commit"], "149b9afbfc96a6956a2183e63b1eb9d37697e7e0")
-        self.assertEqual(open_education["tree"], "0f7c755c786fe5a743e57f38180da6fc804a652f")
+        self.assertEqual(open_education["commit"], "435b9180f5e74e1d519711b546d4dcfb5ba9a454")
+        self.assertEqual(open_education["tree"], "e5189d910efbdd7811333a53186f1e479830e02e")
         self.assertEqual(open_education["bytes"], len(catalog_bytes))
         self.assertEqual(open_education["sha256"], validate_jobs.sha256(catalog_bytes))
         interlanguage = choices["catalogs"]["separate_manuscript_archive"]
@@ -105,7 +105,7 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 32)
+        self.assertEqual(identity["files"], 33)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")

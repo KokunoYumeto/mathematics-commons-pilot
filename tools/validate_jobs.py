@@ -1106,8 +1106,8 @@ def validate_portals(errors: list[str]) -> int:
     translation = by_id.get("translation", {})
     translate_release = translation.get("release", {})
     translate_manifest, _ = validate_asset_manifest(
-        ROOT / "catalog" / "assets" / "translate-v4.json",
-        "translation-starter-v4",
+        ROOT / "catalog" / "assets" / "translate-v5.json",
+        "translation-starter-v5",
         errors,
     )
     expected_translate_assets = [
@@ -1138,17 +1138,17 @@ def validate_portals(errors: list[str]) -> int:
     expect(
         translation.get("state") == "starter_available"
         and translation.get("catalog") == "catalog/translations.json"
-        and translate_release.get("tag") == "translate-v4"
+        and translate_release.get("tag") == "translate-v5"
         and translate_release.get("url")
-        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4"
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5"
         and translate_release.get("asset_catalog")
-        == "catalog/assets/translate-v4.json"
-        and translate_release.get("readback") == "catalog/translate-rb-v4.json",
+        == "catalog/assets/translate-v5.json"
+        and translate_release.get("readback") == "catalog/translate-rb-v5.json",
         errors,
         "portal translation release contract",
     )
 
-    translate_readback, _ = load(ROOT / "catalog" / "translate-rb-v4.json")
+    translate_readback, _ = load(ROOT / "catalog" / "translate-rb-v5.json")
     validate_schema(
         translate_readback,
         "portal_readback",
@@ -1158,11 +1158,11 @@ def validate_portals(errors: list[str]) -> int:
     expect(
         translate_readback.get("release")
         == {
-            "id": 374535582,
-            "tag": "translate-v4",
-            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v4",
-            "target_commit": "71ad8b4dfaee5d9f3af7d4ef720a361c491036b2",
-            "target_tree": "44384b744c35431b73d039c2e89fd1afdcaec073",
+            "id": 374543711,
+            "tag": "translate-v5",
+            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5",
+            "target_commit": "8184eb7fa9a19d5470066f8b96146a24c28d1bbe",
+            "target_tree": "450bbc0ab8c1393fde27686af17ea3a0379c140a",
         },
         errors,
         "translation starter readback subject",
@@ -1171,13 +1171,13 @@ def validate_portals(errors: list[str]) -> int:
         translate_readback.get("assets")
         == [
             {
-                "id": 523980122,
-                "name": "translation-starter-v4.zip",
-                "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-v4/translation-starter-v4.zip",
-                "expected_bytes": 14127,
-                "observed_bytes": 14127,
-                "expected_sha256": "58EA3AFB5C779CA988EFF75B4E236443E9F06C204DEBA9F0C1B3844E3657A698",
-                "observed_sha256": "58EA3AFB5C779CA988EFF75B4E236443E9F06C204DEBA9F0C1B3844E3657A698",
+                "id": 523997185,
+                "name": "translation-starter-v5.zip",
+                "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-v5/translation-starter-v5.zip",
+                "expected_bytes": 14174,
+                "observed_bytes": 14174,
+                "expected_sha256": "F1148482DC7FF96DE9B67C46962FC092F937ED3B6DEA6FCE4325A4C4E821F804",
+                "observed_sha256": "F1148482DC7FF96DE9B67C46962FC092F937ED3B6DEA6FCE4325A4C4E821F804",
                 "match": True,
             }
         ],
@@ -1210,7 +1210,7 @@ def validate_portals(errors: list[str]) -> int:
         and translate_readback.get("summary")
         == {
             "assets": 1,
-            "bytes": 14127,
+            "bytes": 14174,
             "matches": 1,
             "mismatches": 0,
             "errors": [],
@@ -1479,7 +1479,7 @@ def main() -> int:
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
-            "translate_readback": input_identity(ROOT / "catalog" / "translate-rb-v4.json"),
+            "translate_readback": input_identity(ROOT / "catalog" / "translate-rb-v5.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
