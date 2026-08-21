@@ -85,7 +85,7 @@
       "source_format": "instructional modules; exact format not stated in current evidence",
       "preflight_needed": "finish exact preface, collection, and whole-volume build closure",
       "translation_readiness": "preflight_required",
-      "why_listed": "Dedicated Prealgebra-only foundation lane under the no-overlap ownership lock.",
+      "why_listed": "Foundational prealgebra work with a bounded source and component preflight.",
       "evidence_refs": [
         "10:L22",
         "10:L39-L46"
@@ -125,7 +125,7 @@
       "source_format": "instructional modules; exact format not stated in current evidence",
       "preflight_needed": "continue module sequence and record source-description corrections",
       "translation_readiness": "preflight_required",
-      "why_listed": "Dedicated Elementary Algebra-only lane under the no-overlap ownership lock.",
+      "why_listed": "Foundational elementary-algebra work with a bounded source and component preflight.",
       "evidence_refs": [
         "10:L30",
         "10:L39-L46"
@@ -166,7 +166,7 @@
       "source_format": "instructional modules with media; exact format not stated in current evidence",
       "preflight_needed": "resolve bounded asset rights while translating safe units",
       "translation_readiness": "preflight_required",
-      "why_listed": "Dedicated Intermediate Algebra-only lane under the no-overlap ownership lock.",
+      "why_listed": "Intermediate-algebra work with a bounded source, media, and component preflight.",
       "evidence_refs": [
         "10:L31",
         "10:L39-L46"
@@ -179,10 +179,10 @@
       "authors": null,
       "authors_note": "Unknown in current evidence.",
       "catalog_role": "work",
-      "reported_status": "assigned/starting; a bounded OpenStax Precalculus-only assignment was reported delivered",
+      "reported_status": "a bounded OpenStax Precalculus source-preflight assignment was reported delivered; translation coverage remains unknown",
       "known_editions": [],
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "curricular_role": "A30",
+      "curricular_role": "precalculus",
       "pages": null,
       "page_note": "No exact page count in current evidence.",
       "source_url": null,
@@ -199,7 +199,7 @@
       "source_format": "collection/modules/media; exact serialization not stated in current evidence",
       "preflight_needed": "freeze collection, modules, media, build, and component rights before translating front matter and the first complete instructional module",
       "translation_readiness": "preflight_required",
-      "why_listed": "Separate A30 Precalculus corpus with exclusive ownership.",
+      "why_listed": "Precalculus work with a recorded repository handle and unresolved source and component preflight.",
       "evidence_refs": [
         "10:L32",
         "10:L39-L46"
@@ -671,13 +671,13 @@
       "authors": null,
       "authors_note": "Unknown in current evidence.",
       "catalog_role": "work",
-      "reported_status": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+      "reported_status": "reported Indonesian work was active; the snapshot also reports a backend replay of 10,172 records and 2,805 relations, but does not identify the referenced seventh and eighth components",
       "known_editions": [
         {
           "language_tag": "id",
           "language_name": "Indonesian",
           "state": "reported_active",
-          "scope_note": "producing; backend replay passed 10,172 records and 2,805 relations; seventh child admitted and eighth in translation",
+          "scope_note": "Reported active. The snapshot records a backend replay of 10,172 records and 2,805 relations, but the identities and exact scopes of its referenced seventh and eighth components are unresolved.",
           "evidence_status": "non_public_coordination_snapshot"
         }
       ],
@@ -1113,11 +1113,11 @@
     {
       "id": "functional-analysis-operator-algebras",
       "legacy_id": "O008",
-      "title": "Functional Analysis and Operator Algebras",
+      "title": "Functional Analysis and Operator Algebras: An Introduction",
       "authors": [
-        "Erdman"
+        "John M. Erdman"
       ],
-      "authors_note": "Surname only in current evidence.",
+      "authors_note": "Full name and title verified on the official PDF title page; the source archive still requires independent replay.",
       "catalog_role": "work",
       "reported_status": "conditional source-ready spine; not selected or dispatched",
       "known_editions": [],
@@ -1141,7 +1141,8 @@
       "why_listed": "Topical core and editable-source closure are strong; remaining issues are bounded production and mastery gaps.",
       "evidence_refs": [
         "09:L42",
-        "09:L149-L183"
+        "09:L149-L183",
+        "https://web.pdx.edu/~erdman/FAOA/functional_analysis_operator_algebras_pdf.pdf"
       ]
     },
     {
