@@ -10,7 +10,7 @@ The repository is written for both people and software. Its catalogs expose each
 
 | Portal | Available material | Current state |
 |---|---|---|
-| [Transcription](docs/run.md) | 28 source packets with exact release assets and 45-prompt workflows | Runnable |
+| [Transcription](docs/run.md) | 28 source packets with exact release assets and workload-derived prompt files | Runnable |
 | [Translation](docs/translations.md) | Non-exclusive work suggestions, work-specific edition reports, and a local/hosted-AI starter | Source selection and preflight available |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
@@ -18,19 +18,19 @@ The cross-cutting [formalization intake](docs/formalize.md) now records two exac
 
 ## Transcription
 
-The [`jobs-2026-08-21-r1` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1) contains 29 packet ZIP parts for 28 jobs. One Poincaré packet uses two parts. The admitted packet roots contain 488 files / 6,691,065,999 bytes; the release ZIPs contain 6,599,619,260 bytes.
+The [`jobs-2026-08-21-r2` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2) contains 30 packet ZIP parts for 28 jobs. The Clebsch–Gordan and Poincaré packets each use two parts. The admitted packet roots contain 538 files / 8,922,333,939 bytes; the packet ZIPs contain 8,808,377,826 bytes. The release also preserves R1's unchanged 3,443-byte historical translation kit for release continuity, for 31 assets / 8,808,381,269 bytes in total. Current translation work uses the separate `translate-v6` release below.
 
 To run a packet:
 
 1. Select a `runnable` row in [`catalog/jobs.json`](catalog/jobs.json).
 2. Download every listed asset part and verify its byte length and SHA-256.
-3. Extract all parts into one directory and read the packet's `00_READ_FIRST.md`.
-4. Run Prompt 1 exactly. Reply `continue` while the current prompt is `IN_PROGRESS`; reply `next prompt` only after it is `COMPLETE`.
-5. Stop after Prompt 45 COMPLETE and return the cumulative state, manifest, checks, failures, and cursor.
+3. Extract all parts into one directory and open the exact `start_file` declared by that catalog row.
+4. Execute Prompt 1 from the exact declared `prompt_file`. Reply `continue` only for a platform-forced `IN_PROGRESS` split; reply `next prompt` only after the current prompt is `COMPLETE`.
+5. Stop after the final declared prompt completes after PASS, then return the cumulative state, manifest, checks, failures, and cursor.
 
 `strict-PASS` validates the packet boundary and its recorded evidence. It does not certify a completed transcription, translation, edition, or mathematical result. The full [run instructions](docs/run.md) and [fidelity contract](docs/fidelity.md) apply.
 
-R1 remains the newest admitted transcription release. Later candidate generations are not presented as runnable until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
+R2 is the newest admitted transcription release. R1 remains immutable history. Later candidate generations are not presented as runnable until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
 ## Translation
 
@@ -73,7 +73,8 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/jobs.json`](catalog/jobs.json): transcription jobs and release assets.
 - [`catalog/assets/`](catalog/assets/): exact ZIP/member manifests.
 - [`catalog/check.json`](catalog/check.json): catalog and local-build validation receipt.
-- [`catalog/readback.json`](catalog/readback.json): anonymous public readback of R1.
+- [`catalog/readback-r2.json`](catalog/readback-r2.json): anonymous public readback of the current transcription release.
+- [`catalog/readback.json`](catalog/readback.json): preserved anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
 - [`catalog/translate-rb-v6.json`](catalog/translate-rb-v6.json): anonymous public readback of translation starter v6.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.

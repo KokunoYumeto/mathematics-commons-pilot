@@ -15,7 +15,7 @@ This directory contains both the practical packet-library contracts and the pres
 | `catalog-check.schema.json` | Generated replay receipt binding the catalogs, schemas, asset-manifest tree, counts, bytes, and ZIP-member validation state. |
 | `release-readback.schema.json` | Anonymous HTTPS post-publication receipt for one immutable release, its exact asset set, and commit-pinned raw files. |
 
-The executable validator is `tools/validate_jobs.py`. Consumers should fetch the related catalogs, schemas, receipts, and manifests from one exact Git commit. Release asset identities are byte length plus SHA-256; a mutable URL or filename is not sufficient. `catalog/readback.json` records the independently observed public bytes for its immutable subject commit and release. Its expected and observed fields must agree exactly with the job catalog, and the catalog check binds the receipt by path, byte length, and SHA-256.
+The executable validator is `tools/validate_jobs.py`. Consumers should fetch the related catalogs, schemas, receipts, and manifests from one exact Git commit. Release asset identities are byte length plus SHA-256; a mutable URL or filename is not sufficient. `catalog/readback-r2.json` records the independently observed public bytes for the current transcription release, while `catalog/readback.json` preserves the R1 receipt. Each receipt's expected and observed fields must agree exactly with its bound job catalog, and the catalog check binds both receipts by path, byte length, and SHA-256.
 
 ## Preserved pilot record schemas
 

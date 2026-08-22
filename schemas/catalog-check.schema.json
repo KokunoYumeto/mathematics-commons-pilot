@@ -43,7 +43,11 @@
         "formalization",
         "portals",
         "readback",
+        "readback_r2",
         "translate_readback",
+        "global_receipt",
+        "gordan2_receipt",
+        "mikami_receipt",
         "r2_admission_receipt",
         "no_failure_hardening_receipt",
         "job_meta_schema",
@@ -82,7 +86,19 @@
         "readback": {
           "$ref": "#/$defs/identity"
         },
+        "readback_r2": {
+          "$ref": "#/$defs/identity"
+        },
         "translate_readback": {
+          "$ref": "#/$defs/identity"
+        },
+        "global_receipt": {
+          "$ref": "#/$defs/identity"
+        },
+        "gordan2_receipt": {
+          "$ref": "#/$defs/identity"
+        },
+        "mikami_receipt": {
           "$ref": "#/$defs/identity"
         },
         "r2_admission_receipt": {
@@ -199,6 +215,7 @@
     "asset_mode": {
       "enum": [
         "local_zip_replay",
+        "admission_receipt_plus_public_readback",
         "catalog_only"
       ]
     },
@@ -250,7 +267,8 @@
           "const": "anonymous_https"
         },
         "observed_date": {
-          "const": "2026-08-21"
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         },
         "release_assets": {
           "type": "integer",

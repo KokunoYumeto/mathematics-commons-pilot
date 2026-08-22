@@ -4,6 +4,8 @@
 
 `receipts/` preserves the R1 audit projections and exposes the R2 frozen-28 admission and no-failure hardening receipts. R2 binds every job to one external admission projection, including its exact start file, workload-derived prompt file/count, native manifest, direct-byte snapshot, deterministic release part or parts, and bounded control-policy replay.
 
+`readback-r2.json` is the current release-level anonymous byte/SHA-256 replay. `readback.json` remains the immutable R1 readback rather than being overwritten by a successor.
+
 Consumers must fetch related catalog, schema, validation, and manifest files from one exact Git commit. Verify release assets by both byte length and SHA-256; never trust a filename alone.
 
 Regenerate the job catalog and assets only from the exact admitted packet roots:

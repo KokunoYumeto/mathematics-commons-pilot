@@ -32,9 +32,9 @@ body:
     attributes:
       label: Terminal state
       options:
-        - Prompt 45 COMPLETE
+        - Final declared prompt COMPLETE after PASS
         - Paused with cumulative state
-        - Failed with cumulative state
+        - Correction in progress with cumulative state
     validations:
       required: true
   - type: textarea

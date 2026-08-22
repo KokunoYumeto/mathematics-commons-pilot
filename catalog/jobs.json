@@ -25,7 +25,7 @@
       "basename": "r2-admission.json",
       "bytes": 88449,
       "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-      "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+      "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
       "included_in_packet": false,
       "public_projection": {
         "path": "catalog/receipts/r2-admission.json",
@@ -121,7 +121,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -138,7 +138,7 @@
         "model_tier": "frontier_multimodal_high_reasoning",
         "scale": "extreme",
         "rough_elapsed": "6-12 weeks",
-        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; assumes the full 45-prompt workflow, continuation turns, deterministic builds, and at least one cold-audit cycle."
+        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; assumes this job's declared 45-prompt workflow, continuation turns, deterministic builds, and at least one cold-audit cycle."
       },
       "start_file": {
         "basename": "00_READ_FIRST.md",
@@ -234,7 +234,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -365,7 +365,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -498,7 +498,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -594,7 +594,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -690,7 +690,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -782,7 +782,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -875,7 +875,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -979,7 +979,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1071,7 +1071,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1173,7 +1173,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1268,7 +1268,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1366,7 +1366,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1383,7 +1383,7 @@
         "model_tier": "high_multimodal_reasoning_or_better",
         "scale": "small",
         "rough_elapsed": "1-3 weeks",
-        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
+        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the declared workload-derived prompt workflow dominates even for a short paper."
       },
       "start_file": {
         "basename": "00_READ_ME_FIRST.md",
@@ -1464,7 +1464,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1481,7 +1481,7 @@
         "model_tier": "high_multimodal_reasoning_or_better",
         "scale": "small",
         "rough_elapsed": "1-3 weeks",
-        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
+        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the declared workload-derived prompt workflow dominates even for a short paper."
       },
       "start_file": {
         "basename": "00_READ_ME_FIRST.md",
@@ -1562,7 +1562,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1579,7 +1579,7 @@
         "model_tier": "high_multimodal_reasoning_or_better",
         "scale": "small",
         "rough_elapsed": "1-3 weeks",
-        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the fixed 45-prompt validation workflow dominates even for a short paper."
+        "heuristic_note": "Conservative planning heuristic only, not measured runtime or a price quote; the declared workload-derived prompt workflow dominates even for a short paper."
       },
       "start_file": {
         "basename": "00_READ_ME_FIRST.md",
@@ -1660,7 +1660,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1753,7 +1753,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1846,7 +1846,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -1939,7 +1939,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2032,7 +2032,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2124,7 +2124,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2216,7 +2216,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2308,7 +2308,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2400,7 +2400,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2505,7 +2505,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2597,7 +2597,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2689,7 +2689,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",
@@ -2781,7 +2781,7 @@
         "basename": "r2-admission.json",
         "bytes": 88449,
         "sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
-        "receipt_scope": "Fresh frozen-28 local R2 admission replay; publication and remote readback are explicitly pending.",
+        "receipt_scope": "Fresh frozen-28 local R2 admission replay; this receipt covers prepublication local admission only. Public release readback is recorded separately in catalog/readback-r2.json.",
         "included_in_packet": false,
         "public_projection": {
           "path": "catalog/receipts/r2-admission.json",

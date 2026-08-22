@@ -51,19 +51,22 @@ PRACTICAL_SCHEMAS = {
 CHUNK = 1024 * 1024
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 REGULAR_0644 = 0o100644
-READBACK_COMMIT = "049a2c9c351e827c85e69f21c2ebd0c3a98db705"
-READBACK_TAG = "jobs-2026-08-21-r1"
-READBACK_RELEASE_ID = 374306971
+READBACK_COMMIT = "6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75"
+READBACK_MAIN_AT_OBSERVATION = "5bd7983daf8d540b12409dab077d688c41df2666"
+READBACK_TAG = "jobs-2026-08-21-r2"
+READBACK_RELEASE_ID = 374540343
 READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
-READBACK_DATE = "2026-08-21"
+READBACK_DATE = "2026-08-22"
 READBACK_RAW_FILES = (
-    ("README.md", 9024, "1995D1D472156E9B783526A8F61215AEEBDCBA315387C7498D53F5AE5F86092E"),
-    ("docs/workbench.md", 13375, "49680CCC16A4455EF14FC9294546F72E1C8CCD048E2A16D17B8A85874BE1A88D"),
-    ("docs/roadmap.md", 1316, "844C76C2B104B845C6C6695BD2022FB078631BC835D86C98F11973AE58D913B1"),
-    ("catalog/jobs.json", 105768, "2441250EA70F194B87CBC8AEB338DBFFBEE45419B82C7CAE95DBB75770B72BCB"),
-    ("catalog/check.json", 3226, "A9594073F93DF814FB43348A7D2F9B55688766DA0F7187552B2AFB9E5FE983FD"),
-    ("schemas/catalog-check.schema.json", 4729, "81ADBFA1C22FE336DBC2031B905617CB818291E709BC77B204BD5096AC087D28"),
-    ("tools/validate_jobs.py", 47343, "353D08F3ADF1736D703B2D2B0BAFD8767C80349333F5AABB74B73DE31A1FDA97"),
+    ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
+    ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
+    ("docs/roadmap.md", 2011, "E486DFCFBB7F0CFC3FA853E6A95B0BFBFBCF688EBF50A3E8AD04E8FB15E4F9B3"),
+    ("catalog/jobs.json", 131843, "81C83746817B82F71BBCE337B338D87A95E8240693D4F645F78888F88B3AABD5"),
+    ("catalog/check.json", 5388, "EA4FE70EE87478BFF119A2AD58222BDFE85AB9CBE4070F976D016ECF6D5E46C2"),
+    ("schemas/catalog-check.schema.json", 7083, "6656074028A7DB28A15CCFCA2759059707DA54EC468EABF850DC43EA13690265"),
+    ("tools/validate_jobs.py", 67554, "5EBA8A6638378D1FDA605DD25F82415414B98978EE8BD8D7B9BFB1F12872C549"),
+    ("catalog/receipts/r2-admission.json", 88449, "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC"),
+    ("catalog/receipts/no-failure-hardening.json", 28430, "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66"),
 )
 
 
@@ -756,6 +759,34 @@ def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
             errors,
             "R2 audit boundary",
         )
+        expected_release_assets = sum(
+            len(job.get("assets", []))
+            for job in public_jobs
+            if isinstance(job, dict) and isinstance(job.get("assets"), list)
+        ) + len(catalog.get("translation_kit", {}).get("assets", []))
+        expected_release_bytes = sum(
+            int(asset.get("zip_bytes", 0))
+            for job in public_jobs
+            if isinstance(job, dict)
+            for asset in job.get("assets", [])
+            if isinstance(asset, dict)
+        ) + sum(
+            int(asset.get("zip_bytes", 0))
+            for asset in catalog.get("translation_kit", {}).get("assets", [])
+            if isinstance(asset, dict)
+        )
+        expect(
+            global_audit.get("local_release")
+            == {
+                "directory_recorded": False,
+                "asset_count": expected_release_assets,
+                "asset_bytes": expected_release_bytes,
+                "zip_set_replay": "PASS",
+                "remote_readback": "NOT_RUN",
+            },
+            errors,
+            "R2 frozen local release replay",
+        )
         packet_ids = [
             row.get("packet_id") for row in audit_rows if isinstance(row, dict)
         ]
@@ -786,6 +817,9 @@ def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
         "R2 admission packet projection",
     )
     validate_hardening_projection(meta, meta_packet_ids, errors)
+    public_by_id = {
+        str(job.get("id")): job for job in public_jobs if isinstance(job, dict)
+    }
     for job in meta_jobs:
         if not isinstance(job, dict):
             continue
@@ -801,6 +835,32 @@ def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
         expect(row.get("direct_file_count") == job.get("source_files"), errors, f"{job_id}: R2 file count")
         expect(row.get("direct_total_bytes") == job.get("source_bytes"), errors, f"{job_id}: R2 byte count")
         expect(row.get("prompt_count") == job.get("prompt_count"), errors, f"{job_id}: R2 prompt count")
+        public_job = public_by_id.get(job_id, {})
+        expected_local_assets = [
+            {
+                "name": asset.get("name"),
+                "bytes": asset.get("zip_bytes"),
+                "sha256": asset.get("zip_sha256"),
+                "source_files": asset.get("source_files"),
+                "source_bytes": asset.get("source_bytes"),
+                "crc_and_member_stream_replay": "PASS",
+            }
+            for asset in public_job.get("assets", [])
+            if isinstance(asset, dict)
+        ]
+        expect(
+            row.get("local_release_assets") == expected_local_assets,
+            errors,
+            f"{job_id}: R2 local ZIP replay projection",
+        )
+        authorities = job.get("authority")
+        expect(
+            isinstance(authorities, list)
+            and row.get("authority_count") == len(authorities)
+            and row.get("authority_identity_replay") == "PASS",
+            errors,
+            f"{job_id}: R2 authority replay projection",
+        )
         for field in ("start_file", "prompt_file", "packet_manifest"):
             declared = job.get(field, {})
             row_identity = row.get(field, {})
@@ -848,6 +908,26 @@ def validate_job_meta(catalog: dict[str, Any], errors: list[str]) -> None:
         == catalog.get("admission", {}).get("source_bytes"),
         errors,
         "job metadata source-byte aggregate",
+    )
+    kit_assets = catalog.get("translation_kit", {}).get("assets", [])
+    expected_kit_assets = [
+        {
+            "name": asset.get("name"),
+            "bytes": asset.get("zip_bytes"),
+            "sha256": asset.get("zip_sha256"),
+            "source_files": asset.get("source_files"),
+            "source_bytes": asset.get("source_bytes"),
+            "crc_and_member_stream_replay": "PASS",
+        }
+        for asset in kit_assets
+        if isinstance(asset, dict)
+    ]
+    expect(
+        isinstance(global_audit, dict)
+        and global_audit.get("translation_kit", {}).get("local_release_assets")
+        == expected_kit_assets,
+        errors,
+        "R2 translation-kit local ZIP replay projection",
     )
 
 
@@ -1784,11 +1864,11 @@ def validate_portals(errors: list[str]) -> int:
     expect(
         transcription.get("state") == "runnable"
         and transcription.get("catalog") == "catalog/jobs.json"
-        and trans_release.get("tag") == "jobs-2026-08-21-r1"
+        and trans_release.get("tag") == "jobs-2026-08-21-r2"
         and trans_release.get("url")
-        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1"
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2"
         and trans_release.get("asset_catalog") == "catalog/jobs.json"
-        and trans_release.get("readback") == "catalog/readback.json",
+        and trans_release.get("readback") == "catalog/readback-r2.json",
         errors,
         "portal transcription release contract",
     )
@@ -1905,7 +1985,7 @@ def validate_public_readback_projection(
     expected_subject = {
         "repository": READBACK_REPOSITORY,
         "commit": READBACK_COMMIT,
-        "main_commit_at_readback": READBACK_COMMIT,
+        "main_commit_at_readback": READBACK_MAIN_AT_OBSERVATION,
         "tag": READBACK_TAG,
         "tag_commit": READBACK_COMMIT,
         "release_id": READBACK_RELEASE_ID,
@@ -2001,7 +2081,7 @@ def validate_public_readback_projection(
 
 def validate_public_readback(errors: list[str]) -> dict[str, Any]:
     catalog, _ = load(ROOT / "catalog" / "jobs.json")
-    receipt, _ = load(ROOT / "catalog" / "readback.json")
+    receipt, _ = load(ROOT / "catalog" / "readback-r2.json")
     validate_schema(receipt, "readback", "public release readback", errors)
     return validate_public_readback_projection(catalog, receipt, errors)
 
@@ -2033,16 +2113,15 @@ def main() -> int:
         errors.append(str(exc))
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
         nested_authorities = translations = formalization = portals = 0
-    result = {
-        "schema": "math-commons-catalog-check/v2",
-        "status": "PASS" if not errors else "FAIL",
-        "inputs": {
+    try:
+        inputs = {
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
             "formalization": input_identity(ROOT / "catalog" / "formalize.json"),
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
+            "readback_r2": input_identity(ROOT / "catalog" / "readback-r2.json"),
             "translate_readback": input_identity(ROOT / "catalog" / "translate-rb-v6.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
@@ -2065,16 +2144,28 @@ def main() -> int:
             "manifest_repair": input_identity(ROOT / "tools" / "repair_stale_packet_manifests.py"),
             "readback_tool": input_identity(ROOT / "tools" / "readback_jobs_release.py"),
             "validator": input_identity(ROOT / "tools" / "validate_jobs.py"),
-        },
-        "asset_manifests": manifest_set_identity(),
+        }
+        asset_manifests = manifest_set_identity()
+    except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
+        print(f"ERROR: cannot bind validator inputs: {exc}", file=sys.stderr)
+        return 1
+    result = {
+        "schema": "math-commons-catalog-check/v2",
+        "status": "PASS" if not errors else "FAIL",
+        "inputs": inputs,
+        "asset_manifests": asset_manifests,
         "jobs": jobs,
         "release_assets": assets,
         "release_asset_bytes": asset_bytes,
         "packet_source_files": source_files,
         "packet_source_bytes": source_bytes,
-        "zip_member_files_replayed": member_files if args.asset_dir else 0,
-        "nested_authorities_replayed": nested_authorities if args.asset_dir else 0,
-        "asset_mode": "local_zip_replay" if args.asset_dir else "catalog_only",
+        "zip_member_files_replayed": member_files,
+        "nested_authorities_replayed": nested_authorities,
+        "asset_mode": (
+            "local_zip_replay"
+            if args.asset_dir
+            else "admission_receipt_plus_public_readback"
+        ),
         "translation_entries": translations,
         "formalization_entries": formalization,
         "portal_sections": portals,
@@ -2102,7 +2193,12 @@ def main() -> int:
                 "public_readback",
             ):
                 expect(receipt.get(key) == result[key], errors, f"tracked receipt {key}")
-            expect(receipt.get("asset_mode") == "local_zip_replay", errors, "tracked receipt asset mode")
+            expected_mode = (
+                "local_zip_replay"
+                if args.asset_dir
+                else "admission_receipt_plus_public_readback"
+            )
+            expect(receipt.get("asset_mode") == expected_mode, errors, "tracked receipt asset mode")
             expect(receipt.get("zip_member_files_replayed") == member_files, errors, "tracked receipt member replay")
             expect(
                 receipt.get("nested_authorities_replayed") == nested_authorities,

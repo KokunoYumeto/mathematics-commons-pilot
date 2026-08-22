@@ -8,16 +8,16 @@
 
 ## Transcription
 
-- Release: [`jobs-2026-08-21-r1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1)
+- Release: [`jobs-2026-08-21-r2`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2)
 - Runnable jobs: 28
-- Packet asset parts: 29
-- Admitted packet files: 488
-- Admitted packet bytes: 6,691,065,999
-- Packet ZIP bytes: 6,599,619,260
-- Workflow: 45 ordered prompts with cumulative state returned after every response
-- Transcription public readback: 29/29 packet assets matched, totaling 6,599,619,260 bytes. Translation starter v6 has a separate readback in `catalog/translate-rb-v6.json`.
+- Packet asset parts: 30
+- Admitted packet files: 538
+- Admitted packet bytes: 8,922,333,939
+- Packet ZIP bytes: 8,808,377,826
+- Workflow: each job declares its exact workload-derived start file, prompt file, and prompt count; cumulative state is returned after every response
+- Transcription public readback: 30/30 packet assets plus R1's unchanged historical translation-kit asset matched, totaling 31 assets / 8,808,381,269 bytes. Current translation work uses starter v6, with a separate readback in `catalog/translate-rb-v6.json`.
 
-R1 remains the newest admitted transcription release. Later candidate generations remain excluded until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
+R2 is the newest admitted transcription release. R1 remains immutable history. Later candidate generations remain excluded until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
 ## Translation
 
