@@ -44,8 +44,8 @@
     },
     "formalization": {
       "path": "catalog/formalize.json",
-      "bytes": 32018,
-      "sha256": "25AA03544C3D097270113986C11DE24E60B9F207A5A0086BB895DF1893FDAD02"
+      "bytes": 38088,
+      "sha256": "9781B25CA25C76A1EABC4CD50FF116821D9CCA4B87D4170919944F30F15AFCBA"
     },
     "portals": {
       "path": "catalog/portals.json",

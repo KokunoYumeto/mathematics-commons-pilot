@@ -14,7 +14,7 @@ The repository is written for both people and software. Its catalogs expose each
 | [Translation](docs/translations.md) | One admitted Open Logic source job, 29 suggested works, nine public Indonesian reader PDFs, other edition evidence, and a generic source-preflight starter | Open Logic runnable; other works require preflight |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
-The cross-cutting [formalization intake](docs/formalize.md) records two pinned external snapshots and 19 bounded review items, including Desargues and the S-named material found in the pinned source. It contains no runnable formalization packet and makes no claim that a transcribed result is absent from Mathlib.
+The cross-cutting [formalization intake](docs/formalize.md) records three pinned external snapshots—two distinct generations of one public Lean repository plus one archived sidecar set—and 19 bounded review items, including Desargues and the S-named material found in the built parent snapshot. It contains no runnable formalization packet and makes no claim that a transcribed result is absent from Mathlib.
 
 ## Transcription
 
