@@ -1,0 +1,817 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:math-commons:schema:translation-build:v1",
+  "title": "Math Commons OpenLogic translation build receipt",
+  "description": "Strict schema for the fixed OpenLogic source cold-build record. Artifact identities are per-run evidence and are intentionally not fixed to the identity of any later admission receipt.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "job_id",
+    "source_materialization",
+    "source_commit",
+    "source_tree",
+    "source_files",
+    "source_bytes",
+    "source_git_modes",
+    "source_verification",
+    "packet_binding",
+    "state",
+    "environment",
+    "dependency_repairs",
+    "targets",
+    "input_closure",
+    "interpretation"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-translation-build/v1"
+    },
+    "job_id": {
+      "const": "openlogic-v1"
+    },
+    "source_materialization": {
+      "const": "exact Git blob bytes"
+    },
+    "source_commit": {
+      "const": "1e960beff9ed7835bf3e3f1335e21af3439cd107"
+    },
+    "source_tree": {
+      "const": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8"
+    },
+    "source_files": {
+      "const": 792
+    },
+    "source_bytes": {
+      "const": 4302140
+    },
+    "source_git_modes": {
+      "$ref": "#/$defs/sourceGitModes"
+    },
+    "source_verification": {
+      "$ref": "#/$defs/sourceVerification"
+    },
+    "packet_binding": {
+      "$ref": "#/$defs/packetBinding"
+    },
+    "state": {
+      "const": "cold_replay_pass_with_observed_warnings"
+    },
+    "environment": {
+      "$ref": "#/$defs/environment"
+    },
+    "dependency_repairs": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "$ref": "#/$defs/dependencyRepair"
+      }
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/targetResult"
+            },
+            {
+              "properties": {
+                "target": {
+                  "const": "open-logic-debug.tex"
+                },
+                "command": {
+                  "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-debug.tex"
+                },
+                "pdf": {
+                  "properties": {
+                    "path": {
+                      "const": "open-logic-debug.pdf"
+                    }
+                  }
+                },
+                "log": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-debug.log"
+                    }
+                  }
+                },
+                "recorder": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-debug.fls"
+                    }
+                  }
+                },
+                "stdout": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-debug.stdout.txt"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/targetResult"
+            },
+            {
+              "properties": {
+                "target": {
+                  "const": "open-logic-complete.tex"
+                },
+                "command": {
+                  "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-complete.tex"
+                },
+                "pdf": {
+                  "properties": {
+                    "path": {
+                      "const": "open-logic-complete.pdf"
+                    }
+                  }
+                },
+                "log": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-complete.log"
+                    }
+                  }
+                },
+                "recorder": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-complete.fls"
+                    }
+                  }
+                },
+                "stdout": {
+                  "properties": {
+                    "name": {
+                      "const": "open-logic-complete.stdout.txt"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false,
+      "contains": {
+        "type": "object",
+        "required": [
+          "log"
+        ],
+        "properties": {
+          "log": {
+            "type": "object",
+            "required": [
+              "warnings"
+            ],
+            "properties": {
+              "warnings": {
+                "$ref": "#/$defs/observedWarningCounts"
+              }
+            }
+          }
+        }
+      },
+      "minContains": 1
+    },
+    "input_closure": {
+      "$ref": "#/$defs/aggregateInputClosure"
+    },
+    "interpretation": {
+      "const": "Both root readers were forced through isolated fresh copies of the independently reconstructed Git tree. Observed nonfatal warnings are recorded and are not represented as linguistic or mathematical certification."
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "positiveBytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "nonnegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "basename": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+    },
+    "noMachineLocalPath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "^(?!.*[A-Za-z]:[\\\\/])(?!.*\\\\\\\\)(?!.*file:[\\\\/]{2})(?!.*(?:^|\\s)/(?:[^/\\s]|$)).*$"
+    },
+    "sourceGitModes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "100644",
+        "100755"
+      ],
+      "properties": {
+        "100644": {
+          "const": 773
+        },
+        "100755": {
+          "const": 19
+        }
+      }
+    },
+    "sourceVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tsv_rows",
+        "unique_safe_paths",
+        "sha256_replay",
+        "git_blob_oid_replay",
+        "root_tree_reconstruction",
+        "missing",
+        "extra",
+        "post_build_replay"
+      ],
+      "properties": {
+        "tsv_rows": {
+          "const": 792
+        },
+        "unique_safe_paths": {
+          "const": 792
+        },
+        "sha256_replay": {
+          "const": "792/792"
+        },
+        "git_blob_oid_replay": {
+          "const": "792/792"
+        },
+        "root_tree_reconstruction": {
+          "const": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8"
+        },
+        "missing": {
+          "const": 0
+        },
+        "extra": {
+          "const": 0
+        },
+        "post_build_replay": {
+          "const": "1584/1584"
+        }
+      }
+    },
+    "packetBinding": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "state": {
+              "const": "not_requested"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "role",
+            "asset_manifest",
+            "packet_zip"
+          ],
+          "properties": {
+            "state": {
+              "const": "cold_audit_input_replay_pass"
+            },
+            "role": {
+              "const": "Exact input packet used for this cold build replay; the published release asset is bound separately by the external admission receipt and public readback."
+            },
+            "asset_manifest": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "bytes",
+                "sha256"
+              ],
+              "properties": {
+                "name": {
+                  "const": "openlogic.json"
+                },
+                "bytes": {
+                  "$ref": "#/$defs/positiveBytes"
+                },
+                "sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              }
+            },
+            "packet_zip": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "members"
+              ],
+              "properties": {
+                "name": {
+                  "const": "openlogic-v1.zip"
+                },
+                "bytes": {
+                  "$ref": "#/$defs/positiveBytes"
+                },
+                "sha256": {
+                  "$ref": "#/$defs/sha256"
+                },
+                "members": {
+                  "type": "integer",
+                  "minimum": 792
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platform",
+        "platform_release",
+        "python",
+        "latexmk",
+        "pdftex",
+        "bibtex",
+        "pdfinfo"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        },
+        "platform_release": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "python": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+(?:\\.[0-9]+)?(?:[-+][0-9A-Za-z.-]+)?$"
+        },
+        "latexmk": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "pdftex": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "bibtex": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "pdfinfo": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        }
+      }
+    },
+    "dependencyRepair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "note",
+        "provenance"
+      ],
+      "properties": {
+        "note": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "provenance": {
+          "const": "caller-supplied; not executed by this audit"
+        }
+      }
+    },
+    "pdfIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "pages"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/basename"
+        },
+        "bytes": {
+          "$ref": "#/$defs/positiveBytes"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "pages": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "fileIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/basename"
+        },
+        "bytes": {
+          "$ref": "#/$defs/positiveBytes"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "warningCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "latex",
+        "package",
+        "class",
+        "pdftex",
+        "overfull",
+        "underfull",
+        "undefined_reference_mentions",
+        "undefined_citation_mentions",
+        "multiply_defined_mentions"
+      ],
+      "properties": {
+        "latex": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "package": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "class": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "pdftex": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "overfull": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "underfull": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "undefined_reference_mentions": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "undefined_citation_mentions": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "multiply_defined_mentions": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        }
+      }
+    },
+    "observedWarningCounts": {
+      "anyOf": [
+        {
+          "required": [
+            "latex"
+          ],
+          "properties": {
+            "latex": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "package"
+          ],
+          "properties": {
+            "package": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "class"
+          ],
+          "properties": {
+            "class": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "pdftex"
+          ],
+          "properties": {
+            "pdftex": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "overfull"
+          ],
+          "properties": {
+            "overfull": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "underfull"
+          ],
+          "properties": {
+            "underfull": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "undefined_reference_mentions"
+          ],
+          "properties": {
+            "undefined_reference_mentions": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "undefined_citation_mentions"
+          ],
+          "properties": {
+            "undefined_citation_mentions": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "multiply_defined_mentions"
+          ],
+          "properties": {
+            "multiply_defined_mentions": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      ]
+    },
+    "logIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "bytes",
+        "sha256",
+        "warnings",
+        "fatal_markers"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/basename"
+        },
+        "bytes": {
+          "$ref": "#/$defs/positiveBytes"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "warnings": {
+          "$ref": "#/$defs/warningCounts"
+        },
+        "fatal_markers": {
+          "const": 0
+        }
+      }
+    },
+    "externalInputClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "inputs"
+      ],
+      "properties": {
+        "class": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "inputs": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "targetInputClosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unique_inputs",
+        "included_source_inputs",
+        "generated_inputs",
+        "external_toolchain_inputs",
+        "external_input_classes",
+        "unbound_repo_relative_inputs",
+        "excluded_doc_inputs",
+        "closed"
+      ],
+      "properties": {
+        "unique_inputs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "included_source_inputs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 792
+        },
+        "generated_inputs": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "external_toolchain_inputs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "external_input_classes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/externalInputClass"
+          }
+        },
+        "unbound_repo_relative_inputs": {
+          "type": "array",
+          "maxItems": 0,
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_doc_inputs": {
+          "type": "array",
+          "maxItems": 0,
+          "items": {
+            "type": "string"
+          }
+        },
+        "closed": {
+          "const": true
+        }
+      }
+    },
+    "targetResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "command",
+        "exit_code",
+        "fresh_isolated_source_copy",
+        "tracked_source_post_build_replay",
+        "generated_paths_after_build",
+        "pdf",
+        "log",
+        "recorder",
+        "stdout",
+        "input_closure"
+      ],
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/basename"
+        },
+        "command": {
+          "$ref": "#/$defs/noMachineLocalPath"
+        },
+        "exit_code": {
+          "const": 0
+        },
+        "fresh_isolated_source_copy": {
+          "const": true
+        },
+        "tracked_source_post_build_replay": {
+          "const": "792/792"
+        },
+        "generated_paths_after_build": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pdf": {
+          "$ref": "#/$defs/pdfIdentity"
+        },
+        "log": {
+          "$ref": "#/$defs/logIdentity"
+        },
+        "recorder": {
+          "$ref": "#/$defs/fileIdentity"
+        },
+        "stdout": {
+          "$ref": "#/$defs/fileIdentity"
+        },
+        "input_closure": {
+          "$ref": "#/$defs/targetInputClosure"
+        }
+      }
+    },
+    "aggregateExternalInputClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "inputs_across_targets"
+      ],
+      "properties": {
+        "class": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "inputs_across_targets": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "aggregateInputClosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "targets",
+        "all_closed",
+        "excluded_doc_inputs",
+        "unbound_repo_relative_inputs",
+        "unknown_external_inputs",
+        "external_input_classes"
+      ],
+      "properties": {
+        "targets": {
+          "const": 2
+        },
+        "all_closed": {
+          "const": true
+        },
+        "excluded_doc_inputs": {
+          "const": 0
+        },
+        "unbound_repo_relative_inputs": {
+          "const": 0
+        },
+        "unknown_external_inputs": {
+          "const": 0
+        },
+        "external_input_classes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/aggregateExternalInputClass"
+          }
+        }
+      }
+    }
+  }
+}

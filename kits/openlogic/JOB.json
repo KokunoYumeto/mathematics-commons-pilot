@@ -1,0 +1,41 @@
+{
+  "schema": "math-commons-translation-job/v1",
+  "job_id": "openlogic-v1",
+  "work_id": "openlogic-core",
+  "title": "Open Logic Text",
+  "creators": ["The Open Logic Project"],
+  "state": "source_packet_ready",
+  "source": {
+    "repository": "https://github.com/OpenLogicProject/OpenLogic",
+    "commit": "1e960beff9ed7835bf3e3f1335e21af3439cd107",
+    "tree": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+    "materialization": "exact Git blob bytes",
+    "blob_files": 792,
+    "blob_bytes": 4302140,
+    "tracked_empty_files": ["content/methods/methods.pcr"]
+  },
+  "components": {
+    "included": ["all root-tree blobs", "CC BY and embedded component notices", "unmodified build assets"],
+    "pinned_not_included": [{
+      "path": "doc",
+      "repository": "https://github.com/OpenLogicProject/OpenLogic.wiki.git",
+      "commit": "b46686df0e06f302a7b75a74b379c802f7c7b565",
+      "tree": "0ca22cd55cde601a1f1f1c33c5757a5777164959",
+      "blob_files": 18,
+      "blob_bytes": 58769,
+      "reason": "not a build input; wiki-wide redistribution license not established"
+    }],
+    "not_included": [".git metadata", "generated build outputs", "optional photo and portrait repositories", "derivative textbook repositories", "external TeX distribution"]
+  },
+  "rights": {
+    "work_license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derivative_translation_allowed": true,
+    "notice": "NOTICE.md"
+  },
+  "language_selection_required": true,
+  "translation_included": false,
+  "entry_points": {"local": "LOCAL.md", "web": "WEB.md"},
+  "build_receipt": "BUILD.json",
+  "source_tree_receipt": "SOURCE_TREE.tsv"
+}

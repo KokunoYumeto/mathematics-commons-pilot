@@ -1,0 +1,13 @@
+{
+  "schema": "math-commons-translation-checkpoint/v1",
+  "job_id": "openlogic-v1",
+  "generation": 0,
+  "state": "awaiting_target_selection",
+  "completed_units": [],
+  "current_unit": null,
+  "next_cursor": "target-language-selection",
+  "prior_generation_sha256": null,
+  "cumulative_manifest_sha256": null,
+  "updated": null
+}
+

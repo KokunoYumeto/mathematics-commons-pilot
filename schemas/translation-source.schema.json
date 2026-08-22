@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/translation-source.schema.json",
+  "title": "Mathematics Commons translation source state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "state", "work", "target", "coverage", "review", "source", "rights", "scope"],
+  "properties": {
+    "schema": {"const": "math-commons-translation-source/v4"},
+    "state": {"enum": ["source_preflight", "awaiting_target_selection", "source_frozen"]},
+    "work": {"$ref": "#/$defs/work"},
+    "target": {"$ref": "#/$defs/target"},
+    "coverage": {"$ref": "#/$defs/coverage"},
+    "review": {"$ref": "#/$defs/review"},
+    "source": {"$ref": "#/$defs/source"},
+    "rights": {"$ref": "#/$defs/rights"},
+    "scope": {"$ref": "#/$defs/scope"}
+  },
+  "$defs": {
+    "slugOrNull": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "stringOrNull": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "httpsUriOrNull": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"}
+      ]
+    },
+    "hex40OrNull": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "relativePathOrNull": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"}
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "languageTagOrNull": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+    },
+    "knownEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language_tag", "language_name", "state", "scope_note", "evidence_status"],
+      "properties": {
+        "language_tag": {"type": "string", "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"},
+        "language_name": {"type": "string", "minLength": 1},
+        "state": {"enum": ["reported_active", "reported_complete", "reported_planned", "verified_active", "verified_complete", "inactive"]},
+        "scope_note": {"type": "string", "minLength": 1},
+        "evidence_status": {"enum": ["non_public_coordination_snapshot", "public_repository_identity_verified", "public_bytes_verified"]}
+      }
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_id", "title", "creators", "source_language"],
+      "properties": {
+        "work_id": {"$ref": "#/$defs/slugOrNull"},
+        "title": {"$ref": "#/$defs/stringOrNull"},
+        "creators": {"$ref": "#/$defs/stringArray"},
+        "source_language": {"$ref": "#/$defs/stringOrNull"}
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "language_tag", "locale", "script", "orthographic_standard", "intended_learners", "mathematical_register"],
+      "properties": {
+        "language": {"$ref": "#/$defs/stringOrNull"},
+        "language_tag": {"$ref": "#/$defs/languageTagOrNull"},
+        "locale": {"$ref": "#/$defs/stringOrNull"},
+        "script": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[A-Z][a-z]{3}$"}]},
+        "orthographic_standard": {"$ref": "#/$defs/stringOrNull"},
+        "intended_learners": {"$ref": "#/$defs/stringOrNull"},
+        "mathematical_register": {"$ref": "#/$defs/stringOrNull"}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checked_at", "known_editions", "declared_overlap", "relationship"],
+      "properties": {
+        "checked_at": {"oneOf": [{"type": "null"}, {"type": "string", "format": "date-time"}]},
+        "known_editions": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/knownEdition"}},
+        "declared_overlap": {"$ref": "#/$defs/stringOrNull"},
+        "relationship": {"$ref": "#/$defs/stringOrNull"}
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language_reviewers", "mathematics_reviewers", "independent_cold_review_required"],
+      "properties": {
+        "language_reviewers": {"$ref": "#/$defs/stringArray"},
+        "mathematics_reviewers": {"$ref": "#/$defs/stringArray"},
+        "independent_cold_review_required": {"const": true}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit", "tree", "files", "bytes", "tree_receipt", "immutable_path"],
+      "properties": {
+        "repository": {"$ref": "#/$defs/httpsUriOrNull"},
+        "commit": {"$ref": "#/$defs/hex40OrNull"},
+        "tree": {"$ref": "#/$defs/hex40OrNull"},
+        "files": {"type": ["integer", "null"], "minimum": 1},
+        "bytes": {"type": ["integer", "null"], "minimum": 1},
+        "tree_receipt": {"$ref": "#/$defs/relativePathOrNull"},
+        "immutable_path": {"$ref": "#/$defs/relativePathOrNull"}
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_license", "license_url", "derivative_translation_allowed", "notice"],
+      "properties": {
+        "work_license": {"$ref": "#/$defs/stringOrNull"},
+        "license_url": {"$ref": "#/$defs/httpsUriOrNull"},
+        "derivative_translation_allowed": {"type": ["boolean", "null"]},
+        "notice": {"$ref": "#/$defs/relativePathOrNull"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included", "excluded", "first_unit", "next_cursor"],
+      "properties": {
+        "included": {"$ref": "#/$defs/stringOrNull"},
+        "excluded": {"$ref": "#/$defs/stringOrNull"},
+        "first_unit": {"$ref": "#/$defs/stringOrNull"},
+        "next_cursor": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

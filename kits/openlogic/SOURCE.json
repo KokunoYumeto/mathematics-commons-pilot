@@ -1,0 +1,52 @@
+{
+  "schema": "math-commons-translation-source/v4",
+  "state": "awaiting_target_selection",
+  "work": {
+    "work_id": "openlogic-core",
+    "title": "Open Logic Text",
+    "creators": ["The Open Logic Project"],
+    "source_language": "English"
+  },
+  "target": {
+    "language": null,
+    "language_tag": null,
+    "locale": null,
+    "script": null,
+    "orthographic_standard": null,
+    "intended_learners": null,
+    "mathematical_register": null
+  },
+  "coverage": {
+    "checked_at": null,
+    "known_editions": [],
+    "declared_overlap": null,
+    "relationship": null
+  },
+  "review": {
+    "language_reviewers": [],
+    "mathematics_reviewers": [],
+    "independent_cold_review_required": true
+  },
+  "source": {
+    "repository": "https://github.com/OpenLogicProject/OpenLogic",
+    "commit": "1e960beff9ed7835bf3e3f1335e21af3439cd107",
+    "tree": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+    "files": 792,
+    "bytes": 4302140,
+    "tree_receipt": "SOURCE_TREE.tsv",
+    "immutable_path": "source"
+  },
+  "rights": {
+    "work_license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derivative_translation_allowed": true,
+    "notice": "NOTICE.md"
+  },
+  "scope": {
+    "included": "complete pinned Open Logic root source",
+    "excluded": "components listed in JOB.json",
+    "first_unit": null,
+    "next_cursor": "target-language-selection"
+  }
+}
+

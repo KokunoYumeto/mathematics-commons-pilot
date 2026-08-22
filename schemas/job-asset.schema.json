@@ -13,6 +13,8 @@
     "source_bytes": {"type": "integer", "minimum": 1},
     "canonical_stream_bytes": {"type": "integer", "minimum": 1},
     "source_tree_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "mode_stream_bytes": {"type": "integer", "minimum": 1},
+    "mode_tree_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
     "asset_count": {"type": "integer", "minimum": 1},
     "assets": {
       "type": "array",
@@ -43,8 +45,9 @@
         "required": ["path", "bytes", "sha256"],
         "properties": {
           "path": {"$ref": "#/$defs/safePath"},
-          "bytes": {"type": "integer", "minimum": 1},
-          "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+          "mode": {"enum": ["100644", "100755"]}
         }
       }
     },

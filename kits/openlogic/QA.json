@@ -1,0 +1,12 @@
+{
+  "schema": "math-commons-translation-qa/v1",
+  "job_id": "openlogic-v1",
+  "generation": 0,
+  "state": "not_run",
+  "reviewed_manifest_sha256": null,
+  "reviewers": [],
+  "checks": [],
+  "defects": [],
+  "completed": null
+}
+
