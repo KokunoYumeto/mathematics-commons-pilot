@@ -1,6 +1,6 @@
 {
   "schema": "math-commons-portal-catalog/v1",
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "sections": [
     {
@@ -9,14 +9,14 @@
       "state": "runnable",
       "docs": "docs/run.md",
       "catalog": "catalog/jobs.json",
-      "summary": "Twenty-eight verified source packets with exact release assets, 45-prompt workflows, and public readback.",
+      "summary": "Twenty-eight verified source packets with exact release assets, workload-derived prompt files, and public readback.",
       "release": {
-        "tag": "jobs-2026-08-21-r1",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r1",
-        "asset_count": 29,
-        "asset_bytes": 6599619260,
+        "tag": "jobs-2026-08-21-r2",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2",
+        "asset_count": 30,
+        "asset_bytes": 8808377826,
         "asset_catalog": "catalog/jobs.json",
-        "readback": "catalog/readback.json",
+        "readback": "catalog/readback-r2.json",
         "assets": []
       },
       "limitations": [

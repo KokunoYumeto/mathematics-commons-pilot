@@ -24,6 +24,22 @@ import validate_repository  # noqa: E402
 
 
 class RepositoryValidationTests(unittest.TestCase):
+    def test_r1_release_readback_is_byte_pinned(self) -> None:
+        errors: list[str] = []
+        validate_repository.check_immutable_r1_readback(errors)
+        self.assertEqual([], errors)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            receipt = repository / "catalog" / "readback.json"
+            receipt.parent.mkdir(parents=True)
+            receipt.write_bytes(b"changed\n")
+            errors = []
+            with mock.patch.object(validate_repository, "ROOT", repository):
+                validate_repository.check_immutable_r1_readback(errors)
+            self.assertIn("byte length changed", "\n".join(errors))
+            self.assertIn("SHA-256 changed", "\n".join(errors))
+
     def _write_evidence_manifest(
         self,
         repository: Path,

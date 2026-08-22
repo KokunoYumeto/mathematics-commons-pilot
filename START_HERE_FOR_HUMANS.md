@@ -6,7 +6,7 @@ Choose one portal.
 
 ## Transcription
 
-Select one of the [28 verified packets](catalog/jobs.json), download every listed asset part, verify the hashes, and follow the [Prompt 1–45 instructions](docs/run.md). Return the cumulative result, manifest, checks, failures, and continuation cursor.
+Select one of the [28 verified packets](catalog/jobs.json), download every listed asset part, verify the hashes, and execute every prompt in that row's declared prompt file. Return the cumulative result, manifest, checks, failures, and continuation cursor.
 
 ## Translation
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+from contextlib import redirect_stderr
 import importlib.util
 import io
 import json
@@ -10,6 +11,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,9 +28,67 @@ BUILD_SPEC = importlib.util.spec_from_file_location(
 assert BUILD_SPEC is not None and BUILD_SPEC.loader is not None
 build_jobs = importlib.util.module_from_spec(BUILD_SPEC)
 BUILD_SPEC.loader.exec_module(build_jobs)
+READBACK_SPEC = importlib.util.spec_from_file_location(
+    "readback_jobs_release", ROOT / "tools" / "readback_jobs_release.py"
+)
+assert READBACK_SPEC is not None and READBACK_SPEC.loader is not None
+readback_jobs_release = importlib.util.module_from_spec(READBACK_SPEC)
+READBACK_SPEC.loader.exec_module(readback_jobs_release)
 
 
 class JobCatalogTests(unittest.TestCase):
+    def test_validator_missing_required_input_fails_without_traceback(self) -> None:
+        stderr = io.StringIO()
+        with (
+            mock.patch.object(
+                validate_jobs,
+                "validate_jobs",
+                return_value=(28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2),
+            ),
+            mock.patch.object(validate_jobs, "validate_translations", return_value=40),
+            mock.patch.object(validate_jobs, "validate_formalization", return_value=19),
+            mock.patch.object(validate_jobs, "validate_portals", return_value=3),
+            mock.patch.object(
+                validate_jobs,
+                "validate_public_readback",
+                return_value=validate_jobs.failed_readback_contract(),
+            ),
+            mock.patch.object(
+                validate_jobs,
+                "input_identity",
+                side_effect=FileNotFoundError("required receipt is missing"),
+            ),
+            mock.patch.object(sys, "argv", ["validate_jobs.py"]),
+            redirect_stderr(stderr),
+        ):
+            result = validate_jobs.main()
+        self.assertEqual(result, 1)
+        self.assertIn("cannot bind validator inputs", stderr.getvalue())
+
+    def test_readback_output_is_tag_derived_and_r1_receipt_is_immutable(self) -> None:
+        self.assertEqual(
+            readback_jobs_release.required_output_path("jobs-2026-08-21-r2"),
+            (ROOT / "catalog" / "readback-r2.json").resolve(),
+        )
+        stderr = io.StringIO()
+        with redirect_stderr(stderr):
+            result = readback_jobs_release.main(
+                [
+                    "--repository",
+                    "KokunoYumeto/mathematics-commons-pilot",
+                    "--tag",
+                    "jobs-2026-08-21-r1",
+                    "--commit",
+                    "0" * 40,
+                    "--catalog",
+                    "catalog/jobs.json",
+                    "--output",
+                    "catalog/readback.json",
+                ]
+            )
+        self.assertEqual(result, 2)
+        self.assertIn("immutable R1 receipt", stderr.getvalue())
+
     def test_r2_prompt_counts_are_positive_integers_without_a_fixed_total(self) -> None:
         for accepted in (1, 2, 13, 45, 91):
             self.assertTrue(validate_jobs.valid_prompt_count(accepted))
@@ -90,7 +150,7 @@ class JobCatalogTests(unittest.TestCase):
         translations = validate_jobs.validate_translations(errors)
         portals = validate_jobs.validate_portals(errors)
         self.assertEqual(errors, [])
-        self.assertEqual(result, (28, 30, 488, 6_691_065_999, 6_599_622_703, 492, 2))
+        self.assertEqual(result, (28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2))
         self.assertEqual(translations, 40)
         self.assertEqual(portals, 3)
 
@@ -173,14 +233,14 @@ class JobCatalogTests(unittest.TestCase):
             contract,
             {
                 "status": "PASS",
-                "subject_commit": "049a2c9c351e827c85e69f21c2ebd0c3a98db705",
-                "release_tag": "jobs-2026-08-21-r1",
-                "release_id": 374306971,
+                "subject_commit": "6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75",
+                "release_tag": "jobs-2026-08-21-r2",
+                "release_id": 374540343,
                 "transport": "anonymous_https",
-                "observed_date": "2026-08-21",
-                "release_assets": 30,
-                "release_asset_bytes": 6_599_622_703,
-                "raw_files": 7,
+                "observed_date": "2026-08-22",
+                "release_assets": 31,
+                "release_asset_bytes": 8_808_381_269,
+                "raw_files": 9,
                 "mismatches": 0,
                 "errors": 0,
             },
@@ -188,7 +248,7 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_public_readback_rejects_observed_hash_drift(self) -> None:
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "jobs.json")
-        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback.json")
+        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback-r2.json")
         mutated = copy.deepcopy(receipt)
         mutated["assets"][0]["observed_sha256"] = "0" * 64
         errors: list[str] = []
@@ -203,7 +263,7 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_public_readback_rejects_subject_drift(self) -> None:
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "jobs.json")
-        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback.json")
+        receipt, _ = validate_jobs.load(ROOT / "catalog" / "readback-r2.json")
         mutated = copy.deepcopy(receipt)
         mutated["subject"]["commit"] = "0" * 40
         errors: list[str] = []
@@ -435,7 +495,7 @@ class JobCatalogTests(unittest.TestCase):
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         self.assertIn(
-            "PASS: 28 jobs, 30 release assets, 40 translation entries, 3 portal sections",
+            "PASS: 28 jobs, 31 release assets, 40 translation entries, 3 portal sections, 19 formalization entries",
             completed.stdout,
         )
 

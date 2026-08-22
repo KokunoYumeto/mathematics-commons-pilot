@@ -12,6 +12,7 @@ never stored on disk.
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import hashlib
 import json
 import os
@@ -613,7 +614,6 @@ def validate_receipt_contract(
     if set(receipt) != expected_top:
         fail("generated receipt top-level fields differ from the schema")
     schema_const = schema.get("properties", {}).get("schema", {}).get("const")
-    date_const = schema.get("properties", {}).get("observed_date", {}).get("const")
     repository_const = (
         schema.get("properties", {})
         .get("subject", {})
@@ -621,8 +621,15 @@ def validate_receipt_contract(
         .get("repository", {})
         .get("const")
     )
-    if receipt["schema"] != schema_const or receipt["observed_date"] != date_const:
-        fail("generated receipt constants differ from the schema")
+    if receipt["schema"] != schema_const:
+        fail("generated receipt schema differs from the schema contract")
+    observed_date = receipt.get("observed_date")
+    try:
+        parsed_date = date.fromisoformat(observed_date)
+    except (TypeError, ValueError):
+        fail("generated receipt observed_date is not an ISO calendar date")
+    if parsed_date.isoformat() != observed_date:
+        fail("generated receipt observed_date is not canonical")
     status = receipt.get("status")
     errors = receipt.get("errors")
     if (
@@ -733,7 +740,7 @@ def build_receipt(args: argparse.Namespace) -> tuple[dict[str, Any], bool]:
         .get("repository", {})
         .get("const")
     )
-    observed_date = schema.get("properties", {}).get("observed_date", {}).get("const")
+    observed_date = date.today().isoformat()
     if args.repository != repository_const:
         fail(
             f"--repository must be {repository_const!r} for the current receipt schema"
@@ -827,6 +834,15 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def required_output_path(tag: str) -> Path:
+    """Return the tag-derived receipt path without exposing R1 to overwrite."""
+
+    if TAG_RE.fullmatch(tag) is None:
+        fail("--tag is not a canonical jobs release tag")
+    generation = int(tag.rsplit("-r", 1)[1])
+    return (ROOT / "catalog" / f"readback-r{generation}.json").resolve()
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     output = args.output
@@ -835,6 +851,14 @@ def main(argv: list[str] | None = None) -> int:
     output = output.resolve()
     args.output = output
     try:
+        expected_output = required_output_path(args.tag)
+        if output == (ROOT / "catalog" / "readback.json").resolve():
+            fail("catalog/readback.json is the immutable R1 receipt")
+        if output != expected_output:
+            fail(
+                "--output must match the release generation: "
+                f"{expected_output.relative_to(ROOT).as_posix()}"
+            )
         receipt, passed = build_receipt(args)
         write_receipt(output, receipt)
     except ReadbackError as exc:

@@ -1,0 +1,408 @@
+{
+  "schema": "math-commons-release-readback/v1",
+  "status": "PASS",
+  "observed_date": "2026-08-22",
+  "subject": {
+    "repository": "KokunoYumeto/mathematics-commons-pilot",
+    "commit": "6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75",
+    "main_commit_at_readback": "5bd7983daf8d540b12409dab077d688c41df2666",
+    "tag": "jobs-2026-08-21-r2",
+    "tag_commit": "6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75",
+    "release_id": 374540343,
+    "release_url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2"
+  },
+  "transport": {
+    "method": "anonymous_https",
+    "authorization": "none",
+    "cookies": "none",
+    "persistence": "none"
+  },
+  "assets": [
+    {
+      "name": "al-battani-nallino-opus-astronomicum-1899-1907.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-battani-nallino-opus-astronomicum-1899-1907.zip",
+      "expected_bytes": 116634198,
+      "observed_bytes": 116634198,
+      "expected_sha256": "6E1F0960D265CF8038ACDA3A9C4A1EF60042855694E1C472BC710F249714225A",
+      "observed_sha256": "6E1F0960D265CF8038ACDA3A9C4A1EF60042855694E1C472BC710F249714225A",
+      "match": true
+    },
+    {
+      "name": "al-khwarizmi-al-jabr-cairo-1939.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-khwarizmi-al-jabr-cairo-1939.zip",
+      "expected_bytes": 363563394,
+      "observed_bytes": 363563394,
+      "expected_sha256": "E1AC68C1497C5F339E281E5619C079DB56858F63DF3336C23C987DBA12DD2680",
+      "observed_sha256": "E1AC68C1497C5F339E281E5619C079DB56858F63DF3336C23C987DBA12DD2680",
+      "match": true
+    },
+    {
+      "name": "al-tusi-quadrilateral-french-1891.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/al-tusi-quadrilateral-french-1891.zip",
+      "expected_bytes": 285113722,
+      "observed_bytes": 285113722,
+      "expected_sha256": "C3664FB07831E30693BA19D20587CDA63F8D2DFEE2AEFF004B0304425902BB0B",
+      "observed_sha256": "C3664FB07831E30693BA19D20587CDA63F8D2DFEE2AEFF004B0304425902BB0B",
+      "match": true
+    },
+    {
+      "name": "aryabhatiya-jyotihsastram-1906.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/aryabhatiya-jyotihsastram-1906.zip",
+      "expected_bytes": 214013352,
+      "observed_bytes": 214013352,
+      "expected_sha256": "53B1EE70008CFA9846CA17E08CE6E7A39C3B008F5CC2AA4DC89D507A715E6842",
+      "observed_sha256": "53B1EE70008CFA9846CA17E08CE6E7A39C3B008F5CC2AA4DC89D507A715E6842",
+      "match": true
+    },
+    {
+      "name": "bhaskara-bijaganita-apte-1930.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/bhaskara-bijaganita-apte-1930.zip",
+      "expected_bytes": 5688884,
+      "observed_bytes": 5688884,
+      "expected_sha256": "B8D6989F39B2899EAF653FBE97133EB367DF7F6959C3870D44CC7563912B4A4C",
+      "observed_sha256": "B8D6989F39B2899EAF653FBE97133EB367DF7F6959C3870D44CC7563912B4A4C",
+      "match": true
+    },
+    {
+      "name": "bhaskara-lilavati-1907.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/bhaskara-lilavati-1907.zip",
+      "expected_bytes": 509073950,
+      "observed_bytes": 509073950,
+      "expected_sha256": "60C3E58E59C03062D399B94E8DDA03779967240FB99828D1A3735A05CFC60015",
+      "observed_sha256": "60C3E58E59C03062D399B94E8DDA03779967240FB99828D1A3735A05CFC60015",
+      "match": true
+    },
+    {
+      "name": "cayley-collected-papers-v01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/cayley-collected-papers-v01.zip",
+      "expected_bytes": 171921441,
+      "observed_bytes": 171921441,
+      "expected_sha256": "AC33E330ECAC16E7C283CD33B15BD849AE3B7ED329753F5AF7FFC3247A318F36",
+      "observed_sha256": "AC33E330ECAC16E7C283CD33B15BD849AE3B7ED329753F5AF7FFC3247A318F36",
+      "match": true
+    },
+    {
+      "name": "clebsch-gordan-abelian-functions-1866.part01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/clebsch-gordan-abelian-functions-1866.part01.zip",
+      "expected_bytes": 1573636853,
+      "observed_bytes": 1573636853,
+      "expected_sha256": "159AE4ECEDCF1DA1D87345346168DCF6BFC8C60090AFB28D54FEA2AECED58214",
+      "observed_sha256": "159AE4ECEDCF1DA1D87345346168DCF6BFC8C60090AFB28D54FEA2AECED58214",
+      "match": true
+    },
+    {
+      "name": "clebsch-gordan-abelian-functions-1866.part02.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/clebsch-gordan-abelian-functions-1866.part02.zip",
+      "expected_bytes": 176249461,
+      "observed_bytes": 176249461,
+      "expected_sha256": "8F3723A0EDB96680BADC5F7E321A3AAB0358748132A88DBA17D3AFF53CF74E52",
+      "observed_sha256": "8F3723A0EDB96680BADC5F7E321A3AAB0358748132A88DBA17D3AFF53CF74E52",
+      "match": true
+    },
+    {
+      "name": "dedekind-werke-v01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/dedekind-werke-v01.zip",
+      "expected_bytes": 18584694,
+      "observed_bytes": 18584694,
+      "expected_sha256": "49235543C1C09F9C43DC6ECB37CDA181735169ECB7A4FE9D21C3F708C48FCE74",
+      "observed_sha256": "49235543C1C09F9C43DC6ECB37CDA181735169ECB7A4FE9D21C3F708C48FCE74",
+      "match": true
+    },
+    {
+      "name": "dedekind-werke-v03.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/dedekind-werke-v03.zip",
+      "expected_bytes": 25299372,
+      "observed_bytes": 25299372,
+      "expected_sha256": "C87698B9336CA3BE9A2825954255C92BC661F7FD237BDCB262C5D9DEB79CE140",
+      "observed_sha256": "C87698B9336CA3BE9A2825954255C92BC661F7FD237BDCB262C5D9DEB79CE140",
+      "match": true
+    },
+    {
+      "name": "gauss-werke-v02-with-nachtrag.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gauss-werke-v02-with-nachtrag.zip",
+      "expected_bytes": 34493928,
+      "observed_bytes": 34493928,
+      "expected_sha256": "2A9B161CA1059B56F6FF2A4CC26D087ADE06EDE3EFE1A47316BE79CCEF282E1D",
+      "observed_sha256": "2A9B161CA1059B56F6FF2A4CC26D087ADE06EDE3EFE1A47316BE79CCEF282E1D",
+      "match": true
+    },
+    {
+      "name": "gibbs-scientific-papers-v01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gibbs-scientific-papers-v01.zip",
+      "expected_bytes": 101592856,
+      "observed_bytes": 101592856,
+      "expected_sha256": "7FCACC4181AD7DF04DCF03FE70AD2D8445E72E66A236F03A0307B13C1E38C641",
+      "observed_sha256": "7FCACC4181AD7DF04DCF03FE70AD2D8445E72E66A236F03A0307B13C1E38C641",
+      "match": true
+    },
+    {
+      "name": "gordan-de-linea-geodetica-1862.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-de-linea-geodetica-1862.zip",
+      "expected_bytes": 103247362,
+      "observed_bytes": 103247362,
+      "expected_sha256": "586B5BF7B0B2C3BC9BD0C69DD4977C2BCCADB065793925C79785BBF8F678746A",
+      "observed_sha256": "586B5BF7B0B2C3BC9BD0C69DD4977C2BCCADB065793925C79785BBF8F678746A",
+      "match": true
+    },
+    {
+      "name": "gordan-formensystem-binaerer-formen.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-formensystem-binaerer-formen.zip",
+      "expected_bytes": 123817522,
+      "observed_bytes": 123817522,
+      "expected_sha256": "4CD3712633AB563F82F029D5F2D38E17FCE099B8180F38D5DD2958183239E90A",
+      "observed_sha256": "4CD3712633AB563F82F029D5F2D38E17FCE099B8180F38D5DD2958183239E90A",
+      "match": true
+    },
+    {
+      "name": "gordan-transformation-thetafunctionen-1863.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-transformation-thetafunctionen-1863.zip",
+      "expected_bytes": 140514019,
+      "observed_bytes": 140514019,
+      "expected_sha256": "8724C013965076B398052B88DBC1EB31FACBBC5F4E4D247963B55200CD1503F9",
+      "observed_sha256": "8724C013965076B398052B88DBC1EB31FACBBC5F4E4D247963B55200CD1503F9",
+      "match": true
+    },
+    {
+      "name": "gordan-invariantentheorie-v01-1885.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-invariantentheorie-v01-1885.zip",
+      "expected_bytes": 122573954,
+      "observed_bytes": 122573954,
+      "expected_sha256": "366C4A268129940A359F2813647F2E24E34A9F39B5C480DD9D3B98730E409587",
+      "observed_sha256": "366C4A268129940A359F2813647F2E24E34A9F39B5C480DD9D3B98730E409587",
+      "match": true
+    },
+    {
+      "name": "gordan-invariantentheorie-v02-1887.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/gordan-invariantentheorie-v02-1887.zip",
+      "expected_bytes": 166503918,
+      "observed_bytes": 166503918,
+      "expected_sha256": "4778EECA82513796603539EF75CABA0B2C457CC896721F80A9D69EA4195D56DC",
+      "observed_sha256": "4778EECA82513796603539EF75CABA0B2C457CC896721F80A9D69EA4195D56DC",
+      "match": true
+    },
+    {
+      "name": "hecke-algebraische-zahlen-1923.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/hecke-algebraische-zahlen-1923.zip",
+      "expected_bytes": 369489513,
+      "observed_bytes": 369489513,
+      "expected_sha256": "A3A347361ADC2463C3E9E7672BE42E0E964AAA818DABDE288C9A524B096C0B3C",
+      "observed_sha256": "A3A347361ADC2463C3E9E7672BE42E0E964AAA818DABDE288C9A524B096C0B3C",
+      "match": true
+    },
+    {
+      "name": "khayyam-columbia-ms-or34-algebra.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/khayyam-columbia-ms-or34-algebra.zip",
+      "expected_bytes": 331472031,
+      "observed_bytes": 331472031,
+      "expected_sha256": "8616DF219CDD6566DD298BA56BAFBF7B87DD0419581670DAA6E98F9A2D85C666",
+      "observed_sha256": "8616DF219CDD6566DD298BA56BAFBF7B87DD0419581670DAA6E98F9A2D85C666",
+      "match": true
+    },
+    {
+      "name": "klein-fricke-modulfunctionen-v01-1890.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/klein-fricke-modulfunctionen-v01-1890.zip",
+      "expected_bytes": 125174358,
+      "observed_bytes": 125174358,
+      "expected_sha256": "E590C41823F18BDCBBD9DFAD4214823D7BA02F4F067C3EC8D2D69DE95DCC0EC4",
+      "observed_sha256": "E590C41823F18BDCBBD9DFAD4214823D7BA02F4F067C3EC8D2D69DE95DCC0EC4",
+      "match": true
+    },
+    {
+      "name": "kronecker-grundzuege-1882.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/kronecker-grundzuege-1882.zip",
+      "expected_bytes": 175251578,
+      "observed_bytes": 175251578,
+      "expected_sha256": "30B064938C6CB40A3C200770AD8536FBE905A935A73FE4997F86AE60B305EF3F",
+      "observed_sha256": "30B064938C6CB40A3C200770AD8536FBE905A935A73FE4997F86AE60B305EF3F",
+      "match": true
+    },
+    {
+      "name": "mikami-development-mathematics-china-japan-1913.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/mikami-development-mathematics-china-japan-1913.zip",
+      "expected_bytes": 40458723,
+      "observed_bytes": 40458723,
+      "expected_sha256": "E045772E8CFB4E12D3BF96CB40E8F7C1EC5D2FB3F5C8FA05B0367C71B07A96D7",
+      "observed_sha256": "E045772E8CFB4E12D3BF96CB40E8F7C1EC5D2FB3F5C8FA05B0367C71B07A96D7",
+      "match": true
+    },
+    {
+      "name": "picard-traite-analyse-v01-1891.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/picard-traite-analyse-v01-1891.zip",
+      "expected_bytes": 375958253,
+      "observed_bytes": 375958253,
+      "expected_sha256": "8E9CDCC30C1F0C9CE75C0E48BDED0B7058A2FCC6CD5CB51AEBD3C57F6FB1310B",
+      "observed_sha256": "8E9CDCC30C1F0C9CE75C0E48BDED0B7058A2FCC6CD5CB51AEBD3C57F6FB1310B",
+      "match": true
+    },
+    {
+      "name": "poincare-oeuvres-v01-1928.part01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/poincare-oeuvres-v01-1928.part01.zip",
+      "expected_bytes": 1552443647,
+      "observed_bytes": 1552443647,
+      "expected_sha256": "8047CD2378667908B3608A69807DB5FE35F35F980CF2B8EF8B2894337F1BC4BB",
+      "observed_sha256": "8047CD2378667908B3608A69807DB5FE35F35F980CF2B8EF8B2894337F1BC4BB",
+      "match": true
+    },
+    {
+      "name": "poincare-oeuvres-v01-1928.part02.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/poincare-oeuvres-v01-1928.part02.zip",
+      "expected_bytes": 1345670767,
+      "observed_bytes": 1345670767,
+      "expected_sha256": "106DCACBEDBFE3B877B21FA6BE95AFAFD9103B2837FC784977ABD94A976DB749",
+      "observed_sha256": "106DCACBEDBFE3B877B21FA6BE95AFAFD9103B2837FC784977ABD94A976DB749",
+      "match": true
+    },
+    {
+      "name": "seki-hatsubi-sanpo.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/seki-hatsubi-sanpo.zip",
+      "expected_bytes": 65507557,
+      "observed_bytes": 65507557,
+      "expected_sha256": "27D86A28D05607EA8FE4014E5E35A049F06E4ECC0AF02C8A6D0D873D12C8EAE6",
+      "observed_sha256": "27D86A28D05607EA8FE4014E5E35A049F06E4ECC0AF02C8A6D0D873D12C8EAE6",
+      "match": true
+    },
+    {
+      "name": "weber-lehrbuch-algebra-v01.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v01.zip",
+      "expected_bytes": 57696369,
+      "observed_bytes": 57696369,
+      "expected_sha256": "DA40D448766978C2F1BBEB146E81A49DB17A4E8BD6E6322401A0EF97E41B562C",
+      "observed_sha256": "DA40D448766978C2F1BBEB146E81A49DB17A4E8BD6E6322401A0EF97E41B562C",
+      "match": true
+    },
+    {
+      "name": "weber-lehrbuch-algebra-v02.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v02.zip",
+      "expected_bytes": 69663648,
+      "observed_bytes": 69663648,
+      "expected_sha256": "234C3AC2C17F257895DB0C060305E0609DEA61DAF75B56A088DB98461E2C92E6",
+      "observed_sha256": "234C3AC2C17F257895DB0C060305E0609DEA61DAF75B56A088DB98461E2C92E6",
+      "match": true
+    },
+    {
+      "name": "weber-lehrbuch-algebra-v03.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/weber-lehrbuch-algebra-v03.zip",
+      "expected_bytes": 47068502,
+      "observed_bytes": 47068502,
+      "expected_sha256": "2BA4BC628519337D484EADF167EA8D60BAAD81393DB0B494C0898DBC9CEFA51F",
+      "observed_sha256": "2BA4BC628519337D484EADF167EA8D60BAAD81393DB0B494C0898DBC9CEFA51F",
+      "match": true
+    },
+    {
+      "name": "open-textbook-translation-kit.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/jobs-2026-08-21-r2/open-textbook-translation-kit.zip",
+      "expected_bytes": 3443,
+      "observed_bytes": 3443,
+      "expected_sha256": "22383513B060A7E08D7F693F833C6BC8DDBDF256C2816DC842C0D0F2E1BE929C",
+      "observed_sha256": "22383513B060A7E08D7F693F833C6BC8DDBDF256C2816DC842C0D0F2E1BE929C",
+      "match": true
+    }
+  ],
+  "aggregate": {
+    "expected_assets": 31,
+    "observed_assets": 31,
+    "matched_assets": 31,
+    "expected_bytes": 8808381269,
+    "observed_bytes": 8808381269,
+    "mismatches": 0
+  },
+  "raw_files": [
+    {
+      "path": "README.md",
+      "name": "README.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/README.md",
+      "expected_bytes": 8025,
+      "observed_bytes": 8025,
+      "expected_sha256": "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D",
+      "observed_sha256": "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D",
+      "match": true
+    },
+    {
+      "path": "docs/workbench.md",
+      "name": "workbench.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/docs/workbench.md",
+      "expected_bytes": 13833,
+      "observed_bytes": 13833,
+      "expected_sha256": "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0",
+      "observed_sha256": "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0",
+      "match": true
+    },
+    {
+      "path": "docs/roadmap.md",
+      "name": "roadmap.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/docs/roadmap.md",
+      "expected_bytes": 2011,
+      "observed_bytes": 2011,
+      "expected_sha256": "E486DFCFBB7F0CFC3FA853E6A95B0BFBFBCF688EBF50A3E8AD04E8FB15E4F9B3",
+      "observed_sha256": "E486DFCFBB7F0CFC3FA853E6A95B0BFBFBCF688EBF50A3E8AD04E8FB15E4F9B3",
+      "match": true
+    },
+    {
+      "path": "catalog/jobs.json",
+      "name": "jobs.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/catalog/jobs.json",
+      "expected_bytes": 131843,
+      "observed_bytes": 131843,
+      "expected_sha256": "81C83746817B82F71BBCE337B338D87A95E8240693D4F645F78888F88B3AABD5",
+      "observed_sha256": "81C83746817B82F71BBCE337B338D87A95E8240693D4F645F78888F88B3AABD5",
+      "match": true
+    },
+    {
+      "path": "catalog/check.json",
+      "name": "check.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/catalog/check.json",
+      "expected_bytes": 5388,
+      "observed_bytes": 5388,
+      "expected_sha256": "EA4FE70EE87478BFF119A2AD58222BDFE85AB9CBE4070F976D016ECF6D5E46C2",
+      "observed_sha256": "EA4FE70EE87478BFF119A2AD58222BDFE85AB9CBE4070F976D016ECF6D5E46C2",
+      "match": true
+    },
+    {
+      "path": "schemas/catalog-check.schema.json",
+      "name": "catalog-check.schema.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/schemas/catalog-check.schema.json",
+      "expected_bytes": 7083,
+      "observed_bytes": 7083,
+      "expected_sha256": "6656074028A7DB28A15CCFCA2759059707DA54EC468EABF850DC43EA13690265",
+      "observed_sha256": "6656074028A7DB28A15CCFCA2759059707DA54EC468EABF850DC43EA13690265",
+      "match": true
+    },
+    {
+      "path": "tools/validate_jobs.py",
+      "name": "validate_jobs.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/tools/validate_jobs.py",
+      "expected_bytes": 67554,
+      "observed_bytes": 67554,
+      "expected_sha256": "5EBA8A6638378D1FDA605DD25F82415414B98978EE8BD8D7B9BFB1F12872C549",
+      "observed_sha256": "5EBA8A6638378D1FDA605DD25F82415414B98978EE8BD8D7B9BFB1F12872C549",
+      "match": true
+    },
+    {
+      "path": "catalog/receipts/r2-admission.json",
+      "name": "r2-admission.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/catalog/receipts/r2-admission.json",
+      "expected_bytes": 88449,
+      "observed_bytes": 88449,
+      "expected_sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+      "observed_sha256": "C6D7B5F02DEBF227A61DBD1B611AD79F7AC1F3F0AC3A1634EC18DA8B759F40EC",
+      "match": true
+    },
+    {
+      "path": "catalog/receipts/no-failure-hardening.json",
+      "name": "no-failure-hardening.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/mathematics-commons-pilot/6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75/catalog/receipts/no-failure-hardening.json",
+      "expected_bytes": 28430,
+      "observed_bytes": 28430,
+      "expected_sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66",
+      "observed_sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66",
+      "match": true
+    }
+  ],
+  "raw_aggregate": {
+    "expected_files": 9,
+    "observed_files": 9,
+    "matched_files": 9,
+    "mismatches": 0
+  },
+  "errors": []
+}

@@ -4,9 +4,9 @@
 
 Current:
 
-- 28 verified source packets in `jobs-2026-08-21-r1`;
+- 28 verified source packets in `jobs-2026-08-21-r2`;
 - exact asset/member manifests and anonymous public readback;
-- 45-prompt cumulative-state workflow.
+- workload-derived prompt files and cumulative-state workflow.
 
 Next:
 

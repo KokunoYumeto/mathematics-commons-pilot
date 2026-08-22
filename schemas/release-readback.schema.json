@@ -24,7 +24,8 @@
       "enum": ["PASS", "FAIL"]
     },
     "observed_date": {
-      "const": "2026-08-21"
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
     },
     "subject": {
       "type": "object",

@@ -19,6 +19,8 @@ import validate_packets
 
 
 ROOT = Path(__file__).resolve().parents[1]
+R1_READBACK_BYTES = 19_125
+R1_READBACK_SHA256 = "60EF221B444E27FDF98C1A618DE5B556DBB8D718A526930A332B078E528F83FC"
 REQUIRED = {
     ".gitattributes",
     "README.md",
@@ -78,9 +80,14 @@ REQUIRED = {
     "catalog/jobs.json",
     "catalog/receipts/r2-admission.json",
     "catalog/receipts/no-failure-hardening.json",
+    "catalog/receipts/global.json",
+    "catalog/receipts/gordan2.txt",
+    "catalog/receipts/mikami.json",
     "catalog/translations.json",
     "catalog/formalize.json",
     "catalog/portals.json",
+    "catalog/readback.json",
+    "catalog/readback-r2.json",
     "catalog/translate-rb.json",
     "catalog/translate-rb-v4.json",
     "catalog/translate-rb-v5.json",
@@ -894,6 +901,24 @@ def check_required(errors: list[str]) -> None:
                 errors.append(f"required file resolves outside repository: {name}")
 
 
+def check_immutable_r1_readback(errors: list[str]) -> None:
+    path = ROOT / "catalog" / "readback.json"
+    if not path.is_file() or path.is_symlink():
+        return
+    try:
+        inspection = inspect_public_file(path)
+    except OSError as exc:
+        errors.append(f"cannot inspect immutable R1 readback: {exc}")
+        return
+    if inspection.byte_size != R1_READBACK_BYTES:
+        errors.append(
+            "immutable R1 readback byte length changed: "
+            f"{inspection.byte_size} != {R1_READBACK_BYTES}"
+        )
+    if inspection.sha256.upper() != R1_READBACK_SHA256:
+        errors.append("immutable R1 readback SHA-256 changed")
+
+
 def check_ignored_output_not_tracked(errors: list[str]) -> None:
     """Allow local release output while refusing tracked content hidden there."""
 
@@ -988,6 +1013,7 @@ def check_policy(errors: list[str]) -> None:
 def main() -> int:
     errors: list[str] = []
     check_required(errors)
+    check_immutable_r1_readback(errors)
     check_ignored_output_not_tracked(errors)
     check_phase_a_freeze(errors)
     if not errors:
