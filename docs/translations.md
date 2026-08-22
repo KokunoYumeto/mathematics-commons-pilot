@@ -1,102 +1,138 @@
 # Translation
 
-This portal helps people use local or hosted AI systems to produce inspectable monolingual translations of open mathematical works. The catalog is a non-exclusive set of useful suggestions, not a fixed curriculum. You may choose a listed work or propose any other mathematical work whose exact source and permission for translation derivatives can be verified.
+This portal organizes open mathematical works that contributors can translate with local or hosted AI systems and then inspect through human and independent review. It separates individual works, supporting resources, exact source editions, known public translations, and downloadable jobs.
 
-No listed title is automatically ready to translate. Before production, the source edition, immutable bytes or commit, license, third-party components, editable source, and unchanged baseline build must be recorded. Unknown language coverage means unknown; it never means that no translation exists.
+The catalog is a set of suggestions, not a restriction. Contributors may propose any other mathematical work when its exact source and the right to publish a translation can be verified. Unknown language coverage means unknown; it does not mean that no translation exists.
 
-## Start a project
+## Ready jobs
 
-1. Choose a work by title, creator, or semantic key in [`catalog/translations.json`](../catalog/translations.json), or propose another openly licensed mathematical work.
-2. Check that exact work for verified editions and reported but unverified editions. Do not use aggregate language counts as work-level coverage.
-3. Download the [`translation-starter-v6` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6).
-4. For a local agent, paste `LOCAL.md`. For a hosted web agent, upload the ZIP and paste `WEB.md`.
-5. State the exact target language, locale, script, orthographic standard, intended learners, and available reviewers.
-6. Translation begins only after the agent completes the source, rights, component, and baseline-build preflight in `SOURCE.json`.
+| Work | Status | What the status means |
+|---|---|---|
+| Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-The starter contains no textbook or completed translation. Each bounded unit returns cumulative source, reader, ledgers, checkpoint, and manifest so that another contributor can inspect, replay, correct, or continue the work.
+A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separately published [generic v7 starter](translate-v7.md) helps with work selection and source preflight; it contains no source work and is not a runnable translation job.
 
-## How the catalog is organized
+## Browse the 29 works
 
-The public key is a readable semantic slug such as `openstax-prealgebra-2e` or `openlogic-core`. Historical planning keys survive only as machine provenance. They are not public work labels and are not used in the tables below.
+The topics below are navigation aids. They do not imply a curriculum, priority order, or exclusive claim on a work.
 
-Each machine row separates facts that the previous catalog conflated:
+| Topic | Works |
+|---|---|
+| Foundations and school algebra | OpenStax *Prealgebra 2e*; OpenStax *Elementary Algebra 2e*; OpenStax *Intermediate Algebra 2e*; OpenStax *Precalculus 2e* |
+| Calculus, analysis, and differential equations | CLP Calculus 1–4 and problem books; Lebl analysis volume (exact title unresolved); Lebl ordinary differential equations volume (exact title unresolved); Lebl complex analysis volume (exact title unresolved); Victor Ivrii, *Partial Differential Equations*; *Partial Differential Equations — Dionne Unit 1* (full bibliographic identity unresolved) |
+| Linear algebra, abstract algebra, and number theory | Hefferon, *Linear Algebra*; Judson, *Abstract Algebra*; *Yet Another Introductory Number Theory Textbook*; Wen-Wei Li, *Methods of Algebra*, Volume 1; Wen-Wei Li, *Methods of Algebra*, Volume 2 |
+| Probability and statistics | Grinstead–Snell, *Probability*; *OpenIntro Statistics* |
+| Discrete mathematics and combinatorics | DMOI4; *Applied Combinatorics* |
+| Logic and formal mathematics | *Open Logic Text*; *Mathematics in Lean* |
+| Geometry, topology, manifolds, and algebraic geometry | Steven Schlicker, *Topology: An Inquiry-Based Approach*; Anton Petrunin, *Euclidean Plane and Its Relatives*; *AlgebraicTopology2019* |
+| Numerical mathematics, computing, optimization, and modeling | *Tea Time Numerical Analysis*; *Open Optimization Book 1*; MIT OpenCourseWare 6.253; *Mathematical Computing and Reproducible Experiments* |
+| Functional analysis and operator theory | John M. Erdman, *Functional Analysis and Operator Algebras: An Introduction* |
+| Research and assessment infrastructure | No individual work is currently listed; see the resources below. |
 
-- `catalog_role`: individual work, series, composite curriculum idea, component, course, reference, infrastructure, source project, or adaptation;
-- `known_editions`: work-specific language, state, scope, and evidence status;
-- `source_evidence_status`: whether the public source boundary was independently replayed or merely reported;
-- `translation_readiness`: whether source preflight is required or the row is not a standalone translation job; and
-- `preflight_needed`: the exact remaining source, rights, component, or build work.
+Most works still need source preflight. Their inclusion means that they may be useful translation candidates, not that their source packets or translations are complete.
 
-Unverified edition reports remain in the machine catalog so existing work is not silently lost or overwritten. They are not presented as a public production-status table. Recheck the selected work's current public editions before beginning, and preserve independently useful parallel generations when overlap is declared.
+## The 12 resources and collections
 
-## Suggested individual works and source projects
+These entries are references, components, infrastructure, or proposed combinations. They are listed separately because they are not presently bounded cover-to-cover translation jobs.
 
-These are suggestions only. `Preflight required` means that at least one source, rights, component, or build identity is still open; it is not a ban on adopting the work.
+| Topic | Resource or collection |
+|---|---|
+| Calculus, analysis, and differential equations | *Measure, Integration & Real Analysis* with Fubini–Tonelli material and Gautam Iyer's Math 720 notes |
+| Probability and statistics | Dunn–Axelsen distribution theory with Spiegler statistical methods; Imperial probability notes with Siegrist, or MIT 6.436J with MIT 18.445 |
+| Geometry, topology, manifolds, and algebraic geometry | Manifolds and differential-geometry collection; algebraic-geometry bridge using Brenner and MIT 18.725; Stacks Project reference |
+| Numerical mathematics, computing, optimization, and modeling | Mathematical Python with *Research Software Engineering with Python*; nonlinear-dynamics and modeling collection; open-solver operations-research laboratory |
+| Functional analysis and operator theory | Fubini–Tonelli real/functional-analysis source component |
+| Research and assessment infrastructure | Cross-corpus assessment infrastructure; research-reading and reproducibility collection |
 
-| Work | Creator or project | What is publicly recorded | Next useful step |
+Each component must acquire its own exact source, license, component-rights record, and reproducible build before it can become part of a runnable job. The Stacks Project is a semantic reference, not a proposal to translate it wholesale.
+
+## Known public translation editions
+
+This table includes dated public evidence. A repository identity establishes that an edition exists; it does not establish whole-work completion, exact source lineage, or independent QA.
+
+| Work | Language | Public evidence | What has and has not been verified |
 |---|---|---|---|
-| OpenStax *Prealgebra 2e* | OpenStax | no exact public source/license boundary is bound here | freeze the exact edition, license, assets, and baseline build |
-| OpenStax *Elementary Algebra 2e* | OpenStax | no exact public source/license boundary is bound here | freeze the exact edition, license, assets, and baseline build |
-| OpenStax *Intermediate Algebra 2e* | OpenStax | exact source unresolved; media-rights questions recorded | freeze the exact edition and resolve every media component |
-| OpenStax *Precalculus 2e* | OpenStax | repository handle recorded; full source/component boundary unresolved | verify the public repository, license, assets, and build |
-| CLP Calculus 1–4 and problem books | CLP project | exact upstream and rights unresolved | freeze each volume and support book as a separately identified source |
-| DMOI4 | exact expanded title/creators unresolved | work identity, source, and license unresolved | identify the work and exact edition before any new-language project |
-| *Linear Algebra* | Jim Hefferon | exact upstream and license unresolved | bind textbook, answer book, labs, license, and build |
-| Lebl analysis volume | Jiří Lebl; exact title unresolved | exact volume unresolved | resolve the exact volume before treating it as a work choice |
-| Lebl ordinary differential equations volume | Jiří Lebl; exact title unresolved | title, edition, source, and license unresolved | resolve title, edition, source, and license |
-| Lebl complex analysis volume | Jiří Lebl; exact title unresolved | title, edition, source, and license unresolved | resolve title, edition, source, and license |
-| *Abstract Algebra* | Thomas W. Judson | exact upstream, license, diagrams, and build not yet bound | bind exact upstream, license, diagrams, and baseline build |
-| Probability text | Charles Grinstead and J. Laurie Snell | exact edition, source, and license unresolved | bind exact edition, source, license, exercises, and build |
-| *OpenIntro Statistics* | OpenIntro | repository commit reported | independently replay source, data, figures, license, and build |
-| *Applied Combinatorics* | Mitch Keller and contributors | repository commit and PreTeXt source reported | independently replay license, includes, assets, and build |
-| *Yet Another Introductory Number Theory Textbook* | Jonathan Poritz | author-controlled download page recorded | hash the exact source assets and establish the derivative license |
-| *Tea Time Numerical Analysis* | creators unresolved in current evidence | exact version, creators, source, license, and build unresolved | identify the exact version, creators, source, license, and build |
-| *Open Optimization Book 1* | Open Optimization project | repository commit; CC BY-SA text/figures and MIT code reported | replay components/build and replace or exclude commercial-only paths |
-| *Mathematics in Lean* | Lean community | repository commit reported | freeze license, toolchain, dependencies, and an unchanged build |
-| Open Logic core | Open Logic Project | exact root commit/tree and CC BY 4.0 independently verified | finish the submodule/component census and baseline build |
-| *Topology: An Inquiry-Based Approach* | Steven Schlicker | public repository/commit and license reported | replay source, component licenses, and build |
-| *Euclidean Plane and Its Relatives* | Anton Petrunin | public repository/commit and CC BY-SA 4.0 reported | replay source, components, fonts, and build |
-| *Functional Analysis and Operator Algebras: An Introduction* | John M. Erdman | official title page verified; public source ZIP and CC BY-SA 4.0 reported | freeze ZIP bytes and close solution/production policy |
-| *Partial Differential Equations* | Victor Ivrii | public source location and CC BY-SA 4.0 reported | freeze exact source, scope, figures, and build |
-| *AlgebraicTopology2019* | David Michael Roberts | repository commit/tree and CC BY 4.0 reported | replay source, scope, components, and build |
-| *Methods of Algebra*, Volumes 1 and 2 | Wen-Wei Li | commits and CC BY 4.0 reported; repository locator absent | identify the public repository, replay each volume, and freeze builds separately |
-| MIT OCW 6.253 | MIT OpenCourseWare | course package and CC BY-NC-SA 4.0 reported | verify editable source and exact component boundary |
+| Open Logic Text | Portuguese | [OpenLogic-pt](https://github.com/OpenLogicProject/OpenLogic-pt), observed 2026-08-22 at commit [`51c2271`](https://github.com/OpenLogicProject/OpenLogic-pt/tree/51c227190f56bae45d19a85747fc031de430bd3c) | The repository identity and its description as a Portuguese translation were verified. Whole-work completion, its exact relationship to a particular source edition, and independent translation QA were not established. |
 
-## Composite curriculum ideas
+Parallel translations are welcome when contributors identify them clearly and declare overlap. A repository identity is evidence that an edition exists; it is not by itself evidence of completeness or review.
 
-These are possible combinations, not single works. A contributor may adopt one component or propose a different combination. Each component needs its own source, license, and build record.
+### Public Indonesian reader PDFs
 
-- Mathematical Python plus *Research Software Engineering with Python*.
-- Sayama plus ModSimPy and an open ordinary-differential-equations project.
-- Dunn–Axelsen distribution theory plus Spiegler statistical methods.
-- Axler's *Measure, Integration & Real Analysis* plus Fubini–Tonelli and Gautam Iyer notes.
-- Imperial or MIT measure-theoretic probability and stochastic-process materials.
-- Smooth-manifold and differential-geometry materials from several open sources.
-- Brenner plus MIT 18.725 as an algebraic-geometry bridge.
-- MIT 18.821 plus selected reproducible-research materials.
+The [Indonesian Mathematics — Reader PDFs collection](https://doi.org/10.6084/m9.figshare.c.8668413.v25) contains nine public PDFs. Each file was anonymously downloaded and matched its recorded byte length and SHA-256. This proves the identity of the public PDF only. Whole-work coverage, exact source lineage, and independent translation QA remain unassessed unless a later row supplies that evidence.
 
-The exact components, reported licenses, caveats, and suggested preflights are in the machine catalog.
+| Work | Public reader | Exact bytes |
+|---|---|---:|
+| *Applied Combinatorics* | [10.6084/m9.figshare.33314772.v2](https://doi.org/10.6084/m9.figshare.33314772.v2) | 7,487,198 |
+| *Mathematics in Lean* | [10.6084/m9.figshare.33314793.v2](https://doi.org/10.6084/m9.figshare.33314793.v2) | 1,239,371 |
+| *Euclidean Plane and Its Relatives* | [10.6084/m9.figshare.33314706.v2](https://doi.org/10.6084/m9.figshare.33314706.v2) | 1,888,763 |
+| *Yet Another Introductory Number Theory Textbook* | [10.6084/m9.figshare.33314736.v2](https://doi.org/10.6084/m9.figshare.33314736.v2) | 962,527 |
+| *Tea Time Numerical Analysis* | [10.6084/m9.figshare.33314724.v2](https://doi.org/10.6084/m9.figshare.33314724.v2) | 8,202,476 |
+| Judson, *Abstract Algebra: Theory and Applications* | [10.6084/m9.figshare.33314754.v2](https://doi.org/10.6084/m9.figshare.33314754.v2) | 1,841,875 |
+| *Mathematical Computing and Reproducible Experiments* | [10.6084/m9.figshare.33314796.v1](https://doi.org/10.6084/m9.figshare.33314796.v1) | 502,373 |
+| Wen-Wei Li, *Methods of Algebra*, Volume 2 | [10.6084/m9.figshare.33314775.v2](https://doi.org/10.6084/m9.figshare.33314775.v2) | 683,385 |
+| *Partial Differential Equations — Dionne Unit 1* | [10.6084/m9.figshare.33314739.v1](https://doi.org/10.6084/m9.figshare.33314739.v1) | 702,567 |
 
-## Supporting material, tools, and references
+Exact filenames, SHA-256 values, download URLs, collection identity, and readback results are in the [reader receipt](../catalog/receipts/id-readers.json) and the corresponding `translation_editions` rows in the machine catalog.
 
-The Fubini–Tonelli component, Stacks Project reference, cross-corpus assessment design, and open-solver laboratory are useful supporting rows. They are not standalone cover-to-cover translation assignments. The Stacks Project should be linked semantically at selected tags rather than translated wholesale.
+### Historical reports without public identities
 
-## Language choice
+Thirteen Indonesian-edition reports were recorded on 21 August 2026. They are retained to prevent accidental silent duplication, but the reports themselves do not establish public identities, exact scopes, dates of observation, owners, or review states. Judson and *Tea Time Numerical Analysis* now also have public reader rows above; their relationship to the older reports has not been established. “Active,” “complete,” and “planned” below describe only the report at the recording date; they are not current status claims.
 
-Translations into any language are welcome. Contributors are especially encouraged to choose languages for which communities document limited access to university-level mathematical material and can identify intended learners, a written standard, and reviewers.
+| Reported state at recording | Works |
+|---|---|
+| Reported active | OpenStax *Prealgebra 2e*, *Elementary Algebra 2e*, and *Intermediate Algebra 2e*; CLP Calculus series; Hefferon *Linear Algebra*; unresolved Lebl analysis volume; Judson *Abstract Algebra*; Grinstead–Snell *Probability*; *Tea Time Numerical Analysis* |
+| Reported complete | DMOI4; *Open Logic Text* |
+| Reported planned | Unresolved Lebl ordinary-differential-equations volume; unresolved Lebl complex-analysis volume |
 
-UNESCO's [multilingual-education evidence](https://www.unesco.org/en/languages-education/need-know) repeats an estimate that up to 40% of people lack access to education in a language they speak or understand, says more than a quarter-billion learners are affected, and reports that only 351 of roughly 7,000 languages in current use serve as media of instruction.
+The exact per-work rows and evidence limitations are in `translation_editions` in the machine catalog. Historical-report rows do not establish a current production lane or reusable public edition. Public-reader rows establish exact available PDF bytes, but not completion, source lineage, or review.
 
-A separate [UNESCO Institute for Statistics report](https://www.uis.unesco.org/sites/default/files/medias/fichiers/2025/09/GAML11_2.2_UIS-Benchmarking-by-Language-Group-2025.04.28.pdf) cites a 48-country literacy study covering 96 languages using alphabetic writing systems. It describes 75% of the assessments as conducted in a local or national language and 25% in English, French, Spanish, or Portuguese. The exact 96 labels from the cited study's Table S1 are recorded in `catalog/translations.json` under `language_priority.uis_96_language_study.language_labels`.
+## Choose a language
 
-Those 96 labels are a useful concrete source of candidate language communities. They are not a ranking, a closed queue, or a finding that every listed language is underserved. Before starting, verify current educational need, the intended learners, the exact written standard, work-specific coverage, and available reviewers. Any other language remains welcome.
+Any language is welcome. A useful choice starts with a documented community need, an exact locale and script, a written or orthographic standard, intended learners, and people able to review the result.
 
-## Separate older-manuscript archive
+UNESCO reported in 2025 that [40% of people globally lack access to education in a language they speak and understand fluently](https://www.unesco.org/en/articles/new-unesco-report-calls-multilingual-education-unlock-learning-and-inclusion). This is an education-language access estimate.
 
-The [interlanguage adoption snapshot](adopt.md) covers older mathematical manuscripts and research editions as a separate corpus. Its aggregate language tags are not coverage for the educational works above and do not establish whole-work completion. Read the selected manuscript's own map before starting or duplicating work.
+Separately, a [UNESCO Institute for Statistics report](https://www.uis.unesco.org/sites/default/files/medias/fichiers/2025/09/GAML11_2.2_UIS-Benchmarking-by-Language-Group-2025.04.28.pdf) cites a literacy study covering 96 alphabetic-script languages across 48 low- and middle-income countries. Those 96 assessment languages are useful concrete communities to consider, but they are not an official UNESCO translation-priority list and they are not the source of the 40% estimate. The exact labels, source, and limitations are recorded in the machine catalog.
 
-## Review and handback
+Before starting, check whether a suitable edition already exists and whether a parallel effort would still be independently useful. Do not infer work-level coverage from a general language list.
 
-Produce a standalone target-language edition, never a facing-page substitute. Preserve formulas, theorem structure, exercises, figures, code, stable identifiers, and accessibility semantics. Return cumulative source, reader, ledgers, checkpoint, manifest, build evidence, unresolved items, and continuation cursor after every bounded unit.
+## Source-preflight states
 
-Another contributor should be able to obtain the same source bytes, replay the build and checks, compare the translation against the source, record exact defects, and continue from the checkpoint. Model agreement is not independent review.
+- **Identity unresolved:** the exact work or edition has not been identified.
+- **Source preflight needed:** at least one required source, rights, component, editable-source, or baseline-build check remains open.
+- **Supporting resource:** the entry is useful context or infrastructure but is not a standalone job.
+- **Prepared, not public:** a packet has been assembled but does not yet have a verified public release.
+- **Runnable:** the public packet and its readback are recorded and all required preflight gates pass.
+
+The seven preflight checks are exact work identity, exact source-edition identity, immutable source bytes, permission to publish translations, rights for included components, editable source, and an unchanged baseline build. A title or repository URL alone does not pass these checks.
+
+## Run a published job
+
+1. Select a job whose status is **runnable** in the machine catalog.
+2. Download its ZIP from the recorded release and verify its byte length and SHA-256 value.
+3. For local use, extract the ZIP and follow `START.md` and `LOCAL.md`. For hosted use, upload the ZIP and follow `WEB.md`.
+4. State the target language, locale, script, orthographic standard, intended learners, and available reviewers.
+5. Preserve the source exactly. Produce a standalone target-language edition, not a facing-page substitute.
+6. Return cumulative editable source, a readable build, terminology and correction ledgers, checkpoint state, manifest, QA evidence, unresolved items, and the exact continuation point.
+7. Have another person or system replay the source, build, and checks. Agreement between models is not independent review.
+
+Any system capable of preserving the files and following the ordered contract may be used. The output format and evidence requirements do not depend on one vendor.
+
+## Machine interface
+
+- [Translation catalog](../catalog/translations.json): authoritative works, resources, topics, source editions, translation editions, jobs, evidence, and exclusions.
+- [Compact work index](../kits/translate/WORKS.json): the immutable work and resource snapshot shipped in the v7 translation starter; consult the live catalog for later public editions.
+- [Catalog schema](../schemas/translation-catalog.schema.json): machine-validation contract.
+- [Choice schema](../schemas/translation-choices.schema.json) and [source-state schema](../schemas/translation-source.schema.json): downloaded workflow contracts.
+- [Open Logic asset manifest](../catalog/assets/openlogic.json), [admission receipt](../catalog/receipts/openlogic.json), and [public readback](../catalog/openlogic-rb.json): exact runnable-job evidence.
+- [Indonesian reader receipt](../catalog/receipts/id-readers.json): exact collection, DOI, filename, byte, SHA-256, and anonymous-readback evidence for nine public PDFs.
+
+Consumers should read status from the catalog, not infer it from prose, filenames, or the existence of a release page.
+
+## Other Commons portals
+
+- [Transcription jobs](run.md): admitted runnable packet envelopes for diplomatic transcription and separate modern editions.
+- [Formalization](formalize.md): intake and review for converting mathematical statements into checkable formal developments.
+- [Open Problem Workbench](workbench.md): source and evidence organization for conjectures and open problems; no problem packet is currently admitted as runnable.
+
+The [older-manuscript adoption board](adopt.md) is a separate archive and coordination surface. Its aggregate language tags do not establish coverage for the educational works listed here.

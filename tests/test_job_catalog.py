@@ -34,6 +34,12 @@ READBACK_SPEC = importlib.util.spec_from_file_location(
 assert READBACK_SPEC is not None and READBACK_SPEC.loader is not None
 readback_jobs_release = importlib.util.module_from_spec(READBACK_SPEC)
 READBACK_SPEC.loader.exec_module(readback_jobs_release)
+READER_SPEC = importlib.util.spec_from_file_location(
+    "add_id_readers", ROOT / "tools" / "add_id_readers.py"
+)
+assert READER_SPEC is not None and READER_SPEC.loader is not None
+add_id_readers = importlib.util.module_from_spec(READER_SPEC)
+READER_SPEC.loader.exec_module(add_id_readers)
 
 
 class JobCatalogTests(unittest.TestCase):
@@ -45,7 +51,7 @@ class JobCatalogTests(unittest.TestCase):
                 "validate_jobs",
                 return_value=(28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2),
             ),
-            mock.patch.object(validate_jobs, "validate_translations", return_value=40),
+            mock.patch.object(validate_jobs, "validate_translations", return_value=41),
             mock.patch.object(validate_jobs, "validate_formalization", return_value=19),
             mock.patch.object(validate_jobs, "validate_portals", return_value=3),
             mock.patch.object(
@@ -151,7 +157,7 @@ class JobCatalogTests(unittest.TestCase):
         portals = validate_jobs.validate_portals(errors)
         self.assertEqual(errors, [])
         self.assertEqual(result, (28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2))
-        self.assertEqual(translations, 40)
+        self.assertEqual(translations, 41)
         self.assertEqual(portals, 3)
 
     def test_portal_states_fail_closed(self) -> None:
@@ -180,47 +186,199 @@ class JobCatalogTests(unittest.TestCase):
             validate_jobs.validate_schema(mutated, "portals", "mutated portal", errors)
             self.assertTrue(errors, mutated)
 
-    def test_translation_starter_catalogs_are_exactly_pinned(self) -> None:
-        choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
-        open_education = choices["catalogs"]["open_education"]
-        catalog_bytes = (ROOT / open_education["path"]).read_bytes()
-        self.assertEqual(open_education["commit"], "b5573df77ef120bb5b6d79ea23c0c725bc941ac6")
-        self.assertEqual(open_education["tree"], "5a770a0589a0940228863a130f0641dfd86581f6")
-        self.assertEqual(open_education["bytes"], len(catalog_bytes))
-        self.assertEqual(open_education["sha256"], validate_jobs.sha256(catalog_bytes))
-        interlanguage = choices["catalogs"]["separate_manuscript_archive"]
-        self.assertRegex(interlanguage["commit"], r"^[0-9a-f]{40}$")
-        self.assertRegex(interlanguage["tree"], r"^[0-9a-f]{40}$")
-        self.assertRegex(interlanguage["sha256"], r"^[0-9A-F]{64}$")
-        catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
-        semantic_ids = {row["id"] for row in catalog["entries"]}
+    def test_legacy_portal_identity_is_frozen(self) -> None:
+        portal, data = validate_jobs.load(ROOT / "tests" / "fixtures" / "portal-v1.json")
+        self.assertEqual(portal["schema"], "math-commons-portal-catalog/v1")
+        self.assertEqual(len(data), validate_jobs.PORTAL_V1_BYTES)
+        self.assertEqual(validate_jobs.sha256(data), validate_jobs.PORTAL_V1_SHA256)
+
+        mutated = data.replace(b'"updated": "2026-08-22"', b'"updated": "2026-08-23"')
+        self.assertEqual(len(mutated), len(data))
+        self.assertNotEqual(validate_jobs.sha256(mutated), validate_jobs.PORTAL_V1_SHA256)
+
+    def test_current_portal_schema_requires_commit_bound_releases(self) -> None:
+        portal, _ = validate_jobs.load(ROOT / "catalog" / "portals.json")
+        current = copy.deepcopy(portal)
+        current["schema"] = "math-commons-portal-catalog/v2"
+        transcription = current["sections"][0]
+        self.assertEqual(transcription["release"]["asset_count"], 31)
+        self.assertEqual(transcription["release"]["asset_bytes"], 8_808_381_269)
+        self.assertEqual(transcription["release"]["runnable_asset_count"], 30)
         self.assertEqual(
-            semantic_ids,
-            {row["id"] for row in choices["suggestions"]},
+            transcription["release"]["runnable_asset_bytes"], 8_808_377_826
+        )
+        transcription["release"]["target_commit"] = "a" * 40
+        transcription["release"]["target_tree"] = "b" * 40
+
+        translation = current["sections"][1]
+        translation["state"] = "runnable"
+        translation["release"] = {
+            "tag": "translate-openlogic-v1",
+            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
+            "target_commit": "e2e4f5bf2f5b7ae0fc15fadcd4d17b27716f1384",
+            "target_tree": "acf7ef634c8871cf58b9d2e871ff6f650e81e69a",
+            "asset_count": 1,
+            "asset_bytes": 1_921_531,
+            "asset_catalog": "catalog/assets/openlogic.json",
+            "admission_receipt": "catalog/receipts/openlogic.json",
+            "readback": "catalog/openlogic-rb.json",
+            "assets": [
+                {
+                    "name": "openlogic-v1.zip",
+                    "bytes": 1_921_531,
+                    "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+                }
+            ],
+        }
+        translation["starter"] = {
+            "tag": "translate-v7",
+            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7",
+            "target_commit": "c" * 40,
+            "target_tree": "d" * 40,
+            "asset_count": 1,
+            "asset_bytes": 15_980,
+            "asset_catalog": "catalog/assets/translate-v7.json",
+            "admission_receipt": None,
+            "readback": "catalog/translate-rb-v7.json",
+            "assets": [
+                {
+                    "name": "translation-starter-v7.zip",
+                    "bytes": 15_980,
+                    "sha256": "492938BDC0D0E16CA344F7627BA7C225D4F51564B3D025675ED6BE4540480C89",
+                }
+            ],
+        }
+
+        errors: list[str] = []
+        validate_jobs.validate_schema(current, "portals", "current portal", errors)
+        self.assertEqual(errors, [])
+
+        missing_runnable_total = copy.deepcopy(current)
+        del missing_runnable_total["sections"][0]["release"]["runnable_asset_bytes"]
+        errors = []
+        validate_jobs.validate_schema(
+            missing_runnable_total, "portals", "current portal", errors
+        )
+        self.assertTrue(errors)
+
+        del current["sections"][1]["starter"]["target_tree"]
+        errors = []
+        validate_jobs.validate_schema(current, "portals", "current portal", errors)
+        self.assertTrue(errors)
+
+    def test_translation_v7_chooser_is_frozen_and_live_catalog_is_additive(self) -> None:
+        choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
+        catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
+        readers, _ = validate_jobs.load(
+            ROOT / "catalog" / "receipts" / "id-readers.json"
+        )
+        self.assertEqual(choices["schema"], "math-commons-translation-choices/v7")
+        self.assertEqual(
+            choices["catalog"],
+            {
+                "path": "catalog/translations.json",
+                "bytes": validate_jobs.TRANSLATE_V7_CATALOG_BYTES,
+                "sha256": validate_jobs.TRANSLATE_V7_CATALOG_SHA256,
+            },
+        )
+        self.assertEqual(choices["separate_archive"], catalog["separate_archive"])
+        self.assertEqual(choices["jobs"], catalog["jobs"])
+        self.assertEqual(choices["language_priority"], catalog["language_priority"])
+        self.assertEqual(len(choices["works"]), 27)
+        self.assertEqual(len(choices["source_editions"]), 39)
+        self.assertEqual(len(choices["translation_editions"]), 14)
+        self.assertEqual(len(catalog["works"]), 29)
+        self.assertEqual(len(catalog["source_editions"]), 41)
+        self.assertEqual(len(catalog["translation_editions"]), 23)
+        reader_ids = {row["id"] for row in readers["readers"]}
+        self.assertEqual(
+            {
+                row["id"]
+                for row in catalog["translation_editions"]
+                if row["progress_state"]
+                == "public_reader_available_scope_unassessed"
+            },
+            reader_ids,
         )
         self.assertTrue(
-            all(
-                work_id in semantic_ids
-                for topic in choices["topics"]
-                for work_id in topic["work_ids"]
+            {row["id"] for row in choices["works"]}.issubset(
+                {row["id"] for row in catalog["works"]}
             )
         )
-        self.assertFalse(
-            any(
-                row["id"].startswith(("R", "O"))
-                for row in choices["suggestions"]
+        self.assertTrue(
+            {row["id"] for row in choices["source_editions"]}.issubset(
+                {row["id"] for row in catalog["source_editions"]}
             )
         )
-        self.assertIs(
-            choices["separate_manuscript_archive_summary"][
-                "not_coverage_for_open_education_choices"
-            ],
-            True,
+        self.assertTrue(
+            {row["id"] for row in choices["translation_editions"]}.issubset(
+                {row["id"] for row in catalog["translation_editions"]}
+            )
         )
+        self.assertNotIn("catalogs", choices)
+        self.assertNotIn("suggestions", choices)
+
+    def test_indonesian_reader_projection_is_deterministic(self) -> None:
+        expected = (ROOT / "catalog" / "translations.json").read_bytes()
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / "translations.json"
+            with mock.patch.object(add_id_readers, "OUTPUT_PATH", output):
+                self.assertEqual(add_id_readers.main(), 0)
+            self.assertEqual(output.read_bytes(), expected)
+
+    def test_translation_semantics_reject_false_current_or_ready_states(self) -> None:
+        catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
+        catalog_path = (ROOT / "catalog" / "translations.json").resolve()
+        real_load = validate_jobs.load
+
+        mutations: list[tuple[dict, str]] = []
+
+        false_current = copy.deepcopy(catalog)
+        historical = next(
+            row
+            for row in false_current["translation_editions"]
+            if row["identity_state"] == "unverified_report"
+        )
+        historical["progress_state"] = "verified_complete"
+        historical["review_state"] = "passed"
+        mutations.append((false_current, "unverified report boundary"))
+
+        stale_receipt = copy.deepcopy(catalog)
+        receipt = next(
+            row
+            for row in stale_receipt["evidence"]
+            if row["kind"] == "same_commit_receipt"
+        )
+        receipt["bytes"] += 1
+        mutations.append((stale_receipt, "receipt identity"))
+
+        false_ready = copy.deepcopy(catalog)
+        openlogic = next(
+            row
+            for row in false_ready["source_editions"]
+            if row["id"] == "openlogic-core-source"
+        )
+        openlogic["identity_state"] = "reported_locator"
+        mutations.append((false_ready, "publication-ready source/rights/components"))
+
+        for mutated, expected in mutations:
+            encoded = (json.dumps(mutated, ensure_ascii=False, indent=2) + "\n").encode(
+                "utf-8"
+            )
+
+            def fake_load(path: Path) -> tuple[dict, bytes]:
+                if path.resolve() == catalog_path:
+                    return mutated, encoded
+                return real_load(path)
+
+            errors: list[str] = []
+            with mock.patch.object(validate_jobs, "load", side_effect=fake_load):
+                validate_jobs.validate_translations(errors)
+            self.assertTrue(any(expected in error for error in errors), errors)
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 34)
+        self.assertEqual(identity["files"], 36)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
@@ -398,7 +556,7 @@ class JobCatalogTests(unittest.TestCase):
             with self.assertRaises(validate_jobs.DuplicateKey):
                 validate_jobs.load(path)
 
-    def test_pack_job_rejects_invalid_output_name_and_zero_byte_source(self) -> None:
+    def test_pack_job_rejects_invalid_output_name_and_preserves_zero_byte_source(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             source = root / "source"
@@ -443,8 +601,23 @@ class JobCatalogTests(unittest.TestCase):
                 capture_output=True,
                 check=False,
             )
-            self.assertNotEqual(completed.returncode, 0)
-            self.assertIn("zero-byte source members", completed.stdout + completed.stderr)
+            self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+            manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["source_files"], 1)
+            self.assertEqual(manifest["source_bytes"], 0)
+            self.assertEqual(
+                manifest["members"],
+                [
+                    {
+                        "path": "empty.txt",
+                        "bytes": 0,
+                        "sha256": validate_jobs.sha256(b""),
+                    }
+                ],
+            )
+            with zipfile.ZipFile(root / "test-job.zip", "r") as archive:
+                self.assertEqual(archive.namelist(), ["test-job/empty.txt"])
+                self.assertEqual(archive.read("test-job/empty.txt"), b"")
 
     def test_bulk_builder_rejects_output_inside_packet_root(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -487,16 +660,42 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_tracked_full_replay_receipt(self) -> None:
         completed = subprocess.run(
-            [sys.executable, "tools/validate_jobs.py", "--verify-receipt"],
+            [
+                sys.executable,
+                "tools/validate_jobs.py",
+                "--verify-receipt",
+                "--json",
+            ],
             cwd=ROOT,
             text=True,
             capture_output=True,
             check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn(
-            "PASS: 28 jobs, 31 release assets, 40 translation entries, 3 portal sections, 19 formalization entries",
-            completed.stdout,
+        receipt = json.loads(completed.stdout)
+        self.assertEqual(receipt["schema"], "math-commons-catalog-check/v3")
+        self.assertNotIn("translation_entries", receipt)
+        self.assertEqual(
+            receipt["translation"],
+            {
+                "topics": 10,
+                "works": 29,
+                "resources": 12,
+                "source_editions": 41,
+                "translation_editions": 23,
+                "jobs": 1,
+                "runnable_jobs": 1,
+                "public_release_assets": 2,
+                "public_release_bytes": 1_937_511,
+            },
+        )
+        self.assertEqual(
+            receipt["inputs"]["translate_v7_readback"],
+            {
+                "path": "catalog/translate-rb-v7.json",
+                "bytes": 1_199,
+                "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861",
+            },
         )
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
@@ -505,6 +704,9 @@ class JobCatalogTests(unittest.TestCase):
             "job-catalog.schema.json",
             "job-asset.schema.json",
             "translation-catalog.schema.json",
+            "translation-choices.schema.json",
+            "translation-source.schema.json",
+            "translation-build.schema.json",
             "formalization-intake.schema.json",
             "portal-catalog.schema.json",
             "portal-readback.schema.json",

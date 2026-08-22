@@ -4,7 +4,7 @@
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "status": "scaffold",
   "summary": {
-    "sources": 2,
+    "sources": 3,
     "items": 19,
     "runnable_packets": 0,
     "build_replay_pass_sources": 2,
@@ -152,6 +152,141 @@
         "This source is an external, fast-moving repository snapshot and is not a Mathlib acceptance record.",
         "Its successful build includes placeholders and does not establish that any formal statement matches the cited historical theorem.",
         "Every candidate below still needs an exact statement/source comparison and a pinned Mathlib gap audit."
+      ]
+    },
+    {
+      "id": "lean-theorems-1-4fce53c",
+      "kind": "git_repository",
+      "title": "Formalization of Open Combinatorial and Geometric Theorems in Lean 4 — current follow-up",
+      "url": "https://github.com/sneed-and-feed/lean-theorems-1",
+      "snapshot": {
+        "state": "inventoried",
+        "revision": "4fce53cf5e0be46bfc12e633e2a4924102f12bd8",
+        "commit": "4fce53cf5e0be46bfc12e633e2a4924102f12bd8",
+        "tree": "99c6732878a3f9ae34bc3bb607b5c202e824e59a",
+        "doi": null,
+        "concept_doi": null,
+        "version": null,
+        "publication_date": null
+      },
+      "rights": {
+        "state": "license_file_checked",
+        "license": "CC0-1.0",
+        "evidence": "https://github.com/sneed-and-feed/lean-theorems-1/blob/4fce53cf5e0be46bfc12e633e2a4924102f12bd8/LICENSE"
+      },
+      "inventory": {
+        "files": 36,
+        "bytes": 635125,
+        "lean_files": 30,
+        "archive": {
+          "name": "lean-theorems-1-4fce53cf.zip",
+          "url": "https://github.com/sneed-and-feed/lean-theorems-1/archive/4fce53cf5e0be46bfc12e633e2a4924102f12bd8.zip",
+          "bytes": 162915,
+          "sha256": "1D770EFC0A8E6B4EB7B8C27FE37551F426ECF5636B7864C6F5152DDB9C1BA2B1",
+          "member_files": 36,
+          "member_bytes": 635125,
+          "replay": {
+            "verified_files": 36,
+            "advertised_files": 36,
+            "excluded_members": []
+          }
+        }
+      },
+      "toolchain": {
+        "lean": "leanprover/lean4:v4.34.0-rc1",
+        "mathlib_commit": "20bc12820422504f9e52ee6caebf8182a9015336",
+        "other_pins": [
+          "plausible 38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+          "LeanSearchClient 2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+          "importGraph 978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+          "proofwidgets ebeca04ecd5ee2ba9740e13576d80d4ab6b5779c",
+          "aesop c1c4362a130f12e632d252180a6c2a31d8fd4726",
+          "Qq 3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+          "batteries 36cc05ca2d0e469bfbeea9437f460e19238e885e",
+          "Cli af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+        ]
+      },
+      "build": {
+        "state": "not_run",
+        "scope": "not_run",
+        "compiled_files": 0,
+        "total_lean_files": 30,
+        "evidence_date": null,
+        "commands": [],
+        "placeholders": {
+          "status": "present",
+          "count": 6,
+          "scan_scope": "all_source_files",
+          "scanned_files": 30,
+          "occurrences": [
+            {
+              "path": "Formalization/DesarguesVector.lean",
+              "line": 191,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ColorfulHelly.lean",
+              "line": 187,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ErdosKoRado.lean",
+              "line": 596,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ErdosKoRado.lean",
+              "line": 617,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ErdosSzekeresConvex.lean",
+              "line": 1280,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/TverbergsTheorem.lean",
+              "line": 602,
+              "token": "sorry"
+            }
+          ]
+        },
+        "trust_markers": {
+          "status": "none_found",
+          "count": 0,
+          "scan_scope": "all_source_files",
+          "scanned_files": 30,
+          "occurrences": []
+        },
+        "excluded_modules": [
+          {
+            "path": "Formalization/ColorfulHelly.lean",
+            "reason": "The default Formalization root does not import this module. No targeted compile was performed for this current snapshot."
+          }
+        ],
+        "notes": [
+          "This generation received an exact archive/member replay and direct all-source placeholder/trust-marker scan on 2026-08-22, but no Lean build replay.",
+          "The default root statically imports 28 modules; five sorry tokens are in that import closure and the sixth is in excluded ColorfulHelly.lean.",
+          "The direct source scan found no explicit axiom or unsafe declarations; this is not a #print axioms result and does not remove standard Lean/Mathlib axioms.",
+          "The 19 bounded intake items remain tied to the independently built parent snapshot until this generation receives its own build and statement audits."
+        ]
+      },
+      "claims_audit": [
+        {
+          "claim": "The core build contains no sorry or incomplete goals.",
+          "result": "contradicted",
+          "evidence": "Five direct sorry tokens occur in the static default-target import closure; a sixth occurs in the excluded Colorful Helly module."
+        },
+        {
+          "claim": "The repository supplies machine-checked formalizations for the theorem descriptions in its README.",
+          "result": "not_assessed",
+          "evidence": "This generation has not received an independent build replay or statement-correspondence review."
+        }
+      ],
+      "limitations": [
+        "This is an exact current-generation inventory and direct source scan, not a build receipt or Mathlib acceptance record.",
+        "The new generation adds two placeholder-bearing declarations relative to the built parent snapshot.",
+        "No item is remapped to this source until its build, declaration, and statement correspondence are independently replayed."
       ]
     },
     {
@@ -326,11 +461,17 @@
       "scope": "Existence of an ordinary line in a finite non-collinear real planar point set.",
       "build_relation": "included_in_passing_build",
       "placeholder_relation": "none_in_named_declarations",
-      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "statement_correspondence": {
+        "state": "not_reviewed",
+        "evidence": [
+          "Negative source-boundary audit: the public Sylvester Volume I checkpoint at modern-latex-manuscripts commit 294618e539b33b8fd83f2ff553fbdc2f6a58ab56 covers papers dated 1837–1853 and does not contain the 1893 Sylvester problem. A separate historical authority is required."
+        ]
+      },
       "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
       "packet": { "state": "not_started", "asset": null, "readback": null },
       "limitations": [
-        "This is the strongest direct author/work candidate in the external repository, but it still needs comparison with the cited source and a current Mathlib gap audit."
+        "This is the strongest direct author/work candidate in the external repository, but it still needs comparison with the cited source and a current Mathlib gap audit.",
+        "The available public machine-readable Sylvester Volume I checkpoint is not the theorem's historical source; it ends decades before the 1893 problem."
       ]
     },
     {

@@ -1,0 +1,546 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/blob/main/schemas/translation-choices.schema.json",
+  "title": "Mathematics Commons translation choices",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "updated_at",
+    "rule",
+    "catalog",
+    "separate_archive",
+    "topics",
+    "works",
+    "resources",
+    "source_editions",
+    "translation_editions",
+    "jobs",
+    "language_priority",
+    "source_preflight"
+  ],
+  "properties": {
+    "schema": {"const": "math-commons-translation-choices/v7"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "rule": {"type": "string", "minLength": 1},
+    "catalog": {"$ref": "#/$defs/catalogIdentity"},
+    "separate_archive": {"$ref": "#/$defs/separateArchive"},
+    "topics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/topic"}
+    },
+    "works": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/work"}
+    },
+    "resources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/resource"}
+    },
+    "source_editions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/sourceEdition"}
+    },
+    "translation_editions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/translationEdition"}
+    },
+    "jobs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/job"}
+    },
+    "language_priority": {"$ref": "#/$defs/languagePriority"},
+    "source_preflight": {"$ref": "#/$defs/sourcePreflight"}
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "hex40": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullableString": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "slugArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/slug"}
+    },
+    "catalogIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": {"const": "catalog/translations.json"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "separateArchive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "commit",
+        "tree",
+        "path",
+        "bytes",
+        "sha256",
+        "rows",
+        "state",
+        "warning"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+$"
+        },
+        "commit": {"$ref": "#/$defs/hex40"},
+        "tree": {"$ref": "#/$defs/hex40"},
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9._/-]+$"
+        },
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "rows": {"type": "integer", "minimum": 1},
+        "state": {
+          "const": "separate_exact_commit_archive_and_coordination_board"
+        },
+        "warning": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "work_ids", "resource_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "work_ids": {"$ref": "#/$defs/slugArray"},
+        "resource_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "topic_ids",
+        "source_edition_ids",
+        "translation_edition_ids",
+        "job_ids"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "topic_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/slug"}
+        },
+        "source_edition_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/slug"}
+        },
+        "translation_edition_ids": {"$ref": "#/$defs/slugArray"},
+        "job_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "kind", "topic_ids", "source_edition_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "kind": {
+          "enum": [
+            "adaptation",
+            "component",
+            "composite",
+            "infrastructure",
+            "reference"
+          ]
+        },
+        "topic_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/slug"}
+        },
+        "source_edition_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/slug"}
+        }
+      }
+    },
+    "sourceEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "item_id", "item_type", "readiness"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "item_id": {"$ref": "#/$defs/slug"},
+        "item_type": {"enum": ["work", "resource"]},
+        "readiness": {
+          "enum": [
+            "identity_unresolved",
+            "source_preflight",
+            "not_standalone",
+            "packet_prepared",
+            "runnable"
+          ]
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag",
+        "name",
+        "locale",
+        "script",
+        "orthographic_standard"
+      ],
+      "properties": {
+        "tag": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 63,
+          "pattern": "^[A-Za-z][A-Za-z0-9-]*[A-Za-z0-9]$"
+        },
+        "name": {"$ref": "#/$defs/nonEmptyString"},
+        "locale": {"$ref": "#/$defs/nullableString"},
+        "script": {"$ref": "#/$defs/nullableString"},
+        "orthographic_standard": {"$ref": "#/$defs/nullableString"}
+      }
+    },
+    "translationEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "work_id",
+        "language",
+        "identity_state",
+        "progress_state",
+        "review_state"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "work_id": {"$ref": "#/$defs/slug"},
+        "language": {"$ref": "#/$defs/language"},
+        "identity_state": {
+          "enum": [
+            "unverified_report",
+            "public_repository_verified",
+            "public_edition_verified",
+            "frozen_complete"
+          ]
+        },
+        "progress_state": {
+          "enum": [
+            "repository_available",
+            "public_reader_available_scope_unassessed",
+            "historical_report_active_at_recording",
+            "historical_report_complete_at_recording",
+            "historical_report_planned_at_recording",
+            "verified_active",
+            "verified_complete",
+            "inactive"
+          ]
+        },
+        "review_state": {
+          "enum": [
+            "unknown",
+            "not_independently_assessed",
+            "in_review",
+            "passed"
+          ]
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "bytes", "sha256", "url"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*[.]zip$"
+        },
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+$"
+        }
+      }
+    },
+    "readback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receipt", "observed_date", "assets"],
+      "properties": {
+        "receipt": {
+          "type": "string",
+          "pattern": "^catalog/[a-z0-9][a-z0-9.-]*[.]json$"
+        },
+        "observed_date": {"type": "string", "format": "date"},
+        "assets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/asset"}
+        }
+      }
+    },
+    "startFiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local", "web"],
+      "properties": {
+        "local": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"
+        },
+        "web": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "work_id",
+        "source_edition_id",
+        "title",
+        "target_mode",
+        "state",
+        "release_tag",
+        "release_url",
+        "assets",
+        "asset_manifest",
+        "source_receipt",
+        "public_readback",
+        "start_files",
+        "evidence_ids"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "work_id": {"$ref": "#/$defs/slug"},
+        "source_edition_id": {"$ref": "#/$defs/slug"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "target_mode": {"enum": ["contributor_selects", "fixed"]},
+        "state": {"enum": ["prepared_not_published", "runnable", "retired"]},
+        "release_tag": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "minLength": 1, "pattern": "^[a-z0-9][a-z0-9.-]*$"}
+          ]
+        },
+        "release_url": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "format": "uri", "pattern": "^https://.+$"}
+          ]
+        },
+        "assets": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/asset"}
+        },
+        "asset_manifest": {
+          "type": "string",
+          "pattern": "^catalog/assets/[a-z0-9][a-z0-9.-]*[.]json$"
+        },
+        "source_receipt": {
+          "type": "string",
+          "pattern": "^catalog/receipts/[a-z0-9][a-z0-9.-]*[.]json$"
+        },
+        "public_readback": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/readback"}
+          ]
+        },
+        "start_files": {"$ref": "#/$defs/startFiles"},
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/slug"}
+        }
+      }
+    },
+    "languagePriority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "any_language_welcome",
+        "priority_rule",
+        "education_access_source",
+        "uis_96_language_study",
+        "unesco_fixed_translation_priority_list",
+        "note"
+      ],
+      "properties": {
+        "any_language_welcome": {"const": true},
+        "priority_rule": {"$ref": "#/$defs/nonEmptyString"},
+        "education_access_source": {
+          "$ref": "#/$defs/educationAccessSource"
+        },
+        "uis_96_language_study": {"$ref": "#/$defs/languageStudy"},
+        "unesco_fixed_translation_priority_list": {"const": false},
+        "note": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "educationAccessSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "published", "url", "reported_facts"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "published": {"type": "string", "format": "date"},
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+$"
+        },
+        "reported_facts": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "languageStudy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "publisher",
+        "published",
+        "url",
+        "page",
+        "cited_study",
+        "country_count",
+        "alphabetic_language_count",
+        "reported_facts",
+        "language_labels",
+        "label_note",
+        "translation_use"
+      ],
+      "properties": {
+        "title": {"const": "Benchmarking by Language Groups Framework"},
+        "publisher": {"const": "UNESCO Institute for Statistics"},
+        "published": {"type": "string", "format": "date"},
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+$"
+        },
+        "page": {"const": 22},
+        "cited_study": {"$ref": "#/$defs/citedStudy"},
+        "country_count": {"const": 48},
+        "alphabetic_language_count": {"const": 96},
+        "reported_facts": {"$ref": "#/$defs/stringArray"},
+        "language_labels": {
+          "type": "array",
+          "minItems": 96,
+          "maxItems": 96,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/nonEmptyString"}
+        },
+        "label_note": {"$ref": "#/$defs/nonEmptyString"},
+        "translation_use": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "citedStudy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "doi_url", "supplement_url", "language_table"],
+      "properties": {
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "doi_url": {"const": "https://doi.org/10.1038/s41562-024-02028-x"},
+        "supplement_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+$"
+        },
+        "language_table": {"const": "Table S1"}
+      }
+    },
+    "sourcePreflight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requires", "not_standalone_or_not_ready"],
+      "properties": {
+        "requires": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "exact public edition or source boundary",
+              "immutable commit, tag, or archive hash",
+              "permission for translation derivatives",
+              "component-rights inventory",
+              "editable-source closure",
+              "unmodified baseline-build attempt",
+              "work-specific existing-language and owner review"
+            ]
+          }
+        },
+        "not_standalone_or_not_ready": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "NoDerivatives",
+              "free-to-read only",
+              "rights unknown",
+              "donor",
+              "reference",
+              "rejected"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schema": "math-commons-translation-build/v1",
+  "job_id": "openlogic-v1",
+  "source_materialization": "exact Git blob bytes",
+  "source_commit": "1e960beff9ed7835bf3e3f1335e21af3439cd107",
+  "source_tree": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+  "source_files": 792,
+  "source_bytes": 4302140,
+  "source_git_modes": {
+    "100644": 773,
+    "100755": 19
+  },
+  "source_verification": {
+    "tsv_rows": 792,
+    "unique_safe_paths": 792,
+    "sha256_replay": "792/792",
+    "git_blob_oid_replay": "792/792",
+    "root_tree_reconstruction": "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+    "missing": 0,
+    "extra": 0,
+    "post_build_replay": "1584/1584"
+  },
+  "packet_binding": {
+    "state": "cold_audit_input_replay_pass",
+    "role": "Exact input packet used for this cold build replay; the published release asset is bound separately by the external admission receipt and public readback.",
+    "asset_manifest": {
+      "name": "openlogic.json",
+      "bytes": 177525,
+      "sha256": "F09C19E61CB252255EEBFF61FF822971271D158396406E6644CE15105CFA8520"
+    },
+    "packet_zip": {
+      "name": "openlogic-v1.zip",
+      "bytes": 1921531,
+      "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+      "members": 807
+    }
+  },
+  "state": "cold_replay_pass_with_observed_warnings",
+  "environment": {
+    "platform": "win32",
+    "platform_release": "11",
+    "python": "3.13.9",
+    "latexmk": "perl: warning: Setting locale failed.",
+    "pdftex": "MiKTeX-pdfTeX 4.27 (MiKTeX 26.5)",
+    "bibtex": "MiKTeX-BibTeX 4.2 (MiKTeX 26.5)",
+    "pdfinfo": "pdfinfo version 24.04.0"
+  },
+  "dependency_repairs": [
+    {
+      "note": "Before the cold audit, initexmf --mkmaps regenerated the local MiKTeX font map so the already-installed fplmri font could be found; packet source bytes changed: 0.",
+      "provenance": "caller-supplied; not executed by this audit"
+    }
+  ],
+  "targets": [
+    {
+      "target": "open-logic-debug.tex",
+      "command": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-debug.tex",
+      "exit_code": 0,
+      "fresh_isolated_source_copy": true,
+      "tracked_source_post_build_replay": "792/792",
+      "generated_paths_after_build": 11,
+      "pdf": {
+        "path": "open-logic-debug.pdf",
+        "bytes": 6102964,
+        "sha256": "91269FEFF84CF0B42FAD6828DD3E920D3ADEBDD94A65D302CAB9464F22448D94",
+        "pages": 962
+      },
+      "log": {
+        "name": "open-logic-debug.log",
+        "bytes": 579160,
+        "sha256": "3F15F48989D19D13D6C58C45B3FF20FB580F3B3CA8D80AFC1F7E61483196A133",
+        "warnings": {
+          "latex": 5,
+          "package": 219,
+          "class": 4,
+          "pdftex": 2,
+          "overfull": 516,
+          "underfull": 31,
+          "undefined_reference_mentions": 0,
+          "undefined_citation_mentions": 0,
+          "multiply_defined_mentions": 2
+        },
+        "fatal_markers": 0
+      },
+      "recorder": {
+        "name": "open-logic-debug.fls",
+        "bytes": 358178,
+        "sha256": "D00FDD6AA4F7FA3011C14B02175B704A55E25F77EA6F5ABE2E57C1119BA1DEA7"
+      },
+      "stdout": {
+        "name": "open-logic-debug.stdout.txt",
+        "bytes": 1043976,
+        "sha256": "D654F263761EC2C72703EA40F3D186B229CECAABCCB50511725E059DA0597687"
+      },
+      "input_closure": {
+        "unique_inputs": 1779,
+        "included_source_inputs": 665,
+        "generated_inputs": 5,
+        "external_toolchain_inputs": 339,
+        "external_input_classes": [
+          {
+            "class": "miktex-data",
+            "inputs": 8
+          },
+          {
+            "class": "miktex-install",
+            "inputs": 331
+          }
+        ],
+        "unbound_repo_relative_inputs": [],
+        "excluded_doc_inputs": [],
+        "closed": true
+      }
+    },
+    {
+      "target": "open-logic-complete.tex",
+      "command": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-complete.tex",
+      "exit_code": 0,
+      "fresh_isolated_source_copy": true,
+      "tracked_source_post_build_replay": "792/792",
+      "generated_paths_after_build": 13,
+      "pdf": {
+        "path": "open-logic-complete.pdf",
+        "bytes": 5365624,
+        "sha256": "000597B039129DE7FA60B560CFA1779623B15ECE28B5EA7573085DE33AFC7540",
+        "pages": 1013
+      },
+      "log": {
+        "name": "open-logic-complete.log",
+        "bytes": 2276474,
+        "sha256": "E22251E24AC51CA074D54E3C418569A0C990693C24B9758CBDA288B37B96EA93",
+        "warnings": {
+          "latex": 6,
+          "package": 193,
+          "class": 5,
+          "pdftex": 2,
+          "overfull": 359,
+          "underfull": 45,
+          "undefined_reference_mentions": 0,
+          "undefined_citation_mentions": 0,
+          "multiply_defined_mentions": 2
+        },
+        "fatal_markers": 0
+      },
+      "recorder": {
+        "name": "open-logic-complete.fls",
+        "bytes": 386004,
+        "sha256": "E16513173E5C92A584CE72A246876D371D9D7B894BC11114B05F00A07DF5C2FF"
+      },
+      "stdout": {
+        "name": "open-logic-complete.stdout.txt",
+        "bytes": 1059480,
+        "sha256": "C98CB24B84A0EF129ADBBA0DF170AB46B321437B1B4DC3C07B3CFB5BF6EABEDC"
+      },
+      "input_closure": {
+        "unique_inputs": 1783,
+        "included_source_inputs": 667,
+        "generated_inputs": 7,
+        "external_toolchain_inputs": 335,
+        "external_input_classes": [
+          {
+            "class": "miktex-data",
+            "inputs": 8
+          },
+          {
+            "class": "miktex-install",
+            "inputs": 327
+          }
+        ],
+        "unbound_repo_relative_inputs": [],
+        "excluded_doc_inputs": [],
+        "closed": true
+      }
+    }
+  ],
+  "input_closure": {
+    "targets": 2,
+    "all_closed": true,
+    "excluded_doc_inputs": 0,
+    "unbound_repo_relative_inputs": 0,
+    "unknown_external_inputs": 0,
+    "external_input_classes": [
+      {
+        "class": "miktex-data",
+        "inputs_across_targets": 16
+      },
+      {
+        "class": "miktex-install",
+        "inputs_across_targets": 658
+      }
+    ]
+  },
+  "interpretation": "Both root readers were forced through isolated fresh copies of the independently reconstructed Git tree. Observed nonfatal warnings are recorded and are not represented as linguistic or mathematical certification."
+}

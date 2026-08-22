@@ -1,0 +1,38 @@
+{
+  "schema": "math-commons-portal-readback/v1",
+  "status": "PASS",
+  "observed_date": "2026-08-22",
+  "repository": "KokunoYumeto/mathematics-commons-pilot",
+  "release": {
+    "id": null,
+    "tag": "translate-openlogic-v1",
+    "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
+    "target_commit": "e2e4f5bf2f5b7ae0fc15fadcd4d17b27716f1384",
+    "target_tree": "acf7ef634c8871cf58b9d2e871ff6f650e81e69a"
+  },
+  "transport": {
+    "method": "anonymous_https_and_git",
+    "authorization": false,
+    "cookies": false,
+    "payload_persisted": false
+  },
+  "assets": [
+    {
+      "id": null,
+      "name": "openlogic-v1.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip",
+      "expected_bytes": 1921531,
+      "observed_bytes": 1921531,
+      "expected_sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+      "observed_sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+      "match": true
+    }
+  ],
+  "summary": {
+    "assets": 1,
+    "bytes": 1921531,
+    "matches": 1,
+    "mismatches": 0,
+    "errors": []
+  }
+}

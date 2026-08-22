@@ -68,6 +68,26 @@ class FormalizationIntakeTests(unittest.TestCase):
         self.assertEqual(lean["build"]["compiled_files"], 29)
         self.assertEqual(lean["build"]["placeholders"]["count"], 4)
 
+        current = sources["lean-theorems-1-4fce53c"]
+        self.assertEqual(
+            current["snapshot"]["commit"],
+            "4fce53cf5e0be46bfc12e633e2a4924102f12bd8",
+        )
+        self.assertEqual(
+            current["snapshot"]["tree"],
+            "99c6732878a3f9ae34bc3bb607b5c202e824e59a",
+        )
+        self.assertEqual(current["inventory"]["files"], 36)
+        self.assertEqual(current["inventory"]["bytes"], 635_125)
+        self.assertEqual(current["inventory"]["archive"]["bytes"], 162_915)
+        self.assertEqual(
+            current["inventory"]["archive"]["sha256"],
+            "1D770EFC0A8E6B4EB7B8C27FE37551F426ECF5636B7864C6F5152DDB9C1BA2B1",
+        )
+        self.assertEqual(current["build"]["state"], "not_run")
+        self.assertEqual(current["build"]["compiled_files"], 0)
+        self.assertEqual(current["build"]["placeholders"]["count"], 6)
+
         sidecars = sources["zenodo-21129946"]
         self.assertEqual(sidecars["snapshot"]["doi"], "10.5281/zenodo.21129946")
         self.assertEqual(sidecars["inventory"]["archive"]["bytes"], 9_834)

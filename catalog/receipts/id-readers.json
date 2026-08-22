@@ -1,0 +1,134 @@
+{
+  "schema": "math-commons-reader-receipt/v1",
+  "observed_at": "2026-08-22T18:54:26Z",
+  "project": {
+    "id": 280296,
+    "url": "https://figshare.com/projects/Open_and_Share-Alike_Educational_Materials_Translations/280296",
+    "title": "Open and Share-Alike Educational Materials — Translations"
+  },
+  "collection": {
+    "id": 8668413,
+    "version": 25,
+    "doi": "10.6084/m9.figshare.c.8668413.v25",
+    "concept_doi": "10.6084/m9.figshare.c.8668413",
+    "title": "Indonesian Mathematics — Reader PDFs",
+    "reader_count": 9,
+    "reader_bytes": 23510535
+  },
+  "readers": [
+    {
+      "id": "applied-combinatorics-id-figshare-20260822",
+      "work_id": "applied-combinatorics",
+      "title": "Applied Combinatorics",
+      "article_id": 33314772,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314772.v2",
+      "file": "00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.1.pdf",
+      "bytes": 7487198,
+      "sha256": "01909D0E91FC0B7EF5001368CD55F852C527D6B05F5D941A05E993AA04A46F2E",
+      "download_url": "https://ndownloader.figshare.com/files/67759974"
+    },
+    {
+      "id": "mathematics-in-lean-id-figshare-20260822",
+      "work_id": "mathematics-in-lean",
+      "title": "Mathematics in Lean",
+      "article_id": 33314793,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314793.v2",
+      "file": "matematika-dalam-lean-bahasa-indonesia.pdf",
+      "bytes": 1239371,
+      "sha256": "D6A8013355E4EC3005739D6A24A1542A87BF247A869E0DF7F9CC1A132D6A199E",
+      "download_url": "https://ndownloader.figshare.com/files/67759941"
+    },
+    {
+      "id": "euclidean-plane-and-its-relatives-id-figshare-20260822",
+      "work_id": "euclidean-plane-and-its-relatives",
+      "title": "Euclidean Plane and Its Relatives",
+      "article_id": 33314706,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314706.v2",
+      "file": "BIDANG_EUKLIDES_DAN_KERABATNYA_ID_UNIT_012.pdf",
+      "bytes": 1888763,
+      "sha256": "D925F5F43582ABC488AB983BA2C5673FAE765DDFCD2B751394CAE05C789F324B",
+      "download_url": "https://ndownloader.figshare.com/files/67759887"
+    },
+    {
+      "id": "yet-another-introductory-number-theory-textbook-id-figshare-20260822",
+      "work_id": "yet-another-introductory-number-theory-textbook",
+      "title": "Yet Another Introductory Number Theory Textbook",
+      "article_id": 33314736,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314736.v2",
+      "file": "YAINTT_ID.pdf",
+      "bytes": 962527,
+      "sha256": "1DED3C6844B656347259B464BF21526FDC32DC2246C73AC58AB76ED28688EEFC",
+      "download_url": "https://ndownloader.figshare.com/files/67759722"
+    },
+    {
+      "id": "tea-time-numerical-analysis-id-figshare-20260822",
+      "work_id": "tea-time-numerical-analysis",
+      "title": "Tea Time Numerical Analysis",
+      "article_id": 33314724,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314724.v2",
+      "file": "Tea-Time-Numerical-Analysis-id-ID.pdf",
+      "bytes": 8202476,
+      "sha256": "CBC31E9E27FDEE96845D78FA6A625BF956196001B7941DDF0F1232F5DEF46B45",
+      "download_url": "https://ndownloader.figshare.com/files/67759716"
+    },
+    {
+      "id": "judson-abstract-algebra-id-figshare-20260822",
+      "work_id": "judson-abstract-algebra",
+      "title": "Abstract Algebra: Theory and Applications",
+      "article_id": 33314754,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314754.v2",
+      "file": "ALJABAR_ABSTRAK_TEORI_DAN_PENERAPAN_ID_2026.08.21.1.pdf",
+      "bytes": 1841875,
+      "sha256": "578AE35CBFD6032DC9A3B4196523C7D2A85DC380AC65E213A005F0422FCF7183",
+      "download_url": "https://ndownloader.figshare.com/files/67759863"
+    },
+    {
+      "id": "mathematical-computing-reproducible-experiments-id-figshare-20260822",
+      "work_id": "mathematical-computing-reproducible-experiments",
+      "title": "Mathematical Computing and Reproducible Experiments",
+      "article_id": 33314796,
+      "version": 1,
+      "doi": "10.6084/m9.figshare.33314796.v1",
+      "file": "00_KOMPUTASI_MATEMATIS_DAN_EKSPERIMEN_DAPAT_DIREPRODUKSI_ID.pdf",
+      "bytes": 502373,
+      "sha256": "289E744AEEF09EB6E546C002E0782A346519A39C5265AE4EF5C9D1E3CE095376",
+      "download_url": "https://ndownloader.figshare.com/files/67757907"
+    },
+    {
+      "id": "methods-of-algebra-volume-2-id-figshare-20260822",
+      "work_id": "methods-of-algebra-volume-2",
+      "title": "Methods of Algebra, Volume 2",
+      "article_id": 33314775,
+      "version": 2,
+      "doi": "10.6084/m9.figshare.33314775.v2",
+      "file": "00_METODE_DALAM_ALJABAR_JILID_2_ID_UNIT_022.pdf",
+      "bytes": 683385,
+      "sha256": "1D3A337EA9ACD8B55BD8760206E964B467B9330C320DB737C9FD93A4A7BBB5A2",
+      "download_url": "https://ndownloader.figshare.com/files/67757835"
+    },
+    {
+      "id": "dionne-partial-differential-equations-id-figshare-20260822",
+      "work_id": "dionne-partial-differential-equations",
+      "title": "Partial Differential Equations — Dionne Unit 1",
+      "article_id": 33314739,
+      "version": 1,
+      "doi": "10.6084/m9.figshare.33314739.v1",
+      "file": "PERSAMAAN_DIFERENSIAL_PARSIAL_DIONNE_ID_UNIT_01.pdf",
+      "bytes": 702567,
+      "sha256": "BC3A503CCA40EF84E66BE6B10DCFF9DEAD523D83639D3F21DBA4A3841BBF669F",
+      "download_url": "https://ndownloader.figshare.com/files/67757646"
+    }
+  ],
+  "verification": {
+    "anonymous_project_readback": "PASS",
+    "anonymous_collection_readback": "PASS",
+    "anonymous_reader_length_readback": "9/9 PASS",
+    "anonymous_reader_sha256_readback": "9/9 PASS"
+  }
+}

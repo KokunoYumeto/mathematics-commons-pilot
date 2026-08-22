@@ -70,8 +70,8 @@ def source_rows(root: Path, direct_only: bool = False) -> list[dict[str, object]
                 raise ValueError(f"case-insensitive path collision: {prior!r} / {prefix!r}")
             portable_prefixes[folded] = prefix
         size = path.stat().st_size
-        if size <= 0:
-            raise ValueError(f"zero-byte source members are not allowed: {relative}")
+        if size < 0:
+            raise ValueError(f"negative source size is impossible: {relative}")
         rows.append(
             {
                 "path": relative,
@@ -107,10 +107,15 @@ def build_zip(root: Path, job_id: str, output: Path, rows: list[dict[str, object
             for row in rows:
                 relative = str(row["path"])
                 source = root / Path(relative)
+                mode = str(row.get("mode", "100644"))
+                if mode not in {"100644", "100755"}:
+                    raise ValueError(f"unsupported source mode: {relative}: {mode}")
                 info = zipfile.ZipInfo(f"{job_id}/{relative}", FIXED_TIME)
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.create_system = 3
-                info.external_attr = (stat.S_IFREG | 0o644) << 16
+                info.external_attr = (
+                    stat.S_IFREG | (0o755 if mode == "100755" else 0o644)
+                ) << 16
                 info.flag_bits |= 0x800
                 with source.open("rb") as reader, archive.open(info, "w") as writer:
                     while block := reader.read(CHUNK):
@@ -134,13 +139,16 @@ def replay_zip(output: Path, job_id: str, rows: list[dict[str, object]]) -> None
             raise ValueError("ZIP member order or path set differs")
         for row, name in zip(rows, names, strict=True):
             info = archive.getinfo(name)
+            expected_mode = (
+                stat.S_IFREG | (0o755 if row.get("mode") == "100755" else 0o644)
+            )
             if archive.comment != b"":
                 raise ValueError("ZIP archive comment differs")
             if (
                 info.date_time != FIXED_TIME
                 or info.compress_type != zipfile.ZIP_DEFLATED
                 or info.create_system != 3
-                or info.external_attr >> 16 != (stat.S_IFREG | 0o644)
+                or info.external_attr >> 16 != expected_mode
                 or info.extra != b""
                 or info.comment != b""
                 or info.flag_bits

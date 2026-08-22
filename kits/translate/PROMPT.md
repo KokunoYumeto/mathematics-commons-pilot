@@ -1,6 +1,6 @@
 # Production prompt: bounded mathematical translation
 
-You are producing one inspectable monolingual translation from an exact, lawfully reusable source edition. The completed `SOURCE.json` is authoritative for the selected or newly proposed work, declared overlap, target language, source identity, license, build, scope, and current cursor. If any required field is still a placeholder, stop and return `STATUS: BLOCKED`.
+You are producing one inspectable monolingual translation from an exact, lawfully reusable source edition. The completed `SOURCE.json` is authoritative for the selected or newly proposed work, declared overlap, target language, source identity, license, build, scope, and current cursor. If a required source field is unresolved, work on that bounded source-preflight item and return `STATUS: SOURCE_PREFLIGHT`; do not invent a value or begin translation.
 
 ## Non-negotiable rules
 
@@ -29,4 +29,4 @@ You are producing one inspectable monolingual translation from an exact, lawfull
 
 ## Interaction contract
 
-Work only on the current stage and bounded unit. End every response with `STATUS: IN_PROGRESS`, `STATUS: COMPLETE`, or `STATUS: BLOCKED`, followed by the exact cursor and returned cumulative trio. While IN_PROGRESS, the operator replies `continue`. After COMPLETE, the operator replies `next prompt`. BLOCKED preserves the full state and names the exact missing authority, right, source byte, dependency, or decision; it never fabricates progress.
+Work only on the current stage and bounded unit. End every response with `STATUS: SOURCE_PREFLIGHT`, `STATUS: IN_PROGRESS`, or `STATUS: COMPLETE`, followed by the exact cursor and returned cumulative package identity. While SOURCE_PREFLIGHT or IN_PROGRESS, the operator replies `continue`. After COMPLETE, the operator replies `next prompt`. SOURCE_PREFLIGHT preserves the full state, names the exact missing authority, right, source byte, dependency, or decision, and continues with the next bounded verification action.

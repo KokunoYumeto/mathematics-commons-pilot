@@ -1,47 +1,51 @@
 {
-  "schema": "math-commons-translation-source/v3",
-  "selection": {
-    "catalog": "REQUIRED_CATALOG_OR_BOARD",
-    "catalog_commit": "REQUIRED_IMMUTABLE_ID",
-    "work_key": "REQUIRED_SEMANTIC_KEY_OR_NEW_WORK_SLUG",
-    "known_existing_editions": [],
-    "declared_overlap": "REQUIRED"
-  },
+  "schema": "math-commons-translation-source/v4",
+  "state": "source_preflight",
   "work": {
-    "title": "REQUIRED",
-    "author": "REQUIRED",
-    "edition": "REQUIRED",
-    "source_language": "REQUIRED",
-    "target_language": "REQUIRED",
-    "target_locale": "REQUIRED",
-    "target_script": "REQUIRED",
-    "orthographic_standard": "REQUIRED"
+    "work_id": null,
+    "title": null,
+    "creators": [],
+    "source_language": null
+  },
+  "target": {
+    "language": null,
+    "language_tag": null,
+    "locale": null,
+    "script": null,
+    "orthographic_standard": null,
+    "intended_learners": null,
+    "mathematical_register": null
+  },
+  "coverage": {
+    "checked_at": null,
+    "known_editions": [],
+    "declared_overlap": null,
+    "relationship": null
+  },
+  "review": {
+    "language_reviewers": [],
+    "mathematics_reviewers": [],
+    "independent_cold_review_required": true
   },
   "source": {
-    "repository_url": "REQUIRED_HTTPS_URL",
-    "commit_or_tag": "REQUIRED_IMMUTABLE_ID",
-    "tree": "REQUIRED_IF_GIT",
-    "archive_bytes": 0,
-    "archive_sha256": "REQUIRED_64_HEX",
-    "reader_bytes": 0,
-    "reader_sha256": "REQUIRED_64_HEX"
+    "repository": null,
+    "commit": null,
+    "tree": null,
+    "files": null,
+    "bytes": null,
+    "tree_receipt": null,
+    "immutable_path": null
   },
   "rights": {
-    "work_license": "REQUIRED",
-    "license_url": "REQUIRED_HTTPS_URL",
-    "derivative_translation_allowed": false,
-    "component_manifest": "REQUIRED_PATH"
-  },
-  "build": {
-    "toolchain": "REQUIRED",
-    "command": "REQUIRED",
-    "baseline_status": "not_run",
-    "receipt": "REQUIRED_PATH"
+    "work_license": null,
+    "license_url": null,
+    "derivative_translation_allowed": null,
+    "notice": null
   },
   "scope": {
-    "included": "REQUIRED",
-    "excluded": "REQUIRED",
-    "first_unit": "REQUIRED",
-    "next_cursor": "REQUIRED"
+    "included": null,
+    "excluded": null,
+    "first_unit": null,
+    "next_cursor": "select-work-and-language"
   }
 }

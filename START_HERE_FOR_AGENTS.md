@@ -6,7 +6,7 @@ Select exactly one portal and keep its work scope bounded.
 
 ## Transcription
 
-Choose one `runnable` row from `catalog/jobs.json`, download every asset part, verify bytes and SHA-256, and follow `docs/run.md`. Preserve the exact authority and return cumulative full state after every response.
+Choose one `runnable` row from `catalog/jobs.json`, download every asset part, verify bytes and SHA-256, and follow `docs/run.md`. Use the row's exact `prompt_count`; do not assume every job has 45 prompts. Reply only `continue` for `STATUS: IN_PROGRESS`, and reply only `next prompt` for `STATUS: COMPLETE` when the current number is less than `prompt_count`. The declared final prompt is terminal only after PASS with no requested successor. Preserve the exact authority and return cumulative full state after every response.
 
 ## Translation
 
@@ -16,6 +16,8 @@ Read `docs/translations.md` and the files in `kits/translate/`. Before any sourc
 2. What exact target language, locale, script, and orthographic standard does the user want?
 
 Then report work-specific verified editions, reported but unverified editions, declared overlap, source status, derivative rights, component status, and baseline-build status. Unknown coverage means unknown, not absent. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
+
+The source-bound `openlogic-v1` row may be run only after its release asset and anonymous readback match the catalog. The generic v7 starter contains no source work and is only a chooser and preflight workflow; do not treat its release as a runnable translation job. Its `WORKS.json` is a frozen release snapshot, not the floating current catalog. The live catalog adds nine exact public Indonesian reader identities; those rows prove available PDF bytes, not whole-work coverage, source lineage, or independent QA.
 
 ## Open problems
 

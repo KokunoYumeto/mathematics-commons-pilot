@@ -1,5 +1,5 @@
 {
-  "schema": "math-commons-catalog-check/v2",
+  "schema": "math-commons-catalog-check/v3",
   "status": "PASS",
   "inputs": {
     "job_meta": {
@@ -14,18 +14,43 @@
     },
     "translations": {
       "path": "catalog/translations.json",
-      "bytes": 79765,
-      "sha256": "2F6C6AE0B9430E70B7D36E2F4D90400C5E37B650A19527FADFC23225529930B5"
+      "bytes": 213661,
+      "sha256": "0551405B08E07AA2B2F5C3875944C758D7CAC270D300F2F335E0C48067B37BC1"
+    },
+    "translation_choices": {
+      "path": "kits/translate/WORKS.json",
+      "bytes": 36711,
+      "sha256": "B9163B7E4373007D9D3E52112E58501FC32F59B2F13884FFD1555BC93A1D024D"
+    },
+    "translation_source": {
+      "path": "kits/translate/SOURCE.json",
+      "bytes": 1086,
+      "sha256": "513D61967BF6B69F5A059A6C46BB3E16DFAF5B04E137A2F11296336F08EC22C2"
+    },
+    "openlogic_source": {
+      "path": "kits/openlogic/SOURCE.json",
+      "bytes": 1408,
+      "sha256": "7FEF2C1175960CD3E3825AEFD074844F95AD7AEF418CEEEEDBCFC17D814D7E60"
+    },
+    "openlogic_job": {
+      "path": "kits/openlogic/JOB.json",
+      "bytes": 1664,
+      "sha256": "C83B9E5643CB08A185E7DD5628EA8B059AA61A66959A9C284839E88F099BA511"
+    },
+    "openlogic_build": {
+      "path": "kits/openlogic/BUILD.json",
+      "bytes": 6354,
+      "sha256": "C567501CE91469CA36C39FED26165A14CA772F3A105152959068FB17AD7B2F8F"
     },
     "formalization": {
       "path": "catalog/formalize.json",
-      "bytes": 32018,
-      "sha256": "25AA03544C3D097270113986C11DE24E60B9F207A5A0086BB895DF1893FDAD02"
+      "bytes": 38088,
+      "sha256": "9781B25CA25C76A1EABC4CD50FF116821D9CCA4B87D4170919944F30F15AFCBA"
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 3326,
-      "sha256": "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
+      "bytes": 4927,
+      "sha256": "5B305EBD5F2C3131F18F9C4612A3F2F539689AAC06D7A1F9D254EA81D01BAFE7"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -41,6 +66,26 @@
       "path": "catalog/translate-rb-v6.json",
       "bytes": 1201,
       "sha256": "541174E5DDC424652CD2ED56CC3EBD7EB8C9F087E83A0F9767451A71BFB4E5A1"
+    },
+    "openlogic_readback": {
+      "path": "catalog/openlogic-rb.json",
+      "bytes": 1215,
+      "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
+    },
+    "translate_v7_readback": {
+      "path": "catalog/translate-rb-v7.json",
+      "bytes": 1199,
+      "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861"
+    },
+    "openlogic_asset_manifest": {
+      "path": "catalog/assets/openlogic.json",
+      "bytes": 177525,
+      "sha256": "F09C19E61CB252255EEBFF61FF822971271D158396406E6644CE15105CFA8520"
+    },
+    "translate_v7_asset_manifest": {
+      "path": "catalog/assets/translate-v7.json",
+      "bytes": 2603,
+      "sha256": "9E94253BCC50A1E6369D69918EC88D9025D373481944370E3EC6F3213CC76DF1"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -67,6 +112,16 @@
       "bytes": 28430,
       "sha256": "1961AF0B9EA3A0719ACE87F55F6195E8F07AE8CA453880A8BBDA241A40647D66"
     },
+    "openlogic_receipt": {
+      "path": "catalog/receipts/openlogic.json",
+      "bytes": 6354,
+      "sha256": "8D302839A6E6FC6A0770810ED251FE2FA8F50BEDC2DEEE8297CD597C5FFCD001"
+    },
+    "id_readers_receipt": {
+      "path": "catalog/receipts/id-readers.json",
+      "bytes": 5583,
+      "sha256": "BE52B1761DBDD9C9BBEFF52787D152E463044E6C15A5B946991775D8809B6204"
+    },
     "job_meta_schema": {
       "path": "schemas/job-meta.schema.json",
       "bytes": 7028,
@@ -79,8 +134,23 @@
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
-      "bytes": 9658,
-      "sha256": "73103B59423E840003ABC2BF477C87FCF2960D7A88E47AAD882EA55DC9C16C39"
+      "bytes": 21278,
+      "sha256": "E27B7D00F49885D18B21217DF88D77F0AE4736A729FE54C6C2546F6BDB6CFEF5"
+    },
+    "translation_choices_schema": {
+      "path": "schemas/translation-choices.schema.json",
+      "bytes": 15499,
+      "sha256": "2E516EB3DA78476695FAB6237FBA1BFEDE2FDF534B37DA7E59BDDA01A1C766A7"
+    },
+    "translation_source_schema": {
+      "path": "schemas/translation-source.schema.json",
+      "bytes": 6019,
+      "sha256": "9007CBFE6A6AF63F2327F7931B5206C1C6DC33D3CF73E6A6C0FCCD866F60B131"
+    },
+    "translation_build_schema": {
+      "path": "schemas/translation-build.schema.json",
+      "bytes": 19502,
+      "sha256": "8365EC18BB73F89604CBEA467626AACD2E27FE6842E96DE2502FAB32E8F4A127"
     },
     "formalization_schema": {
       "path": "schemas/formalization-intake.schema.json",
@@ -89,13 +159,13 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 3923,
-      "sha256": "8C92C0F01D918056D0F0C28E3E4C64477740E87A5F8FE9B895912670BDA3A93B"
+      "bytes": 7955,
+      "sha256": "4C4CC8D4428D2B1489FB77CF1E45E784A1F80C48D68F14D9FE43DCA579FDA4FA"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
-      "bytes": 3040,
-      "sha256": "B24F006DE8A82505666B5E5CD2F7CCB9E8A719A0E7F402C0BA3F62BC43465C79"
+      "bytes": 3223,
+      "sha256": "38E249752C7AE074ECC2FD4F27926D00CFC31A19CEE0E8F1E615597E37B34241"
     },
     "readback_schema": {
       "path": "schemas/release-readback.schema.json",
@@ -104,13 +174,13 @@
     },
     "portal_readback_schema": {
       "path": "schemas/portal-readback.schema.json",
-      "bytes": 2843,
-      "sha256": "9BA7B321F813C35F316FEA59920F60AC238F190936205750264441504AD41CB5"
+      "bytes": 3192,
+      "sha256": "DE161B72ABD578DE688ED9C7F6FF1A6CA658D9F20A014D6DD44E7ECED4A8B5FB"
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 7910,
-      "sha256": "94BBBFCB455B871C41C97FA83EFF7EC452E39C5DD1BA36EF9784CE60AEE56735"
+      "bytes": 10992,
+      "sha256": "3D5A9B7352398834AAF3661471E5004F9E40F39283B7E99AA00CBDA5EC9CE2C0"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -119,8 +189,8 @@
     },
     "packer": {
       "path": "tools/pack_job.py",
-      "bytes": 10938,
-      "sha256": "AD33861A718BBAF2846A516D506BA66A0F3C9237248CDFB1EBD7944EC497903D"
+      "bytes": 11310,
+      "sha256": "19951C0C4B6938D4623EAA476B5A5159F887E414DF062317382108D75BC745F2"
     },
     "builder": {
       "path": "tools/build_jobs.py",
@@ -142,17 +212,47 @@
       "bytes": 32300,
       "sha256": "D56916C8AF713C8E7C9F80AD4E3645C27F341828B70D82248A502C6034154A15"
     },
+    "openlogic_builder": {
+      "path": "tools/build_openlogic.py",
+      "bytes": 10256,
+      "sha256": "E2EA8F845F2FAEFA85A7E190C00C40C5BCEFE281C99923C9E8F11B188C7AB6AE"
+    },
+    "openlogic_auditor": {
+      "path": "tools/audit_openlogic_build.py",
+      "bytes": 32299,
+      "sha256": "38245C8529729860682281DF96AEBD213092A27C8B3222984BCF2CD221E2DC72"
+    },
+    "translation_builder": {
+      "path": "tools/build_translate.py",
+      "bytes": 5895,
+      "sha256": "31409E7CC6DD1A85B8D6250629479DB19FDC6035EA9802B8562BC711598924DE"
+    },
+    "translation_migrator": {
+      "path": "tools/migrate_translations_v7.py",
+      "bytes": 25494,
+      "sha256": "EBAE557D7C59F180D7E6DD421E67748AEF4B8A5A24CDAE972D3E62B048A67708"
+    },
+    "translation_reader_updater": {
+      "path": "tools/add_id_readers.py",
+      "bytes": 14423,
+      "sha256": "5B5C67FCDD8FF402DC99AE4AB5A1B4E7ABF8D775AD692F64C0F230C958BB862A"
+    },
+    "portal_readback_tool": {
+      "path": "tools/readback_portal.py",
+      "bytes": 12645,
+      "sha256": "D7C6B9EA6E1398DAC249EE01E123EDD3B686976B28F19DF171B5D28CB9C2E4FE"
+    },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 92927,
-      "sha256": "86A8B2DDC372CA06BBD7BF635C5757AC100033E9A0971AD55912A0B6DC7A8EF7"
+      "bytes": 143601,
+      "sha256": "89F7FE3153F4146B8138B2C5A2FCEA6398C4304F862BD35CD69E7CB19E0411FC"
     }
   },
   "asset_manifests": {
-    "files": 34,
-    "bytes": 136456,
-    "canonical_stream_bytes": 4013,
-    "tree_sha256": "CF14CE8E2BA6F79E5B2348CCAF2DCAD0774359DBEB20BFBE19E459A4A8F51EC8"
+    "files": 36,
+    "bytes": 316584,
+    "canonical_stream_bytes": 4218,
+    "tree_sha256": "C4B3C249C30D2D9AFC9B5DE2D74A400F3E097803ECCF25FC740490C0DF656A57"
   },
   "jobs": 28,
   "release_assets": 31,
@@ -162,7 +262,17 @@
   "zip_member_files_replayed": 542,
   "nested_authorities_replayed": 2,
   "asset_mode": "admission_receipt_plus_public_readback",
-  "translation_entries": 40,
+  "translation": {
+    "topics": 10,
+    "works": 29,
+    "resources": 12,
+    "source_editions": 41,
+    "translation_editions": 23,
+    "jobs": 1,
+    "runnable_jobs": 1,
+    "public_release_assets": 2,
+    "public_release_bytes": 1937511
+  },
   "formalization_entries": 19,
   "portal_sections": 3,
   "public_readback": {

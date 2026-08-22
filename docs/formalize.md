@@ -1,6 +1,6 @@
 # Formalization from transcribed mathematics
 
-Status: intake scaffold. Two exact external source snapshots and 19 bounded items are cataloged; no formalization packet is currently runnable.
+Status: intake scaffold. Three exact external source snapshots—two distinct generations of one public Lean repository plus one archived sidecar set—and 19 bounded items are cataloged; no formalization packet is currently runnable.
 
 This is a cross-cutting Mathematics Commons workstream, not a fourth main portal. It connects the transcription and translation collections to formal proof work: select one exact result, compare its machine-readable source with a Lean statement, audit the pinned Mathlib version for existing coverage, and return a reproducible formalization or source-to-library map. The external Lean work below demonstrates that this workflow is practical while also showing why compilation alone is not enough.
 
@@ -14,8 +14,19 @@ The machine-readable intake is [`catalog/formalize.json`](../catalog/formalize.j
 
 | Source | Exact snapshot | What was reproduced | Material limitation |
 |---|---|---|---|
-| [`sneed-and-feed/lean-theorems-1`](https://github.com/sneed-and-feed/lean-theorems-1) | Commit `6cf9ce44c1a8281699fa2f3128a764e0c347e7f6`; tree `eee97092915b388bf4b30bcdf60c5ad2201af133`; 36 Git-tree files / 592,129 bytes | The default target covers 29 of 30 Lean files under Lean `v4.34.0-rc1` and Mathlib `20bc12820422504f9e52ee6caebf8182a9015336` | Four `sorry` tokens exist. `ColorfulHelly.lean` is excluded from the default target and fails targeted compilation. The upstream claim that the core build has no incomplete goals is therefore false. |
+| [`sneed-and-feed/lean-theorems-1`](https://github.com/sneed-and-feed/lean-theorems-1) | Commit `6cf9ce44c1a8281699fa2f3128a764e0c347e7f6`; tree `eee97092915b388bf4b30bcdf60c5ad2201af133`; 36 Git-tree files / 592,129 bytes | The default target covers 29 of 30 Lean files under Lean `v4.34.0-rc1` and Mathlib `20bc12820422504f9e52ee6caebf8182a9015336` | The reproduced tree still contains four `sorry` tokens. `ColorfulHelly.lean` is excluded from the default target and fails targeted compilation, so the default build does not establish placeholder-free completion. |
+| [`sneed-and-feed/lean-theorems-1`, current follow-up](https://github.com/sneed-and-feed/lean-theorems-1/tree/4fce53cf5e0be46bfc12e633e2a4924102f12bd8) | Commit `4fce53cf5e0be46bfc12e633e2a4924102f12bd8`; tree `99c6732878a3f9ae34bc3bb607b5c202e824e59a`; 36 files / 635,125 bytes | Exact archive and member replay plus a direct scan of all 30 Lean files | No build was run for this generation. Six direct `sorry` tokens are present; five are in the static default-target import closure. Existing intake items remain bound to the built parent snapshot. |
 | [Classical Mathematics Lean 4 Formalization Sidecars](https://zenodo.org/records/21129946) | DOI `10.5281/zenodo.21129946`; ZIP 9,834 bytes; SHA-256 `E9E494210774F814505CEC76F5AA5F2D6C8309EC46EA8B1A70CB77B070691FA9` | All four downloaded Lean sidecars compile individually under Lean `v4.31.0` and Mathlib `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`; the 13 advertised non-self member hashes replay | These are small Noether, Steinitz, Weber, and Jordan anchors. They contain no Desargues or Sylvester material and no historical statement-correspondence review. |
+
+### Existing contributor and concrete help
+
+The Lean repository was shared publicly by [`u/LooseSwing88` in r/LLMmathematics](https://www.reddit.com/r/LLMmathematics/comments/1vtrgoh/ive_been_working_on_formalizing_some_classical/). It is useful existing contributor work, not a Commons-generated benchmark. A helpful contribution should begin from one exact commit and return a small reproducible delta rather than a bulk model transcript.
+
+At the current follow-up snapshot, concrete bounded tasks include the residual `esther_klein_theorem` case in `ErdosSzekeresConvex.lean`, the `r ≥ 3` branch of `tverberg_1d`, the existing dual Desargues and two Erdős–Ko–Rado placeholders, and completion plus default-target admission of `ColorfulHelly.lean`. A separate documentation task is to reconcile the repository's no-`sorry` claim with the direct source scan. Each task still needs compilation, statement review, and exact citations; removing a token without proving the intended statement is not completion.
+
+### Sylvester–Gallai source boundary
+
+The pinned `SylvesterGallai.sylvester_gallai` declaration is included in the passing parent build and has no `sorry` in its named declaration. Its statement correspondence is still unreviewed. The public machine-readable Sylvester Volume I checkpoint at [`modern-latex-manuscripts` commit `294618e5`](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/294618e539b33b8fd83f2ff553fbdc2f6a58ab56/sources/sylvester/sylv_b26/cum) covers book pages 1–493 and papers dated 1837–1853. It does not contain the 1893 Sylvester problem, so it cannot serve as the historical authority for this theorem. A bounded Sylvester–Gallai packet must acquire and bind that later source separately.
 
 ### Desargues intake
 

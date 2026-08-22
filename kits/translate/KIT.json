@@ -1,7 +1,7 @@
 {
-  "schema": "math-commons-translation-starter/v6",
-  "version": "6.0.0",
-  "date": "2026-08-21",
+  "schema": "math-commons-translation-starter/v7",
+  "version": "7.0.0",
+  "date": "2026-08-22",
   "purpose": "Choose one work and target language, freeze an eligible source, produce a standalone monolingual translation, and return cumulative inspectable state.",
   "source_included": false,
   "translation_included": false,

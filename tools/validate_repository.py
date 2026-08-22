@@ -47,6 +47,9 @@ REQUIRED = {
     "schemas/job-catalog.schema.json",
     "schemas/job-asset.schema.json",
     "schemas/translation-catalog.schema.json",
+    "schemas/translation-choices.schema.json",
+    "schemas/translation-source.schema.json",
+    "schemas/translation-build.schema.json",
     "schemas/formalization-intake.schema.json",
     "schemas/portal-catalog.schema.json",
     "schemas/portal-readback.schema.json",
@@ -65,6 +68,11 @@ REQUIRED = {
     "tools/build_r2_admission.py",
     "tools/repair_stale_packet_manifests.py",
     "tools/readback_jobs_release.py",
+    "tools/build_openlogic.py",
+    "tools/audit_openlogic_build.py",
+    "tools/build_translate.py",
+    "tools/migrate_translations_v7.py",
+    "tools/readback_portal.py",
     "tools/validate_jobs.py",
     "tools/commons.py",
     "tools/validate_packets.py",
@@ -74,12 +82,15 @@ REQUIRED = {
     "tests/test_record_contracts.py",
     "tests/test_validate_repository.py",
     "tests/test_job_catalog.py",
+    "tests/test_language_evidence.py",
+    "tests/test_openlogic_source.py",
     "tests/test_formalization_intake.py",
     "catalog/README.md",
     "catalog/job-meta.json",
     "catalog/jobs.json",
     "catalog/receipts/r2-admission.json",
     "catalog/receipts/no-failure-hardening.json",
+    "catalog/receipts/openlogic.json",
     "catalog/receipts/global.json",
     "catalog/receipts/gordan2.txt",
     "catalog/receipts/mikami.json",
@@ -92,6 +103,7 @@ REQUIRED = {
     "catalog/translate-rb-v4.json",
     "catalog/translate-rb-v5.json",
     "catalog/translate-rb-v6.json",
+    "catalog/openlogic-rb.json",
     "catalog/check.json",
     "docs/run.md",
     "docs/fidelity.md",
@@ -106,6 +118,8 @@ REQUIRED = {
     "docs/release-translate-v4.md",
     "docs/release-translate-v5.md",
     "docs/release-translate-v6.md",
+    "docs/openlogic-v1.md",
+    "docs/translate-v7.md",
     "docs/release-workbench-v0.2.md",
     "docs/roadmap.md",
     "docs/workbench.md",
@@ -121,6 +135,19 @@ REQUIRED = {
     "kits/translate/QA.md",
     "kits/translate/RETURN.md",
     "kits/translate/SOURCE.json",
+    "kits/openlogic/BUILD.json",
+    "kits/openlogic/CHECKPOINT.json",
+    "kits/openlogic/JOB.json",
+    "kits/openlogic/LOCAL.md",
+    "kits/openlogic/NOTICE.md",
+    "kits/openlogic/PROMPT.md",
+    "kits/openlogic/QA.json",
+    "kits/openlogic/QA.md",
+    "kits/openlogic/README.md",
+    "kits/openlogic/RETURN.md",
+    "kits/openlogic/SOURCE.json",
+    "kits/openlogic/START.md",
+    "kits/openlogic/WEB.md",
     "kits/translate-r1/README.md",
     "kits/translate-r1/PROMPT.md",
     "kits/translate-r1/QA.md",
@@ -130,6 +157,8 @@ REQUIRED = {
     "catalog/assets/translate-v4.json",
     "catalog/assets/translate-v5.json",
     "catalog/assets/translate-v6.json",
+    "catalog/assets/openlogic.json",
+    "catalog/assets/translate-v7.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
@@ -887,18 +916,56 @@ def check_phase_a_freeze(errors: list[str]) -> None:
             errors.append(f"Phase A {name} has the wrong lease expiry time")
 
 
+def check_required_file(name: str, errors: list[str]) -> None:
+    path = ROOT / name
+    if not path.is_file():
+        errors.append(f"missing required file: {name}")
+    elif path.is_symlink():
+        errors.append(f"required file cannot be a symbolic link: {name}")
+    else:
+        try:
+            path.resolve().relative_to(ROOT.resolve())
+        except (OSError, ValueError):
+            errors.append(f"required file resolves outside repository: {name}")
+
+
+def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
+    if catalog.get("schema") == "math-commons-portal-catalog/v2":
+        return True
+    for section in catalog.get("sections", []):
+        if not isinstance(section, dict):
+            continue
+        for key in ("release", "starter"):
+            release = section.get(key)
+            if isinstance(release, dict) and release.get("tag") == "translate-v7":
+                return True
+    return False
+
+
 def check_required(errors: list[str]) -> None:
     for name in sorted(REQUIRED):
-        path = ROOT / name
-        if not path.is_file():
-            errors.append(f"missing required file: {name}")
-        elif path.is_symlink():
-            errors.append(f"required file cannot be a symbolic link: {name}")
-        else:
-            try:
-                path.resolve().relative_to(ROOT.resolve())
-            except (OSError, ValueError):
-                errors.append(f"required file resolves outside repository: {name}")
+        check_required_file(name, errors)
+
+    portal_path = ROOT / "catalog" / "portals.json"
+    if not portal_path.is_file() or portal_path.is_symlink():
+        return
+    try:
+        portal = validate_packets.load_json(portal_path)
+    except (OSError, UnicodeError, ValueError) as exc:
+        errors.append(f"cannot inspect portal catalog requirements: {exc}")
+        return
+    if not isinstance(portal, dict):
+        errors.append("portal catalog root must be an object")
+        return
+    if portal_requires_v7_readback(portal):
+        check_required_file("catalog/translate-rb-v7.json", errors)
+    elif portal.get("schema") == "math-commons-portal-catalog/v1":
+        v7_readback = ROOT / "catalog" / "translate-rb-v7.json"
+        if v7_readback.exists() or v7_readback.is_symlink():
+            errors.append(
+                "undeclared v7 readback exists under legacy portal catalog: "
+                "catalog/translate-rb-v7.json"
+            )
 
 
 def check_immutable_r1_readback(errors: list[str]) -> None:

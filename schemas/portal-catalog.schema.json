@@ -6,16 +6,34 @@
   "additionalProperties": false,
   "required": ["schema", "updated", "repository", "sections"],
   "properties": {
-    "schema": {"const": "math-commons-portal-catalog/v1"},
+    "schema": {
+      "enum": [
+        "math-commons-portal-catalog/v1",
+        "math-commons-portal-catalog/v2"
+      ]
+    },
     "updated": {"type": "string", "format": "date"},
     "repository": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
     "sections": {
       "type": "array",
       "minItems": 3,
-      "maxItems": 3,
-      "items": {"$ref": "#/$defs/section"}
+      "maxItems": 3
     }
   },
+  "oneOf": [
+    {
+      "properties": {
+        "schema": {"const": "math-commons-portal-catalog/v1"},
+        "sections": {"items": {"$ref": "#/$defs/legacySection"}}
+      }
+    },
+    {
+      "properties": {
+        "schema": {"const": "math-commons-portal-catalog/v2"},
+        "sections": {"items": {"$ref": "#/$defs/currentSection"}}
+      }
+    }
+  ],
   "$defs": {
     "nullablePath": {
       "oneOf": [
@@ -33,7 +51,7 @@
         "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
       }
     },
-    "publishedRelease": {
+    "legacyPublishedRelease": {
       "type": "object",
       "additionalProperties": false,
       "required": ["tag", "url", "asset_count", "asset_bytes", "asset_catalog", "readback", "assets"],
@@ -43,6 +61,25 @@
         "asset_count": {"type": "integer", "minimum": 1},
         "asset_bytes": {"type": "integer", "minimum": 1},
         "asset_catalog": {"$ref": "#/$defs/nullablePath"},
+        "readback": {"type": "string", "minLength": 1},
+        "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
+      }
+    },
+    "currentPublishedRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "url", "target_commit", "target_tree", "asset_count", "asset_bytes", "asset_catalog", "readback", "assets"],
+      "properties": {
+        "tag": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
+        "target_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "target_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "asset_count": {"type": "integer", "minimum": 1},
+        "asset_bytes": {"type": "integer", "minimum": 1},
+        "runnable_asset_count": {"type": "integer", "minimum": 1},
+        "runnable_asset_bytes": {"type": "integer", "minimum": 1},
+        "asset_catalog": {"$ref": "#/$defs/nullablePath"},
+        "admission_receipt": {"$ref": "#/$defs/nullablePath"},
         "readback": {"type": "string", "minLength": 1},
         "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
       }
@@ -61,7 +98,7 @@
         "assets": {"type": "array", "maxItems": 0}
       }
     },
-    "section": {
+    "legacySection": {
       "type": "object",
       "additionalProperties": false,
       "required": ["id", "title", "state", "docs", "catalog", "summary", "release", "limitations"],
@@ -74,7 +111,7 @@
         "summary": {"type": "string", "minLength": 1},
         "release": {
           "oneOf": [
-            {"$ref": "#/$defs/publishedRelease"},
+            {"$ref": "#/$defs/legacyPublishedRelease"},
             {"$ref": "#/$defs/pendingRelease"}
           ]
         },
@@ -87,16 +124,86 @@
       },
       "oneOf": [
         {
-          "required": ["state"],
           "not": {"required": ["expected_asset"]},
           "properties": {
-            "state": {"enum": ["runnable", "starter_available"]},
-            "release": {"$ref": "#/$defs/publishedRelease"}
+            "id": {"const": "transcription"},
+            "state": {"const": "runnable"},
+            "release": {"$ref": "#/$defs/legacyPublishedRelease"}
           }
         },
         {
-          "required": ["state", "expected_asset"],
+          "not": {"required": ["expected_asset"]},
           "properties": {
+            "id": {"const": "translation"},
+            "state": {"const": "starter_available"},
+            "release": {"$ref": "#/$defs/legacyPublishedRelease"}
+          }
+        },
+        {
+          "required": ["expected_asset"],
+          "properties": {
+            "id": {"const": "open-problems"},
+            "state": {"const": "source_recovery_required"},
+            "catalog": {"type": "null"},
+            "release": {"$ref": "#/$defs/pendingRelease"}
+          }
+        }
+      ]
+    },
+    "currentSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "state", "docs", "catalog", "summary", "release", "limitations"],
+      "properties": {
+        "id": {"enum": ["transcription", "translation", "open-problems"]},
+        "title": {"type": "string", "minLength": 1},
+        "state": {"enum": ["runnable", "source_recovery_required"]},
+        "docs": {"type": "string", "pattern": "^docs/[A-Za-z0-9_.-]+\\.md$"},
+        "catalog": {"$ref": "#/$defs/nullablePath"},
+        "summary": {"type": "string", "minLength": 1},
+        "release": {
+          "oneOf": [
+            {"$ref": "#/$defs/currentPublishedRelease"},
+            {"$ref": "#/$defs/pendingRelease"}
+          ]
+        },
+        "starter": {"$ref": "#/$defs/currentPublishedRelease"},
+        "expected_asset": {"$ref": "#/$defs/asset"},
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "oneOf": [
+        {
+          "not": {"anyOf": [{"required": ["expected_asset"]}, {"required": ["starter"]}]},
+          "properties": {
+            "id": {"const": "transcription"},
+            "state": {"const": "runnable"},
+            "release": {
+              "allOf": [
+                {"$ref": "#/$defs/currentPublishedRelease"},
+                {"required": ["runnable_asset_count", "runnable_asset_bytes"]}
+              ]
+            }
+          }
+        },
+        {
+          "required": ["starter"],
+          "not": {"required": ["expected_asset"]},
+          "properties": {
+            "id": {"const": "translation"},
+            "state": {"const": "runnable"},
+            "release": {"$ref": "#/$defs/currentPublishedRelease"},
+            "starter": {"$ref": "#/$defs/currentPublishedRelease"}
+          }
+        },
+        {
+          "required": ["expected_asset"],
+          "not": {"required": ["starter"]},
+          "properties": {
+            "id": {"const": "open-problems"},
             "state": {"const": "source_recovery_required"},
             "catalog": {"type": "null"},
             "release": {"$ref": "#/$defs/pendingRelease"}
