@@ -41,11 +41,11 @@ The [translation portal](docs/translations.md) is a non-exclusive set of useful 
 - composite curriculum ideas; and
 - supporting components, infrastructure, references, and excluded sources.
 
-Public choices use titles and readable semantic keys such as `openstax-prealgebra-2e`. Historical planning keys remain only in the machine catalog for provenance; they are not public work labels.
+Public choices use titles and readable semantic keys such as `openstax-prealgebra-2e`.
 
 The [Open Logic source packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) is the first source-bound job. Its exact source snapshot, included rights material, baseline builds, ZIP identity, admission receipt, and anonymous readback are recorded in the catalog. It contains no completed translation.
 
-The separate [`translation-starter-v7` candidate](docs/translate-v7.md) is a generic work-selection and source-preflight workflow. It is prepared locally but is not a public release. It asks two questions before doing anything else:
+The separate [`translation-starter-v7` candidate](docs/translate-v7.md) is a generic work-selection and source-preflight workflow. It is prepared but not yet published. It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
