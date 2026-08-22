@@ -1,30 +1,22 @@
 {
-  "schema": "math-commons-translation-choices/v3",
-  "date": "2026-08-21",
-  "rule": "Select one exact work and one exact target language. These rows are non-exclusive suggestions; another open mathematical work may be proposed. Fetch the full semantic-id row from the exact catalog before source preflight and never infer readiness or absence of translations from this index.",
-  "catalogs": {
-    "open_education": {
-      "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
-      "commit": "b5573df77ef120bb5b6d79ea23c0c725bc941ac6",
-      "tree": "5a770a0589a0940228863a130f0641dfd86581f6",
-      "path": "catalog/translations.json",
-      "bytes": 79765,
-      "sha256": "2F6C6AE0B9430E70B7D36E2F4D90400C5E37B650A19527FADFC23225529930B5",
-      "rows": 40,
-      "state": "non_exhaustive_suggestions_and_reported_coverage",
-      "warning": "All choices require an independent public source, license, component, and baseline-build freeze. Reported editions are not independently verified unless their row says so."
-    },
-    "separate_manuscript_archive": {
-      "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
-      "commit": "7a00b564ace8230c57309df2d66325e57d1c4043",
-      "tree": "e3d53eb3216a2d6e99cce32a358ecd06377e3115",
-      "path": "manifests/adopt.json",
-      "bytes": 151030,
-      "sha256": "2B81804831FDB030F1BBA81B07D2C9304D682E9F7D81DD6872A6DFDBA5452FDD",
-      "rows": 78,
-      "state": "separate_exact_commit_archive_and_coordination_board",
-      "warning": "This is a separate older-manuscript corpus. Its rows and aggregate language tags are not coverage for the open-education suggestions."
-    }
+  "schema": "math-commons-translation-choices/v7",
+  "updated_at": "2026-08-22T04:45:00Z",
+  "rule": "Choose a topic, then a work, then a runnable job. If no job exists, the source edition still needs preflight. Unknown translation coverage never means absence.",
+  "catalog": {
+    "path": "catalog/translations.json",
+    "bytes": 187317,
+    "sha256": "55A0802E29F91AF42E286CB7ED0F40EB8D0EECA7611C2E8C23CD49E65A6DD0C2"
+  },
+  "separate_archive": {
+    "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
+    "commit": "7a00b564ace8230c57309df2d66325e57d1c4043",
+    "tree": "e3d53eb3216a2d6e99cce32a358ecd06377e3115",
+    "path": "manifests/adopt.json",
+    "bytes": 151030,
+    "sha256": "2B81804831FDB030F1BBA81B07D2C9304D682E9F7D81DD6872A6DFDBA5452FDD",
+    "rows": 78,
+    "state": "separate_exact_commit_archive_and_coordination_board",
+    "warning": "This is a separate older-manuscript corpus. Its rows and aggregate language tags are not coverage for the open-education suggestions."
   },
   "topics": [
     {
@@ -35,7 +27,8 @@
         "openstax-elementary-algebra-2e",
         "openstax-intermediate-algebra-2e",
         "openstax-precalculus-2e"
-      ]
+      ],
+      "resource_ids": []
     },
     {
       "id": "analysis",
@@ -45,8 +38,10 @@
         "lebl-analysis-volume-unresolved",
         "lebl-ode-volume-unresolved",
         "lebl-complex-analysis-volume-unresolved",
-        "measure-integration-real-analysis-composite",
         "partial-differential-equations"
+      ],
+      "resource_ids": [
+        "measure-integration-real-analysis-composite"
       ]
     },
     {
@@ -58,14 +53,17 @@
         "yet-another-introductory-number-theory-textbook",
         "methods-of-algebra-volume-1",
         "methods-of-algebra-volume-2"
-      ]
+      ],
+      "resource_ids": []
     },
     {
       "id": "probability",
       "title": "Probability and statistics",
       "work_ids": [
         "grinstead-snell-probability",
-        "openintro-statistics",
+        "openintro-statistics"
+      ],
+      "resource_ids": [
         "distribution-statistical-methods-composite",
         "measure-probability-stochastic-composite"
       ]
@@ -76,16 +74,17 @@
       "work_ids": [
         "dmoi4",
         "applied-combinatorics"
-      ]
+      ],
+      "resource_ids": []
     },
     {
       "id": "logic",
       "title": "Logic and formal mathematics",
       "work_ids": [
-        "openlogic-indonesian-edition-unresolved",
-        "mathematics-in-lean",
-        "openlogic-core"
-      ]
+        "openlogic-core",
+        "mathematics-in-lean"
+      ],
+      "resource_ids": []
     },
     {
       "id": "geometry",
@@ -93,8 +92,10 @@
       "work_ids": [
         "topology-inquiry-based-approach",
         "euclidean-plane-and-its-relatives",
+        "algebraic-topology-2019"
+      ],
+      "resource_ids": [
         "smooth-manifolds-differential-geometry-composite",
-        "algebraic-topology-2019",
         "algebraic-geometry-bridge-composite",
         "stacks-project-reference"
       ]
@@ -105,9 +106,11 @@
       "work_ids": [
         "tea-time-numerical-analysis",
         "open-optimization-book-1",
+        "mit-ocw-6-253"
+      ],
+      "resource_ids": [
         "mathematical-python-rse-composite",
         "modeling-nonlinear-dynamics-composite",
-        "mit-ocw-6-253",
         "open-solver-operations-research-lab"
       ]
     },
@@ -115,443 +118,985 @@
       "id": "functional-analysis",
       "title": "Functional analysis and operator theory",
       "work_ids": [
-        "fubini-tonelli-donor",
         "functional-analysis-operator-algebras"
+      ],
+      "resource_ids": [
+        "fubini-tonelli-donor"
       ]
     },
     {
       "id": "research",
       "title": "Research and assessment infrastructure",
-      "work_ids": [
+      "work_ids": [],
+      "resource_ids": [
         "cross-corpus-assessment-infrastructure",
         "research-reading-reproducibility-composite"
       ]
     }
   ],
-  "suggestions": [
+  "works": [
     {
       "id": "openstax-prealgebra-2e",
       "title": "OpenStax Prealgebra 2e",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; all 71 instructional modules reported translated, preface translation completed, final admission and whole-volume/backend closure active",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "foundations"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "openstax-prealgebra-2e-source"
+      ],
+      "translation_edition_ids": [
+        "openstax-prealgebra-2e-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "openstax-elementary-algebra-2e",
       "title": "OpenStax Elementary Algebra 2e",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; first block admitted with durable QA receipt; Section 1.2 source/accessibility audit active",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "foundations"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "openstax-elementary-algebra-2e-source"
+      ],
+      "translation_edition_ids": [
+        "openstax-elementary-algebra-2e-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "openstax-intermediate-algebra-2e",
       "title": "OpenStax Intermediate Algebra 2e",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; initial admitted work exists; exact media-rights closure active",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "foundations"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "openstax-intermediate-algebra-2e-source"
+      ],
+      "translation_edition_ids": [
+        "openstax-intermediate-algebra-2e-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "openstax-precalculus-2e",
       "title": "OpenStax Precalculus 2e",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "foundations"
+      ],
+      "source_edition_ids": [
+        "openstax-precalculus-2e-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "clp-calculus-series",
       "title": "CLP Calculus 1-4 and problem books",
-      "catalog_role": "series",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; CLP-2 exercise blocks are being translated contiguously with formulas preserved",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "analysis"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "clp-calculus-series-source"
+      ],
+      "translation_edition_ids": [
+        "clp-calculus-series-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "dmoi4",
       "title": "DMOI4",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_complete",
-          "scope_note": "active maintenance/backend; Indonesian edition complete and public",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "discrete"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "dmoi4-source"
+      ],
+      "translation_edition_ids": [
+        "dmoi4-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "hefferon-linear-algebra",
       "title": "Hefferon Linear Algebra",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; first full Chapter 2 subsection with exercises and answers translated",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "algebra"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "hefferon-linear-algebra-source"
+      ],
+      "translation_edition_ids": [
+        "hefferon-linear-algebra-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "lebl-analysis-volume-unresolved",
       "title": "Lebl analysis volume (exact title unresolved)",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; Indonesian corpus work exists and the analysis volume is first in the lane",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "analysis"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "lebl-analysis-volume-unresolved-source"
+      ],
+      "translation_edition_ids": [
+        "lebl-analysis-volume-unresolved-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "lebl-ode-volume-unresolved",
       "title": "Lebl ordinary differential equations volume (exact title unresolved)",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_planned",
-          "scope_note": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "analysis"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "lebl-ode-volume-unresolved-source"
+      ],
+      "translation_edition_ids": [
+        "lebl-ode-volume-unresolved-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "lebl-complex-analysis-volume-unresolved",
       "title": "Lebl complex analysis volume (exact title unresolved)",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_planned",
-          "scope_note": "selected within a producing multi-corpus lane; separately bounded after the analysis volume",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "analysis"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "lebl-complex-analysis-volume-unresolved-source"
+      ],
+      "translation_edition_ids": [
+        "lebl-complex-analysis-volume-unresolved-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "judson-abstract-algebra",
       "title": "Judson Abstract Algebra",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; id-ID locale harness passes; diagram regeneration and web build active",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "algebra"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "judson-abstract-algebra-source"
+      ],
+      "translation_edition_ids": [
+        "judson-abstract-algebra-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "grinstead-snell-probability",
       "title": "Grinstead-Snell Probability",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "producing; Section 6.3 prose admitted and final 29 exercises active",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "probability"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "grinstead-snell-probability-source"
+      ],
+      "translation_edition_ids": [
+        "grinstead-snell-probability-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "openintro-statistics",
       "title": "OpenIntro Statistics",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "probability"
+      ],
+      "source_edition_ids": [
+        "openintro-statistics-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "applied-combinatorics",
       "title": "Applied Combinatorics",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "openlogic-indonesian-edition-unresolved",
-      "title": "Reported Indonesian edition of Open Logic (exact edition unresolved)",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_complete",
-          "scope_note": "already public; backend and hub integration only, no retranslation",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "discrete"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "applied-combinatorics-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "yet-another-introductory-number-theory-textbook",
       "title": "Yet Another Introductory Number Theory Textbook",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "algebra"
+      ],
+      "source_edition_ids": [
+        "yet-another-introductory-number-theory-textbook-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "tea-time-numerical-analysis",
       "title": "Tea Time Numerical Analysis",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [
-        {
-          "language_tag": "id",
-          "language_name": "Indonesian",
-          "state": "reported_active",
-          "scope_note": "Reported active. The snapshot records a backend replay of 10,172 records and 2,805 relations, but the identities and exact scopes of its referenced seventh and eighth components are unresolved.",
-          "evidence_status": "non_public_coordination_snapshot"
-        }
+      "topic_ids": [
+        "computing"
       ],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "fubini-tonelli-donor",
-      "title": "Fubini-Tonelli real/functional-analysis source",
-      "catalog_role": "component",
-      "translation_readiness": "not_standalone",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "source_edition_ids": [
+        "tea-time-numerical-analysis-source"
+      ],
+      "translation_edition_ids": [
+        "tea-time-numerical-analysis-id-reported-20260821"
+      ],
+      "job_ids": []
     },
     {
       "id": "open-optimization-book-1",
       "title": "Open Optimization Book 1",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "computing"
+      ],
+      "source_edition_ids": [
+        "open-optimization-book-1-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "mathematics-in-lean",
       "title": "Mathematics in Lean",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "stacks-project-reference",
-      "title": "Stacks Project",
-      "catalog_role": "reference",
-      "translation_readiness": "not_standalone",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "logic"
+      ],
+      "source_edition_ids": [
+        "mathematics-in-lean-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "openlogic-core",
-      "title": "Open Logic core source",
-      "catalog_role": "source_project",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "independently_verified_public_boundary"
-    },
-    {
-      "id": "cross-corpus-assessment-infrastructure",
-      "title": "Cross-corpus mastery, hints, solutions, and alternate-assessment infrastructure",
-      "catalog_role": "infrastructure",
-      "translation_readiness": "not_standalone",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "mathematical-python-rse-composite",
-      "title": "Mathematical Python plus Research Software Engineering with Python",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "title": "Open Logic Text",
+      "topic_ids": [
+        "logic"
+      ],
+      "source_edition_ids": [
+        "openlogic-core-source"
+      ],
+      "translation_edition_ids": [
+        "openlogic-id-reported-20260821",
+        "openlogic-pt-openlogicpt"
+      ],
+      "job_ids": [
+        "openlogic-v1"
+      ]
     },
     {
       "id": "topology-inquiry-based-approach",
       "title": "Topology: An Inquiry-Based Approach",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "topology-inquiry-based-approach-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "euclidean-plane-and-its-relatives",
       "title": "Euclidean Plane and Its Relatives",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "modeling-nonlinear-dynamics-composite",
-      "title": "Sayama plus ModSimPy; source-first fallback ModSimPy plus Ordinary Differential Equations Project",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "distribution-statistical-methods-composite",
-      "title": "Dunn-Axelsen distribution theory plus Spiegler statistical methods",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "measure-integration-real-analysis-composite",
-      "title": "Measure, Integration & Real Analysis plus Fubini-Tonelli RFA and Gautam Iyer Math 720 notes",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "euclidean-plane-and-its-relatives-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "functional-analysis-operator-algebras",
       "title": "Functional Analysis and Operator Algebras: An Introduction",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "measure-probability-stochastic-composite",
-      "title": "Imperial probability notes plus Siegrist, or MIT 6.436J plus MIT 18.445",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "functional-analysis"
+      ],
+      "source_edition_ids": [
+        "functional-analysis-operator-algebras-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "partial-differential-equations",
       "title": "Partial Differential Equations",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
-    },
-    {
-      "id": "smooth-manifolds-differential-geometry-composite",
-      "title": "van der Vorst manifolds plus Analysis on Manifolds and manifolds-notes",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "analysis"
+      ],
+      "source_edition_ids": [
+        "partial-differential-equations-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "algebraic-topology-2019",
       "title": "AlgebraicTopology2019",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "algebraic-topology-2019-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "methods-of-algebra-volume-1",
       "title": "Methods of Algebra, Volume 1",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "algebra"
+      ],
+      "source_edition_ids": [
+        "methods-of-algebra-volume-1-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "methods-of-algebra-volume-2",
       "title": "Methods of Algebra, Volume 2",
-      "catalog_role": "work",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "algebra"
+      ],
+      "source_edition_ids": [
+        "methods-of-algebra-volume-2-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
     },
     {
       "id": "mit-ocw-6-253",
       "title": "MIT OCW 6.253",
-      "catalog_role": "course",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "topic_ids": [
+        "computing"
+      ],
+      "source_edition_ids": [
+        "mit-ocw-6-253-source"
+      ],
+      "translation_edition_ids": [],
+      "job_ids": []
+    }
+  ],
+  "resources": [
+    {
+      "id": "fubini-tonelli-donor",
+      "title": "Fubini-Tonelli real/functional-analysis source",
+      "kind": "component",
+      "topic_ids": [
+        "functional-analysis"
+      ],
+      "source_edition_ids": [
+        "fubini-tonelli-donor-source"
+      ]
+    },
+    {
+      "id": "stacks-project-reference",
+      "title": "Stacks Project",
+      "kind": "reference",
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "stacks-project-reference-source"
+      ]
+    },
+    {
+      "id": "cross-corpus-assessment-infrastructure",
+      "title": "Cross-corpus mastery, hints, solutions, and alternate-assessment infrastructure",
+      "kind": "infrastructure",
+      "topic_ids": [
+        "research"
+      ],
+      "source_edition_ids": [
+        "cross-corpus-assessment-infrastructure-source"
+      ]
+    },
+    {
+      "id": "mathematical-python-rse-composite",
+      "title": "Mathematical Python plus Research Software Engineering with Python",
+      "kind": "composite",
+      "topic_ids": [
+        "computing"
+      ],
+      "source_edition_ids": [
+        "mathematical-python-rse-composite-source"
+      ]
+    },
+    {
+      "id": "modeling-nonlinear-dynamics-composite",
+      "title": "Sayama plus ModSimPy; source-first fallback ModSimPy plus Ordinary Differential Equations Project",
+      "kind": "composite",
+      "topic_ids": [
+        "computing"
+      ],
+      "source_edition_ids": [
+        "modeling-nonlinear-dynamics-composite-source"
+      ]
+    },
+    {
+      "id": "distribution-statistical-methods-composite",
+      "title": "Dunn-Axelsen distribution theory plus Spiegler statistical methods",
+      "kind": "composite",
+      "topic_ids": [
+        "probability"
+      ],
+      "source_edition_ids": [
+        "distribution-statistical-methods-composite-source"
+      ]
+    },
+    {
+      "id": "measure-integration-real-analysis-composite",
+      "title": "Measure, Integration & Real Analysis plus Fubini-Tonelli RFA and Gautam Iyer Math 720 notes",
+      "kind": "composite",
+      "topic_ids": [
+        "analysis"
+      ],
+      "source_edition_ids": [
+        "measure-integration-real-analysis-composite-source"
+      ]
+    },
+    {
+      "id": "measure-probability-stochastic-composite",
+      "title": "Imperial probability notes plus Siegrist, or MIT 6.436J plus MIT 18.445",
+      "kind": "composite",
+      "topic_ids": [
+        "probability"
+      ],
+      "source_edition_ids": [
+        "measure-probability-stochastic-composite-source"
+      ]
+    },
+    {
+      "id": "smooth-manifolds-differential-geometry-composite",
+      "title": "van der Vorst manifolds plus Analysis on Manifolds and manifolds-notes",
+      "kind": "composite",
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "smooth-manifolds-differential-geometry-composite-source"
+      ]
     },
     {
       "id": "algebraic-geometry-bridge-composite",
       "title": "Bundel, Garben und Kohomologie plus MIT 18.725",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "kind": "composite",
+      "topic_ids": [
+        "geometry"
+      ],
+      "source_edition_ids": [
+        "algebraic-geometry-bridge-composite-source"
+      ]
     },
     {
       "id": "research-reading-reproducibility-composite",
       "title": "MIT 18.821 plus selected Research Software Engineering with Python and Turing Way units",
-      "catalog_role": "composite",
-      "translation_readiness": "preflight_required",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "kind": "composite",
+      "topic_ids": [
+        "research"
+      ],
+      "source_edition_ids": [
+        "research-reading-reproducibility-composite-source"
+      ]
     },
     {
       "id": "open-solver-operations-research-lab",
       "title": "Open-solver operations-research lab",
-      "catalog_role": "adaptation",
-      "translation_readiness": "not_standalone",
-      "known_editions": [],
-      "source_evidence_status": "reported_not_independently_replayed"
+      "kind": "adaptation",
+      "topic_ids": [
+        "computing"
+      ],
+      "source_edition_ids": [
+        "open-solver-operations-research-lab-source"
+      ]
+    }
+  ],
+  "source_editions": [
+    {
+      "id": "openstax-prealgebra-2e-source",
+      "item_id": "openstax-prealgebra-2e",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "openstax-elementary-algebra-2e-source",
+      "item_id": "openstax-elementary-algebra-2e",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "openstax-intermediate-algebra-2e-source",
+      "item_id": "openstax-intermediate-algebra-2e",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "openstax-precalculus-2e-source",
+      "item_id": "openstax-precalculus-2e",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "clp-calculus-series-source",
+      "item_id": "clp-calculus-series",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "dmoi4-source",
+      "item_id": "dmoi4",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "hefferon-linear-algebra-source",
+      "item_id": "hefferon-linear-algebra",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "lebl-analysis-volume-unresolved-source",
+      "item_id": "lebl-analysis-volume-unresolved",
+      "item_type": "work",
+      "readiness": "identity_unresolved"
+    },
+    {
+      "id": "lebl-ode-volume-unresolved-source",
+      "item_id": "lebl-ode-volume-unresolved",
+      "item_type": "work",
+      "readiness": "identity_unresolved"
+    },
+    {
+      "id": "lebl-complex-analysis-volume-unresolved-source",
+      "item_id": "lebl-complex-analysis-volume-unresolved",
+      "item_type": "work",
+      "readiness": "identity_unresolved"
+    },
+    {
+      "id": "judson-abstract-algebra-source",
+      "item_id": "judson-abstract-algebra",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "grinstead-snell-probability-source",
+      "item_id": "grinstead-snell-probability",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "openintro-statistics-source",
+      "item_id": "openintro-statistics",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "applied-combinatorics-source",
+      "item_id": "applied-combinatorics",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "yet-another-introductory-number-theory-textbook-source",
+      "item_id": "yet-another-introductory-number-theory-textbook",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "tea-time-numerical-analysis-source",
+      "item_id": "tea-time-numerical-analysis",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "fubini-tonelli-donor-source",
+      "item_id": "fubini-tonelli-donor",
+      "item_type": "resource",
+      "readiness": "not_standalone"
+    },
+    {
+      "id": "open-optimization-book-1-source",
+      "item_id": "open-optimization-book-1",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "mathematics-in-lean-source",
+      "item_id": "mathematics-in-lean",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "stacks-project-reference-source",
+      "item_id": "stacks-project-reference",
+      "item_type": "resource",
+      "readiness": "not_standalone"
+    },
+    {
+      "id": "openlogic-core-source",
+      "item_id": "openlogic-core",
+      "item_type": "work",
+      "readiness": "runnable"
+    },
+    {
+      "id": "cross-corpus-assessment-infrastructure-source",
+      "item_id": "cross-corpus-assessment-infrastructure",
+      "item_type": "resource",
+      "readiness": "not_standalone"
+    },
+    {
+      "id": "mathematical-python-rse-composite-source",
+      "item_id": "mathematical-python-rse-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "topology-inquiry-based-approach-source",
+      "item_id": "topology-inquiry-based-approach",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "euclidean-plane-and-its-relatives-source",
+      "item_id": "euclidean-plane-and-its-relatives",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "modeling-nonlinear-dynamics-composite-source",
+      "item_id": "modeling-nonlinear-dynamics-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "distribution-statistical-methods-composite-source",
+      "item_id": "distribution-statistical-methods-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "measure-integration-real-analysis-composite-source",
+      "item_id": "measure-integration-real-analysis-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "functional-analysis-operator-algebras-source",
+      "item_id": "functional-analysis-operator-algebras",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "measure-probability-stochastic-composite-source",
+      "item_id": "measure-probability-stochastic-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "partial-differential-equations-source",
+      "item_id": "partial-differential-equations",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "smooth-manifolds-differential-geometry-composite-source",
+      "item_id": "smooth-manifolds-differential-geometry-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "algebraic-topology-2019-source",
+      "item_id": "algebraic-topology-2019",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "methods-of-algebra-volume-1-source",
+      "item_id": "methods-of-algebra-volume-1",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "methods-of-algebra-volume-2-source",
+      "item_id": "methods-of-algebra-volume-2",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "mit-ocw-6-253-source",
+      "item_id": "mit-ocw-6-253",
+      "item_type": "work",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "algebraic-geometry-bridge-composite-source",
+      "item_id": "algebraic-geometry-bridge-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "research-reading-reproducibility-composite-source",
+      "item_id": "research-reading-reproducibility-composite",
+      "item_type": "resource",
+      "readiness": "source_preflight"
+    },
+    {
+      "id": "open-solver-operations-research-lab-source",
+      "item_id": "open-solver-operations-research-lab",
+      "item_type": "resource",
+      "readiness": "not_standalone"
+    }
+  ],
+  "translation_editions": [
+    {
+      "id": "openstax-prealgebra-2e-id-reported-20260821",
+      "work_id": "openstax-prealgebra-2e",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "openstax-elementary-algebra-2e-id-reported-20260821",
+      "work_id": "openstax-elementary-algebra-2e",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "openstax-intermediate-algebra-2e-id-reported-20260821",
+      "work_id": "openstax-intermediate-algebra-2e",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "clp-calculus-series-id-reported-20260821",
+      "work_id": "clp-calculus-series",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "dmoi4-id-reported-20260821",
+      "work_id": "dmoi4",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_complete",
+      "review_state": "unknown"
+    },
+    {
+      "id": "hefferon-linear-algebra-id-reported-20260821",
+      "work_id": "hefferon-linear-algebra",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "lebl-analysis-volume-unresolved-id-reported-20260821",
+      "work_id": "lebl-analysis-volume-unresolved",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "lebl-ode-volume-unresolved-id-reported-20260821",
+      "work_id": "lebl-ode-volume-unresolved",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_planned",
+      "review_state": "unknown"
+    },
+    {
+      "id": "lebl-complex-analysis-volume-unresolved-id-reported-20260821",
+      "work_id": "lebl-complex-analysis-volume-unresolved",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_planned",
+      "review_state": "unknown"
+    },
+    {
+      "id": "judson-abstract-algebra-id-reported-20260821",
+      "work_id": "judson-abstract-algebra",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "grinstead-snell-probability-id-reported-20260821",
+      "work_id": "grinstead-snell-probability",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "tea-time-numerical-analysis-id-reported-20260821",
+      "work_id": "tea-time-numerical-analysis",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_active",
+      "review_state": "unknown"
+    },
+    {
+      "id": "openlogic-id-reported-20260821",
+      "work_id": "openlogic-core",
+      "language": {
+        "tag": "id",
+        "name": "Indonesian",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "unverified_report",
+      "progress_state": "reported_complete",
+      "review_state": "unknown"
+    },
+    {
+      "id": "openlogic-pt-openlogicpt",
+      "work_id": "openlogic-core",
+      "language": {
+        "tag": "pt",
+        "name": "Portuguese",
+        "locale": null,
+        "script": null,
+        "orthographic_standard": null
+      },
+      "identity_state": "public_repository_verified",
+      "progress_state": "repository_available",
+      "review_state": "not_independently_assessed"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "openlogic-v1",
+      "work_id": "openlogic-core",
+      "source_edition_id": "openlogic-core-source",
+      "title": "Translate the Open Logic Text",
+      "target_mode": "contributor_selects",
+      "state": "runnable",
+      "release_tag": "translate-openlogic-v1",
+      "release_url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
+      "assets": [
+        {
+          "name": "openlogic-v1.zip",
+          "bytes": 1921531,
+          "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+          "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip"
+        }
+      ],
+      "asset_manifest": "catalog/assets/openlogic.json",
+      "source_receipt": "catalog/receipts/openlogic.json",
+      "public_readback": {
+        "receipt": "catalog/openlogic-rb.json",
+        "observed_date": "2026-08-22",
+        "assets": [
+          {
+            "name": "openlogic-v1.zip",
+            "bytes": 1921531,
+            "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+            "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip"
+          }
+        ]
+      },
+      "start_files": {
+        "local": "LOCAL.md",
+        "web": "WEB.md"
+      },
+      "evidence_ids": [
+        "openlogic-root",
+        "openlogic-build"
+      ]
     }
   ],
   "language_priority": {
@@ -688,41 +1233,6 @@
     },
     "unesco_fixed_translation_priority_list": false,
     "note": "The UNESCO education-access figures and the UNESCO-UIS 96-language study are distinct evidence. The 96-language study is real, but it is a literacy-assessment set rather than a fixed UNESCO translation-priority list."
-  },
-  "separate_manuscript_archive_summary": {
-    "coverage_classes": {
-      "active": 2,
-      "complete": 16,
-      "partial": 16,
-      "scattered": 6,
-      "source_only": 14,
-      "weak": 21,
-      "unworked": 3
-    },
-    "language_presence": {
-      "ar": 6,
-      "de": 26,
-      "en": 44,
-      "es": 1,
-      "fa-IR": 1,
-      "fr": 9,
-      "id": 1,
-      "isv": 1,
-      "it": 1,
-      "ja": 1,
-      "ko": 3,
-      "mul": 1,
-      "ru": 1,
-      "sa": 1,
-      "uk": 2,
-      "und": 8,
-      "vi": 1,
-      "zh": 7,
-      "zh-Hans-CN": 2,
-      "zh-Hant-controlled": 1
-    },
-    "warning": "Counts are work-row presence, not whole-corpus or whole-language completion. Read the selected row.",
-    "not_coverage_for_open_education_choices": true
   },
   "source_preflight": {
     "requires": [

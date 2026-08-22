@@ -8,7 +8,9 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -50,6 +52,13 @@ def get_json(url: str) -> dict:
     return value
 
 
+def get_text(url: str) -> str:
+    with urllib.request.urlopen(request(url), timeout=60) as response:
+        if response.status != 200:
+            raise ValueError(f"public page returned HTTP {response.status}: {url}")
+        return response.read().decode("utf-8")
+
+
 def load_manifest(path: Path) -> dict:
     raw = path.read_bytes()
     if raw.startswith(b"\xef\xbb\xbf") or b"\r" in raw:
@@ -89,6 +98,102 @@ def resolve_tag(repository: str, tag: str) -> tuple[str, str]:
     raise ValueError("tag did not resolve to one commit")
 
 
+def resolve_tag_with_anonymous_git(repository: str, tag: str) -> tuple[str, str]:
+    remote = f"https://github.com/{repository}.git"
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "GIT_TERMINAL_PROMPT": "0",
+            "GCM_INTERACTIVE": "Never",
+            "GIT_CONFIG_COUNT": "1",
+            "GIT_CONFIG_KEY_0": "credential.helper",
+            "GIT_CONFIG_VALUE_0": "",
+        }
+    )
+    with tempfile.TemporaryDirectory(prefix="mc-public-tag-") as temporary:
+        subprocess.run(
+            ["git", "init", "--bare", "--quiet", temporary],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
+        subprocess.run(
+            [
+                "git",
+                "-C",
+                temporary,
+                "fetch",
+                "--quiet",
+                "--depth=1",
+                "--no-tags",
+                remote,
+                f"refs/tags/{tag}",
+            ],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=environment,
+        )
+        commit = subprocess.run(
+            ["git", "-C", temporary, "rev-parse", "FETCH_HEAD^{commit}"],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="ascii",
+            env=environment,
+        ).stdout.strip()
+        tree = subprocess.run(
+            ["git", "-C", temporary, "rev-parse", "FETCH_HEAD^{tree}"],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="ascii",
+            env=environment,
+        ).stdout.strip()
+    if HEX40.fullmatch(commit) is None or HEX40.fullmatch(tree) is None:
+        raise ValueError("anonymous Git tag did not resolve to one commit and tree")
+    return commit, tree
+
+
+def release_from_public_pages(
+    repository: str, tag: str, expected: dict[str, dict]
+) -> tuple[dict, dict[str, dict], str, str]:
+    release_url = f"https://github.com/{repository}/releases/tag/{tag}"
+    get_text(release_url)
+    expanded = get_text(
+        f"https://github.com/{repository}/releases/expanded_assets/{tag}"
+    )
+    prefix = f"/{repository}/releases/download/{tag}/"
+    names = {
+        urllib.parse.unquote(href[len(prefix) :])
+        for href in re.findall(r'href="([^"]+)"', expanded)
+        if href.startswith(prefix)
+    }
+    if names != set(expected):
+        raise ValueError("public release-page asset set differs from the manifest")
+    by_name = {
+        name: {
+            "id": None,
+            "name": name,
+            "size": expected[name]["zip_bytes"],
+            "browser_download_url": f"https://github.com{prefix}{urllib.parse.quote(name)}",
+        }
+        for name in sorted(names)
+    }
+    commit, tree = resolve_tag_with_anonymous_git(repository, tag)
+    release = {
+        "id": None,
+        "tag_name": tag,
+        "html_url": release_url,
+        "draft": False,
+        "prerelease": False,
+    }
+    return release, by_name, commit, tree
+
+
 def stream_identity(url: str, expected_bytes: int) -> tuple[int, str]:
     if expected_bytes <= 0 or expected_bytes > MAX_ASSET_BYTES:
         raise ValueError("asset byte boundary is unsafe")
@@ -125,19 +230,34 @@ def main() -> int:
     if output.exists():
         raise ValueError("readback output already exists; preserve prior evidence explicitly")
     expected = {row["name"]: row for row in manifest["assets"]}
-    release = get_json(
-        f"https://api.github.com/repos/{args.repository}/releases/tags/"
-        + urllib.parse.quote(args.tag, safe="")
-    )
-    if release.get("tag_name") != args.tag or release.get("draft") or release.get("prerelease"):
-        raise ValueError("release identity or publication state differs")
-    public_assets = release.get("assets")
-    if not isinstance(public_assets, list):
-        raise ValueError("release asset list is missing")
-    by_name = {row.get("name"): row for row in public_assets if isinstance(row, dict)}
-    if set(by_name) != set(expected):
-        raise ValueError("release asset set differs from the manifest")
-    target_commit, target_tree = resolve_tag(args.repository, args.tag)
+    transport_method = "anonymous_https"
+    try:
+        release = get_json(
+            f"https://api.github.com/repos/{args.repository}/releases/tags/"
+            + urllib.parse.quote(args.tag, safe="")
+        )
+        if (
+            release.get("tag_name") != args.tag
+            or release.get("draft")
+            or release.get("prerelease")
+        ):
+            raise ValueError("release identity or publication state differs")
+        public_assets = release.get("assets")
+        if not isinstance(public_assets, list):
+            raise ValueError("release asset list is missing")
+        by_name = {
+            row.get("name"): row for row in public_assets if isinstance(row, dict)
+        }
+        if set(by_name) != set(expected):
+            raise ValueError("release asset set differs from the manifest")
+        target_commit, target_tree = resolve_tag(args.repository, args.tag)
+    except urllib.error.HTTPError as exc:
+        if exc.code != 403:
+            raise
+        release, by_name, target_commit, target_tree = release_from_public_pages(
+            args.repository, args.tag, expected
+        )
+        transport_method = "anonymous_https_and_git"
     rows: list[dict[str, object]] = []
     for name, expected_row in expected.items():
         public = by_name[name]
@@ -176,7 +296,7 @@ def main() -> int:
             "target_tree": target_tree,
         },
         "transport": {
-            "method": "anonymous_https",
+            "method": transport_method,
             "authorization": False,
             "cookies": False,
             "payload_persisted": False,
@@ -214,6 +334,13 @@ def main() -> int:
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except (OSError, ValueError, UnicodeError, json.JSONDecodeError, urllib.error.URLError) as exc:
+    except (
+        OSError,
+        ValueError,
+        UnicodeError,
+        json.JSONDecodeError,
+        subprocess.CalledProcessError,
+        urllib.error.URLError,
+    ) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         raise SystemExit(1)

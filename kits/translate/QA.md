@@ -13,4 +13,4 @@ Check and report separately:
 7. append-only decisions, corrections, reversals, and unresolved issues; and
 8. package contents, component notices, offline usability, and correction channel.
 
-Return `PASS` only when every declared gate passes. Otherwise return `FAIL` with exact file/unit/page/ID locators. Do not repair the candidate during the cold audit.
+Return `PASS` only when every declared gate passes. Otherwise return `DEFECTS_FOUND` with exact file/unit/page/ID locators. Do not repair the candidate during the cold audit. Production repairs the defects in a new generation and submits that frozen generation to another cold audit.

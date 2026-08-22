@@ -71,119 +71,100 @@
       "type": "array",
       "minItems": 2,
       "maxItems": 2,
-      "prefixItems": [
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/targetResult"
-            },
-            {
-              "properties": {
-                "target": {
-                  "const": "open-logic-debug.tex"
-                },
-                "command": {
-                  "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-debug.tex"
-                },
-                "pdf": {
-                  "properties": {
-                    "path": {
-                      "const": "open-logic-debug.pdf"
+      "items": {
+        "oneOf": [
+          {
+            "allOf": [
+              {
+                "$ref": "#/$defs/targetResult"
+              },
+              {
+                "properties": {
+                  "target": {
+                    "const": "open-logic-debug.tex"
+                  },
+                  "command": {
+                    "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-debug.tex"
+                  },
+                  "pdf": {
+                    "properties": {
+                      "path": {
+                        "const": "open-logic-debug.pdf"
+                      }
                     }
-                  }
-                },
-                "log": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-debug.log"
+                  },
+                  "log": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-debug.log"
+                      }
                     }
-                  }
-                },
-                "recorder": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-debug.fls"
+                  },
+                  "recorder": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-debug.fls"
+                      }
                     }
-                  }
-                },
-                "stdout": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-debug.stdout.txt"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/targetResult"
-            },
-            {
-              "properties": {
-                "target": {
-                  "const": "open-logic-complete.tex"
-                },
-                "command": {
-                  "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-complete.tex"
-                },
-                "pdf": {
-                  "properties": {
-                    "path": {
-                      "const": "open-logic-complete.pdf"
-                    }
-                  }
-                },
-                "log": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-complete.log"
-                    }
-                  }
-                },
-                "recorder": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-complete.fls"
-                    }
-                  }
-                },
-                "stdout": {
-                  "properties": {
-                    "name": {
-                      "const": "open-logic-complete.stdout.txt"
+                  },
+                  "stdout": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-debug.stdout.txt"
+                      }
                     }
                   }
                 }
               }
-            }
-          ]
-        }
-      ],
-      "items": false,
-      "contains": {
-        "type": "object",
-        "required": [
-          "log"
-        ],
-        "properties": {
-          "log": {
-            "type": "object",
-            "required": [
-              "warnings"
-            ],
-            "properties": {
-              "warnings": {
-                "$ref": "#/$defs/observedWarningCounts"
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/$defs/targetResult"
+              },
+              {
+                "properties": {
+                  "target": {
+                    "const": "open-logic-complete.tex"
+                  },
+                  "command": {
+                    "const": "latexmk -g -pdf -dvi- -ps- -interaction=nonstopmode -halt-on-error open-logic-complete.tex"
+                  },
+                  "pdf": {
+                    "properties": {
+                      "path": {
+                        "const": "open-logic-complete.pdf"
+                      }
+                    }
+                  },
+                  "log": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-complete.log"
+                      }
+                    }
+                  },
+                  "recorder": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-complete.fls"
+                      }
+                    }
+                  },
+                  "stdout": {
+                    "properties": {
+                      "name": {
+                        "const": "open-logic-complete.stdout.txt"
+                      }
+                    }
+                  }
+                }
               }
-            }
+            ]
           }
-        }
-      },
-      "minContains": 1
+        ]
+      }
     },
     "input_closure": {
       "$ref": "#/$defs/aggregateInputClosure"

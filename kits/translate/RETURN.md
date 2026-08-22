@@ -10,4 +10,4 @@ After every bounded unit, return one cumulative package containing:
 - a self-excluding SHA-256 manifest covering every other returned file; and
 - the most recent independent QA receipt, or an explicit `not_run` state.
 
-Use `STATUS: IN_PROGRESS`, `STATUS: COMPLETE`, or `STATUS: BLOCKED`. A blocked return preserves all cumulative state and identifies the exact missing source, right, dependency, byte identity, reviewer, or decision.
+Use `STATUS: SOURCE_PREFLIGHT`, `STATUS: IN_PROGRESS`, or `STATUS: COMPLETE`. A source-preflight return preserves all cumulative state, identifies the exact missing source, right, dependency, byte identity, reviewer, or decision, and records the next bounded verification action.

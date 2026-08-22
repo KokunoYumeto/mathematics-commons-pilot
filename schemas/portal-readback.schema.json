@@ -15,7 +15,7 @@
       "additionalProperties": false,
       "required": ["id", "tag", "url", "target_commit", "target_tree"],
       "properties": {
-        "id": {"type": "integer", "minimum": 1},
+        "id": {"oneOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]},
         "tag": {"type": "string", "minLength": 1},
         "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
         "target_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
@@ -27,7 +27,7 @@
       "additionalProperties": false,
       "required": ["method", "authorization", "cookies", "payload_persisted"],
       "properties": {
-        "method": {"const": "anonymous_https"},
+        "method": {"enum": ["anonymous_https", "anonymous_https_and_git"]},
         "authorization": {"const": false},
         "cookies": {"const": false},
         "payload_persisted": {"const": false}
@@ -41,7 +41,7 @@
         "additionalProperties": false,
         "required": ["id", "name", "url", "expected_bytes", "observed_bytes", "expected_sha256", "observed_sha256", "match"],
         "properties": {
-          "id": {"type": "integer", "minimum": 1},
+          "id": {"oneOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]},
           "name": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+[.]zip$"},
           "url": {"type": "string", "format": "uri", "pattern": "^https://.+$"},
           "expected_bytes": {"type": "integer", "minimum": 1},

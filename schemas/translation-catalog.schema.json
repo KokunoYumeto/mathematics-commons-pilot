@@ -4,23 +4,42 @@
   "title": "Mathematics Commons translation catalog",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "updated", "scope", "language_priority", "evidence", "page_accounting", "entries", "exclusions"],
+  "required": ["schema", "updated_at", "scope", "language_priority", "separate_archive", "evidence", "page_accounting", "topics", "works", "resources", "source_editions", "translation_editions", "jobs", "exclusions"],
   "properties": {
-    "schema": {"const": "math-commons-translation-catalog/v3"},
-    "updated": {"type": "string", "format": "date"},
+    "schema": {"const": "math-commons-translation-catalog/v7"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "scope": {"$ref": "#/$defs/scope"},
+    "language_priority": {"$ref": "#/$defs/languagePriority"},
+    "separate_archive": {"$ref": "#/$defs/separateArchive"},
+    "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+    "page_accounting": {"$ref": "#/$defs/pageAccounting"},
+    "topics": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/topic"}},
+    "works": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/work"}},
+    "resources": {"type": "array", "items": {"$ref": "#/$defs/resource"}},
+    "source_editions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/sourceEdition"}},
+    "translation_editions": {"type": "array", "items": {"$ref": "#/$defs/translationEdition"}},
+    "jobs": {"type": "array", "items": {"$ref": "#/$defs/job"}},
+    "exclusions": {"type": "array", "items": {"$ref": "#/$defs/exclusion"}}
+  },
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "hex40": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9A-Fa-f]{64}$"},
+    "nullableString": {"type": ["string", "null"]},
+    "stringArray": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "slugArray": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/slug"}},
     "scope": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["non_exhaustive", "other_open_works_welcome", "description", "coverage_rule", "legacy_id_rule"],
+      "required": ["non_exhaustive", "other_open_works_welcome", "description", "coverage_rule"],
       "properties": {
         "non_exhaustive": {"const": true},
         "other_open_works_welcome": {"const": true},
         "description": {"type": "string", "minLength": 1},
-        "coverage_rule": {"type": "string", "minLength": 1},
-        "legacy_id_rule": {"type": "string", "minLength": 1}
+        "coverage_rule": {"type": "string", "minLength": 1}
       }
     },
-    "language_priority": {
+    "languagePriority": {
       "type": "object",
       "additionalProperties": false,
       "required": ["any_language_welcome", "priority_rule", "education_access_source", "uis_96_language_study", "unesco_fixed_translation_priority_list", "note"],
@@ -34,7 +53,7 @@
           "properties": {
             "title": {"type": "string", "minLength": 1},
             "published": {"type": "string", "format": "date"},
-            "url": {"type": "string", "format": "uri", "pattern": "^https://www\\.unesco\\.org/.*$"},
+            "url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
             "reported_facts": {"$ref": "#/$defs/stringArray"}
           }
         },
@@ -46,7 +65,7 @@
             "title": {"const": "Benchmarking by Language Groups Framework"},
             "publisher": {"const": "UNESCO Institute for Statistics"},
             "published": {"type": "string", "format": "date"},
-            "url": {"type": "string", "format": "uri", "pattern": "^https://www\\.uis\\.unesco\\.org/.*$"},
+            "url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
             "page": {"const": 22},
             "cited_study": {
               "type": "object",
@@ -55,20 +74,14 @@
               "properties": {
                 "title": {"type": "string", "minLength": 1},
                 "doi_url": {"const": "https://doi.org/10.1038/s41562-024-02028-x"},
-                "supplement_url": {"type": "string", "format": "uri", "pattern": "^https://static-content\\.springer\\.com/.*$"},
+                "supplement_url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
                 "language_table": {"const": "Table S1"}
               }
             },
             "country_count": {"const": 48},
             "alphabetic_language_count": {"const": 96},
             "reported_facts": {"$ref": "#/$defs/stringArray"},
-            "language_labels": {
-              "type": "array",
-              "minItems": 96,
-              "maxItems": 96,
-              "uniqueItems": true,
-              "items": {"type": "string", "minLength": 1}
-            },
+            "language_labels": {"type": "array", "minItems": 96, "maxItems": 96, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
             "label_note": {"type": "string", "minLength": 1},
             "translation_use": {"type": "string", "minLength": 1}
           }
@@ -77,91 +90,316 @@
         "note": {"type": "string", "minLength": 1}
       }
     },
-    "evidence": {
+    "separateArchive": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["note", "public_evidence_included", "consumer_rule", "sources"],
+      "required": ["repository", "commit", "tree", "path", "bytes", "sha256", "rows", "state", "warning"],
       "properties": {
-        "note": {"type": "string", "minLength": 1},
-        "public_evidence_included": {"const": false},
-        "consumer_rule": {"type": "string", "minLength": 1},
-        "sources": {
+        "repository": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
+        "commit": {"$ref": "#/$defs/hex40"},
+        "tree": {"$ref": "#/$defs/hex40"},
+        "path": {"type": "string", "minLength": 1},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "rows": {"type": "integer", "minimum": 1},
+        "state": {"type": "string", "minLength": 1},
+        "warning": {"type": "string", "minLength": 1}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256", "availability"],
+      "properties": {
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "availability": {"const": "not_public"}
+      }
+    },
+    "evidence": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "recorded_at", "artifact", "note"],
+          "properties": {
+            "id": {"$ref": "#/$defs/slug"},
+            "kind": {"const": "historical_nonpublic_snapshot"},
+            "recorded_at": {"type": "string", "format": "date-time"},
+            "artifact": {"$ref": "#/$defs/artifact"},
+            "note": {"type": "string", "minLength": 1}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "observed_at", "url", "repository", "commit", "tree", "note"],
+          "properties": {
+            "id": {"$ref": "#/$defs/slug"},
+            "kind": {"const": "public_git_replay"},
+            "observed_at": {"type": "string", "format": "date-time"},
+            "url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
+            "repository": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
+            "commit": {"$ref": "#/$defs/hex40"},
+            "tree": {"$ref": "#/$defs/hex40"},
+            "note": {"type": "string", "minLength": 1}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "kind", "observed_at", "path", "bytes", "sha256", "note"],
+          "properties": {
+            "id": {"$ref": "#/$defs/slug"},
+            "kind": {"const": "same_commit_receipt"},
+            "observed_at": {"type": "string", "format": "date-time"},
+            "path": {"type": "string", "minLength": 1},
+            "bytes": {"type": ["integer", "null"], "minimum": 1},
+            "sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+            "note": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "pageAccounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aggregate_pages", "rule"],
+      "properties": {
+        "aggregate_pages": {"type": ["integer", "null"], "minimum": 0},
+        "rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "work_ids", "resource_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "title": {"type": "string", "minLength": 1},
+        "work_ids": {"$ref": "#/$defs/slugArray"},
+        "resource_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "itemBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "title", "creators", "creators_note", "topic_ids", "curricular_role", "pages", "page_note", "coverage_note", "why_listed", "source_edition_ids", "translation_edition_ids", "job_ids", "evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "kind": {"enum": ["work", "series", "course", "source_project", "adaptation", "component", "composite", "infrastructure", "reference"]},
+        "title": {"type": "string", "minLength": 1},
+        "creators": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/stringArray"}]},
+        "creators_note": {"$ref": "#/$defs/nullableString"},
+        "topic_ids": {"type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/slug"}},
+        "curricular_role": {"$ref": "#/$defs/nullableString"},
+        "pages": {"type": ["integer", "null"], "minimum": 1},
+        "page_note": {"type": "string", "minLength": 1},
+        "coverage_note": {"type": "string", "minLength": 1},
+        "why_listed": {"type": "string", "minLength": 1},
+        "source_edition_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/slug"}},
+        "translation_edition_ids": {"$ref": "#/$defs/slugArray"},
+        "job_ids": {"$ref": "#/$defs/slugArray"},
+        "evidence_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "work": {"$ref": "#/$defs/itemBase"},
+    "resource": {"$ref": "#/$defs/itemBase"},
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "name", "locale", "script", "orthographic_standard"],
+      "properties": {
+        "tag": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"}]},
+        "name": {"$ref": "#/$defs/nullableString"},
+        "locale": {"$ref": "#/$defs/nullableString"},
+        "script": {"$ref": "#/$defs/nullableString"},
+        "orthographic_standard": {"$ref": "#/$defs/nullableString"}
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "basis", "evidence_ids"],
+      "properties": {
+        "state": {"enum": ["pass", "fail", "unknown"]},
+        "basis": {"type": "string", "minLength": 1},
+        "evidence_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_identity", "source_edition_identity", "immutable_source", "translation_permission", "component_rights", "editable_source", "baseline_build"],
+      "properties": {
+        "work_identity": {"$ref": "#/$defs/gate"},
+        "source_edition_identity": {"$ref": "#/$defs/gate"},
+        "immutable_source": {"$ref": "#/$defs/gate"},
+        "translation_permission": {"$ref": "#/$defs/gate"},
+        "component_rights": {"$ref": "#/$defs/gate"},
+        "editable_source": {"$ref": "#/$defs/gate"},
+        "baseline_build": {"$ref": "#/$defs/gate"}
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "work_license", "derivative_translation_allowed", "component_notices", "evidence_ids"],
+      "properties": {
+        "state": {"enum": ["verified_translation_allowed", "reported_unverified"]},
+        "work_license": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "url", "scope"],
+          "properties": {
+            "name": {"$ref": "#/$defs/nullableString"},
+            "url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]},
+            "scope": {"type": "string", "minLength": 1}
+          }
+        },
+        "derivative_translation_allowed": {"type": ["boolean", "null"]},
+        "component_notices": {
           "type": "array",
-          "minItems": 1,
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["file", "sha256", "role", "availability"],
+            "required": ["path", "license"],
             "properties": {
-              "file": {"type": "string", "pattern": "^[^/\\\\]+$"},
-              "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-              "role": {"type": "string", "minLength": 1},
-              "availability": {"const": "not_public_in_this_repository"}
+              "path": {"type": "string", "minLength": 1},
+              "license": {"type": "string", "minLength": 1}
             }
+          }
+        },
+        "evidence_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "sourceEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "item_id", "item_type", "identity_state", "label", "source_language", "locator", "rights", "components", "gates", "readiness", "next_action", "evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "item_id": {"$ref": "#/$defs/slug"},
+        "item_type": {"enum": ["work", "resource"]},
+        "identity_state": {"enum": ["frozen", "reported_locator", "unresolved"]},
+        "label": {"type": "string", "minLength": 1},
+        "source_language": {"$ref": "#/$defs/language"},
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "repository", "commit", "tree", "archive"],
+          "properties": {
+            "url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]},
+            "repository": {"$ref": "#/$defs/nullableString"},
+            "commit": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
+            "tree": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
+            "archive": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]}
+          }
+        },
+        "rights": {"$ref": "#/$defs/rights"},
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["included", "excluded", "receipt"],
+          "properties": {
+            "included": {"$ref": "#/$defs/nullableString"},
+            "excluded": {"$ref": "#/$defs/nullableString"},
+            "receipt": {"$ref": "#/$defs/nullableString"}
+          }
+        },
+        "gates": {"$ref": "#/$defs/gates"},
+        "readiness": {"enum": ["identity_unresolved", "source_preflight", "not_standalone", "packet_prepared", "runnable"]},
+        "next_action": {"type": "string", "minLength": 1},
+        "evidence_ids": {"$ref": "#/$defs/slugArray"}
+      }
+    },
+    "translationEdition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "work_id", "source_edition_id", "identity_state", "target_language", "progress_state", "review_state", "scope_note", "owner", "overlap", "evidence"],
+      "properties": {
+        "id": {"$ref": "#/$defs/slug"},
+        "work_id": {"$ref": "#/$defs/slug"},
+        "source_edition_id": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/slug"}]},
+        "identity_state": {"enum": ["unverified_report", "public_repository_verified", "public_edition_verified", "frozen_complete"]},
+        "target_language": {"$ref": "#/$defs/language"},
+        "progress_state": {"enum": ["repository_available", "reported_active", "reported_complete", "reported_planned", "verified_active", "verified_complete", "inactive"]},
+        "review_state": {"enum": ["unknown", "not_independently_assessed", "in_review", "passed"]},
+        "scope_note": {"type": "string", "minLength": 1},
+        "owner": {"$ref": "#/$defs/nullableString"},
+        "overlap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "related_edition_ids", "purpose"],
+          "properties": {
+            "mode": {"enum": ["unknown", "none_known", "declared_parallel", "supersedes", "superseded"]},
+            "related_edition_ids": {"$ref": "#/$defs/slugArray"},
+            "purpose": {"$ref": "#/$defs/nullableString"}
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "observed_at", "recorded_at", "public_url", "commit", "tree", "evidence_ids"],
+          "properties": {
+            "status": {"enum": ["non_public_historical_report", "public_repository_identity_verified", "public_bytes_verified"]},
+            "observed_at": {"oneOf": [{"type": "null"}, {"type": "string", "format": "date-time"}]},
+            "recorded_at": {"type": "string", "format": "date-time"},
+            "public_url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]},
+            "commit": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
+            "tree": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
+            "evidence_ids": {"$ref": "#/$defs/slugArray"}
           }
         }
       }
     },
-    "page_accounting": {
+    "asset": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["aggregate_selected_pages", "aggregate_teaching_package_pages", "aggregate_reference_pages", "fact", "individual_page_policy"],
+      "required": ["name", "bytes", "sha256", "url"],
       "properties": {
-        "aggregate_selected_pages": {"type": ["integer", "null"], "minimum": 0},
-        "aggregate_teaching_package_pages": {"type": ["integer", "null"], "minimum": 0},
-        "aggregate_reference_pages": {"type": ["integer", "null"], "minimum": 0},
-        "fact": {"type": "string", "minLength": 1},
-        "individual_page_policy": {"type": "string", "minLength": 1}
+        "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*\\.zip$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://.*$"}
       }
     },
-    "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/entry"}},
-    "exclusions": {"type": "array", "items": {"$ref": "#/$defs/exclusion"}}
-  },
-  "$defs": {
-    "nullableString": {"type": ["string", "null"]},
-    "stringArray": {"type": "array", "items": {"type": "string", "minLength": 1}},
-    "knownEdition": {
+    "readback": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["language_tag", "language_name", "state", "scope_note", "evidence_status"],
+      "required": ["receipt", "observed_date", "assets"],
       "properties": {
-        "language_tag": {"type": "string", "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"},
-        "language_name": {"type": "string", "minLength": 1},
-        "state": {"enum": ["reported_active", "reported_complete", "reported_planned", "verified_active", "verified_complete"]},
-        "scope_note": {"type": "string", "minLength": 1},
-        "evidence_status": {"enum": ["non_public_coordination_snapshot", "public_identity_verified"]}
+        "receipt": {"type": "string", "pattern": "^catalog/[a-z0-9.-]+\\.json$"},
+        "observed_date": {"type": "string", "format": "date"},
+        "assets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/asset"}}
       }
     },
-    "entry": {
+    "job": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "legacy_id", "title", "authors", "authors_note", "catalog_role", "reported_status", "known_editions", "coverage_note", "curricular_role", "pages", "page_note", "source_url", "source_repo", "source_commit", "source_tree", "license", "derivative_allowed", "source_evidence_status", "component_caveats", "source_format", "preflight_needed", "translation_readiness", "why_listed", "evidence_refs"],
+      "required": ["id", "work_id", "source_edition_id", "title", "target_mode", "state", "release_tag", "release_url", "assets", "asset_manifest", "source_receipt", "public_readback", "start_files", "evidence_ids"],
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
-        "legacy_id": {"type": "string", "pattern": "^(?:R|O)[0-9]{3}[a-z]?$"},
+        "id": {"$ref": "#/$defs/slug"},
+        "work_id": {"$ref": "#/$defs/slug"},
+        "source_edition_id": {"$ref": "#/$defs/slug"},
         "title": {"type": "string", "minLength": 1},
-        "authors": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/stringArray"}]},
-        "authors_note": {"$ref": "#/$defs/nullableString"},
-        "catalog_role": {"enum": ["adaptation", "component", "composite", "course", "infrastructure", "reference", "series", "source_project", "work"]},
-        "reported_status": {"type": "string", "minLength": 1},
-        "known_editions": {"type": "array", "items": {"$ref": "#/$defs/knownEdition"}},
-        "coverage_note": {"type": "string", "minLength": 1},
-        "curricular_role": {"$ref": "#/$defs/nullableString"},
-        "pages": {"type": ["integer", "null"], "minimum": 1},
-        "page_note": {"type": "string", "minLength": 1},
-        "source_url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.+$"}]},
-        "source_repo": {"$ref": "#/$defs/nullableString"},
-        "source_commit": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[0-9a-f]{40}$"}]},
-        "source_tree": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^[0-9a-f]{40}$"}]},
-        "license": {"$ref": "#/$defs/nullableString"},
-        "derivative_allowed": {"type": ["boolean", "null"]},
-        "source_evidence_status": {"enum": ["independently_verified_public_boundary", "reported_not_independently_replayed"]},
-        "component_caveats": {"$ref": "#/$defs/stringArray"},
-        "source_format": {"type": "string", "minLength": 1},
-        "preflight_needed": {"type": "string", "minLength": 1},
-        "translation_readiness": {"enum": ["preflight_required", "not_standalone"]},
-        "why_listed": {"type": "string", "minLength": 1},
-        "evidence_refs": {"$ref": "#/$defs/stringArray"}
+        "target_mode": {"enum": ["contributor_selects", "fixed"]},
+        "state": {"enum": ["prepared_not_published", "runnable", "retired"]},
+        "release_tag": {"type": "string", "minLength": 1},
+        "release_url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
+        "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}},
+        "asset_manifest": {"type": "string", "pattern": "^catalog/assets/[a-z0-9.-]+\\.json$"},
+        "source_receipt": {"type": "string", "pattern": "^catalog/receipts/[a-z0-9.-]+\\.json$"},
+        "public_readback": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/readback"}]},
+        "start_files": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["local", "web"],
+          "properties": {
+            "local": {"type": "string", "minLength": 1},
+            "web": {"type": "string", "minLength": 1}
+          }
+        },
+        "evidence_ids": {"$ref": "#/$defs/slugArray"}
       }
     },
     "exclusion": {
