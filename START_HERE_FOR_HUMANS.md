@@ -6,7 +6,7 @@ Choose one portal.
 
 ## Transcription
 
-Select one of the [28 runnable packet envelopes](catalog/jobs.json), download every listed asset part, verify the hashes, and execute every prompt in that row's declared prompt file. Admission replay verifies the envelope and its declared inputs; it does not certify the requested transcription output. Return the cumulative result, manifest, checks, failures, and continuation cursor.
+Select one of the [28 runnable packet envelopes](catalog/jobs.json), download every listed asset part, verify the hashes, and execute every prompt in that row's declared prompt file. Use the row's exact `prompt_count`; do not assume every job has 45 prompts. Reply `continue` only when the current response is `STATUS: IN_PROGRESS`. Reply `next prompt` only when the current response is `STATUS: COMPLETE` and its prompt number is less than `prompt_count`. Never invent a prompt after the declared final prompt. Admission replay verifies the envelope and its declared inputs; it does not certify the requested transcription output. Return the cumulative result, manifest, checks, failures, and continuation cursor.
 
 ## Translation
 

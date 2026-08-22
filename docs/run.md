@@ -19,8 +19,8 @@ Some validation or hardening receipts are exposed as separately bound, path-neut
 1. Start with the exact declared `start_file`, then execute Prompt 1 from the exact declared `prompt_file` without rewriting it.
 2. If the platform forces a response split and the response says `STATUS: IN_PROGRESS`, preserve its cumulative state and reply only `continue` in the same chat.
 3. When that prompt says `STATUS: COMPLETE`, download the returned cumulative state ZIP, checkpoint, and manifest.
-4. Reply `next prompt` to advance to the next numbered prompt in the same declared `prompt_file`.
-5. Execute every declared prompt in order. The job ends only when its final declared prompt completes after PASS and requests no successor.
+4. If the completed prompt number is less than the selected row's `prompt_count`, reply only `next prompt` to advance within the same declared `prompt_file`.
+5. Prompt `prompt_count` is terminal only when it completes after PASS and requests no successor. Never invent an additional prompt.
 
 After every response, including an IN_PROGRESS response, preserve the returned cumulative state ZIP, checkpoint, and manifest. If the chat or model session must be replaced, attach that trio from the newest response—even if it was IN_PROGRESS. Never reconstruct state from a summary, roll back to the last completed prompt, or continue from memory.
 

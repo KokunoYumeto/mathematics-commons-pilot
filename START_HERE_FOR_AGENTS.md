@@ -6,7 +6,7 @@ Select exactly one portal and keep its work scope bounded.
 
 ## Transcription
 
-Choose one `runnable` row from `catalog/jobs.json`, download every asset part, verify bytes and SHA-256, and follow `docs/run.md`. Preserve the exact authority and return cumulative full state after every response.
+Choose one `runnable` row from `catalog/jobs.json`, download every asset part, verify bytes and SHA-256, and follow `docs/run.md`. Use the row's exact `prompt_count`; do not assume every job has 45 prompts. Reply only `continue` for `STATUS: IN_PROGRESS`, and reply only `next prompt` for `STATUS: COMPLETE` when the current number is less than `prompt_count`. The declared final prompt is terminal only after PASS with no requested successor. Preserve the exact authority and return cumulative full state after every response.
 
 ## Translation
 

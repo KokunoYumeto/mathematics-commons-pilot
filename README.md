@@ -25,8 +25,9 @@ To run a packet:
 1. Select a `runnable` row in [`catalog/jobs.json`](catalog/jobs.json).
 2. Download every listed asset part and verify its byte length and SHA-256.
 3. Extract all parts into one directory and open the exact `start_file` declared by that catalog row.
-4. Execute Prompt 1 from the exact declared `prompt_file`. Reply `continue` only for a platform-forced `IN_PROGRESS` split; reply `next prompt` only after the current prompt is `COMPLETE`.
-5. Stop after the final declared prompt completes after PASS, then return the cumulative state, manifest, checks, failures, and cursor.
+4. Use that row's exact `prompt_count`; do not assume every job has 45 prompts. Execute Prompt 1 from the declared `prompt_file`.
+5. If a response says `STATUS: IN_PROGRESS`, preserve its cumulative state and reply only `continue`. If it says `STATUS: COMPLETE` and the current prompt number is less than `prompt_count`, preserve its cumulative state and reply only `next prompt`.
+6. Prompt `prompt_count` is terminal only when it completes after PASS and requests no successor. Never invent another prompt; return the cumulative state, manifest, checks, failures, and cursor.
 
 `strict-PASS` validates the packet boundary and its recorded evidence. It does not certify a completed transcription, translation, edition, or mathematical result. The full [run instructions](docs/run.md) and [fidelity contract](docs/fidelity.md) apply.
 
