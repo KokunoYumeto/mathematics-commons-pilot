@@ -14,8 +14,8 @@
     },
     "translations": {
       "path": "catalog/translations.json",
-      "bytes": 187603,
-      "sha256": "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744"
+      "bytes": 213661,
+      "sha256": "0551405B08E07AA2B2F5C3875944C758D7CAC270D300F2F335E0C48067B37BC1"
     },
     "translation_choices": {
       "path": "kits/translate/WORKS.json",
@@ -49,8 +49,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 3326,
-      "sha256": "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
+      "bytes": 4927,
+      "sha256": "5B305EBD5F2C3131F18F9C4612A3F2F539689AAC06D7A1F9D254EA81D01BAFE7"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -72,7 +72,11 @@
       "bytes": 1215,
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
-    "translate_v7_readback": null,
+    "translate_v7_readback": {
+      "path": "catalog/translate-rb-v7.json",
+      "bytes": 1199,
+      "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861"
+    },
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
       "bytes": 177525,
@@ -113,6 +117,11 @@
       "bytes": 6354,
       "sha256": "8D302839A6E6FC6A0770810ED251FE2FA8F50BEDC2DEEE8297CD597C5FFCD001"
     },
+    "id_readers_receipt": {
+      "path": "catalog/receipts/id-readers.json",
+      "bytes": 5583,
+      "sha256": "BE52B1761DBDD9C9BBEFF52787D152E463044E6C15A5B946991775D8809B6204"
+    },
     "job_meta_schema": {
       "path": "schemas/job-meta.schema.json",
       "bytes": 7028,
@@ -125,13 +134,13 @@
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
-      "bytes": 20661,
-      "sha256": "5736EAB5DA50F910293846345C6F84E47BB080979CEE9D8F5880A66AA56F6996"
+      "bytes": 21278,
+      "sha256": "E27B7D00F49885D18B21217DF88D77F0AE4736A729FE54C6C2546F6BDB6CFEF5"
     },
     "translation_choices_schema": {
       "path": "schemas/translation-choices.schema.json",
-      "bytes": 15443,
-      "sha256": "6A2D75909E653AC9AD72E67DFBBA04F0025317114CBB03CEC9728E67C043DB7D"
+      "bytes": 15499,
+      "sha256": "2E516EB3DA78476695FAB6237FBA1BFEDE2FDF534B37DA7E59BDDA01A1C766A7"
     },
     "translation_source_schema": {
       "path": "schemas/translation-source.schema.json",
@@ -150,8 +159,8 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 7668,
-      "sha256": "7D537D57B7761CC2C54577980FE3D99F7080877BAC6EC1FE82467C2E4D7F78D3"
+      "bytes": 7955,
+      "sha256": "4C4CC8D4428D2B1489FB77CF1E45E784A1F80C48D68F14D9FE43DCA579FDA4FA"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
@@ -170,8 +179,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 10756,
-      "sha256": "1F438CA2F6F487130FC70F34042AFF533209D791D93361A1224635B7C67ED296"
+      "bytes": 10992,
+      "sha256": "3D5A9B7352398834AAF3661471E5004F9E40F39283B7E99AA00CBDA5EC9CE2C0"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -223,6 +232,11 @@
       "bytes": 25494,
       "sha256": "EBAE557D7C59F180D7E6DD421E67748AEF4B8A5A24CDAE972D3E62B048A67708"
     },
+    "translation_reader_updater": {
+      "path": "tools/add_id_readers.py",
+      "bytes": 14423,
+      "sha256": "5B5C67FCDD8FF402DC99AE4AB5A1B4E7ABF8D775AD692F64C0F230C958BB862A"
+    },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
       "bytes": 12645,
@@ -230,8 +244,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 136897,
-      "sha256": "E171CC17C717C3DD766B4FACC58E5C9585A77D3C1EF74B07621B3FC168E9AE56"
+      "bytes": 143601,
+      "sha256": "89F7FE3153F4146B8138B2C5A2FCEA6398C4304F862BD35CD69E7CB19E0411FC"
     }
   },
   "asset_manifests": {
@@ -250,14 +264,14 @@
   "asset_mode": "admission_receipt_plus_public_readback",
   "translation": {
     "topics": 10,
-    "works": 27,
+    "works": 29,
     "resources": 12,
-    "source_editions": 39,
-    "translation_editions": 14,
+    "source_editions": 41,
+    "translation_editions": 23,
     "jobs": 1,
     "runnable_jobs": 1,
-    "public_release_assets": 1,
-    "public_release_bytes": 15520
+    "public_release_assets": 2,
+    "public_release_bytes": 1937511
   },
   "formalization_entries": 19,
   "portal_sections": 3,

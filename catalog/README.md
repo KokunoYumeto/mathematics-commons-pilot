@@ -1,8 +1,8 @@
 # Catalog
 
-`portals.json` is the three-portal index. `jobs.json` is the runnable transcription catalog. `translations.json` is the v7 topic → work/resource → source edition → translation edition → runnable-job catalog. It separates public repository evidence from dated non-public reports, source readiness from language coverage, and source-bound jobs from the generic source-preflight starter. `formalize.json` is the cross-cutting formalization intake: exact external source snapshots, result-level candidates, build scope, placeholder state, source-correspondence state, Mathlib-audit state, and packet state. Its presence does not create a fourth portal or make any formalization runnable. `check.json` is the generated validation receipt. `assets/*.json` binds release ZIPs and represented source members.
+`portals.json` is the three-portal index. `jobs.json` is the runnable transcription catalog. `translations.json` is the live v7 topic → work/resource → source edition → translation edition → runnable-job catalog. It separates public repository and reader evidence from dated non-public reports, source readiness from language coverage, and source-bound jobs from the generic source-preflight starter. The starter's `WORKS.json` is an immutable release snapshot; later evidence is added only to the live catalog. `formalize.json` is the cross-cutting formalization intake: exact external source snapshots, result-level candidates, build scope, placeholder state, source-correspondence state, Mathlib-audit state, and packet state. Its presence does not create a fourth portal or make any formalization runnable. `check.json` is the generated validation receipt. `assets/*.json` binds release ZIPs and represented source members.
 
-`receipts/` preserves the R1 audit projections and exposes the R2 frozen-28 admission and no-failure hardening receipts. R2 binds every job to one external admission projection, including its exact start file, workload-derived prompt file/count, native manifest, direct-byte snapshot, deterministic release part or parts, and bounded control-policy replay.
+`receipts/` preserves the R1 audit projections and exposes the R2 frozen-28 admission and no-failure hardening receipts. R2 binds every job to one external admission projection, including its exact start file, workload-derived prompt file/count, native manifest, direct-byte snapshot, deterministic release part or parts, and bounded control-policy replay. `receipts/id-readers.json` binds nine public Indonesian reader PDFs to exact collection, DOI, filename, byte, SHA-256, and anonymous-readback evidence without claiming completion, source lineage, or translation QA.
 
 `readback-r2.json` is the current transcription release-level anonymous byte/SHA-256 replay. `readback.json` remains the immutable R1 readback rather than being overwritten by a successor. `openlogic-rb.json` binds the source-bound Open Logic translation job. `translate-rb-v7.json` is required before the generic v7 starter may be described as public; the starter contains no mathematical source or translation and is not a runnable job.
 
@@ -15,6 +15,12 @@ python tools/build_jobs.py --packet-root <exact-root> --output <release-dir>
 python tools/build_r2_admission.py --packet-root <exact-root> --asset-dir <release-dir> --hardener-script <exact-hardener.py>
 python tools/validate_jobs.py --asset-dir <release-dir> --output catalog/check.json --json
 python tools/validate_jobs.py --verify-receipt
+```
+
+To reproduce the additive Indonesian-reader catalog projection from the immutable v7 snapshot and the checked-in receipt:
+
+```console
+python tools/add_id_readers.py
 ```
 
 The packet root is intentionally not recorded as a public machine path. The public catalog records source members, bytes, hashes, authority identities, scope, and receipts instead.

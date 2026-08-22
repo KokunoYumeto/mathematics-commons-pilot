@@ -1,0 +1,82 @@
+{
+  "schema": "math-commons-portal-catalog/v1",
+  "updated": "2026-08-22",
+  "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
+  "sections": [
+    {
+      "id": "transcription",
+      "title": "Transcription",
+      "state": "runnable",
+      "docs": "docs/run.md",
+      "catalog": "catalog/jobs.json",
+      "summary": "Twenty-eight verified source packets with exact release assets, workload-derived prompt files, and public readback.",
+      "release": {
+        "tag": "jobs-2026-08-21-r2",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2",
+        "asset_count": 30,
+        "asset_bytes": 8808377826,
+        "asset_catalog": "catalog/jobs.json",
+        "readback": "catalog/readback-r2.json",
+        "assets": []
+      },
+      "limitations": [
+        "Packet PASS does not certify a completed transcription or edition.",
+        "Later candidate generations are excluded until their own independent admission checks pass."
+      ]
+    },
+    {
+      "id": "translation",
+      "title": "Translation",
+      "state": "starter_available",
+      "docs": "docs/translations.md",
+      "catalog": "catalog/translations.json",
+      "summary": "Non-exclusive open-mathematics suggestions, work-specific verified or reported editions, and a local/web source-preflight starter.",
+      "release": {
+        "tag": "translate-v6",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6",
+        "asset_count": 1,
+        "asset_bytes": 15520,
+        "asset_catalog": "catalog/assets/translate-v6.json",
+        "readback": "catalog/translate-rb-v6.json",
+        "assets": [
+          {
+            "name": "translation-starter-v6.zip",
+            "bytes": 15520,
+            "sha256": "3DE94A6D0D9AF6D1568FC391C729A8AAA37C48D9974967B7E24FDCA0D0C65787"
+          }
+        ]
+      },
+      "limitations": [
+        "The starter contains no textbook and no completed translation.",
+        "Most catalog rows require independent source, license, component, and baseline-build preflight."
+      ]
+    },
+    {
+      "id": "open-problems",
+      "title": "Open problems",
+      "state": "source_recovery_required",
+      "docs": "docs/workbench.md",
+      "catalog": null,
+      "summary": "Workbench v0.2 was independently replayed. The unavailable ZIP contained candidate statements, review queues, literature queries, source-list imports, scripts, schemas, and templates. Its exact bytes must be restored before publication.",
+      "release": {
+        "tag": null,
+        "url": null,
+        "asset_count": 0,
+        "asset_bytes": 0,
+        "asset_catalog": null,
+        "readback": null,
+        "assets": []
+      },
+      "expected_asset": {
+        "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+        "bytes": 13308489,
+        "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A"
+      },
+      "limitations": [
+        "Publication is blocked until the exact expected ZIP bytes are restored and replayed.",
+        "No problem record is yet admitted as a canonical runnable packet.",
+        "Internal package PASS does not establish canonical wording, current status, complete literature, or a proof."
+      ]
+    }
+  ]
+}

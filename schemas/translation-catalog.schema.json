@@ -322,7 +322,7 @@
         "source_edition_id": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/slug"}]},
         "identity_state": {"enum": ["unverified_report", "public_repository_verified", "public_edition_verified", "frozen_complete"]},
         "target_language": {"$ref": "#/$defs/language"},
-        "progress_state": {"enum": ["repository_available", "historical_report_active_at_recording", "historical_report_complete_at_recording", "historical_report_planned_at_recording", "verified_active", "verified_complete", "inactive"]},
+        "progress_state": {"enum": ["repository_available", "public_reader_available_scope_unassessed", "historical_report_active_at_recording", "historical_report_complete_at_recording", "historical_report_planned_at_recording", "verified_active", "verified_complete", "inactive"]},
         "review_state": {"enum": ["unknown", "not_independently_assessed", "in_review", "passed"]},
         "scope_note": {"type": "string", "minLength": 1},
         "owner": {"$ref": "#/$defs/nullableString"},
@@ -347,6 +347,13 @@
             "public_url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]},
             "commit": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
             "tree": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/hex40"}]},
+            "doi": {"type": "string", "pattern": "^10[.]6084/m9[.]figshare[.][A-Za-z0-9.]+$"},
+            "file": {"type": "string", "minLength": 1, "pattern": "^[^/\\\\]+[.]pdf$"},
+            "bytes": {"type": "integer", "minimum": 1},
+            "sha256": {"$ref": "#/$defs/sha256"},
+            "download_url": {"type": "string", "format": "uri", "pattern": "^https://ndownloader[.]figshare[.]com/files/[0-9]+$"},
+            "collection_doi": {"const": "10.6084/m9.figshare.c.8668413.v25"},
+            "receipt_path": {"const": "catalog/receipts/id-readers.json"},
             "evidence_ids": {"$ref": "#/$defs/slugArray"}
           }
         }

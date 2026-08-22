@@ -10,22 +10,22 @@ The catalog is a set of suggestions, not a restriction. Contributors may propose
 |---|---|---|
 | Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separate [generic v7 starter](translate-v7.md) helps with work selection and source preflight; it contains no source work and is not a runnable translation job. Its release is not complete until the public asset and anonymous readback exist.
+A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separately published [generic v7 starter](translate-v7.md) helps with work selection and source preflight; it contains no source work and is not a runnable translation job.
 
-## Browse the 27 works
+## Browse the 29 works
 
 The topics below are navigation aids. They do not imply a curriculum, priority order, or exclusive claim on a work.
 
 | Topic | Works |
 |---|---|
 | Foundations and school algebra | OpenStax *Prealgebra 2e*; OpenStax *Elementary Algebra 2e*; OpenStax *Intermediate Algebra 2e*; OpenStax *Precalculus 2e* |
-| Calculus, analysis, and differential equations | CLP Calculus 1–4 and problem books; Lebl analysis volume (exact title unresolved); Lebl ordinary differential equations volume (exact title unresolved); Lebl complex analysis volume (exact title unresolved); Victor Ivrii, *Partial Differential Equations* |
+| Calculus, analysis, and differential equations | CLP Calculus 1–4 and problem books; Lebl analysis volume (exact title unresolved); Lebl ordinary differential equations volume (exact title unresolved); Lebl complex analysis volume (exact title unresolved); Victor Ivrii, *Partial Differential Equations*; *Partial Differential Equations — Dionne Unit 1* (full bibliographic identity unresolved) |
 | Linear algebra, abstract algebra, and number theory | Hefferon, *Linear Algebra*; Judson, *Abstract Algebra*; *Yet Another Introductory Number Theory Textbook*; Wen-Wei Li, *Methods of Algebra*, Volume 1; Wen-Wei Li, *Methods of Algebra*, Volume 2 |
 | Probability and statistics | Grinstead–Snell, *Probability*; *OpenIntro Statistics* |
 | Discrete mathematics and combinatorics | DMOI4; *Applied Combinatorics* |
 | Logic and formal mathematics | *Open Logic Text*; *Mathematics in Lean* |
 | Geometry, topology, manifolds, and algebraic geometry | Steven Schlicker, *Topology: An Inquiry-Based Approach*; Anton Petrunin, *Euclidean Plane and Its Relatives*; *AlgebraicTopology2019* |
-| Numerical mathematics, computing, optimization, and modeling | *Tea Time Numerical Analysis*; *Open Optimization Book 1*; MIT OpenCourseWare 6.253 |
+| Numerical mathematics, computing, optimization, and modeling | *Tea Time Numerical Analysis*; *Open Optimization Book 1*; MIT OpenCourseWare 6.253; *Mathematical Computing and Reproducible Experiments* |
 | Functional analysis and operator theory | John M. Erdman, *Functional Analysis and Operator Algebras: An Introduction* |
 | Research and assessment infrastructure | No individual work is currently listed; see the resources below. |
 
@@ -56,9 +56,27 @@ This table includes dated public evidence. A repository identity establishes tha
 
 Parallel translations are welcome when contributors identify them clearly and declare overlap. A repository identity is evidence that an edition exists; it is not by itself evidence of completeness or review.
 
+### Public Indonesian reader PDFs
+
+The [Indonesian Mathematics — Reader PDFs collection](https://doi.org/10.6084/m9.figshare.c.8668413.v25) contains nine public PDFs. Each file was anonymously downloaded and matched its recorded byte length and SHA-256. This proves the identity of the public PDF only. Whole-work coverage, exact source lineage, and independent translation QA remain unassessed unless a later row supplies that evidence.
+
+| Work | Public reader | Exact bytes |
+|---|---|---:|
+| *Applied Combinatorics* | [10.6084/m9.figshare.33314772.v2](https://doi.org/10.6084/m9.figshare.33314772.v2) | 7,487,198 |
+| *Mathematics in Lean* | [10.6084/m9.figshare.33314793.v2](https://doi.org/10.6084/m9.figshare.33314793.v2) | 1,239,371 |
+| *Euclidean Plane and Its Relatives* | [10.6084/m9.figshare.33314706.v2](https://doi.org/10.6084/m9.figshare.33314706.v2) | 1,888,763 |
+| *Yet Another Introductory Number Theory Textbook* | [10.6084/m9.figshare.33314736.v2](https://doi.org/10.6084/m9.figshare.33314736.v2) | 962,527 |
+| *Tea Time Numerical Analysis* | [10.6084/m9.figshare.33314724.v2](https://doi.org/10.6084/m9.figshare.33314724.v2) | 8,202,476 |
+| Judson, *Abstract Algebra: Theory and Applications* | [10.6084/m9.figshare.33314754.v2](https://doi.org/10.6084/m9.figshare.33314754.v2) | 1,841,875 |
+| *Mathematical Computing and Reproducible Experiments* | [10.6084/m9.figshare.33314796.v1](https://doi.org/10.6084/m9.figshare.33314796.v1) | 502,373 |
+| Wen-Wei Li, *Methods of Algebra*, Volume 2 | [10.6084/m9.figshare.33314775.v2](https://doi.org/10.6084/m9.figshare.33314775.v2) | 683,385 |
+| *Partial Differential Equations — Dionne Unit 1* | [10.6084/m9.figshare.33314739.v1](https://doi.org/10.6084/m9.figshare.33314739.v1) | 702,567 |
+
+Exact filenames, SHA-256 values, download URLs, collection identity, and readback results are in the [reader receipt](../catalog/receipts/id-readers.json) and the corresponding `translation_editions` rows in the machine catalog.
+
 ### Historical reports without public identities
 
-Thirteen Indonesian-edition reports were recorded on 21 August 2026. They are retained to prevent accidental silent duplication, but their public identities, exact scopes, dates of observation, owners, and review states were not established. “Active,” “complete,” and “planned” below describe only the report at the recording date; they are not current status claims.
+Thirteen Indonesian-edition reports were recorded on 21 August 2026. They are retained to prevent accidental silent duplication, but the reports themselves do not establish public identities, exact scopes, dates of observation, owners, or review states. Judson and *Tea Time Numerical Analysis* now also have public reader rows above; their relationship to the older reports has not been established. “Active,” “complete,” and “planned” below describe only the report at the recording date; they are not current status claims.
 
 | Reported state at recording | Works |
 |---|---|
@@ -66,7 +84,7 @@ Thirteen Indonesian-edition reports were recorded on 21 August 2026. They are re
 | Reported complete | DMOI4; *Open Logic Text* |
 | Reported planned | Unresolved Lebl ordinary-differential-equations volume; unresolved Lebl complex-analysis volume |
 
-The exact per-work rows and evidence limitations are in `translation_editions` in the machine catalog. No row above establishes a current production lane or a reusable public edition.
+The exact per-work rows and evidence limitations are in `translation_editions` in the machine catalog. Historical-report rows do not establish a current production lane or reusable public edition. Public-reader rows establish exact available PDF bytes, but not completion, source lineage, or review.
 
 ## Choose a language
 
@@ -103,16 +121,17 @@ Any system capable of preserving the files and following the ordered contract ma
 ## Machine interface
 
 - [Translation catalog](../catalog/translations.json): authoritative works, resources, topics, source editions, translation editions, jobs, evidence, and exclusions.
-- [Compact work index](../kits/translate/WORKS.json): work and resource projection for a downloaded translation kit.
+- [Compact work index](../kits/translate/WORKS.json): the immutable work and resource snapshot shipped in the v7 translation starter; consult the live catalog for later public editions.
 - [Catalog schema](../schemas/translation-catalog.schema.json): machine-validation contract.
 - [Choice schema](../schemas/translation-choices.schema.json) and [source-state schema](../schemas/translation-source.schema.json): downloaded workflow contracts.
 - [Open Logic asset manifest](../catalog/assets/openlogic.json), [admission receipt](../catalog/receipts/openlogic.json), and [public readback](../catalog/openlogic-rb.json): exact runnable-job evidence.
+- [Indonesian reader receipt](../catalog/receipts/id-readers.json): exact collection, DOI, filename, byte, SHA-256, and anonymous-readback evidence for nine public PDFs.
 
 Consumers should read status from the catalog, not infer it from prose, filenames, or the existence of a release page.
 
 ## Other Commons portals
 
-- [Transcription jobs](run.md): verified bounded source packets for diplomatic transcription and separate modern editions.
+- [Transcription jobs](run.md): admitted runnable packet envelopes for diplomatic transcription and separate modern editions.
 - [Formalization](formalize.md): intake and review for converting mathematical statements into checkable formal developments.
 - [Open Problem Workbench](workbench.md): source and evidence organization for conjectures and open problems; no problem packet is currently admitted as runnable.
 

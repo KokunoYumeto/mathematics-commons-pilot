@@ -76,6 +76,8 @@
         "target_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
         "asset_count": {"type": "integer", "minimum": 1},
         "asset_bytes": {"type": "integer", "minimum": 1},
+        "runnable_asset_count": {"type": "integer", "minimum": 1},
+        "runnable_asset_bytes": {"type": "integer", "minimum": 1},
         "asset_catalog": {"$ref": "#/$defs/nullablePath"},
         "admission_receipt": {"$ref": "#/$defs/nullablePath"},
         "readback": {"type": "string", "minLength": 1},
@@ -179,7 +181,12 @@
           "properties": {
             "id": {"const": "transcription"},
             "state": {"const": "runnable"},
-            "release": {"$ref": "#/$defs/currentPublishedRelease"}
+            "release": {
+              "allOf": [
+                {"$ref": "#/$defs/currentPublishedRelease"},
+                {"required": ["runnable_asset_count", "runnable_asset_bytes"]}
+              ]
+            }
           }
         },
         {

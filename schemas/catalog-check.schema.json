@@ -60,6 +60,7 @@
         "r2_admission_receipt",
         "no_failure_hardening_receipt",
         "openlogic_receipt",
+        "id_readers_receipt",
         "job_meta_schema",
         "job_schema",
         "translation_schema",
@@ -82,6 +83,7 @@
         "openlogic_auditor",
         "translation_builder",
         "translation_migrator",
+        "translation_reader_updater",
         "portal_readback_tool",
         "validator"
       ],
@@ -158,6 +160,9 @@
         "openlogic_receipt": {
           "$ref": "#/$defs/identity"
         },
+        "id_readers_receipt": {
+          "$ref": "#/$defs/identity"
+        },
         "job_meta_schema": {
           "$ref": "#/$defs/identity"
         },
@@ -222,6 +227,9 @@
           "$ref": "#/$defs/identity"
         },
         "translation_migrator": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_reader_updater": {
           "$ref": "#/$defs/identity"
         },
         "portal_readback_tool": {

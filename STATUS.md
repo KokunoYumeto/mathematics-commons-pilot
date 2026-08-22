@@ -22,19 +22,20 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 ## Translation
 
 - Topics: 10
-- Candidate works: 27
+- Candidate works: 29
 - Supporting resources and collections: 12
-- Exact source-edition rows: 39
-- Translation-edition evidence rows: 14
+- Exact source-edition rows: 41
+- Translation-edition evidence rows: 23
+- Public Indonesian reader PDFs: 9 files / 23,510,535 bytes, anonymously length/SHA-256 verified; coverage, lineage, and review unassessed
 - Runnable source-bound jobs: Open Logic Text
 - Generic starter: source-preflight workflow only; not a runnable translation job
 - Explicit exclusions: 8
 - Source-bound release: [`translate-openlogic-v1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1)
-- Generic source-preflight candidate: [`translate-v7`](docs/translate-v7.md), prepared but not published
+- Generic source-preflight release: [`translate-v7`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7), anonymously replayed
 
 The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional open works, separates public evidence from dated historical reports, and contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
 
-All other works require an independent exact source, license, included-component, editable-source, baseline-build, release, and readback check before they can become runnable. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
+All other works require an independent exact source, license, included-component, editable-source, baseline-build, release, and readback check before they can become runnable. Nine public Indonesian reader PDFs now have exact DOI, filename, byte, and SHA-256 evidence, but that evidence alone does not establish whole-work completion, source lineage, or independent QA. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
 
 ## Formalization
 

@@ -63,6 +63,8 @@ READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
 READBACK_DATE = "2026-08-22"
 PORTAL_V1_BYTES = 3_326
 PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
+TRANSLATE_V7_CATALOG_BYTES = 187_603
+TRANSLATE_V7_CATALOG_SHA256 = "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -1277,6 +1279,29 @@ def validate_translations(errors: list[str]) -> int:
     topics = maps["topics"]
     expect(not (set(works) & set(resources)), errors, "translation work/resource IDs overlap")
 
+    reader_receipt, _ = load(ROOT / "catalog" / "receipts" / "id-readers.json")
+    reader_rows = reader_receipt.get("readers") if isinstance(reader_receipt, dict) else None
+    if not isinstance(reader_rows, list) or any(not isinstance(row, dict) for row in reader_rows):
+        errors.append("Indonesian reader receipt rows are malformed")
+        reader_rows = []
+    reader_by_id = {
+        str(row.get("id")): row
+        for row in reader_rows
+        if isinstance(row.get("id"), str)
+    }
+    expect(
+        reader_receipt.get("schema") == "math-commons-reader-receipt/v1"
+        and reader_receipt.get("observed_at") == "2026-08-22T18:54:26Z"
+        and reader_receipt.get("collection", {}).get("doi")
+        == "10.6084/m9.figshare.c.8668413.v25"
+        and reader_receipt.get("collection", {}).get("reader_count") == 9
+        and reader_receipt.get("collection", {}).get("reader_bytes")
+        == sum(int(row.get("bytes", 0)) for row in reader_rows)
+        and len(reader_by_id) == len(reader_rows) == 9,
+        errors,
+        "Indonesian reader receipt boundary",
+    )
+
     for evidence_id, row in evidence.items():
         if row.get("kind") != "same_commit_receipt":
             continue
@@ -1523,7 +1548,12 @@ def validate_translations(errors: list[str]) -> int:
             if edition.get("identity_state") == "public_edition_verified":
                 expect(
                     edition.get("progress_state")
-                    in {"verified_active", "verified_complete", "inactive"}
+                    in {
+                        "public_reader_available_scope_unassessed",
+                        "verified_active",
+                        "verified_complete",
+                        "inactive",
+                    }
                     and edition.get("review_state")
                     in {"not_independently_assessed", "in_review", "passed"}
                     and edition_evidence.get("status") == "public_bytes_verified"
@@ -1532,6 +1562,35 @@ def validate_translations(errors: list[str]) -> int:
                     errors,
                     f"translation edition {translation_id}: public edition evidence",
                 )
+                if edition.get("progress_state") == "public_reader_available_scope_unassessed":
+                    reader = reader_by_id.get(translation_id)
+                    expect(
+                        isinstance(reader, dict)
+                        and reader.get("work_id") == work_id
+                        and edition.get("review_state") == "not_independently_assessed"
+                        and edition_evidence.get("observed_at")
+                        == reader_receipt.get("observed_at")
+                        and edition_evidence.get("recorded_at")
+                        == reader_receipt.get("observed_at")
+                        and edition_evidence.get("public_url")
+                        == "https://doi.org/" + str(reader.get("doi"))
+                        and edition_evidence.get("commit") is None
+                        and edition_evidence.get("tree") is None
+                        and edition_evidence.get("doi") == reader.get("doi")
+                        and edition_evidence.get("file") == reader.get("file")
+                        and edition_evidence.get("bytes") == reader.get("bytes")
+                        and edition_evidence.get("sha256") == reader.get("sha256")
+                        and edition_evidence.get("download_url")
+                        == reader.get("download_url")
+                        and edition_evidence.get("collection_doi")
+                        == reader_receipt.get("collection", {}).get("doi")
+                        and edition_evidence.get("receipt_path")
+                        == "catalog/receipts/id-readers.json"
+                        and edition_evidence.get("evidence_ids")
+                        == ["figshare-id-readers-20260822"],
+                        errors,
+                        f"translation edition {translation_id}: exact public reader receipt",
+                    )
             if edition.get("identity_state") == "frozen_complete":
                 expect(
                     edition.get("source_edition_id") is not None
@@ -1543,6 +1602,17 @@ def validate_translations(errors: list[str]) -> int:
                     errors,
                     f"translation edition {translation_id}: frozen-complete evidence",
                 )
+    expect(
+        {
+            translation_id
+            for translation_id, edition in translations.items()
+            if edition.get("progress_state")
+            == "public_reader_available_scope_unassessed"
+        }
+        == set(reader_by_id),
+        errors,
+        "Indonesian reader receipt/edition projection",
+    )
     same_language: dict[tuple[str, str], list[str]] = {}
     for translation_id, edition in translations.items():
         target = edition.get("target_language")
@@ -1738,33 +1808,63 @@ def validate_translations(errors: list[str]) -> int:
         errors,
         "translation chooser language-priority projection",
     )
-    catalog_bytes = (ROOT / "catalog" / "translations.json").read_bytes()
     catalog_identity = choices.get("catalog")
     expect(
         isinstance(catalog_identity, dict)
         and catalog_identity.get("path") == "catalog/translations.json"
-        and catalog_identity.get("bytes") == len(catalog_bytes)
-        and catalog_identity.get("sha256") == sha256(catalog_bytes),
+        and catalog_identity.get("bytes") == TRANSLATE_V7_CATALOG_BYTES
+        and catalog_identity.get("sha256") == TRANSLATE_V7_CATALOG_SHA256,
         errors,
-        "translation chooser catalog identity",
+        "translation chooser frozen v7 catalog identity",
     )
     expect(
         choices.get("separate_archive") == catalog.get("separate_archive")
-        and choices.get("topics") == catalog.get("topics")
         and choices.get("jobs") == catalog.get("jobs"),
         errors,
-        "translation chooser exact archive/topic/job projections",
+        "translation chooser frozen archive/job projections",
     )
+
+    choice_works = choices.get("works") if isinstance(choices.get("works"), list) else []
+    choice_resources = (
+        choices.get("resources") if isinstance(choices.get("resources"), list) else []
+    )
+    choice_sources = (
+        choices.get("source_editions")
+        if isinstance(choices.get("source_editions"), list)
+        else []
+    )
+    choice_editions = (
+        choices.get("translation_editions")
+        if isinstance(choices.get("translation_editions"), list)
+        else []
+    )
+    choice_work_ids = {
+        str(row.get("id")) for row in choice_works if isinstance(row, dict)
+    }
+    choice_resource_ids = {
+        str(row.get("id")) for row in choice_resources if isinstance(row, dict)
+    }
+    choice_source_ids = {
+        str(row.get("id")) for row in choice_sources if isinstance(row, dict)
+    }
+    choice_edition_ids = {
+        str(row.get("id")) for row in choice_editions if isinstance(row, dict)
+    }
     expected_work_projection = [
         {
             "id": row["id"],
             "title": row["title"],
             "topic_ids": row["topic_ids"],
             "source_edition_ids": row["source_edition_ids"],
-            "translation_edition_ids": row["translation_edition_ids"],
+            "translation_edition_ids": [
+                edition_id
+                for edition_id in row["translation_edition_ids"]
+                if edition_id in choice_edition_ids
+            ],
             "job_ids": row["job_ids"],
         }
         for row in collections["works"]
+        if row["id"] in choice_work_ids
     ]
     expected_resource_projection = [
         {
@@ -1775,6 +1875,7 @@ def validate_translations(errors: list[str]) -> int:
             "source_edition_ids": row["source_edition_ids"],
         }
         for row in collections["resources"]
+        if row["id"] in choice_resource_ids
     ]
     expected_source_projection = [
         {
@@ -1784,6 +1885,7 @@ def validate_translations(errors: list[str]) -> int:
             "readiness": row["readiness"],
         }
         for row in collections["source_editions"]
+        if row["id"] in choice_source_ids
     ]
     expected_translation_projection = [
         {
@@ -1795,11 +1897,56 @@ def validate_translations(errors: list[str]) -> int:
             "review_state": row["review_state"],
         }
         for row in collections["translation_editions"]
+        if row["id"] in choice_edition_ids
     ]
-    expect(choices.get("works") == expected_work_projection, errors, "translation chooser work projection")
-    expect(choices.get("resources") == expected_resource_projection, errors, "translation chooser resource projection")
-    expect(choices.get("source_editions") == expected_source_projection, errors, "translation chooser source projection")
-    expect(choices.get("translation_editions") == expected_translation_projection, errors, "translation chooser edition projection")
+    current_topics = {
+        row["id"]: row for row in collections["topics"] if isinstance(row, dict)
+    }
+    choice_topics = choices.get("topics") if isinstance(choices.get("topics"), list) else []
+    expected_topic_projection = [
+        {
+            "id": row["id"],
+            "title": current_topics[row["id"]]["title"],
+            "work_ids": [
+                work_id
+                for work_id in current_topics[row["id"]]["work_ids"]
+                if work_id in choice_work_ids
+            ],
+            "resource_ids": [
+                resource_id
+                for resource_id in current_topics[row["id"]]["resource_ids"]
+                if resource_id in choice_resource_ids
+            ],
+        }
+        for row in choice_topics
+        if isinstance(row, dict) and row.get("id") in current_topics
+    ]
+    expect(
+        len(choice_topics) == len(expected_topic_projection)
+        and choice_topics == expected_topic_projection,
+        errors,
+        "translation chooser frozen topic projection",
+    )
+    expect(
+        choice_works == expected_work_projection,
+        errors,
+        "translation chooser frozen work projection",
+    )
+    expect(
+        choice_resources == expected_resource_projection,
+        errors,
+        "translation chooser frozen resource projection",
+    )
+    expect(
+        choice_sources == expected_source_projection,
+        errors,
+        "translation chooser frozen source projection",
+    )
+    expect(
+        choice_editions == expected_translation_projection,
+        errors,
+        "translation chooser frozen edition projection",
+    )
 
     generic_source, _ = load(ROOT / "kits" / "translate" / "SOURCE.json")
     openlogic_source_state, _ = load(ROOT / "kits" / "openlogic" / "SOURCE.json")
@@ -2589,16 +2736,33 @@ def validate_portals(errors: list[str]) -> int:
         for asset in job.get("assets", [])
         if isinstance(asset, dict)
     ]
+    transcription_readback, _ = load(ROOT / "catalog" / "readback-r2.json")
+    release_assets = [
+        asset
+        for asset in transcription_readback.get("assets", [])
+        if isinstance(asset, dict)
+    ]
     expect(
-        trans_release.get("asset_count") == len(packet_assets),
+        trans_release.get("asset_count") == len(release_assets),
         errors,
-        "portal transcription asset count",
+        "portal transcription total release asset count",
     )
     expect(
         trans_release.get("asset_bytes")
+        == sum(int(asset.get("observed_bytes", 0)) for asset in release_assets),
+        errors,
+        "portal transcription total release asset bytes",
+    )
+    expect(
+        trans_release.get("runnable_asset_count") == len(packet_assets),
+        errors,
+        "portal transcription runnable asset count",
+    )
+    expect(
+        trans_release.get("runnable_asset_bytes")
         == sum(int(asset.get("zip_bytes", 0)) for asset in packet_assets),
         errors,
-        "portal transcription asset bytes",
+        "portal transcription runnable asset bytes",
     )
 
     def validate_portal_release(
@@ -3129,6 +3293,7 @@ def main() -> int:
             "r2_admission_receipt": input_identity(ROOT / "catalog" / "receipts" / "r2-admission.json"),
             "no_failure_hardening_receipt": input_identity(ROOT / "catalog" / "receipts" / "no-failure-hardening.json"),
             "openlogic_receipt": input_identity(ROOT / "catalog" / "receipts" / "openlogic.json"),
+            "id_readers_receipt": input_identity(ROOT / "catalog" / "receipts" / "id-readers.json"),
             "job_meta_schema": input_identity(ROOT / "schemas" / "job-meta.schema.json"),
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
@@ -3151,6 +3316,7 @@ def main() -> int:
             "openlogic_auditor": input_identity(ROOT / "tools" / "audit_openlogic_build.py"),
             "translation_builder": input_identity(ROOT / "tools" / "build_translate.py"),
             "translation_migrator": input_identity(ROOT / "tools" / "migrate_translations_v7.py"),
+            "translation_reader_updater": input_identity(ROOT / "tools" / "add_id_readers.py"),
             "portal_readback_tool": input_identity(ROOT / "tools" / "readback_portal.py"),
             "validator": input_identity(ROOT / "tools" / "validate_jobs.py"),
         }

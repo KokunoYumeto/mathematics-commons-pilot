@@ -34,6 +34,12 @@ READBACK_SPEC = importlib.util.spec_from_file_location(
 assert READBACK_SPEC is not None and READBACK_SPEC.loader is not None
 readback_jobs_release = importlib.util.module_from_spec(READBACK_SPEC)
 READBACK_SPEC.loader.exec_module(readback_jobs_release)
+READER_SPEC = importlib.util.spec_from_file_location(
+    "add_id_readers", ROOT / "tools" / "add_id_readers.py"
+)
+assert READER_SPEC is not None and READER_SPEC.loader is not None
+add_id_readers = importlib.util.module_from_spec(READER_SPEC)
+READER_SPEC.loader.exec_module(add_id_readers)
 
 
 class JobCatalogTests(unittest.TestCase):
@@ -45,7 +51,7 @@ class JobCatalogTests(unittest.TestCase):
                 "validate_jobs",
                 return_value=(28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2),
             ),
-            mock.patch.object(validate_jobs, "validate_translations", return_value=39),
+            mock.patch.object(validate_jobs, "validate_translations", return_value=41),
             mock.patch.object(validate_jobs, "validate_formalization", return_value=19),
             mock.patch.object(validate_jobs, "validate_portals", return_value=3),
             mock.patch.object(
@@ -151,7 +157,7 @@ class JobCatalogTests(unittest.TestCase):
         portals = validate_jobs.validate_portals(errors)
         self.assertEqual(errors, [])
         self.assertEqual(result, (28, 31, 538, 8_922_333_939, 8_808_381_269, 542, 2))
-        self.assertEqual(translations, 39)
+        self.assertEqual(translations, 41)
         self.assertEqual(portals, 3)
 
     def test_portal_states_fail_closed(self) -> None:
@@ -181,22 +187,26 @@ class JobCatalogTests(unittest.TestCase):
             self.assertTrue(errors, mutated)
 
     def test_legacy_portal_identity_is_frozen(self) -> None:
-        portal, data = validate_jobs.load(ROOT / "catalog" / "portals.json")
-        errors: list[str] = []
-        validate_jobs.validate_portals_v1(portal, data, errors)
-        self.assertEqual(errors, [])
+        portal, data = validate_jobs.load(ROOT / "tests" / "fixtures" / "portal-v1.json")
+        self.assertEqual(portal["schema"], "math-commons-portal-catalog/v1")
+        self.assertEqual(len(data), validate_jobs.PORTAL_V1_BYTES)
+        self.assertEqual(validate_jobs.sha256(data), validate_jobs.PORTAL_V1_SHA256)
 
         mutated = data.replace(b'"updated": "2026-08-22"', b'"updated": "2026-08-23"')
         self.assertEqual(len(mutated), len(data))
-        errors = []
-        validate_jobs.validate_portals_v1(portal, mutated, errors)
-        self.assertIn("legacy portal catalog frozen identity", errors)
+        self.assertNotEqual(validate_jobs.sha256(mutated), validate_jobs.PORTAL_V1_SHA256)
 
     def test_current_portal_schema_requires_commit_bound_releases(self) -> None:
         portal, _ = validate_jobs.load(ROOT / "catalog" / "portals.json")
         current = copy.deepcopy(portal)
         current["schema"] = "math-commons-portal-catalog/v2"
         transcription = current["sections"][0]
+        self.assertEqual(transcription["release"]["asset_count"], 31)
+        self.assertEqual(transcription["release"]["asset_bytes"], 8_808_381_269)
+        self.assertEqual(transcription["release"]["runnable_asset_count"], 30)
+        self.assertEqual(
+            transcription["release"]["runnable_asset_bytes"], 8_808_377_826
+        )
         transcription["release"]["target_commit"] = "a" * 40
         transcription["release"]["target_tree"] = "b" * 40
 
@@ -243,83 +253,78 @@ class JobCatalogTests(unittest.TestCase):
         validate_jobs.validate_schema(current, "portals", "current portal", errors)
         self.assertEqual(errors, [])
 
+        missing_runnable_total = copy.deepcopy(current)
+        del missing_runnable_total["sections"][0]["release"]["runnable_asset_bytes"]
+        errors = []
+        validate_jobs.validate_schema(
+            missing_runnable_total, "portals", "current portal", errors
+        )
+        self.assertTrue(errors)
+
         del current["sections"][1]["starter"]["target_tree"]
         errors = []
         validate_jobs.validate_schema(current, "portals", "current portal", errors)
         self.assertTrue(errors)
 
-    def test_translation_v7_chooser_is_an_exact_catalog_projection(self) -> None:
+    def test_translation_v7_chooser_is_frozen_and_live_catalog_is_additive(self) -> None:
         choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
-        catalog_bytes = (ROOT / "catalog" / "translations.json").read_bytes()
+        readers, _ = validate_jobs.load(
+            ROOT / "catalog" / "receipts" / "id-readers.json"
+        )
         self.assertEqual(choices["schema"], "math-commons-translation-choices/v7")
         self.assertEqual(
             choices["catalog"],
             {
                 "path": "catalog/translations.json",
-                "bytes": len(catalog_bytes),
-                "sha256": validate_jobs.sha256(catalog_bytes),
+                "bytes": validate_jobs.TRANSLATE_V7_CATALOG_BYTES,
+                "sha256": validate_jobs.TRANSLATE_V7_CATALOG_SHA256,
             },
         )
         self.assertEqual(choices["separate_archive"], catalog["separate_archive"])
-        self.assertEqual(choices["topics"], catalog["topics"])
         self.assertEqual(choices["jobs"], catalog["jobs"])
         self.assertEqual(choices["language_priority"], catalog["language_priority"])
+        self.assertEqual(len(choices["works"]), 27)
+        self.assertEqual(len(choices["source_editions"]), 39)
+        self.assertEqual(len(choices["translation_editions"]), 14)
+        self.assertEqual(len(catalog["works"]), 29)
+        self.assertEqual(len(catalog["source_editions"]), 41)
+        self.assertEqual(len(catalog["translation_editions"]), 23)
+        reader_ids = {row["id"] for row in readers["readers"]}
         self.assertEqual(
-            choices["works"],
-            [
-                {
-                    "id": row["id"],
-                    "title": row["title"],
-                    "topic_ids": row["topic_ids"],
-                    "source_edition_ids": row["source_edition_ids"],
-                    "translation_edition_ids": row["translation_edition_ids"],
-                    "job_ids": row["job_ids"],
-                }
-                for row in catalog["works"]
-            ],
-        )
-        self.assertEqual(
-            choices["resources"],
-            [
-                {
-                    "id": row["id"],
-                    "title": row["title"],
-                    "kind": row["kind"],
-                    "topic_ids": row["topic_ids"],
-                    "source_edition_ids": row["source_edition_ids"],
-                }
-                for row in catalog["resources"]
-            ],
-        )
-        self.assertEqual(
-            choices["source_editions"],
-            [
-                {
-                    "id": row["id"],
-                    "item_id": row["item_id"],
-                    "item_type": row["item_type"],
-                    "readiness": row["readiness"],
-                }
-                for row in catalog["source_editions"]
-            ],
-        )
-        self.assertEqual(
-            choices["translation_editions"],
-            [
-                {
-                    "id": row["id"],
-                    "work_id": row["work_id"],
-                    "language": row["target_language"],
-                    "identity_state": row["identity_state"],
-                    "progress_state": row["progress_state"],
-                    "review_state": row["review_state"],
-                }
+            {
+                row["id"]
                 for row in catalog["translation_editions"]
-            ],
+                if row["progress_state"]
+                == "public_reader_available_scope_unassessed"
+            },
+            reader_ids,
+        )
+        self.assertTrue(
+            {row["id"] for row in choices["works"]}.issubset(
+                {row["id"] for row in catalog["works"]}
+            )
+        )
+        self.assertTrue(
+            {row["id"] for row in choices["source_editions"]}.issubset(
+                {row["id"] for row in catalog["source_editions"]}
+            )
+        )
+        self.assertTrue(
+            {row["id"] for row in choices["translation_editions"]}.issubset(
+                {row["id"] for row in catalog["translation_editions"]}
+            )
         )
         self.assertNotIn("catalogs", choices)
         self.assertNotIn("suggestions", choices)
+
+    def test_indonesian_reader_projection_is_deterministic(self) -> None:
+        expected = (ROOT / "catalog" / "translations.json").read_bytes()
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / "translations.json"
+            with mock.patch.object(add_id_readers, "OUTPUT_PATH", output):
+                self.assertEqual(add_id_readers.main(), 0)
+            self.assertEqual(output.read_bytes(), expected)
 
     def test_translation_semantics_reject_false_current_or_ready_states(self) -> None:
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
@@ -674,17 +679,24 @@ class JobCatalogTests(unittest.TestCase):
             receipt["translation"],
             {
                 "topics": 10,
-                "works": 27,
+                "works": 29,
                 "resources": 12,
-                "source_editions": 39,
-                "translation_editions": 14,
+                "source_editions": 41,
+                "translation_editions": 23,
                 "jobs": 1,
                 "runnable_jobs": 1,
-                "public_release_assets": 1,
-                "public_release_bytes": 15_520,
+                "public_release_assets": 2,
+                "public_release_bytes": 1_937_511,
             },
         )
-        self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
+        self.assertEqual(
+            receipt["inputs"]["translate_v7_readback"],
+            {
+                "path": "catalog/translate-rb-v7.json",
+                "bytes": 1_199,
+                "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861",
+            },
+        )
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (

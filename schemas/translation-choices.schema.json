@@ -274,6 +274,7 @@
         "progress_state": {
           "enum": [
             "repository_available",
+            "public_reader_available_scope_unassessed",
             "historical_report_active_at_recording",
             "historical_report_complete_at_recording",
             "historical_report_planned_at_recording",

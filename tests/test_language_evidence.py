@@ -41,13 +41,13 @@ class LanguageEvidenceTests(unittest.TestCase):
             self.choices["schema"], "math-commons-translation-choices/v7"
         )
         self.assertEqual(len(self.catalog["topics"]), 10)
-        self.assertEqual(len(self.catalog["works"]), 27)
+        self.assertEqual(len(self.catalog["works"]), 29)
         self.assertEqual(len(self.catalog["resources"]), 12)
         self.assertEqual(
-            len(self.catalog["works"]) + len(self.catalog["resources"]), 39
+            len(self.catalog["works"]) + len(self.catalog["resources"]), 41
         )
-        self.assertEqual(len(self.catalog["source_editions"]), 39)
-        self.assertEqual(len(self.catalog["translation_editions"]), 14)
+        self.assertEqual(len(self.catalog["source_editions"]), 41)
+        self.assertEqual(len(self.catalog["translation_editions"]), 23)
         self.assertEqual(len(self.catalog["jobs"]), 1)
         self.assertEqual(self.catalog["jobs"][0]["state"], "runnable")
         self.assertEqual(len(self.catalog["jobs"][0]["assets"]), 1)
@@ -69,6 +69,49 @@ class LanguageEvidenceTests(unittest.TestCase):
         self.assertFalse(
             any(row["progress_state"] == "reported_active" for row in historical)
         )
+
+    def test_public_indonesian_readers_are_exact_and_scope_limited(self) -> None:
+        receipt = json.loads(
+            (ROOT / "catalog" / "receipts" / "id-readers.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        public_readers = [
+            row
+            for row in self.catalog["translation_editions"]
+            if row["progress_state"]
+            == "public_reader_available_scope_unassessed"
+        ]
+        self.assertEqual(len(public_readers), 9)
+        self.assertEqual(
+            {row["id"] for row in public_readers},
+            {row["id"] for row in receipt["readers"]},
+        )
+        self.assertEqual(
+            sum(row["evidence"]["bytes"] for row in public_readers),
+            receipt["collection"]["reader_bytes"],
+        )
+        self.assertTrue(
+            all(
+                row["identity_state"] == "public_edition_verified"
+                and row["review_state"] == "not_independently_assessed"
+                and row["source_edition_id"] is None
+                for row in public_readers
+            )
+        )
+        reader_by_id = {row["id"]: row for row in public_readers}
+        self.assertEqual(
+            reader_by_id[
+                "dionne-partial-differential-equations-id-figshare-20260822"
+            ]["work_id"],
+            "dionne-partial-differential-equations",
+        )
+        ivrii = next(
+            row
+            for row in self.catalog["works"]
+            if row["id"] == "partial-differential-equations"
+        )
+        self.assertEqual(ivrii["translation_edition_ids"], [])
 
     def test_two_unesco_evidence_records_remain_distinct(self) -> None:
         education = self.priority["education_access_source"]

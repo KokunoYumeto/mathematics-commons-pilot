@@ -1,5 +1,5 @@
 {
-  "schema": "math-commons-portal-catalog/v1",
+  "schema": "math-commons-portal-catalog/v2",
   "updated": "2026-08-22",
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "sections": [
@@ -9,45 +9,73 @@
       "state": "runnable",
       "docs": "docs/run.md",
       "catalog": "catalog/jobs.json",
-      "summary": "Twenty-eight verified source packets with exact release assets, workload-derived prompt files, and public readback.",
+      "summary": "Twenty-eight runnable packet envelopes with exact release assets, workload-derived prompt files, admission evidence, and public readback.",
       "release": {
         "tag": "jobs-2026-08-21-r2",
         "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2",
-        "asset_count": 30,
-        "asset_bytes": 8808377826,
+        "target_commit": "6c0c7bbd368cb554d4d9ab9133881a5d4bf56a75",
+        "target_tree": "f52de8232f0f51a4ef2fc7d094a37b0b0a3a1c7a",
+        "asset_count": 31,
+        "asset_bytes": 8808381269,
+        "runnable_asset_count": 30,
+        "runnable_asset_bytes": 8808377826,
         "asset_catalog": "catalog/jobs.json",
+        "admission_receipt": "catalog/receipts/r2-admission.json",
         "readback": "catalog/readback-r2.json",
         "assets": []
       },
       "limitations": [
         "Packet PASS does not certify a completed transcription or edition.",
-        "Later candidate generations are excluded until their own independent admission checks pass."
+        "Later candidate generations are excluded until their own independent admission checks pass.",
+        "Release totals include thirty runnable packet ZIPs and one retained historical translation-kit ZIP; runnable_asset_count and runnable_asset_bytes exclude that retained kit."
       ]
     },
     {
       "id": "translation",
       "title": "Translation",
-      "state": "starter_available",
+      "state": "runnable",
       "docs": "docs/translations.md",
       "catalog": "catalog/translations.json",
-      "summary": "Non-exclusive open-mathematics suggestions, work-specific verified or reported editions, and a local/web source-preflight starter.",
+      "summary": "One source-bound Open Logic job, a generic work-and-language source-preflight starter, nine exact public Indonesian reader identities, and non-exclusive suggestions with explicit evidence limits.",
       "release": {
-        "tag": "translate-v6",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6",
+        "tag": "translate-openlogic-v1",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
+        "target_commit": "e2e4f5bf2f5b7ae0fc15fadcd4d17b27716f1384",
+        "target_tree": "acf7ef634c8871cf58b9d2e871ff6f650e81e69a",
         "asset_count": 1,
-        "asset_bytes": 15520,
-        "asset_catalog": "catalog/assets/translate-v6.json",
-        "readback": "catalog/translate-rb-v6.json",
+        "asset_bytes": 1921531,
+        "asset_catalog": "catalog/assets/openlogic.json",
+        "admission_receipt": "catalog/receipts/openlogic.json",
+        "readback": "catalog/openlogic-rb.json",
         "assets": [
           {
-            "name": "translation-starter-v6.zip",
-            "bytes": 15520,
-            "sha256": "3DE94A6D0D9AF6D1568FC391C729A8AAA37C48D9974967B7E24FDCA0D0C65787"
+            "name": "openlogic-v1.zip",
+            "bytes": 1921531,
+            "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A"
+          }
+        ]
+      },
+      "starter": {
+        "tag": "translate-v7",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7",
+        "target_commit": "a504e9307bbeb98cc81081a4008017ae54603ecb",
+        "target_tree": "3056d40dd07eed2e31fd761bdddcd5b350335781",
+        "asset_count": 1,
+        "asset_bytes": 15980,
+        "asset_catalog": "catalog/assets/translate-v7.json",
+        "admission_receipt": null,
+        "readback": "catalog/translate-rb-v7.json",
+        "assets": [
+          {
+            "name": "translation-starter-v7.zip",
+            "bytes": 15980,
+            "sha256": "492938BDC0D0E16CA344F7627BA7C225D4F51564B3D025675ED6BE4540480C89"
           }
         ]
       },
       "limitations": [
-        "The starter contains no textbook and no completed translation.",
+        "The Open Logic release contains exact source and workflow material, not a completed translation.",
+        "The generic starter contains no textbook, source work, or completed translation.",
         "Most catalog rows require independent source, license, component, and baseline-build preflight."
       ]
     },
