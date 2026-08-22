@@ -18,6 +18,7 @@
     "nested_authorities_replayed",
     "asset_mode",
     "translation_entries",
+    "formalization_entries",
     "portal_sections",
     "public_readback",
     "errors"
@@ -39,6 +40,7 @@
         "job_meta",
         "jobs",
         "translations",
+        "formalization",
         "portals",
         "readback",
         "translate_readback",
@@ -48,6 +50,7 @@
         "job_meta_schema",
         "job_schema",
         "translation_schema",
+        "formalization_schema",
         "portal_schema",
         "asset_schema",
         "readback_schema",
@@ -66,6 +69,9 @@
           "$ref": "#/$defs/identity"
         },
         "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "formalization": {
           "$ref": "#/$defs/identity"
         },
         "portals": {
@@ -93,6 +99,9 @@
           "$ref": "#/$defs/identity"
         },
         "translation_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "formalization_schema": {
           "$ref": "#/$defs/identity"
         },
         "portal_schema": {
@@ -186,6 +195,10 @@
       ]
     },
     "translation_entries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "formalization_entries": {
       "type": "integer",
       "minimum": 0
     },

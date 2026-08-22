@@ -21,6 +21,10 @@ Then report work-specific verified editions, reported but unverified editions, d
 
 Treat Workbench v0.2 as a discovery and curation package. Do not call an imported statement canonical, a status current, a literature sample complete, or an agent output a proof without the required independent evidence. Valid contributions include source/status/literature corrections, reproduced computation, failed-path records, and explicitly unverified mathematical attempts.
 
+## Formalization intake
+
+Read `docs/formalize.md` and `catalog/formalize.json`. Formalization is cross-cutting, not a fourth portal. Keep build replay, direct placeholder scans, historical statement correspondence, pinned Mathlib gap audits, and packet admission separate. No current formalization item is runnable.
+
 ## General rules
 
 - Preserve exact input and output identities.

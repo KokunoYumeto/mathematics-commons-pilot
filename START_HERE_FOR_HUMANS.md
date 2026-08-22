@@ -10,7 +10,7 @@ Select one of the [28 verified packets](catalog/jobs.json), download every liste
 
 ## Translation
 
-Browse the [non-exclusive work suggestions and work-specific edition reports](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v5). You may also propose another mathematical work with a verifiable open source and derivative license.
+Browse the [non-exclusive work suggestions and work-specific edition reports](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6). You may also propose another mathematical work with a verifiable open source and derivative license.
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
@@ -20,5 +20,9 @@ The agent first asks which work and which exact target language you want. It doe
 ## Open problems
 
 Read the [Workbench v0.2 status and contribution guide](docs/workbench.md). The previously supplied package passed an independent replay, but its exact ZIP must be restored before the curation tools can be published. After restoration, contributors can work on source, statement, status, literature, and reproducibility review. Bounded mathematical attempts begin only after a specific problem packet passes admission.
+
+## Formalization intake
+
+Formalization is a cross-cutting workstream rather than a fourth portal. The [current intake](docs/formalize.md) connects machine-readable transcriptions and external Lean work to source-to-statement review and pinned Mathlib gap audits. Its catalog contains Desargues and result-level S-named candidates, but no formalization packet is runnable yet.
 
 Packet validation proves the stated input boundary, not the correctness or completion of the requested output. Earlier proposal and calibration material is indexed under [legacy material](docs/legacy.md).

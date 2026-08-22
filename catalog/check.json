@@ -17,6 +17,11 @@
       "bytes": 79765,
       "sha256": "2F6C6AE0B9430E70B7D36E2F4D90400C5E37B650A19527FADFC23225529930B5"
     },
+    "formalization": {
+      "path": "catalog/formalize.json",
+      "bytes": 32018,
+      "sha256": "25AA03544C3D097270113986C11DE24E60B9F207A5A0086BB895DF1893FDAD02"
+    },
     "portals": {
       "path": "catalog/portals.json",
       "bytes": 3313,
@@ -62,6 +67,11 @@
       "bytes": 9658,
       "sha256": "73103B59423E840003ABC2BF477C87FCF2960D7A88E47AAD882EA55DC9C16C39"
     },
+    "formalization_schema": {
+      "path": "schemas/formalization-intake.schema.json",
+      "bytes": 16557,
+      "sha256": "EF0F72A9BDCF69F2C6D5B3E4C570323AEBFD92B1B80DF0E20EC451B2BD3393A6"
+    },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
       "bytes": 3923,
@@ -84,8 +94,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 6835,
-      "sha256": "FEE46B1A91652638E81E8EA0CFF258CDA9B76228BB6E8E6A5C27303232124F8D"
+      "bytes": 7160,
+      "sha256": "E4A88D262447BAA37FD4639F7A0DC92D5F2A5BF9887C3BB498B65D0D5AD23677"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -104,8 +114,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 66662,
-      "sha256": "B2E6D098789705AEE602AFFEC75E278899C6EB6FFE94F4CE8B7BC49FB07372A9"
+      "bytes": 84055,
+      "sha256": "3B4C0F93DF73ED39DF13038A91E457536347F4E3C420D73D7D230DEAF068D8B6"
     }
   },
   "asset_manifests": {
@@ -123,6 +133,7 @@
   "nested_authorities_replayed": 2,
   "asset_mode": "local_zip_replay",
   "translation_entries": 40,
+  "formalization_entries": 19,
   "portal_sections": 3,
   "public_readback": {
     "status": "PASS",
