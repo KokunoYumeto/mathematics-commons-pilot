@@ -1,10 +1,31 @@
 # Formalization from transcribed mathematics
 
-Status: concept stub. No formalization packet is currently runnable.
+Status: intake scaffold. Two exact external source snapshots and 19 bounded items are cataloged; no formalization packet is currently runnable.
 
-This workstream would use completed mathematical transcriptions as inputs for formalization in Lean. There are two separate conversions. Converting a scan into verified LaTeX exposes mathematical text and structure that software can search, quote, compare, and parse; the scan alone exposes only page images. Converting that LaTeX mathematics into checked Lean statements and proofs is a later formalization task and is not mechanical. The LaTeX nevertheless makes definitions, theorem statements, proofs, notation, cross-references, and source locations available to a person or AI system for dependency analysis, library comparison, and bounded Lean work.
+This is a cross-cutting Mathematics Commons workstream, not a fourth main portal. It connects the transcription and translation collections to formal proof work: select one exact result, compare its machine-readable source with a Lean statement, audit the pinned Mathlib version for existing coverage, and return a reproducible formalization or source-to-library map. The external Lean work below demonstrates that this workflow is practical while also showing why compilation alone is not enough.
+
+There are two separate conversions. Converting a scan into verified LaTeX exposes mathematical text and structure that software can search, quote, compare, and parse; the scan alone exposes only page images. Converting that LaTeX mathematics into checked Lean statements and proofs is a later formalization task and is not mechanical. The LaTeX nevertheless makes definitions, theorem statements, proofs, notation, cross-references, and source locations available to a person or AI system for dependency analysis, library comparison, and bounded Lean work.
 
 Possible source corpora include transcribed works by Emmy Noether, James Joseph Sylvester, and other authors represented in the source archive. Naming a corpus is not a claim that its results are absent from Mathlib. Every proposed theorem first needs a gap audit against one exact Mathlib commit.
+
+The machine-readable intake is [`catalog/formalize.json`](../catalog/formalize.json), validated by [`schemas/formalization-intake.schema.json`](../schemas/formalization-intake.schema.json). Its build state, source correspondence, Mathlib audit, and packet admission are separate fields. No generic “verified” label is used to collapse those checks.
+
+## Current external intake
+
+| Source | Exact snapshot | What was reproduced | Material limitation |
+|---|---|---|---|
+| [`sneed-and-feed/lean-theorems-1`](https://github.com/sneed-and-feed/lean-theorems-1) | Commit `6cf9ce44c1a8281699fa2f3128a764e0c347e7f6`; tree `eee97092915b388bf4b30bcdf60c5ad2201af133`; 36 Git-tree files / 592,129 bytes | The default target covers 29 of 30 Lean files under Lean `v4.34.0-rc1` and Mathlib `20bc12820422504f9e52ee6caebf8182a9015336` | Four `sorry` tokens exist. `ColorfulHelly.lean` is excluded from the default target and fails targeted compilation. The upstream claim that the core build has no incomplete goals is therefore false. |
+| [Classical Mathematics Lean 4 Formalization Sidecars](https://zenodo.org/records/21129946) | DOI `10.5281/zenodo.21129946`; ZIP 9,834 bytes; SHA-256 `E9E494210774F814505CEC76F5AA5F2D6C8309EC46EA8B1A70CB77B070691FA9` | All four downloaded Lean sidecars compile individually under Lean `v4.31.0` and Mathlib `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`; the 13 advertised non-self member hashes replay | These are small Noether, Steinitz, Weber, and Jordan anchors. They contain no Desargues or Sylvester material and no historical statement-correspondence review. |
+
+### Desargues intake
+
+- `desargues_vector` is a review candidate: it compiles without a placeholder in the named declaration, but proves an algebraic identity for stipulated vectors rather than the full geometric side-intersection and collinearity statement.
+- `DesarguesProjective.desargues_projective_plane` unwraps an `IsDesarguesian` assumption; it does not establish Desargues's theorem from more primitive plane axioms.
+- `DesarguesProjective.desargues_dual_projective_plane` ends in `sorry`. The projective item is unfinished and cannot become runnable.
+
+### S-named intake found in the snapshot
+
+The catalog records separate rows for Sylvester–Gallai, Schur, Sperner in dimensions 1–3, Erdős–Szekeres, Sarkaria–Tverberg, the Erdős–Rényi–Sós friendship and windmill results, Székely's crossing-lemma amplification, Szemerédi–Trotter, the Schoenberg-linked Cauchy arm lemma, Suk and Szekeres–Peters literature leads, and the Steinitz sidecar. Sylvester–Gallai is the strongest direct candidate for the first source-to-statement review. The other rows retain their actual restrictions, assumed intermediate bounds, citation-only status, or missing correspondence checks.
 
 ## Proposed workflow
 
@@ -50,6 +71,6 @@ Official references:
 - [Mathlib repository and build instructions](https://github.com/leanprover-community/mathlib4)
 - [Mathlib pull-request review guide](https://leanprover-community.github.io/contribute/pr-review.html)
 
-## Initial implementation task
+## Next implementation task
 
-Before offering volunteer jobs, define and validate one packet schema, then run a small pilot on a theorem with a short dependency chain and an independently checked transcription. The pilot should prove that source tracing, Mathlib gap checking, Lean compilation, human review, and cumulative handback all work. It should not begin with an author-wide corpus or advertise an upstream contribution before the gap and fit reviews are complete.
+The intake schema and fail-closed catalog validator now exist. The next step is one small pilot with a short dependency chain and an independently checked transcription—preferably Sylvester–Gallai or one Noether anchor. It must complete source tracing, a pinned Mathlib gap audit, Lean compilation, statement-correspondence review, and cumulative handback before any packet is labeled runnable. It should not begin with an author-wide corpus or advertise an upstream contribution before the gap and fit reviews are complete.

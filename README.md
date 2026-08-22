@@ -1,6 +1,6 @@
 # Mathematics Commons
 
-Mathematics Commons organizes specific mathematical jobs that people can run with spare computing capacity. The aim is to turn compute that would otherwise sit idle into useful, inspectable work: transcribing source texts, translating open mathematical works, and researching documented open problems.
+Mathematics Commons organizes specific mathematical jobs that people can run with spare computing capacity. The aim is to turn compute that would otherwise sit idle into useful, inspectable work: transcribing source texts, translating open mathematical works, researching documented open problems, and converting machine-readable mathematics into reviewed formal statements and proofs.
 
 Each job has a bounded scope, exact inputs, instructions, expected outputs, validation rules, and a resumable checkpoint format. Contributors may use local or hosted AI systems. They return the complete working state rather than a summary, so another contributor can replay the inputs, inspect or correct the output, and continue from the recorded checkpoint.
 
@@ -14,7 +14,7 @@ The repository is written for both people and software. Its catalogs expose each
 | [Translation](docs/translations.md) | Non-exclusive work suggestions, work-specific edition reports, and a local/hosted-AI starter | Source selection and preflight available |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
-An additional [formalization concept](docs/formalize.md) describes how machine-readable LaTeX transcriptions could support bounded Lean projects and carefully reviewed Mathlib contributions. It is a future workstream, not a runnable packet or a claim that transcribed results are missing from Mathlib.
+The cross-cutting [formalization intake](docs/formalize.md) now records two exact external snapshots and 19 bounded Lean or literature items, including Desargues and the S-named material found in the pinned source. It demonstrates how transcriptions can feed source-to-statement review and Mathlib gap audits. It contains zero runnable formalization packets and makes no claim that a transcribed result is absent from Mathlib.
 
 ## Transcription
 
@@ -77,6 +77,8 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
 - [`catalog/translate-rb-v6.json`](catalog/translate-rb-v6.json): anonymous public readback of translation starter v6.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
+- [`catalog/formalize.json`](catalog/formalize.json): pinned formalization sources and per-result intake state.
+- [`schemas/formalization-intake.schema.json`](schemas/formalization-intake.schema.json): fail-closed formalization intake contract.
 - [`kits/translate/WORKS.json`](kits/translate/WORKS.json): translation subject and coverage index.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.
 - [`docs/workbench.md`](docs/workbench.md): Workbench status, contents, and contribution contract.

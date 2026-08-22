@@ -36,13 +36,14 @@ Next:
 
 Current:
 
-- [concept and proposed packet workflow](formalize.md) for using machine-readable LaTeX transcriptions as inputs to bounded Lean work;
+- [intake and packet workflow](formalize.md) for using machine-readable LaTeX transcriptions as inputs to bounded Lean work;
+- a validated [`catalog/formalize.json`](../catalog/formalize.json) with two exact external source snapshots and 19 result-level rows;
+- explicit Desargues and S-named intake, with default-target build coverage, placeholder locations, source limitations, and exact toolchain pins; and
 - no runnable formalization packet and no claim that a historical result is absent from Mathlib.
 
 Next:
 
-- define one source-to-Lean packet schema;
-- audit a short, independently checked theorem chain against one pinned Mathlib commit;
+- complete source-statement correspondence and a pinned Mathlib gap audit for one short, independently checked theorem chain;
 - build and review one standalone Lean pilot before considering any upstream pull request.
 
 ## Open problems

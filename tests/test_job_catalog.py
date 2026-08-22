@@ -357,6 +357,7 @@ class JobCatalogTests(unittest.TestCase):
             "job-catalog.schema.json",
             "job-asset.schema.json",
             "translation-catalog.schema.json",
+            "formalization-intake.schema.json",
             "portal-catalog.schema.json",
             "portal-readback.schema.json",
             "catalog-check.schema.json",

@@ -1,0 +1,662 @@
+{
+  "schema": "math-commons-formalization-intake/v1",
+  "updated": "2026-08-22",
+  "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
+  "status": "scaffold",
+  "summary": {
+    "sources": 2,
+    "items": 19,
+    "runnable_packets": 0,
+    "build_replay_pass_sources": 2,
+    "placeholder_scan_clean_sources": 1,
+    "statement_reviews_complete": 0,
+    "mathlib_audits_complete": 0
+  },
+  "sources": [
+    {
+      "id": "lean-theorems-1-6cf9ce4",
+      "kind": "git_repository",
+      "title": "Formalization of Open Combinatorial and Geometric Theorems in Lean 4",
+      "url": "https://github.com/sneed-and-feed/lean-theorems-1",
+      "snapshot": {
+        "state": "inventoried",
+        "revision": "6cf9ce44c1a8281699fa2f3128a764e0c347e7f6",
+        "commit": "6cf9ce44c1a8281699fa2f3128a764e0c347e7f6",
+        "tree": "eee97092915b388bf4b30bcdf60c5ad2201af133",
+        "doi": null,
+        "concept_doi": null,
+        "version": null,
+        "publication_date": null
+      },
+      "rights": {
+        "state": "license_file_checked",
+        "license": "CC0-1.0",
+        "evidence": "https://github.com/sneed-and-feed/lean-theorems-1/blob/6cf9ce44c1a8281699fa2f3128a764e0c347e7f6/LICENSE"
+      },
+      "inventory": {
+        "files": 36,
+        "bytes": 592129,
+        "lean_files": 30,
+        "archive": {
+          "name": "lean-theorems-1-6cf9ce44.zip",
+          "url": "https://github.com/sneed-and-feed/lean-theorems-1/archive/6cf9ce44c1a8281699fa2f3128a764e0c347e7f6.zip",
+          "bytes": 153841,
+          "sha256": "5C4A6C275524D96AA955640959C423FAD9DD81DCAC00DCE4ABF91CAEBCA51BE9",
+          "member_files": 36,
+          "member_bytes": 592129,
+          "replay": {
+            "verified_files": 36,
+            "advertised_files": 36,
+            "excluded_members": []
+          }
+        }
+      },
+      "toolchain": {
+        "lean": "leanprover/lean4:v4.34.0-rc1",
+        "mathlib_commit": "20bc12820422504f9e52ee6caebf8182a9015336",
+        "other_pins": [
+          "plausible 38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+          "LeanSearchClient 2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+          "importGraph 978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+          "proofwidgets ebeca04ecd5ee2ba9740e13576d80d4ab6b5779c",
+          "aesop c1c4362a130f12e632d252180a6c2a31d8fd4726",
+          "Qq 3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+          "batteries 36cc05ca2d0e469bfbeea9437f460e19238e885e",
+          "Cli af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+        ]
+      },
+      "build": {
+        "state": "default_target_replay_pass",
+        "scope": "default_targets",
+        "compiled_files": 29,
+        "total_lean_files": 30,
+        "evidence_date": "2026-08-22",
+        "commands": [
+          {
+            "command": "lake build",
+            "exit_code": 0,
+            "result": "pass"
+          },
+          {
+            "command": "lake test",
+            "exit_code": 1,
+            "result": "no_test_driver"
+          },
+          {
+            "command": "lake env lean Formalization/ColorfulHelly.lean",
+            "exit_code": 1,
+            "result": "fail"
+          }
+        ],
+        "placeholders": {
+          "status": "present",
+          "count": 4,
+          "scan_scope": "all_source_files",
+          "scanned_files": 30,
+          "occurrences": [
+            {
+              "path": "Formalization/DesarguesVector.lean",
+              "line": 191,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ColorfulHelly.lean",
+              "line": 187,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ErdosKoRado.lean",
+              "line": 596,
+              "token": "sorry"
+            },
+            {
+              "path": "Formalization/ErdosKoRado.lean",
+              "line": 617,
+              "token": "sorry"
+            }
+          ]
+        },
+        "trust_markers": {
+          "status": "none_found",
+          "count": 0,
+          "scan_scope": "all_source_files",
+          "scanned_files": 30,
+          "occurrences": []
+        },
+        "excluded_modules": [
+          {
+            "path": "Formalization/ColorfulHelly.lean",
+            "reason": "The default library does not import this module. Targeted compilation fails on two out-of-scope identifiers and the module also contains sorry."
+          }
+        ],
+        "notes": [
+          "The default library build completed 3,099 jobs but emitted sorry warnings from imported modules.",
+          "The direct source scan found no explicit axiom or unsafe declarations; this does not remove the standard Lean/Mathlib axioms reported by #print axioms.",
+          "Build success proves Lean acceptance of the imported declarations, not statement correspondence or historical source fidelity.",
+          "No test driver is configured, so lake test is not a mathematical failure but supplies no additional evidence."
+        ]
+      },
+      "claims_audit": [
+        {
+          "claim": "The core build contains no sorry or incomplete goals.",
+          "result": "contradicted",
+          "evidence": "Four sorry tokens are present; three are in modules imported by the default library and one is in the unimported failing Colorful Helly module."
+        },
+        {
+          "claim": "The repository supplies machine-checked formalizations for the theorem descriptions in its README.",
+          "result": "qualified",
+          "evidence": "Many named declarations compile, but several README descriptions are stronger than the corresponding declarations and some named declarations do not exist."
+        }
+      ],
+      "limitations": [
+        "This source is an external, fast-moving repository snapshot and is not a Mathlib acceptance record.",
+        "Its successful build includes placeholders and does not establish that any formal statement matches the cited historical theorem.",
+        "Every candidate below still needs an exact statement/source comparison and a pinned Mathlib gap audit."
+      ]
+    },
+    {
+      "id": "zenodo-21129946",
+      "kind": "zenodo_record",
+      "title": "Classical Mathematics Lean 4 Formalization Sidecars",
+      "url": "https://zenodo.org/records/21129946",
+      "snapshot": {
+        "state": "inventoried",
+        "revision": "10.5281/zenodo.21129946",
+        "commit": null,
+        "tree": null,
+        "doi": "10.5281/zenodo.21129946",
+        "concept_doi": "10.5281/zenodo.21129945",
+        "version": "2026-07-02 Noether/Steinitz/Weber/Jordan Lean sidecars",
+        "publication_date": "2026-07-02"
+      },
+      "rights": {
+        "state": "license_metadata_checked",
+        "license": "CC0-1.0",
+        "evidence": "https://zenodo.org/records/21129946"
+      },
+      "inventory": {
+        "files": 14,
+        "bytes": 14242,
+        "lean_files": 4,
+        "archive": {
+          "name": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip",
+          "url": "https://zenodo.org/api/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip/content",
+          "bytes": 9834,
+          "sha256": "E9E494210774F814505CEC76F5AA5F2D6C8309EC46EA8B1A70CB77B070691FA9",
+          "member_files": 14,
+          "member_bytes": 14242,
+          "replay": {
+            "verified_files": 13,
+            "advertised_files": 13,
+            "excluded_members": [
+              {
+                "path": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630/SHA256SUMS.csv",
+                "reason": "Self-excluding manifest; the other 13 member identities are advertised and replayed by this file."
+              }
+            ]
+          }
+        }
+      },
+      "toolchain": {
+        "lean": "leanprover/lean4:v4.31.0",
+        "mathlib_commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "other_pins": [
+          "LeanHammer 3ef50193c9e80f84930f8f400bfd3c097c5e1fd3"
+        ]
+      },
+      "build": {
+        "state": "selected_files_replay_pass",
+        "scope": "selected_files",
+        "compiled_files": 4,
+        "total_lean_files": 4,
+        "evidence_date": "2026-08-22",
+        "commands": [
+          {
+            "command": "lake env lean NoetherIdealtheorie.lean",
+            "exit_code": 0,
+            "result": "pass"
+          },
+          {
+            "command": "lake env lean Steinitz.lean",
+            "exit_code": 0,
+            "result": "pass"
+          },
+          {
+            "command": "lake env lean Weber.lean",
+            "exit_code": 0,
+            "result": "pass"
+          },
+          {
+            "command": "lake env lean AffineGroup.lean",
+            "exit_code": 0,
+            "result": "pass"
+          }
+        ],
+        "placeholders": {
+          "status": "none_found",
+          "count": 0,
+          "scan_scope": "all_source_files",
+          "scanned_files": 4,
+          "occurrences": []
+        },
+        "trust_markers": {
+          "status": "none_found",
+          "count": 0,
+          "scan_scope": "all_source_files",
+          "scanned_files": 4,
+          "occurrences": []
+        },
+        "excluded_modules": [],
+        "notes": [
+          "All four exact downloaded Lean files exited zero under the pinned toolchain.",
+          "The direct source scan found no explicit axiom or unsafe declarations; the supplied #print axioms output still reports standard Lean/Mathlib axioms.",
+          "The supplied build logs contain axiom reports but no command line or exit-status receipt; this replay supplies the missing compiler-exit evidence."
+        ]
+      },
+      "claims_audit": [
+        {
+          "claim": "The archive contains small reproducible classical-mathematics Lean sidecars.",
+          "result": "supported",
+          "evidence": "The ZIP inventory replayed 13/13 advertised non-self member hashes and all four Lean files exited zero under the pinned toolchain."
+        },
+        {
+          "claim": "The sidecars certify the named historical manuscripts.",
+          "result": "contradicted",
+          "evidence": "The record itself limits them to sanity anchors; no historical statement-correspondence review is included."
+        }
+      ],
+      "limitations": [
+        "The archive contains no Desargues or Sylvester material.",
+        "Compilation does not establish source fidelity, historical completeness, or Mathlib admission.",
+        "The Noether and Steinitz files mainly wrap existing Mathlib results; the Weber and Jordan files are small algebraic sidecars rather than manuscript formalizations."
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "desargues-vector",
+      "title": "Desargues theorem, vector identity",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/DesarguesVector.lean",
+      "declarations": ["desargues_vector"],
+      "authors": ["Girard Desargues"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "high",
+      "scope": "Algebraic dependence identity for stipulated vectors associated with two triangles.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The declaration proves an algebraic identity for assumed vectors; it does not prove that those vectors are geometric side intersections or establish projective collinearity over every commutative ring."
+      ]
+    },
+    {
+      "id": "desargues-projective",
+      "title": "Desargues theorem, projective-plane formulation",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/DesarguesVector.lean",
+      "declarations": ["DesarguesProjective.desargues_projective_plane", "DesarguesProjective.desargues_dual_projective_plane"],
+      "authors": ["Girard Desargues"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "inventoried",
+      "priority": "high",
+      "scope": "Axiomatic projective-plane definitions and perspective implications.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "affected",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The forward theorem restates the supplied IsDesarguesian hypothesis, and the dual implication ends in sorry. This is unfinished intake, not a completed Desargues proof."
+      ]
+    },
+    {
+      "id": "sylvester-gallai",
+      "title": "Sylvester–Gallai theorem",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/SylvesterGallai.lean",
+      "declarations": ["SylvesterGallai.sylvester_gallai"],
+      "authors": ["James Joseph Sylvester", "Tibor Gallai"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "high",
+      "scope": "Existence of an ordinary line in a finite non-collinear real planar point set.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "This is the strongest direct author/work candidate in the external repository, but it still needs comparison with the cited source and a current Mathlib gap audit."
+      ]
+    },
+    {
+      "id": "schur-sum-free",
+      "title": "Schur theorem on monochromatic sums",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/SchursTheorem.lean",
+      "declarations": ["SchursTheorem.ramsey_triangle", "SchursTheorem.schurs_theorem"],
+      "authors": ["Issai Schur"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Ramsey-triangle route to a finite monochromatic solution of x + y = z.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The README also advertises schurs_partition_theorem, but no declaration with that name exists in this snapshot."
+      ]
+    },
+    {
+      "id": "sperner-1d-2d",
+      "title": "Sperner lemma in one and two dimensions",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/SpernersLemma.lean",
+      "declarations": ["sperner_1d_parity", "sperner_1d_exists", "sperner_2d_parity", "sperner_2d_odd", "sperner_2d_exists"],
+      "authors": ["Emanuel Sperner"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Parity and existence declarations for one- and two-dimensional combinatorial colorings.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The two-dimensional result assumes an odd boundary-door count rather than deriving it from the usual simplex boundary-coloring conditions."
+      ]
+    },
+    {
+      "id": "sperner-3d",
+      "title": "Sperner lemma in three dimensions",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/Sperner3D.lean",
+      "declarations": ["Sperner3D.sperner_3d_parity", "Sperner3D.sperner_3d_odd", "Sperner3D.sperner_3d_exists"],
+      "authors": ["Emanuel Sperner"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Tetrahedral parity and existence declarations.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The existence result assumes the relevant odd boundary-face count instead of deriving the standard boundary condition."
+      ]
+    },
+    {
+      "id": "erdos-szekeres",
+      "title": "Erdős–Szekeres convex polygon theorem",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/ErdosSzekeresConvex.lean",
+      "declarations": ["erdos_szekeres_convex_polygon", "erdos_szekeres_triangle", "erdos_szekeres_four_points"],
+      "authors": ["Paul Erdős", "George Szekeres"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Cup-cap and convex-polygon bounds for finite planar point sets.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The main theorem carries a distinct-x-coordinate hypothesis, and the exact Erdős–Szekeres conjecture is defined but not proved."
+      ]
+    },
+    {
+      "id": "sarkaria-tverberg",
+      "title": "Sarkaria reduction and Tverberg theorem",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/TverbergsTheorem.lean",
+      "declarations": ["TverbergsTheorem.sarkaria_tverberg", "TverbergsTheorem.tverbergs_theorem"],
+      "authors": ["K. S. Sarkaria", "Helge Tverberg"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "inventoried",
+      "priority": "normal",
+      "scope": "Tensor-lifting reduction and a restricted Tverberg result.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The Sarkaria declaration assumes the needed zero-sum witness, and the advertised Tverberg theorem is proved only for r at most two."
+      ]
+    },
+    {
+      "id": "sos-friendship",
+      "title": "Sós friendship theorem",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/FriendshipTheorem.lean",
+      "declarations": ["FriendshipTheorem.friendship_theorem"],
+      "authors": ["Vera T. Sós", "Paul Erdős", "Alfréd Rényi"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Existence of a universal vertex in a finite graph with the friendship property.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The declaration compiles, but its exact correspondence to the 1966 statement has not been reviewed."
+      ]
+    },
+    {
+      "id": "sos-windmill",
+      "title": "Sós friendship windmill structure",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/FriendshipWindmill.lean",
+      "declarations": ["FriendshipWindmill.friendship_is_windmill", "FriendshipWindmill.friendship_edge_count"],
+      "authors": ["Vera T. Sós", "Paul Erdős", "Alfréd Rényi"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Windmill structure and edge-count consequences for finite friendship graphs.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The upstream README advertises three windmill declaration names that do not exist; this row records the two actual declarations in the source module."
+      ]
+    },
+    {
+      "id": "szekely-crossing",
+      "title": "Székely crossing-lemma amplification",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/CrossingLemma.lean",
+      "declarations": ["szekely_poly_identity", "szekely_crossing_amplification", "crossing_lemma"],
+      "authors": ["László A. Székely", "Endre Szemerédi"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "inventoried",
+      "priority": "normal",
+      "scope": "Algebraic amplification from an assumed sampling inequality to a crossing-number bound.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The declarations assume the probabilistic sampling inequality; they do not formalize the random-sampling or planar-topological argument that supplies it."
+      ]
+    },
+    {
+      "id": "szemeredi-trotter",
+      "title": "Szemerédi–Trotter incidence bounds",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/CrossingLemma.lean",
+      "declarations": ["PointLineIncidenceSystem.szemeredi_trotter_incidence_bound", "PointLineIncidenceSystem.szemeredi_trotter_dichotomy"],
+      "authors": ["Endre Szemerédi", "William T. Trotter"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "inventoried",
+      "priority": "normal",
+      "scope": "Incidence-bound consequences expressed through an abstract point-line incidence system.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The difficult crossing and expectation bounds enter as hypotheses or structure fields; this is scaffolding rather than a full formalization of the standard theorem."
+      ]
+    },
+    {
+      "id": "schoenberg-cauchy-arm",
+      "title": "Schoenberg-linked Cauchy arm lemma",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/CauchyArmLemma.lean",
+      "declarations": ["CauchyArmLemma.cauchy_arm_lemma", "CauchyArmLemma.cauchy_arm_lemma_two"],
+      "authors": ["Isaac Jacob Schoenberg", "Augustin-Louis Cauchy"],
+      "evidence_kind": "lean_declaration",
+      "intake_state": "inventoried",
+      "priority": "low",
+      "scope": "Endpoint-distance monotonicity for short planar polygonal chains.",
+      "build_relation": "included_in_passing_build",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "Schoenberg is cited, but the general declaration restricts the chain to at most two edges."
+      ]
+    },
+    {
+      "id": "suk-erdos-szekeres-lead",
+      "title": "Suk Erdős–Szekeres asymptotic lead",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/ErdosSzekeresConvex.lean",
+      "declarations": [],
+      "authors": ["Andrew Suk"],
+      "evidence_kind": "citation_only",
+      "intake_state": "located",
+      "priority": "low",
+      "scope": "Citation lead associated with asymptotic bounds for the Erdős–Szekeres convex-polygon problem.",
+      "build_relation": "citation_only",
+      "placeholder_relation": "citation_only",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "This snapshot contains only a citation or comment, not a corresponding Lean proof declaration."
+      ]
+    },
+    {
+      "id": "szekeres-peters-lead",
+      "title": "Szekeres–Peters ES(6) lead",
+      "source_id": "lean-theorems-1-6cf9ce4",
+      "source_path": "Formalization/ErdosSzekeresConvex.lean",
+      "declarations": [],
+      "authors": ["George Szekeres", "Lindsay Peters"],
+      "evidence_kind": "citation_only",
+      "intake_state": "located",
+      "priority": "low",
+      "scope": "Citation lead for the reported exact value ES(6) = 17 and the remaining conjecture.",
+      "build_relation": "citation_only",
+      "placeholder_relation": "citation_only",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "This snapshot contains only a citation or comment, not a separate Szekeres–Peters proof declaration."
+      ]
+    },
+    {
+      "id": "noether-idealtheorie",
+      "title": "Noether Idealtheorie anchors",
+      "source_id": "zenodo-21129946",
+      "source_path": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630/NoetherIdealtheorie.lean",
+      "declarations": ["ClassicalAudit.Noether.Idealtheorie1921.noetherianRing_iff_every_ideal_finitely_generated", "ClassicalAudit.Noether.Idealtheorie1921.primaryIdeal_iff_factor_or_power_condition"],
+      "authors": ["Emmy Noether"],
+      "evidence_kind": "lean_sidecar",
+      "intake_state": "review_candidate",
+      "priority": "high",
+      "scope": "Two modern Mathlib anchors for claims associated with Idealtheorie in Ringbereichen.",
+      "build_relation": "targeted_replay_pass",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "These wrappers use existing Mathlib results and have not been checked against exact passages in the historical German work."
+      ]
+    },
+    {
+      "id": "steinitz-perfect-ring",
+      "title": "Steinitz perfect-field anchor",
+      "source_id": "zenodo-21129946",
+      "source_path": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630/Steinitz.lean",
+      "declarations": ["ClassicalAudit.Steinitz.perfectRing_iff_frobenius_surjective"],
+      "authors": ["Ernst Steinitz"],
+      "evidence_kind": "lean_sidecar",
+      "intake_state": "review_candidate",
+      "priority": "normal",
+      "scope": "Perfect-ring and Frobenius-surjectivity equivalence wrapper.",
+      "build_relation": "targeted_replay_pass",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "This is a wrapper around existing Mathlib lemmas, not a formalization of Steinitz's book or a checked source mapping."
+      ]
+    },
+    {
+      "id": "weber-cubic",
+      "title": "Weber cubic identity sidecar",
+      "source_id": "zenodo-21129946",
+      "source_path": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630/Weber.lean",
+      "declarations": ["ClassicalAudit.Weber.weber_cubic_roots"],
+      "authors": ["Heinrich Weber"],
+      "evidence_kind": "lean_sidecar",
+      "intake_state": "inventoried",
+      "priority": "low",
+      "scope": "Abstract polynomial identity presented as a Weber-related sanity sidecar.",
+      "build_relation": "targeted_replay_pass",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "The file deliberately abstracts away the Weber functions, so it is not yet a historical Weber formalization."
+      ]
+    },
+    {
+      "id": "jordan-affine-group",
+      "title": "Jordan affine-group cardinality sidecar",
+      "source_id": "zenodo-21129946",
+      "source_path": "ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630/AffineGroup.lean",
+      "declarations": ["ClassicalAudit.Jordan.card_aff"],
+      "authors": ["Camille Jordan"],
+      "evidence_kind": "lean_sidecar",
+      "intake_state": "inventoried",
+      "priority": "low",
+      "scope": "Cardinality of an affine-line group over a prime finite field.",
+      "build_relation": "targeted_replay_pass",
+      "placeholder_relation": "none_in_named_declarations",
+      "statement_correspondence": { "state": "not_reviewed", "evidence": [] },
+      "mathlib_audit": { "state": "not_started", "commit": null, "relation": "unassessed", "evidence": [] },
+      "packet": { "state": "not_started", "asset": null, "readback": null },
+      "limitations": [
+        "This is an elementary sidecar and has not been mapped to an exact Jordan source statement."
+      ]
+    }
+  ],
+  "limitations": [
+    "This is an intake catalog, not a runnable formalization-job release.",
+    "A successful Lean build does not establish theorem-to-source correspondence, historical fidelity, mathematical generality, novelty, or suitability for Mathlib.",
+    "No item may become runnable until its source mapping, pinned Mathlib audit, placeholder status, independent review, exact packet asset, and public readback all pass."
+  ]
+}

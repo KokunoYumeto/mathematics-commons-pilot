@@ -1,8 +1,8 @@
 # Current status
 
-**Scope:** transcription, translation, and open-problem research
+**Scope:** transcription, translation, open-problem research, and formalization intake
 
-**Date:** 21 August 2026
+**Date:** 22 August 2026
 
 **Output certification:** none implied
 
@@ -31,6 +31,18 @@ The starter asks for the work and exact target language before acting. It uses s
 
 Most open-education rows are discovery metadata and require an independent public source/license/component/build freeze. The `openlogic-core` row has an exact root repository commit, tree, license, README, `.gitmodules`, and `doc` gitlink, but its component census and baseline build remain incomplete. It is not yet a runnable translation source.
 
+## Formalization
+
+- Exact external source snapshots: 2
+- Bounded intake rows: 19
+- Desargues rows: 2, one algebraic review candidate and one placeholder-affected projective item
+- S-named theorem, sidecar, or literature rows: 14
+- Completed statement-correspondence reviews: 0
+- Completed pinned Mathlib gap audits: 0
+- Runnable formalization packets: 0
+
+The first snapshot is [`sneed-and-feed/lean-theorems-1`](https://github.com/sneed-and-feed/lean-theorems-1) at commit `6cf9ce44c1a8281699fa2f3128a764e0c347e7f6`. Its default target covers 29 of 30 Lean files and contains four `sorry` tokens; the excluded Colorful Helly module also fails targeted compilation. The second is Zenodo record [`21129946`](https://zenodo.org/records/21129946), whose four small Noether, Steinitz, Weber, and Jordan sidecars compile individually but have no completed historical statement review. Exact per-item state is in [`catalog/formalize.json`](catalog/formalize.json).
+
 ## Open problems
 
 - Publication: pending restoration of the exact supplied ZIP
@@ -46,6 +58,6 @@ Workbench v0.2 is an independently replayed but currently unavailable source pac
 
 ## Admission and review boundary
 
-Mechanical PASS establishes the declared file and validation boundary only. It does not establish completed scholarship or mathematical correctness. New transcription packets require their own independent cold audit. Translation sources require exact derivative rights and baseline-build closure. Problem records require independent statement, status, source, literature, and mathematical review.
+Mechanical PASS establishes the declared file and validation boundary only. It does not establish completed scholarship or mathematical correctness. New transcription packets require their own independent cold audit. Translation sources require exact derivative rights and baseline-build closure. Formalization items require separate source-correspondence and pinned Mathlib audits. Problem records require independent statement, status, source, literature, and mathematical review.
 
 The original proposal, calibration, record schemas, and immutable `v0.1.0` / `v0.1.1` releases remain indexed under [legacy material](docs/legacy.md).

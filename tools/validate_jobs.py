@@ -42,6 +42,7 @@ PRACTICAL_SCHEMAS = {
     "jobs": "job-catalog.schema.json",
     "asset": "job-asset.schema.json",
     "translations": "translation-catalog.schema.json",
+    "formalization": "formalization-intake.schema.json",
     "check": "catalog-check.schema.json",
     "readback": "release-readback.schema.json",
     "portals": "portal-catalog.schema.json",
@@ -1062,6 +1063,419 @@ def validate_translations(errors: list[str]) -> int:
     return len(entries)
 
 
+def validate_formalization(errors: list[str]) -> int:
+    catalog, _ = load(ROOT / "catalog" / "formalize.json")
+    validate_schema(catalog, "formalization", "formalization intake", errors)
+    expect(
+        catalog.get("schema") == "math-commons-formalization-intake/v1",
+        errors,
+        "formalization intake schema",
+    )
+    expect(catalog.get("status") == "scaffold", errors, "formalization intake status")
+
+    sources = catalog.get("sources")
+    items = catalog.get("items")
+    if not isinstance(sources, list) or not sources:
+        errors.append("formalization intake has no sources")
+        return 0
+    if not isinstance(items, list) or not items:
+        errors.append("formalization intake has no items")
+        return 0
+
+    source_ids = [row.get("id") for row in sources if isinstance(row, dict)]
+    expect(len(source_ids) == len(sources), errors, "formalization source rows")
+    expect(len(source_ids) == len(set(source_ids)), errors, "formalization source IDs")
+    source_by_id = {
+        row.get("id"): row for row in sources if isinstance(row, dict)
+    }
+    pass_states = {
+        "default_target_replay_pass",
+        "selected_files_replay_pass",
+        "all_files_replay_pass",
+    }
+
+    for source in sources:
+        if not isinstance(source, dict):
+            continue
+        source_id = source.get("id")
+        prefix = f"formalization source {source_id}"
+        expect(
+            isinstance(source_id, str) and SLUG.fullmatch(source_id) is not None,
+            errors,
+            f"{prefix}: semantic ID",
+        )
+        expect(
+            isinstance(source.get("url"), str) and source["url"].startswith("https://"),
+            errors,
+            f"{prefix}: HTTPS source URL",
+        )
+        snapshot = source.get("snapshot", {})
+        kind = source.get("kind")
+        if kind == "git_repository":
+            expect(
+                snapshot.get("state") == "inventoried"
+                and isinstance(snapshot.get("commit"), str)
+                and re.fullmatch(r"[0-9a-f]{40}", snapshot["commit"]) is not None
+                and isinstance(snapshot.get("tree"), str)
+                and re.fullmatch(r"[0-9a-f]{40}", snapshot["tree"]) is not None
+                and snapshot.get("revision") == snapshot.get("commit")
+                and snapshot.get("doi") is None
+                and snapshot.get("concept_doi") is None
+                and snapshot.get("version") is None
+                and snapshot.get("publication_date") is None,
+                errors,
+                f"{prefix}: pinned Git snapshot",
+            )
+            expect(
+                source.get("rights", {}).get("state") == "license_file_checked",
+                errors,
+                f"{prefix}: Git license evidence state",
+            )
+        elif kind == "zenodo_record":
+            expect(
+                snapshot.get("state") == "inventoried"
+                and snapshot.get("commit") is None
+                and snapshot.get("tree") is None
+                and isinstance(snapshot.get("doi"), str)
+                and snapshot.get("revision") == snapshot.get("doi")
+                and isinstance(snapshot.get("concept_doi"), str)
+                and isinstance(snapshot.get("version"), str)
+                and isinstance(snapshot.get("publication_date"), str),
+                errors,
+                f"{prefix}: pinned Zenodo snapshot",
+            )
+            expect(
+                source.get("rights", {}).get("state")
+                == "license_metadata_checked",
+                errors,
+                f"{prefix}: Zenodo license evidence state",
+            )
+        else:
+            errors.append(f"{prefix}: unknown source kind")
+
+        rights = source.get("rights", {})
+        expect(
+            isinstance(rights.get("evidence"), str)
+            and rights["evidence"].startswith("https://"),
+            errors,
+            f"{prefix}: HTTPS rights evidence",
+        )
+        inventory = source.get("inventory", {})
+        files = inventory.get("files")
+        lean_files = inventory.get("lean_files")
+        expect(
+            isinstance(files, int)
+            and isinstance(lean_files, int)
+            and 0 <= lean_files <= files,
+            errors,
+            f"{prefix}: Lean/source file counts",
+        )
+        archive = inventory.get("archive", {})
+        expect(
+            isinstance(archive.get("url"), str)
+            and archive["url"].startswith("https://"),
+            errors,
+            f"{prefix}: HTTPS archive URL",
+        )
+        expect(
+            archive.get("member_files") == files
+            and archive.get("member_bytes") == inventory.get("bytes"),
+            errors,
+            f"{prefix}: archive member aggregate",
+        )
+        replay = archive.get("replay", {})
+        verified = replay.get("verified_files")
+        advertised = replay.get("advertised_files")
+        exclusions = replay.get("excluded_members")
+        expect(
+            isinstance(verified, int)
+            and isinstance(advertised, int)
+            and verified == advertised
+            and 0 <= verified <= archive.get("member_files", -1),
+            errors,
+            f"{prefix}: archive replay counts",
+        )
+        expect(
+            isinstance(exclusions, list)
+            and all(
+                isinstance(row, dict) and safe_path(row.get("path"))
+                for row in exclusions
+            )
+            and len({row.get("path") for row in exclusions if isinstance(row, dict)})
+            == len(exclusions)
+            and verified + len(exclusions) == archive.get("member_files"),
+            errors,
+            f"{prefix}: archive replay exclusions",
+        )
+
+        pins = source.get("toolchain", {}).get("other_pins")
+        expect(
+            isinstance(pins, list) and len(pins) == len(set(pins)),
+            errors,
+            f"{prefix}: dependency pins",
+        )
+        build = source.get("build", {})
+        build_state = build.get("state")
+        scope = build.get("scope")
+        compiled = build.get("compiled_files")
+        total_lean = build.get("total_lean_files")
+        expect(total_lean == lean_files, errors, f"{prefix}: build source coverage")
+        expect(
+            isinstance(compiled, int)
+            and isinstance(total_lean, int)
+            and 0 <= compiled <= total_lean,
+            errors,
+            f"{prefix}: build compiled-file coverage",
+        )
+        expected_scope = {
+            "not_run": "not_run",
+            "default_target_replay_pass": "default_targets",
+            "selected_files_replay_pass": "selected_files",
+            "all_files_replay_pass": "all_lean_files",
+        }.get(build_state)
+        if expected_scope is not None:
+            expect(scope == expected_scope, errors, f"{prefix}: build scope/state")
+        if build_state in pass_states:
+            expect(
+                isinstance(build.get("evidence_date"), str)
+                and isinstance(build.get("commands"), list)
+                and bool(build["commands"]),
+                errors,
+                f"{prefix}: replay evidence",
+            )
+        if build_state == "all_files_replay_pass":
+            expect(compiled == total_lean, errors, f"{prefix}: all-file replay coverage")
+        if build_state == "default_target_replay_pass":
+            expect(compiled < total_lean, errors, f"{prefix}: default-target partial coverage")
+        for command in build.get("commands", []):
+            if not isinstance(command, dict):
+                errors.append(f"{prefix}: malformed build command")
+                continue
+            if command.get("result") == "pass":
+                expect(command.get("exit_code") == 0, errors, f"{prefix}: passing command exit")
+            else:
+                expect(
+                    isinstance(command.get("exit_code"), int)
+                    and command.get("exit_code") != 0,
+                    errors,
+                    f"{prefix}: nonpassing command exit",
+                )
+
+        for field, tokens in (
+            ("placeholders", {"sorry", "admit"}),
+            ("trust_markers", {"axiom", "unsafe"}),
+        ):
+            scan = build.get(field, {})
+            occurrences = scan.get("occurrences")
+            count = scan.get("count")
+            status = scan.get("status")
+            expect(
+                isinstance(occurrences, list) and count == len(occurrences),
+                errors,
+                f"{prefix}: {field} count",
+            )
+            expect(
+                (status == "none_found" and count == 0)
+                or (status == "present" and isinstance(count, int) and count > 0)
+                or (
+                    status == "not_assessed"
+                    and count == 0
+                    and scan.get("scan_scope") == "none"
+                    and scan.get("scanned_files") == 0
+                ),
+                errors,
+                f"{prefix}: {field} status",
+            )
+            expect(
+                isinstance(scan.get("scanned_files"), int)
+                and 0 <= scan.get("scanned_files", -1) <= lean_files,
+                errors,
+                f"{prefix}: {field} scan coverage",
+            )
+            if scan.get("scan_scope") == "all_source_files":
+                expect(
+                    scan.get("scanned_files") == lean_files,
+                    errors,
+                    f"{prefix}: {field} all-source coverage",
+                )
+            for occurrence in occurrences if isinstance(occurrences, list) else []:
+                expect(
+                    isinstance(occurrence, dict)
+                    and safe_path(occurrence.get("path"))
+                    and occurrence.get("token") in tokens,
+                    errors,
+                    f"{prefix}: {field} occurrence",
+                )
+        exclusions = build.get("excluded_modules")
+        expect(
+            isinstance(exclusions, list)
+            and all(
+                isinstance(row, dict) and safe_path(row.get("path"))
+                for row in exclusions
+            ),
+            errors,
+            f"{prefix}: excluded modules",
+        )
+
+    item_ids = [row.get("id") for row in items if isinstance(row, dict)]
+    expect(len(item_ids) == len(items), errors, "formalization item rows")
+    expect(len(item_ids) == len(set(item_ids)), errors, "formalization item IDs")
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        item_id = item.get("id")
+        prefix = f"formalization item {item_id}"
+        expect(
+            isinstance(item_id, str) and SLUG.fullmatch(item_id) is not None,
+            errors,
+            f"{prefix}: semantic ID",
+        )
+        source = source_by_id.get(item.get("source_id"))
+        expect(source is not None, errors, f"{prefix}: source reference")
+        expect(safe_path(item.get("source_path")), errors, f"{prefix}: source path")
+        declarations = item.get("declarations")
+        expect(
+            isinstance(declarations, list)
+            and len(declarations) == len(set(declarations)),
+            errors,
+            f"{prefix}: declaration identities",
+        )
+        if item.get("evidence_kind") == "citation_only":
+            expect(
+                declarations == []
+                and item.get("build_relation") == "citation_only"
+                and item.get("placeholder_relation") == "citation_only"
+                and item.get("intake_state") != "review_candidate",
+                errors,
+                f"{prefix}: citation-only boundary",
+            )
+        else:
+            expect(bool(declarations), errors, f"{prefix}: named Lean declaration")
+        if item.get("intake_state") == "review_candidate":
+            expect(
+                item.get("build_relation")
+                in {"included_in_passing_build", "targeted_replay_pass"}
+                and item.get("placeholder_relation") == "none_in_named_declarations",
+                errors,
+                f"{prefix}: review-candidate boundary",
+            )
+        if isinstance(source, dict):
+            source_build = source.get("build", {})
+            if item.get("build_relation") == "included_in_passing_build":
+                expect(
+                    source_build.get("state")
+                    in {"default_target_replay_pass", "all_files_replay_pass"},
+                    errors,
+                    f"{prefix}: source build relation",
+                )
+                excluded_paths = {
+                    row.get("path")
+                    for row in source_build.get("excluded_modules", [])
+                    if isinstance(row, dict)
+                }
+                expect(
+                    item.get("source_path") not in excluded_paths,
+                    errors,
+                    f"{prefix}: excluded source module",
+                )
+            if item.get("build_relation") == "targeted_replay_pass":
+                expect(
+                    source_build.get("state")
+                    in {"selected_files_replay_pass", "all_files_replay_pass"},
+                    errors,
+                    f"{prefix}: targeted source build relation",
+                )
+
+        correspondence = item.get("statement_correspondence", {})
+        correspondence_state = correspondence.get("state")
+        correspondence_evidence = correspondence.get("evidence")
+        if correspondence_state in {"reviewed_match", "reviewed_mismatch"}:
+            expect(
+                isinstance(correspondence_evidence, list)
+                and bool(correspondence_evidence),
+                errors,
+                f"{prefix}: statement-review evidence",
+            )
+        audit = item.get("mathlib_audit", {})
+        audit_state = audit.get("state")
+        if audit_state == "not_started":
+            expect(
+                audit.get("commit") is None
+                and audit.get("relation") == "unassessed"
+                and audit.get("evidence") == [],
+                errors,
+                f"{prefix}: unopened Mathlib audit",
+            )
+        elif audit_state in {"in_progress", "complete"}:
+            expect(
+                isinstance(audit.get("commit"), str)
+                and re.fullmatch(r"[0-9a-f]{40}", audit["commit"]) is not None,
+                errors,
+                f"{prefix}: pinned Mathlib audit",
+            )
+        if audit_state == "complete":
+            expect(
+                audit.get("relation") != "unassessed"
+                and isinstance(audit.get("evidence"), list)
+                and bool(audit["evidence"]),
+                errors,
+                f"{prefix}: completed Mathlib audit evidence",
+            )
+        packet = item.get("packet", {})
+        packet_state = packet.get("state")
+        if packet_state == "not_started":
+            expect(
+                packet.get("asset") is None and packet.get("readback") is None,
+                errors,
+                f"{prefix}: unopened packet",
+            )
+        if packet_state == "runnable":
+            asset = packet.get("asset")
+            expect(
+                correspondence_state == "reviewed_match"
+                and audit_state == "complete"
+                and item.get("placeholder_relation") == "none_in_named_declarations"
+                and item.get("build_relation")
+                in {"included_in_passing_build", "targeted_replay_pass"}
+                and isinstance(asset, dict)
+                and isinstance(asset.get("url"), str)
+                and asset["url"].startswith("https://")
+                and isinstance(packet.get("readback"), str)
+                and packet["readback"].startswith("https://"),
+                errors,
+                f"{prefix}: runnable admission gate",
+            )
+
+    summary = catalog.get("summary", {})
+    expected_summary = {
+        "sources": len(sources),
+        "items": len(items),
+        "runnable_packets": sum(
+            1 for item in items if item.get("packet", {}).get("state") == "runnable"
+        ),
+        "build_replay_pass_sources": sum(
+            1 for source in sources if source.get("build", {}).get("state") in pass_states
+        ),
+        "placeholder_scan_clean_sources": sum(
+            1
+            for source in sources
+            if source.get("build", {}).get("placeholders", {}).get("status")
+            == "none_found"
+        ),
+        "statement_reviews_complete": sum(
+            1
+            for item in items
+            if item.get("statement_correspondence", {}).get("state")
+            in {"reviewed_match", "reviewed_mismatch"}
+        ),
+        "mathlib_audits_complete": sum(
+            1 for item in items if item.get("mathlib_audit", {}).get("state") == "complete"
+        ),
+    }
+    expect(summary == expected_summary, errors, "formalization summary projection")
+    return len(items)
+
+
 def validate_portals(errors: list[str]) -> int:
     catalog, _ = load(ROOT / "catalog" / "portals.json")
     validate_schema(catalog, "portals", "portal catalog", errors)
@@ -1484,12 +1898,13 @@ def main() -> int:
             nested_authorities,
         ) = validate_jobs(args.asset_dir.resolve() if args.asset_dir else None, errors)
         translations = validate_translations(errors)
+        formalization = validate_formalization(errors)
         portals = validate_portals(errors)
         public_readback = validate_public_readback(errors)
     except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
         errors.append(str(exc))
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
-        nested_authorities = translations = portals = 0
+        nested_authorities = translations = formalization = portals = 0
     result = {
         "schema": "math-commons-catalog-check/v1",
         "status": "PASS" if not errors else "FAIL",
@@ -1497,6 +1912,7 @@ def main() -> int:
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
+            "formalization": input_identity(ROOT / "catalog" / "formalize.json"),
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
             "translate_readback": input_identity(ROOT / "catalog" / "translate-rb-v6.json"),
@@ -1506,6 +1922,7 @@ def main() -> int:
             "job_meta_schema": input_identity(ROOT / "schemas" / "job-meta.schema.json"),
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
+            "formalization_schema": input_identity(ROOT / "schemas" / "formalization-intake.schema.json"),
             "portal_schema": input_identity(ROOT / "schemas" / "portal-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),
             "readback_schema": input_identity(ROOT / "schemas" / "release-readback.schema.json"),
@@ -1526,6 +1943,7 @@ def main() -> int:
         "nested_authorities_replayed": nested_authorities if args.asset_dir else 0,
         "asset_mode": "local_zip_replay" if args.asset_dir else "catalog_only",
         "translation_entries": translations,
+        "formalization_entries": formalization,
         "portal_sections": portals,
         "public_readback": public_readback,
         "errors": errors,
@@ -1546,6 +1964,7 @@ def main() -> int:
                 "packet_source_files",
                 "packet_source_bytes",
                 "translation_entries",
+                "formalization_entries",
                 "portal_sections",
                 "public_readback",
             ):
@@ -1582,7 +2001,8 @@ def main() -> int:
     else:
         print(
             f"PASS: {jobs} jobs, {assets} release assets, "
-            f"{translations} translation entries, {portals} portal sections"
+            f"{translations} translation entries, {portals} portal sections, "
+            f"{formalization} formalization entries"
         )
     return 0 if not errors else 1
 

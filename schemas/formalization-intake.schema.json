@@ -1,0 +1,517 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/mathematics-commons-pilot/raw/main/schemas/formalization-intake.schema.json",
+  "title": "Mathematics Commons formalization intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "updated",
+    "repository",
+    "status",
+    "summary",
+    "sources",
+    "items",
+    "limitations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-formalization-intake/v1"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "status": {
+      "const": "scaffold"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "items",
+        "runnable_packets",
+        "build_replay_pass_sources",
+        "placeholder_scan_clean_sources",
+        "statement_reviews_complete",
+        "mathlib_audits_complete"
+      ],
+      "properties": {
+        "sources": { "type": "integer", "minimum": 0 },
+        "items": { "type": "integer", "minimum": 0 },
+        "runnable_packets": { "type": "integer", "minimum": 0 },
+        "build_replay_pass_sources": { "type": "integer", "minimum": 0 },
+        "placeholder_scan_clean_sources": { "type": "integer", "minimum": 0 },
+        "statement_reviews_complete": { "type": "integer", "minimum": 0 },
+        "mathlib_audits_complete": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "gitCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "nullableGitCommit": {
+      "anyOf": [
+        { "$ref": "#/$defs/gitCommit" },
+        { "type": "null" }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "url",
+        "snapshot",
+        "rights",
+        "inventory",
+        "toolchain",
+        "build",
+        "claims_audit",
+        "limitations"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": {
+          "enum": ["git_repository", "zenodo_record"]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://.*$" },
+        "snapshot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "revision",
+            "commit",
+            "tree",
+            "doi",
+            "concept_doi",
+            "version",
+            "publication_date"
+          ],
+          "properties": {
+            "state": {
+              "enum": ["reported", "opened", "pinned", "inventoried"]
+            },
+            "revision": { "type": "string", "minLength": 1 },
+            "commit": { "$ref": "#/$defs/nullableGitCommit" },
+            "tree": { "$ref": "#/$defs/nullableGitCommit" },
+            "doi": {
+              "anyOf": [
+                { "type": "string", "pattern": "^10\\.5281/zenodo\\.[0-9]+$" },
+                { "type": "null" }
+              ]
+            },
+            "concept_doi": {
+              "anyOf": [
+                { "type": "string", "pattern": "^10\\.5281/zenodo\\.[0-9]+$" },
+                { "type": "null" }
+              ]
+            },
+            "version": {
+              "anyOf": [
+                { "type": "string", "minLength": 1 },
+                { "type": "null" }
+              ]
+            },
+            "publication_date": {
+              "anyOf": [
+                { "type": "string", "format": "date" },
+                { "type": "null" }
+              ]
+            }
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "license", "evidence"],
+          "properties": {
+            "state": {
+              "enum": [
+                "not_assessed",
+                "reported",
+                "license_metadata_checked",
+                "license_file_checked",
+                "mixed",
+                "restricted"
+              ]
+            },
+            "license": { "type": "string", "minLength": 1 },
+            "evidence": { "type": "string", "format": "uri", "pattern": "^https://.*$" }
+          }
+        },
+        "inventory": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files", "bytes", "lean_files", "archive"],
+          "properties": {
+            "files": { "type": "integer", "minimum": 1 },
+            "bytes": { "type": "integer", "minimum": 1 },
+            "lean_files": { "type": "integer", "minimum": 0 },
+            "archive": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "url",
+                "bytes",
+                "sha256",
+                "member_files",
+                "member_bytes",
+                "replay"
+              ],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "url": { "type": "string", "format": "uri", "pattern": "^https://.*$" },
+                "bytes": { "type": "integer", "minimum": 1 },
+                "sha256": { "$ref": "#/$defs/sha256" },
+                "member_files": { "type": "integer", "minimum": 1 },
+                "member_bytes": { "type": "integer", "minimum": 1 },
+                "replay": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["verified_files", "advertised_files", "excluded_members"],
+                  "properties": {
+                    "verified_files": { "type": "integer", "minimum": 0 },
+                    "advertised_files": { "type": "integer", "minimum": 0 },
+                    "excluded_members": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["path", "reason"],
+                        "properties": {
+                          "path": { "type": "string", "minLength": 1 },
+                          "reason": { "type": "string", "minLength": 1 }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "toolchain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lean", "mathlib_commit", "other_pins"],
+          "properties": {
+            "lean": { "type": "string", "minLength": 1 },
+            "mathlib_commit": { "$ref": "#/$defs/gitCommit" },
+            "other_pins": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "scope",
+            "compiled_files",
+            "total_lean_files",
+            "evidence_date",
+            "commands",
+            "placeholders",
+            "trust_markers",
+            "excluded_modules",
+            "notes"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "not_run",
+                "upstream_reported_pass",
+                "default_target_replay_pass",
+                "selected_files_replay_pass",
+                "all_files_replay_pass",
+                "failed"
+              ]
+            },
+            "scope": {
+              "enum": ["not_run", "default_targets", "selected_files", "all_lean_files"]
+            },
+            "compiled_files": { "type": "integer", "minimum": 0 },
+            "total_lean_files": { "type": "integer", "minimum": 0 },
+            "evidence_date": {
+              "anyOf": [
+                { "type": "string", "format": "date" },
+                { "type": "null" }
+              ]
+            },
+            "commands": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/command" }
+            },
+            "placeholders": { "$ref": "#/$defs/placeholders" },
+            "trust_markers": { "$ref": "#/$defs/trustMarkers" },
+            "excluded_modules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["path", "reason"],
+                "properties": {
+                  "path": { "type": "string", "minLength": 1 },
+                  "reason": { "type": "string", "minLength": 1 }
+                }
+              }
+            },
+            "notes": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "claims_audit": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["claim", "result", "evidence"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "result": { "enum": ["supported", "qualified", "contradicted", "not_assessed"] },
+              "evidence": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "exit_code", "result"],
+      "properties": {
+        "command": { "type": "string", "minLength": 1 },
+        "exit_code": { "type": "integer", "minimum": 0 },
+        "result": {
+          "enum": ["pass", "fail", "no_test_driver", "setup_failure"]
+        }
+      }
+    },
+    "placeholders": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "count", "scan_scope", "scanned_files", "occurrences"],
+      "properties": {
+        "status": { "enum": ["none_found", "present", "not_assessed"] },
+        "count": { "type": "integer", "minimum": 0 },
+        "scan_scope": { "enum": ["none", "selected_files", "all_source_files"] },
+        "scanned_files": { "type": "integer", "minimum": 0 },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "line", "token"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "line": { "type": "integer", "minimum": 1 },
+              "token": { "enum": ["sorry", "admit"] }
+            }
+          }
+        }
+      }
+    },
+    "trustMarkers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "count", "scan_scope", "scanned_files", "occurrences"],
+      "properties": {
+        "status": { "enum": ["none_found", "present", "not_assessed"] },
+        "count": { "type": "integer", "minimum": 0 },
+        "scan_scope": { "enum": ["none", "selected_files", "all_source_files"] },
+        "scanned_files": { "type": "integer", "minimum": 0 },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "line", "token"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "line": { "type": "integer", "minimum": 1 },
+              "token": { "enum": ["axiom", "unsafe"] }
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "source_id",
+        "source_path",
+        "declarations",
+        "authors",
+        "evidence_kind",
+        "intake_state",
+        "priority",
+        "scope",
+        "build_relation",
+        "placeholder_relation",
+        "statement_correspondence",
+        "mathlib_audit",
+        "packet",
+        "limitations"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "title": { "type": "string", "minLength": 1 },
+        "source_id": { "$ref": "#/$defs/slug" },
+        "source_path": { "type": "string", "minLength": 1 },
+        "declarations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "authors": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "evidence_kind": {
+          "enum": ["lean_declaration", "lean_sidecar", "citation_only"]
+        },
+        "intake_state": {
+          "enum": ["reported", "located", "inventoried", "review_candidate"]
+        },
+        "priority": { "enum": ["high", "normal", "low"] },
+        "scope": { "type": "string", "minLength": 1 },
+        "build_relation": {
+          "enum": [
+            "included_in_passing_build",
+            "targeted_replay_pass",
+            "source_fails",
+            "not_built",
+            "reported_only",
+            "citation_only"
+          ]
+        },
+        "placeholder_relation": {
+          "enum": ["none_in_named_declarations", "affected", "unreviewed", "citation_only"]
+        },
+        "statement_correspondence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "evidence"],
+          "properties": {
+            "state": {
+              "enum": ["not_reviewed", "candidate_mapping", "reviewed_match", "reviewed_mismatch"]
+            },
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "mathlib_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "commit", "relation", "evidence"],
+          "properties": {
+            "state": { "enum": ["not_started", "in_progress", "complete"] },
+            "commit": { "$ref": "#/$defs/nullableGitCommit" },
+            "relation": {
+              "enum": [
+                "unassessed",
+                "already_present",
+                "present_more_general",
+                "gap_candidate",
+                "standalone_candidate"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "packet": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "asset", "readback"],
+          "properties": {
+            "state": { "enum": ["not_started", "draft", "admission_pending", "runnable"] },
+            "asset": {
+              "anyOf": [
+                { "$ref": "#/$defs/asset" },
+                { "type": "null" }
+              ]
+            },
+            "readback": {
+              "anyOf": [
+                { "type": "string", "format": "uri", "pattern": "^https://.*$" },
+                { "type": "null" }
+              ]
+            }
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "bytes", "sha256"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://.*$" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}
