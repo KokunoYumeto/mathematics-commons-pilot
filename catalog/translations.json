@@ -5052,7 +5052,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5085,7 +5085,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5118,7 +5118,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5151,7 +5151,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5184,7 +5184,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_complete",
+      "progress_state": "historical_report_complete_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5217,7 +5217,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5250,7 +5250,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5283,7 +5283,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_planned",
+      "progress_state": "historical_report_planned_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5316,7 +5316,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_planned",
+      "progress_state": "historical_report_planned_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5349,7 +5349,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5382,7 +5382,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5415,7 +5415,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
       "owner": null,
@@ -5448,7 +5448,7 @@
         "script": null,
         "orthographic_standard": null
       },
-      "progress_state": "reported_complete",
+      "progress_state": "historical_report_complete_at_recording",
       "review_state": "unknown",
       "scope_note": "Unverified report recorded 2026-08-21; public edition identity, exact scope, and review state are unavailable.",
       "owner": null,

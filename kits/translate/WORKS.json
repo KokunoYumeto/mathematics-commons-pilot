@@ -4,8 +4,8 @@
   "rule": "Choose a topic, then a work, then a runnable job. If no job exists, the source edition still needs preflight. Unknown translation coverage never means absence.",
   "catalog": {
     "path": "catalog/translations.json",
-    "bytes": 187317,
-    "sha256": "55A0802E29F91AF42E286CB7ED0F40EB8D0EECA7611C2E8C23CD49E65A6DD0C2"
+    "bytes": 187603,
+    "sha256": "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744"
   },
   "separate_archive": {
     "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
@@ -871,7 +871,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -885,7 +885,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -899,7 +899,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -913,7 +913,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -927,7 +927,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_complete",
+      "progress_state": "historical_report_complete_at_recording",
       "review_state": "unknown"
     },
     {
@@ -941,7 +941,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -955,7 +955,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -969,7 +969,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_planned",
+      "progress_state": "historical_report_planned_at_recording",
       "review_state": "unknown"
     },
     {
@@ -983,7 +983,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_planned",
+      "progress_state": "historical_report_planned_at_recording",
       "review_state": "unknown"
     },
     {
@@ -997,7 +997,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -1011,7 +1011,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -1025,7 +1025,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_active",
+      "progress_state": "historical_report_active_at_recording",
       "review_state": "unknown"
     },
     {
@@ -1039,7 +1039,7 @@
         "orthographic_standard": null
       },
       "identity_state": "unverified_report",
-      "progress_state": "reported_complete",
+      "progress_state": "historical_report_complete_at_recording",
       "review_state": "unknown"
     },
     {

@@ -11,14 +11,14 @@ The repository is written for both people and software. Its catalogs expose each
 | Portal | Available material | Current state |
 |---|---|---|
 | [Transcription](docs/run.md) | 28 source packets with exact release assets and workload-derived prompt files | Runnable |
-| [Translation](docs/translations.md) | Non-exclusive work suggestions, work-specific edition reports, and a local/hosted-AI starter | Source selection and preflight available |
+| [Translation](docs/translations.md) | One admitted Open Logic source job, 27 suggested works, known-edition evidence, and a generic source-preflight starter | Open Logic runnable; other works require preflight |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
-The cross-cutting [formalization intake](docs/formalize.md) now records two exact external snapshots and 19 bounded Lean or literature items, including Desargues and the S-named material found in the pinned source. It demonstrates how transcriptions can feed source-to-statement review and Mathlib gap audits. It contains zero runnable formalization packets and makes no claim that a transcribed result is absent from Mathlib.
+The cross-cutting [formalization intake](docs/formalize.md) records two pinned external snapshots and 19 bounded review items, including Desargues and the S-named material found in the pinned source. It contains no runnable formalization packet and makes no claim that a transcribed result is absent from Mathlib.
 
 ## Transcription
 
-The [`jobs-2026-08-21-r2` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2) contains 30 packet ZIP parts for 28 jobs. The Clebsch–Gordan and Poincaré packets each use two parts. The admitted packet roots contain 538 files / 8,922,333,939 bytes; the packet ZIPs contain 8,808,377,826 bytes. The release also preserves R1's unchanged 3,443-byte historical translation kit for release continuity, for 31 assets / 8,808,381,269 bytes in total. Current translation work uses the separate `translate-v6` release below.
+The [`jobs-2026-08-21-r2` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2) contains 30 packet ZIP parts for 28 jobs. The Clebsch–Gordan and Poincaré packets each use two parts. The admitted packet roots contain 538 files / 8,922,333,939 bytes; the packet ZIPs contain 8,808,377,826 bytes. The release also preserves R1's unchanged 3,443-byte historical translation kit for release continuity, for 31 assets / 8,808,381,269 bytes in total. Translation uses separate source-bound and generic releases described below.
 
 To run a packet:
 
@@ -43,14 +43,16 @@ The [translation portal](docs/translations.md) is a non-exclusive set of useful 
 
 Public choices use titles and readable semantic keys such as `openstax-prealgebra-2e`. Historical planning keys remain only in the machine catalog for provenance; they are not public work labels.
 
-Download the [`translation-starter-v6` package](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6). It asks two questions before doing anything else:
+The [Open Logic source packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) is the first source-bound job. Its exact source snapshot, included rights material, baseline builds, ZIP identity, admission receipt, and anonymous readback are recorded in the catalog. It contains no completed translation.
+
+The separate [`translation-starter-v7` candidate](docs/translate-v7.md) is a generic work-selection and source-preflight workflow. It is prepared locally but is not a public release. It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
 
-The package supports both local repository-aware agents and hosted web agents. It checks work-specific verified and reported editions, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook and no completed translation.
+The generic package supports both local repository-aware agents and hosted web agents. It checks work-specific public evidence and dated historical reports, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook, source work, or completed translation and is not itself a runnable translation job.
 
-Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO has repeated an estimate that up to 40% of people lack access to education in a language they speak or understand; it separately reports that only 351 of roughly 7,000 languages in current use serve as media of instruction. A UNESCO Institute for Statistics report cites a different 48-country literacy study covering 96 alphabetic-script languages. The catalog includes those 96 study labels as concrete suggestions; they are an evidence set, not a ranked or exclusive translation queue. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
+Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO estimates that up to 40% of people lack education in a language they speak or understand. Separately, a UNESCO Institute for Statistics report cites a 48-country literacy study covering 96 alphabetic-script assessment languages. Those 96 labels are concrete communities contributors may consider; they are not an official priority list and are not the source of the 40% estimate. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
 
 ## Open problems
 
@@ -76,7 +78,8 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/readback-r2.json`](catalog/readback-r2.json): anonymous public readback of the current transcription release.
 - [`catalog/readback.json`](catalog/readback.json): preserved anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
-- [`catalog/translate-rb-v6.json`](catalog/translate-rb-v6.json): anonymous public readback of translation starter v6.
+- [`catalog/openlogic-rb.json`](catalog/openlogic-rb.json): anonymous public readback of the source-bound Open Logic job.
+- `catalog/translate-rb-v7.json`: reserved for the anonymous public readback created only after the generic v7 starter is actually published.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`catalog/formalize.json`](catalog/formalize.json): pinned formalization sources and per-result intake state.
 - [`schemas/formalization-intake.schema.json`](schemas/formalization-intake.schema.json): fail-closed formalization intake contract.

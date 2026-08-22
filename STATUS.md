@@ -15,21 +15,26 @@
 - Admitted packet bytes: 8,922,333,939
 - Packet ZIP bytes: 8,808,377,826
 - Workflow: each job declares its exact workload-derived start file, prompt file, and prompt count; cumulative state is returned after every response
-- Transcription public readback: 30/30 packet assets plus R1's unchanged historical translation-kit asset matched, totaling 31 assets / 8,808,381,269 bytes. Current translation work uses starter v6, with a separate readback in `catalog/translate-rb-v6.json`.
+- Transcription public readback: 30/30 packet assets plus R1's unchanged historical translation-kit asset matched, totaling 31 assets / 8,808,381,269 bytes. Translation uses separate source-bound and generic releases.
 
 R2 is the newest admitted transcription release. R1 remains immutable history. Later candidate generations remain excluded until their exact bytes, manifests, terminal receipts, and independent cold audits pass.
 
 ## Translation
 
-- Non-exclusive open-mathematics suggestions and supporting rows: 40
+- Topics: 10
+- Candidate works: 27
+- Supporting resources and collections: 12
+- Exact source-edition rows: 39
+- Translation-edition evidence rows: 14
+- Runnable source-bound jobs: Open Logic Text
+- Generic starter: source-preflight workflow only; not a runnable translation job
 - Explicit exclusions: 8
-- Subject groups in the starter: 10
-- Exact interlanguage discovery snapshot: 78 work rows at commit `7a00b564ace8230c57309df2d66325e57d1c4043`
-- Current translation starter: [`translate-v6`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6)
+- Source-bound release: [`translate-openlogic-v1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1)
+- Generic source-preflight candidate: [`translate-v7`](docs/translate-v7.md), prepared but not published
 
-The starter asks for the work and exact target language before acting. It uses semantic work keys, accepts additional open works, separates reported editions from verified editions, and contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook and no completed translation.
+The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional open works, separates public evidence from dated historical reports, and contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
 
-Most open-education rows are discovery metadata and require an independent public source/license/component/build freeze. The `openlogic-core` row has an exact root repository commit, tree, license, README, `.gitmodules`, and `doc` gitlink, but its component census and baseline build remain incomplete. It is not yet a runnable translation source.
+All other works require an independent exact source, license, included-component, editable-source, baseline-build, release, and readback check before they can become runnable. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
 
 ## Formalization
 

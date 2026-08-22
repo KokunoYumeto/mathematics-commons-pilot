@@ -17,6 +17,8 @@ Read `docs/translations.md` and the files in `kits/translate/`. Before any sourc
 
 Then report work-specific verified editions, reported but unverified editions, declared overlap, source status, derivative rights, component status, and baseline-build status. Unknown coverage means unknown, not absent. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
 
+The source-bound `openlogic-v1` row may be run only after its release asset and anonymous readback match the catalog. The generic v7 starter contains no source work and is only a chooser and preflight workflow; do not treat its release as a runnable translation job.
+
 ## Open problems
 
 Treat Workbench v0.2 as a discovery and curation package. Do not call an imported statement canonical, a status current, a literature sample complete, or an agent output a proof without the required independent evidence. Valid contributions include source/status/literature corrections, reproduced computation, failed-path records, and explicitly unverified mathematical attempts.

@@ -8,6 +8,8 @@ import json
 import subprocess
 from pathlib import Path
 
+from build_translate import replay_internal_manifest, write_internal_manifest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "025399ebc8d510413130afd002ba60718c3a2e64"
@@ -28,6 +30,12 @@ GATE_NAMES = (
 )
 PLANNING_CANDIDATES = "planning-candidates-20260821"
 PLANNING_ACTIVITY = "planning-activity-20260821"
+
+HISTORICAL_PROGRESS = {
+    "reported_active": "historical_report_active_at_recording",
+    "reported_complete": "historical_report_complete_at_recording",
+    "reported_planned": "historical_report_planned_at_recording",
+}
 
 
 def git_json(path: str) -> dict:
@@ -318,7 +326,7 @@ def main() -> int:
                     "source_edition_id": None,
                     "identity_state": "unverified_report",
                     "target_language": language(tag, known["language_name"]),
-                    "progress_state": known["state"],
+                    "progress_state": HISTORICAL_PROGRESS[known["state"]],
                     "review_state": "unknown",
                     "scope_note": "Unverified report recorded 2026-08-21; date, public edition identity, exact scope, and review state are unavailable.",
                     "owner": None,
@@ -344,7 +352,7 @@ def main() -> int:
             "source_edition_id": None,
             "identity_state": "unverified_report",
             "target_language": language("id", "Indonesian"),
-            "progress_state": "reported_complete",
+            "progress_state": "historical_report_complete_at_recording",
             "review_state": "unknown",
             "scope_note": "Unverified report recorded 2026-08-21; public edition identity, exact scope, and review state are unavailable.",
             "owner": None,
@@ -510,6 +518,8 @@ def main() -> int:
         "source_preflight": old_choices["source_preflight"],
     }
     write(ROOT / WORKS_PATH, choices)
+    write_internal_manifest(ROOT / "kits" / "translate")
+    replay_internal_manifest(ROOT / "kits" / "translate")
     print(
         json.dumps(
             {

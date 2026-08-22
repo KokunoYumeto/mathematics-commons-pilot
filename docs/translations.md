@@ -10,7 +10,7 @@ The catalog is a set of suggestions, not a restriction. Contributors may propose
 |---|---|---|
 | Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separate [generic v7 starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7) helps with work selection and source preflight; it contains no source work and is not a runnable translation job.
+A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separate [generic v7 starter](translate-v7.md) helps with work selection and source preflight; it contains no source work and is not a runnable translation job. Its release is not complete until the public asset and anonymous readback exist.
 
 ## Browse the 27 works
 
@@ -48,13 +48,25 @@ Each component must acquire its own exact source, license, component-rights reco
 
 ## Known public translation editions
 
-This table includes only dated public evidence. Historical reports without a public identity remain in the machine catalog and are omitted here.
+This table includes dated public evidence. A repository identity establishes that an edition exists; it does not establish whole-work completion, exact source lineage, or independent QA.
 
 | Work | Language | Public evidence | What has and has not been verified |
 |---|---|---|---|
 | Open Logic Text | Portuguese | [OpenLogic-pt](https://github.com/OpenLogicProject/OpenLogic-pt), observed 2026-08-22 at commit [`51c2271`](https://github.com/OpenLogicProject/OpenLogic-pt/tree/51c227190f56bae45d19a85747fc031de430bd3c) | The repository identity and its description as a Portuguese translation were verified. Whole-work completion, its exact relationship to a particular source edition, and independent translation QA were not established. |
 
 Parallel translations are welcome when contributors identify them clearly and declare overlap. A repository identity is evidence that an edition exists; it is not by itself evidence of completeness or review.
+
+### Historical reports without public identities
+
+Thirteen Indonesian-edition reports were recorded on 21 August 2026. They are retained to prevent accidental silent duplication, but their public identities, exact scopes, dates of observation, owners, and review states were not established. “Active,” “complete,” and “planned” below describe only the report at the recording date; they are not current status claims.
+
+| Reported state at recording | Works |
+|---|---|
+| Reported active | OpenStax *Prealgebra 2e*, *Elementary Algebra 2e*, and *Intermediate Algebra 2e*; CLP Calculus series; Hefferon *Linear Algebra*; unresolved Lebl analysis volume; Judson *Abstract Algebra*; Grinstead–Snell *Probability*; *Tea Time Numerical Analysis* |
+| Reported complete | DMOI4; *Open Logic Text* |
+| Reported planned | Unresolved Lebl ordinary-differential-equations volume; unresolved Lebl complex-analysis volume |
+
+The exact per-work rows and evidence limitations are in `translation_editions` in the machine catalog. No row above establishes a current production lane or a reusable public edition.
 
 ## Choose a language
 

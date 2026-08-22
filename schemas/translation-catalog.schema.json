@@ -152,9 +152,9 @@
             "id": {"$ref": "#/$defs/slug"},
             "kind": {"const": "same_commit_receipt"},
             "observed_at": {"type": "string", "format": "date-time"},
-            "path": {"type": "string", "minLength": 1},
-            "bytes": {"type": ["integer", "null"], "minimum": 1},
-            "sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+            "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"},
+            "bytes": {"type": "integer", "minimum": 1},
+            "sha256": {"$ref": "#/$defs/sha256"},
             "note": {"type": "string", "minLength": 1}
           }
         }
@@ -322,7 +322,7 @@
         "source_edition_id": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/slug"}]},
         "identity_state": {"enum": ["unverified_report", "public_repository_verified", "public_edition_verified", "frozen_complete"]},
         "target_language": {"$ref": "#/$defs/language"},
-        "progress_state": {"enum": ["repository_available", "reported_active", "reported_complete", "reported_planned", "verified_active", "verified_complete", "inactive"]},
+        "progress_state": {"enum": ["repository_available", "historical_report_active_at_recording", "historical_report_complete_at_recording", "historical_report_planned_at_recording", "verified_active", "verified_complete", "inactive"]},
         "review_state": {"enum": ["unknown", "not_independently_assessed", "in_review", "passed"]},
         "scope_note": {"type": "string", "minLength": 1},
         "owner": {"$ref": "#/$defs/nullableString"},
@@ -384,8 +384,8 @@
         "title": {"type": "string", "minLength": 1},
         "target_mode": {"enum": ["contributor_selects", "fixed"]},
         "state": {"enum": ["prepared_not_published", "runnable", "retired"]},
-        "release_tag": {"type": "string", "minLength": 1},
-        "release_url": {"type": "string", "format": "uri", "pattern": "^https://.*$"},
+        "release_tag": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+        "release_url": {"oneOf": [{"type": "null"}, {"type": "string", "format": "uri", "pattern": "^https://.*$"}]},
         "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}},
         "asset_manifest": {"type": "string", "pattern": "^catalog/assets/[a-z0-9.-]+\\.json$"},
         "source_receipt": {"type": "string", "pattern": "^catalog/receipts/[a-z0-9.-]+\\.json$"},
@@ -395,8 +395,8 @@
           "additionalProperties": false,
           "required": ["local", "web"],
           "properties": {
-            "local": {"type": "string", "minLength": 1},
-            "web": {"type": "string", "minLength": 1}
+            "local": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"},
+            "web": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"}
           }
         },
         "evidence_ids": {"$ref": "#/$defs/slugArray"}

@@ -274,9 +274,9 @@
         "progress_state": {
           "enum": [
             "repository_available",
-            "reported_active",
-            "reported_complete",
-            "reported_planned",
+            "historical_report_active_at_recording",
+            "historical_report_complete_at_recording",
+            "historical_report_planned_at_recording",
             "verified_active",
             "verified_complete",
             "inactive"
@@ -334,13 +334,11 @@
       "properties": {
         "local": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^[A-Za-z0-9._/-]+$"
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"
         },
         "web": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^[A-Za-z0-9._/-]+$"
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+\\.md$"
         }
       }
     },
@@ -371,14 +369,16 @@
         "target_mode": {"enum": ["contributor_selects", "fixed"]},
         "state": {"enum": ["prepared_not_published", "runnable", "retired"]},
         "release_tag": {
-          "type": "string",
-          "minLength": 1,
-          "pattern": "^[a-z0-9][a-z0-9.-]*$"
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "minLength": 1, "pattern": "^[a-z0-9][a-z0-9.-]*$"}
+          ]
         },
         "release_url": {
-          "type": "string",
-          "format": "uri",
-          "pattern": "^https://.+$"
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "format": "uri", "pattern": "^https://.+$"}
+          ]
         },
         "assets": {
           "type": "array",

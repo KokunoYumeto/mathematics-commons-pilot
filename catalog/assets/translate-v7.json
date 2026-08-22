@@ -3,9 +3,9 @@
   "job_id": "translation-starter-v7",
   "wrapper_directory": "translation-starter-v7",
   "source_files": 12,
-  "source_bytes": 52023,
+  "source_bytes": 52309,
   "canonical_stream_bytes": 956,
-  "source_tree_sha256": "78DD6B8593BB85980451F49693B42D5E78FDC957FFB5E54A04F8CE752E99CA81",
+  "source_tree_sha256": "99A4423FB535DC0604AB37549749FA2BC65CC73489C56DBEC05A6A45BE785A79",
   "asset_count": 1,
   "assets": [
     {
@@ -13,11 +13,11 @@
       "part": 1,
       "parts": 1,
       "source_files": 12,
-      "source_bytes": 52023,
+      "source_bytes": 52309,
       "first_path": "KIT.json",
       "last_path": "WORKS.json",
-      "zip_bytes": 15968,
-      "zip_sha256": "8151C139D5019C5CD0A16A90D4200BDD1FB74DC533A2A2D74DF801CDC7D2C6EB"
+      "zip_bytes": 15980,
+      "zip_sha256": "492938BDC0D0E16CA344F7627BA7C225D4F51564B3D025675ED6BE4540480C89"
     }
   ],
   "members": [
@@ -39,7 +39,7 @@
     {
       "path": "MANIFEST.sha256",
       "bytes": 871,
-      "sha256": "6F3A5F5E3B701A9B1745F39D865211840DBF5C9C34D4F9AFB786FB6DB4268CDC"
+      "sha256": "94DF8A20A0E571D5FCE3CFF05731C8056C53657F0CFB22B7F6D98E9A90346621"
     },
     {
       "path": "PROMPT.md",
@@ -78,8 +78,8 @@
     },
     {
       "path": "WORKS.json",
-      "bytes": 36425,
-      "sha256": "D1FC2434469DA433FA534E5550ABA4892EB8B5F2DD840BA123A0D7B8033D32F4"
+      "bytes": 36711,
+      "sha256": "B9163B7E4373007D9D3E52112E58501FC32F59B2F13884FFD1555BC93A1D024D"
     }
   ],
   "checks": {

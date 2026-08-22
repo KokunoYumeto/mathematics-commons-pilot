@@ -103,6 +103,98 @@ class RepositoryValidationTests(unittest.TestCase):
         self.assertEqual(0, status, output.getvalue())
         self.assertIn("PASS:", output.getvalue())
 
+    def test_v7_readback_is_required_only_after_portal_declaration(self) -> None:
+        cases = (
+            (
+                {
+                    "schema": "math-commons-portal-catalog/v1",
+                    "sections": [{"id": "translation", "release": {"tag": "translate-v6"}}],
+                },
+                False,
+            ),
+            (
+                {"schema": "math-commons-portal-catalog/v2", "sections": []},
+                True,
+            ),
+            (
+                {
+                    "schema": "math-commons-portal-catalog/v1",
+                    "sections": [{"id": "translation", "release": {"tag": "translate-v7"}}],
+                },
+                True,
+            ),
+        )
+        for portal, should_require in cases:
+            with self.subTest(portal=portal):
+                with tempfile.TemporaryDirectory() as temporary:
+                    repository = Path(temporary)
+                    path = repository / "catalog" / "portals.json"
+                    path.parent.mkdir(parents=True)
+                    path.write_text(json.dumps(portal) + "\n", encoding="utf-8")
+                    errors: list[str] = []
+                    with (
+                        mock.patch.object(validate_repository, "ROOT", repository),
+                        mock.patch.object(
+                            validate_repository,
+                            "REQUIRED",
+                            {"catalog/portals.json"},
+                        ),
+                    ):
+                        validate_repository.check_required(errors)
+                marker = "missing required file: catalog/translate-rb-v7.json"
+                self.assertEqual(marker in errors, should_require, errors)
+
+    def test_malformed_portal_cannot_silently_disable_v7_readback(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            path = repository / "catalog" / "portals.json"
+            path.parent.mkdir(parents=True)
+            path.write_text('{"schema":', encoding="utf-8")
+            errors: list[str] = []
+            with (
+                mock.patch.object(validate_repository, "ROOT", repository),
+                mock.patch.object(
+                    validate_repository,
+                    "REQUIRED",
+                    {"catalog/portals.json"},
+                ),
+            ):
+                validate_repository.check_required(errors)
+        self.assertIn("cannot inspect portal catalog requirements", "\n".join(errors))
+
+    def test_legacy_portal_rejects_an_undeclared_v7_readback(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            repository = Path(temporary)
+            catalog = repository / "catalog"
+            catalog.mkdir(parents=True)
+            (catalog / "portals.json").write_text(
+                json.dumps(
+                    {
+                        "schema": "math-commons-portal-catalog/v1",
+                        "sections": [
+                            {
+                                "id": "translation",
+                                "release": {"tag": "translate-v6"},
+                            }
+                        ],
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            (catalog / "translate-rb-v7.json").write_text("{}\n", encoding="utf-8")
+            errors: list[str] = []
+            with (
+                mock.patch.object(validate_repository, "ROOT", repository),
+                mock.patch.object(
+                    validate_repository,
+                    "REQUIRED",
+                    {"catalog/portals.json"},
+                ),
+            ):
+                validate_repository.check_required(errors)
+        self.assertIn("undeclared v7 readback", "\n".join(errors))
+
     def test_leak_scan_covers_tracked_env_extensionless_and_secret_signatures(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             repository = Path(temporary)

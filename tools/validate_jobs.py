@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import re
+import stat
 import sys
 import tempfile
 import zipfile
@@ -42,6 +43,9 @@ PRACTICAL_SCHEMAS = {
     "jobs": "job-catalog.schema.json",
     "asset": "job-asset.schema.json",
     "translations": "translation-catalog.schema.json",
+    "translation_choices": "translation-choices.schema.json",
+    "translation_source": "translation-source.schema.json",
+    "translation_build": "translation-build.schema.json",
     "formalization": "formalization-intake.schema.json",
     "check": "catalog-check.schema.json",
     "readback": "release-readback.schema.json",
@@ -57,6 +61,8 @@ READBACK_TAG = "jobs-2026-08-21-r2"
 READBACK_RELEASE_ID = 374540343
 READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
 READBACK_DATE = "2026-08-22"
+PORTAL_V1_BYTES = 3_326
+PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -203,6 +209,54 @@ def safe_path(value: Any) -> bool:
 def expect(condition: bool, errors: list[str], message: str) -> None:
     if not condition:
         errors.append(message)
+
+
+def validate_openlogic_build(
+    value: dict[str, Any], label: str, errors: list[str]
+) -> None:
+    targets = value.get("targets")
+    expected = [
+        ("open-logic-debug.tex", "open-logic-debug.pdf", 962),
+        ("open-logic-complete.tex", "open-logic-complete.pdf", 1013),
+    ]
+    expect(
+        isinstance(targets, list)
+        and len(targets) == len(expected)
+        and [row.get("target") for row in targets if isinstance(row, dict)]
+        == [row[0] for row in expected],
+        errors,
+        f"{label}: exact target order and uniqueness",
+    )
+    if not isinstance(targets, list) or len(targets) != len(expected):
+        return
+    for index, (target_name, pdf_name, pages) in enumerate(expected):
+        row = targets[index]
+        if not isinstance(row, dict):
+            errors.append(f"{label}: target {index} is not an object")
+            continue
+        expect(
+            row.get("target") == target_name
+            and row.get("exit_code") == 0
+            and row.get("fresh_isolated_source_copy") is True
+            and row.get("tracked_source_post_build_replay") == "792/792"
+            and row.get("pdf", {}).get("path") == pdf_name
+            and row.get("pdf", {}).get("pages") == pages
+            and row.get("log", {}).get("fatal_markers") == 0
+            and row.get("input_closure", {}).get("closed") is True
+            and row.get("input_closure", {}).get("unbound_repo_relative_inputs") == []
+            and row.get("input_closure", {}).get("excluded_doc_inputs") == [],
+            errors,
+            f"{label}: {target_name} successful closed build",
+        )
+    expect(
+        value.get("input_closure", {}).get("targets") == 2
+        and value.get("input_closure", {}).get("all_closed") is True
+        and value.get("input_closure", {}).get("excluded_doc_inputs") == 0
+        and value.get("input_closure", {}).get("unbound_repo_relative_inputs") == 0
+        and value.get("input_closure", {}).get("unknown_external_inputs") == 0,
+        errors,
+        f"{label}: aggregate input closure",
+    )
 
 
 def verify_repo_identity(declared: Any, label: str, errors: list[str]) -> None:
@@ -496,7 +550,7 @@ def validate_asset_manifest(
         all(
             isinstance(row.get("bytes"), int)
             and not isinstance(row.get("bytes"), bool)
-            and row["bytes"] > 0
+            and row["bytes"] >= 0
             for row in members
             if isinstance(row, dict)
         ),
@@ -504,6 +558,15 @@ def validate_asset_manifest(
         f"{prefix}: member bytes",
     )
     expect(all(isinstance(row.get("sha256"), str) and HEX64.fullmatch(row["sha256"]) for row in members), errors, f"{prefix}: member hash")
+    expect(
+        all(
+            "mode" not in row or row.get("mode") in {"100644", "100755"}
+            for row in members
+            if isinstance(row, dict)
+        ),
+        errors,
+        f"{prefix}: member mode",
+    )
     if len(paths) != len(members) or not all(
         isinstance(row, dict)
         and isinstance(row.get("path"), str)
@@ -520,6 +583,21 @@ def validate_asset_manifest(
     expect(manifest.get("source_bytes") == sum(row["bytes"] for row in members), errors, f"{prefix}: source bytes")
     expect(manifest.get("canonical_stream_bytes") == len(stream), errors, f"{prefix}: stream bytes")
     expect(manifest.get("source_tree_sha256") == sha256(stream), errors, f"{prefix}: tree hash")
+    if "mode_stream_bytes" in manifest or "mode_tree_sha256" in manifest:
+        mode_stream = "".join(
+            f"{row['path']}\t{row.get('mode', '100644')}\t{row['bytes']}\t{row['sha256']}\n"
+            for row in members
+        ).encode("utf-8")
+        expect(
+            manifest.get("mode_stream_bytes") == len(mode_stream),
+            errors,
+            f"{prefix}: mode stream bytes",
+        )
+        expect(
+            manifest.get("mode_tree_sha256") == sha256(mode_stream),
+            errors,
+            f"{prefix}: mode tree hash",
+        )
     assets = manifest.get("assets")
     if not isinstance(assets, list) or not assets:
         errors.append(f"{prefix}: assets missing")
@@ -625,6 +703,11 @@ def replay_zip(
                 expect(names == expected_names, errors, f"{prefix}: member paths/order")
                 for row, name in zip(expected, names):
                     info = archive.getinfo(name)
+                    expected_mode = (
+                        (stat.S_IFREG | 0o755)
+                        if row.get("mode") == "100755"
+                        else REGULAR_0644
+                    )
                     expect(info.date_time == FIXED_TIME, errors, f"{prefix}: member time {name}")
                     expect(
                         info.compress_type == zipfile.ZIP_DEFLATED,
@@ -633,7 +716,7 @@ def replay_zip(
                     )
                     expect(info.create_system == 3, errors, f"{prefix}: create system {name}")
                     expect(
-                        info.external_attr >> 16 == REGULAR_0644,
+                        info.external_attr >> 16 == expected_mode,
                         errors,
                         f"{prefix}: mode {name}",
                     )
@@ -1139,55 +1222,476 @@ def validate_jobs(
 def validate_translations(errors: list[str]) -> int:
     catalog, _ = load(ROOT / "catalog" / "translations.json")
     validate_schema(catalog, "translations", "translation catalog", errors)
-    expect(catalog.get("schema") == "math-commons-translation-catalog/v3", errors, "translation catalog schema")
-    entries = catalog.get("entries")
-    if not isinstance(entries, list) or not entries:
-        errors.append("translation catalog has no entries")
+    if not isinstance(catalog, dict):
+        errors.append("translation catalog root is not an object")
         return 0
-    ids = [entry.get("id") for entry in entries]
-    expect(len(ids) == len(set(ids)), errors, "translation IDs are not unique")
-    legacy_ids = [entry.get("legacy_id") for entry in entries]
-    expect(len(legacy_ids) == len(set(legacy_ids)), errors, "translation legacy IDs are not unique")
-    for entry in entries:
-        if not isinstance(entry, dict):
-            errors.append("translation catalog has a malformed entry row")
+    expect(
+        catalog.get("schema") == "math-commons-translation-catalog/v7",
+        errors,
+        "translation catalog schema",
+    )
+
+    collection_names = (
+        "topics",
+        "works",
+        "resources",
+        "source_editions",
+        "translation_editions",
+        "jobs",
+        "evidence",
+    )
+    collections: dict[str, list[dict]] = {}
+    for name in collection_names:
+        value = catalog.get(name)
+        if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
+            errors.append(f"translation {name} is not an object array")
+            collections[name] = []
+        else:
+            collections[name] = value
+    if not collections["works"]:
+        errors.append("translation catalog has no works")
+    if not collections["source_editions"]:
+        errors.append("translation catalog has no source editions")
+
+    maps: dict[str, dict[str, dict]] = {}
+    for name, rows in collections.items():
+        ids = [row.get("id") for row in rows]
+        expect(
+            all(isinstance(value, str) and SLUG.fullmatch(value) is not None for value in ids),
+            errors,
+            f"translation {name} semantic IDs",
+        )
+        expect(len(ids) == len(set(ids)), errors, f"translation {name} IDs are not unique")
+        maps[name] = {
+            str(row.get("id")): row
+            for row in rows
+            if isinstance(row.get("id"), str)
+        }
+
+    works = maps["works"]
+    resources = maps["resources"]
+    sources = maps["source_editions"]
+    translations = maps["translation_editions"]
+    jobs = maps["jobs"]
+    evidence = maps["evidence"]
+    topics = maps["topics"]
+    expect(not (set(works) & set(resources)), errors, "translation work/resource IDs overlap")
+
+    for evidence_id, row in evidence.items():
+        if row.get("kind") != "same_commit_receipt":
             continue
-        entry_id = entry.get("id")
+        relative = row.get("path")
+        safe = False
+        receipt_path: Path | None = None
+        if isinstance(relative, str) and "\\" not in relative:
+            pure = PurePosixPath(relative)
+            safe = not pure.is_absolute() and ".." not in pure.parts
+            if safe:
+                receipt_path = ROOT.joinpath(*pure.parts)
+                try:
+                    safe = receipt_path.resolve().is_relative_to(ROOT.resolve())
+                except OSError:
+                    safe = False
+        expect(safe and receipt_path is not None, errors, f"translation evidence {evidence_id}: safe receipt path")
+        if not safe or receipt_path is None:
+            continue
+        expect(receipt_path.is_file(), errors, f"translation evidence {evidence_id}: receipt exists")
+        if not receipt_path.is_file():
+            continue
+        identity = input_identity(receipt_path)
         expect(
-            isinstance(entry_id, str) and SLUG.fullmatch(entry_id) is not None,
+            row.get("bytes") == identity["bytes"]
+            and row.get("sha256") == identity["sha256"],
             errors,
-            f"translation {entry_id}: semantic ID",
+            f"translation evidence {evidence_id}: receipt identity",
+        )
+    expect(
+        all(row.get("kind") in {"work", "series", "course", "source_project"} for row in works.values()),
+        errors,
+        "translation works contain resource kinds",
+    )
+    expect(
+        all(row.get("kind") in {"adaptation", "component", "composite", "infrastructure", "reference"} for row in resources.values()),
+        errors,
+        "translation resources contain work kinds",
+    )
+    item_ids = set(works) | set(resources)
+
+    topic_memberships: dict[str, list[str]] = {item_id: [] for item_id in item_ids}
+    for topic_id, topic in topics.items():
+        work_ids = topic.get("work_ids")
+        resource_ids = topic.get("resource_ids")
+        if not isinstance(work_ids, list) or not isinstance(resource_ids, list):
+            errors.append(f"translation topic {topic_id}: malformed member arrays")
+            continue
+        expect(len(work_ids) == len(set(work_ids)), errors, f"translation topic {topic_id}: duplicate works")
+        expect(len(resource_ids) == len(set(resource_ids)), errors, f"translation topic {topic_id}: duplicate resources")
+        expect(set(work_ids).issubset(works), errors, f"translation topic {topic_id}: unknown works")
+        expect(set(resource_ids).issubset(resources), errors, f"translation topic {topic_id}: unknown resources")
+        for item_id in [*work_ids, *resource_ids]:
+            if item_id in topic_memberships:
+                topic_memberships[item_id].append(topic_id)
+    expect(
+        all(len(value) == 1 for value in topic_memberships.values()),
+        errors,
+        "every translation item must belong to exactly one topic",
+    )
+
+    source_ids_by_item: dict[str, list[str]] = {item_id: [] for item_id in item_ids}
+    translation_ids_by_work: dict[str, list[str]] = {work_id: [] for work_id in works}
+    job_ids_by_work: dict[str, list[str]] = {work_id: [] for work_id in works}
+    gate_names = {
+        "work_identity",
+        "source_edition_identity",
+        "immutable_source",
+        "translation_permission",
+        "component_rights",
+        "editable_source",
+        "baseline_build",
+    }
+    for source_id, source in sources.items():
+        item_id = source.get("item_id")
+        item_type = source.get("item_type")
+        expect(item_id in item_ids, errors, f"translation source {source_id}: item FK")
+        expect(
+            (item_type == "work" and item_id in works)
+            or (item_type == "resource" and item_id in resources),
+            errors,
+            f"translation source {source_id}: item type",
+        )
+        if item_id in source_ids_by_item:
+            source_ids_by_item[item_id].append(source_id)
+        source_evidence = source.get("evidence_ids")
+        expect(
+            isinstance(source_evidence, list) and set(source_evidence).issubset(evidence),
+            errors,
+            f"translation source {source_id}: evidence FKs",
+        )
+        gates = source.get("gates")
+        if not isinstance(gates, dict) or set(gates) != gate_names:
+            errors.append(f"translation source {source_id}: exact seven gates")
+            gate_states: list[str] = []
+        else:
+            gate_states = []
+            for gate_name, row in gates.items():
+                if not isinstance(row, dict):
+                    errors.append(f"translation source {source_id}: malformed {gate_name} gate")
+                    continue
+                gate_states.append(str(row.get("state")))
+                refs = row.get("evidence_ids")
+                expect(
+                    isinstance(refs, list) and refs and set(refs).issubset(evidence),
+                    errors,
+                    f"translation source {source_id}: {gate_name} evidence",
+                )
+        all_pass = len(gate_states) == len(gate_names) and set(gate_states) == {"pass"}
+        readiness = source.get("readiness")
+        expect(
+            readiness in {"identity_unresolved", "source_preflight", "not_standalone", "packet_prepared", "runnable"},
+            errors,
+            f"translation source {source_id}: readiness",
         )
         expect(
-            entry.get("translation_readiness") in {"preflight_required", "not_standalone"},
+            (readiness in {"packet_prepared", "runnable"}) == all_pass,
             errors,
-            f"translation {entry_id}: readiness",
+            f"translation source {source_id}: readiness derivation",
         )
-        editions = entry.get("known_editions")
-        expect(isinstance(editions, list), errors, f"translation {entry_id}: editions")
-        if isinstance(editions, list):
-            edition_keys = [
-                (row.get("language_tag"), row.get("state"))
-                for row in editions
+        if readiness in {"packet_prepared", "runnable"}:
+            locator = source.get("locator")
+            rights = source.get("rights")
+            components = source.get("components")
+            immutable_locator = False
+            if isinstance(locator, dict):
+                immutable_locator = (
+                    isinstance(locator.get("url"), str)
+                    and (
+                        (
+                            re.fullmatch(r"[0-9a-f]{40}", str(locator.get("commit")))
+                            is not None
+                            and re.fullmatch(r"[0-9a-f]{40}", str(locator.get("tree")))
+                            is not None
+                        )
+                        or isinstance(locator.get("archive"), str)
+                    )
+                )
+            license_row = rights.get("work_license") if isinstance(rights, dict) else None
+            expect(
+                source.get("identity_state") == "frozen"
+                and immutable_locator
+                and isinstance(rights, dict)
+                and rights.get("state") == "verified_translation_allowed"
+                and rights.get("derivative_translation_allowed") is True
+                and isinstance(license_row, dict)
+                and isinstance(license_row.get("name"), str)
+                and isinstance(license_row.get("url"), str)
+                and isinstance(license_row.get("scope"), str)
+                and isinstance(rights.get("component_notices"), list)
+                and isinstance(rights.get("evidence_ids"), list)
+                and bool(rights.get("evidence_ids"))
+                and set(rights.get("evidence_ids", [])).issubset(evidence)
+                and isinstance(components, dict)
+                and isinstance(components.get("included"), str)
+                and isinstance(components.get("excluded"), str)
+                and isinstance(components.get("receipt"), str),
+                errors,
+                f"translation source {source_id}: publication-ready source/rights/components",
+            )
+        if source.get("identity_state") == "frozen":
+            locator = source.get("locator")
+            rights = source.get("rights")
+            expect(
+                isinstance(locator, dict)
+                and isinstance(locator.get("url"), str)
+                and isinstance(locator.get("commit"), str)
+                and re.fullmatch(r"[0-9a-f]{40}", locator["commit"]) is not None
+                and isinstance(locator.get("tree"), str)
+                and re.fullmatch(r"[0-9a-f]{40}", locator["tree"]) is not None,
+                errors,
+                f"translation source {source_id}: frozen source identity",
+            )
+            expect(
+                isinstance(rights, dict)
+                and rights.get("state") == "verified_translation_allowed"
+                and rights.get("derivative_translation_allowed") is True,
+                errors,
+                f"translation source {source_id}: frozen rights",
+            )
+
+    for translation_id, edition in translations.items():
+        work_id = edition.get("work_id")
+        expect(work_id in works, errors, f"translation edition {translation_id}: work FK")
+        if work_id in translation_ids_by_work:
+            translation_ids_by_work[work_id].append(translation_id)
+        source_id = edition.get("source_edition_id")
+        expect(
+            source_id is None
+            or (
+                source_id in sources
+                and sources[source_id].get("item_type") == "work"
+                and sources[source_id].get("item_id") == work_id
+            ),
+            errors,
+            f"translation edition {translation_id}: source FK",
+        )
+        target = edition.get("target_language")
+        expect(
+            isinstance(target, dict)
+            and isinstance(target.get("tag"), str)
+            and isinstance(target.get("name"), str),
+            errors,
+            f"translation edition {translation_id}: target language",
+        )
+        edition_evidence = edition.get("evidence")
+        if not isinstance(edition_evidence, dict):
+            errors.append(f"translation edition {translation_id}: malformed evidence")
+        else:
+            refs = edition_evidence.get("evidence_ids")
+            expect(
+                isinstance(refs, list) and refs and set(refs).issubset(evidence),
+                errors,
+                f"translation edition {translation_id}: evidence FKs",
+            )
+            if edition.get("identity_state") == "unverified_report":
+                expect(
+                    edition.get("progress_state")
+                    in {
+                        "historical_report_active_at_recording",
+                        "historical_report_complete_at_recording",
+                        "historical_report_planned_at_recording",
+                    }
+                    and edition.get("review_state") == "unknown"
+                    and edition_evidence.get("status") == "non_public_historical_report"
+                    and edition_evidence.get("observed_at") is None
+                    and edition_evidence.get("public_url") is None
+                    and edition_evidence.get("commit") is None
+                    and edition_evidence.get("tree") is None,
+                    errors,
+                    f"translation edition {translation_id}: unverified report boundary",
+                )
+            if edition.get("identity_state") == "public_repository_verified":
+                expect(
+                    edition.get("progress_state") == "repository_available"
+                    and edition.get("review_state") == "not_independently_assessed"
+                    and edition_evidence.get("status") == "public_repository_identity_verified"
+                    and isinstance(edition_evidence.get("observed_at"), str)
+                    and isinstance(edition_evidence.get("public_url"), str)
+                    and re.fullmatch(r"[0-9a-f]{40}", str(edition_evidence.get("commit"))) is not None
+                    and re.fullmatch(r"[0-9a-f]{40}", str(edition_evidence.get("tree"))) is not None,
+                    errors,
+                    f"translation edition {translation_id}: public repository evidence",
+                )
+            if edition.get("identity_state") == "public_edition_verified":
+                expect(
+                    edition.get("progress_state")
+                    in {"verified_active", "verified_complete", "inactive"}
+                    and edition.get("review_state")
+                    in {"not_independently_assessed", "in_review", "passed"}
+                    and edition_evidence.get("status") == "public_bytes_verified"
+                    and isinstance(edition_evidence.get("observed_at"), str)
+                    and isinstance(edition_evidence.get("public_url"), str),
+                    errors,
+                    f"translation edition {translation_id}: public edition evidence",
+                )
+            if edition.get("identity_state") == "frozen_complete":
+                expect(
+                    edition.get("source_edition_id") is not None
+                    and edition.get("progress_state") in {"verified_complete", "inactive"}
+                    and edition.get("review_state") == "passed"
+                    and edition_evidence.get("status") == "public_bytes_verified"
+                    and isinstance(edition_evidence.get("observed_at"), str)
+                    and isinstance(edition_evidence.get("public_url"), str),
+                    errors,
+                    f"translation edition {translation_id}: frozen-complete evidence",
+                )
+    same_language: dict[tuple[str, str], list[str]] = {}
+    for translation_id, edition in translations.items():
+        target = edition.get("target_language")
+        if isinstance(target, dict) and isinstance(target.get("tag"), str):
+            same_language.setdefault((str(edition.get("work_id")), target["tag"].lower()), []).append(translation_id)
+    for key, edition_ids in same_language.items():
+        if len(edition_ids) > 1:
+            for edition_id in edition_ids:
+                overlap = translations[edition_id].get("overlap")
+                expect(
+                    isinstance(overlap, dict)
+                    and overlap.get("mode") in {"declared_parallel", "supersedes", "superseded"}
+                    and bool(set(overlap.get("related_edition_ids", [])) & (set(edition_ids) - {edition_id})),
+                    errors,
+                    f"translation edition {edition_id}: same-language overlap declaration",
+                )
+
+    for job_id, job in jobs.items():
+        work_id = job.get("work_id")
+        source_id = job.get("source_edition_id")
+        expect(work_id in works, errors, f"translation job {job_id}: work FK")
+        expect(
+            source_id in sources
+            and sources[source_id].get("item_id") == work_id
+            and sources[source_id].get("item_type") == "work",
+            errors,
+            f"translation job {job_id}: source FK",
+        )
+        if work_id in job_ids_by_work:
+            job_ids_by_work[work_id].append(job_id)
+        refs = job.get("evidence_ids")
+        expect(
+            isinstance(refs, list) and refs and set(refs).issubset(evidence),
+            errors,
+            f"translation job {job_id}: evidence FKs",
+        )
+        referenced_receipts = {
+            evidence[evidence_id].get("path")
+            for evidence_id in refs or []
+            if evidence_id in evidence
+            and evidence[evidence_id].get("kind") == "same_commit_receipt"
+        }
+        expect(
+            job.get("source_receipt") in referenced_receipts,
+            errors,
+            f"translation job {job_id}: source receipt is evidence-bound",
+        )
+        manifest_path = job.get("asset_manifest")
+        manifest: dict[str, Any] = {}
+        if isinstance(manifest_path, str):
+            manifest, _ = validate_asset_manifest(ROOT / manifest_path, job_id, errors)
+        member_paths = {
+            str(row.get("path"))
+            for row in manifest.get("members", [])
+            if isinstance(row, dict) and isinstance(row.get("path"), str)
+        }
+        start_files = job.get("start_files")
+        expect(
+            isinstance(start_files, dict)
+            and isinstance(start_files.get("local"), str)
+            and isinstance(start_files.get("web"), str)
+            and start_files.get("local") in member_paths
+            and start_files.get("web") in member_paths,
+            errors,
+            f"translation job {job_id}: start files exist in packet manifest",
+        )
+        state = job.get("state")
+        assets = job.get("assets")
+        readback = job.get("public_readback")
+        if state == "runnable":
+            release_tag = job.get("release_tag")
+            release_url = job.get("release_url")
+            expected_release_url = (
+                "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/"
+                + str(release_tag)
+            )
+            expected_assets = [
+                {
+                    "name": row.get("name"),
+                    "bytes": row.get("zip_bytes"),
+                    "sha256": row.get("zip_sha256"),
+                    "url": (
+                        "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/"
+                        + str(release_tag)
+                        + "/"
+                        + str(row.get("name"))
+                    ),
+                }
+                for row in manifest.get("assets", [])
                 if isinstance(row, dict)
             ]
             expect(
-                len(edition_keys) == len(editions)
-                and len(edition_keys) == len(set(edition_keys)),
+                isinstance(release_tag, str)
+                and release_url == expected_release_url
+                and assets == expected_assets
+                and bool(expected_assets)
+                and isinstance(readback, dict)
+                and readback.get("assets") == expected_assets
+                and source_id in sources
+                and sources[source_id].get("readiness") == "runnable",
                 errors,
-                f"translation {entry_id}: edition identities",
+                f"translation job {job_id}: runnable public-readback contract",
             )
-        url = entry.get("source_url")
-        expect(url is None or (isinstance(url, str) and url.startswith("https://")), errors, f"translation {entry_id}: source URL")
-        commit = entry.get("source_commit")
-        expect(commit is None or (isinstance(commit, str) and re.fullmatch(r"[0-9a-f]{40}", commit)), errors, f"translation {entry_id}: commit")
-    evidence = catalog.get("evidence")
-    expect(
-        isinstance(evidence, dict)
-        and evidence.get("public_evidence_included") is False,
-        errors,
-        "translation catalog evidence boundary",
-    )
+        elif state == "prepared_not_published":
+            expect(
+                job.get("release_tag") is None
+                and job.get("release_url") is None
+                and assets == []
+                and readback is None
+                and source_id in sources
+                and sources[source_id].get("readiness") == "packet_prepared",
+                errors,
+                f"translation job {job_id}: prepared contract",
+            )
+        elif state == "retired":
+            expect(
+                isinstance(job.get("release_tag"), str)
+                and isinstance(job.get("release_url"), str)
+                and isinstance(assets, list)
+                and bool(assets)
+                and isinstance(readback, dict),
+                errors,
+                f"translation job {job_id}: retired-history contract",
+            )
+
+    for item_id, item in {**works, **resources}.items():
+        expect(
+            item.get("topic_ids") == topic_memberships[item_id],
+            errors,
+            f"translation item {item_id}: topic inverse",
+        )
+        expect(
+            item.get("source_edition_ids") == source_ids_by_item[item_id],
+            errors,
+            f"translation item {item_id}: source inverse",
+        )
+        expected_translations = translation_ids_by_work[item_id] if item_id in works else []
+        expected_jobs = job_ids_by_work[item_id] if item_id in works else []
+        expect(
+            item.get("translation_edition_ids") == expected_translations,
+            errors,
+            f"translation item {item_id}: edition inverse",
+        )
+        expect(
+            item.get("job_ids") == expected_jobs,
+            errors,
+            f"translation item {item_id}: job inverse",
+        )
+
     scope = catalog.get("scope")
     expect(
         isinstance(scope, dict)
@@ -1220,8 +1724,12 @@ def validate_translations(errors: list[str]) -> int:
         "translation catalog language-priority contract",
     )
     choices, _ = load(ROOT / "kits" / "translate" / "WORKS.json")
+    if not isinstance(choices, dict):
+        errors.append("translation chooser root is not an object")
+        return len(item_ids)
+    validate_schema(choices, "translation_choices", "translation chooser", errors)
     expect(
-        choices.get("schema") == "math-commons-translation-choices/v3",
+        choices.get("schema") == "math-commons-translation-choices/v7",
         errors,
         "translation chooser schema",
     )
@@ -1230,45 +1738,148 @@ def validate_translations(errors: list[str]) -> int:
         errors,
         "translation chooser language-priority projection",
     )
-    suggestions = choices.get("suggestions")
-    suggestion_ids = [
-        row.get("id") for row in suggestions if isinstance(row, dict)
-    ] if isinstance(suggestions, list) else []
-    expect(
-        suggestion_ids == ids,
-        errors,
-        "translation chooser semantic ID projection",
-    )
-    topic_ids = [
-        work_id
-        for topic in choices.get("topics", [])
-        if isinstance(topic, dict)
-        for work_id in topic.get("work_ids", [])
-        if isinstance(work_id, str)
-    ]
-    expect(
-        set(topic_ids).issubset(set(ids)) and len(topic_ids) == len(set(topic_ids)),
-        errors,
-        "translation chooser topic identities",
-    )
-    open_education = choices.get("catalogs", {}).get("open_education", {})
     catalog_bytes = (ROOT / "catalog" / "translations.json").read_bytes()
+    catalog_identity = choices.get("catalog")
     expect(
-        isinstance(open_education, dict)
-        and open_education.get("path") == "catalog/translations.json"
-        and open_education.get("bytes") == len(catalog_bytes)
-        and open_education.get("sha256") == sha256(catalog_bytes),
+        isinstance(catalog_identity, dict)
+        and catalog_identity.get("path") == "catalog/translations.json"
+        and catalog_identity.get("bytes") == len(catalog_bytes)
+        and catalog_identity.get("sha256") == sha256(catalog_bytes),
         errors,
         "translation chooser catalog identity",
     )
-    archive_summary = choices.get("separate_manuscript_archive_summary")
     expect(
-        isinstance(archive_summary, dict)
-        and archive_summary.get("not_coverage_for_open_education_choices") is True,
+        choices.get("separate_archive") == catalog.get("separate_archive")
+        and choices.get("topics") == catalog.get("topics")
+        and choices.get("jobs") == catalog.get("jobs"),
         errors,
-        "translation chooser separate-archive boundary",
+        "translation chooser exact archive/topic/job projections",
     )
-    return len(entries)
+    expected_work_projection = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+            "translation_edition_ids": row["translation_edition_ids"],
+            "job_ids": row["job_ids"],
+        }
+        for row in collections["works"]
+    ]
+    expected_resource_projection = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "kind": row["kind"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+        }
+        for row in collections["resources"]
+    ]
+    expected_source_projection = [
+        {
+            "id": row["id"],
+            "item_id": row["item_id"],
+            "item_type": row["item_type"],
+            "readiness": row["readiness"],
+        }
+        for row in collections["source_editions"]
+    ]
+    expected_translation_projection = [
+        {
+            "id": row["id"],
+            "work_id": row["work_id"],
+            "language": row["target_language"],
+            "identity_state": row["identity_state"],
+            "progress_state": row["progress_state"],
+            "review_state": row["review_state"],
+        }
+        for row in collections["translation_editions"]
+    ]
+    expect(choices.get("works") == expected_work_projection, errors, "translation chooser work projection")
+    expect(choices.get("resources") == expected_resource_projection, errors, "translation chooser resource projection")
+    expect(choices.get("source_editions") == expected_source_projection, errors, "translation chooser source projection")
+    expect(choices.get("translation_editions") == expected_translation_projection, errors, "translation chooser edition projection")
+
+    generic_source, _ = load(ROOT / "kits" / "translate" / "SOURCE.json")
+    openlogic_source_state, _ = load(ROOT / "kits" / "openlogic" / "SOURCE.json")
+    openlogic_job_state, _ = load(ROOT / "kits" / "openlogic" / "JOB.json")
+    openlogic_build_state, _ = load(ROOT / "kits" / "openlogic" / "BUILD.json")
+    openlogic_receipt, _ = load(ROOT / "catalog" / "receipts" / "openlogic.json")
+    validate_schema(generic_source, "translation_source", "generic translation source state", errors)
+    validate_schema(openlogic_source_state, "translation_source", "Open Logic source state", errors)
+    validate_schema(openlogic_build_state, "translation_build", "Open Logic embedded build receipt", errors)
+    validate_schema(openlogic_receipt, "translation_build", "Open Logic admission receipt", errors)
+
+    validate_openlogic_build(
+        openlogic_build_state, "Open Logic embedded build receipt", errors
+    )
+    validate_openlogic_build(openlogic_receipt, "Open Logic admission receipt", errors)
+    expect(
+        generic_source.get("state") == "source_preflight"
+        and generic_source.get("work", {}).get("work_id") is None
+        and generic_source.get("source", {}).get("commit") is None,
+        errors,
+        "generic translation source-preflight boundary",
+    )
+    expect(
+        openlogic_source_state.get("state") == "awaiting_target_selection"
+        and openlogic_source_state.get("work", {}).get("work_id") == "openlogic-core"
+        and openlogic_source_state.get("source", {}).get("commit") == "1e960beff9ed7835bf3e3f1335e21af3439cd107"
+        and openlogic_source_state.get("source", {}).get("tree") == "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8"
+        and openlogic_source_state.get("source", {}).get("files") == 792
+        and openlogic_source_state.get("source", {}).get("bytes") == 4_302_140,
+        errors,
+        "Open Logic translation source state",
+    )
+    final_binding = openlogic_receipt.get("packet_binding", {})
+    manifest_identity = input_identity(ROOT / "catalog" / "assets" / "openlogic.json")
+    expect(
+        openlogic_job_state.get("state") == "source_packet_ready"
+        and openlogic_build_state.get("state")
+        == "cold_replay_pass_with_observed_warnings"
+        and openlogic_receipt.get("state")
+        == "cold_replay_pass_with_observed_warnings"
+        and final_binding.get("state") == "cold_audit_input_replay_pass"
+        and final_binding.get("asset_manifest")
+        == {
+            "name": "openlogic.json",
+            "bytes": manifest_identity["bytes"],
+            "sha256": manifest_identity["sha256"],
+        }
+        and final_binding.get("packet_zip")
+        == {
+            "name": "openlogic-v1.zip",
+            "bytes": 1921531,
+            "sha256": "C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A",
+            "members": 807,
+        },
+        errors,
+        "Open Logic final admission binding",
+    )
+
+    openlogic = works.get("openlogic-core")
+    openlogic_source = sources.get("openlogic-core-source")
+    openlogic_job = jobs.get("openlogic-v1")
+    expect(
+        isinstance(openlogic, dict)
+        and isinstance(openlogic_source, dict)
+        and isinstance(openlogic_job, dict)
+        and openlogic_source.get("locator", {}).get("commit") == "1e960beff9ed7835bf3e3f1335e21af3439cd107"
+        and openlogic_source.get("locator", {}).get("tree") == "45cad6b3bf0dd96985a7b3d1dc5c343984b0e1c8",
+        errors,
+        "Open Logic exact source/job boundary",
+    )
+    portuguese = translations.get("openlogic-pt-openlogicpt")
+    expect(
+        isinstance(portuguese, dict)
+        and portuguese.get("target_language", {}).get("tag") == "pt"
+        and portuguese.get("target_language", {}).get("locale") is None
+        and portuguese.get("source_edition_id") is None,
+        errors,
+        "Open Logic Portuguese claim boundary",
+    )
+    return len(item_ids)
 
 
 def validate_formalization(errors: list[str]) -> int:
@@ -1684,13 +2295,32 @@ def validate_formalization(errors: list[str]) -> int:
     return len(items)
 
 
-def validate_portals(errors: list[str]) -> int:
-    catalog, _ = load(ROOT / "catalog" / "portals.json")
-    validate_schema(catalog, "portals", "portal catalog", errors)
+def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
+    if catalog.get("schema") == "math-commons-portal-catalog/v2":
+        return True
+    for section in catalog.get("sections", []):
+        if not isinstance(section, dict):
+            continue
+        for key in ("release", "starter"):
+            release = section.get(key)
+            if isinstance(release, dict) and release.get("tag") == "translate-v7":
+                return True
+    return False
+
+
+def validate_portals_v1(
+    catalog: dict[str, Any], data: bytes, errors: list[str]
+) -> int:
     expect(
-        catalog.get("schema") == "math-commons-portal-catalog/v1",
+        len(data) == PORTAL_V1_BYTES and sha256(data) == PORTAL_V1_SHA256,
         errors,
-        "portal catalog schema",
+        "legacy portal catalog frozen identity",
+    )
+    v7_readback = ROOT / "catalog" / "translate-rb-v7.json"
+    expect(
+        not v7_readback.exists() and not v7_readback.is_symlink(),
+        errors,
+        "legacy portal catalog has no undeclared v7 readback",
     )
     sections = catalog.get("sections")
     if not isinstance(sections, list):
@@ -1859,6 +2489,314 @@ def validate_portals(errors: list[str]) -> int:
         },
         errors,
         "translation starter readback result",
+    )
+
+    expect(
+        transcription.get("state") == "runnable"
+        and transcription.get("catalog") == "catalog/jobs.json"
+        and trans_release.get("tag") == "jobs-2026-08-21-r2"
+        and trans_release.get("url")
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/jobs-2026-08-21-r2"
+        and trans_release.get("asset_catalog") == "catalog/jobs.json"
+        and trans_release.get("readback") == "catalog/readback-r2.json",
+        errors,
+        "portal transcription release contract",
+    )
+
+    problems = by_id.get("open-problems", {})
+    problem_release = problems.get("release", {})
+    expect(
+        problem_release
+        == {
+            "tag": None,
+            "url": None,
+            "asset_count": 0,
+            "asset_bytes": 0,
+            "asset_catalog": None,
+            "readback": None,
+            "assets": [],
+        },
+        errors,
+        "portal Workbench publication state",
+    )
+    expect(
+        problems.get("state") == "source_recovery_required"
+        and problems.get("catalog") is None,
+        errors,
+        "portal Workbench recovery state",
+    )
+    expect(
+        problems.get("expected_asset")
+        == {
+            "name": "Mathematical_Commons_Open_Problem_Workbench_v0.2_2026-08-21.zip",
+            "bytes": 13308489,
+            "sha256": "A087B8A9765476F7DC26B00280299153D3BE46A536C698035445AF723451BD2A",
+        },
+        errors,
+        "portal Workbench expected asset identity",
+    )
+    return len(sections)
+
+
+def validate_portals(errors: list[str]) -> int:
+    catalog, data = load(ROOT / "catalog" / "portals.json")
+    validate_schema(catalog, "portals", "portal catalog", errors)
+    if catalog.get("schema") == "math-commons-portal-catalog/v1":
+        return validate_portals_v1(catalog, data, errors)
+    expect(
+        catalog.get("schema") == "math-commons-portal-catalog/v2",
+        errors,
+        "portal catalog schema",
+    )
+    sections = catalog.get("sections")
+    if not isinstance(sections, list):
+        errors.append("portal catalog sections are not an array")
+        return 0
+    expect(
+        [row.get("id") for row in sections if isinstance(row, dict)]
+        == ["transcription", "translation", "open-problems"],
+        errors,
+        "portal catalog exact section order",
+    )
+    for row in sections:
+        if not isinstance(row, dict):
+            errors.append("portal catalog has a malformed section")
+            continue
+        docs = row.get("docs")
+        expect(
+            isinstance(docs, str) and (ROOT / docs).is_file(),
+            errors,
+            f"portal {row.get('id')}: documentation path",
+        )
+        catalog_path = row.get("catalog")
+        expect(
+            catalog_path is None
+            or (isinstance(catalog_path, str) and (ROOT / catalog_path).is_file()),
+            errors,
+            f"portal {row.get('id')}: catalog path",
+        )
+
+    by_id = {
+        row.get("id"): row for row in sections if isinstance(row, dict)
+    }
+    jobs_catalog, _ = load(ROOT / "catalog" / "jobs.json")
+    transcription = by_id.get("transcription", {})
+    trans_release = transcription.get("release", {})
+    packet_assets = [
+        asset
+        for job in jobs_catalog.get("jobs", [])
+        if isinstance(job, dict)
+        for asset in job.get("assets", [])
+        if isinstance(asset, dict)
+    ]
+    expect(
+        trans_release.get("asset_count") == len(packet_assets),
+        errors,
+        "portal transcription asset count",
+    )
+    expect(
+        trans_release.get("asset_bytes")
+        == sum(int(asset.get("zip_bytes", 0)) for asset in packet_assets),
+        errors,
+        "portal transcription asset bytes",
+    )
+
+    def validate_portal_release(
+        release: dict,
+        *,
+        label: str,
+        tag: str,
+        manifest_path: str,
+        job_id: str,
+        readback_path: str,
+    ) -> tuple[list[dict[str, object]], dict]:
+        manifest, _ = validate_asset_manifest(ROOT / manifest_path, job_id, errors)
+        expected_assets = [
+            {
+                "name": asset.get("name"),
+                "bytes": asset.get("zip_bytes"),
+                "sha256": asset.get("zip_sha256"),
+            }
+            for asset in manifest.get("assets", [])
+            if isinstance(asset, dict)
+        ]
+        release_url = (
+            "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/"
+            + tag
+        )
+        expect(
+            release.get("tag") == tag
+            and release.get("url") == release_url
+            and re.fullmatch(r"[0-9a-f]{40}", str(release.get("target_commit")))
+            is not None
+            and re.fullmatch(r"[0-9a-f]{40}", str(release.get("target_tree")))
+            is not None
+            and release.get("asset_catalog") == manifest_path
+            and release.get("readback") == readback_path
+            and release.get("assets") == expected_assets
+            and release.get("asset_count") == len(expected_assets)
+            and release.get("asset_bytes")
+            == sum(int(asset["bytes"]) for asset in expected_assets),
+            errors,
+            f"{label} release projection",
+        )
+        readback_file = ROOT / readback_path
+        if not readback_file.is_file():
+            errors.append(f"{label} public readback is missing: {readback_path}")
+            return expected_assets, {}
+        readback, _ = load(readback_file)
+        validate_schema(readback, "portal_readback", f"{label} public readback", errors)
+        readback_release = readback.get("release", {})
+        expect(
+            readback_release.get("tag") == tag
+            and readback_release.get("url") == release_url
+            and readback_release.get("target_commit") == release.get("target_commit")
+            and readback_release.get("target_tree") == release.get("target_tree")
+            and readback.get("observed_date") == catalog.get("updated"),
+            errors,
+            f"{label} readback subject",
+        )
+        expected_readback_assets = [
+            {
+                "name": asset["name"],
+                "url": (
+                    "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/"
+                    + tag
+                    + "/"
+                    + str(asset["name"])
+                ),
+                "expected_bytes": asset["bytes"],
+                "observed_bytes": asset["bytes"],
+                "expected_sha256": asset["sha256"],
+                "observed_sha256": asset["sha256"],
+                "match": True,
+            }
+            for asset in expected_assets
+        ]
+        expect(
+            [
+                {
+                    "name": row.get("name"),
+                    "url": row.get("url"),
+                    "expected_bytes": row.get("expected_bytes"),
+                    "observed_bytes": row.get("observed_bytes"),
+                    "expected_sha256": row.get("expected_sha256"),
+                    "observed_sha256": row.get("observed_sha256"),
+                    "match": row.get("match"),
+                }
+                for row in readback.get("assets", [])
+                if isinstance(row, dict)
+            ]
+            == expected_readback_assets,
+            errors,
+            f"{label} readback asset projection",
+        )
+        expect(
+            readback.get("status") == "PASS"
+            and readback.get("transport", {}).get("method")
+            in {"anonymous_https", "anonymous_https_and_git"}
+            and readback.get("transport", {}).get("authorization") is False
+            and readback.get("transport", {}).get("cookies") is False
+            and readback.get("transport", {}).get("payload_persisted") is False
+            and readback.get("summary")
+            == {
+                "assets": len(expected_assets),
+                "bytes": sum(int(asset["bytes"]) for asset in expected_assets),
+                "matches": len(expected_assets),
+                "mismatches": 0,
+                "errors": [],
+            },
+            errors,
+            f"{label} readback result",
+        )
+        return expected_assets, readback
+
+    translation = by_id.get("translation", {})
+    openlogic_release = translation.get("release", {})
+    starter_release = translation.get("starter", {})
+    expected_openlogic_assets, openlogic_readback = validate_portal_release(
+        openlogic_release,
+        label="Open Logic translation job",
+        tag="translate-openlogic-v1",
+        manifest_path="catalog/assets/openlogic.json",
+        job_id="openlogic-v1",
+        readback_path="catalog/openlogic-rb.json",
+    )
+    expected_starter_assets, _ = validate_portal_release(
+        starter_release,
+        label="generic translation starter",
+        tag="translate-v7",
+        manifest_path="catalog/assets/translate-v7.json",
+        job_id="translation-starter-v7",
+        readback_path="catalog/translate-rb-v7.json",
+    )
+    expect(
+        translation.get("state") == "runnable"
+        and translation.get("catalog") == "catalog/translations.json"
+        and openlogic_release.get("admission_receipt")
+        == "catalog/receipts/openlogic.json"
+        and starter_release.get("admission_receipt") is None,
+        errors,
+        "portal translation two-release contract",
+    )
+    translation_catalog, _ = load(ROOT / "catalog" / "translations.json")
+    openlogic_job = next(
+        (
+            row
+            for row in translation_catalog.get("jobs", [])
+            if isinstance(row, dict) and row.get("id") == "openlogic-v1"
+        ),
+        {},
+    )
+    expect(
+        openlogic_job.get("state") == "runnable"
+        and openlogic_job.get("release_tag") == "translate-openlogic-v1"
+        and openlogic_job.get("release_url") == openlogic_release.get("url")
+        and [
+            {
+                "name": row.get("name"),
+                "bytes": row.get("bytes"),
+                "sha256": row.get("sha256"),
+            }
+            for row in openlogic_job.get("assets", [])
+            if isinstance(row, dict)
+        ]
+        == expected_openlogic_assets
+        and next(
+            (
+                row.get("url")
+                for row in openlogic_job.get("assets", [])
+                if isinstance(row, dict)
+            ),
+            None,
+        )
+        == "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip"
+        and openlogic_job.get("asset_manifest") == "catalog/assets/openlogic.json"
+        and openlogic_job.get("source_receipt") == "catalog/receipts/openlogic.json"
+        and openlogic_job.get("public_readback", {}).get("receipt")
+        == "catalog/openlogic-rb.json"
+        and [
+            {
+                "name": row.get("name"),
+                "bytes": row.get("bytes"),
+                "sha256": row.get("sha256"),
+            }
+            for row in openlogic_job.get("public_readback", {}).get("assets", [])
+            if isinstance(row, dict)
+        ]
+        == expected_openlogic_assets
+        and [
+            {
+                "name": row.get("name"),
+                "bytes": row.get("observed_bytes"),
+                "sha256": row.get("observed_sha256"),
+            }
+            for row in openlogic_readback.get("assets", [])
+            if isinstance(row, dict)
+        ]
+        == expected_openlogic_assets,
+        errors,
+        "Open Logic catalog-to-public-release binding",
     )
 
     expect(
@@ -2105,32 +3043,98 @@ def main() -> int:
             member_files,
             nested_authorities,
         ) = validate_jobs(args.asset_dir.resolve() if args.asset_dir else None, errors)
-        translations = validate_translations(errors)
+        validate_translations(errors)
+        translation_catalog, _ = load(ROOT / "catalog" / "translations.json")
         formalization = validate_formalization(errors)
         portals = validate_portals(errors)
+        portal_catalog, _ = load(ROOT / "catalog" / "portals.json")
+        translation_section = next(
+            (
+                row
+                for row in portal_catalog.get("sections", [])
+                if isinstance(row, dict) and row.get("id") == "translation"
+            ),
+            {},
+        )
+        translation_releases = [
+            translation_section.get("release", {}),
+            translation_section.get("starter", {}),
+        ]
+        translation_summary = {
+            "topics": len(translation_catalog.get("topics", [])),
+            "works": len(translation_catalog.get("works", [])),
+            "resources": len(translation_catalog.get("resources", [])),
+            "source_editions": len(translation_catalog.get("source_editions", [])),
+            "translation_editions": len(translation_catalog.get("translation_editions", [])),
+            "jobs": len(translation_catalog.get("jobs", [])),
+            "runnable_jobs": sum(
+                1
+                for row in translation_catalog.get("jobs", [])
+                if isinstance(row, dict) and row.get("state") == "runnable"
+            ),
+            "public_release_assets": sum(
+                int(row.get("asset_count", 0))
+                for row in translation_releases
+                if isinstance(row, dict)
+            ),
+            "public_release_bytes": sum(
+                int(row.get("asset_bytes", 0))
+                for row in translation_releases
+                if isinstance(row, dict)
+            ),
+        }
         public_readback = validate_public_readback(errors)
     except (OSError, UnicodeError, json.JSONDecodeError, DuplicateKey, ValueError) as exc:
         errors.append(str(exc))
+        portal_catalog = {}
         jobs = assets = source_files = source_bytes = asset_bytes = member_files = 0
-        nested_authorities = translations = formalization = portals = 0
+        nested_authorities = formalization = portals = 0
+        translation_summary = {
+            "topics": 0,
+            "works": 0,
+            "resources": 0,
+            "source_editions": 0,
+            "translation_editions": 0,
+            "jobs": 0,
+            "runnable_jobs": 0,
+            "public_release_assets": 0,
+            "public_release_bytes": 0,
+        }
     try:
         inputs = {
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
+            "translation_choices": input_identity(ROOT / "kits" / "translate" / "WORKS.json"),
+            "translation_source": input_identity(ROOT / "kits" / "translate" / "SOURCE.json"),
+            "openlogic_source": input_identity(ROOT / "kits" / "openlogic" / "SOURCE.json"),
+            "openlogic_job": input_identity(ROOT / "kits" / "openlogic" / "JOB.json"),
+            "openlogic_build": input_identity(ROOT / "kits" / "openlogic" / "BUILD.json"),
             "formalization": input_identity(ROOT / "catalog" / "formalize.json"),
             "portals": input_identity(ROOT / "catalog" / "portals.json"),
             "readback": input_identity(ROOT / "catalog" / "readback.json"),
             "readback_r2": input_identity(ROOT / "catalog" / "readback-r2.json"),
             "translate_readback": input_identity(ROOT / "catalog" / "translate-rb-v6.json"),
+            "openlogic_readback": input_identity(ROOT / "catalog" / "openlogic-rb.json"),
+            "translate_v7_readback": (
+                input_identity(ROOT / "catalog" / "translate-rb-v7.json")
+                if portal_requires_v7_readback(portal_catalog)
+                else None
+            ),
+            "openlogic_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "openlogic.json"),
+            "translate_v7_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v7.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
             "r2_admission_receipt": input_identity(ROOT / "catalog" / "receipts" / "r2-admission.json"),
             "no_failure_hardening_receipt": input_identity(ROOT / "catalog" / "receipts" / "no-failure-hardening.json"),
+            "openlogic_receipt": input_identity(ROOT / "catalog" / "receipts" / "openlogic.json"),
             "job_meta_schema": input_identity(ROOT / "schemas" / "job-meta.schema.json"),
             "job_schema": input_identity(ROOT / "schemas" / "job-catalog.schema.json"),
             "translation_schema": input_identity(ROOT / "schemas" / "translation-catalog.schema.json"),
+            "translation_choices_schema": input_identity(ROOT / "schemas" / "translation-choices.schema.json"),
+            "translation_source_schema": input_identity(ROOT / "schemas" / "translation-source.schema.json"),
+            "translation_build_schema": input_identity(ROOT / "schemas" / "translation-build.schema.json"),
             "formalization_schema": input_identity(ROOT / "schemas" / "formalization-intake.schema.json"),
             "portal_schema": input_identity(ROOT / "schemas" / "portal-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),
@@ -2143,6 +3147,11 @@ def main() -> int:
             "admission_builder": input_identity(ROOT / "tools" / "build_r2_admission.py"),
             "manifest_repair": input_identity(ROOT / "tools" / "repair_stale_packet_manifests.py"),
             "readback_tool": input_identity(ROOT / "tools" / "readback_jobs_release.py"),
+            "openlogic_builder": input_identity(ROOT / "tools" / "build_openlogic.py"),
+            "openlogic_auditor": input_identity(ROOT / "tools" / "audit_openlogic_build.py"),
+            "translation_builder": input_identity(ROOT / "tools" / "build_translate.py"),
+            "translation_migrator": input_identity(ROOT / "tools" / "migrate_translations_v7.py"),
+            "portal_readback_tool": input_identity(ROOT / "tools" / "readback_portal.py"),
             "validator": input_identity(ROOT / "tools" / "validate_jobs.py"),
         }
         asset_manifests = manifest_set_identity()
@@ -2150,7 +3159,7 @@ def main() -> int:
         print(f"ERROR: cannot bind validator inputs: {exc}", file=sys.stderr)
         return 1
     result = {
-        "schema": "math-commons-catalog-check/v2",
+        "schema": "math-commons-catalog-check/v3",
         "status": "PASS" if not errors else "FAIL",
         "inputs": inputs,
         "asset_manifests": asset_manifests,
@@ -2166,7 +3175,7 @@ def main() -> int:
             if args.asset_dir
             else "admission_receipt_plus_public_readback"
         ),
-        "translation_entries": translations,
+        "translation": translation_summary,
         "formalization_entries": formalization,
         "portal_sections": portals,
         "public_readback": public_readback,
@@ -2187,7 +3196,7 @@ def main() -> int:
                 "release_asset_bytes",
                 "packet_source_files",
                 "packet_source_bytes",
-                "translation_entries",
+                "translation",
                 "formalization_entries",
                 "portal_sections",
                 "public_readback",
@@ -2230,7 +3239,10 @@ def main() -> int:
     else:
         print(
             f"PASS: {jobs} jobs, {assets} release assets, "
-            f"{translations} translation entries, {portals} portal sections, "
+            f"{translation_summary['works']} translation works, "
+            f"{translation_summary['resources']} translation resources, "
+            f"{translation_summary['runnable_jobs']} runnable translation jobs, "
+            f"{portals} portal sections, "
             f"{formalization} formalization entries"
         )
     return 0 if not errors else 1

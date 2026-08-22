@@ -17,7 +17,7 @@
     "zip_member_files_replayed",
     "nested_authorities_replayed",
     "asset_mode",
-    "translation_entries",
+    "translation",
     "formalization_entries",
     "portal_sections",
     "public_readback",
@@ -25,7 +25,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "math-commons-catalog-check/v2"
+      "const": "math-commons-catalog-check/v3"
     },
     "status": {
       "enum": [
@@ -40,19 +40,32 @@
         "job_meta",
         "jobs",
         "translations",
+        "translation_choices",
+        "translation_source",
+        "openlogic_source",
+        "openlogic_job",
+        "openlogic_build",
         "formalization",
         "portals",
         "readback",
         "readback_r2",
         "translate_readback",
+        "openlogic_readback",
+        "translate_v7_readback",
+        "openlogic_asset_manifest",
+        "translate_v7_asset_manifest",
         "global_receipt",
         "gordan2_receipt",
         "mikami_receipt",
         "r2_admission_receipt",
         "no_failure_hardening_receipt",
+        "openlogic_receipt",
         "job_meta_schema",
         "job_schema",
         "translation_schema",
+        "translation_choices_schema",
+        "translation_source_schema",
+        "translation_build_schema",
         "formalization_schema",
         "portal_schema",
         "asset_schema",
@@ -65,6 +78,11 @@
         "admission_builder",
         "manifest_repair",
         "readback_tool",
+        "openlogic_builder",
+        "openlogic_auditor",
+        "translation_builder",
+        "translation_migrator",
+        "portal_readback_tool",
         "validator"
       ],
       "properties": {
@@ -75,6 +93,21 @@
           "$ref": "#/$defs/identity"
         },
         "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_choices": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_source": {
+          "$ref": "#/$defs/identity"
+        },
+        "openlogic_source": {
+          "$ref": "#/$defs/identity"
+        },
+        "openlogic_job": {
+          "$ref": "#/$defs/identity"
+        },
+        "openlogic_build": {
           "$ref": "#/$defs/identity"
         },
         "formalization": {
@@ -92,6 +125,21 @@
         "translate_readback": {
           "$ref": "#/$defs/identity"
         },
+        "openlogic_readback": {
+          "$ref": "#/$defs/identity"
+        },
+        "translate_v7_readback": {
+          "oneOf": [
+            {"$ref": "#/$defs/identity"},
+            {"type": "null"}
+          ]
+        },
+        "openlogic_asset_manifest": {
+          "$ref": "#/$defs/identity"
+        },
+        "translate_v7_asset_manifest": {
+          "$ref": "#/$defs/identity"
+        },
         "global_receipt": {
           "$ref": "#/$defs/identity"
         },
@@ -107,6 +155,9 @@
         "no_failure_hardening_receipt": {
           "$ref": "#/$defs/identity"
         },
+        "openlogic_receipt": {
+          "$ref": "#/$defs/identity"
+        },
         "job_meta_schema": {
           "$ref": "#/$defs/identity"
         },
@@ -114,6 +165,15 @@
           "$ref": "#/$defs/identity"
         },
         "translation_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_choices_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_source_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_build_schema": {
           "$ref": "#/$defs/identity"
         },
         "formalization_schema": {
@@ -150,6 +210,21 @@
           "$ref": "#/$defs/identity"
         },
         "readback_tool": {
+          "$ref": "#/$defs/identity"
+        },
+        "openlogic_builder": {
+          "$ref": "#/$defs/identity"
+        },
+        "openlogic_auditor": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_builder": {
+          "$ref": "#/$defs/identity"
+        },
+        "translation_migrator": {
+          "$ref": "#/$defs/identity"
+        },
+        "portal_readback_tool": {
           "$ref": "#/$defs/identity"
         },
         "validator": {
@@ -219,9 +294,21 @@
         "catalog_only"
       ]
     },
-    "translation_entries": {
-      "type": "integer",
-      "minimum": 0
+    "translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topics", "works", "resources", "source_editions", "translation_editions", "jobs", "runnable_jobs", "public_release_assets", "public_release_bytes"],
+      "properties": {
+        "topics": {"type": "integer", "minimum": 0},
+        "works": {"type": "integer", "minimum": 0},
+        "resources": {"type": "integer", "minimum": 0},
+        "source_editions": {"type": "integer", "minimum": 0},
+        "translation_editions": {"type": "integer", "minimum": 0},
+        "jobs": {"type": "integer", "minimum": 0},
+        "runnable_jobs": {"type": "integer", "minimum": 0},
+        "public_release_assets": {"type": "integer", "minimum": 0},
+        "public_release_bytes": {"type": "integer", "minimum": 0}
+      }
     },
     "formalization_entries": {
       "type": "integer",

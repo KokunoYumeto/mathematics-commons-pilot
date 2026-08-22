@@ -6,16 +6,16 @@ Choose one portal.
 
 ## Transcription
 
-Select one of the [28 verified packets](catalog/jobs.json), download every listed asset part, verify the hashes, and execute every prompt in that row's declared prompt file. Return the cumulative result, manifest, checks, failures, and continuation cursor.
+Select one of the [28 runnable packet envelopes](catalog/jobs.json), download every listed asset part, verify the hashes, and execute every prompt in that row's declared prompt file. Admission replay verifies the envelope and its declared inputs; it does not certify the requested transcription output. Return the cumulative result, manifest, checks, failures, and continuation cursor.
 
 ## Translation
 
-Browse the [non-exclusive work suggestions and work-specific edition reports](docs/translations.md), then download the [translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v6). You may also propose another mathematical work with a verifiable open source and derivative license.
+For an admitted source-bound job, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1), verify its recorded byte length and SHA-256, and choose the exact target language and written standard. To start another work, browse the [27 suggestions and work-specific edition evidence](docs/translations.md). The [generic v7 source-preflight starter](docs/translate-v7.md) is prepared but not yet published. You may also propose another mathematical work with a verifiable open source and derivative license.
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
 
-The agent first asks which work and which exact target language you want. It does not translate until the source, derivative license, component boundary, and baseline build are recorded.
+The generic starter first asks which work and which exact target language you want. It does not translate until the source, derivative license, component boundary, and baseline build are recorded. It contains no source work or translation and is not itself a runnable job.
 
 ## Open problems
 

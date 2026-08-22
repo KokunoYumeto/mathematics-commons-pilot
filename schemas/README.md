@@ -10,8 +10,12 @@ This directory contains both the practical packet-library contracts and the pres
 | `job-catalog.schema.json` | Public 28-job release catalog, interaction contract, assets, and hashes. |
 | `job-asset.schema.json` | Exact ZIP-part and source-member manifest for one job or the translation kit. |
 | `translation-catalog.schema.json` | Open-education source, license, state, QA, and language-adoption catalog. |
+| `translation-choices.schema.json` | Compact v7 projection used by the generic work/language chooser. |
+| `translation-source.schema.json` | Source, target-language, rights, and preflight state inside a translation packet. |
+| `translation-build.schema.json` | Open Logic cold-build and input-closure receipt structure; semantic target/order checks remain mandatory. |
 | `formalization-intake.schema.json` | Exact external Lean/source snapshots and separate build, placeholder, statement-correspondence, Mathlib-audit, and packet-admission states. |
 | `portal-catalog.schema.json` | Exact Transcription, Translation, and Open-problems section index with release asset identities and limitations. |
+| `portal-readback.schema.json` | Anonymous public readback structure for a source-bound or generic Translation release. |
 | `catalog-check.schema.json` | Generated replay receipt binding the catalogs, schemas, asset-manifest tree, counts, bytes, and ZIP-member validation state. |
 | `release-readback.schema.json` | Anonymous HTTPS post-publication receipt for one immutable release, its exact asset set, and commit-pinned raw files. |
 
