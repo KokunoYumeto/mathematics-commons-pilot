@@ -21,15 +21,14 @@ Current:
 
 - 40 non-exclusive open-mathematics suggestions or supporting rows and 8 exclusions;
 - semantic work keys and 10 subject groups;
-- work-specific edition reports separated from source readiness;
+- work-specific edition reports paired with plain distribution labels;
 - a separate exact-commit interface to 78 older-manuscript scopes; and
-- a local/web translation starter that accepts listed or newly proposed open works and asks for the exact target language before source acquisition.
+- a local/web translation starter that accepts listed or newly proposed works, shows the distribution note, and asks for the exact target language before source acquisition.
 
 Next:
 
-- close Open Logic's component census and unchanged baseline build;
-- independently freeze the strongest selected sources, licenses, assets, and build receipts;
-- publish work-specific source packets only after those preflights pass;
+- maintain the Open Logic source-bound packet and its public readback;
+- add bounded source packets when their exact bytes, distribution notes, and build receipts are available;
 - record new language editions without overwriting active or complete generations.
 
 ## Formalization

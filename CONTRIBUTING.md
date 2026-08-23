@@ -14,13 +14,13 @@ Packet integrity is not edition certification. Preserve the diplomatic source ed
 
 ## Translation
 
-1. Choose a work from the [non-exclusive suggestions](docs/translations.md), propose another mathematical work with a verifiable open source and derivative license, or choose a separate older-manuscript scope from the [interlanguage adoption snapshot](docs/adopt.md).
+1. Choose a work from the [non-exclusive suggestions](docs/translations.md), propose another mathematical work with a public source and a recorded distribution note, or choose a separate older-manuscript scope from the [interlanguage adoption snapshot](docs/adopt.md).
 2. State the exact target language, locale, script, and orthographic standard.
 3. Report existing editions and active work for that exact scope.
-4. Freeze the immutable source, derivative license, component inventory, and baseline build.
+4. Record the source identity, distribution note, component inventory, and baseline build as the work proceeds.
 5. Use the [translation starter](kits/translate/README.md) and return a standalone monolingual edition with cumulative state and independent QA.
 
-Open a [translation issue](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=translation.yml) to declare the scope. Reported editions are work-specific coverage leads, not permission to overwrite another edition and not evidence that other languages are absent. Every source still requires rights and build preflight. No-Derivatives, free-to-read-only, rights-unknown, component-only, reference, and rejected sources are not standalone translation assignments.
+Open a [translation issue](https://github.com/KokunoYumeto/mathematics-commons-pilot/issues/new?template=translation.yml) to declare the scope. Reported editions are work-specific coverage leads, not permission to overwrite another edition and not evidence that other languages are absent. Every returned packet carries its source, distribution, component, and build evidence. An explicit No-Derivatives term is recorded as a source restriction; a missing or mixed license note is recorded plainly rather than converted into a blanket permission or a blanket ban.
 
 ## Open problems
 

@@ -2,8 +2,10 @@
 """Project exact public Indonesian reader receipts into the live catalog.
 
 The generic translation-starter v7 release remains an immutable snapshot.  This
-script starts from that tagged catalog and applies the later Figshare readback
-as a deterministic, additive catalog update.
+script starts from the checked-out current catalog and applies the later
+Figshare readback as a deterministic, additive catalog update.  ``INPUT_PATH``
+and ``OUTPUT_PATH`` are separate so a replay can write to a temporary path
+without accidentally using that path as its input.
 """
 
 from __future__ import annotations
@@ -11,16 +13,18 @@ from __future__ import annotations
 import hashlib
 import json
 import subprocess
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_COMMIT = "a504e9307bbeb98cc81081a4008017ae54603ecb"
-BASE_BYTES = 187_603
-BASE_SHA256 = "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744"
+# v8 is maintained from the checked-out live catalog.  The v7 release remains
+# immutable history; this updater is intentionally idempotent on the v8 file.
+BASE_COMMIT = None
 EVIDENCE_ID = "figshare-id-readers-20260822"
 RECEIPT_PATH = ROOT / "catalog" / "receipts" / "id-readers.json"
+INPUT_PATH = ROOT / "catalog" / "translations.json"
 OUTPUT_PATH = ROOT / "catalog" / "translations.json"
 COMPUTING_WORK_ID = "mathematical-computing-reproducible-experiments"
 DIONNE_WORK_ID = "dionne-partial-differential-equations"
@@ -41,6 +45,8 @@ def load_json(data: bytes, label: str) -> dict[str, Any]:
 
 
 def tagged_catalog() -> dict[str, Any]:
+    if BASE_COMMIT is None:
+        return load_json(INPUT_PATH.read_bytes(), "current translation catalog")
     result = subprocess.run(
         ["git", "show", f"{BASE_COMMIT}:catalog/translations.json"],
         cwd=ROOT,
@@ -49,7 +55,7 @@ def tagged_catalog() -> dict[str, Any]:
         stderr=subprocess.PIPE,
     )
     data = result.stdout
-    if len(data) != BASE_BYTES or sha256(data) != BASE_SHA256:
+    if len(data) != 187_603 or sha256(data) != "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744":
         raise ValueError("translation-starter v7 catalog identity drift")
     return load_json(data, "translation-starter v7 catalog")
 
@@ -80,8 +86,8 @@ def computing_work(reader_id: str) -> dict[str, Any]:
             "Coverage in other languages is unknown, not absent."
         ),
         "why_listed": (
-            "A public Indonesian reader is available; the source work, license, "
-            "components, and translation scope still require exact preflight."
+            "A public Indonesian reader is available; its source identity, license "
+            "note, components, and scope are recorded below."
         ),
         "source_edition_ids": [f"{COMPUTING_WORK_ID}-source"],
         "translation_edition_ids": [reader_id],
@@ -111,8 +117,8 @@ def dionne_work(reader_id: str) -> dict[str, Any]:
             "It is separate from the Victor Ivrii work listed in this catalog."
         ),
         "why_listed": (
-            "A public Indonesian Unit 1 reader is available; the exact Dionne work, "
-            "source edition, license, components, and scope still require preflight."
+            "A public Indonesian Unit 1 reader is available; its current identity, "
+            "license note, components, and scope are recorded below."
         ),
         "source_edition_ids": [f"{DIONNE_WORK_ID}-source"],
         "translation_edition_ids": [reader_id],
@@ -153,11 +159,13 @@ def new_source(work_id: str) -> dict[str, Any]:
                 ),
             },
             "derivative_translation_allowed": None,
+            "distribution_class": "terms_unclassified",
+            "distribution_note": "The public-reader receipt does not establish a normalized source license note.",
             "component_notices": [],
             "evidence_ids": [EVIDENCE_ID],
         },
         "components": {"included": None, "excluded": None, "receipt": None},
-        "gates": {
+        "evidence_checks": {
             "work_identity": unknown_gate(
                 "The public reader establishes a titled PDF, not the exact source work."
             ),
@@ -168,7 +176,7 @@ def new_source(work_id: str) -> dict[str, Any]:
                 "No immutable source archive or complete Git tree is bound."
             ),
             "translation_permission": unknown_gate(
-                "The public-reader receipt does not independently establish translation rights."
+            "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
             ),
             "component_rights": unknown_gate(
                 "Source components and media rights have not been censused."
@@ -182,8 +190,7 @@ def new_source(work_id: str) -> dict[str, Any]:
         },
         "readiness": "identity_unresolved",
         "next_action": (
-            "identify and freeze the exact source work, source edition, rights, "
-            "components, editable source, and baseline build"
+            "Choose a target language and identify the exact source edition before returning the first translation checkpoint."
         ),
         "evidence_ids": [EVIDENCE_ID],
     }
@@ -250,6 +257,18 @@ def public_edition(
 
 def main() -> int:
     catalog = tagged_catalog()
+    prior_work_templates = {
+        str(row["id"]): deepcopy(row)
+        for row in catalog.get("works", [])
+        if isinstance(row, dict) and isinstance(row.get("id"), str)
+        and row.get("id") in NEW_WORK_IDS
+    }
+    prior_source_templates = {
+        str(row["id"]): deepcopy(row)
+        for row in catalog.get("source_editions", [])
+        if isinstance(row, dict) and isinstance(row.get("id"), str)
+        and row.get("item_id") in NEW_WORK_IDS
+    }
     receipt_data = RECEIPT_PATH.read_bytes()
     receipt = load_json(receipt_data, "Indonesian reader receipt")
     readers = receipt.get("readers")
@@ -268,7 +287,46 @@ def main() -> int:
 
     observed_at = str(receipt["observed_at"])
     collection_doi = str(collection["doi"])
-    catalog["updated_at"] = observed_at
+    reader_ids = {
+        str(row["id"])
+        for row in readers
+        if isinstance(row, dict) and isinstance(row.get("id"), str)
+    }
+    # Remove a prior v8 projection before rebuilding it, so replay produces
+    # one byte-identical catalog rather than accumulating duplicate rows.
+    catalog["evidence"] = [
+        row for row in catalog.get("evidence", [])
+        if isinstance(row, dict) and row.get("id") != EVIDENCE_ID
+    ]
+    catalog["works"] = [
+        row for row in catalog.get("works", [])
+        if isinstance(row, dict) and row.get("id") not in NEW_WORK_IDS
+    ]
+    catalog["source_editions"] = [
+        row for row in catalog.get("source_editions", [])
+        if isinstance(row, dict) and row.get("item_id") not in NEW_WORK_IDS
+    ]
+    catalog["translation_editions"] = [
+        row for row in catalog.get("translation_editions", [])
+        if isinstance(row, dict) and row.get("id") not in reader_ids
+    ]
+    for topic in catalog.get("topics", []):
+        if isinstance(topic, dict):
+            topic["work_ids"] = [
+                value for value in topic.get("work_ids", []) if value not in NEW_WORK_IDS
+            ]
+    for work in catalog.get("works", []):
+        if isinstance(work, dict):
+            work["translation_edition_ids"] = [
+                value for value in work.get("translation_edition_ids", []) if value not in reader_ids
+            ]
+            work["evidence_ids"] = [
+                value for value in work.get("evidence_ids", []) if value != EVIDENCE_ID
+            ]
+    # Preserve the current catalog timestamp when replaying an already-current
+    # v8 catalog; a first projection from an older catalog uses the receipt date.
+    if catalog.get("schema") != "math-commons-translation-catalog/v8":
+        catalog["updated_at"] = observed_at
     catalog["evidence"].append(
         {
             "id": EVIDENCE_ID,
@@ -300,16 +358,34 @@ def main() -> int:
         for row in readers
         if isinstance(row, dict) and row["work_id"] == DIONNE_WORK_ID
     )
-    catalog["works"].append(computing_work(str(computing_reader["id"])))
+    computing_template = prior_work_templates.get(
+        COMPUTING_WORK_ID, computing_work(str(computing_reader["id"]))
+    )
+    computing_template["translation_edition_ids"] = []
+    computing_template["evidence_ids"] = []
+    catalog["works"].append(computing_template)
     works[COMPUTING_WORK_ID] = catalog["works"][-1]
-    catalog["works"].append(dionne_work(str(dionne_reader["id"])))
+    dionne_template = prior_work_templates.get(
+        DIONNE_WORK_ID, dionne_work(str(dionne_reader["id"]))
+    )
+    dionne_template["translation_edition_ids"] = []
+    dionne_template["evidence_ids"] = []
+    catalog["works"].append(dionne_template)
     works[DIONNE_WORK_ID] = catalog["works"][-1]
     computing_topic = next(row for row in catalog["topics"] if row["id"] == "computing")
     computing_topic["work_ids"].append(COMPUTING_WORK_ID)
     analysis_topic = next(row for row in catalog["topics"] if row["id"] == "analysis")
     analysis_topic["work_ids"].append(DIONNE_WORK_ID)
-    catalog["source_editions"].append(new_source(COMPUTING_WORK_ID))
-    catalog["source_editions"].append(new_source(DIONNE_WORK_ID))
+    catalog["source_editions"].append(
+        prior_source_templates.get(
+            f"{COMPUTING_WORK_ID}-source", new_source(COMPUTING_WORK_ID)
+        )
+    )
+    catalog["source_editions"].append(
+        prior_source_templates.get(
+            f"{DIONNE_WORK_ID}-source", new_source(DIONNE_WORK_ID)
+        )
+    )
 
     coverage_note = (
         "A public Indonesian reader PDF is recorded below with exact DOI, "
@@ -330,8 +406,7 @@ def main() -> int:
         work = works.get(work_id)
         if work is None:
             raise ValueError(f"unknown reader work: {work_id}")
-        if work_id not in NEW_WORK_IDS:
-            work["translation_edition_ids"].append(reader_id)
+        work["translation_edition_ids"].append(reader_id)
         if work_id != DIONNE_WORK_ID:
             work["coverage_note"] = coverage_note
         if EVIDENCE_ID not in work["evidence_ids"]:

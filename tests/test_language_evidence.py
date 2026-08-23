@@ -33,12 +33,12 @@ class LanguageEvidenceTests(unittest.TestCase):
         )
         cls.priority = cls.catalog["language_priority"]
 
-    def test_v7_catalog_has_explicit_semantic_collections(self) -> None:
+    def test_v8_catalog_has_explicit_semantic_collections(self) -> None:
         self.assertEqual(
-            self.catalog["schema"], "math-commons-translation-catalog/v7"
+            self.catalog["schema"], "math-commons-translation-catalog/v8"
         )
         self.assertEqual(
-            self.choices["schema"], "math-commons-translation-choices/v7"
+            self.choices["schema"], "math-commons-translation-choices/v8"
         )
         self.assertEqual(len(self.catalog["topics"]), 10)
         self.assertEqual(len(self.catalog["works"]), 29)

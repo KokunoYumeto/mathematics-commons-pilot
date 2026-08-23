@@ -36,7 +36,7 @@
       "state": "runnable",
       "docs": "docs/translations.md",
       "catalog": "catalog/translations.json",
-      "summary": "One source-bound Open Logic job, a generic work-and-language source-preflight starter, nine exact public Indonesian reader identities, and non-exclusive suggestions with explicit evidence limits.",
+      "summary": "One source-bound Open Logic job, a current distribution-labeled work-and-language starter, nine exact public Indonesian reader identities, and non-exclusive suggestions with explicit evidence limits.",
       "release": {
         "tag": "translate-openlogic-v1",
         "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
@@ -76,7 +76,7 @@
       "limitations": [
         "The Open Logic release contains exact source and workflow material, not a completed translation.",
         "The generic starter contains no textbook, source work, or completed translation.",
-        "Most catalog rows require independent source, license, component, and baseline-build preflight."
+        "Most catalog rows are suggestions rather than packaged jobs; each row exposes its recorded distribution class and source note."
       ]
     },
     {

@@ -77,10 +77,10 @@ class OpenLogicSourceTests(unittest.TestCase):
             {"sty/bussproofs-extra.sty", "bib/natbib-oup.bst", "NOTICE.md"},
         )
 
-    def test_all_seven_source_gates_pass_and_job_is_runnable(self) -> None:
+    def test_all_source_evidence_checks_pass_and_job_is_runnable(self) -> None:
         source = self.sources["openlogic-core-source"]
         self.assertEqual(
-            set(source["gates"]),
+            set(source["evidence_checks"]),
             {
                 "work_identity",
                 "source_edition_identity",
@@ -92,10 +92,10 @@ class OpenLogicSourceTests(unittest.TestCase):
             },
         )
         self.assertEqual(
-            {gate["state"] for gate in source["gates"].values()}, {"pass"}
+            {gate["state"] for gate in source["evidence_checks"].values()}, {"pass"}
         )
         self.assertTrue(
-            all(gate["evidence_ids"] for gate in source["gates"].values())
+            all(gate["evidence_ids"] for gate in source["evidence_checks"].values())
         )
         self.assertEqual(source["readiness"], "runnable")
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public v7 translation catalog from the reviewed v3 snapshot."""
+"""Build the current translation catalog from the reviewed snapshot."""
 
 from __future__ import annotations
 
@@ -224,6 +224,8 @@ def main() -> int:
                     "scope": "Open Logic Project authored content",
                 },
                 "derivative_translation_allowed": True,
+                "distribution_class": "open_license",
+                "distribution_note": "An open license is named for the source; follow its attribution and component notices.",
                 "component_notices": [
                     {"path": "sty/bussproofs-extra.sty", "license": "LPPL notice preserved"},
                     {"path": "bib/natbib-oup.bst", "license": "LPPL notice preserved"},
@@ -249,7 +251,7 @@ def main() -> int:
                 "baseline_build": gate("unknown", "No exact baseline build receipt is bound.", ids),
             }
             identity_state = "reported_locator" if locator_present else "unresolved"
-            readiness = "not_standalone" if entry["translation_readiness"] == "not_standalone" else ("identity_unresolved" if work_unresolved else "source_preflight")
+            readiness = "reference_only" if entry["translation_readiness"] == "not_standalone" else ("identity_unresolved" if work_unresolved else "listed")
             source_language = language(None, None)
             rights = {
                 "state": "reported_unverified",
@@ -259,6 +261,8 @@ def main() -> int:
                     "scope": "Reported planning metadata; not independently replayed",
                 },
                 "derivative_translation_allowed": entry.get("derivative_allowed"),
+                "distribution_class": "terms_unclassified",
+                "distribution_note": "The current catalog does not normalize the source's distribution terms.",
                 "component_notices": [],
                 "evidence_ids": ids,
             }
@@ -268,7 +272,7 @@ def main() -> int:
                 "receipt": None,
             }
             source_label = entry["source_format"]
-            next_action = entry["preflight_needed"]
+            next_action = "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and distribution note."
 
         item = {
             "id": item_id,
@@ -306,7 +310,7 @@ def main() -> int:
                 },
                 "rights": rights,
                 "components": components,
-                "gates": gates,
+                "evidence_checks": gates,
                 "readiness": readiness,
                 "next_action": next_action,
                 "evidence_ids": ids,
@@ -421,15 +425,23 @@ def main() -> int:
     ]
 
     catalog = {
-        "schema": "math-commons-translation-catalog/v7",
+        "schema": "math-commons-translation-catalog/v8",
         "updated_at": UPDATED,
         "scope": {
             "non_exhaustive": True,
             "other_open_works_welcome": True,
-            "description": "Open mathematical works and resources that contributors may translate. The catalog separates works, source editions, translation editions, and downloadable jobs.",
-            "coverage_rule": "Unknown coverage never means that no translation exists. Public activity requires dated public evidence.",
+            "description": "A non-exclusive directory of mathematical works and resources for translation outside maintained project lanes. Each row gives a readable work identity, language evidence, distribution class, and practical next action.",
+            "coverage_rule": "A row is a suggestion unless a packaged job and public readback say runnable. Unknown coverage means unknown, not absence.",
         },
         "language_priority": old["language_priority"],
+        "distribution_legend": {
+            "open_license": "Open license named; follow the stated terms.",
+            "noncommercial_only": "Non-commercial distribution only; not for commercial distribution.",
+            "mixed_components": "Mixed or incomplete component terms; use the named notices.",
+            "terms_unclassified": "Distribution terms are not normalized in the current row.",
+            "no_derivatives": "No derivative edition is claimed; reference use only.",
+            "reference_only": "Reference or component entry; not a standalone translation job.",
+        },
         "separate_archive": old_choices["catalogs"]["separate_manuscript_archive"],
         "evidence": [
             {
@@ -491,9 +503,9 @@ def main() -> int:
     catalog_data = write(ROOT / CATALOG_PATH, catalog)
 
     choices = {
-        "schema": "math-commons-translation-choices/v7",
+        "schema": "math-commons-translation-choices/v8",
         "updated_at": UPDATED,
-        "rule": "Choose a topic, then a work, then a runnable job. If no job exists, the source edition still needs preflight. Unknown translation coverage never means absence.",
+        "rule": "Choose a topic, then a work and target language. Each row states its distribution class and license note. A listed row is a suggestion; only a packaged job with public readback is runnable. Unknown coverage never means absence.",
         "catalog": {"path": CATALOG_PATH, "bytes": len(catalog_data), "sha256": hashlib.sha256(catalog_data).hexdigest().upper()},
         "separate_archive": catalog["separate_archive"],
         "topics": topics,
@@ -506,7 +518,7 @@ def main() -> int:
             for row in resources
         ],
         "source_editions": [
-            {"id": row["id"], "item_id": row["item_id"], "item_type": row["item_type"], "readiness": row["readiness"]}
+            {"id": row["id"], "item_id": row["item_id"], "item_type": row["item_type"], "readiness": row["readiness"], "distribution_class": row["rights"]["distribution_class"], "distribution_note": row["rights"]["distribution_note"]}
             for row in source_editions
         ],
         "translation_editions": [
@@ -515,7 +527,14 @@ def main() -> int:
         ],
         "jobs": jobs,
         "language_priority": old["language_priority"],
-        "source_preflight": old_choices["source_preflight"],
+        "distribution_legend": {
+            "open_license": "Open license named; follow the stated terms.",
+            "noncommercial_only": "Non-commercial distribution only; not for commercial distribution.",
+            "mixed_components": "Mixed or incomplete component terms; use the named notices.",
+            "terms_unclassified": "Distribution terms are not normalized in the current row.",
+            "no_derivatives": "No derivative edition is claimed; reference use only.",
+            "reference_only": "Reference or component entry; not a standalone translation job."
+        },
     }
     write(ROOT / WORKS_PATH, choices)
     write_internal_manifest(ROOT / "kits" / "translate")

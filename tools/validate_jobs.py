@@ -63,8 +63,8 @@ READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
 READBACK_DATE = "2026-08-22"
 PORTAL_V1_BYTES = 3_326
 PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
-TRANSLATE_V7_CATALOG_BYTES = 187_603
-TRANSLATE_V7_CATALOG_SHA256 = "ABFD27FF21D57FBB7389C876162BD73A7950D424D130846B352BD8D1B1559744"
+TRANSLATE_V8_CATALOG_BYTES = 230_346
+TRANSLATE_V8_CATALOG_SHA256 = "4007729A6427D962A0F794D3B43ECC5C404D3D9F4E93BE9596108B714320980C"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -1228,7 +1228,7 @@ def validate_translations(errors: list[str]) -> int:
         errors.append("translation catalog root is not an object")
         return 0
     expect(
-        catalog.get("schema") == "math-commons-translation-catalog/v7",
+        catalog.get("schema") == "math-commons-translation-catalog/v8",
         errors,
         "translation catalog schema",
     )
@@ -1365,7 +1365,7 @@ def validate_translations(errors: list[str]) -> int:
     source_ids_by_item: dict[str, list[str]] = {item_id: [] for item_id in item_ids}
     translation_ids_by_work: dict[str, list[str]] = {work_id: [] for work_id in works}
     job_ids_by_work: dict[str, list[str]] = {work_id: [] for work_id in works}
-    gate_names = {
+    check_names = {
         "work_identity",
         "source_edition_identity",
         "immutable_source",
@@ -1392,13 +1392,13 @@ def validate_translations(errors: list[str]) -> int:
             errors,
             f"translation source {source_id}: evidence FKs",
         )
-        gates = source.get("gates")
-        if not isinstance(gates, dict) or set(gates) != gate_names:
-            errors.append(f"translation source {source_id}: exact seven gates")
+        checks = source.get("evidence_checks")
+        if not isinstance(checks, dict) or set(checks) != check_names:
+            errors.append(f"translation source {source_id}: exact evidence checks")
             gate_states: list[str] = []
         else:
             gate_states = []
-            for gate_name, row in gates.items():
+            for gate_name, row in checks.items():
                 if not isinstance(row, dict):
                     errors.append(f"translation source {source_id}: malformed {gate_name} gate")
                     continue
@@ -1409,18 +1409,15 @@ def validate_translations(errors: list[str]) -> int:
                     errors,
                     f"translation source {source_id}: {gate_name} evidence",
                 )
-        all_pass = len(gate_states) == len(gate_names) and set(gate_states) == {"pass"}
+        all_pass = len(gate_states) == len(check_names) and set(gate_states) == {"pass"}
         readiness = source.get("readiness")
         expect(
-            readiness in {"identity_unresolved", "source_preflight", "not_standalone", "packet_prepared", "runnable"},
+            readiness in {"identity_unresolved", "listed", "reference_only", "packet_prepared", "runnable"},
             errors,
             f"translation source {source_id}: readiness",
         )
-        expect(
-            (readiness in {"packet_prepared", "runnable"}) == all_pass,
-            errors,
-            f"translation source {source_id}: readiness derivation",
-        )
+        if readiness in {"packet_prepared", "runnable"}:
+            expect(all_pass, errors, f"translation source {source_id}: packet checks")
         if readiness in {"packet_prepared", "runnable"}:
             locator = source.get("locator")
             rights = source.get("rights")
@@ -1799,7 +1796,7 @@ def validate_translations(errors: list[str]) -> int:
         return len(item_ids)
     validate_schema(choices, "translation_choices", "translation chooser", errors)
     expect(
-        choices.get("schema") == "math-commons-translation-choices/v7",
+        choices.get("schema") == "math-commons-translation-choices/v8",
         errors,
         "translation chooser schema",
     )
@@ -1812,10 +1809,10 @@ def validate_translations(errors: list[str]) -> int:
     expect(
         isinstance(catalog_identity, dict)
         and catalog_identity.get("path") == "catalog/translations.json"
-        and catalog_identity.get("bytes") == TRANSLATE_V7_CATALOG_BYTES
-        and catalog_identity.get("sha256") == TRANSLATE_V7_CATALOG_SHA256,
+        and catalog_identity.get("bytes") == TRANSLATE_V8_CATALOG_BYTES
+        and catalog_identity.get("sha256") == TRANSLATE_V8_CATALOG_SHA256,
         errors,
-        "translation chooser frozen v7 catalog identity",
+        "translation chooser current catalog identity",
     )
     expect(
         choices.get("separate_archive") == catalog.get("separate_archive")
@@ -1883,6 +1880,8 @@ def validate_translations(errors: list[str]) -> int:
             "item_id": row["item_id"],
             "item_type": row["item_type"],
             "readiness": row["readiness"],
+            "distribution_class": row["rights"]["distribution_class"],
+            "distribution_note": row["rights"]["distribution_note"],
         }
         for row in collections["source_editions"]
         if row["id"] in choice_source_ids
@@ -1963,11 +1962,11 @@ def validate_translations(errors: list[str]) -> int:
     )
     validate_openlogic_build(openlogic_receipt, "Open Logic admission receipt", errors)
     expect(
-        generic_source.get("state") == "source_preflight"
+        generic_source.get("state") == "source_intake"
         and generic_source.get("work", {}).get("work_id") is None
         and generic_source.get("source", {}).get("commit") is None,
         errors,
-        "generic translation source-preflight boundary",
+        "generic translation work-selection boundary",
     )
     expect(
         openlogic_source_state.get("state") == "awaiting_target_selection"
