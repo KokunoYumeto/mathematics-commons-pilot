@@ -56,22 +56,22 @@
         ]
       },
       "starter": {
-        "tag": "translate-v9-corrected",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-corrected",
-        "target_commit": "89fab36a658267a3d2a5ab9845eccb606b2dc8f5",
-        "target_tree": "2e910309f0d8676cbbd6304ff348e76fb4039b16",
+        "tag": "translate-v8",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8",
+        "target_commit": "a385ab9e46e15abb830864132c124c1ab02f1434",
+        "target_tree": "cc079eb5cb3d4c0a2daba22c2cf149f8ecca62e8",
         "asset_count": 1,
-        "asset_bytes": 17210,
-        "asset_catalog": "catalog/assets/translate-v9.json",
+        "asset_bytes": 16580,
+        "asset_catalog": "catalog/assets/translate-v8.json",
         "admission_receipt": null,
-        "readback": "catalog/translate-rb-v9.json",
+        "readback": "catalog/translate-rb-v8.json",
         "workflow_state": "runnable_workflow",
         "workflow_note": "The generic starter is runnable for listed and user-proposed works once the contributor supplies or obtains the exact source; its release is not a self-contained textbook packet.",
         "assets": [
           {
-            "name": "translation-starter-v9.zip",
-            "bytes": 17210,
-            "sha256": "35A243556E8B5C1C1BD44E62E115990E7AB81CCA4B646CFB902F150C33B9F2C5"
+            "name": "translation-starter-v8.zip",
+            "bytes": 16580,
+            "sha256": "EA600BCA211224902C80AC0B1D235383A8E9748A6D3A8156611AC291E41C4429"
           }
         ]
       },

@@ -32,7 +32,7 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 - Generic starter: runnable translation workflow; it supplies the work-selection, source-intake, production, and review contract, but does not bundle a textbook
 - Explicit exclusions: 8
 - Source-bound release: [`translate-openlogic-v1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1)
-- Generic starter: [`translate-v9-corrected`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-corrected), distribution-labeled and anonymously replayed.
+- Generic starter: [`translate-v9-complete`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-complete), distribution-labeled and anonymously replayed.
 
 The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional works, displays the recorded distribution class and note, separates public evidence from dated historical reports, and contains source-selection, language-identification, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
 

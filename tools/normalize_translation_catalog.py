@@ -280,6 +280,65 @@ def main() -> int:
             rights = source.get("rights", {})
             row["distribution_class"] = rights.get("distribution_class")
             row["distribution_note"] = rights.get("distribution_note")
+    # Keep the downloadable chooser projection synchronized with the live
+    # catalog.  Additive reader rows are real work scopes, not optional
+    # metadata that can silently disappear from WORKS.json.
+    choices["topics"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "work_ids": row["work_ids"],
+            "resource_ids": row["resource_ids"],
+        }
+        for row in catalog.get("topics", [])
+    ]
+    choices["works"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+            "translation_edition_ids": row["translation_edition_ids"],
+            "job_ids": row["job_ids"],
+        }
+        for row in catalog.get("works", [])
+    ]
+    choices["resources"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "kind": row["kind"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+        }
+        for row in catalog.get("resources", [])
+    ]
+    choices["source_editions"] = [
+        {
+            "id": row["id"],
+            "item_id": row["item_id"],
+            "item_type": row["item_type"],
+            "readiness": row["readiness"],
+            "workflow_startability": row["workflow_startability"],
+            "workflow_mode": row["workflow_mode"],
+            "workflow_note": row["workflow_note"],
+            "distribution_class": row["rights"]["distribution_class"],
+            "distribution_note": row["rights"]["distribution_note"],
+        }
+        for row in catalog.get("source_editions", [])
+    ]
+    choices["translation_editions"] = [
+        {
+            "id": row["id"],
+            "work_id": row["work_id"],
+            "language": row["target_language"],
+            "identity_state": row["identity_state"],
+            "progress_state": row["progress_state"],
+            "review_state": row["review_state"],
+        }
+        for row in catalog.get("translation_editions", [])
+    ]
+    choices["jobs"] = catalog.get("jobs", [])
     dump(CHOICES, choices)
     print(json.dumps({"catalog_bytes": len(catalog_bytes), "catalog_sha256": catalog_identity["sha256"], "sources": len(catalog["source_editions"])}, separators=(",", ":")))
     return 0

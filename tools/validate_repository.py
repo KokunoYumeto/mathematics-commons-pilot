@@ -165,6 +165,7 @@ REQUIRED = {
     "catalog/assets/translate-v7.json",
     "catalog/assets/translate-v8.json",
     "catalog/assets/translate-v9.json",
+    "catalog/assets/translate-v9-complete.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
@@ -943,7 +944,7 @@ def portal_requires_translation_readbacks(catalog: dict[str, Any]) -> bool:
             continue
         for key in ("release", "starter"):
             release = section.get(key)
-            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8", "translate-v9-corrected"}:
+            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8", "translate-v9-corrected", "translate-v9-complete"}:
                 return True
     return False
 
@@ -975,6 +976,16 @@ def check_required(errors: list[str]) -> None:
             for section in portal.get("sections", [])
         ):
             check_required_file("catalog/translate-rb-v8.json", errors)
+        if any(
+            isinstance(section, dict)
+            and any(
+                isinstance(section.get(key), dict)
+                and section[key].get("tag") == "translate-v9-complete"
+                for key in ("release", "starter")
+            )
+            for section in portal.get("sections", [])
+        ):
+            check_required_file("catalog/translate-rb-v9-complete.json", errors)
         if any(
             isinstance(section, dict)
             and any(

@@ -65,7 +65,7 @@ PORTAL_V1_BYTES = 3_326
 PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
 TRANSLATE_V9_CATALOG_BYTES = 241_565
 TRANSLATE_V9_CATALOG_SHA256 = "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
-TRANSLATE_V9_TAG = "translate-v9-corrected"
+TRANSLATE_V9_TAG = "translate-v9-complete"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -2959,10 +2959,15 @@ def validate_portals(errors: list[str]) -> int:
             "translation-starter-v8",
             "catalog/translate-rb-v8.json",
         ),
-        TRANSLATE_V9_TAG: (
+        "translate-v9-corrected": (
             "catalog/assets/translate-v9.json",
             "translation-starter-v9",
             "catalog/translate-rb-v9.json",
+        ),
+        TRANSLATE_V9_TAG: (
+            "catalog/assets/translate-v9-complete.json",
+            "translation-starter-v9",
+            "catalog/translate-rb-v9-complete.json",
         ),
     }
     starter_tag = starter_release.get("tag")
@@ -3400,14 +3405,14 @@ def main() -> int:
                 else None
             ),
             "translate_v9_readback": (
-                input_identity(ROOT / "catalog" / "translate-rb-v9.json")
+                input_identity(ROOT / "catalog" / "translate-rb-v9-complete.json")
                 if portal_requires_v9_readback(portal_catalog)
                 else None
             ),
             "openlogic_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "openlogic.json"),
             "translate_v7_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v7.json"),
             "translate_v8_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v8.json"),
-            "translate_v9_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v9.json"),
+            "translate_v9_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v9-complete.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),

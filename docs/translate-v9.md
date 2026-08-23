@@ -1,19 +1,16 @@
 # Translation starter v9
 
-`translate-v9-corrected` is the current generic translation workflow release (the package version is v9). It is a chooser and source-intake kit, not a textbook or a completed translation. It is usable for every non-reference work in `catalog/translations.json`, including rows marked `starter_available` and the `source_bound_packet` Open Logic row.
+`translate-v9-complete` is the current generic translation workflow release (the package version is v9). It is a chooser and source-intake kit, not a textbook or a completed translation. It is usable for every non-reference work in `catalog/translations.json`, including rows marked `starter_available` and the `source_bound_packet` Open Logic row.
 
 ## Release identity
 
-- Release tag: [`translate-v9-corrected`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-corrected)
-- Release target commit: `89fab36a658267a3d2a5ab9845eccb606b2dc8f5`
-- Release target tree: `2e910309f0d8676cbbd6304ff348e76fb4039b16`
+- Release tag: [`translate-v9-complete`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-complete)
+- Release target commit and tree: recorded in the live portal and anonymous readback after publication
 - Asset: `translation-starter-v9.zip`
-- Asset size: 17,210 bytes
-- Asset SHA-256: `35A243556E8B5C1C1BD44E62E115990E7AB81CCA4B646CFB902F150C33B9F2C5`
-- Asset manifest: [`catalog/assets/translate-v9.json`](../catalog/assets/translate-v9.json)
-- Included source files: 12 / 71,890 bytes
+- Asset size and SHA-256: recorded in [`catalog/assets/translate-v9-complete.json`](../catalog/assets/translate-v9-complete.json)
+- Included source files: 12 (exact byte count in the manifest)
 - Included members: `KIT.json`, `WORKS.json`, source/intake instructions, prompt, QA, return, and manifest files
-- Anonymous readback: [`catalog/translate-rb-v9.json`](../catalog/translate-rb-v9.json), observed 2026-08-23, release id `375290060`
+- Anonymous readback: recorded in the live catalog after publication
 
 The release is immutable. The live portal records the exact commit, tree, asset manifest, and anonymous readback after publication. Fetch those related files from one pinned commit; do not mix revisions.
 

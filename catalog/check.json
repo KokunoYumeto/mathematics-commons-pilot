@@ -19,8 +19,8 @@
     },
     "translation_choices": {
       "path": "kits/translate/WORKS.json",
-      "bytes": 55577,
-      "sha256": "CE9CB2BF93ED744EE6FBB8A37E137373A7A5275580BD95FCA5026886BA1DD250"
+      "bytes": 62666,
+      "sha256": "19B800300E954A366757D190AAE1F63C85AF6513548F17759E910D183B584732"
     },
     "translation_source": {
       "path": "kits/translate/SOURCE.json",
@@ -49,8 +49,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 5301,
-      "sha256": "CAF1172F16562EBDBFC7D44CC59DDA46BFA76D0A95B17D4F946B0A5BE1A38B3B"
+      "bytes": 5281,
+      "sha256": "7E29541DFD44300AAFD03A1AE348B5D990BF6D46BDDD235FA7958631681E9F3F"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -73,12 +73,12 @@
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
     "translate_v7_readback": null,
-    "translate_v8_readback": null,
-    "translate_v9_readback": {
-      "path": "catalog/translate-rb-v9.json",
-      "bytes": 1231,
-      "sha256": "79B77EF8A6734BD9C31E44BD72211FD00238806F1FE362757D976167B55C35A8"
+    "translate_v8_readback": {
+      "path": "catalog/translate-rb-v8.json",
+      "bytes": 1199,
+      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
     },
+    "translate_v9_readback": null,
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
       "bytes": 177525,
@@ -95,9 +95,9 @@
       "sha256": "3887D93097C01795B243F69C1126994396123BAC9B33FAE075D81CAAABB7CCEF"
     },
     "translate_v9_asset_manifest": {
-      "path": "catalog/assets/translate-v9.json",
+      "path": "catalog/assets/translate-v9-complete.json",
       "bytes": 2603,
-      "sha256": "90C0C6FF19CDAAE08C401A38A0D51EB8A9E13609A9802C2264ED55D9C44A5447"
+      "sha256": "D4E4A54316C8C7EF82AD99F6315904C7D120D14B97B0EB823707A7034BA2B1B6"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -251,20 +251,20 @@
     },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
-      "bytes": 12799,
-      "sha256": "4FD9B0ACF5170070205754628F780A204F5965C30E059C39A467B66CFA6A6BCC"
+      "bytes": 12807,
+      "sha256": "622E951A87706750D0F803E7A8A9894D2CBBCAA2A24D7C3B2F8C905CACB194BC"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 149247,
-      "sha256": "F06A22DC90082BBEBC22047CE9EE7FA74A2821F37CE0EB75498136840ED88080"
+      "bytes": 149459,
+      "sha256": "7F92AF7326D618CA77BBB6A5DF73876CE17E6D56EDC1FDD644BC5D12E9240615"
     }
   },
   "asset_manifests": {
-    "files": 38,
-    "bytes": 321790,
-    "canonical_stream_bytes": 4424,
-    "tree_sha256": "357E11DAADBD1297F4E03EC0EA4D3BE63F108D4A790437DA92687FEE4511CE8F"
+    "files": 39,
+    "bytes": 324393,
+    "canonical_stream_bytes": 4536,
+    "tree_sha256": "FC1EFCE68E3C2AC44F34AD2FF99FE2E41DF5437133DBFAA7129E915FAE56DF12"
   },
   "jobs": 28,
   "release_assets": 31,
@@ -286,7 +286,7 @@
     "runnable_jobs": 1,
     "runnable_jobs_scope": "self_contained_public_packets_only",
     "public_release_assets": 2,
-    "public_release_bytes": 1938741
+    "public_release_bytes": 1938111
   },
   "formalization_entries": 19,
   "portal_sections": 3,

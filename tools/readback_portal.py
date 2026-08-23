@@ -28,7 +28,7 @@ RELEASE_CONTRACTS = {
     "openlogic-v1": ("translate-openlogic-v1", "openlogic-rb.json"),
     "translation-starter-v7": ("translate-v7", "translate-rb-v7.json"),
     "translation-starter-v8": ("translate-v8", "translate-rb-v8.json"),
-    "translation-starter-v9": ("translate-v9-corrected", "translate-rb-v9.json"),
+    "translation-starter-v9": ("translate-v9-complete", "translate-rb-v9-complete.json"),
 }
 
 

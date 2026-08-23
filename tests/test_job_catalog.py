@@ -284,9 +284,9 @@ class JobCatalogTests(unittest.TestCase):
         self.assertEqual(choices["separate_archive"], catalog["separate_archive"])
         self.assertEqual(choices["jobs"], catalog["jobs"])
         self.assertEqual(choices["language_priority"], catalog["language_priority"])
-        self.assertEqual(len(choices["works"]), 27)
-        self.assertEqual(len(choices["source_editions"]), 39)
-        self.assertEqual(len(choices["translation_editions"]), 14)
+        self.assertEqual(len(choices["works"]), 29)
+        self.assertEqual(len(choices["source_editions"]), 41)
+        self.assertEqual(len(choices["translation_editions"]), 23)
         self.assertEqual(len(catalog["works"]), 29)
         self.assertEqual(len(catalog["source_editions"]), 41)
         self.assertEqual(len(catalog["translation_editions"]), 23)
@@ -414,7 +414,7 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 38)
+        self.assertEqual(identity["files"], 39)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
@@ -725,19 +725,19 @@ class JobCatalogTests(unittest.TestCase):
                 "runnable_jobs": 1,
                 "runnable_jobs_scope": "self_contained_public_packets_only",
                 "public_release_assets": 2,
-                "public_release_bytes": 1_938_741,
+                "public_release_bytes": 1_938_111,
             },
         )
         self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
-        self.assertIsNone(receipt["inputs"]["translate_v8_readback"])
         self.assertEqual(
-            receipt["inputs"]["translate_v9_readback"],
+            receipt["inputs"]["translate_v8_readback"],
             {
-                "path": "catalog/translate-rb-v9.json",
-                "bytes": 1_231,
-                "sha256": "79B77EF8A6734BD9C31E44BD72211FD00238806F1FE362757D976167B55C35A8",
+                "path": "catalog/translate-rb-v8.json",
+                "bytes": 1_199,
+                "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22",
             },
         )
+        self.assertIsNone(receipt["inputs"]["translate_v9_readback"])
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (

@@ -10,7 +10,7 @@ Select one of the [28 runnable packet envelopes](catalog/jobs.json), download ev
 
 ## Translation
 
-For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) and verify its recorded byte length and SHA-256. To start any other workflow-startable work, browse the [29 work scopes and their evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-corrected). Each row states its workflow startability, distribution class, and source note. You may also propose another mathematical work with a public source and recorded terms.
+For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) and verify its recorded byte length and SHA-256. To start any other workflow-startable work, browse the [29 work scopes and their evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-complete). Each row states its workflow startability, distribution class, and source note. You may also propose another mathematical work with a public source and recorded terms.
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
