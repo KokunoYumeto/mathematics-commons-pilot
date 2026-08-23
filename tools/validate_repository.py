@@ -943,7 +943,7 @@ def portal_requires_translation_readbacks(catalog: dict[str, Any]) -> bool:
             continue
         for key in ("release", "starter"):
             release = section.get(key)
-            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8", "translate-v9"}:
+            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8", "translate-v9-corrected"}:
                 return True
     return False
 
@@ -979,7 +979,7 @@ def check_required(errors: list[str]) -> None:
             isinstance(section, dict)
             and any(
                 isinstance(section.get(key), dict)
-                and section[key].get("tag") == "translate-v9"
+                and section[key].get("tag") == "translate-v9-corrected"
                 for key in ("release", "starter")
             )
             for section in portal.get("sections", [])

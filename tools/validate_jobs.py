@@ -65,6 +65,7 @@ PORTAL_V1_BYTES = 3_326
 PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
 TRANSLATE_V9_CATALOG_BYTES = 241_565
 TRANSLATE_V9_CATALOG_SHA256 = "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
+TRANSLATE_V9_TAG = "translate-v9-corrected"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -2493,7 +2494,7 @@ def portal_requires_translation_readback(catalog: dict[str, Any]) -> bool:
     return (
         portal_has_release(catalog, "translate-v7")
         or portal_has_release(catalog, "translate-v8")
-        or portal_has_release(catalog, "translate-v9")
+        or portal_has_release(catalog, TRANSLATE_V9_TAG)
     )
 
 
@@ -2509,7 +2510,7 @@ def portal_requires_v8_readback(catalog: dict[str, Any]) -> bool:
 
 def portal_requires_v9_readback(catalog: dict[str, Any]) -> bool:
     """Whether the v9 starter is the declared current starter."""
-    return portal_has_release(catalog, "translate-v9")
+    return portal_has_release(catalog, TRANSLATE_V9_TAG)
 
 
 def validate_portals_v1(
@@ -2871,7 +2872,7 @@ def validate_portals(errors: list[str]) -> int:
         observed_date_ok = re.fullmatch(
             r"\d{4}-\d{2}-\d{2}", str(readback.get("observed_date"))
         ) is not None
-        if tag in {"translate-v8", "translate-v9"}:
+        if tag in {"translate-v8", TRANSLATE_V9_TAG}:
             observed_date_ok = observed_date_ok and readback.get("observed_date") == catalog.get("updated")
         else:
             # Older release readbacks are immutable historical observations and
@@ -2958,7 +2959,7 @@ def validate_portals(errors: list[str]) -> int:
             "translation-starter-v8",
             "catalog/translate-rb-v8.json",
         ),
-        "translate-v9": (
+        TRANSLATE_V9_TAG: (
             "catalog/assets/translate-v9.json",
             "translation-starter-v9",
             "catalog/translate-rb-v9.json",

@@ -49,8 +49,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 5281,
-      "sha256": "7E29541DFD44300AAFD03A1AE348B5D990BF6D46BDDD235FA7958631681E9F3F"
+      "bytes": 5301,
+      "sha256": "CAF1172F16562EBDBFC7D44CC59DDA46BFA76D0A95B17D4F946B0A5BE1A38B3B"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -73,12 +73,12 @@
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
     "translate_v7_readback": null,
-    "translate_v8_readback": {
-      "path": "catalog/translate-rb-v8.json",
-      "bytes": 1199,
-      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
+    "translate_v8_readback": null,
+    "translate_v9_readback": {
+      "path": "catalog/translate-rb-v9.json",
+      "bytes": 1231,
+      "sha256": "79B77EF8A6734BD9C31E44BD72211FD00238806F1FE362757D976167B55C35A8"
     },
-    "translate_v9_readback": null,
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
       "bytes": 177525,
@@ -241,8 +241,8 @@
     },
     "translation_migrator": {
       "path": "tools/migrate_translations_v7.py",
-      "bytes": 29112,
-      "sha256": "D15F2324F581901B285D8875C9ED054931D8C4790916CFED2BADBD55D197F609"
+      "bytes": 29233,
+      "sha256": "6C7B52EDE63E5B851D1CB8873996885AF8E13A3938FCA37DE758ED11910574CC"
     },
     "translation_reader_updater": {
       "path": "tools/add_id_readers.py",
@@ -251,13 +251,13 @@
     },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
-      "bytes": 12789,
-      "sha256": "8686556B318BC587BD9364DB7E111814555E0300B2848581612D3194689F32DA"
+      "bytes": 12799,
+      "sha256": "4FD9B0ACF5170070205754628F780A204F5965C30E059C39A467B66CFA6A6BCC"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 149195,
-      "sha256": "EAFBAD8EAE1323AB82731D76866186DFEB1E62D5F6DAE546E7A9D3255A29CCB8"
+      "bytes": 149247,
+      "sha256": "F06A22DC90082BBEBC22047CE9EE7FA74A2821F37CE0EB75498136840ED88080"
     }
   },
   "asset_manifests": {
@@ -286,7 +286,7 @@
     "runnable_jobs": 1,
     "runnable_jobs_scope": "self_contained_public_packets_only",
     "public_release_assets": 2,
-    "public_release_bytes": 1938111
+    "public_release_bytes": 1938741
   },
   "formalization_entries": 19,
   "portal_sections": 3,
