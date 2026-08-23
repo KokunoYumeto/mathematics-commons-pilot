@@ -36,7 +36,7 @@
       "state": "runnable",
       "docs": "docs/translations.md",
       "catalog": "catalog/translations.json",
-      "summary": "One source-bound Open Logic job, a current distribution-labeled work-and-language starter, nine exact public Indonesian reader identities, and non-exclusive suggestions with explicit evidence limits.",
+      "summary": "One self-contained Open Logic packet, 29 workflow-startable works using the generic starter, nine exact public Indonesian reader identities, and non-exclusive work scopes with explicit evidence limits.",
       "release": {
         "tag": "translate-openlogic-v1",
         "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
@@ -65,6 +65,8 @@
         "asset_catalog": "catalog/assets/translate-v8.json",
         "admission_receipt": null,
         "readback": "catalog/translate-rb-v8.json",
+        "workflow_state": "runnable_workflow",
+        "workflow_note": "The generic starter is runnable for listed and user-proposed works once the contributor supplies or obtains the exact source; its release is not a self-contained textbook packet.",
         "assets": [
           {
             "name": "translation-starter-v8.zip",
@@ -76,7 +78,7 @@
       "limitations": [
         "The Open Logic release contains exact source and workflow material, not a completed translation.",
         "The generic starter contains no textbook, source work, or completed translation.",
-        "Most catalog rows are suggestions rather than packaged jobs; each row exposes its recorded distribution class and source note."
+        "Most catalog rows do not have self-contained public packets; they remain workflow-startable through the generic starter and each row exposes its recorded distribution class and source note."
       ]
     },
     {

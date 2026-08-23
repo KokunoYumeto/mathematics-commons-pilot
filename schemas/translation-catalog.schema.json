@@ -299,7 +299,7 @@
     "sourceEdition": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "item_id", "item_type", "identity_state", "label", "source_language", "locator", "rights", "components", "evidence_checks", "readiness", "next_action", "evidence_ids"],
+      "required": ["id", "item_id", "item_type", "identity_state", "label", "source_language", "locator", "rights", "components", "evidence_checks", "readiness", "workflow_startability", "workflow_mode", "workflow_note", "next_action", "evidence_ids"],
       "properties": {
         "id": {"$ref": "#/$defs/slug"},
         "item_id": {"$ref": "#/$defs/slug"},
@@ -332,6 +332,9 @@
         },
         "evidence_checks": {"$ref": "#/$defs/evidenceChecks"},
         "readiness": {"enum": ["identity_unresolved", "listed", "reference_only", "packet_prepared", "runnable"]},
+        "workflow_startability": {"enum": ["starter_available", "source_bound_packet", "reference_only"]},
+        "workflow_mode": {"enum": ["generic_starter", "source_bound_packet", "reference_only"]},
+        "workflow_note": {"type": "string", "minLength": 1},
         "next_action": {"type": "string", "minLength": 1},
         "evidence_ids": {"$ref": "#/$defs/slugArray"}
       }

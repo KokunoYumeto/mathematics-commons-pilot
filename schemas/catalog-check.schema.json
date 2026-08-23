@@ -53,9 +53,11 @@
         "openlogic_readback",
         "translate_v7_readback",
         "translate_v8_readback",
+        "translate_v9_readback",
         "openlogic_asset_manifest",
         "translate_v7_asset_manifest",
         "translate_v8_asset_manifest",
+        "translate_v9_asset_manifest",
         "global_receipt",
         "gordan2_receipt",
         "mikami_receipt",
@@ -144,6 +146,12 @@
             {"type": "null"}
           ]
         },
+        "translate_v9_readback": {
+          "oneOf": [
+            {"$ref": "#/$defs/identity"},
+            {"type": "null"}
+          ]
+        },
         "openlogic_asset_manifest": {
           "$ref": "#/$defs/identity"
         },
@@ -151,6 +159,9 @@
           "$ref": "#/$defs/identity"
         },
         "translate_v8_asset_manifest": {
+          "$ref": "#/$defs/identity"
+        },
+        "translate_v9_asset_manifest": {
           "$ref": "#/$defs/identity"
         },
         "global_receipt": {
@@ -316,7 +327,7 @@
     "translation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["topics", "works", "resources", "source_editions", "translation_editions", "jobs", "runnable_jobs", "public_release_assets", "public_release_bytes"],
+      "required": ["topics", "works", "resources", "source_editions", "translation_editions", "jobs", "workflow_startable_works", "packaged_runnable_jobs", "runnable_jobs", "runnable_jobs_scope", "public_release_assets", "public_release_bytes"],
       "properties": {
         "topics": {"type": "integer", "minimum": 0},
         "works": {"type": "integer", "minimum": 0},
@@ -324,7 +335,10 @@
         "source_editions": {"type": "integer", "minimum": 0},
         "translation_editions": {"type": "integer", "minimum": 0},
         "jobs": {"type": "integer", "minimum": 0},
+        "workflow_startable_works": {"type": "integer", "minimum": 0},
+        "packaged_runnable_jobs": {"type": "integer", "minimum": 0},
         "runnable_jobs": {"type": "integer", "minimum": 0},
+        "runnable_jobs_scope": {"const": "self_contained_public_packets_only"},
         "public_release_assets": {"type": "integer", "minimum": 0},
         "public_release_bytes": {"type": "integer", "minimum": 0}
       }

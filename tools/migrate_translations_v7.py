@@ -240,6 +240,9 @@ def main() -> int:
             }
             source_label = "Complete pinned LaTeX source tree"
             next_action = "Download the public packet, verify its byte length and SHA-256, then select the exact target language and written standard."
+            workflow_startability = "source_bound_packet"
+            workflow_mode = "source_bound_packet"
+            workflow_note = "A self-contained source packet is published with release, byte, SHA-256, and public-readback evidence."
         else:
             gates = {
                 "work_identity": gate("unknown", "The public work identity has not been independently replayed." if not work_unresolved else "The exact work title or volume remains unresolved.", ids),
@@ -273,6 +276,18 @@ def main() -> int:
             }
             source_label = entry["source_format"]
             next_action = "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and distribution note."
+            if entry["catalog_role"] not in WORK_ROLES or readiness == "reference_only":
+                workflow_startability = "reference_only"
+                workflow_mode = "reference_only"
+                workflow_note = "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
+            elif work_unresolved:
+                workflow_startability = "starter_available"
+                workflow_mode = "generic_starter"
+                workflow_note = "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
+            else:
+                workflow_startability = "starter_available"
+                workflow_mode = "generic_starter"
+                workflow_note = "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
 
         item = {
             "id": item_id,
@@ -312,6 +327,9 @@ def main() -> int:
                 "components": components,
                 "evidence_checks": gates,
                 "readiness": readiness,
+                "workflow_startability": workflow_startability,
+                "workflow_mode": workflow_mode,
+                "workflow_note": workflow_note,
                 "next_action": next_action,
                 "evidence_ids": ids,
             }
@@ -431,7 +449,7 @@ def main() -> int:
             "non_exhaustive": True,
             "other_open_works_welcome": True,
             "description": "A non-exclusive directory of mathematical works and resources for translation outside maintained project lanes. Each row gives a readable work identity, language evidence, distribution class, and practical next action.",
-            "coverage_rule": "A row is a suggestion unless a packaged job and public readback say runnable. Unknown coverage means unknown, not absence.",
+            "coverage_rule": "A non-reference work may be workflow-startable without a self-contained public packet. Readiness reports packet/evidence state; jobs[].state=runnable reports a packaged release with public readback. Unknown coverage means unknown, not absence.",
         },
         "language_priority": old["language_priority"],
         "distribution_legend": {
@@ -505,7 +523,7 @@ def main() -> int:
     choices = {
         "schema": "math-commons-translation-choices/v8",
         "updated_at": UPDATED,
-        "rule": "Choose a topic, then a work and target language. Each row states its distribution class and license note. A listed row is a suggestion; only a packaged job with public readback is runnable. Unknown coverage never means absence.",
+        "rule": "Choose a topic, then a non-reference work and target language. A work with workflow_startability=starter_available or source_bound_packet can be started with the generic kit; use the separately published packet when source_bound_packet is available. A packaged job with public readback is represented separately by jobs[].state=runnable. Each row states its distribution class and license note; unknown coverage never means absence.",
         "catalog": {"path": CATALOG_PATH, "bytes": len(catalog_data), "sha256": hashlib.sha256(catalog_data).hexdigest().upper()},
         "separate_archive": catalog["separate_archive"],
         "topics": topics,
@@ -518,7 +536,7 @@ def main() -> int:
             for row in resources
         ],
         "source_editions": [
-            {"id": row["id"], "item_id": row["item_id"], "item_type": row["item_type"], "readiness": row["readiness"], "distribution_class": row["rights"]["distribution_class"], "distribution_note": row["rights"]["distribution_note"]}
+            {"id": row["id"], "item_id": row["item_id"], "item_type": row["item_type"], "readiness": row["readiness"], "workflow_startability": row["workflow_startability"], "workflow_mode": row["workflow_mode"], "workflow_note": row["workflow_note"], "distribution_class": row["rights"]["distribution_class"], "distribution_note": row["rights"]["distribution_note"]}
             for row in source_editions
         ],
         "translation_editions": [

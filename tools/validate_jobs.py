@@ -63,8 +63,8 @@ READBACK_REPOSITORY = "KokunoYumeto/mathematics-commons-pilot"
 READBACK_DATE = "2026-08-22"
 PORTAL_V1_BYTES = 3_326
 PORTAL_V1_SHA256 = "DC365E3C156D97ECA18F0B8154C160E0C5A42938D0C3E09F86B21793235C40D4"
-TRANSLATE_V8_CATALOG_BYTES = 230_346
-TRANSLATE_V8_CATALOG_SHA256 = "4007729A6427D962A0F794D3B43ECC5C404D3D9F4E93BE9596108B714320980C"
+TRANSLATE_V9_CATALOG_BYTES = 241_565
+TRANSLATE_V9_CATALOG_SHA256 = "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
 READBACK_RAW_FILES = (
     ("README.md", 8025, "5BAEEBBBADBC59F2039D6CF20ADD0971E3931084B6F1C810526E1BC2FD9BD16D"),
     ("docs/workbench.md", 13833, "63382D0B67B5BB030609AC4DFDD519E4F621349562DBD6B5E82F854C7E8255F0"),
@@ -1416,6 +1416,38 @@ def validate_translations(errors: list[str]) -> int:
             errors,
             f"translation source {source_id}: readiness",
         )
+        workflow_startability = source.get("workflow_startability")
+        workflow_mode = source.get("workflow_mode")
+        workflow_note = source.get("workflow_note")
+        expect(
+            workflow_startability in {"starter_available", "source_bound_packet", "reference_only"}
+            and workflow_mode in {"generic_starter", "source_bound_packet", "reference_only"}
+            and isinstance(workflow_note, str)
+            and bool(workflow_note),
+            errors,
+            f"translation source {source_id}: workflow startability fields",
+        )
+        if source.get("item_type") == "resource" or readiness == "reference_only":
+            expect(
+                workflow_startability == "reference_only"
+                and workflow_mode == "reference_only",
+                errors,
+                f"translation source {source_id}: reference workflow state",
+            )
+        elif readiness == "runnable":
+            expect(
+                workflow_startability == "source_bound_packet"
+                and workflow_mode == "source_bound_packet",
+                errors,
+                f"translation source {source_id}: source-bound workflow state",
+            )
+        else:
+            expect(
+                workflow_startability == "starter_available"
+                and workflow_mode == "generic_starter",
+                errors,
+                f"translation source {source_id}: generic workflow state",
+            )
         if readiness in {"packet_prepared", "runnable"}:
             expect(all_pass, errors, f"translation source {source_id}: packet checks")
         if readiness in {"packet_prepared", "runnable"}:
@@ -1809,8 +1841,8 @@ def validate_translations(errors: list[str]) -> int:
     expect(
         isinstance(catalog_identity, dict)
         and catalog_identity.get("path") == "catalog/translations.json"
-        and catalog_identity.get("bytes") == TRANSLATE_V8_CATALOG_BYTES
-        and catalog_identity.get("sha256") == TRANSLATE_V8_CATALOG_SHA256,
+        and catalog_identity.get("bytes") == TRANSLATE_V9_CATALOG_BYTES
+        and catalog_identity.get("sha256") == TRANSLATE_V9_CATALOG_SHA256,
         errors,
         "translation chooser current catalog identity",
     )
@@ -1880,6 +1912,9 @@ def validate_translations(errors: list[str]) -> int:
             "item_id": row["item_id"],
             "item_type": row["item_type"],
             "readiness": row["readiness"],
+            "workflow_startability": row["workflow_startability"],
+            "workflow_mode": row["workflow_mode"],
+            "workflow_note": row["workflow_note"],
             "distribution_class": row["rights"]["distribution_class"],
             "distribution_note": row["rights"]["distribution_note"],
         }
@@ -2455,7 +2490,11 @@ def portal_has_release(catalog: dict[str, Any], tag: str) -> bool:
 def portal_requires_translation_readback(catalog: dict[str, Any]) -> bool:
     if catalog.get("schema") == "math-commons-portal-catalog/v2":
         return True
-    return portal_has_release(catalog, "translate-v7") or portal_has_release(catalog, "translate-v8")
+    return (
+        portal_has_release(catalog, "translate-v7")
+        or portal_has_release(catalog, "translate-v8")
+        or portal_has_release(catalog, "translate-v9")
+    )
 
 
 def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
@@ -2466,6 +2505,11 @@ def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
 def portal_requires_v8_readback(catalog: dict[str, Any]) -> bool:
     """Whether the v8 starter is the declared current starter."""
     return portal_has_release(catalog, "translate-v8")
+
+
+def portal_requires_v9_readback(catalog: dict[str, Any]) -> bool:
+    """Whether the v9 starter is the declared current starter."""
+    return portal_has_release(catalog, "translate-v9")
 
 
 def validate_portals_v1(
@@ -2827,7 +2871,7 @@ def validate_portals(errors: list[str]) -> int:
         observed_date_ok = re.fullmatch(
             r"\d{4}-\d{2}-\d{2}", str(readback.get("observed_date"))
         ) is not None
-        if tag == "translate-v8":
+        if tag in {"translate-v8", "translate-v9"}:
             observed_date_ok = observed_date_ok and readback.get("observed_date") == catalog.get("updated")
         else:
             # Older release readbacks are immutable historical observations and
@@ -2908,14 +2952,32 @@ def validate_portals(errors: list[str]) -> int:
         job_id="openlogic-v1",
         readback_path="catalog/openlogic-rb.json",
     )
-    expected_starter_assets, _ = validate_portal_release(
-        starter_release,
-        label="generic translation starter",
-        tag="translate-v8",
-        manifest_path="catalog/assets/translate-v8.json",
-        job_id="translation-starter-v8",
-        readback_path="catalog/translate-rb-v8.json",
-    )
+    starter_specs = {
+        "translate-v8": (
+            "catalog/assets/translate-v8.json",
+            "translation-starter-v8",
+            "catalog/translate-rb-v8.json",
+        ),
+        "translate-v9": (
+            "catalog/assets/translate-v9.json",
+            "translation-starter-v9",
+            "catalog/translate-rb-v9.json",
+        ),
+    }
+    starter_tag = starter_release.get("tag")
+    if starter_tag not in starter_specs:
+        errors.append("generic translation starter tag is not supported")
+        expected_starter_assets = []
+    else:
+        starter_manifest, starter_job, starter_readback_path = starter_specs[starter_tag]
+        expected_starter_assets, _ = validate_portal_release(
+            starter_release,
+            label="generic translation starter",
+            tag=starter_tag,
+            manifest_path=starter_manifest,
+            job_id=starter_job,
+            readback_path=starter_readback_path,
+        )
     expect(
         translation.get("state") == "runnable"
         and translation.get("catalog") == "catalog/translations.json"
@@ -2924,6 +2986,13 @@ def validate_portals(errors: list[str]) -> int:
         and starter_release.get("admission_receipt") is None,
         errors,
         "portal translation two-release contract",
+    )
+    expect(
+        starter_release.get("workflow_state") == "runnable_workflow"
+        and isinstance(starter_release.get("workflow_note"), str)
+        and starter_release.get("workflow_note"),
+        errors,
+        "generic translation starter workflow contract",
     )
     translation_catalog, _ = load(ROOT / "catalog" / "translations.json")
     openlogic_job = next(
@@ -3253,11 +3322,25 @@ def main() -> int:
             "source_editions": len(translation_catalog.get("source_editions", [])),
             "translation_editions": len(translation_catalog.get("translation_editions", [])),
             "jobs": len(translation_catalog.get("jobs", [])),
+            "workflow_startable_works": sum(
+                1
+                for row in translation_catalog.get("source_editions", [])
+                if isinstance(row, dict)
+                and row.get("item_type") == "work"
+                and row.get("workflow_startability")
+                in {"starter_available", "source_bound_packet"}
+            ),
+            "packaged_runnable_jobs": sum(
+                1
+                for row in translation_catalog.get("jobs", [])
+                if isinstance(row, dict) and row.get("state") == "runnable"
+            ),
             "runnable_jobs": sum(
                 1
                 for row in translation_catalog.get("jobs", [])
                 if isinstance(row, dict) and row.get("state") == "runnable"
             ),
+            "runnable_jobs_scope": "self_contained_public_packets_only",
             "public_release_assets": sum(
                 int(row.get("asset_count", 0))
                 for row in translation_releases
@@ -3282,7 +3365,10 @@ def main() -> int:
             "source_editions": 0,
             "translation_editions": 0,
             "jobs": 0,
+            "workflow_startable_works": 0,
+            "packaged_runnable_jobs": 0,
             "runnable_jobs": 0,
+            "runnable_jobs_scope": "self_contained_public_packets_only",
             "public_release_assets": 0,
             "public_release_bytes": 0,
         }
@@ -3312,9 +3398,15 @@ def main() -> int:
                 if portal_requires_v8_readback(portal_catalog)
                 else None
             ),
+            "translate_v9_readback": (
+                input_identity(ROOT / "catalog" / "translate-rb-v9.json")
+                if portal_requires_v9_readback(portal_catalog)
+                else None
+            ),
             "openlogic_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "openlogic.json"),
             "translate_v7_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v7.json"),
             "translate_v8_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v8.json"),
+            "translate_v9_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v9.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),
@@ -3435,7 +3527,8 @@ def main() -> int:
             f"PASS: {jobs} jobs, {assets} release assets, "
             f"{translation_summary['works']} translation works, "
             f"{translation_summary['resources']} translation resources, "
-            f"{translation_summary['runnable_jobs']} runnable translation jobs, "
+            f"{translation_summary['workflow_startable_works']} workflow-startable translation works, "
+            f"{translation_summary['packaged_runnable_jobs']} self-contained runnable translation packets, "
             f"{portals} portal sections, "
             f"{formalization} formalization entries"
         )

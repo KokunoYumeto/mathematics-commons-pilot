@@ -228,7 +228,7 @@
     "sourceEdition": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "item_id", "item_type", "readiness", "distribution_class", "distribution_note"],
+      "required": ["id", "item_id", "item_type", "readiness", "workflow_startability", "workflow_mode", "workflow_note", "distribution_class", "distribution_note"],
       "properties": {
         "id": {"$ref": "#/$defs/slug"},
         "item_id": {"$ref": "#/$defs/slug"},
@@ -242,6 +242,13 @@
             "runnable"
           ]
         },
+        "workflow_startability": {
+          "enum": ["starter_available", "source_bound_packet", "reference_only"]
+        },
+        "workflow_mode": {
+          "enum": ["generic_starter", "source_bound_packet", "reference_only"]
+        },
+        "workflow_note": {"type": "string", "minLength": 1},
         "distribution_class": {
           "enum": [
             "open_license",

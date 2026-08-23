@@ -27,15 +27,16 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 - Exact source-edition rows: 41
 - Translation-edition evidence rows: 23
 - Public Indonesian reader PDFs: 9 files / 23,510,535 bytes, anonymously length/SHA-256 verified; coverage, lineage, and review unassessed
-- Runnable source-bound jobs: Open Logic Text
-- Generic starter: distribution-labeled work-selection workflow; not a runnable translation job
+- Workflow-startable works: 29
+- Self-contained public translation packets: 1 (Open Logic Text)
+- Generic starter: runnable translation workflow; it supplies the work-selection, source-intake, production, and review contract, but does not bundle a textbook
 - Explicit exclusions: 8
 - Source-bound release: [`translate-openlogic-v1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1)
-- Generic starter: [`translate-v8`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8), distribution-labeled and anonymously replayed.
+- Generic starter: [`translate-v9`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9), distribution-labeled; its public readback is bound when the release is published.
 
 The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional works, displays the recorded distribution class and note, separates public evidence from dated historical reports, and contains source-selection, language-identification, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
 
-Other works are listed suggestions with explicit source and distribution notes. Only a packaged job with a public release and readback is called runnable. Nine public Indonesian reader PDFs now have exact DOI, filename, byte, and SHA-256 evidence, but that evidence alone does not establish whole-work completion, source lineage, or independent QA. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
+Other works are workflow-startable scopes with explicit source and distribution notes. A self-contained packet with a public release and readback is a separate packet-evidence state; it is not a prerequisite for starting work with a source already held or obtained by the contributor. Nine public Indonesian reader PDFs now have exact DOI, filename, byte, and SHA-256 evidence, but that evidence alone does not establish whole-work completion, source lineage, or independent QA. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
 
 ## Formalization
 

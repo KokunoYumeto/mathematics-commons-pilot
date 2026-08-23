@@ -189,6 +189,13 @@ def new_source(work_id: str) -> dict[str, Any]:
             ),
         },
         "readiness": "identity_unresolved",
+        "workflow_startability": "starter_available",
+        "workflow_mode": "generic_starter",
+        "workflow_note": (
+            "The translation workflow can start with the generic starter; "
+            "identify the exact source edition and record its distribution note "
+            "before the first bounded translation unit."
+        ),
         "next_action": (
             "Choose a target language and identify the exact source edition before returning the first translation checkpoint."
         ),

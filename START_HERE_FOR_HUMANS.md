@@ -10,12 +10,12 @@ Select one of the [28 runnable packet envelopes](catalog/jobs.json), download ev
 
 ## Translation
 
-For an admitted source-bound job, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1), verify its recorded byte length and SHA-256, and choose the exact target language and written standard. To start another work, browse the [29 suggestions and work-specific edition evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v8 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8). Each row states its distribution class and source note. You may also propose another mathematical work with a public source and recorded terms.
+For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) and verify its recorded byte length and SHA-256. To start any other workflow-startable work, browse the [29 work scopes and their evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9). Each row states its workflow startability, distribution class, and source note. You may also propose another mathematical work with a public source and recorded terms.
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
 
-The generic starter first asks which work and which exact target language you want. It records the source, distribution note, component boundary, and baseline build as the work proceeds. It contains no source work or translation and is not itself a runnable job. Its v8 work index is the current compact catalog projection.
+The generic starter first asks which work and which exact target language you want. It records the source, distribution note, component boundary, and baseline build as the work proceeds. It contains no source work or translation, but it is the runnable workflow for starting or continuing a listed work. Its v9 work index is the current compact catalog projection.
 
 ## Open problems
 

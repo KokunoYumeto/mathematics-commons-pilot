@@ -1,11 +1,11 @@
 {
   "schema": "math-commons-translation-catalog/v8",
-  "updated_at": "2026-08-23T12:00:00Z",
+  "updated_at": "2026-08-23T14:30:00Z",
   "scope": {
     "non_exhaustive": true,
     "other_open_works_welcome": true,
     "description": "A non-exclusive directory of mathematical works and resources for translation outside maintained project lanes. Each row gives a readable work identity, language evidence, distribution class, and practical next action.",
-    "coverage_rule": "A row is a suggestion unless a packaged job and public readback say runnable. Unknown coverage means unknown, not absence; current maintained editions are not adoption targets unless explicitly listed."
+    "coverage_rule": "A work may be workflow-startable without a self-contained public packet. readiness reports source-packet evidence; jobs[].state=runnable reports a packaged release with public readback. Unknown coverage means unknown, not absence; current maintained editions are not adoption targets unless explicitly listed."
   },
   "language_priority": {
     "any_language_welcome": true,
@@ -1478,7 +1478,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-elementary-algebra-2e-source",
@@ -1575,7 +1578,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-intermediate-algebra-2e-source",
@@ -1672,7 +1678,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-precalculus-2e-source",
@@ -1769,7 +1778,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "clp-calculus-series-source",
@@ -1866,7 +1878,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "dmoi4-source",
@@ -1963,7 +1978,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "hefferon-linear-algebra-source",
@@ -2060,7 +2078,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "lebl-analysis-volume-unresolved-source",
@@ -2157,7 +2178,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "lebl-ode-volume-unresolved-source",
@@ -2254,7 +2278,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "lebl-complex-analysis-volume-unresolved-source",
@@ -2351,7 +2378,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "judson-abstract-algebra-source",
@@ -2448,7 +2478,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "grinstead-snell-probability-source",
@@ -2545,7 +2578,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openintro-statistics-source",
@@ -2642,7 +2678,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "applied-combinatorics-source",
@@ -2739,7 +2778,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "yet-another-introductory-number-theory-textbook-source",
@@ -2836,7 +2878,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "tea-time-numerical-analysis-source",
@@ -2933,7 +2978,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "fubini-tonelli-donor-source",
@@ -3030,7 +3078,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "open-optimization-book-1-source",
@@ -3136,7 +3187,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "mathematics-in-lean-source",
@@ -3233,7 +3287,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "stacks-project-reference-source",
@@ -3330,7 +3387,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "openlogic-core-source",
@@ -3441,7 +3501,10 @@
             "openlogic-build"
           ]
         }
-      }
+      },
+      "workflow_startability": "source_bound_packet",
+      "workflow_mode": "source_bound_packet",
+      "workflow_note": "A self-contained source packet is published with release, byte, SHA-256, and public-readback evidence."
     },
     {
       "id": "cross-corpus-assessment-infrastructure-source",
@@ -3538,7 +3601,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "mathematical-python-rse-composite-source",
@@ -3635,7 +3701,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "topology-inquiry-based-approach-source",
@@ -3732,7 +3801,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "euclidean-plane-and-its-relatives-source",
@@ -3829,7 +3901,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "modeling-nonlinear-dynamics-composite-source",
@@ -3926,7 +4001,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "distribution-statistical-methods-composite-source",
@@ -4023,7 +4101,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "measure-integration-real-analysis-composite-source",
@@ -4120,7 +4201,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "functional-analysis-operator-algebras-source",
@@ -4217,7 +4301,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "measure-probability-stochastic-composite-source",
@@ -4314,7 +4401,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "partial-differential-equations-source",
@@ -4411,7 +4501,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "smooth-manifolds-differential-geometry-composite-source",
@@ -4508,7 +4601,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "algebraic-topology-2019-source",
@@ -4605,7 +4701,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "methods-of-algebra-volume-1-source",
@@ -4702,7 +4801,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "methods-of-algebra-volume-2-source",
@@ -4799,7 +4901,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "mit-ocw-6-253-source",
@@ -4896,7 +5001,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "algebraic-geometry-bridge-composite-source",
@@ -4993,7 +5101,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "research-reading-reproducibility-composite-source",
@@ -5090,7 +5201,10 @@
             "planning-candidates-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "open-solver-operations-research-lab-source",
@@ -5196,7 +5310,10 @@
             "planning-activity-20260821"
           ]
         }
-      }
+      },
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "mathematical-computing-reproducible-experiments-source",
@@ -5293,7 +5410,10 @@
             "figshare-id-readers-20260822"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "dionne-partial-differential-equations-source",
@@ -5390,7 +5510,10 @@
             "figshare-id-readers-20260822"
           ]
         }
-      }
+      },
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     }
   ],
   "translation_editions": [

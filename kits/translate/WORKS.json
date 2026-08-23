@@ -1,11 +1,11 @@
 {
   "schema": "math-commons-translation-choices/v8",
-  "updated_at": "2026-08-23T12:00:00Z",
-  "rule": "Choose a topic, then a work and target language. Each row states its distribution class and license note. A listed row is a suggestion; only a packaged job with public readback is runnable. Unknown coverage never means absence.",
+  "updated_at": "2026-08-23T14:30:00Z",
+  "rule": "Choose a topic, then a non-reference work and target language. A work with workflow_startability=starter_available or source_bound_packet can be started with the generic kit; use the separately published packet when source_bound_packet is available. A packaged job with public readback is represented separately by jobs[].state=runnable. Each row states its distribution class and license note; unknown coverage never means absence.",
   "catalog": {
     "path": "catalog/translations.json",
-    "bytes": 230346,
-    "sha256": "4007729A6427D962A0F794D3B43ECC5C404D3D9F4E93BE9596108B714320980C"
+    "bytes": 241565,
+    "sha256": "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
   },
   "separate_archive": {
     "repository": "https://github.com/KokunoYumeto/modern-latex-manuscripts",
@@ -630,7 +630,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-elementary-algebra-2e-source",
@@ -638,7 +641,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-intermediate-algebra-2e-source",
@@ -646,7 +652,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openstax-precalculus-2e-source",
@@ -654,7 +663,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "clp-calculus-series-source",
@@ -662,7 +674,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "dmoi4-source",
@@ -670,7 +685,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "hefferon-linear-algebra-source",
@@ -678,7 +696,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "lebl-analysis-volume-unresolved-source",
@@ -686,7 +707,10 @@
       "item_type": "work",
       "readiness": "identity_unresolved",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "lebl-ode-volume-unresolved-source",
@@ -694,7 +718,10 @@
       "item_type": "work",
       "readiness": "identity_unresolved",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "lebl-complex-analysis-volume-unresolved-source",
@@ -702,7 +729,10 @@
       "item_type": "work",
       "readiness": "identity_unresolved",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit."
     },
     {
       "id": "judson-abstract-algebra-source",
@@ -710,7 +740,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "grinstead-snell-probability-source",
@@ -718,7 +751,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "openintro-statistics-source",
@@ -726,7 +762,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "applied-combinatorics-source",
@@ -734,7 +773,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "yet-another-introductory-number-theory-textbook-source",
@@ -742,7 +784,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "tea-time-numerical-analysis-source",
@@ -750,7 +795,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "fubini-tonelli-donor-source",
@@ -758,7 +806,10 @@
       "item_type": "resource",
       "readiness": "reference_only",
       "distribution_class": "noncommercial_only",
-      "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source."
+      "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "open-optimization-book-1-source",
@@ -766,7 +817,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "mathematics-in-lean-source",
@@ -774,7 +828,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "stacks-project-reference-source",
@@ -782,7 +839,10 @@
       "item_type": "resource",
       "readiness": "reference_only",
       "distribution_class": "reference_only",
-      "distribution_note": "Reference or component entry; it is not a standalone translation job."
+      "distribution_note": "Reference or component entry; it is not a standalone translation job.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "openlogic-core-source",
@@ -790,7 +850,10 @@
       "item_type": "work",
       "readiness": "runnable",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "source_bound_packet",
+      "workflow_mode": "source_bound_packet",
+      "workflow_note": "A self-contained source packet is published with release, byte, SHA-256, and public-readback evidence."
     },
     {
       "id": "cross-corpus-assessment-infrastructure-source",
@@ -798,7 +861,10 @@
       "item_type": "resource",
       "readiness": "reference_only",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "A license name is recorded, but its distribution class is not normalized in this catalog."
+      "distribution_note": "A license name is recorded, but its distribution class is not normalized in this catalog.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "mathematical-python-rse-composite-source",
@@ -806,7 +872,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "topology-inquiry-based-approach-source",
@@ -814,7 +883,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "euclidean-plane-and-its-relatives-source",
@@ -822,7 +894,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "modeling-nonlinear-dynamics-composite-source",
@@ -830,7 +905,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "distribution-statistical-methods-composite-source",
@@ -838,7 +916,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "measure-integration-real-analysis-composite-source",
@@ -846,7 +927,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "functional-analysis-operator-algebras-source",
@@ -854,7 +938,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "measure-probability-stochastic-composite-source",
@@ -862,7 +949,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "partial-differential-equations-source",
@@ -870,7 +960,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "smooth-manifolds-differential-geometry-composite-source",
@@ -878,7 +971,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "algebraic-topology-2019-source",
@@ -886,7 +982,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "methods-of-algebra-volume-1-source",
@@ -894,7 +993,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "methods-of-algebra-volume-2-source",
@@ -902,7 +1004,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "mit-ocw-6-253-source",
@@ -910,7 +1015,10 @@
       "item_type": "work",
       "readiness": "listed",
       "distribution_class": "noncommercial_only",
-      "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source."
+      "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source.",
+      "workflow_startability": "starter_available",
+      "workflow_mode": "generic_starter",
+      "workflow_note": "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit."
     },
     {
       "id": "algebraic-geometry-bridge-composite-source",
@@ -918,7 +1026,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "mixed_components",
-      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
+      "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "research-reading-reproducibility-composite-source",
@@ -926,7 +1037,10 @@
       "item_type": "resource",
       "readiness": "listed",
       "distribution_class": "terms_unclassified",
-      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
+      "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     },
     {
       "id": "open-solver-operations-research-lab-source",
@@ -934,7 +1048,10 @@
       "item_type": "resource",
       "readiness": "reference_only",
       "distribution_class": "open_license",
-      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
+      "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms.",
+      "workflow_startability": "reference_only",
+      "workflow_mode": "reference_only",
+      "workflow_note": "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job."
     }
   ],
   "translation_editions": [

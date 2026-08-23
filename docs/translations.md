@@ -2,15 +2,15 @@
 
 This portal organizes open mathematical works that contributors can translate with local or hosted AI systems and then inspect through human and independent review. It separates individual works, supporting resources, exact source editions, known public translations, and downloadable jobs.
 
-The catalog is a set of suggestions, not a restriction. Contributors may propose any other mathematical work with a public source and a recorded distribution note. Unknown language coverage means unknown; it does not mean that no translation exists. Rows are suggestions outside maintained project lanes unless an owner is explicitly shown.
+The catalog is a set of non-exclusive work scopes, not a restriction. Contributors may start a workflow-startable row, continue an existing edition, or propose any other mathematical work with a public source and a recorded distribution note. Unknown language coverage means unknown; it does not mean that no translation exists. Current activity is claimed only where the catalog supplies corresponding evidence; the absence of a public packet is not a statement that work cannot be run.
 
-## Ready jobs
+## Startable workflows and published packets
 
 | Work | Status | What the status means |
 |---|---|---|
-| Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
+| Open Logic Text | **Self-contained packet** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The [generic v8 starter](translate-v8.md) is the current wording for work selection, source acquisition, and cumulative translation; it contains no source work and is not a runnable translation job. Its release and anonymous readback are recorded in the portal catalog.
+The [generic v9 starter](translate-v9.md) is a **runnable translation workflow** for every non-reference source row whose `workflow_startability` is `starter_available` or `source_bound_packet`. It contains no source work: the contributor supplies or obtains the exact source, or verifies the separately published source-bound packet, records its identity and distribution note, and then begins the bounded translation. A `jobs[].state` of `runnable` has a narrower meaning: it says that this repository already provides a self-contained packet with a public release, byte/SHA-256 identity, and anonymous readback. The packet state is evidence about the archive, not a judgment about whether a contributor may run the workflow with source material already in hand.
 
 ## Browse the 29 works
 
@@ -29,7 +29,7 @@ The topics below are navigation aids. They do not imply a curriculum, priority o
 | Functional analysis and operator theory | John M. Erdman, *Functional Analysis and Operator Algebras: An Introduction* |
 | Research and assessment infrastructure | No individual work is currently listed; see the resources below. |
 
-The listed works are translation candidates, not completed packets. Each source row exposes a readable distribution class and note: `open_license`, `noncommercial_only`, `mixed_components`, `terms_unclassified`, or `reference_only`. Those labels describe the recorded source terms; they do not certify a complete edition or a whole-work translation.
+The listed works are workflow-startable scopes, not completed editions. Each source row exposes `workflow_startability`, `workflow_mode`, a plain distribution class, and a note: `starter_available`, `source_bound_packet`, or `reference_only`, alongside `open_license`, `noncommercial_only`, `mixed_components`, `terms_unclassified`, or `reference_only` distribution labels. These fields describe the workflow and recorded source terms; they do not certify a complete edition or a whole-work translation.
 
 ## The 12 resources and collections
 
@@ -96,21 +96,21 @@ Separately, a [UNESCO Institute for Statistics report](https://www.uis.unesco.or
 
 Before starting, check whether a suitable edition already exists and whether a parallel effort would still be independently useful. Do not infer work-level coverage from a general language list.
 
-## Distribution and packet states
+## Workflow, distribution, and packet states
 
 - **Identity unresolved:** the exact work or edition has not been identified.
-- **Listed:** the work is a usable suggestion with a recorded source/distribution note; it is not a packaged job.
+- **Starter available:** the generic translation workflow can be started or continued for this work. The exact source may be supplied by the contributor or acquired as the first step.
 - **Reference only:** the row is a component, collection, or semantic reference rather than a standalone work.
 - **Prepared, not public:** a packet has been assembled but does not yet have a verified public release.
-- **Runnable:** the public packet and its readback are recorded.
+- **Source-bound packet:** a self-contained packet is available and its release, byte length, SHA-256, and public readback are recorded.
 
-The machine catalog keeps evidence checks for reproducibility, but they are not a second legal status. Read the `rights.distribution_class`, `rights.distribution_note`, and `rights.work_license` fields together. `noncommercial_only` means that the source note says not for commercial distribution; preserve the named attribution, ShareAlike, and component notices. `terms_unclassified` means only that the current catalog has not normalized the terms.
+The machine catalog keeps evidence checks for reproducibility, but they are not a second legal status and they do not gate starting a translation workflow. Read `workflow_startability` separately from `readiness`, `jobs[].state`, and the `rights.distribution_class`/`rights.distribution_note` fields. `noncommercial_only` means that the source note says not for commercial distribution; preserve the named attribution, ShareAlike, and component notices. `terms_unclassified` means only that the current catalog has not normalized the terms.
 
 ## Run a published job
 
-1. Select a job whose status is **runnable** in the machine catalog.
-2. Download its ZIP from the recorded release and verify its byte length and SHA-256 value.
-3. For local use, extract the ZIP and follow `START.md` and `LOCAL.md`. For hosted use, upload the ZIP and follow `WEB.md`.
+1. Select a source row whose `workflow_startability` is `starter_available` or `source_bound_packet`.
+2. If it is `source_bound_packet`, download its ZIP from the recorded release and verify its byte length and SHA-256 value. Otherwise download the [generic v9 starter](translate-v9.md).
+3. For local use, open the starter directory and paste `LOCAL.md`. For hosted use, upload the starter ZIP and paste `WEB.md`.
 4. State the target language, locale, script, orthographic standard, intended learners, and available reviewers.
 5. Preserve the source exactly. Produce a standalone target-language edition, not a facing-page substitute.
 6. Return cumulative editable source, a readable build, terminology and correction ledgers, checkpoint state, manifest, QA evidence, unresolved items, and the exact continuation point.
@@ -121,10 +121,10 @@ Any system capable of preserving the files and following the ordered contract ma
 ## Machine interface
 
 - [Translation catalog](../catalog/translations.json): authoritative works, resources, topics, source editions, translation editions, jobs, evidence, and exclusions.
-- [Compact work index](../kits/translate/WORKS.json): the current work, language, and distribution snapshot shipped in the v8 translation starter.
+- [Compact work index](../kits/translate/WORKS.json): the current work, workflow, language, and distribution snapshot shipped in the v9 translation starter.
 - [Catalog schema](../schemas/translation-catalog.schema.json): machine-validation contract.
 - [Choice schema](../schemas/translation-choices.schema.json) and [source-state schema](../schemas/translation-source.schema.json): downloaded workflow contracts.
-- [Open Logic asset manifest](../catalog/assets/openlogic.json), [admission receipt](../catalog/receipts/openlogic.json), and [public readback](../catalog/openlogic-rb.json): exact runnable-job evidence.
+- [Open Logic asset manifest](../catalog/assets/openlogic.json), [admission receipt](../catalog/receipts/openlogic.json), and [public readback](../catalog/openlogic-rb.json): exact self-contained-packet evidence.
 - [Indonesian reader receipt](../catalog/receipts/id-readers.json): exact collection, DOI, filename, byte, SHA-256, and anonymous-readback evidence for nine public PDFs.
 
 Consumers should read status from the catalog, not infer it from prose, filenames, or the existence of a release page.

@@ -81,6 +81,8 @@
         "asset_catalog": {"$ref": "#/$defs/nullablePath"},
         "admission_receipt": {"$ref": "#/$defs/nullablePath"},
         "readback": {"type": "string", "minLength": 1},
+        "workflow_state": {"enum": ["runnable_workflow", "source_bound_packet"]},
+        "workflow_note": {"type": "string", "minLength": 1},
         "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
       }
     },
