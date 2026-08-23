@@ -2441,17 +2441,31 @@ def validate_formalization(errors: list[str]) -> int:
     return len(items)
 
 
-def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
-    if catalog.get("schema") == "math-commons-portal-catalog/v2":
-        return True
+def portal_has_release(catalog: dict[str, Any], tag: str) -> bool:
     for section in catalog.get("sections", []):
         if not isinstance(section, dict):
             continue
         for key in ("release", "starter"):
             release = section.get(key)
-            if isinstance(release, dict) and release.get("tag") == "translate-v7":
+            if isinstance(release, dict) and release.get("tag") == tag:
                 return True
     return False
+
+
+def portal_requires_translation_readback(catalog: dict[str, Any]) -> bool:
+    if catalog.get("schema") == "math-commons-portal-catalog/v2":
+        return True
+    return portal_has_release(catalog, "translate-v7") or portal_has_release(catalog, "translate-v8")
+
+
+def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
+    """Whether the immutable v7 readback is the declared current starter."""
+    return portal_has_release(catalog, "translate-v7")
+
+
+def portal_requires_v8_readback(catalog: dict[str, Any]) -> bool:
+    """Whether the v8 starter is the declared current starter."""
+    return portal_has_release(catalog, "translate-v8")
 
 
 def validate_portals_v1(
@@ -2810,12 +2824,21 @@ def validate_portals(errors: list[str]) -> int:
         readback, _ = load(readback_file)
         validate_schema(readback, "portal_readback", f"{label} public readback", errors)
         readback_release = readback.get("release", {})
+        observed_date_ok = re.fullmatch(
+            r"\d{4}-\d{2}-\d{2}", str(readback.get("observed_date"))
+        ) is not None
+        if tag == "translate-v8":
+            observed_date_ok = observed_date_ok and readback.get("observed_date") == catalog.get("updated")
+        else:
+            # Older release readbacks are immutable historical observations and
+            # need not be rewritten when the portal catalog advances.
+            observed_date_ok = observed_date_ok and readback.get("observed_date") == READBACK_DATE
         expect(
             readback_release.get("tag") == tag
             and readback_release.get("url") == release_url
             and readback_release.get("target_commit") == release.get("target_commit")
             and readback_release.get("target_tree") == release.get("target_tree")
-            and readback.get("observed_date") == catalog.get("updated"),
+            and observed_date_ok,
             errors,
             f"{label} readback subject",
         )
@@ -2888,10 +2911,10 @@ def validate_portals(errors: list[str]) -> int:
     expected_starter_assets, _ = validate_portal_release(
         starter_release,
         label="generic translation starter",
-        tag="translate-v7",
-        manifest_path="catalog/assets/translate-v7.json",
-        job_id="translation-starter-v7",
-        readback_path="catalog/translate-rb-v7.json",
+        tag="translate-v8",
+        manifest_path="catalog/assets/translate-v8.json",
+        job_id="translation-starter-v8",
+        readback_path="catalog/translate-rb-v8.json",
     )
     expect(
         translation.get("state") == "runnable"
@@ -3284,8 +3307,14 @@ def main() -> int:
                 if portal_requires_v7_readback(portal_catalog)
                 else None
             ),
+            "translate_v8_readback": (
+                input_identity(ROOT / "catalog" / "translate-rb-v8.json")
+                if portal_requires_v8_readback(portal_catalog)
+                else None
+            ),
             "openlogic_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "openlogic.json"),
             "translate_v7_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v7.json"),
+            "translate_v8_asset_manifest": input_identity(ROOT / "catalog" / "assets" / "translate-v8.json"),
             "global_receipt": input_identity(ROOT / "catalog" / "receipts" / "global.json"),
             "gordan2_receipt": input_identity(ROOT / "catalog" / "receipts" / "gordan2.txt"),
             "mikami_receipt": input_identity(ROOT / "catalog" / "receipts" / "mikami.json"),

@@ -50,7 +50,7 @@
     "portals": {
       "path": "catalog/portals.json",
       "bytes": 4962,
-      "sha256": "A2B00C5B4B32BA00F661F63FD12AAE753F28E327526CF708E6B9FAD728A301D4"
+      "sha256": "6FB56DC15F8906585388C25DE4B4FC537EA13484B842F7B8D180D556DCB73761"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -72,10 +72,11 @@
       "bytes": 1215,
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
-    "translate_v7_readback": {
-      "path": "catalog/translate-rb-v7.json",
+    "translate_v7_readback": null,
+    "translate_v8_readback": {
+      "path": "catalog/translate-rb-v8.json",
       "bytes": 1199,
-      "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861"
+      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
     },
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
@@ -86,6 +87,11 @@
       "path": "catalog/assets/translate-v7.json",
       "bytes": 2603,
       "sha256": "9E94253BCC50A1E6369D69918EC88D9025D373481944370E3EC6F3213CC76DF1"
+    },
+    "translate_v8_asset_manifest": {
+      "path": "catalog/assets/translate-v8.json",
+      "bytes": 2603,
+      "sha256": "3887D93097C01795B243F69C1126994396123BAC9B33FAE075D81CAAABB7CCEF"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -179,8 +185,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 10992,
-      "sha256": "3D5A9B7352398834AAF3661471E5004F9E40F39283B7E99AA00CBDA5EC9CE2C0"
+      "bytes": 11303,
+      "sha256": "FE4A551F88DF59F0448C41A5A259EF05D38165D4BDAF8DAEA7D0FD19883D693B"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -244,8 +250,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 143702,
-      "sha256": "5946A97DD4E0803F9ED5C651FF04E400235B7C97DBBEEB73150FF14D36334666"
+      "bytes": 145085,
+      "sha256": "53C372A5ABA753E74519F58E2E6890DFD9FFA48C5C4E79BD249524E0C424628A"
     }
   },
   "asset_manifests": {
@@ -271,7 +277,7 @@
     "jobs": 1,
     "runnable_jobs": 1,
     "public_release_assets": 2,
-    "public_release_bytes": 1937511
+    "public_release_bytes": 1938111
   },
   "formalization_entries": 19,
   "portal_sections": 3,

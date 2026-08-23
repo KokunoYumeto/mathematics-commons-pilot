@@ -52,8 +52,10 @@
         "translate_readback",
         "openlogic_readback",
         "translate_v7_readback",
+        "translate_v8_readback",
         "openlogic_asset_manifest",
         "translate_v7_asset_manifest",
+        "translate_v8_asset_manifest",
         "global_receipt",
         "gordan2_receipt",
         "mikami_receipt",
@@ -136,10 +138,19 @@
             {"type": "null"}
           ]
         },
+        "translate_v8_readback": {
+          "oneOf": [
+            {"$ref": "#/$defs/identity"},
+            {"type": "null"}
+          ]
+        },
         "openlogic_asset_manifest": {
           "$ref": "#/$defs/identity"
         },
         "translate_v7_asset_manifest": {
+          "$ref": "#/$defs/identity"
+        },
+        "translate_v8_asset_manifest": {
           "$ref": "#/$defs/identity"
         },
         "global_receipt": {

@@ -10,7 +10,7 @@ The catalog is a set of suggestions, not a restriction. Contributors may propose
 |---|---|---|
 | Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The [generic v8 starter](translate-v8.md) is the prepared current wording for work selection, source acquisition, and cumulative translation; it contains no source work and is not a runnable translation job. Its public release/readback is recorded only after remote publication.
+A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The [generic v8 starter](translate-v8.md) is the current wording for work selection, source acquisition, and cumulative translation; it contains no source work and is not a runnable translation job. Its release and anonymous readback are recorded in the portal catalog.
 
 ## Browse the 29 works
 

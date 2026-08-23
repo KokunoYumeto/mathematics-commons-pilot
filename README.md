@@ -82,7 +82,7 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/readback.json`](catalog/readback.json): preserved anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
 - [`catalog/openlogic-rb.json`](catalog/openlogic-rb.json): anonymous public readback of the source-bound Open Logic job.
-- `catalog/translate-rb-v8.json` will be added with the anonymous public readback when the v8 release is published; v7 remains the frozen public starter until then.
+- [`catalog/translate-rb-v8.json`](catalog/translate-rb-v8.json): anonymous public readback of the current generic v8 starter (1,199 bytes / SHA-256 `562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22`).
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`catalog/receipts/id-readers.json`](catalog/receipts/id-readers.json): exact public readback for nine Indonesian reader PDFs.
 - [`catalog/formalize.json`](catalog/formalize.json): pinned formalization sources and per-result intake state.

@@ -686,15 +686,16 @@ class JobCatalogTests(unittest.TestCase):
                 "jobs": 1,
                 "runnable_jobs": 1,
                 "public_release_assets": 2,
-                "public_release_bytes": 1_937_511,
+                "public_release_bytes": 1_938_111,
             },
         )
+        self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
         self.assertEqual(
-            receipt["inputs"]["translate_v7_readback"],
+            receipt["inputs"]["translate_v8_readback"],
             {
-                "path": "catalog/translate-rb-v7.json",
+                "path": "catalog/translate-rb-v8.json",
                 "bytes": 1_199,
-                "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861",
+                "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22",
             },
         )
 

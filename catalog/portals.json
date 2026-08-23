@@ -1,6 +1,6 @@
 {
   "schema": "math-commons-portal-catalog/v2",
-  "updated": "2026-08-22",
+  "updated": "2026-08-23",
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "sections": [
     {
@@ -56,20 +56,20 @@
         ]
       },
       "starter": {
-        "tag": "translate-v7",
-        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7",
-        "target_commit": "a504e9307bbeb98cc81081a4008017ae54603ecb",
-        "target_tree": "3056d40dd07eed2e31fd761bdddcd5b350335781",
+        "tag": "translate-v8",
+        "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8",
+        "target_commit": "a385ab9e46e15abb830864132c124c1ab02f1434",
+        "target_tree": "cc079eb5cb3d4c0a2daba22c2cf149f8ecca62e8",
         "asset_count": 1,
-        "asset_bytes": 15980,
-        "asset_catalog": "catalog/assets/translate-v7.json",
+        "asset_bytes": 16580,
+        "asset_catalog": "catalog/assets/translate-v8.json",
         "admission_receipt": null,
-        "readback": "catalog/translate-rb-v7.json",
+        "readback": "catalog/translate-rb-v8.json",
         "assets": [
           {
-            "name": "translation-starter-v7.zip",
-            "bytes": 15980,
-            "sha256": "492938BDC0D0E16CA344F7627BA7C225D4F51564B3D025675ED6BE4540480C89"
+            "name": "translation-starter-v8.zip",
+            "bytes": 16580,
+            "sha256": "EA600BCA211224902C80AC0B1D235383A8E9748A6D3A8156611AC291E41C4429"
           }
         ]
       },
