@@ -251,13 +251,13 @@
     },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
-      "bytes": 12807,
-      "sha256": "622E951A87706750D0F803E7A8A9894D2CBBCAA2A24D7C3B2F8C905CACB194BC"
+      "bytes": 12801,
+      "sha256": "16BD1816D209D22D6576C1D8D46057586137864596844CBFD3FDB6BE442F404B"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 149459,
-      "sha256": "7F92AF7326D618CA77BBB6A5DF73876CE17E6D56EDC1FDD644BC5D12E9240615"
+      "bytes": 149644,
+      "sha256": "1BDCF35D0781789BA20BD2865DB600C5492F46D4EA744A4FF61AD7A0C18771F5"
     }
   },
   "asset_manifests": {

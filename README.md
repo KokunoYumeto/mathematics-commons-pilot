@@ -46,7 +46,7 @@ Public choices use titles and readable semantic keys such as `openstax-prealgebr
 
 The [Open Logic source packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) is the first source-bound job. Its exact source snapshot, included rights material, baseline builds, ZIP identity, admission receipt, and anonymous readback are recorded in the catalog. It contains no completed translation.
 
-The separate [`translation-starter-v9` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-complete) is a generic work-selection workflow. It asks two questions before doing anything else:
+The separate [`translation-starter-v9` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final) is a generic work-selection workflow. It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?

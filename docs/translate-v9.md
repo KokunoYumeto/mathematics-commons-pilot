@@ -1,10 +1,10 @@
 # Translation starter v9
 
-`translate-v9-complete` is the current generic translation workflow release (the package version is v9). It is a chooser and source-intake kit, not a textbook or a completed translation. It is usable for every non-reference work in `catalog/translations.json`, including rows marked `starter_available` and the `source_bound_packet` Open Logic row.
+`translate-v9-final` is the current generic translation workflow release (the package version is v9). It is a chooser and source-intake kit, not a textbook or a completed translation. It is usable for every non-reference work in `catalog/translations.json`, including rows marked `starter_available` and the `source_bound_packet` Open Logic row.
 
 ## Release identity
 
-- Release tag: [`translate-v9-complete`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-complete)
+- Release tag: [`translate-v9-final`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final)
 - Release target commit and tree: recorded in the live portal and anonymous readback after publication
 - Asset: `translation-starter-v9.zip`
 - Asset size and SHA-256: recorded in [`catalog/assets/translate-v9-complete.json`](../catalog/assets/translate-v9-complete.json)
