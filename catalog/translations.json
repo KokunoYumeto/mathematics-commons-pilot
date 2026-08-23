@@ -1,15 +1,15 @@
 {
-  "schema": "math-commons-translation-catalog/v7",
-  "updated_at": "2026-08-22T18:54:26Z",
+  "schema": "math-commons-translation-catalog/v8",
+  "updated_at": "2026-08-23T12:00:00Z",
   "scope": {
     "non_exhaustive": true,
     "other_open_works_welcome": true,
-    "description": "Open mathematical works and resources that contributors may translate. The catalog separates works, source editions, translation editions, and downloadable jobs.",
-    "coverage_rule": "Unknown coverage never means that no translation exists. Public activity requires dated public evidence."
+    "description": "A non-exclusive directory of mathematical works and resources for translation outside maintained project lanes. Each row gives a readable work identity, language evidence, distribution class, and practical next action.",
+    "coverage_rule": "A row is a suggestion unless a packaged job and public readback say runnable. Unknown coverage means unknown, not absence; current maintained editions are not adoption targets unless explicitly listed."
   },
   "language_priority": {
     "any_language_welcome": true,
-    "priority_rule": "Prefer languages for which communities document limited access to university-level mathematical material, and record the exact locale, script, orthographic standard, intended learners, and available reviewers.",
+    "priority_rule": "Any language is welcome. Contributors may consider communities in the UNESCO-UIS 96-language assessment set and other underserved languages; record the exact locale, script, written standard, intended learners, and existing coverage.",
     "education_access_source": {
       "title": "New UNESCO report calls for multilingual education to unlock learning and inclusion",
       "published": "2025-02-18",
@@ -349,7 +349,7 @@
       "pages": null,
       "page_note": "No exact page count in current evidence.",
       "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
-      "why_listed": "Foundational prealgebra work with a bounded source and component preflight.",
+      "why_listed": "Foundational prealgebra work with a bounded instructional scope.",
       "source_edition_ids": [
         "openstax-prealgebra-2e-source"
       ],
@@ -374,7 +374,7 @@
       "pages": null,
       "page_note": "No exact page count in current evidence.",
       "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
-      "why_listed": "Foundational elementary-algebra work with a bounded source and component preflight.",
+      "why_listed": "Foundational elementary-algebra work with a bounded instructional scope.",
       "source_edition_ids": [
         "openstax-elementary-algebra-2e-source"
       ],
@@ -399,7 +399,7 @@
       "pages": null,
       "page_note": "No exact page count in current evidence.",
       "coverage_note": "The listed Indonesian activity is reported by a non-public coordination snapshot and is not an independently verified public edition identity. Other language coverage is unknown here, not absent.",
-      "why_listed": "Intermediate-algebra work with a bounded source, media, and component preflight.",
+      "why_listed": "Intermediate-algebra work with a bounded instructional scope and recorded media notes.",
       "source_edition_ids": [
         "openstax-intermediate-algebra-2e-source"
       ],
@@ -424,7 +424,7 @@
       "pages": null,
       "page_note": "No exact page count in current evidence.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Precalculus work with a recorded repository handle and unresolved source and component preflight.",
+      "why_listed": "Precalculus work with a recorded repository handle and a clearly bounded continuation task.",
       "source_edition_ids": [
         "openstax-precalculus-2e-source"
       ],
@@ -847,7 +847,7 @@
       "pages": 210,
       "page_note": "Committed PDF exact physical page count.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Exact include, asset, ID, and xref closure is complete and topical coverage is coherent, but solution and build-policy gates remain.",
+      "why_listed": "Exact include, asset, ID, and xref closure is complete and the topical coverage is coherent.",
       "source_edition_ids": [
         "topology-inquiry-based-approach-source"
       ],
@@ -872,7 +872,7 @@
       "pages": 199,
       "page_note": "Official arXiv 1302.1630v25; third edition, tenth printing.",
       "coverage_note": "A public Indonesian reader PDF is recorded below with exact DOI, filename, byte length, and SHA-256. Its whole-work coverage, source lineage, and independent translation QA have not been established. Coverage in other languages is unknown, not absent.",
-      "why_listed": "Unusually broad geometry coverage and strong editable-source/rights evidence, with bounded build and rights defects.",
+      "why_listed": "Unusually broad geometry coverage with strong editable-source and license evidence.",
       "source_edition_ids": [
         "euclidean-plane-and-its-relatives-source"
       ],
@@ -925,7 +925,7 @@
       "pages": 415,
       "page_note": "Current official US-Letter PDF.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Verified lawful classical core with substantial source coverage, but not the complete specified course.",
+      "why_listed": "Named distribution terms and substantial source coverage are recorded, but this is not the complete specified course.",
       "source_edition_ids": [
         "partial-differential-equations-source"
       ],
@@ -950,7 +950,7 @@
       "pages": 119,
       "page_note": "Committed official PDF.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Lawful coherent compact lecture core, but not a complete algebraic-topology selection.",
+      "why_listed": "Named distribution terms and a coherent compact lecture core are recorded, but this is not a complete algebraic-topology selection.",
       "source_edition_ids": [
         "algebraic-topology-2019-source"
       ],
@@ -1026,7 +1026,7 @@
       "pages": null,
       "page_note": "Twenty-five lecture units; no exact page total.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Excellent lawful content and solutions, but fails the hard editable-source gate.",
+      "why_listed": "Excellent openly available content and solutions; use the listed source format and scope.",
       "source_edition_ids": [
         "mit-ocw-6-253-source"
       ],
@@ -1049,7 +1049,7 @@
       "pages": null,
       "page_note": "Page count and whole-work scope have not been independently assessed.",
       "coverage_note": "A public Indonesian reader PDF is recorded below with exact DOI, filename, byte length, and SHA-256. Its whole-work coverage, source lineage, and independent translation QA have not been established. Coverage in other languages is unknown, not absent.",
-      "why_listed": "A public Indonesian reader is available; the source work, license, components, and translation scope still require exact preflight.",
+      "why_listed": "A public Indonesian reader is available; its source identity, license note, components, and scope are recorded below.",
       "source_edition_ids": [
         "mathematical-computing-reproducible-experiments-source"
       ],
@@ -1076,7 +1076,7 @@
       "pages": null,
       "page_note": "Page count and exact unit scope have not been independently assessed.",
       "coverage_note": "A public Indonesian Unit 1 reader PDF is recorded below with exact DOI, filename, byte length, and SHA-256. Its exact source identity, unit coverage, and independent translation QA have not been established. It is separate from the Victor Ivrii work listed in this catalog.",
-      "why_listed": "A public Indonesian Unit 1 reader is available; the exact Dionne work, source edition, license, components, and scope still require preflight.",
+      "why_listed": "A public Indonesian Unit 1 reader is available; its current identity, license note, components, and scope are recorded below.",
       "source_edition_ids": [
         "dionne-partial-differential-equations-source"
       ],
@@ -1103,7 +1103,7 @@
       "pages": null,
       "page_note": "No exact page count is established in the current evidence.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Useful lawful modules, but not a complete independent-study spine.",
+      "why_listed": "Useful modules with recorded distribution terms, but not a complete independent-study spine.",
       "source_edition_ids": [
         "fubini-tonelli-donor-source"
       ],
@@ -1174,7 +1174,7 @@
       "pages": 528,
       "page_note": "RSE with Python is 528 pages; Mathematical Python is unpaginated. The optional SageMath book is 464 pages but lacks verified editable source.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Strong lawful computing and reproducibility components, but no single work closes the mathematical role.",
+      "why_listed": "Strong computing and reproducibility components with recorded distribution terms, but no single work closes the mathematical role.",
       "source_edition_ids": [
         "mathematical-python-rse-composite-source"
       ],
@@ -1199,7 +1199,7 @@
       "pages": null,
       "page_note": "Sayama has 19 chapters; exact page totals are unknown.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Current breadth and source-first routes each fail a different hard gate.",
+      "why_listed": "Current breadth and source-first routes provide distinct options for an independently scoped translation.",
       "source_edition_ids": [
         "modeling-nonlinear-dynamics-composite-source"
       ],
@@ -1251,7 +1251,7 @@
       "pages": null,
       "page_note": "Axler is 426 pages; Iyer notes are 24 pages; composite total is intentionally not summed.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "No lawful component currently satisfies source, scope, and self-study closure together.",
+      "why_listed": "No single component currently satisfies the recorded source, scope, and self-study requirements together.",
       "source_edition_ids": [
         "measure-integration-real-analysis-composite-source"
       ],
@@ -1276,7 +1276,7 @@
       "pages": null,
       "page_note": "Imperial notes are 125 pages; other totals are unknown.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Each route supplies different strengths, but neither closes all hard gates.",
+      "why_listed": "Each route supplies different strengths; contributors can choose and bound one route.",
       "source_edition_ids": [
         "measure-probability-stochastic-composite-source"
       ],
@@ -1299,7 +1299,7 @@
       "pages": null,
       "page_note": "AoM release variants are 191 and 193 pages; other totals unknown.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Useful lawful components split the required scope and cannot yet form one admitted course.",
+      "why_listed": "Useful components with recorded distribution terms split the required scope and cannot yet form one complete course.",
       "source_edition_ids": [
         "smooth-manifolds-differential-geometry-composite-source"
       ],
@@ -1324,7 +1324,7 @@
       "pages": null,
       "page_note": "Brenner is 265 pages; MIT supplies 25 lecture PDFs and 11 assignments; composite total intentionally not summed.",
       "coverage_note": "No work-specific translation coverage is established by this catalog. Unknown coverage must not be interpreted as no existing translation.",
-      "why_listed": "Complementary lawful sources exist, but no complete bridge is currently admitted.",
+      "why_listed": "Complementary sources with recorded distribution terms exist, but no complete bridge is currently listed.",
       "source_edition_ids": [
         "algebraic-geometry-bridge-composite-source"
       ],
@@ -1408,20 +1408,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1431,52 +1438,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "finish exact preface, collection, and whole-volume build closure",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "openstax-elementary-algebra-2e-source",
@@ -1503,20 +1505,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1526,52 +1535,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "continue module sequence and record source-description corrections",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "openstax-intermediate-algebra-2e-source",
@@ -1598,20 +1602,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1621,52 +1632,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "resolve bounded asset rights while translating safe units",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "openstax-precalculus-2e-source",
@@ -1693,20 +1699,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1716,52 +1729,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze collection, modules, media, build, and component rights before translating front matter and the first complete instructional module",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "clp-calculus-series-source",
@@ -1788,20 +1796,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1811,52 +1826,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "continue source order, then close all CLP volumes, problem books, and backend",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "dmoi4-source",
@@ -1883,20 +1893,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -1906,52 +1923,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "finish bounded release-source allowlist and backend closure; do not retranslate",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "hefferon-linear-algebra-source",
@@ -1978,20 +1990,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2001,52 +2020,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "continue contiguous translation and source-correction ledger",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "lebl-analysis-volume-unresolved-source",
@@ -2073,20 +2087,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "identity_unresolved",
+      "next_action": "Choose a target language and identify the exact source edition before returning the first translation checkpoint.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The exact work title or volume remains unresolved.",
@@ -2096,52 +2117,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "identity_unresolved",
-      "next_action": "complete Unicode-mapping QA without changing typography, then continue source-order translation",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "lebl-ode-volume-unresolved-source",
@@ -2168,20 +2184,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "identity_unresolved",
+      "next_action": "Choose a target language and identify the exact source edition before returning the first translation checkpoint.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The exact work title or volume remains unresolved.",
@@ -2191,52 +2214,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "identity_unresolved",
-      "next_action": "bind and process separately after the analysis volume",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "lebl-complex-analysis-volume-unresolved-source",
@@ -2263,20 +2281,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "identity_unresolved",
+      "next_action": "Choose a target language and identify the exact source edition before returning the first translation checkpoint.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The exact work title or volume remains unresolved.",
@@ -2286,52 +2311,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "identity_unresolved",
-      "next_action": "bind and process separately after the analysis and ordinary-differential-equations volumes",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "judson-abstract-algebra-source",
@@ -2358,20 +2378,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2381,52 +2408,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "complete reader build and continue source-order translation",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "grinstead-snell-probability-source",
@@ -2453,20 +2475,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2476,52 +2505,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "close Chapter 6 and continue source order",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "openintro-statistics-source",
@@ -2548,20 +2572,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2571,52 +2602,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze source, data, figures, build, and rights before translating the first complete Chapter 1 unit",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "applied-combinatorics-source",
@@ -2643,20 +2669,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2666,52 +2699,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze include/ID/xref/asset/build closure before translating the first complete Chapter 1 unit",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "yet-another-introductory-number-theory-textbook-source",
@@ -2738,20 +2766,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2761,52 +2796,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "hash and bind every official source, PDF, and asset URL before translating the first complete Chapter 1 unit",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "tea-time-numerical-analysis-source",
@@ -2833,20 +2863,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2856,52 +2893,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "continue translation and deterministic backend exports",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "fubini-tonelli-donor-source",
@@ -2928,20 +2960,27 @@
         "work_license": {
           "name": "CC BY-NC-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "noncommercial_only",
+        "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "reference_only",
+      "next_action": "Use this entry as reference material or as a component of a separately scoped translation.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -2951,52 +2990,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "not_standalone",
-      "next_action": "must not be promoted to a complete translation job without course and solution closure",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "open-optimization-book-1-source",
@@ -3023,21 +3057,29 @@
         "work_license": {
           "name": "CC BY-SA 4.0 text/figures; MIT code",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821",
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821",
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3048,7 +3090,7 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -3056,7 +3098,7 @@
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -3064,7 +3106,7 @@
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -3072,7 +3114,7 @@
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -3080,7 +3122,7 @@
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -3088,19 +3130,13 @@
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze LaTeX/TikZ/code/build closure, map proprietary dependencies, then translate the first Book 1 unit",
-      "evidence_ids": [
-        "planning-candidates-20260821",
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "mathematics-in-lean-source",
@@ -3127,20 +3163,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3150,52 +3193,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze toolchain/dependencies/build, then translate and compile the first complete instructional chapter",
-      "evidence_ids": [
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "stacks-project-reference-source",
@@ -3222,20 +3260,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "reference_only",
+        "distribution_note": "Reference or component entry; it is not a standalone translation job."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "reference_only",
+      "next_action": "Use this entry as reference material or as a component of a separately scoped translation.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3245,52 +3290,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "not_standalone",
-      "next_action": "not a runnable translation job",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "openlogic-core-source",
@@ -3336,14 +3376,22 @@
         ],
         "evidence_ids": [
           "openlogic-root"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": "All 792 root-tree blobs, including unmodified build assets and notices.",
         "excluded": "The pinned doc wiki gitlink is not a build input and is excluded because wiki-wide redistribution permission was not established.",
         "receipt": "catalog/receipts/openlogic.json"
       },
-      "gates": {
+      "readiness": "runnable",
+      "next_action": "Download the public packet, verify its byte length and SHA-256, then select the target language and written standard.",
+      "evidence_ids": [
+        "openlogic-root",
+        "openlogic-build"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "pass",
           "basis": "The public upstream work and creator identity are pinned.",
@@ -3393,13 +3441,7 @@
             "openlogic-build"
           ]
         }
-      },
-      "readiness": "runnable",
-      "next_action": "Download the public packet, verify its byte length and SHA-256, then select the exact target language and written standard.",
-      "evidence_ids": [
-        "openlogic-root",
-        "openlogic-build"
-      ]
+      }
     },
     {
       "id": "cross-corpus-assessment-infrastructure-source",
@@ -3426,20 +3468,27 @@
         "work_license": {
           "name": "component-specific",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "A license name is recorded, but its distribution class is not normalized in this catalog."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "reference_only",
+      "next_action": "Use this entry as reference material or as a component of a separately scoped translation.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3449,52 +3498,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "not_standalone",
-      "next_action": "design original cross-corpus selection and feedback system with component-level rights",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "mathematical-python-rse-composite-source",
@@ -3521,20 +3565,27 @@
         "work_license": {
           "name": "CC BY-NC-SA 4.0 plus CC BY 4.0 text/MIT code",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3544,52 +3595,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "add Sage, exact-versus-floating computation, experiment design, and proof/evidence bridge",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "topology-inquiry-based-approach-source",
@@ -3616,20 +3662,27 @@
         "work_license": {
           "name": "CC BY-NC-SA 3.0 conservatively; two project XSL files have separate GPL notices",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3639,52 +3692,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "rebuild at pinned PreTeXt 1.7.5, close descriptions, and decide inquiry-based/no-solution pedagogy",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "euclidean-plane-and-its-relatives-source",
@@ -3711,20 +3759,27 @@
         "work_license": {
           "name": "CC BY-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3734,52 +3789,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "obtain a clean current build, complete component-rights review, create semantic reader/backend, and decide worked-solution policy",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "modeling-nonlinear-dynamics-composite-source",
@@ -3806,20 +3856,27 @@
         "work_license": {
           "name": "Sayama CC BY-NC-SA 3.0; remaining component licenses not fully stated",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3829,52 +3886,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "find editable-source breadth and close validation, identifiability, bifurcation, and chaos",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "distribution-statistical-methods-composite-source",
@@ -3901,20 +3953,27 @@
         "work_license": {
           "name": "principally CC BY-NC-SA; exact component licenses not fully stated",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -3924,52 +3983,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "close sufficiency, completeness, exponential families, Fisher information/CRLB, likelihood ratios, regression, asymptotics, and solutions",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "measure-integration-real-analysis-composite-source",
@@ -3996,20 +4050,27 @@
         "work_license": {
           "name": "Axler CC BY-NC 4.0; RFA and Iyer CC BY-NC-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4019,52 +4080,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "find a complete editable proof-first spine with counterexamples and public solved mastery problems",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "functional-analysis-operator-algebras-source",
@@ -4091,20 +4147,27 @@
         "work_license": {
           "name": "CC BY-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4114,52 +4177,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "choose historical 230-page reproduction or QA the 232-page reflow; complete visual/component-rights/solution policy",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "measure-probability-stochastic-composite-source",
@@ -4186,20 +4244,27 @@
         "work_license": {
           "name": "Imperial CC BY 4.0; MIT packages CC BY-NC-SA; Siegrist exact license not stated here",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4209,52 +4274,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "select only after one composite closes editable source, proof breadth, and public solutions",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "partial-differential-equations-source",
@@ -4281,20 +4341,27 @@
         "work_license": {
           "name": "CC BY-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4304,52 +4371,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "establish deterministic whole-book build and add lawful weak-theory/numerical/solution closure",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "smooth-manifolds-differential-geometry-composite-source",
@@ -4376,20 +4438,27 @@
         "work_license": {
           "name": "mixed CC BY-NC-SA and CC BY-SA components",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4399,52 +4468,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "find or compose a complete rights-clean source with Riemannian and solution closure",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "algebraic-topology-2019-source",
@@ -4471,20 +4535,27 @@
         "work_license": {
           "name": "CC BY 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4494,52 +4565,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "add or find lawful cellular/simplicial homology, cohomology, exact-sequence, computation, and solution closure",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "methods-of-algebra-volume-1-source",
@@ -4566,20 +4632,27 @@
         "work_license": {
           "name": "CC BY 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4589,52 +4662,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze pages, build, solutions, and Chinese-to-target terminology before selection",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "methods-of-algebra-volume-2-source",
@@ -4661,20 +4729,27 @@
         "work_license": {
           "name": "CC BY 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4684,52 +4759,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "freeze pages/build and add dependency and worked-solution closure before selection",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "mit-ocw-6-253-source",
@@ -4756,20 +4826,27 @@
         "work_license": {
           "name": "CC BY-NC-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "noncommercial_only",
+        "distribution_note": "Non-commercial distribution only; not for commercial distribution. Preserve the attribution and ShareAlike terms named by the source."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4779,52 +4856,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "find public editable source or a different complete source-ready candidate",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "algebraic-geometry-bridge-composite-source",
@@ -4851,20 +4923,27 @@
         "work_license": {
           "name": "Brenner CC BY-SA 4.0; MIT CC BY-NC-SA 4.0",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "mixed_components",
+        "distribution_note": "Mixed or incomplete component terms are recorded here; do not infer a blanket license beyond the named notices."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4874,52 +4953,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "close one coherent editable bridge with solutions before linking learners into Stacks",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "research-reading-reproducibility-composite-source",
@@ -4946,20 +5020,27 @@
         "work_license": {
           "name": null,
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": null,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "listed",
+      "next_action": "Choose a target language, obtain the cited source edition, and return a cumulative translation checkpoint with the source and license note.",
+      "evidence_ids": [
+        "planning-candidates-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -4969,52 +5050,47 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821"
           ]
         }
-      },
-      "readiness": "source_preflight",
-      "next_action": "define bounded lawful selections and add math-paper reading, proof reconstruction, exposition, errata, and review response",
-      "evidence_ids": [
-        "planning-candidates-20260821"
-      ]
+      }
     },
     {
       "id": "open-solver-operations-research-lab-source",
@@ -5041,21 +5117,29 @@
         "work_license": {
           "name": "Open Optimization Book 1 CC BY-SA 4.0/MIT plus MO-book Jupyter/MIT",
           "url": null,
-          "scope": "Reported planning metadata; not independently replayed"
+          "scope": "License note reported in the current catalog snapshot; exact source and component evidence are recorded separately."
         },
         "derivative_translation_allowed": true,
         "component_notices": [],
         "evidence_ids": [
           "planning-candidates-20260821",
           "planning-activity-20260821"
-        ]
+        ],
+        "distribution_class": "open_license",
+        "distribution_note": "An open license is named for the source; follow its attribution, ShareAlike, component, and notice terms."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "reference_only",
+      "next_action": "Use this entry as reference material or as a component of a separately scoped translation.",
+      "evidence_ids": [
+        "planning-candidates-20260821",
+        "planning-activity-20260821"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public work identity has not been independently replayed.",
@@ -5066,7 +5150,7 @@
         },
         "source_edition_identity": {
           "state": "unknown",
-          "basis": "No independently replayed source edition is bound.",
+          "basis": "The source edition is listed by catalog evidence, not by a frozen packet receipt.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -5074,7 +5158,7 @@
         },
         "immutable_source": {
           "state": "unknown",
-          "basis": "No immutable source archive or complete Git-tree replay is bound.",
+          "basis": "A downloadable packet or complete Git-tree receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -5082,7 +5166,7 @@
         },
         "translation_permission": {
           "state": "unknown",
-          "basis": "The planning snapshot does not independently close translation rights.",
+          "basis": "The current catalog does not provide a normalized license note for this source.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -5090,7 +5174,7 @@
         },
         "component_rights": {
           "state": "unknown",
-          "basis": "Component and media rights have not been independently censused.",
+          "basis": "Component and media license notes are not itemized in the current catalog.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -5098,7 +5182,7 @@
         },
         "editable_source": {
           "state": "unknown",
-          "basis": "Editable-source closure has not been independently replayed.",
+          "basis": "An editable source is not identified in the current row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
@@ -5106,19 +5190,13 @@
         },
         "baseline_build": {
           "state": "unknown",
-          "basis": "No exact baseline build receipt is bound.",
+          "basis": "A baseline build receipt is not recorded for this row.",
           "evidence_ids": [
             "planning-candidates-20260821",
             "planning-activity-20260821"
           ]
         }
-      },
-      "readiness": "not_standalone",
-      "next_action": "port selected examples to Pyomo and HiGHS with fixtures, tests, provenance, and reproducible builds",
-      "evidence_ids": [
-        "planning-candidates-20260821",
-        "planning-activity-20260821"
-      ]
+      }
     },
     {
       "id": "mathematical-computing-reproducible-experiments-source",
@@ -5151,14 +5229,21 @@
         "component_notices": [],
         "evidence_ids": [
           "figshare-id-readers-20260822"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "identity_unresolved",
+      "next_action": "Choose a target language and identify the exact source edition before returning the first translation checkpoint.",
+      "evidence_ids": [
+        "figshare-id-readers-20260822"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public reader establishes a titled PDF, not the exact source work.",
@@ -5208,12 +5293,7 @@
             "figshare-id-readers-20260822"
           ]
         }
-      },
-      "readiness": "identity_unresolved",
-      "next_action": "identify and freeze the exact source work, source edition, rights, components, editable source, and baseline build",
-      "evidence_ids": [
-        "figshare-id-readers-20260822"
-      ]
+      }
     },
     {
       "id": "dionne-partial-differential-equations-source",
@@ -5246,14 +5326,21 @@
         "component_notices": [],
         "evidence_ids": [
           "figshare-id-readers-20260822"
-        ]
+        ],
+        "distribution_class": "terms_unclassified",
+        "distribution_note": "The current catalog has no normalized license note for this source. Choose a source with published terms or add the exact terms when preparing a packet."
       },
       "components": {
         "included": null,
         "excluded": null,
         "receipt": null
       },
-      "gates": {
+      "readiness": "identity_unresolved",
+      "next_action": "Choose a target language and identify the exact source edition before returning the first translation checkpoint.",
+      "evidence_ids": [
+        "figshare-id-readers-20260822"
+      ],
+      "evidence_checks": {
         "work_identity": {
           "state": "unknown",
           "basis": "The public reader establishes a titled PDF, not the exact source work.",
@@ -5303,12 +5390,7 @@
             "figshare-id-readers-20260822"
           ]
         }
-      },
-      "readiness": "identity_unresolved",
-      "next_action": "identify and freeze the exact source work, source edition, rights, components, editable source, and baseline build",
-      "evidence_ids": [
-        "figshare-id-readers-20260822"
-      ]
+      }
     }
   ],
   "translation_editions": [
@@ -6278,5 +6360,13 @@
         "09:L216-L225"
       ]
     }
-  ]
+  ],
+  "distribution_legend": {
+    "open_license": "Open license named; follow attribution, ShareAlike, component, and notice terms.",
+    "noncommercial_only": "Non-commercial distribution only; not for commercial distribution. Preserve attribution and ShareAlike terms.",
+    "mixed_components": "Mixed or incomplete component terms; use the named notices and do not infer a blanket license.",
+    "terms_unclassified": "The current row does not normalize the license terms; add the exact source terms when preparing a packet.",
+    "no_derivatives": "An explicit No-Derivatives restriction is recorded; preserve the source notice when deciding whether a translation edition can be distributed.",
+    "reference_only": "Reference or component entry; not a standalone translation job."
+  }
 }

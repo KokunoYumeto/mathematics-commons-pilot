@@ -15,9 +15,9 @@ Read `docs/translations.md` and the files in `kits/translate/`. Before any sourc
 1. Which work, title, or catalog ID does the user want?
 2. What exact target language, locale, script, and orthographic standard does the user want?
 
-Then report work-specific verified editions, reported but unverified editions, declared overlap, source status, derivative rights, component status, and baseline-build status. Unknown coverage means unknown, not absent. If a source requirement is not satisfied, define a source-preflight task. Never overwrite an existing edition or infer whole-work completion from a language tag.
+Then report work-specific verified editions, reported but unverified editions, declared overlap, source status, distribution class, component status, and baseline-build status. Unknown coverage means unknown, not absent. If source material is missing, record the exact acquisition step and continue from that checkpoint. Never overwrite an existing edition or infer whole-work completion from a language tag.
 
-The source-bound `openlogic-v1` row may be run only after its release asset and anonymous readback match the catalog. The generic v7 starter contains no source work and is only a chooser and preflight workflow; do not treat its release as a runnable translation job. Its `WORKS.json` is a frozen release snapshot, not the floating current catalog. The live catalog adds nine exact public Indonesian reader identities; those rows prove available PDF bytes, not whole-work coverage, source lineage, or independent QA.
+The source-bound `openlogic-v1` row may be run only after its release asset and anonymous readback match the catalog. The generic v8 starter contains no source work and is a chooser, source-acquisition, and cumulative translation workflow; do not treat its release as a runnable translation job. Its `WORKS.json` carries the current distribution labels and language snapshot. The live catalog adds nine exact public Indonesian reader identities; those rows prove available PDF bytes, not whole-work coverage, source lineage, or independent QA.
 
 ## Open problems
 

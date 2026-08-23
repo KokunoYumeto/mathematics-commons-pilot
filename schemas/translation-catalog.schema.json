@@ -4,12 +4,25 @@
   "title": "Mathematics Commons translation catalog",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "updated_at", "scope", "language_priority", "separate_archive", "evidence", "page_accounting", "topics", "works", "resources", "source_editions", "translation_editions", "jobs", "exclusions"],
+  "required": ["schema", "updated_at", "scope", "language_priority", "distribution_legend", "separate_archive", "evidence", "page_accounting", "topics", "works", "resources", "source_editions", "translation_editions", "jobs", "exclusions"],
   "properties": {
-    "schema": {"const": "math-commons-translation-catalog/v7"},
+    "schema": {"const": "math-commons-translation-catalog/v8"},
     "updated_at": {"type": "string", "format": "date-time"},
     "scope": {"$ref": "#/$defs/scope"},
     "language_priority": {"$ref": "#/$defs/languagePriority"},
+    "distribution_legend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["open_license", "noncommercial_only", "mixed_components", "terms_unclassified", "no_derivatives", "reference_only"],
+      "properties": {
+        "open_license": {"type": "string", "minLength": 1},
+        "noncommercial_only": {"type": "string", "minLength": 1},
+        "mixed_components": {"type": "string", "minLength": 1},
+        "terms_unclassified": {"type": "string", "minLength": 1},
+        "no_derivatives": {"type": "string", "minLength": 1},
+        "reference_only": {"type": "string", "minLength": 1}
+      }
+    },
     "separate_archive": {"$ref": "#/$defs/separateArchive"},
     "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
     "page_accounting": {"$ref": "#/$defs/pageAccounting"},
@@ -226,7 +239,7 @@
         "evidence_ids": {"$ref": "#/$defs/slugArray"}
       }
     },
-    "gates": {
+    "evidenceChecks": {
       "type": "object",
       "additionalProperties": false,
       "required": ["work_identity", "source_edition_identity", "immutable_source", "translation_permission", "component_rights", "editable_source", "baseline_build"],
@@ -243,7 +256,7 @@
     "rights": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["state", "work_license", "derivative_translation_allowed", "component_notices", "evidence_ids"],
+      "required": ["state", "work_license", "derivative_translation_allowed", "component_notices", "evidence_ids", "distribution_class", "distribution_note"],
       "properties": {
         "state": {"enum": ["verified_translation_allowed", "reported_unverified"]},
         "work_license": {
@@ -257,6 +270,17 @@
           }
         },
         "derivative_translation_allowed": {"type": ["boolean", "null"]},
+        "distribution_class": {
+          "enum": [
+            "open_license",
+            "noncommercial_only",
+            "mixed_components",
+            "terms_unclassified",
+            "no_derivatives",
+            "reference_only"
+          ]
+        },
+        "distribution_note": {"type": "string", "minLength": 1},
         "component_notices": {
           "type": "array",
           "items": {
@@ -275,7 +299,7 @@
     "sourceEdition": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "item_id", "item_type", "identity_state", "label", "source_language", "locator", "rights", "components", "gates", "readiness", "next_action", "evidence_ids"],
+      "required": ["id", "item_id", "item_type", "identity_state", "label", "source_language", "locator", "rights", "components", "evidence_checks", "readiness", "next_action", "evidence_ids"],
       "properties": {
         "id": {"$ref": "#/$defs/slug"},
         "item_id": {"$ref": "#/$defs/slug"},
@@ -306,8 +330,8 @@
             "receipt": {"$ref": "#/$defs/nullableString"}
           }
         },
-        "gates": {"$ref": "#/$defs/gates"},
-        "readiness": {"enum": ["identity_unresolved", "source_preflight", "not_standalone", "packet_prepared", "runnable"]},
+        "evidence_checks": {"$ref": "#/$defs/evidenceChecks"},
+        "readiness": {"enum": ["identity_unresolved", "listed", "reference_only", "packet_prepared", "runnable"]},
         "next_action": {"type": "string", "minLength": 1},
         "evidence_ids": {"$ref": "#/$defs/slugArray"}
       }

@@ -266,19 +266,19 @@ class JobCatalogTests(unittest.TestCase):
         validate_jobs.validate_schema(current, "portals", "current portal", errors)
         self.assertTrue(errors)
 
-    def test_translation_v7_chooser_is_frozen_and_live_catalog_is_additive(self) -> None:
+    def test_translation_v8_chooser_projects_live_catalog(self) -> None:
         choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
         readers, _ = validate_jobs.load(
             ROOT / "catalog" / "receipts" / "id-readers.json"
         )
-        self.assertEqual(choices["schema"], "math-commons-translation-choices/v7")
+        self.assertEqual(choices["schema"], "math-commons-translation-choices/v8")
         self.assertEqual(
             choices["catalog"],
             {
                 "path": "catalog/translations.json",
-                "bytes": validate_jobs.TRANSLATE_V7_CATALOG_BYTES,
-                "sha256": validate_jobs.TRANSLATE_V7_CATALOG_SHA256,
+                "bytes": validate_jobs.TRANSLATE_V8_CATALOG_BYTES,
+                "sha256": validate_jobs.TRANSLATE_V8_CATALOG_SHA256,
             },
         )
         self.assertEqual(choices["separate_archive"], catalog["separate_archive"])
@@ -378,7 +378,7 @@ class JobCatalogTests(unittest.TestCase):
 
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 36)
+        self.assertEqual(identity["files"], 37)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
@@ -686,15 +686,16 @@ class JobCatalogTests(unittest.TestCase):
                 "jobs": 1,
                 "runnable_jobs": 1,
                 "public_release_assets": 2,
-                "public_release_bytes": 1_937_511,
+                "public_release_bytes": 1_938_111,
             },
         )
+        self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
         self.assertEqual(
-            receipt["inputs"]["translate_v7_readback"],
+            receipt["inputs"]["translate_v8_readback"],
             {
-                "path": "catalog/translate-rb-v7.json",
+                "path": "catalog/translate-rb-v8.json",
                 "bytes": 1_199,
-                "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861",
+                "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22",
             },
         )
 

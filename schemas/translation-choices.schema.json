@@ -17,10 +17,10 @@
     "translation_editions",
     "jobs",
     "language_priority",
-    "source_preflight"
+    "distribution_legend"
   ],
   "properties": {
-    "schema": {"const": "math-commons-translation-choices/v7"},
+    "schema": {"const": "math-commons-translation-choices/v8"},
     "updated_at": {"type": "string", "format": "date-time"},
     "rule": {"type": "string", "minLength": 1},
     "catalog": {"$ref": "#/$defs/catalogIdentity"},
@@ -53,7 +53,26 @@
       "items": {"$ref": "#/$defs/job"}
     },
     "language_priority": {"$ref": "#/$defs/languagePriority"},
-    "source_preflight": {"$ref": "#/$defs/sourcePreflight"}
+    "distribution_legend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "open_license",
+        "noncommercial_only",
+        "mixed_components",
+        "terms_unclassified",
+        "no_derivatives",
+        "reference_only"
+      ],
+      "properties": {
+        "open_license": {"$ref": "#/$defs/nonEmptyString"},
+        "noncommercial_only": {"$ref": "#/$defs/nonEmptyString"},
+        "mixed_components": {"$ref": "#/$defs/nonEmptyString"},
+        "terms_unclassified": {"$ref": "#/$defs/nonEmptyString"},
+        "no_derivatives": {"$ref": "#/$defs/nonEmptyString"},
+        "reference_only": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    }
   },
   "$defs": {
     "slug": {
@@ -209,7 +228,7 @@
     "sourceEdition": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "item_id", "item_type", "readiness"],
+      "required": ["id", "item_id", "item_type", "readiness", "distribution_class", "distribution_note"],
       "properties": {
         "id": {"$ref": "#/$defs/slug"},
         "item_id": {"$ref": "#/$defs/slug"},
@@ -217,12 +236,23 @@
         "readiness": {
           "enum": [
             "identity_unresolved",
-            "source_preflight",
-            "not_standalone",
+            "listed",
+            "reference_only",
             "packet_prepared",
             "runnable"
           ]
-        }
+        },
+        "distribution_class": {
+          "enum": [
+            "open_license",
+            "noncommercial_only",
+            "mixed_components",
+            "terms_unclassified",
+            "no_derivatives",
+            "reference_only"
+          ]
+        },
+        "distribution_note": {"$ref": "#/$defs/nonEmptyString"}
       }
     },
     "language": {
@@ -500,46 +530,6 @@
           "pattern": "^https://.+$"
         },
         "language_table": {"const": "Table S1"}
-      }
-    },
-    "sourcePreflight": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["requires", "not_standalone_or_not_ready"],
-      "properties": {
-        "requires": {
-          "type": "array",
-          "minItems": 7,
-          "maxItems": 7,
-          "uniqueItems": true,
-          "items": {
-            "enum": [
-              "exact public edition or source boundary",
-              "immutable commit, tag, or archive hash",
-              "permission for translation derivatives",
-              "component-rights inventory",
-              "editable-source closure",
-              "unmodified baseline-build attempt",
-              "work-specific existing-language and owner review"
-            ]
-          }
-        },
-        "not_standalone_or_not_ready": {
-          "type": "array",
-          "minItems": 6,
-          "maxItems": 6,
-          "uniqueItems": true,
-          "items": {
-            "enum": [
-              "NoDerivatives",
-              "free-to-read only",
-              "rights unknown",
-              "donor",
-              "reference",
-              "rejected"
-            ]
-          }
-        }
       }
     }
   }

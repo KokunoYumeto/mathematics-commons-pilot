@@ -2,7 +2,7 @@
 
 This portal organizes open mathematical works that contributors can translate with local or hosted AI systems and then inspect through human and independent review. It separates individual works, supporting resources, exact source editions, known public translations, and downloadable jobs.
 
-The catalog is a set of suggestions, not a restriction. Contributors may propose any other mathematical work when its exact source and the right to publish a translation can be verified. Unknown language coverage means unknown; it does not mean that no translation exists.
+The catalog is a set of suggestions, not a restriction. Contributors may propose any other mathematical work with a public source and a recorded distribution note. Unknown language coverage means unknown; it does not mean that no translation exists. Rows are suggestions outside maintained project lanes unless an owner is explicitly shown.
 
 ## Ready jobs
 
@@ -10,7 +10,7 @@ The catalog is a set of suggestions, not a restriction. Contributors may propose
 |---|---|---|
 | Open Logic Text | **Runnable** | [Download `openlogic-v1.zip`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-openlogic-v1/openlogic-v1.zip) and verify 1,921,531 bytes / SHA-256 `C91EFD16C6DCF22DAEAFDBDC7F544A9E07C9B9C3BA04CE000BFCD933B52E9B8A`. The exact source, admission receipt, and anonymous readback are recorded below. |
 
-A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The separately published [generic v7 starter](translate-v7.md) helps with work selection and source preflight; it contains no source work and is not a runnable translation job.
+A job becomes **runnable** only when its public download, byte length, SHA-256 identity, and public readback are present in the machine catalog. The [generic v8 starter](translate-v8.md) is the current wording for work selection, source acquisition, and cumulative translation; it contains no source work and is not a runnable translation job. Its release and anonymous readback are recorded in the portal catalog.
 
 ## Browse the 29 works
 
@@ -29,7 +29,7 @@ The topics below are navigation aids. They do not imply a curriculum, priority o
 | Functional analysis and operator theory | John M. Erdman, *Functional Analysis and Operator Algebras: An Introduction* |
 | Research and assessment infrastructure | No individual work is currently listed; see the resources below. |
 
-Most works still need source preflight. Their inclusion means that they may be useful translation candidates, not that their source packets or translations are complete.
+The listed works are translation candidates, not completed packets. Each source row exposes a readable distribution class and note: `open_license`, `noncommercial_only`, `mixed_components`, `terms_unclassified`, or `reference_only`. Those labels describe the recorded source terms; they do not certify a complete edition or a whole-work translation.
 
 ## The 12 resources and collections
 
@@ -44,7 +44,7 @@ These entries are references, components, infrastructure, or proposed combinatio
 | Functional analysis and operator theory | Fubini–Tonelli real/functional-analysis source component |
 | Research and assessment infrastructure | Cross-corpus assessment infrastructure; research-reading and reproducibility collection |
 
-Each component must acquire its own exact source, license, component-rights record, and reproducible build before it can become part of a runnable job. The Stacks Project is a semantic reference, not a proposal to translate it wholesale.
+Each component keeps its own source, license, and notice information. A contributor may use a component or collection as a bounded starting point and should carry those notices into the returned package. The Stacks Project is a semantic reference, not a proposal to translate it wholesale.
 
 ## Known public translation editions
 
@@ -96,15 +96,15 @@ Separately, a [UNESCO Institute for Statistics report](https://www.uis.unesco.or
 
 Before starting, check whether a suitable edition already exists and whether a parallel effort would still be independently useful. Do not infer work-level coverage from a general language list.
 
-## Source-preflight states
+## Distribution and packet states
 
 - **Identity unresolved:** the exact work or edition has not been identified.
-- **Source preflight needed:** at least one required source, rights, component, editable-source, or baseline-build check remains open.
-- **Supporting resource:** the entry is useful context or infrastructure but is not a standalone job.
+- **Listed:** the work is a usable suggestion with a recorded source/distribution note; it is not a packaged job.
+- **Reference only:** the row is a component, collection, or semantic reference rather than a standalone work.
 - **Prepared, not public:** a packet has been assembled but does not yet have a verified public release.
-- **Runnable:** the public packet and its readback are recorded and all required preflight gates pass.
+- **Runnable:** the public packet and its readback are recorded.
 
-The seven preflight checks are exact work identity, exact source-edition identity, immutable source bytes, permission to publish translations, rights for included components, editable source, and an unchanged baseline build. A title or repository URL alone does not pass these checks.
+The machine catalog keeps evidence checks for reproducibility, but they are not a second legal status. Read the `rights.distribution_class`, `rights.distribution_note`, and `rights.work_license` fields together. `noncommercial_only` means that the source note says not for commercial distribution; preserve the named attribution, ShareAlike, and component notices. `terms_unclassified` means only that the current catalog has not normalized the terms.
 
 ## Run a published job
 
@@ -121,7 +121,7 @@ Any system capable of preserving the files and following the ordered contract ma
 ## Machine interface
 
 - [Translation catalog](../catalog/translations.json): authoritative works, resources, topics, source editions, translation editions, jobs, evidence, and exclusions.
-- [Compact work index](../kits/translate/WORKS.json): the immutable work and resource snapshot shipped in the v7 translation starter; consult the live catalog for later public editions.
+- [Compact work index](../kits/translate/WORKS.json): the current work, language, and distribution snapshot shipped in the v8 translation starter.
 - [Catalog schema](../schemas/translation-catalog.schema.json): machine-validation contract.
 - [Choice schema](../schemas/translation-choices.schema.json) and [source-state schema](../schemas/translation-source.schema.json): downloaded workflow contracts.
 - [Open Logic asset manifest](../catalog/assets/openlogic.json), [admission receipt](../catalog/receipts/openlogic.json), and [public readback](../catalog/openlogic-rb.json): exact runnable-job evidence.

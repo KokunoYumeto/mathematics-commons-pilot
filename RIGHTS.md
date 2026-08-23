@@ -14,7 +14,9 @@ Keep those authority files unchanged. Do not strip attribution, provenance, hold
 
 ## Open educational translations
 
-The textbook translation lane admits a work only when an exact source and derivative-translation permission are recorded. “Free to read” is not enough. No-Derivatives material is excluded.
+The translation catalog is a non-exclusive directory. Each row displays the source identity and a plain distribution class: open license, non-commercial only, mixed components, terms unclassified, or reference only. A runnable packet additionally records exact source bytes and a reproducible build receipt. “Free to read” is not silently relabeled as an open license; an explicit No-Derivatives term is shown as a source restriction rather than silently treated as translation permission.
+
+A `noncommercial_only` row may be translated and shared for non-commercial purposes when its named terms and component notices are followed; this label does not exclude the work from the catalog or from a contributor's project. The catalog records terms and evidence; it is not a blanket approval or prohibition system.
 
 Component licenses remain component-specific:
 

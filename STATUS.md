@@ -28,14 +28,14 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 - Translation-edition evidence rows: 23
 - Public Indonesian reader PDFs: 9 files / 23,510,535 bytes, anonymously length/SHA-256 verified; coverage, lineage, and review unassessed
 - Runnable source-bound jobs: Open Logic Text
-- Generic starter: source-preflight workflow only; not a runnable translation job
+- Generic starter: distribution-labeled work-selection workflow; not a runnable translation job
 - Explicit exclusions: 8
 - Source-bound release: [`translate-openlogic-v1`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1)
-- Generic source-preflight release: [`translate-v7`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7), anonymously replayed
+- Generic starter: [`translate-v8`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8), distribution-labeled and anonymously replayed.
 
-The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional open works, separates public evidence from dated historical reports, and contains source-selection, language-identification, source-freeze, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
+The Open Logic job binds an exact source snapshot, included rights material, reproducible baseline builds, a checksum-pinned release asset, an admission receipt, and anonymous readback. It contains no completed translation. The generic starter asks for the work and exact target language before acting, accepts additional works, displays the recorded distribution class and note, separates public evidence from dated historical reports, and contains source-selection, language-identification, production, return, and independent-QA instructions. It contains no textbook, source work, or completed translation.
 
-All other works require an independent exact source, license, included-component, editable-source, baseline-build, release, and readback check before they can become runnable. Nine public Indonesian reader PDFs now have exact DOI, filename, byte, and SHA-256 evidence, but that evidence alone does not establish whole-work completion, source lineage, or independent QA. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
+Other works are listed suggestions with explicit source and distribution notes. Only a packaged job with a public release and readback is called runnable. Nine public Indonesian reader PDFs now have exact DOI, filename, byte, and SHA-256 evidence, but that evidence alone does not establish whole-work completion, source lineage, or independent QA. Historical activity reports state only what was reported at their recording date; they do not establish current work or completion.
 
 ## Formalization
 
@@ -64,6 +64,6 @@ Workbench v0.2 is an independently replayed but currently unavailable source pac
 
 ## Admission and review boundary
 
-Mechanical PASS establishes the declared file and validation boundary only. It does not establish completed scholarship or mathematical correctness. New transcription packets require their own independent cold audit. Translation sources require exact derivative rights and baseline-build closure. Formalization items require separate source-correspondence and pinned Mathlib audits. Problem records require independent statement, status, source, literature, and mathematical review.
+Mechanical PASS establishes the declared file and validation boundary only. It does not establish completed scholarship or mathematical correctness. New transcription packets require their own independent cold audit. Translation packets record exact source, distribution, and build evidence; formalization items require separate source-correspondence and pinned Mathlib audits. Problem records require independent statement, status, source, literature, and mathematical review.
 
 The original proposal, calibration, record schemas, and immutable `v0.1.0` / `v0.1.1` releases remain indexed under [legacy material](docs/legacy.md).

@@ -14,18 +14,18 @@
     },
     "translations": {
       "path": "catalog/translations.json",
-      "bytes": 213661,
-      "sha256": "0551405B08E07AA2B2F5C3875944C758D7CAC270D300F2F335E0C48067B37BC1"
+      "bytes": 230346,
+      "sha256": "4007729A6427D962A0F794D3B43ECC5C404D3D9F4E93BE9596108B714320980C"
     },
     "translation_choices": {
       "path": "kits/translate/WORKS.json",
-      "bytes": 36711,
-      "sha256": "B9163B7E4373007D9D3E52112E58501FC32F59B2F13884FFD1555BC93A1D024D"
+      "bytes": 44823,
+      "sha256": "92B0D90CCF4AFE4CD22A2CE878B987799E7D54345F854DA9BA671C3C7AF796EE"
     },
     "translation_source": {
       "path": "kits/translate/SOURCE.json",
-      "bytes": 1086,
-      "sha256": "513D61967BF6B69F5A059A6C46BB3E16DFAF5B04E137A2F11296336F08EC22C2"
+      "bytes": 1232,
+      "sha256": "5A01B81EC4FAF71BDE06A02DE7362461EFA1A4EFFAE05A6491C7474E5CDD3A54"
     },
     "openlogic_source": {
       "path": "kits/openlogic/SOURCE.json",
@@ -49,8 +49,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 4927,
-      "sha256": "5B305EBD5F2C3131F18F9C4612A3F2F539689AAC06D7A1F9D254EA81D01BAFE7"
+      "bytes": 4962,
+      "sha256": "6FB56DC15F8906585388C25DE4B4FC537EA13484B842F7B8D180D556DCB73761"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -72,10 +72,11 @@
       "bytes": 1215,
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
-    "translate_v7_readback": {
-      "path": "catalog/translate-rb-v7.json",
+    "translate_v7_readback": null,
+    "translate_v8_readback": {
+      "path": "catalog/translate-rb-v8.json",
       "bytes": 1199,
-      "sha256": "85C1D6F82516E05E30BF6FC1D9846680058AE7257037FEA7C7DB8FC5B7253861"
+      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
     },
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
@@ -86,6 +87,11 @@
       "path": "catalog/assets/translate-v7.json",
       "bytes": 2603,
       "sha256": "9E94253BCC50A1E6369D69918EC88D9025D373481944370E3EC6F3213CC76DF1"
+    },
+    "translate_v8_asset_manifest": {
+      "path": "catalog/assets/translate-v8.json",
+      "bytes": 2603,
+      "sha256": "3887D93097C01795B243F69C1126994396123BAC9B33FAE075D81CAAABB7CCEF"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -134,18 +140,18 @@
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
-      "bytes": 21278,
-      "sha256": "E27B7D00F49885D18B21217DF88D77F0AE4736A729FE54C6C2546F6BDB6CFEF5"
+      "bytes": 22341,
+      "sha256": "91D099BA33741877C308398B0EDBE3688292829D643EB2F911745990439F5471"
     },
     "translation_choices_schema": {
       "path": "schemas/translation-choices.schema.json",
-      "bytes": 15499,
-      "sha256": "2E516EB3DA78476695FAB6237FBA1BFEDE2FDF534B37DA7E59BDDA01A1C766A7"
+      "bytes": 15332,
+      "sha256": "6F699CAEB01CC273108B227F6BB32884997B23AAEF4CBC075CB426C6DB8C0E34"
     },
     "translation_source_schema": {
       "path": "schemas/translation-source.schema.json",
-      "bytes": 6019,
-      "sha256": "9007CBFE6A6AF63F2327F7931B5206C1C6DC33D3CF73E6A6C0FCCD866F60B131"
+      "bytes": 6398,
+      "sha256": "6A72387EE3CD6FD3DC5ADF7DC205CF373908C52ACABC1D332778C72A93D4E482"
     },
     "translation_build_schema": {
       "path": "schemas/translation-build.schema.json",
@@ -179,8 +185,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 10992,
-      "sha256": "3D5A9B7352398834AAF3661471E5004F9E40F39283B7E99AA00CBDA5EC9CE2C0"
+      "bytes": 11303,
+      "sha256": "FE4A551F88DF59F0448C41A5A259EF05D38165D4BDAF8DAEA7D0FD19883D693B"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -225,34 +231,34 @@
     "translation_builder": {
       "path": "tools/build_translate.py",
       "bytes": 5895,
-      "sha256": "31409E7CC6DD1A85B8D6250629479DB19FDC6035EA9802B8562BC711598924DE"
+      "sha256": "32938E4DA2827D17F9DCE48DD92CD917F9154D9375D2791F1E77051FED85B06D"
     },
     "translation_migrator": {
       "path": "tools/migrate_translations_v7.py",
-      "bytes": 25494,
-      "sha256": "EBAE557D7C59F180D7E6DD421E67748AEF4B8A5A24CDAE972D3E62B048A67708"
+      "bytes": 27356,
+      "sha256": "9685D927335AA60697E057B1FDE8C5669746BD2958FA64DDB9656AAF99B3F1D3"
     },
     "translation_reader_updater": {
       "path": "tools/add_id_readers.py",
-      "bytes": 14423,
-      "sha256": "5B5C67FCDD8FF402DC99AE4AB5A1B4E7ABF8D775AD692F64C0F230C958BB862A"
+      "bytes": 17820,
+      "sha256": "CDB44E63F77EE803964F60FC0C91A8CEEA5371EB30C27961543DA97654D9FD7A"
     },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
-      "bytes": 12645,
-      "sha256": "D7C6B9EA6E1398DAC249EE01E123EDD3B686976B28F19DF171B5D28CB9C2E4FE"
+      "bytes": 12717,
+      "sha256": "B3C0408CACBBFF9AE01ED540E0EAB70AC7532BB0619C0B9D71CCEC6E5D2E01C1"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 143601,
-      "sha256": "89F7FE3153F4146B8138B2C5A2FCEA6398C4304F862BD35CD69E7CB19E0411FC"
+      "bytes": 145085,
+      "sha256": "53C372A5ABA753E74519F58E2E6890DFD9FFA48C5C4E79BD249524E0C424628A"
     }
   },
   "asset_manifests": {
-    "files": 36,
-    "bytes": 316584,
-    "canonical_stream_bytes": 4218,
-    "tree_sha256": "C4B3C249C30D2D9AFC9B5DE2D74A400F3E097803ECCF25FC740490C0DF656A57"
+    "files": 37,
+    "bytes": 319187,
+    "canonical_stream_bytes": 4321,
+    "tree_sha256": "B53E33C96DC8A1992EB52C87B654A5EFCCEDDEF0F9B86520956AEFE349A556D6"
   },
   "jobs": 28,
   "release_assets": 31,
@@ -271,7 +277,7 @@
     "jobs": 1,
     "runnable_jobs": 1,
     "public_release_assets": 2,
-    "public_release_bytes": 1937511
+    "public_release_bytes": 1938111
   },
   "formalization_entries": 19,
   "portal_sections": 3,

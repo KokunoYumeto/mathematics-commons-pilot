@@ -1,6 +1,6 @@
 {
-  "schema": "math-commons-translation-source/v4",
-  "state": "source_preflight",
+  "schema": "math-commons-translation-source/v5",
+  "state": "source_intake",
   "work": {
     "work_id": null,
     "title": null,
@@ -40,6 +40,8 @@
     "work_license": null,
     "license_url": null,
     "derivative_translation_allowed": null,
+    "distribution_class": "terms_unclassified",
+    "distribution_note": "Choose a work and record the source's published distribution terms here.",
     "notice": null
   },
   "scope": {

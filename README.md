@@ -11,7 +11,7 @@ The repository is written for both people and software. Its catalogs expose each
 | Portal | Available material | Current state |
 |---|---|---|
 | [Transcription](docs/run.md) | 28 admitted jobs in 30 packet ZIP parts, with exact release assets and workload-derived prompt files | Runnable |
-| [Translation](docs/translations.md) | One admitted Open Logic source job, 29 suggested works, nine public Indonesian reader PDFs, other edition evidence, and a generic source-preflight starter | Open Logic runnable; other works require preflight |
+| [Translation](docs/translations.md) | One admitted Open Logic source job, 29 suggested works, nine public Indonesian reader PDFs, other edition evidence, and a distribution-labeled translation starter | Open Logic runnable; other works are listed suggestions |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
 The cross-cutting [formalization intake](docs/formalize.md) records three pinned external snapshots—two distinct generations of one public Lean repository plus one archived sidecar set—and 19 bounded review items, including Desargues and the S-named material found in the built parent snapshot. It contains no runnable formalization packet and makes no claim that a transcribed result is absent from Mathlib.
@@ -35,7 +35,7 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 
 ## Translation
 
-The [translation portal](docs/translations.md) is a non-exclusive set of useful open-mathematics suggestions. Contributors may choose a listed work or propose another mathematical work whose source and derivative license can be verified. It distinguishes:
+The [translation portal](docs/translations.md) is a non-exclusive set of useful open-mathematics suggestions. Contributors may choose a listed work or propose another mathematical work with a public source and a recorded distribution note. It distinguishes:
 
 - individual works and series;
 - reported but unverified editions, recorded per exact language;
@@ -46,14 +46,14 @@ Public choices use titles and readable semantic keys such as `openstax-prealgebr
 
 The [Open Logic source packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) is the first source-bound job. Its exact source snapshot, included rights material, baseline builds, ZIP identity, admission receipt, and anonymous readback are recorded in the catalog. It contains no completed translation.
 
-The separate [`translation-starter-v7` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v7) is a generic work-selection and source-preflight workflow. It asks two questions before doing anything else:
+The separate [`translation-starter-v8` release](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8) is a generic work-selection workflow. It asks two questions before doing anything else:
 
 1. Which work do you want to translate?
 2. What exact target language, locale, script, and orthographic standard do you want?
 
-The generic package supports both local repository-aware agents and hosted web agents. It checks work-specific public evidence and dated historical reports, requests the exact source bytes when needed, freezes `SOURCE.json`, and then applies the production and independent-QA contracts. It contains no textbook, source work, or completed translation and is not itself a runnable translation job.
+The generic package supports both local repository-aware agents and hosted web agents. It reads work-specific public evidence and dated historical reports, records the source's distribution class and license note, requests exact source bytes when needed, and then applies the production and independent-QA contracts. It contains no textbook, source work, or completed translation and is not itself a runnable translation job.
 
-The live catalog also records nine Indonesian reader PDFs in a public Figshare collection. Their DOI, filename, byte length, SHA-256, and anonymous readback are exact. They are usable public readers, but the current evidence does not by itself establish whole-work coverage, source lineage, or independent translation QA. The v7 starter remains an immutable release snapshot; contributors should check the live catalog for later edition evidence before starting work.
+The live catalog also records nine Indonesian reader PDFs in a public Figshare collection. Their DOI, filename, byte length, SHA-256, and anonymous readback are exact. They are usable public readers, but the current evidence does not by itself establish whole-work coverage, source lineage, or independent translation QA. The v7 starter remains an immutable historical release; the v8 starter and live catalog carry the current distribution labels.
 
 Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO estimates that up to 40% of people lack education in a language they speak or understand. Separately, a UNESCO Institute for Statistics report cites a 48-country literacy study covering 96 alphabetic-script assessment languages. Those 96 labels are concrete communities contributors may consider; they are not an official priority list and are not the source of the 40% estimate. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
 
@@ -82,12 +82,12 @@ This is an incomplete discovery and curation package. It is not a canonical curr
 - [`catalog/readback.json`](catalog/readback.json): preserved anonymous public readback of R1.
 - [`catalog/portals.json`](catalog/portals.json): exact three-section state and release projection.
 - [`catalog/openlogic-rb.json`](catalog/openlogic-rb.json): anonymous public readback of the source-bound Open Logic job.
-- [`catalog/translate-rb-v7.json`](catalog/translate-rb-v7.json): anonymous public readback of the generic v7 starter.
+- [`catalog/translate-rb-v8.json`](catalog/translate-rb-v8.json): anonymous public readback of the current generic v8 starter (1,199 bytes / SHA-256 `562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22`).
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
 - [`catalog/receipts/id-readers.json`](catalog/receipts/id-readers.json): exact public readback for nine Indonesian reader PDFs.
 - [`catalog/formalize.json`](catalog/formalize.json): pinned formalization sources and per-result intake state.
 - [`schemas/formalization-intake.schema.json`](schemas/formalization-intake.schema.json): fail-closed formalization intake contract.
-- [`kits/translate/WORKS.json`](kits/translate/WORKS.json): immutable subject and coverage snapshot shipped in the v7 starter.
+- [`kits/translate/WORKS.json`](kits/translate/WORKS.json): subject, language, and distribution snapshot shipped in the current starter.
 - [`docs/adopt.md`](docs/adopt.md): exact-commit interlanguage adoption snapshot.
 - [`docs/workbench.md`](docs/workbench.md): Workbench status, contents, and contribution contract.
 

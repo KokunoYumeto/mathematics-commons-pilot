@@ -71,6 +71,8 @@ REQUIRED = {
     "tools/build_openlogic.py",
     "tools/audit_openlogic_build.py",
     "tools/build_translate.py",
+    "tools/normalize_translation_catalog.py",
+    "tools/update_translation_kit_v8.py",
     "tools/migrate_translations_v7.py",
     "tools/readback_portal.py",
     "tools/validate_jobs.py",
@@ -120,6 +122,7 @@ REQUIRED = {
     "docs/release-translate-v6.md",
     "docs/openlogic-v1.md",
     "docs/translate-v7.md",
+    "docs/translate-v8.md",
     "docs/release-workbench-v0.2.md",
     "docs/roadmap.md",
     "docs/workbench.md",
@@ -159,6 +162,7 @@ REQUIRED = {
     "catalog/assets/translate-v6.json",
     "catalog/assets/openlogic.json",
     "catalog/assets/translate-v7.json",
+    "catalog/assets/translate-v8.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
@@ -929,7 +933,7 @@ def check_required_file(name: str, errors: list[str]) -> None:
             errors.append(f"required file resolves outside repository: {name}")
 
 
-def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
+def portal_requires_translation_readbacks(catalog: dict[str, Any]) -> bool:
     if catalog.get("schema") == "math-commons-portal-catalog/v2":
         return True
     for section in catalog.get("sections", []):
@@ -937,7 +941,7 @@ def portal_requires_v7_readback(catalog: dict[str, Any]) -> bool:
             continue
         for key in ("release", "starter"):
             release = section.get(key)
-            if isinstance(release, dict) and release.get("tag") == "translate-v7":
+            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8"}:
                 return True
     return False
 
@@ -957,8 +961,18 @@ def check_required(errors: list[str]) -> None:
     if not isinstance(portal, dict):
         errors.append("portal catalog root must be an object")
         return
-    if portal_requires_v7_readback(portal):
+    if portal_requires_translation_readbacks(portal):
         check_required_file("catalog/translate-rb-v7.json", errors)
+        if any(
+            isinstance(section, dict)
+            and any(
+                isinstance(section.get(key), dict)
+                and section[key].get("tag") == "translate-v8"
+                for key in ("release", "starter")
+            )
+            for section in portal.get("sections", [])
+        ):
+            check_required_file("catalog/translate-rb-v8.json", errors)
     elif portal.get("schema") == "math-commons-portal-catalog/v1":
         v7_readback = ROOT / "catalog" / "translate-rb-v7.json"
         if v7_readback.exists() or v7_readback.is_symlink():

@@ -15,7 +15,7 @@ from pack_job import build_zip, replay_zip, sha256_file, source_rows, tree_hash,
 
 
 ROOT = Path(__file__).resolve().parents[1]
-JOB_ID = "translation-starter-v7"
+JOB_ID = "translation-starter-v8"
 FILES = {
     "KIT.json",
     "LANGS.md",
@@ -94,11 +94,11 @@ def main() -> int:
     works = load_object(source / "WORKS.json")
     source_state = load_object(source / "SOURCE.json")
     if (
-        kit.get("schema") != "math-commons-translation-starter/v7"
-        or works.get("schema") != "math-commons-translation-choices/v7"
-        or source_state.get("schema") != "math-commons-translation-source/v4"
+        kit.get("schema") != "math-commons-translation-starter/v8"
+        or works.get("schema") != "math-commons-translation-choices/v8"
+        or source_state.get("schema") != "math-commons-translation-source/v5"
     ):
-        raise ValueError("translation starter controls are not v7")
+        raise ValueError("translation starter controls are not v8")
     prose = b"\n".join(
         (source / name).read_bytes()
         for name in sorted(FILES)

@@ -6,8 +6,8 @@
   "additionalProperties": false,
   "required": ["schema", "state", "work", "target", "coverage", "review", "source", "rights", "scope"],
   "properties": {
-    "schema": {"const": "math-commons-translation-source/v4"},
-    "state": {"enum": ["source_preflight", "awaiting_target_selection", "source_frozen"]},
+    "schema": {"enum": ["math-commons-translation-source/v4", "math-commons-translation-source/v5"]},
+    "state": {"enum": ["source_intake", "work_selection", "awaiting_target_selection", "source_frozen"]},
     "work": {"$ref": "#/$defs/work"},
     "target": {"$ref": "#/$defs/target"},
     "coverage": {"$ref": "#/$defs/coverage"},
@@ -130,6 +130,17 @@
         "work_license": {"$ref": "#/$defs/stringOrNull"},
         "license_url": {"$ref": "#/$defs/httpsUriOrNull"},
         "derivative_translation_allowed": {"type": ["boolean", "null"]},
+        "distribution_class": {
+          "enum": [
+            "open_license",
+            "noncommercial_only",
+            "mixed_components",
+            "terms_unclassified",
+            "no_derivatives",
+            "reference_only"
+          ]
+        },
+        "distribution_note": {"$ref": "#/$defs/stringOrNull"},
         "notice": {"$ref": "#/$defs/relativePathOrNull"}
       }
     },
