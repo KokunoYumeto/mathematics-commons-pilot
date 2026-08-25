@@ -4,6 +4,12 @@
 
 The supplied Workbench v0.2 package supports statement verification, source recovery, status reconciliation, literature curation, reproducible computation, failed-approach records, and bounded mathematical attempts. It does not contain a verified solution collection. Its exact ZIP is currently unavailable, so this repository does not claim a downloadable release.
 
+## Dedicated candidate workbench
+
+The external [Erdős–Straus Workbench at commit `240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95`](https://github.com/KokunoYumeto/erdos-straus-workbench/tree/240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95) is registered here as a dedicated candidate workbench for independent review. This registration does not admit or accept its problem record or packet, make either runnable in the central catalog, or change the canonical counts or status on this page. The candidate's own current-status assessment is `not_assessed`; its first bounded packet is `ready` only for independent review and remains `CLAIMED_UNVERIFIED`.
+
+The pinned candidate evidence is its [problem record](https://github.com/KokunoYumeto/erdos-straus-workbench/blob/240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95/problems/MC-ES-PROBLEM-001-v1.0.0.json), [ready packet](https://github.com/KokunoYumeto/erdos-straus-workbench/blob/240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95/packets/MC-ES-PACKET-R107-001-v1.1.0-ready.json), [draft-to-ready transition](https://github.com/KokunoYumeto/erdos-straus-workbench/blob/240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95/transitions/MC-ES-TRANSITION-R107-001-v1.0.0.json), [producer replay receipt](https://github.com/KokunoYumeto/erdos-straus-workbench/blob/240c4e1db1ca8e07d21a7a8a5f9a0a043cb3aa95/work/MC-ES-PACKET-R107-001/R107_DEFICIT_PROGRESSION_REPLAY.json), and [CI run for the exact commit](https://github.com/KokunoYumeto/erdos-straus-workbench/actions/runs/32908242614). The replay receipt's `PASS` is producer evidence, not independent acceptance or a claim about the full conjecture.
+
 ## Purpose
 
 The intended catalog includes known conjectures and open problems without prestige filtering. Small neglected problems, maintained field lists, Propp-style collections, the Riemann Hypothesis, and Millennium problems may all be represented. Deliberately large entries must declare that their literature package is sampled or partitioned rather than claiming completeness.

@@ -73,6 +73,8 @@ The package contains 8,785 secondary statement candidates from 13 collections, 1
 
 This is an incomplete discovery and curation package. It is not a canonical current-problem catalog, a complete literature corpus, or a collection of verified proofs. Useful contributions include statement verification, status reconciliation, source recovery, literature integration, reproduced computation, counterexample searches, bounded mathematical attempts, and independently checked corrections. See the [Open Problem Workbench documentation](docs/workbench.md).
 
+One [dedicated Erdős–Straus candidate workbench](docs/workbench.md#dedicated-candidate-workbench) is registered for independent review; it is not an admitted or runnable Commons packet and does not change the counts or status above.
+
 ## Verification files
 
 - [`catalog/jobs.json`](catalog/jobs.json): transcription jobs and release assets.
