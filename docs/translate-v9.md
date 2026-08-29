@@ -5,12 +5,15 @@
 ## Release identity
 
 - Release tag: [`translate-v9-final`](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final)
-- Release target commit and tree: recorded in the live portal and anonymous readback after publication
+- Release target commit: `e54ccca22127430d5537b66cec884558b045745f`
+- Release target tree: `b8159464852c7439739be70457afa8bc151912f1`
 - Asset: `translation-starter-v9.zip`
-- Asset size and SHA-256: recorded in [`catalog/assets/translate-v9-complete.json`](../catalog/assets/translate-v9-complete.json)
-- Included source files: 12 (exact byte count in the manifest)
+- Asset size: 17,558 bytes
+- Asset SHA-256: `C8B0B9B65EDAB21CEB84D3825789D4C896F65410F2A28441192EEF4EA7069E73`
+- Asset manifest: [`catalog/assets/translate-v9-complete.json`](../catalog/assets/translate-v9-complete.json)
+- Included source files: 12 / 78,979 bytes
 - Included members: `KIT.json`, `WORKS.json`, source/intake instructions, prompt, QA, return, and manifest files
-- Anonymous readback: recorded in the live catalog after publication
+- Anonymous readback: [`catalog/translate-rb-v9-final.json`](../catalog/translate-rb-v9-final.json), observed 2026-08-23, release id `375294316`
 
 The release is immutable. The live portal records the exact commit, tree, asset manifest, and anonymous readback after publication. Fetch those related files from one pinned commit; do not mix revisions.
 

@@ -49,8 +49,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 5281,
-      "sha256": "7E29541DFD44300AAFD03A1AE348B5D990BF6D46BDDD235FA7958631681E9F3F"
+      "bytes": 5308,
+      "sha256": "4814280FDC18FA27897F67E87FE910B72C9D17DCDECE367B3E07DA8E409E4D79"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -73,12 +73,12 @@
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
     "translate_v7_readback": null,
-    "translate_v8_readback": {
-      "path": "catalog/translate-rb-v8.json",
-      "bytes": 1199,
-      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
+    "translate_v8_readback": null,
+    "translate_v9_readback": {
+      "path": "catalog/translate-rb-v9-final.json",
+      "bytes": 1219,
+      "sha256": "4AA1E050BF2D310472A6D12C798B508356A7C8B6FA32680EC72FA1CFCE122FA7"
     },
-    "translate_v9_readback": null,
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
       "bytes": 177525,
@@ -286,7 +286,7 @@
     "runnable_jobs": 1,
     "runnable_jobs_scope": "self_contained_public_packets_only",
     "public_release_assets": 2,
-    "public_release_bytes": 1938111
+    "public_release_bytes": 1939089
   },
   "formalization_entries": 19,
   "portal_sections": 3,

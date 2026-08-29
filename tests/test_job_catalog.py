@@ -725,19 +725,19 @@ class JobCatalogTests(unittest.TestCase):
                 "runnable_jobs": 1,
                 "runnable_jobs_scope": "self_contained_public_packets_only",
                 "public_release_assets": 2,
-                "public_release_bytes": 1_938_111,
+                "public_release_bytes": 1_939_089,
             },
         )
         self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
+        self.assertIsNone(receipt["inputs"]["translate_v8_readback"])
         self.assertEqual(
-            receipt["inputs"]["translate_v8_readback"],
+            receipt["inputs"]["translate_v9_readback"],
             {
-                "path": "catalog/translate-rb-v8.json",
-                "bytes": 1_199,
-                "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22",
+                "path": "catalog/translate-rb-v9-final.json",
+                "bytes": 1_219,
+                "sha256": "4AA1E050BF2D310472A6D12C798B508356A7C8B6FA32680EC72FA1CFCE122FA7",
             },
         )
-        self.assertIsNone(receipt["inputs"]["translate_v9_readback"])
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (
