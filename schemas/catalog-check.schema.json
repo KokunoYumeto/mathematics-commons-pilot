@@ -40,6 +40,7 @@
         "job_meta",
         "jobs",
         "translations",
+        "education",
         "translation_choices",
         "translation_source",
         "openlogic_source",
@@ -71,6 +72,7 @@
         "translation_choices_schema",
         "translation_source_schema",
         "translation_build_schema",
+        "education_schema",
         "formalization_schema",
         "portal_schema",
         "asset_schema",
@@ -99,6 +101,9 @@
           "$ref": "#/$defs/identity"
         },
         "translations": {
+          "$ref": "#/$defs/identity"
+        },
+        "education": {
           "$ref": "#/$defs/identity"
         },
         "translation_choices": {
@@ -201,6 +206,9 @@
           "$ref": "#/$defs/identity"
         },
         "translation_build_schema": {
+          "$ref": "#/$defs/identity"
+        },
+        "education_schema": {
           "$ref": "#/$defs/identity"
         },
         "formalization_schema": {

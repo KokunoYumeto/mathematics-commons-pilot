@@ -13,6 +13,7 @@ This directory contains both the practical packet-library contracts and the pres
 | `translation-choices.schema.json` | Compact v8 projection used by the generic work/language chooser; v7 remains a frozen historical release. |
 | `translation-source.schema.json` | Source, target-language, distribution note, and cumulative intake state inside a translation packet. |
 | `translation-build.schema.json` | Open Logic cold-build and input-closure receipt structure; semantic target/order checks remain mandatory. |
+| `edu.schema.json` | Current education-translation guidance, language-access evidence, research-report identity, and 40-work Indonesian example catalog. |
 | `formalization-intake.schema.json` | Exact external Lean/source snapshots and separate build, placeholder, statement-correspondence, Mathlib-audit, and packet-admission states. |
 | `portal-catalog.schema.json` | Exact Transcription, Translation, and Open-problems section index with release asset identities and limitations. |
 | `portal-readback.schema.json` | Anonymous public readback structure for a source-bound or generic Translation release. |

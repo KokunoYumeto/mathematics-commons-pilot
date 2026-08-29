@@ -11,7 +11,7 @@ The repository is written for both people and software. Its catalogs expose each
 | Portal | Available material | Current state |
 |---|---|---|
 | [Transcription](docs/run.md) | 28 admitted jobs in 30 packet ZIP parts, with exact release assets and workload-derived prompt files | Runnable |
-| [Translation](docs/translations.md) | One self-contained Open Logic packet, 29 workflow-startable works, nine public Indonesian reader PDFs, other edition evidence, and a distribution-labeled translation starter | Translation workflow available; one self-contained packet published |
+| [Translation](docs/translations.md) | A vendor-neutral starter, 40 concrete Indonesian mathematics examples, 29 indexed source scopes, one self-contained Open Logic packet, and public edition links | Workflow and examples available; one source-bound packet published |
 | [Open problems](docs/workbench.md) | Documentation and recorded replay results for Workbench v0.2; the ZIP is currently unavailable | No runnable problem packets |
 
 The cross-cutting [formalization intake](docs/formalize.md) records three pinned external snapshots—two distinct generations of one public Lean repository plus one archived sidecar set—and 19 bounded review items, including Desargues and the S-named material found in the built parent snapshot. It contains no runnable formalization packet and makes no claim that a transcribed result is absent from Mathlib.
@@ -35,7 +35,13 @@ R2 is the newest admitted transcription release. R1 remains immutable history. L
 
 ## Translation
 
-The [translation portal](docs/translations.md) is a non-exclusive set of useful open-mathematics work scopes. Contributors may start any non-reference work marked `workflow_startability=starter_available` or `source_bound_packet`, or propose another mathematical work with a public source and a recorded distribution note. It distinguishes:
+Many people cannot study in the language they understand best. UNESCO reports that 40% of people globally lack access to education in a language they speak and understand fluently. The [translation portal](docs/translations.md) explains how spare local or hosted AI compute can be used to produce inspectable educational editions in languages that need them.
+
+The practical rule is simple: choose an openly licensed or noncommercially licensed work whose terms permit adaptations; preserve its attribution, license, ShareAlike requirements, and component notices; identify the exact target language and written standard; and return a readable monolingual edition with editable source and checks. A noncommercial adaptation must remain noncommercial: do not sell it or authorize commercial reuse. The listed works are suggestions, not a limit on what contributors may translate.
+
+The portal gives **40 concrete mathematics examples** from the [Program Matematika Indonesia](https://kokunoyumeto.github.io/program-matematika-indonesia/) project. Current evidence records 21 learner-ready course roles across 20 complete public editions and 19 active or partial roles. It also highlights a complete 30-unit Indonesian edition of Brenner's German Wikiversity course *Algebraische Kurven*: Units 1–23 use the 2025–2026 course and Units 24–30 use the official 2012 course, with both generations labeled. The [87-page educational-access report](https://kokunoyumeto.github.io/modern-latex-manuscripts/interlanguage/allocating-ai-translation-compute/) documents the language-access evidence, candidate selection, and compute scenarios.
+
+The portal also maintains a non-exclusive set of useful open-mathematics work scopes. Contributors may start any non-reference work marked `workflow_startability=starter_available` or `source_bound_packet`, or propose another educational work whose recorded terms permit an adapted edition. It distinguishes:
 
 - individual works and series;
 - reported but unverified editions, recorded per exact language;
@@ -55,7 +61,7 @@ The generic package supports both local repository-aware agents and hosted web a
 
 The live catalog also records nine Indonesian reader PDFs in a public Figshare collection. Their DOI, filename, byte length, SHA-256, and anonymous readback are exact. They are usable public readers, but the current evidence does not by itself establish whole-work coverage, source lineage, or independent translation QA. The v8 starter remains immutable history; the v9 starter and live catalog carry the current workflow distinction and distribution labels.
 
-Translations into any language are welcome, especially where communities have limited university-level mathematical material. UNESCO estimates that up to 40% of people lack education in a language they speak or understand. Separately, a UNESCO Institute for Statistics report cites a 48-country literacy study covering 96 alphabetic-script assessment languages. Those 96 labels are concrete communities contributors may consider; they are not an official priority list and are not the source of the 40% estimate. Contributors should document intended learners, the exact written standard, existing work-specific coverage, and available reviewers.
+Translations into any language are welcome. Contributors should document intended learners, the exact written standard, and existing work-specific coverage. [Walter and Benson's 2012 aggregate table](https://doi.org/10.1017/CBO9780511979026.017)—the source lineage behind UNESCO's roughly 40% estimate—counts 97 languages with more than 10 million speakers, including 45 not used in education. It does not print a named 97-language list. The separate later study of 96 alphabetic-script assessment languages is not the source of the 40% estimate and is not an official translation-priority list. The [machine-readable education catalog](catalog/edu.json) records this distinction and the 40-example project snapshot.
 
 ## Open problems
 
@@ -86,6 +92,7 @@ One [dedicated Erdős–Straus candidate workbench](docs/workbench.md#dedicated-
 - [`catalog/openlogic-rb.json`](catalog/openlogic-rb.json): anonymous public readback of the source-bound Open Logic job.
 - [`catalog/translate-rb-v9-final.json`](catalog/translate-rb-v9-final.json): anonymous public readback of the current complete generic v9 starter.
 - [`catalog/translations.json`](catalog/translations.json): open-education source/status catalog.
+- [`catalog/edu.json`](catalog/edu.json): translation workflow, source-term rules, education-language evidence, research-paper identity, and 40 Indonesian mathematics examples.
 - [`catalog/receipts/id-readers.json`](catalog/receipts/id-readers.json): exact public readback for nine Indonesian reader PDFs.
 - [`catalog/formalize.json`](catalog/formalize.json): pinned formalization sources and per-result intake state.
 - [`schemas/formalization-intake.schema.json`](schemas/formalization-intake.schema.json): fail-closed formalization intake contract.

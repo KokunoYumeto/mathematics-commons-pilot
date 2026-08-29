@@ -1,6 +1,6 @@
 {
   "schema": "math-commons-portal-catalog/v2",
-  "updated": "2026-08-23",
+  "updated": "2026-08-29",
   "repository": "https://github.com/KokunoYumeto/mathematics-commons-pilot",
   "sections": [
     {
@@ -36,7 +36,8 @@
       "state": "runnable",
       "docs": "docs/translations.md",
       "catalog": "catalog/translations.json",
-      "summary": "One self-contained Open Logic packet, 29 workflow-startable works using the generic starter, nine exact public Indonesian reader identities, and non-exclusive work scopes with explicit evidence limits.",
+      "supplementary_catalogs": ["catalog/edu.json"],
+      "summary": "A vendor-neutral starter, one self-contained Open Logic packet, 29 release-bound source scopes, nine exact public reader identities, and an additive education catalog with 40 Indonesian mathematics examples.",
       "release": {
         "tag": "translate-openlogic-v1",
         "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1",
@@ -78,6 +79,7 @@
       "limitations": [
         "The Open Logic release contains exact source and workflow material, not a completed translation.",
         "The generic starter contains no textbook, source work, or completed translation.",
+        "The additive catalog/edu.json records current educational examples and evidence without changing the immutable v9 starter.",
         "Most catalog rows do not have self-contained public packets; they remain workflow-startable through the generic starter and each row exposes its recorded distribution class and source note."
       ]
     },

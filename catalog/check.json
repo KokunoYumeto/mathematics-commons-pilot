@@ -17,6 +17,11 @@
       "bytes": 241565,
       "sha256": "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
     },
+    "education": {
+      "path": "catalog/edu.json",
+      "bytes": 21037,
+      "sha256": "E0F04886D567F3E1D05E4944542E2096D5BD7B20C3AD0C7BC6E62AA87E5A529F"
+    },
     "translation_choices": {
       "path": "kits/translate/WORKS.json",
       "bytes": 62666,
@@ -49,8 +54,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 5308,
-      "sha256": "4814280FDC18FA27897F67E87FE910B72C9D17DCDECE367B3E07DA8E409E4D79"
+      "bytes": 5502,
+      "sha256": "2BB908ECAEB42E001F0458510B04CA68B405A4A05F882EE6D521585B144B67D0"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -164,6 +169,11 @@
       "bytes": 19502,
       "sha256": "8365EC18BB73F89604CBEA467626AACD2E27FE6842E96DE2502FAB32E8F4A127"
     },
+    "education_schema": {
+      "path": "schemas/edu.schema.json",
+      "bytes": 10930,
+      "sha256": "8D591709664525306AB90FDD11185AE09FC2781632A46148DDE3048C29A24619"
+    },
     "formalization_schema": {
       "path": "schemas/formalization-intake.schema.json",
       "bytes": 16557,
@@ -171,8 +181,8 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 8098,
-      "sha256": "9A417C713794892691DA0B229CFB78D9A720BB4F00098D1DE62748AAFE17B07F"
+      "bytes": 8528,
+      "sha256": "46F930C8783A2936FBCF451A90590EC53034348DA1197D31052D03737DA3DB0C"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
@@ -191,8 +201,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 11911,
-      "sha256": "3A737B2EC2E1C8731092346F6D3D88ECCA451DBC4A906C3D8AF85A697C1D177C"
+      "bytes": 12109,
+      "sha256": "22FB851AF168062B07E5DD1976C18508E707DD02B52A184445704B139FD424C5"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -256,8 +266,8 @@
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 149644,
-      "sha256": "1BDCF35D0781789BA20BD2865DB600C5492F46D4EA744A4FF61AD7A0C18771F5"
+      "bytes": 151029,
+      "sha256": "AA743CBA9359477783B1324C2291DACF88E163AF650B31C6FFFA9A4D2ACFD4FF"
     }
   },
   "asset_manifests": {

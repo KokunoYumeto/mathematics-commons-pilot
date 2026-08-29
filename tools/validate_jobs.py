@@ -46,6 +46,7 @@ PRACTICAL_SCHEMAS = {
     "translation_choices": "translation-choices.schema.json",
     "translation_source": "translation-source.schema.json",
     "translation_build": "translation-build.schema.json",
+    "education": "edu.schema.json",
     "formalization": "formalization-intake.schema.json",
     "check": "catalog-check.schema.json",
     "readback": "release-readback.schema.json",
@@ -2554,6 +2555,16 @@ def validate_portals_v1(
             errors,
             f"portal {row.get('id')}: catalog path",
         )
+        supplementary_catalogs = row.get("supplementary_catalogs", [])
+        expect(
+            isinstance(supplementary_catalogs, list)
+            and all(
+                isinstance(path, str) and (ROOT / path).is_file()
+                for path in supplementary_catalogs
+            ),
+            errors,
+            f"portal {row.get('id')}: supplementary catalog paths",
+        )
 
     by_id = {
         row.get("id"): row for row in sections if isinstance(row, dict)
@@ -2780,6 +2791,16 @@ def validate_portals(errors: list[str]) -> int:
             errors,
             f"portal {row.get('id')}: catalog path",
         )
+        supplementary_catalogs = row.get("supplementary_catalogs", [])
+        expect(
+            isinstance(supplementary_catalogs, list)
+            and all(
+                isinstance(path, str) and (ROOT / path).is_file()
+                for path in supplementary_catalogs
+            ),
+            errors,
+            f"portal {row.get('id')}: supplementary catalog paths",
+        )
 
     by_id = {
         row.get("id"): row for row in sections if isinstance(row, dict)
@@ -2873,7 +2894,11 @@ def validate_portals(errors: list[str]) -> int:
             r"\d{4}-\d{2}-\d{2}", str(readback.get("observed_date"))
         ) is not None
         if tag in {"translate-v8", TRANSLATE_V9_TAG}:
-            observed_date_ok = observed_date_ok and readback.get("observed_date") == catalog.get("updated")
+            observed_date_ok = (
+                observed_date_ok
+                and isinstance(catalog.get("updated"), str)
+                and readback.get("observed_date") <= catalog.get("updated")
+            )
         else:
             # Older release readbacks are immutable historical observations and
             # need not be rewritten when the portal catalog advances.
@@ -2992,6 +3017,7 @@ def validate_portals(errors: list[str]) -> int:
     expect(
         translation.get("state") == "runnable"
         and translation.get("catalog") == "catalog/translations.json"
+        and translation.get("supplementary_catalogs") == ["catalog/edu.json"]
         and openlogic_release.get("admission_receipt")
         == "catalog/receipts/openlogic.json"
         and starter_release.get("admission_receipt") is None,
@@ -3311,6 +3337,13 @@ def main() -> int:
         ) = validate_jobs(args.asset_dir.resolve() if args.asset_dir else None, errors)
         validate_translations(errors)
         translation_catalog, _ = load(ROOT / "catalog" / "translations.json")
+        education_catalog, _ = load(ROOT / "catalog" / "edu.json")
+        validate_schema(
+            education_catalog,
+            "education",
+            "education translation catalog",
+            errors,
+        )
         formalization = validate_formalization(errors)
         portals = validate_portals(errors)
         portal_catalog, _ = load(ROOT / "catalog" / "portals.json")
@@ -3388,6 +3421,7 @@ def main() -> int:
             "job_meta": input_identity(ROOT / "catalog" / "job-meta.json"),
             "jobs": input_identity(ROOT / "catalog" / "jobs.json"),
             "translations": input_identity(ROOT / "catalog" / "translations.json"),
+            "education": input_identity(ROOT / "catalog" / "edu.json"),
             "translation_choices": input_identity(ROOT / "kits" / "translate" / "WORKS.json"),
             "translation_source": input_identity(ROOT / "kits" / "translate" / "SOURCE.json"),
             "openlogic_source": input_identity(ROOT / "kits" / "openlogic" / "SOURCE.json"),
@@ -3431,6 +3465,7 @@ def main() -> int:
             "translation_choices_schema": input_identity(ROOT / "schemas" / "translation-choices.schema.json"),
             "translation_source_schema": input_identity(ROOT / "schemas" / "translation-source.schema.json"),
             "translation_build_schema": input_identity(ROOT / "schemas" / "translation-build.schema.json"),
+            "education_schema": input_identity(ROOT / "schemas" / "edu.schema.json"),
             "formalization_schema": input_identity(ROOT / "schemas" / "formalization-intake.schema.json"),
             "portal_schema": input_identity(ROOT / "schemas" / "portal-catalog.schema.json"),
             "asset_schema": input_identity(ROOT / "schemas" / "job-asset.schema.json"),

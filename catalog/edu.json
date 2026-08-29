@@ -1,0 +1,522 @@
+{
+  "schema": "math-commons-education-translation/v1",
+  "updated": "2026-08-29",
+  "purpose": "Help contributors use local or hosted AI compute to translate educational material into languages whose learners need it.",
+  "language_access": {
+    "unesco": {
+      "claim": "UNESCO reports that 40% of people globally lack access to education in a language they speak and understand fluently.",
+      "url": "https://www.unesco.org/en/languages-education"
+    },
+    "walter_benson_2012": {
+      "title": "Language policy and medium of instruction in formal education",
+      "doi": "10.1017/CBO9780511979026.017",
+      "chapter_pages": "278-300",
+      "evidence_pages": "282-283",
+      "table": "14.2",
+      "languages_over_ten_million": 97,
+      "used_in_education_over_ten_million": 52,
+      "not_used_in_education_over_ten_million": 45,
+      "population_used_in_education_over_ten_million": 3380555080,
+      "population_not_used_in_education_over_ten_million": 1120220125,
+      "population_used_in_education_all_bands": 3741110588,
+      "population_not_used_in_education_all_bands": 2300263716,
+      "population_without_first_language_access_percent_rounded": 38.075,
+      "calculation_note": "38.075 is rounded to three decimals from 38.07517296978261%; UNESCO later rounded the estimate to about 40%.",
+      "limitation": "The printed table contains aggregate size bands, not a named list of the 97 languages. The population percentage is not 45 divided by 97."
+    },
+    "separate_96_language_study": {
+      "relationship": "unrelated_sample",
+      "note": "A later literacy study covers 96 alphabetic-script assessment languages. It is not the source of UNESCO's 40% estimate and is not an official translation-priority list."
+    }
+  },
+  "materials": [
+    {
+      "id": "open_license",
+      "label": "Open license",
+      "rule": "Preserve attribution, the source, the license, and all required notices; follow the license terms for adaptations."
+    },
+    {
+      "id": "share_alike",
+      "label": "ShareAlike",
+      "rule": "Publish the translated adaptation under the required compatible ShareAlike license and preserve attribution."
+    },
+    {
+      "id": "noncommercial_adaptable",
+      "label": "Noncommercial license permitting adaptations",
+      "rule": "Use this route only when the stated noncommercial license permits adaptations. Distribute the translation noncommercially; do not sell it or authorize commercial reuse; preserve attribution and any ShareAlike requirement."
+    },
+    {
+      "id": "mixed_components",
+      "label": "Mixed components",
+      "rule": "Preserve the separate attribution and license notice for text, figures, code, fonts, and media; do not replace them silently with one blanket license."
+    }
+  ],
+  "workflow": [
+    {
+      "step": 1,
+      "action": "Choose one educational work and one exact target language, locale, script, and written standard."
+    },
+    {
+      "step": 2,
+      "action": "Freeze and record the exact source revision and its distribution terms."
+    },
+    {
+      "step": 3,
+      "action": "Translate bounded units with any capable local or hosted AI system; keep source-language and target-language editions separate and monolingual."
+    },
+    {
+      "step": 4,
+      "action": "Preserve formulas, figures, examples, exercises, answers, attribution, and component notices; record terminology and corrections."
+    },
+    {
+      "step": 5,
+      "action": "Return cumulative editable source, readable output, manifests, QA evidence, unresolved items, and the exact continuation point."
+    },
+    {
+      "step": 6,
+      "action": "Publish or hand back the complete checkpoint so another contributor can inspect, correct, replay, or continue it without restarting."
+    }
+  ],
+  "starter": {
+    "tag": "translate-v9-final",
+    "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final",
+    "asset": "translation-starter-v9.zip",
+    "bytes": 17558,
+    "sha256": "C8B0B9B65EDAB21CEB84D3825789D4C896F65410F2A28441192EEF4EA7069E73",
+    "local_entry": "LOCAL.md",
+    "hosted_entry": "WEB.md",
+    "vendor_neutral": true
+  },
+  "research_report": {
+    "title": "Allocating AI Translation Compute for Marginal Educational Access",
+    "pages": 87,
+    "reader": "https://kokunoyumeto.github.io/modern-latex-manuscripts/interlanguage/allocating-ai-translation-compute/",
+    "pdf": "https://kokunoyumeto.github.io/modern-latex-manuscripts/interlanguage/allocating-ai-translation-compute/02_Allocating_AI_Translation_Compute_for_Marginal_Educational_Access_20260825.pdf",
+    "pdf_bytes": 2089824,
+    "pdf_sha256": "74F2BC8AD9CBC2B7BFB9CFAF95D6162F38BBE35306B7909CA73A741E2565193B",
+    "version_doi": "10.5281/zenodo.22103007",
+    "concept_doi": "10.5281/zenodo.21124403",
+    "compute_example": {
+      "source_alpha_tokens": 120083,
+      "low_gross_tokens": 912737,
+      "base_gross_tokens": 4073049,
+      "high_gross_tokens": 18664571,
+      "limitation": "These are planning scenarios for one formal-reasoning edition, not measured or promised costs for every work."
+    }
+  },
+  "indonesian_program": {
+    "title": "Program Matematika Indonesia",
+    "observed": "2026-08-29",
+    "source_commit": "a0d6ebb1f7143f0478d538944d57f4ec7bab9775",
+    "hub": "https://kokunoyumeto.github.io/program-matematika-indonesia/",
+    "repository": "https://github.com/KokunoYumeto/program-matematika-indonesia",
+    "raw_catalog": "https://raw.githubusercontent.com/KokunoYumeto/program-matematika-indonesia/a0d6ebb1f7143f0478d538944d57f4ec7bab9775/docs/courses.js",
+    "raw_catalog_bytes": 60649,
+    "raw_catalog_sha256": "A2DA8A4165326DC64ACB5DDD9B1BC227980D48B5E28928D927EC35C1CBC001A5",
+    "role_count": 40,
+    "complete_public_role_count": 21,
+    "complete_public_edition_count": 20,
+    "active_or_partial_role_count": 19,
+    "shared_complete_public_editions": [
+      {
+        "edition": "Indonesian edition of Judson's Abstract Algebra: Theory and Applications",
+        "roles": ["abstract-algebra-1", "abstract-algebra-2"]
+      }
+    ],
+    "count_note": "Role counts are equal-role counts, not a percentage of pages, modules, tokens, or total work.",
+    "freshness_note": "The high-level 21 complete / 19 active-or-partial partition, corpus identities, prerequisites, and public links were replayed. Detailed progress, version, or material-route text lags owner editions in 14 overview rows; follow each linked edition for its newest checkpoint.",
+    "stale_detail_source_project_ids": [
+      "A20",
+      "A30",
+      "B30",
+      "B50",
+      "B95",
+      "C10",
+      "C90",
+      "C100",
+      "C140",
+      "D10",
+      "D30",
+      "D50",
+      "D70",
+      "D100"
+    ],
+    "works": [
+      {
+        "id": "prealgebra",
+        "source_project_id": "A00",
+        "topic": "Foundations and calculus",
+        "title": "Prealgebra and quantitative foundations",
+        "indonesian_title": "Praaljabar dan Fondasi Kuantitatif",
+        "source": "OpenStax Prealgebra 2e",
+        "state": "complete_public"
+      },
+      {
+        "id": "elementary-algebra",
+        "source_project_id": "A10",
+        "topic": "Foundations and calculus",
+        "title": "Elementary algebra",
+        "indonesian_title": "Aljabar Dasar",
+        "source": "OpenStax Elementary Algebra 2e",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "intermediate-algebra",
+        "source_project_id": "A20",
+        "topic": "Foundations and calculus",
+        "title": "Intermediate algebra",
+        "indonesian_title": "Aljabar Menengah",
+        "source": "OpenStax Intermediate Algebra 2e",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "precalculus",
+        "source_project_id": "A30",
+        "topic": "Foundations and calculus",
+        "title": "Precalculus and trigonometry",
+        "indonesian_title": "Prakalkulus dan Trigonometri",
+        "source": "OpenStax Precalculus 2e",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "discrete-mathematics",
+        "source_project_id": "B10",
+        "topic": "Discrete mathematics and logic",
+        "title": "Proof, logic, and discrete structures",
+        "indonesian_title": "Pembuktian, Logika, dan Struktur Diskrit",
+        "source": "Discrete Mathematics: An Open Introduction",
+        "state": "complete_public"
+      },
+      {
+        "id": "differential-calculus",
+        "source_project_id": "B20",
+        "topic": "Foundations and calculus",
+        "title": "Differential calculus",
+        "indonesian_title": "Kalkulus Diferensial",
+        "source": "CLP-1 textbook and problem book",
+        "state": "complete_public"
+      },
+      {
+        "id": "integral-calculus",
+        "source_project_id": "B30",
+        "topic": "Foundations and calculus",
+        "title": "Integral calculus",
+        "indonesian_title": "Kalkulus Integral",
+        "source": "CLP-2",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "linear-algebra",
+        "source_project_id": "B40",
+        "topic": "Algebra",
+        "title": "Linear algebra",
+        "indonesian_title": "Aljabar Linear",
+        "source": "Hefferon, Linear Algebra",
+        "state": "complete_public"
+      },
+      {
+        "id": "multivariable-calculus",
+        "source_project_id": "B50",
+        "topic": "Foundations and calculus",
+        "title": "Multivariable calculus",
+        "indonesian_title": "Kalkulus Multivariabel",
+        "source": "CLP-3",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "vector-calculus",
+        "source_project_id": "B60",
+        "topic": "Foundations and calculus",
+        "title": "Vector calculus",
+        "indonesian_title": "Kalkulus Vektor",
+        "source": "CLP-4",
+        "state": "complete_public"
+      },
+      {
+        "id": "ordinary-differential-equations",
+        "source_project_id": "B70",
+        "topic": "Foundations and calculus",
+        "title": "Ordinary differential equations and dynamical systems",
+        "indonesian_title": "Persamaan Diferensial Biasa dan Sistem Dinamika Pengantar",
+        "source": "Lebl course family",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "mathematical-computing",
+        "source_project_id": "B80",
+        "topic": "Computing and optimization",
+        "title": "Mathematical computing and reproducible experiments",
+        "indonesian_title": "Komputasi Matematis dan Eksperimen Reprodusibel",
+        "source": "Original/open course framework",
+        "state": "complete_public"
+      },
+      {
+        "id": "probability",
+        "source_project_id": "B90",
+        "topic": "Probability and statistics",
+        "title": "Probability",
+        "indonesian_title": "Probabilitas Berbasis Kalkulus",
+        "source": "Grinstead-Snell, Introduction to Probability",
+        "state": "complete_public"
+      },
+      {
+        "id": "applied-statistics",
+        "source_project_id": "B95",
+        "topic": "Probability and statistics",
+        "title": "Applied statistics and data analysis",
+        "indonesian_title": "Statistika Terapan dan Analisis Data",
+        "source": "OpenIntro Statistics",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "real-analysis-1",
+        "source_project_id": "C10",
+        "topic": "Analysis",
+        "title": "Real analysis I",
+        "indonesian_title": "Analisis Real I",
+        "source": "Lebl, Basic Analysis I",
+        "state": "complete_public"
+      },
+      {
+        "id": "real-analysis-2",
+        "source_project_id": "C20",
+        "topic": "Analysis",
+        "title": "Real analysis II",
+        "indonesian_title": "Analisis Real II",
+        "source": "Lebl, Basic Analysis II",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "abstract-algebra-1",
+        "source_project_id": "C30",
+        "topic": "Algebra",
+        "title": "Abstract algebra I",
+        "indonesian_title": "Aljabar Abstrak I",
+        "source": "Judson, Abstract Algebra: Theory and Applications",
+        "state": "complete_public"
+      },
+      {
+        "id": "abstract-algebra-2",
+        "source_project_id": "C40",
+        "topic": "Algebra",
+        "title": "Abstract algebra II",
+        "indonesian_title": "Aljabar Abstrak II",
+        "source": "Judson, Abstract Algebra: Theory and Applications",
+        "state": "complete_public"
+      },
+      {
+        "id": "complex-analysis",
+        "source_project_id": "C50",
+        "topic": "Analysis",
+        "title": "Complex analysis",
+        "indonesian_title": "Analisis Kompleks",
+        "source": "Lebl complex-analysis corpus",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "number-theory",
+        "source_project_id": "C60",
+        "topic": "Discrete mathematics and logic",
+        "title": "Number theory and cryptology",
+        "indonesian_title": "Teori Bilangan dan Kriptologi",
+        "source": "Poritz, Yet Another Introductory Number Theory Textbook",
+        "state": "complete_public"
+      },
+      {
+        "id": "applied-combinatorics",
+        "source_project_id": "C70",
+        "topic": "Discrete mathematics and logic",
+        "title": "Applied combinatorics",
+        "indonesian_title": "Kombinatorika Terapan",
+        "source": "Keller-Trotter, Applied Combinatorics",
+        "state": "complete_public"
+      },
+      {
+        "id": "mathematical-logic",
+        "source_project_id": "C80",
+        "topic": "Discrete mathematics and logic",
+        "title": "Mathematical logic, set theory, and computability",
+        "indonesian_title": "Logika Matematis, Teori Himpunan, dan Komputabilitas",
+        "source": "Open Logic",
+        "state": "complete_public"
+      },
+      {
+        "id": "point-set-topology",
+        "source_project_id": "C90",
+        "topic": "Geometry and topology",
+        "title": "Point-set topology",
+        "indonesian_title": "Topologi Himpunan-Titik",
+        "source": "GVSU and PreTeXt topology corpus",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "foundations-of-geometry",
+        "source_project_id": "C100",
+        "topic": "Geometry and topology",
+        "title": "Euclidean, affine, projective, and non-Euclidean geometry",
+        "indonesian_title": "Geometri: Euklides, Afin, Projektif, dan Non-Euklides",
+        "source": "Petrunin, The Euclidean Plane and Its Relatives, plus workbook",
+        "state": "complete_public"
+      },
+      {
+        "id": "numerical-analysis",
+        "source_project_id": "C110",
+        "topic": "Computing and optimization",
+        "title": "Numerical analysis",
+        "indonesian_title": "Analisis Numerik",
+        "source": "Tea Time Numerical Analysis",
+        "state": "complete_public"
+      },
+      {
+        "id": "mathematical-modeling",
+        "source_project_id": "C120",
+        "topic": "Computing and optimization",
+        "title": "Mathematical modeling and nonlinear dynamics",
+        "indonesian_title": "Pemodelan Matematis dan Dinamika Nonlinear",
+        "source": "Lega plus computational material",
+        "state": "complete_public"
+      },
+      {
+        "id": "mathematical-programming",
+        "source_project_id": "C130",
+        "topic": "Computing and optimization",
+        "title": "Linear and integer optimization",
+        "indonesian_title": "Optimisasi Linear dan Integer / Riset Operasi",
+        "source": "Open Optimization Book 1 plus laboratories",
+        "state": "complete_public"
+      },
+      {
+        "id": "mathematical-statistics",
+        "source_project_id": "C140",
+        "topic": "Probability and statistics",
+        "title": "Mathematical statistics",
+        "indonesian_title": "Statistika Matematis",
+        "source": "Penn STAT 415, Random, and an original companion",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "measure-theory",
+        "source_project_id": "D10",
+        "topic": "Analysis",
+        "title": "Measure and integration",
+        "indonesian_title": "Ukuran dan Integrasi",
+        "source": "Fremlin, Measure Theory, Volumes 1-2",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "functional-analysis",
+        "source_project_id": "D20",
+        "topic": "Analysis",
+        "title": "Functional analysis",
+        "indonesian_title": "Analisis Fungsional",
+        "source": "Erdman, Functional Analysis and Operator Algebras",
+        "state": "complete_public"
+      },
+      {
+        "id": "stochastic-processes",
+        "source_project_id": "D30",
+        "topic": "Probability and statistics",
+        "title": "Measure-theoretic probability and stochastic processes",
+        "indonesian_title": "Probabilitas Teoretis-Ukuran dan Proses Stokastik",
+        "source": "Random and QuantEcon sources plus bridges",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "partial-differential-equations",
+        "source_project_id": "D40",
+        "topic": "Analysis",
+        "title": "Partial differential equations",
+        "indonesian_title": "Persamaan Diferensial Parsial",
+        "source": "Dionne plus FEniCSx and mastery material",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "smooth-manifolds",
+        "source_project_id": "D50",
+        "topic": "Geometry and topology",
+        "title": "Smooth manifolds and differential geometry",
+        "indonesian_title": "Lipatan Mulus dan Geometri Diferensial",
+        "source": "Brenner course",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "algebraic-topology",
+        "source_project_id": "D60",
+        "topic": "Geometry and topology",
+        "title": "Algebraic topology",
+        "indonesian_title": "Topologi Aljabar",
+        "source": "Roberts plus Fomberg",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "graduate-algebra",
+        "source_project_id": "D70",
+        "topic": "Algebra",
+        "title": "Graduate algebra",
+        "indonesian_title": "Aljabar Pascasarjana",
+        "source": "Wen-Wei Li, Volume 1, plus selected teaching material",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "category-homological-algebra",
+        "source_project_id": "D80",
+        "topic": "Algebra",
+        "title": "Category theory and homological methods",
+        "indonesian_title": "Teori Kategori dan Metode Homologis",
+        "source": "Wen-Wei Li, Volume 2",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "advanced-optimization",
+        "source_project_id": "D90",
+        "topic": "Computing and optimization",
+        "title": "Advanced optimization and convex analysis",
+        "indonesian_title": "Optimisasi Lanjut dan Analisis Konveks",
+        "source": "Habring plus Becker",
+        "state": "complete_public"
+      },
+      {
+        "id": "algebraic-geometry",
+        "source_project_id": "D100",
+        "topic": "Geometry and topology",
+        "title": "Algebraic geometry",
+        "indonesian_title": "Jembatan Geometri Aljabar",
+        "source": "Brenner algebraic-curves and sheaf/cohomology courses",
+        "state": "active_or_partial"
+      },
+      {
+        "id": "mathematics-in-lean",
+        "source_project_id": "D110",
+        "topic": "Research practice",
+        "title": "Formalized mathematics in Lean",
+        "indonesian_title": "Matematika Terformalisasi dalam Lean",
+        "source": "Mathematics in Lean",
+        "state": "complete_public"
+      },
+      {
+        "id": "research-practice",
+        "source_project_id": "D120",
+        "topic": "Research practice",
+        "title": "Research reading and reproducible mathematical work",
+        "indonesian_title": "Membaca Riset, Eksposisi, dan Kerja Matematis Reprodusibel",
+        "source": "Original/open course with Turing Way and PyRSE inputs",
+        "state": "complete_public"
+      }
+    ]
+  },
+  "highlighted_example": {
+    "title": "Algebraische Kurven (Osnabrück 2025–2026)",
+    "source_language": "German",
+    "target_language": "Indonesian",
+    "source_url": "https://de.wikiversity.org/wiki/Kurs:Algebraische_Kurven_(Osnabr%C3%BCck_2025-2026)",
+    "source_url_2012": "https://de.wikiversity.org/wiki/Kurs:Algebraische_Kurven_(Osnabr%C3%BCck_2012)",
+    "source_terms": "CC BY-SA with component notices",
+    "source_lectures": 30,
+    "source_worksheets": 30,
+    "edition_repository": "https://github.com/KokunoYumeto/algebraic-geometry-bridge-id",
+    "edition_doi": "10.5281/zenodo.22150273",
+    "volume_state": "complete_public",
+    "larger_bridge_state": "active_or_partial",
+    "note": "The 30-unit Indonesian edition uses the 2025-2026 course for Units 1-23 and the official 2012 course for Units 24-30, with both source boundaries labeled. The algebraic-curves volume is complete and public. A larger two-course bridge also includes a bundles, sheaves, and cohomology course and remains in progress."
+  }
+}

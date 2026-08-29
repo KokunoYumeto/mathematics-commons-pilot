@@ -738,6 +738,11 @@ class JobCatalogTests(unittest.TestCase):
                 "sha256": "4AA1E050BF2D310472A6D12C798B508356A7C8B6FA32680EC72FA1CFCE122FA7",
             },
         )
+        self.assertEqual(receipt["inputs"]["education"]["path"], "catalog/edu.json")
+        self.assertEqual(
+            receipt["inputs"]["education_schema"]["path"],
+            "schemas/edu.schema.json",
+        )
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
         for name in (
@@ -748,6 +753,7 @@ class JobCatalogTests(unittest.TestCase):
             "translation-choices.schema.json",
             "translation-source.schema.json",
             "translation-build.schema.json",
+            "edu.schema.json",
             "formalization-intake.schema.json",
             "portal-catalog.schema.json",
             "portal-readback.schema.json",

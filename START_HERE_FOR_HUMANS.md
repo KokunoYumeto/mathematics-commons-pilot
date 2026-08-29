@@ -10,7 +10,9 @@ Select one of the [28 runnable packet envelopes](catalog/jobs.json), download ev
 
 ## Translation
 
-For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1) and verify its recorded byte length and SHA-256. To start any other workflow-startable work, browse the [29 work scopes and their evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final). Each row states its workflow startability, distribution class, and source note. You may also propose another mathematical work with a public source and recorded terms.
+Use spare AI compute to translate educational material into a language that needs it. Start with an open or noncommercial license that permits adaptations; preserve its attribution, license, and ShareAlike requirements; and produce a separate readable target-language edition with editable source and checks. If the source is noncommercial, distribute the translation noncommercially.
+
+Browse the [translation portal](docs/translations.md) for 40 concrete mathematics examples, including 21 learner-ready Indonesian course roles and 19 active or partial ones. The list is not exclusive: another openly licensed course or textbook is equally welcome. For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1). For any other work, download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final).
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
