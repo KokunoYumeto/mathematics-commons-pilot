@@ -4,6 +4,8 @@
 
 **Assessment date:** 7 August 2026
 
+**Targeted status refresh:** 30 August 2026 for Erdős problem 617 only. The other records retain their 7 August assessments.
+
 **Target:** nine candidate records—seven established-problem candidates and two provisionally shortlisted community-originated status-reconciliation candidates
 
 This docket turns the abstract six-to-ten-record target into a concrete starting set. A listing here is not a claim that a problem is open, solved, novel, suitable, or accepted. Before Day 1, a record steward must create an exact `problem_record`, open every material source, date and qualify the status assessment, resolve the intended statement, record rights, reserve reviewers, and issue only bounded packets. Erdős Problems pages are useful mutable indexes; they are not treated as adjudicating authority.
@@ -77,16 +79,16 @@ The finite theorem predates the later Erdős–Graham question, and a public Lea
 - Rights boundary: link and cite the copyrighted paper. The pinned Lean file contains no `sorry` and reports only `propext`, `Classical.choice`, and `Quot.sound`, but its repository has no declared license; link and replay rather than importing it. Publish only a new reconstruction and Commons-originated metadata under the Commons rule.
 - Overclaim guardrail: use “rediscovery,” “reconciliation,” or “formalization,” not “first proof.”
 
-### 5. Erdős problem 617 — finite computation and certificate review
+### 5. Erdős problem 617 — fixed-case verification and claim review
 
-For \(r\geq3\), the conjecture asks whether every \(r\)-edge-colouring of \(K_{r^2+1}\) contains \(r+1\) vertices whose induced complete graph omits at least one colour. The source proves \(r=3,4\); the general problem remains open.
+For \(r\geq3\), the conjecture asks whether every \(r\)-edge-colouring of \(K_{r^2+1}\) contains \(r+1\) vertices whose induced complete graph omits at least one colour. The source proves \(r=3,4\). Public July 2026 preprints claim the fixed cases \(r=5,6,7,8,9\), but they do not address every \(r\), and the general problem remains open.
 
-- Sources: Erdős and Gyárfás, [“Split and balanced colorings of complete graphs”](https://doi.org/10.1016/S0012-365X(98)00323-9), *Discrete Mathematics* 200 (1999), 79–86; [tracker record, accessed 7 August 2026](https://www.erdosproblems.com/617); [pinned Formal Conjectures declaration](https://github.com/google-deepmind/formal-conjectures/blob/7ce32c596f6cff050fa928a842a9dbe333b36b85/FormalConjectures/ErdosProblems/617.lean).
-- Qualified status: open for general \(r\geq3\); Erdős–Gyárfás prove \(r=3,4\). The cited Formal Conjectures file is an Apache-2.0 statement declaration containing `sorry`, not a machine-checked proof.
-- First packets: source-to-formal statement audit; reconstruct or formalize \(r=3\); design a SAT/CSP encoding for \(r=5\); validate it on solved cases; require an independently checked proof certificate for any UNSAT result.
-- Review needs: Ramsey/extremal graph theory, finite geometry, SAT proof logging, and Lean graph theory.
-- Rights boundary: link and cite the paper; preserve Apache-2.0 for the formal declaration and do not present its placeholder-bearing declaration as a proof.
-- Overclaim guardrail: one finite value is not the universal conjecture. A counterexample needs an explicit colouring; an impossibility result needs a checked certificate.
+- Sources: Erdős and Gyárfás, [“Split and balanced colorings of complete graphs”](https://doi.org/10.1016/S0012-365X(98)00323-9), *Discrete Mathematics* 200 (1999), 79–86; [tracker record, accessed 30 August 2026](https://www.erdosproblems.com/617); [pinned Formal Conjectures declaration](https://github.com/google-deepmind/formal-conjectures/blob/7ce32c596f6cff050fa928a842a9dbe333b36b85/FormalConjectures/ErdosProblems/617.lean); Sneiderman's [fixed-\(r=5,6,7,8\) release](https://github.com/Robby955/erdos-617-fixed-cases/releases/tag/fixed-r5-r8-2026-07-20), including the non-computational \(r=6\) preprint; Kara's independent [fixed-\(r=5\) formal-verification release](https://github.com/RamazanKara/erdos-617-r5-formal-verification/releases/tag/e058-r5) and [frozen Zenodo record](https://doi.org/10.5281/zenodo.21535386).
+- Qualified status: open for general \(r\geq3\); Erdős–Gyárfás prove \(r=3,4\). The fixed \(r=5\) theorem now has an independent formal and certificate verification whose exported Lean theorem reports exactly `propext`, `Classical.choice`, and `Quot.sound`; the verifier nevertheless records that independent expert review is incomplete. Treat \(r=5\) as a machine-verified fixed-case resolution, not a resolution of the all-\(r\) conjecture. The public \(r=6,7,8,9\) manuscripts remain preprint claims without completed external mathematical review and stay `CLAIMED_UNVERIFIED` for this docket.
+- First packets: source-to-formal statement audit; reconstruct or formalize the published \(r=3\) or \(r=4\) argument; independently replay the frozen \(r=5\) verification and audit its correspondence to the historical statement; digest and adversarially check the non-computational \(r=6\) proof claim, formalizing its load-bearing lemmas or full fixed-case conclusion where feasible. Defer the computer-assisted \(r=7,8,9\) packages until certificate-review capacity is explicitly reserved.
+- Review needs: Ramsey/extremal graph theory, finite geometry, formal-statement correspondence, reproducible certificate checking, and Lean graph theory.
+- Rights boundary: link and cite the original paper. Preserve Apache-2.0 for the Formal Conjectures declaration and Kara's verification repository, and CC BY 4.0 for the archived Kara preprint; these are distinct rights layers. No repository-wide license was established for the inspected Sneiderman fixed-case repository, so link and review it without importing or rededicating its files.
+- Overclaim guardrail: one or several fixed values do not prove the universal conjecture. A counterexample needs an explicit colouring and independent exact checker; a positive fixed-case result needs a checked proof or certificate and statement-correspondence review. Do not call \(r=6\) verified merely because its release is intact or because other models agree with it.
 
 ## Visible anchors, kept deliberately bounded
 
@@ -167,7 +169,7 @@ Every later community nomination must still supply an immutable statement and at
 
 ## Proposed launch order
 
-Begin with 728, 635, and 124. Together they test formal replay and statement correspondence, status reconciliation under uncertainty, and canonical-statement repair with bounded computation. Add the two small community resolved-calibration records after their statement and rights packets pass. Admit 333 and 617 only after the first process review. Keep 242 and 993 as reserve anchors unless reviewers and computational capacity are explicitly reserved.
+Begin with 728, 635, and 124. Together they test formal replay and statement correspondence, status reconciliation under uncertainty, and canonical-statement repair with bounded computation. Add the two small community resolved-calibration records after their statement and rights packets pass. Admit 333 and the refreshed 617 fixed-case review only after the first process review; scope 617 first to the frozen \(r=5\) replay and independent \(r=6\) proof review. Keep 242 and 993 as reserve anchors unless reviewers and computational capacity are explicitly reserved.
 
 That produces a seven-record active pilot with two documented reserves; it does not pretend that all nine can consume reviewer capacity simultaneously.
 
