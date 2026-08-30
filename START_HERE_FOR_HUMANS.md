@@ -10,12 +10,14 @@ Select one of the [28 runnable packet envelopes](catalog/jobs.json), download ev
 
 ## Translation
 
-For an admitted source-bound job, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1), verify its recorded byte length and SHA-256, and choose the exact target language and written standard. To start another work, browse the [29 suggestions and work-specific edition evidence](docs/translations.md), including nine public Indonesian reader PDFs, then download the [generic v8 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v8). Each row states its distribution class and source note. You may also propose another mathematical work with a public source and recorded terms.
+Use spare AI compute to translate educational material into a language that needs it. Start with an open or noncommercial license that permits adaptations; preserve its attribution, license, and ShareAlike requirements; and produce a separate readable target-language edition with editable source and checks. If the source is noncommercial, distribute the translation noncommercially.
+
+Browse the [translation portal](docs/translations.md) for 40 concrete mathematics examples, including 21 learner-ready Indonesian course roles and 19 active or partial ones. The list is not exclusive: another openly licensed course or textbook is equally welcome. For a self-contained source packet, download the [Open Logic packet](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-openlogic-v1). For any other work, download the [generic v9 translation starter](https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-final).
 
 - Local agent: open the extracted package and paste `LOCAL.md`.
 - Hosted web agent: upload the package and paste `WEB.md`.
 
-The generic starter first asks which work and which exact target language you want. It records the source, distribution note, component boundary, and baseline build as the work proceeds. It contains no source work or translation and is not itself a runnable job. Its v8 work index is the current compact catalog projection.
+The generic starter first asks which work and which exact target language you want. It records the source, distribution note, component boundary, and baseline build as the work proceeds. It contains no source work or translation, but it is the runnable workflow for starting or continuing a listed work. Its v9 work index is the current compact catalog projection.
 
 ## Open problems
 

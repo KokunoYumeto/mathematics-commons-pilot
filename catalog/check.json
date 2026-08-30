@@ -14,13 +14,18 @@
     },
     "translations": {
       "path": "catalog/translations.json",
-      "bytes": 230346,
-      "sha256": "4007729A6427D962A0F794D3B43ECC5C404D3D9F4E93BE9596108B714320980C"
+      "bytes": 241565,
+      "sha256": "C4C5E04BD72116607619E1B3F6FEB7DE4EED28ACE56AF4BB98B0B87260614941"
+    },
+    "education": {
+      "path": "catalog/edu.json",
+      "bytes": 21037,
+      "sha256": "E0F04886D567F3E1D05E4944542E2096D5BD7B20C3AD0C7BC6E62AA87E5A529F"
     },
     "translation_choices": {
       "path": "kits/translate/WORKS.json",
-      "bytes": 44823,
-      "sha256": "92B0D90CCF4AFE4CD22A2CE878B987799E7D54345F854DA9BA671C3C7AF796EE"
+      "bytes": 62666,
+      "sha256": "19B800300E954A366757D190AAE1F63C85AF6513548F17759E910D183B584732"
     },
     "translation_source": {
       "path": "kits/translate/SOURCE.json",
@@ -49,8 +54,8 @@
     },
     "portals": {
       "path": "catalog/portals.json",
-      "bytes": 4962,
-      "sha256": "6FB56DC15F8906585388C25DE4B4FC537EA13484B842F7B8D180D556DCB73761"
+      "bytes": 5502,
+      "sha256": "2BB908ECAEB42E001F0458510B04CA68B405A4A05F882EE6D521585B144B67D0"
     },
     "readback": {
       "path": "catalog/readback.json",
@@ -73,10 +78,11 @@
       "sha256": "8D797C40940D7AB8DFD8A203E09113E9AD3AB608C72A48C38FDE2105BBEB2569"
     },
     "translate_v7_readback": null,
-    "translate_v8_readback": {
-      "path": "catalog/translate-rb-v8.json",
-      "bytes": 1199,
-      "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22"
+    "translate_v8_readback": null,
+    "translate_v9_readback": {
+      "path": "catalog/translate-rb-v9-final.json",
+      "bytes": 1219,
+      "sha256": "4AA1E050BF2D310472A6D12C798B508356A7C8B6FA32680EC72FA1CFCE122FA7"
     },
     "openlogic_asset_manifest": {
       "path": "catalog/assets/openlogic.json",
@@ -92,6 +98,11 @@
       "path": "catalog/assets/translate-v8.json",
       "bytes": 2603,
       "sha256": "3887D93097C01795B243F69C1126994396123BAC9B33FAE075D81CAAABB7CCEF"
+    },
+    "translate_v9_asset_manifest": {
+      "path": "catalog/assets/translate-v9-complete.json",
+      "bytes": 2603,
+      "sha256": "D4E4A54316C8C7EF82AD99F6315904C7D120D14B97B0EB823707A7034BA2B1B6"
     },
     "global_receipt": {
       "path": "catalog/receipts/global.json",
@@ -140,13 +151,13 @@
     },
     "translation_schema": {
       "path": "schemas/translation-catalog.schema.json",
-      "bytes": 22341,
-      "sha256": "91D099BA33741877C308398B0EDBE3688292829D643EB2F911745990439F5471"
+      "bytes": 22665,
+      "sha256": "E4E9124999A213E363C7EE81B57D36808146EF485F7544DD292C53BB07FE6E96"
     },
     "translation_choices_schema": {
       "path": "schemas/translation-choices.schema.json",
-      "bytes": 15332,
-      "sha256": "6F699CAEB01CC273108B227F6BB32884997B23AAEF4CBC075CB426C6DB8C0E34"
+      "bytes": 15696,
+      "sha256": "E7BDFD37259522A9A52DF821530D638D4A548BD43C3A06045C3205515E1383CC"
     },
     "translation_source_schema": {
       "path": "schemas/translation-source.schema.json",
@@ -158,6 +169,11 @@
       "bytes": 19502,
       "sha256": "8365EC18BB73F89604CBEA467626AACD2E27FE6842E96DE2502FAB32E8F4A127"
     },
+    "education_schema": {
+      "path": "schemas/edu.schema.json",
+      "bytes": 10930,
+      "sha256": "8D591709664525306AB90FDD11185AE09FC2781632A46148DDE3048C29A24619"
+    },
     "formalization_schema": {
       "path": "schemas/formalization-intake.schema.json",
       "bytes": 16557,
@@ -165,8 +181,8 @@
     },
     "portal_schema": {
       "path": "schemas/portal-catalog.schema.json",
-      "bytes": 7955,
-      "sha256": "4C4CC8D4428D2B1489FB77CF1E45E784A1F80C48D68F14D9FE43DCA579FDA4FA"
+      "bytes": 8528,
+      "sha256": "46F930C8783A2936FBCF451A90590EC53034348DA1197D31052D03737DA3DB0C"
     },
     "asset_schema": {
       "path": "schemas/job-asset.schema.json",
@@ -185,8 +201,8 @@
     },
     "check_schema": {
       "path": "schemas/catalog-check.schema.json",
-      "bytes": 11303,
-      "sha256": "FE4A551F88DF59F0448C41A5A259EF05D38165D4BDAF8DAEA7D0FD19883D693B"
+      "bytes": 12109,
+      "sha256": "22FB851AF168062B07E5DD1976C18508E707DD02B52A184445704B139FD424C5"
     },
     "schema_validator": {
       "path": "tools/validate_packets.py",
@@ -231,34 +247,34 @@
     "translation_builder": {
       "path": "tools/build_translate.py",
       "bytes": 5895,
-      "sha256": "32938E4DA2827D17F9DCE48DD92CD917F9154D9375D2791F1E77051FED85B06D"
+      "sha256": "F19A844667F7A2A33568BD5F0F4ACEBE6BD157F37F72888E859D19F131A79CBD"
     },
     "translation_migrator": {
       "path": "tools/migrate_translations_v7.py",
-      "bytes": 27356,
-      "sha256": "9685D927335AA60697E057B1FDE8C5669746BD2958FA64DDB9656AAF99B3F1D3"
+      "bytes": 29233,
+      "sha256": "6C7B52EDE63E5B851D1CB8873996885AF8E13A3938FCA37DE758ED11910574CC"
     },
     "translation_reader_updater": {
       "path": "tools/add_id_readers.py",
-      "bytes": 17820,
-      "sha256": "CDB44E63F77EE803964F60FC0C91A8CEEA5371EB30C27961543DA97654D9FD7A"
+      "bytes": 18171,
+      "sha256": "668FA2EA6403A90F89D27070006989320BD93EB2D7ABF086981414B3764B32E1"
     },
     "portal_readback_tool": {
       "path": "tools/readback_portal.py",
-      "bytes": 12717,
-      "sha256": "B3C0408CACBBFF9AE01ED540E0EAB70AC7532BB0619C0B9D71CCEC6E5D2E01C1"
+      "bytes": 12801,
+      "sha256": "16BD1816D209D22D6576C1D8D46057586137864596844CBFD3FDB6BE442F404B"
     },
     "validator": {
       "path": "tools/validate_jobs.py",
-      "bytes": 145085,
-      "sha256": "53C372A5ABA753E74519F58E2E6890DFD9FFA48C5C4E79BD249524E0C424628A"
+      "bytes": 151029,
+      "sha256": "AA743CBA9359477783B1324C2291DACF88E163AF650B31C6FFFA9A4D2ACFD4FF"
     }
   },
   "asset_manifests": {
-    "files": 37,
-    "bytes": 319187,
-    "canonical_stream_bytes": 4321,
-    "tree_sha256": "B53E33C96DC8A1992EB52C87B654A5EFCCEDDEF0F9B86520956AEFE349A556D6"
+    "files": 39,
+    "bytes": 324393,
+    "canonical_stream_bytes": 4536,
+    "tree_sha256": "FC1EFCE68E3C2AC44F34AD2FF99FE2E41DF5437133DBFAA7129E915FAE56DF12"
   },
   "jobs": 28,
   "release_assets": 31,
@@ -275,9 +291,12 @@
     "source_editions": 41,
     "translation_editions": 23,
     "jobs": 1,
+    "workflow_startable_works": 29,
+    "packaged_runnable_jobs": 1,
     "runnable_jobs": 1,
+    "runnable_jobs_scope": "self_contained_public_packets_only",
     "public_release_assets": 2,
-    "public_release_bytes": 1938111
+    "public_release_bytes": 1939089
   },
   "formalization_entries": 19,
   "portal_sections": 3,

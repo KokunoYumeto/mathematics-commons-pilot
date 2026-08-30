@@ -5,7 +5,7 @@ The old catalog exposed an operational ``source_preflight`` state and called
 its evidence rows ``gates``.  Those names made a suggestion look like a legal
 or publication denial.  This one-shot migration keeps the underlying evidence
 and license text, but presents a plain distribution class, renames the evidence
-collection, and leaves runnable admission to the packet/readback contract.
+collection, and separates workflow startability from packet/readback evidence.
 """
 
 from __future__ import annotations
@@ -141,6 +141,39 @@ def rewrite_check_basis(row: dict[str, Any]) -> None:
     row["basis"] = replacements.get(basis, basis)
 
 
+def workflow_fields(source: dict[str, Any]) -> tuple[str, str, str]:
+    """Return operational workflow state without changing source evidence.
+
+    A generic starter is usable for a work even when this repository has not
+    packaged or replayed a self-contained source ZIP.  ``readiness`` remains
+    the packet/evidence axis; these fields answer whether a contributor can
+    begin or continue a translation workflow.
+    """
+    if source.get("item_type") == "resource" or source.get("readiness") == "reference_only":
+        return (
+            "reference_only",
+            "reference_only",
+            "This row is a component, collection, or reference; use it to scope a separate work rather than as a standalone job.",
+        )
+    if source.get("readiness") == "runnable":
+        return (
+            "source_bound_packet",
+            "source_bound_packet",
+            "A self-contained source packet is published with release, byte, SHA-256, and public-readback evidence.",
+        )
+    if source.get("readiness") == "identity_unresolved":
+        return (
+            "starter_available",
+            "generic_starter",
+            "The translation workflow can start with the generic starter; identify the exact work or edition and record the source before the first bounded translation unit.",
+        )
+    return (
+        "starter_available",
+        "generic_starter",
+        "The translation workflow can start with the generic starter; supply or obtain the exact source and record its distribution note before the first bounded translation unit.",
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--updated-at", default="2026-08-23T12:00:00Z")
@@ -163,7 +196,9 @@ def main() -> int:
             "Each row gives a readable work identity, language evidence, distribution class, and practical next action."
         ),
         "coverage_rule": (
-            "A row is a suggestion unless a packaged job and public readback say runnable. Unknown coverage means unknown, not absence; current maintained editions are not adoption targets unless explicitly listed."
+            "A work may be workflow-startable without a self-contained public packet. "
+            "readiness reports source-packet evidence; jobs[].state=runnable reports a packaged release with public readback. "
+            "Unknown coverage means unknown, not absence; current maintained editions are not adoption targets unless explicitly listed."
         ),
     }
     catalog["language_priority"]["priority_rule"] = (
@@ -204,6 +239,10 @@ def main() -> int:
                 if isinstance(check, dict):
                     rewrite_check_basis(check)
         readiness = source.get("readiness")
+        startability, mode, note = workflow_fields(source)
+        source["workflow_startability"] = startability
+        source["workflow_mode"] = mode
+        source["workflow_note"] = note
         if readiness == "runnable":
             source["next_action"] = "Download the public packet, verify its byte length and SHA-256, then select the target language and written standard."
         elif readiness == "reference_only":
@@ -219,7 +258,7 @@ def main() -> int:
     choices["updated_at"] = args.updated_at
     choices["language_priority"] = catalog["language_priority"]
     choices["rule"] = (
-        "Choose a topic, then a work and target language. Each row states its distribution class and license note. A listed row is a suggestion; only a packaged job with public readback is runnable. Unknown coverage never means absence."
+        "Choose a topic, then a non-reference work and target language. A work with workflow_startability=starter_available or source_bound_packet can be started with the generic kit; use the separately published packet when source_bound_packet is available. A packaged job with public readback is represented separately by jobs[].state=runnable. Each row states its distribution class and license note; unknown coverage never means absence."
     )
     choices.pop("source_preflight", None)
     choices["distribution_legend"] = distribution_legend
@@ -235,9 +274,71 @@ def main() -> int:
         source = next((s for s in catalog["source_editions"] if s.get("id") == row.get("id")), None)
         if isinstance(source, dict):
             row["readiness"] = source["readiness"]
+            row["workflow_startability"] = source["workflow_startability"]
+            row["workflow_mode"] = source["workflow_mode"]
+            row["workflow_note"] = source["workflow_note"]
             rights = source.get("rights", {})
             row["distribution_class"] = rights.get("distribution_class")
             row["distribution_note"] = rights.get("distribution_note")
+    # Keep the downloadable chooser projection synchronized with the live
+    # catalog.  Additive reader rows are real work scopes, not optional
+    # metadata that can silently disappear from WORKS.json.
+    choices["topics"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "work_ids": row["work_ids"],
+            "resource_ids": row["resource_ids"],
+        }
+        for row in catalog.get("topics", [])
+    ]
+    choices["works"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+            "translation_edition_ids": row["translation_edition_ids"],
+            "job_ids": row["job_ids"],
+        }
+        for row in catalog.get("works", [])
+    ]
+    choices["resources"] = [
+        {
+            "id": row["id"],
+            "title": row["title"],
+            "kind": row["kind"],
+            "topic_ids": row["topic_ids"],
+            "source_edition_ids": row["source_edition_ids"],
+        }
+        for row in catalog.get("resources", [])
+    ]
+    choices["source_editions"] = [
+        {
+            "id": row["id"],
+            "item_id": row["item_id"],
+            "item_type": row["item_type"],
+            "readiness": row["readiness"],
+            "workflow_startability": row["workflow_startability"],
+            "workflow_mode": row["workflow_mode"],
+            "workflow_note": row["workflow_note"],
+            "distribution_class": row["rights"]["distribution_class"],
+            "distribution_note": row["rights"]["distribution_note"],
+        }
+        for row in catalog.get("source_editions", [])
+    ]
+    choices["translation_editions"] = [
+        {
+            "id": row["id"],
+            "work_id": row["work_id"],
+            "language": row["target_language"],
+            "identity_state": row["identity_state"],
+            "progress_state": row["progress_state"],
+            "review_state": row["review_state"],
+        }
+        for row in catalog.get("translation_editions", [])
+    ]
+    choices["jobs"] = catalog.get("jobs", [])
     dump(CHOICES, choices)
     print(json.dumps({"catalog_bytes": len(catalog_bytes), "catalog_sha256": catalog_identity["sha256"], "sources": len(catalog["source_editions"])}, separators=(",", ":")))
     return 0

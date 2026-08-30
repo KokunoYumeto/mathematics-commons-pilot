@@ -1,0 +1,38 @@
+{
+  "schema": "math-commons-portal-readback/v1",
+  "status": "PASS",
+  "observed_date": "2026-08-23",
+  "repository": "KokunoYumeto/mathematics-commons-pilot",
+  "release": {
+    "id": 375290060,
+    "tag": "translate-v9-corrected",
+    "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/tag/translate-v9-corrected",
+    "target_commit": "89fab36a658267a3d2a5ab9845eccb606b2dc8f5",
+    "target_tree": "2e910309f0d8676cbbd6304ff348e76fb4039b16"
+  },
+  "transport": {
+    "method": "anonymous_https",
+    "authorization": false,
+    "cookies": false,
+    "payload_persisted": false
+  },
+  "assets": [
+    {
+      "id": 526500772,
+      "name": "translation-starter-v9.zip",
+      "url": "https://github.com/KokunoYumeto/mathematics-commons-pilot/releases/download/translate-v9-corrected/translation-starter-v9.zip",
+      "expected_bytes": 17210,
+      "observed_bytes": 17210,
+      "expected_sha256": "35A243556E8B5C1C1BD44E62E115990E7AB81CCA4B646CFB902F150C33B9F2C5",
+      "observed_sha256": "35A243556E8B5C1C1BD44E62E115990E7AB81CCA4B646CFB902F150C33B9F2C5",
+      "match": true
+    }
+  ],
+  "summary": {
+    "assets": 1,
+    "bytes": 17210,
+    "matches": 1,
+    "mismatches": 0,
+    "errors": []
+  }
+}

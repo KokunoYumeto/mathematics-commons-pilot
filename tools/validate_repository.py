@@ -50,6 +50,7 @@ REQUIRED = {
     "schemas/translation-choices.schema.json",
     "schemas/translation-source.schema.json",
     "schemas/translation-build.schema.json",
+    "schemas/edu.schema.json",
     "schemas/formalization-intake.schema.json",
     "schemas/portal-catalog.schema.json",
     "schemas/portal-readback.schema.json",
@@ -85,6 +86,7 @@ REQUIRED = {
     "tests/test_validate_repository.py",
     "tests/test_job_catalog.py",
     "tests/test_language_evidence.py",
+    "tests/test_edu.py",
     "tests/test_openlogic_source.py",
     "tests/test_formalization_intake.py",
     "catalog/README.md",
@@ -97,6 +99,7 @@ REQUIRED = {
     "catalog/receipts/gordan2.txt",
     "catalog/receipts/mikami.json",
     "catalog/translations.json",
+    "catalog/edu.json",
     "catalog/formalize.json",
     "catalog/portals.json",
     "catalog/readback.json",
@@ -123,6 +126,7 @@ REQUIRED = {
     "docs/openlogic-v1.md",
     "docs/translate-v7.md",
     "docs/translate-v8.md",
+    "docs/translate-v9.md",
     "docs/release-workbench-v0.2.md",
     "docs/roadmap.md",
     "docs/workbench.md",
@@ -163,6 +167,8 @@ REQUIRED = {
     "catalog/assets/openlogic.json",
     "catalog/assets/translate-v7.json",
     "catalog/assets/translate-v8.json",
+    "catalog/assets/translate-v9.json",
+    "catalog/assets/translate-v9-complete.json",
     ".github/CODEOWNERS",
     ".github/workflows/validate.yml",
     ".github/ISSUE_TEMPLATE/pilot_volunteer.yml",
@@ -941,7 +947,7 @@ def portal_requires_translation_readbacks(catalog: dict[str, Any]) -> bool:
             continue
         for key in ("release", "starter"):
             release = section.get(key)
-            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8"}:
+            if isinstance(release, dict) and release.get("tag") in {"translate-v7", "translate-v8", "translate-v9-corrected", "translate-v9-complete", "translate-v9-final"}:
                 return True
     return False
 
@@ -973,6 +979,26 @@ def check_required(errors: list[str]) -> None:
             for section in portal.get("sections", [])
         ):
             check_required_file("catalog/translate-rb-v8.json", errors)
+        if any(
+            isinstance(section, dict)
+            and any(
+                isinstance(section.get(key), dict)
+                and section[key].get("tag") == "translate-v9-final"
+                for key in ("release", "starter")
+            )
+            for section in portal.get("sections", [])
+        ):
+            check_required_file("catalog/translate-rb-v9-final.json", errors)
+        if any(
+            isinstance(section, dict)
+            and any(
+                isinstance(section.get(key), dict)
+                and section[key].get("tag") == "translate-v9-corrected"
+                for key in ("release", "starter")
+            )
+            for section in portal.get("sections", [])
+        ):
+            check_required_file("catalog/translate-rb-v9.json", errors)
     elif portal.get("schema") == "math-commons-portal-catalog/v1":
         v7_readback = ROOT / "catalog" / "translate-rb-v7.json"
         if v7_readback.exists() or v7_readback.is_symlink():

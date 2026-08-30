@@ -1,6 +1,6 @@
 {
-  "schema": "math-commons-translation-starter/v8",
-  "version": "8.0.0",
+  "schema": "math-commons-translation-starter/v9",
+  "version": "9.0.0",
   "date": "2026-08-23",
   "purpose": "Choose one work and target language, record the source and distribution note, produce a standalone monolingual translation, and return cumulative inspectable state.",
   "source_included": false,

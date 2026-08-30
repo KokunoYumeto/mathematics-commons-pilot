@@ -266,7 +266,7 @@ class JobCatalogTests(unittest.TestCase):
         validate_jobs.validate_schema(current, "portals", "current portal", errors)
         self.assertTrue(errors)
 
-    def test_translation_v8_chooser_projects_live_catalog(self) -> None:
+    def test_translation_starter_chooser_projects_live_catalog(self) -> None:
         choices, _ = validate_jobs.load(ROOT / "kits" / "translate" / "WORKS.json")
         catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
         readers, _ = validate_jobs.load(
@@ -277,16 +277,16 @@ class JobCatalogTests(unittest.TestCase):
             choices["catalog"],
             {
                 "path": "catalog/translations.json",
-                "bytes": validate_jobs.TRANSLATE_V8_CATALOG_BYTES,
-                "sha256": validate_jobs.TRANSLATE_V8_CATALOG_SHA256,
+                "bytes": validate_jobs.TRANSLATE_V9_CATALOG_BYTES,
+                "sha256": validate_jobs.TRANSLATE_V9_CATALOG_SHA256,
             },
         )
         self.assertEqual(choices["separate_archive"], catalog["separate_archive"])
         self.assertEqual(choices["jobs"], catalog["jobs"])
         self.assertEqual(choices["language_priority"], catalog["language_priority"])
-        self.assertEqual(len(choices["works"]), 27)
-        self.assertEqual(len(choices["source_editions"]), 39)
-        self.assertEqual(len(choices["translation_editions"]), 14)
+        self.assertEqual(len(choices["works"]), 29)
+        self.assertEqual(len(choices["source_editions"]), 41)
+        self.assertEqual(len(choices["translation_editions"]), 23)
         self.assertEqual(len(catalog["works"]), 29)
         self.assertEqual(len(catalog["source_editions"]), 41)
         self.assertEqual(len(catalog["translation_editions"]), 23)
@@ -376,9 +376,45 @@ class JobCatalogTests(unittest.TestCase):
                 validate_jobs.validate_translations(errors)
             self.assertTrue(any(expected in error for error in errors), errors)
 
+    def test_translation_workflow_startability_is_not_packet_readiness(self) -> None:
+        catalog, _ = validate_jobs.load(ROOT / "catalog" / "translations.json")
+        works = [
+            row
+            for row in catalog["source_editions"]
+            if row.get("item_type") == "work"
+        ]
+        resources = [
+            row
+            for row in catalog["source_editions"]
+            if row.get("item_type") == "resource"
+        ]
+        self.assertEqual(len(works), 29)
+        self.assertEqual(
+            sum(row["workflow_startability"] == "source_bound_packet" for row in works),
+            1,
+        )
+        self.assertEqual(
+            sum(row["workflow_startability"] == "starter_available" for row in works),
+            28,
+        )
+        self.assertTrue(
+            all(
+                row["workflow_startability"] in {"starter_available", "source_bound_packet"}
+                for row in works
+            )
+        )
+        self.assertTrue(
+            all(row["workflow_startability"] == "reference_only" for row in resources)
+        )
+        openlogic = next(
+            row for row in works if row["id"] == "openlogic-core-source"
+        )
+        self.assertEqual(openlogic["readiness"], "runnable")
+        self.assertEqual(openlogic["workflow_startability"], "source_bound_packet")
+
     def test_asset_manifest_set_identity(self) -> None:
         identity = validate_jobs.manifest_set_identity()
-        self.assertEqual(identity["files"], 37)
+        self.assertEqual(identity["files"], 39)
         self.assertGreater(identity["bytes"], 0)
         self.assertGreater(identity["canonical_stream_bytes"], 0)
         self.assertRegex(identity["tree_sha256"], r"^[0-9A-F]{64}$")
@@ -684,19 +720,28 @@ class JobCatalogTests(unittest.TestCase):
                 "source_editions": 41,
                 "translation_editions": 23,
                 "jobs": 1,
+                "workflow_startable_works": 29,
+                "packaged_runnable_jobs": 1,
                 "runnable_jobs": 1,
+                "runnable_jobs_scope": "self_contained_public_packets_only",
                 "public_release_assets": 2,
-                "public_release_bytes": 1_938_111,
+                "public_release_bytes": 1_939_089,
             },
         )
         self.assertIsNone(receipt["inputs"]["translate_v7_readback"])
+        self.assertIsNone(receipt["inputs"]["translate_v8_readback"])
         self.assertEqual(
-            receipt["inputs"]["translate_v8_readback"],
+            receipt["inputs"]["translate_v9_readback"],
             {
-                "path": "catalog/translate-rb-v8.json",
-                "bytes": 1_199,
-                "sha256": "562B666EAA685299AF226A24501EBD8B3687BED0B1DE39CC56E35246337A4A22",
+                "path": "catalog/translate-rb-v9-final.json",
+                "bytes": 1_219,
+                "sha256": "4AA1E050BF2D310472A6D12C798B508356A7C8B6FA32680EC72FA1CFCE122FA7",
             },
+        )
+        self.assertEqual(receipt["inputs"]["education"]["path"], "catalog/edu.json")
+        self.assertEqual(
+            receipt["inputs"]["education_schema"]["path"],
+            "schemas/edu.schema.json",
         )
 
     def test_catalog_schema_files_are_valid_json(self) -> None:
@@ -708,6 +753,7 @@ class JobCatalogTests(unittest.TestCase):
             "translation-choices.schema.json",
             "translation-source.schema.json",
             "translation-build.schema.json",
+            "edu.schema.json",
             "formalization-intake.schema.json",
             "portal-catalog.schema.json",
             "portal-readback.schema.json",
