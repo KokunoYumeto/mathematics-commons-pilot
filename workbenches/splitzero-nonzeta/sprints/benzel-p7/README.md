@@ -1,3 +1,19 @@
+# Propp 7: turn-2 continuation
+
+**Current focused turn: 2, 15 September 2026.** [Complete turn-2 proof](turn2/PROOF.md) · [exact checker](turn2/check.py) · [fourth-collar seeds](turn2/fourth-seeds.json) · [replay summary](turn2/evidence/summary.json).
+
+The third-collar obstruction from turn 1 is now repaired. A positive nine-cell move transports one source stone three cells through two old horizontal bones. The explicit third-collar table then tiles every `(d+9,2d+9)` for integers d>=3, and reflected pairs: `(n,2n-9)` for n>=12. Complete containment, disjointness, coverage and cochain equations are in the proof. The constructor does not search.
+
+The continuation also computes the full global bone quotient as `Z[omega] direct-sum F_3 sigma`, with the specified square-zero multiplication, original generator maps and inverse. The earlier finite jet is identified by an explicit isomorphism with its quotient modulo 3. The finite-support comparison kernel and an actual positive kernel move are both retained.
+
+Ordinary and optimized Python each passed for d=3..100: 196 h=3 tilings including reflections, 98 collar identities, 428,848 tile placements; five h=4 tilings with 660 placements; 625 Laurent cell-map checks, 1,875 bone-class checks and 507 integral-quotient kernel checks. Eight exploratory positive annuli were also replayed; twelve solver infeasibility returns remain uncertified and are not mathematical results.
+
+From this directory run `python turn2/check.py --max-d 100 --output turn2/evidence/normal.json` and the same command with `python -O`. The script requires the exact parent checker blob before importing it. Independent specialist review, a Lean build and novelty certification have not been performed.
+
+**The full original Problem 7 is still unresolved by this work.** The next live source consists of five exact h=4 seeds for d=4..8, each releasing eight specified old bones. Their finite certificates are not presented as an all-parameter theorem. The historical turn-1 sources below are retained verbatim; their statements of the next task describe that earlier cut.
+
+---
+
 # Propp 7: focused Split-Zero proof attempt
 
 **Turn 1 of the requested 10–20-turn research attempt.** Continuation dated 15 September 2026. The objective is the full original benzel existence problem, not merely a finite computation or a reformulation. No completion date or successful resolution is promised.
