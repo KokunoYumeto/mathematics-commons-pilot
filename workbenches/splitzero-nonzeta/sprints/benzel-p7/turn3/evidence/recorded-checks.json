@@ -1,0 +1,72 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 3,
+  "status": "PASS",
+  "normal_seconds": 17.604,
+  "optimized_seconds": 18.801,
+  "counts": {
+    "all_parameter_stages": [
+      {
+        "h": 1,
+        "d_min": 3,
+        "collision_certificates": 189
+      },
+      {
+        "h": 2,
+        "d_min": 3,
+        "collision_certificates": 495
+      },
+      {
+        "h": 3,
+        "d_min": 3,
+        "collision_certificates": 702
+      },
+      {
+        "h": 4,
+        "d_min": 4,
+        "collision_certificates": 2484
+      },
+      {
+        "h": 5,
+        "d_min": 4,
+        "collision_certificates": 5049
+      }
+    ],
+    "fifth_d_min": 4,
+    "fifth_d_max": 100,
+    "fifth_tilings_with_reflections": 194,
+    "fifth_tile_placements_with_reflections": 498192,
+    "fifth_incidence_and_inverse_identities": 97,
+    "bounded_seeds": {
+      "sixth_tilings": 5,
+      "sixth_tile_placements": 1130,
+      "bone_only_annuli": 3,
+      "d4_fifth_original_and_new_bijection_kernel": true
+    },
+    "polygon_checks": {
+      "cell_inverse_checks": 3750,
+      "polygon_membership_checks": 61383,
+      "tile_incidence_squares": 972,
+      "complete_small_regions": 42
+    },
+    "mutation_tests": 7
+  },
+  "input_sha256": {
+    "PROOF.md": "1145b57c01c6da29ecb3154ac831896ded42db4116d0245f061cb0e7e50f6924",
+    "affine.py": "1f23f2d951785ed3c1210fadc9f891b0553ff02ffba8794d8088ee9b4e81710c",
+    "certify.py": "2fd116fd475ee44b65e7dc11d433d926d9751fc500367bea9e7d8c7522713195",
+    "check.py": "8679fffe37464578e5724c7099c2c95abecae99c31ff001458c2064c7079ad2a",
+    "construction.py": "43a8a3d665b7cee3b9afb726060e1249eb54a971587ab43b7d0f860272705ad5",
+    "evidence/constant-charge-annuli.json": "ad6733225f5726c4bf41e1e6b2d5d81aa114d9feb91e2476a09471f0753af082",
+    "evidence/earlier-fifth-d4.json": "271e51f5727a581817ae792da0b309b7cb785f7be239eb951ee02d5a91f06e36",
+    "evidence/sixth-witnesses.json": "b144aac827563bb9741e19533b2b71fc745bd7fa77da5b1deabc03e5d6759108",
+    "fixtures.py": "459c8001df60a4db4b981b9fed7e983df2845f32408d7555239587466696d958",
+    "polygons.py": "a7d4e0e923a006e28b792a8345a047fa4ab560537b36ac545fb248708f530c9f",
+    "tables.json": "ddfb25c3a8fefb797e6111f8bc4132fda933762c3b26dddf6df64c87b4c84334"
+  },
+  "receipt_sha256": {
+    "normal.json": "b9c499afe30f7eef4df6a7463ddf8927572c8557fefbcd8e1506da31c9271cf7",
+    "optimized.json": "4ec8a19e30efeca195f8eb041efaba4c3317f182b2b8c4f22befa0e90542cb28"
+  },
+  "scope": "Written all-parameter fifth-family proof and exact rational certificate replay. Sixth-level and annulus results have only their listed finite scopes. No full P7 resolution, independent specialist acceptance, Lean build or priority claim."
+}
