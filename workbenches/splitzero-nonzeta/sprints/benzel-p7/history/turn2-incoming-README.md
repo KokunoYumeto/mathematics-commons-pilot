@@ -1,19 +1,3 @@
-# Integrated turn-2 evidence and support-kernel continuation
-
-**15 September 2026.** The contribution at `89acf6be7ad7e73892b7628f2419e16ef445b581` below and every file under `turn2/` are preserved. Read the additional [complete calculation](TURN2.md), [exact checker](check_turn2.py), [seven fourth-collar witnesses](evidence/turn2/fourth-witnesses.json), and [replay summary](evidence/turn2/summary.json).
-
-The two third-collar constructions give the same complete tilings: TURN2.md section 0 supplies the original-generator equality between the direct replacement and the nine-cell move followed by collar insertion. Their integral quotient maps also agree on the original Laurent generators. These overlapping results are not counted twice.
-
-The additional calculation exhibits a split copy of Z in the kernel of the *actual collar-support* cohomology map, with coefficient evaluation as its left inverse and the signed target boundary written explicitly. The same support enlargement has a positive tiling lift after releasing two specified old bones. A 9-by-27 integer matrix certificate retains the order-three stone class and replays 98 unimodular operations in both directions.
-
-The effective fourth-collar finite scope now includes d=4,...,10; the earlier five-witness set remains unchanged alongside the seven-witness set. No all-parameter fourth-collar theorem or full Problem 7 resolution is claimed. The next calculation is a uniform repair through the actual old-bone patch, followed by a repeatable construction in h.
-
-Run `python check_turn2.py --max-d 100 --output evidence/turn2/normal.json` and the same command with `python -O`. Both recorded runs passed: 196 third-family tilings including reflections, 98 source tilings, 98 positive patch identities, 98 signed kernel identities, 882 obstruction-cell candidates, 428,848 third-target tile placements, and all seven fourth-level witnesses. The written proofs remain distinct from this finite replay; no Lean build, novelty certification or independent specialist acceptance is asserted.
-
-The preceding turn-2 introduction below retains the scope of its own five-witness snapshot. Current combined state is in STATE.json. Both continuations retain the same turn-1 source and upstream Split-Zero pin.
-
----
-
 # Propp 7: turn-2 continuation
 
 **Current focused turn: 2, 15 September 2026.** [Complete turn-2 proof](turn2/PROOF.md) · [exact checker](turn2/check.py) · [fourth-collar seeds](turn2/fourth-seeds.json) · [replay summary](turn2/evidence/summary.json).
