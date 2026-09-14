@@ -1,58 +1,47 @@
 # Split-Zero non-zeta workbench
 
-Research triage snapshot: 14 September 2026. This is a companion to the owner's Split-Zero cohomology programme, not a replacement for the zeta workbench and not a byte-for-byte mirror.
+## Current continuation: 14 September 2026
 
-## Portfolio
+Read [checked progress](review/PROGRESS.md), [complete mathematical arguments](review/notes/proofs.md), [status changes](review/catalog/status-delta.json) and [reading coverage](review/catalog/coverage-delta.json).
 
-The registry contains **53 problem/variant records**: **41 candidate research scopes** (A: 11, B: 19, C: 11), **10 published-result/status controls**, and **2 recent proof-claim audits**. The offline builder generates **245 job specifications**: 205 candidate-research roles, 20 control roles, 6 claim-review roles and 14 source-family intake jobs. There are 67 initially available source/intake specifications and 178 dependency-gated successors. **No agents have been launched.**
+The effective portfolio now has **56 problem/variant records**: 41 research scopes (A11/B19/C11), 13 controls and 2 claim audits. Dispatch produces **251 job specifications**: 70 source/intake starters and 181 dependency-gated successors. **No agents have been launched.** These records are not independently admitted canonical Commons packets.
 
-A ranks the shortest displayed route to a checkable finite calculation or bounded mathematical advance. B has a concrete route with substantial construction still required. C retains a major explicitly named comparison, realization, analytic or uniformity obligation. These are allocation judgments, not measured probabilities of resolving the full conjectures. Every record preserves its full-problem blocker.
+The original 53-row `seeds.psv` and `intake.json` remain a pinned discovery snapshot. The current builder applies the dated status, progress and three-record addition files before emitting any jobs. Its effective P14 status is `RESOLVED_PUBLISHED`; completed calculations and next mathematical targets are carried into each affected job. Historical source labels remain in the ledger and do not silently control current dispatch.
 
-`OPEN_IN_SOURCE` means that the inspected source presents the scope as open; it is not an independently certified September 2026 current-open determination. None of these records is an admitted canonical runnable Commons problem packet.
+## What changed
 
-## Read and generate
+P14's former status conflict is reconciled with Defant–Li–Propp–Young Theorem 1.1. Its residue-family construction and uniqueness argument are written out and checked on 150 finite parameter pairs. AIM chip-firing Q14 and matrix-spectrum Section 3 Q6 are published-result controls, and Shitov's complex zero-pattern result is a separately scoped related-variant control. P4 and P6 now have pinned public claim repositories and independently reproduced finite examples; their full formal dependency/build audits remain undone, so they stay `CLAIMED_UNVERIFIED`.
 
-Read [METHOD.md](METHOD.md), [seeds.psv](seeds.psv) and [intake.json](intake.json). The intake file contains source locators, actual reading coverage and the exact upstream commit.
+The mathematical continuation gives the P7 residual parameter maps; the exact weighted-polynomial/finite-jet factorization for P15–P18; integral move-graph contraction certificates for 17 small benzels; original subsequence-deck maps and a reproduced collision family; and a complete small sign-chamber coefficient-map construction. Each result preserves its exact finite or all-parameter scope and the remaining original problem.
 
-From this directory:
+Read all 42 chip-firing and all 24 matrix-spectrum statements in this pass, but reconciled only the specified statuses. The rest of those lists and the other portal destinations retain explicit continuation work. The historical Commons v0.2 archive remains unavailable. This is not a classification of all 8,785 historical candidate rows or a complete literature audit.
+
+## Run the current queue and checks
 
 ```sh
 python dispatch.py
+python test_dispatch.py
+cd review
+python tools/check_progress.py
+python -O tools/check_progress.py
 ```
 
-This produces `generated/problems.json`, `generated/jobs.jsonl`, `generated/summary.json` and 245 Markdown job specifications. The builder uses only the Python standard library. It performs no network calls and launches no agents. Each mathematical successor requires accepted source/map evidence, not merely a completed job flag.
+Dispatch writes `generated/20260914-review/`, including the effective records, 251 job specifications and a summary; `generated/CURRENT.json` identifies that generation. It does not delete or overwrite a preceding generated packet generation. The mathematical checker writes complete finite certificates under `review/evidence/`. GitHub keeps the checking sources and compact receipts; the offline package additionally contains the large generated certificates. The four finite-check groups passed in normal and optimized Python.
 
-## First wave
+## First mathematical continuation targets
 
-| Batch | Targets | Entry |
-|---|---|---|
-| B01 | P07, P19 | Actual tiling states, extension maps and reduced H0 of the permitted-move graph |
-| B02 | P15-P18; P20 second | Integral boundary states and compatible reductions modulo powers of 2 |
-| B04 | AIM-C10 first | Integral cokernels and coefficient-sensitive group-algebra deletion/contraction maps |
-| B05 | K3-1.31a, K3-1.31b | Actual integral complexes, torsion and comparison-kernel representatives |
-| B06 | AIM-S21 first | Original matrix-entry coordinates, coefficient maps and finite jets |
-| B08 | G92-DECK first | Actual word fibres under the subsequence-count map |
+P7: construct original type-103 tilings for `(a,b)=(d+3h,2d+3h)`, `d>=3`, `1<=h<=binom(d,2)-1`, after the explicitly mapped published subfamilies. Keep the h=1 recent-claim review.
 
-B03, the remaining B04/B06/B08 scopes, B07 and B09 are second-wave construction work. The C-ranked parts of B05/B08/B10/B11 receive small exploratory allocations until their named maps are constructed. A suggested initial allocation of new-attack capacity is 60% A, 30% B and 10% C, with intake and controls budgeted separately. This is a portfolio choice, not an empirical forecast.
+P15–P18: control the original minority-stone factorial moments uniformly across the specified size parameter. The exact finite-jet identity supplies the observation map, not the requested continuity proof.
 
-## Status findings
+P19: extend the explicit integral root-path contractions beyond the 17 certified benzels. The arbitrary simply-connected-region statement remains open in the source.
 
-Propp 2,3,5,8-13 are controls rather than new-solution targets. Byun-Ciucu-Lee, arXiv:2406.18419v3, Section 3 solves P8-P11; older open labels in the compression paper must not override that result. P14 has a conflict between the original paper's solved comment and the author's webpage. P4 and P6 have September 2026 proof claims identified in a primary author index and are routed to independent claim audit, not accepted as solved.
+Green 92 and AIM coefficient maps: continue beyond the reproduced collision and two-by-two controls, preserving realizable source words and the full original sign/coordinate conditions.
 
-Green 84's merit-factor question, Green 92's k-deck question and Green 97's remaining refinements are separately recorded variants. Alon-Jaeger-Tarsi tasks first remove fields covered by Nagy-Pach and later work. Exact statement differences remain visible.
+## Method and evidence
 
-## Coverage boundary
+Upstream method: `KokunoYumeto/zeta-function-research-reader@1c8ec52c85c173adc9f8403a8a26914955e2f5a9`; in particular `workbenches/splitzero-tandem/tex/support_diagrams.tex`, D1–D8. This is a pinned companion, not a byte-for-byte mirror. [METHOD.md](METHOD.md) retains the original transfer guide.
 
-All 14 source-family entries in the Commons portal were inspected. This does **not** mean that every underlying problem statement was read. The complete 20-problem Propp trimer list was read; other collections have selected-section or index-only coverage recorded in intake.json. Arnold full text, all Kourovka statements, the older 32-problem matching list and many linked AIM/AMR documents remain intake work.
+A ranks an immediate specified construction or bounded calculation; B and C retain progressively larger named mathematical obligations. These are allocation judgments, not measured probabilities of solving full problems. `OPEN_IN_SOURCE` is not independent current-open certification. Source/status -> actual maps -> exact experiment -> full argument -> independent review remains the workflow. No unproved coordinate equivalence, discarded kernel, conditional endpoint or finite-to-infinite leap counts as a completed result.
 
-The historical v0.2 archive containing 8,785 secondary candidates was not recovered. Its expected identity is 13,308,489 bytes and SHA-256 `a087b8a9765476f7dc26b00280299153d3be46a536c698035445af723451bd2a`. The 53 selected records are not a classification of those 8,785 rows. The fourteen intake jobs retain the unreviewed source-list backlog.
-
-## Agent contract
-
-Source/status -> actual morphisms -> bounded exact experiment -> written argument -> independent review. Recover exact parameters, coefficient rings, variants, original source wording, rights and current literature before a new-solution attempt. Supply both maps and inverse identities for every asserted equivalence. Preserve supported zero, absence, original indexed states, integral torsion, nilpotents, source norms and boundary terms. A restricted ansatz includes its map into the original source. Finite examples retain their parameter bounds. No conditional theorem is accepted as a completed result.
-
-Return exact input identities, source/status receipts, displayed maps, complete mathematical arguments, executable certificates, checks actually run, failures and a continuation cursor. A proposed result remains CLAIMED_UNVERIFIED until independent review. Model agreement and dataset validation are not proof verification. No automatic contact with maintainers, publication claims, paid compute or downstream agent launches are authorized by a packet.
-
-## Companion evidence package
-
-A separately delivered offline package expands the same portfolio into 245 prompts and includes sixteen exact interface tests, detailed mathematical notes and a file manifest. Those tests passed on finite fixtures; they do not solve the listed problems or rebuild upstream Lean. This GitHub edition stores the compact registry, method map, coverage and reproducible queue builder. No third-party book/PDF corpus is redistributed here. The watermarked K3 author PDF remains link-only.
+No upstream Lean build, independent specialist acceptance or new full open-problem resolution is claimed by this continuation. Third-party books, PDFs and formal source corpora are linked rather than redistributed. No private transcripts, paid compute, external contact or downstream execution are authorized by a packet. See [rights](review/RIGHTS.md).

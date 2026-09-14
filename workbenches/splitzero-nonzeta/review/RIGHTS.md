@@ -1,0 +1,3 @@
+# Rights and provenance
+
+This continuation contains original research notes, checking code, generated finite certificates and source locators. It does not redistribute third-party PDFs, complete papers, books, Lean source trees or model transcripts. Each referenced work retains its own terms. The previous workbench's rights notices continue to apply. Source readings use versioned arXiv locators where available; browsed external PDFs were not acquired as byte-pinned redistribution artifacts. GitHub claim sources have exact commit/blob identities in the status ledger. No font files are included.
