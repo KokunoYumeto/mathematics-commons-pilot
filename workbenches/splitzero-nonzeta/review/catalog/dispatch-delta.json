@@ -1,0 +1,13 @@
+{
+  "generation":"20260914-review",
+  "baseline_commit":"5644a4ebb53e324b97a98d0e978c931c28eb82ba",
+  "baseline_seed_sha256":"0417f8cbec41d9586368c3fe15aecfa51b2f1a3313448d3df68bb4fa39c2400f",
+  "added_records":[
+    {"id":"AIM-C14","tier":"CONTROL","batch":"B00","status":"RESOLVED_PUBLISHED","source":"CHIP","locator":"Question 14; Perkinson-Yang-Yu Theorem 3","title":"Parking functions and tree inversions","first_task":"Review the reproduced DFS maps and both inverse laws on original parking functions and trees.","blocker":"Published result; do not issue a new-solution assignment."},
+    {"id":"AIM-E36","tier":"CONTROL","batch":"B00","status":"RESOLVED_PUBLISHED","source":"SPECTRUM","locator":"Section 3 Question 6; Bai main theorem","title":"Grone-Merris majorization","first_task":"Review the matching published theorem and exact Laplacian-spectrum controls.","blocker":"Finite exact spectra are not a replay of the full published proof."},
+    {"id":"AIM-ZC2N","tier":"CONTROL","batch":"B00","status":"RESOLVED_RELATED_VARIANT","source":"SPECTRUM","locator":"Section 2 related complex zero-pattern analogue","title":"Complex zero-pattern 2n counterexample","first_task":"Inspect the exact complex-field statement and reproduce the source matrix controls.","blocker":"Do not transfer this status to real sign patterns or arbitrary positive characteristic without proved comparison maps."}
+  ],
+  "expected":{"records":56,"tiers":{"A":11,"B":19,"C":11,"CONTROL":13,"REVIEW":2},"source_families":14,"job_specifications":251,"ready_intake_jobs":70,"dependency_gated_jobs":181},
+  "publication_status":"DRAFT_REVIEW",
+  "canonical_commons_admission":false
+}

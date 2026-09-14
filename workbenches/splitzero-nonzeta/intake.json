@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-14",
+  "upstream": {"repository": "KokunoYumeto/zeta-function-research-reader", "commit": "1c8ec52c85c173adc9f8403a8a26914955e2f5a9", "relationship": "pinned companion, not byte-for-byte mirror", "known_blobs": {"workbenches/splitzero-tandem/tex/support_diagrams.tex": "d3493f891291ee6e94dbf2c77649f7d85d240df2", "workbenches/split-support-rees-trace/RESEARCH_NOTE.md": "168775d2be296d74b8243cebd3e9fc8942f2eb31"}, "lean_rebuilt_this_session": false},
+  "commons_commit": "16a49bf871aad5c5e8439bebf74cd9bcd47eceb5",
+  "sources": {
+    "PROPP": "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf",
+    "PROPP_STATUS": "https://faculty.uml.edu/jpropp/benzels.html",
+    "COMPRESSION": "https://arxiv.org/html/2403.07663v1",
+    "BCL": "https://arxiv.org/html/2406.18419v3",
+    "CHIP": "https://aimath.org/pastworkshops/chipfiringproblems.pdf",
+    "SPECTRUM": "https://aimath.org/WWN/matrixspectrum/matrixspectrum.pdf",
+    "LATIN": "https://www.openproblemgarden.org/op/even_vs_odd_latin_squares",
+    "AJT": "https://www.openproblemgarden.org/op/a_nowhere_zero_point_in_a_linear_mapping",
+    "PERMANENT": "https://www.openproblemgarden.org/op/the_permanent_conjecture",
+    "ATB": "https://www.openproblemgarden.org/op/the_alon_tarsi_basis_conjecture",
+    "TREES": "https://www.openproblemgarden.org/op/minimal_graphs_with_a_prescribed_number_of_spanning_trees",
+    "GREEN": "https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf",
+    "K3": "https://math.berkeley.edu/sites/default/files/surv-295-ruberman-watermarked-author-pdf.pdf",
+    "MUB": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+    "SIC": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+    "PPT": "https://oqp.iqoqi.oeaw.ac.at/open-quantum-problems",
+    "TOPP28": "https://topp.openproblem.net/p28"
+  },
+  "additional_status_sources": {
+    "P04_P06_claims": "https://crabresearch.com/research/mathematics?lang=en&view=all",
+    "AJT_Nagy_Pach": "https://arxiv.org/abs/2107.03956",
+    "PPT_2026_scope": "https://arxiv.org/html/2607.15947v1",
+    "PPT_finite_iterate": "https://arxiv.org/html/2608.13551v1"
+  },
+  "source_family_coverage": [
+    {"id":"Erdos","url":"https://www.erdosproblems.com/","read":"Portal and Green crosslinks inspected; direct 193/424 retrieval failed. No full per-number audit.","next":"Recover canonical numbered statements and current status; compare cross-list variants by actual maps."},
+    {"id":"FormalConjectures","url":"https://google-deepmind.github.io/formal-conjectures/","read":"Official index inspected; no complete per-file Lean semantic audit.","next":"Pin the repository, compare exact informal/formal statements, and inspect proof/axiom status."},
+    {"id":"AIM","url":"https://aimath.org/problemlists/","read":"165 linked titles reviewed; selected chip-firing statements and five-page matrix-spectrum list read. Not all linked documents.","next":"Partition by workshop and question; recover remaining primary wording and reconcile later literature."},
+    {"id":"AMR","url":"https://amathr.org/problems/","read":"113 pointers reviewed, not every destination.","next":"Resolve pointers to primary lists and preserve unproved variant relationships during deduplication."},
+    {"id":"OPG","url":"https://www.openproblemgarden.org/","read":"Selected category indices and individual matrix/graph statements read; not all category pages.","next":"Freeze page revisions, quarantine unrelated/spam edits and verify each status independently."},
+    {"id":"Green100","url":"https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf","read":"Selected 15,38,63,83,84,92,97 and comments read in the December-2025-updated document; not all 100.","next":"Read remaining numbered statements; retain solved main problems and residual variants separately."},
+    {"id":"Kourovka","url":"https://kourovkanotebookorg.wordpress.com/","read":"Current edition/update index inspected, including 2026-09-01 update; not all issue-21 statements.","next":"Acquire exact edition and comments; bind section, number and later specialist status."},
+    {"id":"K3","url":"https://www.ams.org/bookpages/surv-295","read":"Authorized author PDF located; selected 1.24-1.35 read. Not all portal locators audited.","next":"Use link-only authorized source; partition numbered topology subquestions and later results."},
+    {"id":"TOPP","url":"https://topp.openproblem.net/","read":"78 title rows reviewed and Problem 28 read; not all full statements.","next":"Audit old status and retain geometric realizability in each exact statement."},
+    {"id":"Propp","url":"https://faculty.uml.edu/jpropp/benzels.html","read":"All 20 trimer statements, author status list and selected later results read. Old 32-item matching list not read.","next":"Complete matching-list intake; reconcile P14; independently audit P4/P6 recent claims."},
+    {"id":"Dynamics","url":"https://www.math.umd.edu/~mboyle/open/","read":"Boyle, Stony Brook and Kolyada linked indices inspected; not all full surveys or problem papers.","next":"Partition by list/date/number; construct actual transition or chain maps before assigning fit."},
+    {"id":"Arnold","url":"https://link.springer.com/book/10.1007/b138219","read":"Publisher metadata and contents only; full text not recovered.","next":"Obtain authorized access and reconcile historical numbering with later resolutions."},
+    {"id":"Quantum","url":"https://oqp.iqoqi.oeaw.ac.at/open-quantum-problems","read":"29 open-title entries and selected 13/23/38 pages read; not all statements or formula images.","next":"Recover original formulas and exact variant quantifiers; freeze current literature."},
+    {"id":"ClayHilbertSmale","url":"https://www.claymath.org/millennium-problems/","read":"Clay reference index inspected; technical Clay, Hilbert and Smale statements not exhaustively read.","next":"Partition formulations and literature; avoid zeta duplication and inspect existing dedicated workbenches."}
+  ],
+  "rights": "Locators and original research tasks only. Third-party PDFs/books are not bundled; the K3 watermarked author PDF is link-only. Acquire source-specific rights before redistribution.",
+  "complete_statement_audit": false,
+  "canonical_commons_admission": false
+}

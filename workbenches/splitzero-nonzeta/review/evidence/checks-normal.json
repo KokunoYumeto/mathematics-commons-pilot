@@ -1,0 +1,32 @@
+{
+  "agents_launched": 0,
+  "groups": {
+    "benzels": {
+      "bytes": 179765,
+      "path": "evidence/benzels.json",
+      "sha256": "02792a0a9b2d6d27441e1f6ac8e51a1ae576baec27afa981bdd1d898ae543b16"
+    },
+    "matrices": {
+      "bytes": 7929,
+      "path": "evidence/matrices.json",
+      "sha256": "fe029fc57091a6730faa9097f9b76b98e5fe794cf34d615b3370605d968af417"
+    },
+    "parking": {
+      "bytes": 8546,
+      "path": "evidence/parking.json",
+      "sha256": "3fae2c394851f83b04e48ed70d82704e4e5567e714cd07fbd70eb86c8ec5d24b"
+    },
+    "words": {
+      "bytes": 10576,
+      "path": "evidence/words.json",
+      "sha256": "e8c9d316593bdc23951ce70f93b0266ce82ed328285e4ec49cda4fe081210ffb"
+    }
+  },
+  "independent_specialist_review": false,
+  "new_full_open_problem_resolutions": 0,
+  "optimized": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "state": "PASS",
+  "upstream_Lean_build": false,
+  "validation": "Exact finite arithmetic and displayed certificates"
+}

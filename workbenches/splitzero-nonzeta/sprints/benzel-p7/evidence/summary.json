@@ -1,0 +1,42 @@
+{
+  "record_date": "2026-09-15",
+  "proof_sha256": "c0655d3122ce84f3e6cebcd417ba6ca17fdcbc0ec5b908246ef9cff07c1a58b7",
+  "runs": [
+    {
+      "file": "normal.json",
+      "bytes": 68137,
+      "sha256": "52d253053fcfaa74eea3a9ac79b197539215e2eb16e2af6b15bd2f82ab700287",
+      "status": "PASS",
+      "python_optimized": false,
+      "d_min": 3,
+      "d_max": 100,
+      "parameter_values": 98,
+      "full_tilings_checked": 294,
+      "collar_cochain_identities_checked": 196,
+      "fixed_source_translations_with_uncoverable_cells": 13,
+      "total_tile_placements_checked": 546546,
+      "seconds": 15.18,
+      "scope": "Finite replay of explicit constructors; the all-parameter written proof is in PROOF.md.",
+      "script_sha256": "e0102ab744e42e85841af1277ca6e7fd316d2ba74e0fa604aa4b3832a89ec36c"
+    },
+    {
+      "file": "optimized.json",
+      "bytes": 68137,
+      "sha256": "f29ec9a8892b10494249106a077d38249e33dad8ff4ade997a25697f28493da5",
+      "status": "PASS",
+      "python_optimized": true,
+      "d_min": 3,
+      "d_max": 100,
+      "parameter_values": 98,
+      "full_tilings_checked": 294,
+      "collar_cochain_identities_checked": 196,
+      "fixed_source_translations_with_uncoverable_cells": 13,
+      "total_tile_placements_checked": 546546,
+      "seconds": 15.814,
+      "scope": "Finite replay of explicit constructors; the all-parameter written proof is in PROOF.md.",
+      "script_sha256": "e0102ab744e42e85841af1277ca6e7fd316d2ba74e0fa604aa4b3832a89ec36c"
+    }
+  ],
+  "independent_review": false,
+  "scope": "Finite replay; all-parameter written proof and remaining full-target obligations retained separately."
+}
