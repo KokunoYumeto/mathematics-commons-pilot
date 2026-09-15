@@ -1,0 +1,27 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 4,
+  "parent_commit": "d7cd069031536bea677ed31f7729ebdd4e9f97f6",
+  "target": "Propp 7 full original type-103 existence problem",
+  "status": "WRITTEN_UNBOUNDED_PARAMETER_SUPPORT_PROOF; INDEPENDENT_REVIEW_PENDING",
+  "results": [
+    "A genuine augmented G(Z) support-indexed complex realizes original positive patch fibres as its charge-one nonnegative cycles.",
+    "For every d>=4 the fifth-repair sixteen-bone dictionary has no positive real filling on any proper release subset.",
+    "An explicit integer signed lift exists after the first fifteen releases, with original containment and boundary identity.",
+    "The cyclic integral residual image is Z through prefix 14 and its own supported zero from prefix 15.",
+    "The actual integral Rees inclusion is T^15 Z[T]w -> Z[T]w with residue dual and length 15 after explicit rationalization."
+  ],
+  "positive_support_scope": "Fixed parent T4(d), translation (1,1), source stone S(3-d,d-1), and the displayed sixteen original old bones. Not global optimality across other supports.",
+  "sixth_uniform_family_proved_here": false,
+  "full_target_resolved": false,
+  "next_task": "Use the actual augmented support diagram and dual incidence certificates on new source/release dictionaries for variable h; do not rescan classified proper subsets of the fifth dictionary.",
+  "restart_files": [
+    "README.md",
+    "PROOF.md",
+    "SOURCES.json",
+    "support.py",
+    "verify.py",
+    "dual_certificates.json",
+    "signed_patch.json"
+  ]
+}

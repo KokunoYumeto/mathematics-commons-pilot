@@ -1,0 +1,59 @@
+{
+  "record_date": "2026-09-15",
+  "source_repository": "KokunoYumeto/zeta-function-research-reader",
+  "mathematical_pin": "1c8ec52c85c173adc9f8403a8a26914955e2f5a9",
+  "read_sources": [
+    {
+      "path": "workbenches/splitzero-tandem/tex/split_zero_carriers.tex",
+      "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/1c8ec52c85c173adc9f8403a8a26914955e2f5a9/workbenches/splitzero-tandem/tex/split_zero_carriers.tex",
+      "read_scope": "Original G(R) coefficient carrier and scalar reflection; lines 1-86 read.",
+      "use_here": "Explicit G(Z) and supported scalar/absence action in support.py.",
+      "blob_sha": "ea27d396ba440e37d94eebf1f9b55dd5cb58c578"
+    },
+    {
+      "path": "workbenches/splitzero-tandem/tex/support_diagrams.tex",
+      "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/1c8ec52c85c173adc9f8403a8a26914955e2f5a9/workbenches/splitzero-tandem/tex/support_diagrams.tex",
+      "read_scope": "Full D1-D8 proof source read.",
+      "use_here": "Original Boolean release supports with adjoined bottom; actual original and augmented cochain reconstruction, internal quotient and comparison kernel.",
+      "blob_sha": "d3493f891291ee6e94dbf2c77649f7d85d240df2"
+    },
+    {
+      "path": "formal/splitzero/DERIVED_MATHEMATICS.md",
+      "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/1c8ec52c85c173adc9f8403a8a26914955e2f5a9/formal/splitzero/DERIVED_MATHEMATICS.md",
+      "read_scope": "Sections 1-6 reread; provenance and formal scope inspected.",
+      "use_here": "Exact relationship between written source and named formal reconstruction/homology interfaces. No new Lean build claimed.",
+      "blob_sha": null
+    },
+    {
+      "path": "formal/splitzero/SplitZeroComplex.lean",
+      "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/1c8ec52c85c173adc9f8403a8a26914955e2f5a9/formal/splitzero/SplitZeroComplex.lean",
+      "read_scope": "Full source file read, including differential_square, cycle_condition and homology_coequalizer.",
+      "use_here": "Typed same-label differential square and explicit universal-property proof in the original benzel modules.",
+      "blob_sha": "34e7e69568a21e86d782ea4e98370f50762a8eab"
+    },
+    {
+      "path": "workbenches/split-support-rees-trace/RESEARCH_NOTE.md",
+      "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/1c8ec52c85c173adc9f8403a8a26914955e2f5a9/workbenches/split-support-rees-trace/RESEARCH_NOTE.md",
+      "read_scope": "Lines 1-280 read; sections 2-4 and boundary-character section 5.1 used.",
+      "use_here": "Actual source/image filtrations; T^15 comparison; original residue coefficient and evaluated rank-one amplification.",
+      "blob_sha": "168775d2be296d74b8243cebd3e9fc8942f2eb31"
+    }
+  ],
+  "current_guide": {
+    "commit": "ba360f08f3417464ca915233e3d3b54f5b76b30c",
+    "path": "CURRENT_RESEARCH.md",
+    "url": "https://github.com/KokunoYumeto/zeta-function-research-reader/blob/ba360f08f3417464ca915233e3d3b54f5b76b30c/CURRENT_RESEARCH.md",
+    "read_scope": "Current quotient-moment and residual-observation guide. The 132-page proof closure was not independently read in full or rebuilt.",
+    "core_comparison": "The D1-D8 file retains blob d3493f891291ee6e94dbf2c77649f7d85d240df2 at this current guide commit."
+  },
+  "benzel_parent": {
+    "repository": "KokunoYumeto/mathematics-commons-pilot",
+    "commit": "d7cd069031536bea677ed31f7729ebdd4e9f97f6",
+    "path": "workbenches/splitzero-nonzeta/sprints/benzel-p7/turn3",
+    "role": "Original source tiling, all five literal tables and the previously proved fifth positive replacement. Replayed as dependencies, not counted as new."
+  },
+  "extension_scope": "This continuation supplies its own augmented complex, signed patch, uniform positive-dual certificates, and evaluated filtration. It does not attribute those new benzel calculations to the upstream sources.",
+  "lean_rebuilt": false,
+  "global_novelty_audit": false,
+  "full_P7_resolution": false
+}
