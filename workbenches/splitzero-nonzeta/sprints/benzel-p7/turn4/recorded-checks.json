@@ -1,0 +1,95 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 4,
+  "status": "PASS",
+  "runs": [
+    {
+      "python_optimized": false,
+      "seconds": 10.323,
+      "receipt_sha256": "857757160f843f34a3508c9204509d07a421507de691c6c688206760002b4110"
+    },
+    {
+      "python_optimized": true,
+      "seconds": 10.672,
+      "receipt_sha256": "741c6f40004e344efae7367adbcb3c6386b79f15570b45f46c93f6efc56072bd"
+    }
+  ],
+  "all_parameter_domain": "every integer d>=4",
+  "proper_release_subsets_excluded": 65535,
+  "maximal_omission_duals": 16,
+  "all_affine_parameter_intervals": [
+    [
+      4,
+      null
+    ]
+  ],
+  "integral_class_first_zero_level": 15,
+  "first_positive_release_level": 16,
+  "rees_defect_length_Q": 15,
+  "finite_replay": {
+    "d_min": 4,
+    "d_max": 100,
+    "positive_full_patches": 97,
+    "signed_chain_terms_replayed": 19400,
+    "dual_bone_evaluations": 1274677,
+    "prefix_source_homotopies": 1649
+  },
+  "splitzero": {
+    "exact_algebra_identities": 17928,
+    "rejection_tests": 4,
+    "differential_square": "same-label zero at degree 2",
+    "global_zero_kernel_of_constant_charge_line_to_homology": "bottom only",
+    "supported_zero_preimage_of_constant_charge_line": "zero for prefix 0..14; entire Z source fibre for prefix 15,16"
+  },
+  "augmented_complex": {
+    "coherent_linear_augmented_checks": 247,
+    "charge_one_signed_cycle_level": 15,
+    "charge_one_positive_cycle_level": 16,
+    "cycle_difference_original_tiles": 13
+  },
+  "mutation_tests": 6,
+  "parent_all_parameter_replay": {
+    "status": "PASS",
+    "parent_commit": "d7cd069031536bea677ed31f7729ebdd4e9f97f6",
+    "stages": [
+      {
+        "h": 1,
+        "d_min": 3,
+        "collision_certificates": 189
+      },
+      {
+        "h": 2,
+        "d_min": 3,
+        "collision_certificates": 495
+      },
+      {
+        "h": 3,
+        "d_min": 3,
+        "collision_certificates": 702
+      },
+      {
+        "h": 4,
+        "d_min": 4,
+        "collision_certificates": 2484
+      },
+      {
+        "h": 5,
+        "d_min": 4,
+        "collision_certificates": 5049
+      }
+    ],
+    "seconds": 1.176
+  },
+  "input_sha256": {
+    "EXPLORATION.md": "1ebac026166bffaefc684d33c7efc7f259575bf88fbb2daf4aa36a60054194cc",
+    "PROOF.md": "b35395dcecf2d5d60739bd8c41e3a9fbda0dcff506a007dcba9997f197034bbe",
+    "README.md": "0322ecbd3ed7b16d34c799842b9b1483f4bdcaf4f32fcce43451b615ce263766",
+    "SOURCES.json": "c9b785704306b8d991a9937982669127133b1014286c739d8a77714b14d50c94",
+    "STATE.json": "200504aae25376b34ab83e595ee75fdc055a62be240995bd08df4e8f4ea27d20",
+    "dual_certificates.json": "d2e0cfe2af0ff86661c4d9ec092818a7d23daf2402c800716fed7ee7b29412c5",
+    "signed_patch.json": "60de34d4d1dff4d04ff74befab5437871c7253b60a54097edeb7e6fa6856f6db",
+    "support.py": "e62079cc0e056d001e002bd7b5adc959463b3774b6a27d5455ff3af14c7c7782",
+    "verify.py": "f3260bf6ac90afb356625fa988df7ac1fe94616c4dc0d2ab0ae500ed378626f8"
+  },
+  "scope": "Original fixed fifth-repair source, stone, translation, sixteen-bone dictionary. No full P7 result, no global optimum over other supports, no new sixth family, no Lean rebuild or independent specialist acceptance."
+}
