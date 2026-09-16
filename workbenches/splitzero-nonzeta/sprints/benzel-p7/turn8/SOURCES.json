@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-16",
+  "method": {
+    "repository": "KokunoYumeto/zeta-function-research-reader",
+    "commit": "1c8ec52c85c173adc9f8403a8a26914955e2f5a9",
+    "files": [
+      "workbenches/splitzero-tandem/tex/support_diagrams.tex",
+      "formal/splitzero/SplitZeroComplex.lean"
+    ],
+    "use": "Original G(Z) reconstruction, supported differential, internal coequalizer, killed-representative kernel and equivariant cochain maps. No new upstream build asserted."
+  },
+  "parent_proof": {
+    "path": "sources/turn6-PROOF.md",
+    "sha256": "271a3bc14d627c37f5d8e7933f6d6c13a757bcc22b6b3e0913d8078232228a8c",
+    "scope": "Complete original shifted packing and stable residual proof, read \u00a7\u00a71\u20133 this turn; preserved unchanged"
+  },
+  "parent_code": {
+    "geometry.py": "3db084d34b97704f9c45cb4193137d127f8f0399345e19e5411af7afc0fe6eed",
+    "packing.py": "d02b67bb20dac716b2d134978e3b0283a0d72613c32324eef3cced4da0063458",
+    "relationship": "Exact copies of saved turn7 geometry.py and parent_construction.py; filename of the latter changed to packing.py with identical contents."
+  },
+  "prior_fixed_q_controls": {
+    "polynomial_check.py": "b9472f8c54a31bde68b0d6734312cda201743e2e69b06fe6fff7d38674494a8b",
+    "geometry.py": "3db084d34b97704f9c45cb4193137d127f8f0399345e19e5411af7afc0fe6eed",
+    "templates.json": "7f9298d33eb6b878d166411be6acc10f811bbb904304b370ef96ff0cdd2f23ed",
+    "parent_construction.py": "d02b67bb20dac716b2d134978e3b0283a0d72613c32324eef3cced4da0063458",
+    "construction.py": "39826875070e72f360963f5c1a862bc3e7e161d4e922d3efe702df1af5e1cc7d"
+  },
+  "status_search": {
+    "queries": [
+      "Propp benzel Problem 7 right stones bones nonnegative invariant solution",
+      "benzel tilings Problem 7 2026"
+    ],
+    "primary_locators": [
+      "https://faculty.uml.edu/jpropp/benzels.html",
+      "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf",
+      "https://arxiv.org/abs/2403.07663"
+    ],
+    "scope": "Bounded discovery/status search, not a complete literature or priority audit. No new full resolution established by this search. No third-party PDF redistributed."
+  },
+  "component_rights": "Owner workbench mathematical contributions and original code. Primary-source locators retain original attribution. No third-party book/PDF/font corpus is bundled."
+}

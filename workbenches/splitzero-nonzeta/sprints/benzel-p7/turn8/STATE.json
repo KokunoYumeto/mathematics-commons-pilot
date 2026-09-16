@@ -1,0 +1,37 @@
+{
+  "record_date": "2026-09-16",
+  "sprint_turn": 8,
+  "target": "Propp 7, original nonnegative-invariant right-stone and three-bone existence statement",
+  "full_target_status": "NOT_RESOLVED_BY_THIS_WORK",
+  "result_status": "WRITTEN_CONSTRUCTIVE_PROOF_WITH_EXACT_LAURENT_REPLAY; CLAIMED_UNVERIFIED_PENDING_INDEPENDENT_REVIEW",
+  "completed_scope": "Every integer k>=1, m>=3k+2, d>=m; q=3k, Delta=binom(m,2)-3k, h=binom(d,2)-Delta; original V(d+3h,2d+3h) and reflected pairs",
+  "source_bones_and_replacement_bones": "3*k*m+6*k*k-3 each",
+  "full_tiling_counts": {
+    "right_stones": "Delta",
+    "bones": "3*h*(h+d)"
+  },
+  "closed_calculations": [
+    "Complete positive source/replacement table with variable k and m",
+    "Original common-body and finite-tail generator isomorphisms, including d=m",
+    "Shared-family exact formal identity before either parameter is evaluated",
+    "Full integral matching comparison kernel basis and original-cell forest duals",
+    "Supported differential and augmented-cycle transitions; original positive full-tiling maps",
+    "Exact integer norm/fixed-stone calculation and intercorner band chain homotopies"
+  ],
+  "remaining": "Unrestricted positive endpoint repairs for q=3k+1 and q=3k+2, with their actual parameter domains and source supports",
+  "remote_parent_commit": "6fe012fd1facd564e07e1fa052ad219debdd8278",
+  "method_commit": "1c8ec52c85c173adc9f8403a8a26914955e2f5a9",
+  "independent_review": false,
+  "novelty_established": false,
+  "lean_rebuilt": false,
+  "agents_launched": 0,
+  "restart_files": [
+    "PROOF.md",
+    "families.json",
+    "construction.py",
+    "bivariate_certificate.py",
+    "cohomology.py",
+    "transports.py",
+    "EXPLORATION.md"
+  ]
+}
