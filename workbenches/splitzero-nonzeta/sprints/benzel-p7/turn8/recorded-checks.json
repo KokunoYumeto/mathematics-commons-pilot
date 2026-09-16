@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-16",
+  "status": "PASS",
+  "scope": "Exact formal Laurent identity for unbounded integer k>=1,m>=3k+2, together with finite positive, original-region, integer-kernel and Split-Zero replays. Full P7, other two deletion residues, novelty and independent review are not claimed.",
+  "symbolic_certificate": {
+    "status": "PASS",
+    "main": {
+      "rational_terms": 222,
+      "denominator_factors": [
+        [
+          [
+            0,
+            3
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            -2
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            -4
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            -1
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            3,
+            -3
+          ],
+          1
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            4,
+            -2
+          ],
+          1
+        ]
+      ],
+      "expanded_terms_before_addition": 28128,
+      "remaining_numerator_terms": 0,
+      "proof_domain": "k>=2, m>=3*k+2, both integers; formal identity verified before specialization"
+    },
+    "k1": {
+      "rational_terms": 39,
+      "denominator_factors": [
+        [
+          [
+            1,
+            -2
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            -1
+          ],
+          1
+        ]
+      ],
+      "expanded_terms_before_addition": 510,
+      "remaining_numerator_terms": 0,
+      "proof_domain": "k=1, every integer m>=5; no negative index length"
+    }
+  },
+  "exact_shared_index_bound_rows": 23,
+  "counts_per_run": {
+    "original_receiving_generator_checks": 314460,
+    "positive_core_partitions": 60,
+    "core_new_bone_placements": 104820,
+    "signed_class_left_inverses": 60,
+    "shared_family_comparisons": 168,
+    "independent_region_enumerations": 24,
+    "full_tilings_with_reflections": 120,
+    "full_tile_placements_with_reflections": 1047540,
+    "dual_cell_coefficients": 16884,
+    "exact_kernel_duals": 1935,
+    "kernel_comparisons": 10,
+    "augmented_transition_checks": 80,
+    "split_scalar_cochain_checks": 80,
+    "positive_augmented_cycles": 10,
+    "original_band_homotopies": 279,
+    "rotation_fixed_tile_checks": 3,
+    "integer_norm_checks": 1,
+    "rejection_tests": 10
+  },
+  "finite_core_window": {
+    "k_min": 1,
+    "k_max": 15,
+    "m_values": "distinct values 3k+2,3k+3,4k+7,8k+11"
+  },
+  "normal_seconds": 40.028,
+  "optimized_seconds": 32.745,
+  "source_sha256": {
+    "README.md": "88b69a4ac99d5e36f6cbc013353e30c2b50f33ffbcbec473c18ce4a67bbfb377",
+    "bivariate_certificate.py": "d4582ca9bd261e30d77a199c59c19b20161c0c619c21aaf1e5bb16523955fb72",
+    "cohomology.py": "023b155faa886bfcd794864da1e8bc51ff1c77455f020c63a322366dadac94db",
+    "packing.py": "d02b67bb20dac716b2d134978e3b0283a0d72613c32324eef3cced4da0063458",
+    "EXPLORATION.md": "9678bf848f5f89a4f197bada869bb3956054929b39ca5611ad95e4749c5a1eb7",
+    "transports.py": "be770ea9228df54b2e0b8e7e576d31ae29901a4281d55315aefe6de8b66405ae",
+    "verify.py": "c49b48a7c72276d8002663243aec9f4f1d6d556fda76ab7cf5efaa2ff627d8e4",
+    "STATE.json": "842c4ba6943db7cf210c6a283369daaf2e25238a1c7c007ae775ae78fce8f4a6",
+    "geometry.py": "3db084d34b97704f9c45cb4193137d127f8f0399345e19e5411af7afc0fe6eed",
+    "families.json": "7032c6fc5e4e3be9542f5b5712d5eb071f452d5348d5b045597c24bae806488a",
+    "PROOF.md": "f8662d8f26971accf8c27e377b2ba77b72a25018402ba70f52703869158d6ed9",
+    "construction.py": "58c2260a2e96690e58eb3ded86251158329160514ca17ee664c6390d3969d7e4",
+    "families.py": "7b224c838997d1aaf78505e51a132249f1dddc699a6149ebe122a96ae7dd793f",
+    "SOURCES.json": "610ae993d876b8722c2138d8aa252b77bc61a2b649be4574bc1e5484d5c6ead1"
+  },
+  "receipt_sha256": {
+    "normal.json": "1eeaebbbac065b61e7bf335d92d4f485026b62ecea17ebf2e6c3d29781e6cc13",
+    "optimized.json": "bb394640dacd62494c113f3c3bde4c107cc2a72b92287df27862cd8da78d9f37"
+  },
+  "independent_review": false,
+  "lean_rebuilt": false,
+  "full_P7_claim": false
+}
