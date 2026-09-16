@@ -1,0 +1,145 @@
+{
+  "record_type": "problem_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "problem_id": "MC-BENZEL-COLLAR-AUDIT",
+  "previous_problem_ref": null,
+  "project_id": "MC-BENZEL-P7",
+  "kind": "other",
+  "title": "Source-bound audit of positive Benzel collar constructions",
+  "statement": {
+    "artifact_id": "MC-BENZEL-COLLAR-AUDIT-STATEMENT",
+    "artifact_path": "problems/benzel-collar-audit/statement.md",
+    "artifact_version": "1.0.0",
+    "statement_label": "Independently reconstruct the turn-1 and turn-2 positive type-103 Benzel collar constructions and exact support maps.",
+    "media_type": "text/markdown",
+    "language": "en",
+    "byte_size": 1262,
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "d82f756a50bd616c3dce54b1e0725498a4384b754322264c55cc16d02497bd09"
+      }
+    ],
+    "exactness": "canonical_project_statement",
+    "change_policy": "new_record_version_required"
+  },
+  "current_status": {
+    "assessment": "not_assessed",
+    "qualified_label": "A bounded reconstruction review is ready for an independent claimant; no accepted audit result is registered.",
+    "assessed_at": "2026-09-16T20:25:34Z",
+    "assessor_id": "CODEX-SOURCE-REGISTRATION-20260916",
+    "assessment_method": "mixed_evidence_review",
+    "basis_source_ids": [
+      "SPLITZERO-SOURCE-P23-019"
+    ],
+    "basis_summary": "The independently read source README explicitly distinguishes written restricted-family constructions, finite witnesses, unreviewed exploration, and the unresolved full Problem 7. This registration preserves that scope without certifying all source claims.",
+    "status_scope": "Status of this specific source-bound audit question, not a fresh global status determination for Propp Problem 7.",
+    "tracker_or_model_agreement_sufficient": false,
+    "independent_verification_status": "pending",
+    "caveats": [
+      "No accepted mathematical result, novelty determination, completed specialist audit or formal proof is registered here."
+    ]
+  },
+  "source_refs": [
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-019",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "629c34e2470bd1b6fc376d7edd7b0bb068e9fe4524f03179b0f1439f80bb4f57"
+        }
+      ],
+      "roles": [
+        "status_basis",
+        "provenance_basis",
+        "definition_basis"
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    }
+  ],
+  "provenance": [
+    {
+      "entry_id": "MC-BENZEL-COLLAR-AUDIT-PROVENANCE",
+      "kind": "problem_nomination",
+      "description": "A bounded independent reconstruction review of the contributor-submitted Benzel collar sources, created during requested PR integration.",
+      "originator_label": "KokunoYumeto public workbench",
+      "attribution_status": "reported",
+      "publication_basis": "commons_submission",
+      "source_record_ids": [
+        "SPLITZERO-SOURCE-P23-019"
+      ],
+      "recorded_at": "2026-09-16T20:25:34Z"
+    }
+  ],
+  "definitions_and_conventions": {
+    "statement_scope": "Only the exact original turn-1 and turn-2 source families and support-map constructions; not the full existence conjecture or all portfolio items.",
+    "definitions": [
+      {
+        "term": "type-103 tiling",
+        "meaning": "The source convention: right stones and all three bone orientations in the explicitly defined finite benzel cell region.",
+        "source_record_ids": [
+          "SPLITZERO-SOURCE-P23-019"
+        ]
+      }
+    ],
+    "conventions": [
+      {
+        "label": "Evidence scope",
+        "text": "Written all-parameter proofs, finite exact replay and heuristic exploration remain distinct.",
+        "source_record_ids": [
+          "SPLITZERO-SOURCE-P23-019"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-09-16T20:25:34Z",
+  "updated_at": "2026-09-16T20:25:34Z",
+  "responsible_steward_id": "KokunoYumeto",
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "MC-BENZEL-COLLAR-AUDIT-STATEMENT"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "MC-BENZEL-COLLAR-AUDIT",
+      "MC-BENZEL-COLLAR-AUDIT-STATEMENT"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "SPLITZERO-SOURCE-P23-019"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "The question is an audit task, not a new conjecture or an assertion of a full Problem 7 solution.",
+      "Only source identity and expressed scope are registered now; substantive independent proof acceptance remains absent."
+    ]
+  }
+}

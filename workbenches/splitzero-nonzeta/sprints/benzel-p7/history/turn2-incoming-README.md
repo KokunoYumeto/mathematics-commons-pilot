@@ -1,6 +1,6 @@
 # Propp 7: turn-2 continuation
 
-**Current focused turn: 2, 15 September 2026.** [Complete turn-2 proof](turn2/PROOF.md) · [exact checker](turn2/check.py) · [fourth-collar seeds](turn2/fourth-seeds.json) · [replay summary](turn2/evidence/summary.json).
+**Current focused turn: 2, 15 September 2026.** [Complete turn-2 proof](../turn2/PROOF.md) · [exact checker](../turn2/check.py) · [fourth-collar seeds](../turn2/fourth-seeds.json) · [replay summary](../turn2/evidence/summary.json).
 
 The third-collar obstruction from turn 1 is now repaired. A positive nine-cell move transports one source stone three cells through two old horizontal bones. The explicit third-collar table then tiles every `(d+9,2d+9)` for integers d>=3, and reflected pairs: `(n,2n-9)` for n>=12. Complete containment, disjointness, coverage and cochain equations are in the proof. The constructor does not search.
 
@@ -28,7 +28,7 @@ For admissible `(a,b)`, construct a tiling by right stones and all three bone or
 
 ## Completed in this turn
 
-[PROOF.md](PROOF.md) specifies two explicit positive collar lifts. For every integer `d>=3`, it constructs type-103 tilings of `(d+3,2d+3)` and `(d+6,2d+6)`. The second gives `(n,2n-6)` for every `n>=9`. The coordinate maps, tile families, containment, disjointness, coverage, reflection and counts are all written out. No finite search is used by the final constructors.
+[PROOF.md](../PROOF.md) specifies two explicit positive collar lifts. For every integer `d>=3`, it constructs type-103 tilings of `(d+3,2d+3)` and `(d+6,2d+6)`. The second gives `(n,2n-6)` for every `n>=9`. The coordinate maps, tile families, containment, disjointness, coverage, reflection and counts are all written out. No finite search is used by the final constructors.
 
 The accompanying finite-jet map sends every bone boundary to zero and every right stone to the nonzero class `e+f` in `F_3[e,f]/(e^2,ef,f^2)`. An unmodified collar has class `-(e+f)`. Each construction cancels it with an actual source stone and supplies a positive integral boundary preimage. The proof retains the original support diagrams and the explicit bone/type-103 cohomology comparison kernel.
 
