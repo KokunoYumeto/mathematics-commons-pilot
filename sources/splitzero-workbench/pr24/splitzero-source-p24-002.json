@@ -13,7 +13,7 @@
   "authority_status": "primary_source",
   "verification_status": "opened",
   "created_at": "2026-09-16T20:25:34Z",
-  "updated_at": "2026-09-16T20:25:34Z",
+  "updated_at": "2026-09-16T20:34:26Z",
   "locator": {
     "reference_kind": "repository_artifact",
     "canonical_reference": "workbenches/splitzero-nonzeta/sprints/benzel-p7/turn3/PROOF.md",
@@ -21,12 +21,12 @@
     "version_label": "d7cd069031536bea677ed31f7729ebdd4e9f97f6"
   },
   "integrity": {
-    "hashed_object_description": "Exact repository artifact bytes at Git blob ed21cab169f60f35a3a219937bf0c7b00b8eb7b4",
-    "byte_size": 24338,
+    "hashed_object_description": "Exact integrated artifact bytes after removing one extra LF at EOF from original Git blob ed21cab169f60f35a3a219937bf0c7b00b8eb7b4; all mathematical text unchanged.",
+    "byte_size": 24337,
     "hashes": [
       {
         "algorithm": "sha256",
-        "digest": "1145b57c01c6da29ecb3154ac831896ded42db4116d0245f061cb0e7e50f6924"
+        "digest": "c20fbc102046d6df4d9618da390b9ba94d9e0861dd8c2fd5d1667009b4070620"
       }
     ]
   },
@@ -34,7 +34,7 @@
     {
       "entry_id": "SPLITZERO-SOURCE-P24-002-PROVENANCE",
       "kind": "source_file",
-      "description": "Existing public author-submitted research artifact in PR 24; source identity pinned to commit d7cd069031536bea677ed31f7729ebdd4e9f97f6 and Git blob ed21cab169f60f35a3a219937bf0c7b00b8eb7b4.",
+      "description": "Existing public author-submitted research artifact in PR 24; source identity pinned to commit d7cd069031536bea677ed31f7729ebdd4e9f97f6 and Git blob ed21cab169f60f35a3a219937bf0c7b00b8eb7b4. Original source SHA-256: 1145b57c01c6da29ecb3154ac831896ded42db4116d0245f061cb0e7e50f6924. Integration removes only one extra LF at EOF to satisfy the unchanged whitespace check; integrity.hashes identifies the distinct integrated bytes.",
       "originator_label": "KokunoYumeto public research workbench",
       "attribution_status": "reported",
       "publication_basis": "public_source",
