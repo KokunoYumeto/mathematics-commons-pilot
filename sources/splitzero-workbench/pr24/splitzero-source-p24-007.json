@@ -1,0 +1,132 @@
+{
+  "record_type": "source_record",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "source_id": "SPLITZERO-SOURCE-P24-007",
+  "status": "candidate",
+  "source_kind": "software",
+  "title": "Split-Zero research source: sprints/benzel-p7/turn3/check.py",
+  "citation": "KokunoYumeto/mathematics-commons-pilot, PR 24, commit d7cd069031536bea677ed31f7729ebdd4e9f97f6, workbenches/splitzero-nonzeta/sprints/benzel-p7/turn3/check.py.",
+  "languages": [
+    "en"
+  ],
+  "authority_status": "primary_source",
+  "verification_status": "opened",
+  "created_at": "2026-09-16T20:25:34Z",
+  "updated_at": "2026-09-16T20:25:34Z",
+  "locator": {
+    "reference_kind": "repository_artifact",
+    "canonical_reference": "workbenches/splitzero-nonzeta/sprints/benzel-p7/turn3/check.py",
+    "accessed_at": "2026-09-16T20:25:34Z",
+    "version_label": "d7cd069031536bea677ed31f7729ebdd4e9f97f6"
+  },
+  "integrity": {
+    "hashed_object_description": "Exact repository artifact bytes at Git blob 100bd0669205c215a2207487e4f6ee0732d63b7f",
+    "byte_size": 7691,
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "8679fffe37464578e5724c7099c2c95abecae99c31ff001458c2064c7079ad2a"
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "entry_id": "SPLITZERO-SOURCE-P24-007-PROVENANCE",
+      "kind": "source_file",
+      "description": "Existing public author-submitted research artifact in PR 24; source identity pinned to commit d7cd069031536bea677ed31f7729ebdd4e9f97f6 and Git blob 100bd0669205c215a2207487e4f6ee0732d63b7f.",
+      "originator_label": "KokunoYumeto public research workbench",
+      "attribution_status": "reported",
+      "publication_basis": "public_source",
+      "recorded_at": "2026-09-16T20:25:34Z"
+    }
+  ],
+  "rights_assessment": {
+    "rights_status": "permission_obtained",
+    "basis": "Contributor-requested integration of the existing public research workbench. The workbench review/RIGHTS.md identifies original notes, checking code, generated certificates and source locators, with no bundled third-party papers or transcripts. Metadata follows repository RIGHTS.md; cited third-party works retain their terms.",
+    "license_identifier": "Contributor-authorized Commons submission; third-party rights retained",
+    "jurisdictions_assessed": [
+      "Repository publication-boundary review; no legal opinion"
+    ],
+    "permissions": {
+      "copying": "permitted",
+      "extraction": "permitted",
+      "translation": "unknown",
+      "redistribution": "permitted",
+      "model_training": "unknown"
+    },
+    "redistribution_status": "permitted",
+    "attribution_requirements": [
+      "Preserve source paths, pinned identities, mathematical scope and component-specific notices."
+    ],
+    "access_requirements": [],
+    "review_status": "reviewed",
+    "reviewed_at": "2026-09-16T20:25:34Z",
+    "reviewer_id": "CODEX-SOURCE-REGISTRATION-20260916",
+    "limitations": {
+      "status": "known",
+      "items": [
+        "Permission covers this existing contributor-submitted artifact, not redistribution of externally cited works. No new license is assigned to third-party material."
+      ]
+    }
+  },
+  "third_party_components": [
+    {
+      "component_id": "SPLITZERO-SOURCE-P24-007-ARTIFACT",
+      "component_kind": "original_work",
+      "description": "Original public workbench notes, code or generated data; any references retain their existing attribution and terms.",
+      "rightsholder_or_source": "KokunoYumeto public workbench contribution; cited works as identified in the artifact",
+      "rights_status": "permission_obtained",
+      "license_identifier": "Contributor-authorized publication; third-party rights retained",
+      "permissions": {
+        "copying": "permitted",
+        "extraction": "permitted",
+        "translation": "unknown",
+        "redistribution": "permitted",
+        "model_training": "unknown"
+      },
+      "redistribution_status": "permitted"
+    }
+  ],
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "SPLITZERO-SOURCE-P24-007-ARTIFACT"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_metadata_and_components_only",
+    "submitted_component_ids": [
+      "SPLITZERO-SOURCE-P24-007",
+      "SPLITZERO-SOURCE-P24-007-ARTIFACT"
+    ],
+    "third_party_rights_preserved": true,
+    "described_source_content_dedicated_under_cc0": false,
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "Exact source registration is not acceptance of the mathematical claims, a novelty finding, or completion of the research programme.",
+      "Historical finite receipts retain their original scope; they do not become fresh runs or all-parameter proofs through this registration.",
+      "The 251 portfolio job specifications remain unlaunched candidate specifications; no jobs or unrelated problems are admitted by this record."
+    ]
+  }
+}
