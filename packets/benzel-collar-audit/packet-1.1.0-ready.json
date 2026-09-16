@@ -1,0 +1,286 @@
+{
+  "record_type": "research_packet",
+  "schema_version": "0.1.0",
+  "record_version": "1.1.0",
+  "packet_id": "MC-BENZEL-P7-REVIEW-001",
+  "project_id": "MC-BENZEL-P7",
+  "subject_ids": [
+    "MC-BENZEL-COLLAR-AUDIT"
+  ],
+  "kind": "adversarial_review",
+  "status": "ready",
+  "lease": {
+    "status": "unclaimed",
+    "generation": 0,
+    "claimant_id": null,
+    "claimed_at": null,
+    "expires_at": null,
+    "base_commit": null,
+    "branch_name": null
+  },
+  "created_at": "2026-09-16T20:25:34Z",
+  "updated_at": "2026-09-16T20:25:35Z",
+  "scope": {
+    "question": "Independently reconstruct and audit the exact positive Benzel collar constructions and support maps in the pinned turn-1 and turn-2 sources.",
+    "included_work": [
+      "Verify exact parameter domains, coordinates, maps and boundary cases.",
+      "Check all-parameter arguments separately from finite exact witnesses and reproduce bounded checks where useful.",
+      "Record specific valid statements and defects with source locators."
+    ],
+    "excluded_work": [
+      "No claim of full Problem 7 resolution, novelty or specialist acceptance without the corresponding evidence.",
+      "No promotion or execution of the 251 portfolio job specifications.",
+      "No private transcripts, unrelated local files, Lean launch or automatic agent dispatch."
+    ],
+    "stop_conditions": [
+      "A version-bound reconstruction report states the exact mathematical scope checked and records any defects.",
+      "Every computational claim used is tied to inputs, commands, environment and outputs."
+    ],
+    "continuation_cursor": "Available for independent claim; source identities and bounded review scope are fixed."
+  },
+  "dependencies": [
+    {
+      "record_type": "problem_record",
+      "record_id": "MC-BENZEL-COLLAR-AUDIT",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "1564f20f58c51572b60440f498d1475a6719c2c6db02fce9c69eb5a30fd5ef39"
+        }
+      ]
+    }
+  ],
+  "source_inputs": [
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-019",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "629c34e2470bd1b6fc376d7edd7b0bb068e9fe4524f03179b0f1439f80bb4f57"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-018",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "f1f0dd6f305f8ec75b2655c5e4969668d3cd608d5656cc203462eb3dbe476a29"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-021",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "0a9efaf8be3a5c639474c1d946a65af291dc5e5532f6db23e8ccfcd58fee03f2"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-022",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "8c34bf487d229d5d0e4031f47a427451d9d4cdadfda18d06257aba4b98b073d9"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-023",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "900fc334e78368b97f61f1707a0eeec8f4e82dc73c02951b25ba14b0e3a1f6df"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-029",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "ac4fb815cba98740a67131ca4f6c2a7d0899960973edb504ebe320233692d0c2"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    },
+    {
+      "source_record_id": "SPLITZERO-SOURCE-P23-030",
+      "record_version": "1.0.0",
+      "hashes": [
+        {
+          "algorithm": "sha256",
+          "digest": "1e9256bca6f37a9c948a3badd560c92e8866798ae616823f686bec5e9cc1236b"
+        }
+      ],
+      "permitted_uses": [
+        "inspect",
+        "extract_facts"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "artifact_id": "MC-BENZEL-P7-REVIEW-001-REPORT",
+      "kind": "mathematical_argument",
+      "description": "A source-bound independent reconstruction report with exact scope, proof checks and finite replay receipts where used.",
+      "media_type": "text/markdown",
+      "required": true
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "criterion_id": "MC-BENZEL-P7-REVIEW-001-MAPS",
+      "description": "Every accepted construction and map has exact domains, formulas and boundary cases checked against pinned source statements.",
+      "verification_method": "manual_reconstruction",
+      "required_evidence_kinds": [
+        "mathematical_argument"
+      ],
+      "mandatory": true
+    },
+    {
+      "criterion_id": "MC-BENZEL-P7-REVIEW-001-SCOPE",
+      "description": "Finite checks, all-parameter proofs, failed recurrences and unverified claims retain their distinct scopes.",
+      "verification_method": "adversarial_check",
+      "required_evidence_kinds": [
+        "mathematical_argument"
+      ],
+      "mandatory": true
+    }
+  ],
+  "capability": {
+    "envelope": "light",
+    "maximum_hours": 4,
+    "network_access": "none",
+    "code_execution": "isolated",
+    "required_tools": [
+      "Python standard library if finite replay is used"
+    ],
+    "required_competencies": [
+      "Integer tiling constructions",
+      "Explicit integral quotient maps"
+    ]
+  },
+  "execution_limits": {
+    "allowed_output_paths": [
+      "work/MC-BENZEL-P7-REVIEW-001/audit.md",
+      "work/MC-BENZEL-P7-REVIEW-001/checks.json"
+    ],
+    "acceptance_commands": [],
+    "maximum_paid_spend": 0,
+    "maximum_cpu_seconds": 7200,
+    "maximum_ram_bytes": 2147483648,
+    "maximum_gpu_seconds": 0,
+    "maximum_storage_bytes": 104857600,
+    "maximum_upload_bytes": 0
+  },
+  "risk": {
+    "mathematical": "moderate",
+    "security": "low",
+    "privacy": "low",
+    "rights": "low",
+    "ethical": "low",
+    "publicity": "low"
+  },
+  "review_plan": {
+    "required_review_types": [
+      "mathematical_reconstruction"
+    ],
+    "minimum_reviewers": 1,
+    "independent_reviewer_required": true,
+    "producer_may_accept_own_work": false,
+    "version_bound_review_required": true
+  },
+  "formalization_plan": {
+    "expectation": "none",
+    "formal_acceptance_review": "not_applicable",
+    "statement_correspondence_review": "not_applicable",
+    "separate_reviews_required": true
+  },
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [
+      "MC-BENZEL-P7-REVIEW-001-REPORT"
+    ],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "MC-BENZEL-P7-REVIEW-001"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [
+      "SPLITZERO-SOURCE-P23-019",
+      "SPLITZERO-SOURCE-P23-018",
+      "SPLITZERO-SOURCE-P23-021",
+      "SPLITZERO-SOURCE-P23-022",
+      "SPLITZERO-SOURCE-P23-023",
+      "SPLITZERO-SOURCE-P23-029",
+      "SPLITZERO-SOURCE-P23-030"
+    ],
+    "redistribution_status": "permitted"
+  },
+  "responsible_steward_id": "KokunoYumeto",
+  "credit_roles": [
+    {
+      "contributor_id": "KokunoYumeto",
+      "role": "packet_design"
+    }
+  ],
+  "limitations": {
+    "status": "known",
+    "items": [
+      "This unclaimed packet schedules a bounded independent review; it neither records completed review nor accepts any theorem.",
+      "The historical sources and all other portfolio candidates retain their prior status."
+    ]
+  }
+}

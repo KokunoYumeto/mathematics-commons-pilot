@@ -356,7 +356,21 @@ class ValidatorHardeningTests(unittest.TestCase):
 
         paths, errors = validate_packets.validate_selected_paths(None, self.schema_set)
         self.assertEqual([], errors, "\n".join(errors))
-        self.assertEqual(13, len(paths))
+        declared_roots = (
+            "packets", "problems", "sources", "runs", "evidence", "reviews",
+            "transitions", "records", "examples",
+        )
+        self.assertEqual(set(declared_roots), set(validate_packets.DEFAULT_INSTANCE_DIRS))
+        expected_paths = {
+            path.resolve()
+            for name in declared_roots
+            for path in (ROOT / name).rglob("*.json")
+            if path.is_file()
+        }
+        self.assertEqual(expected_paths, {path.resolve() for path in paths})
+        self.assertEqual(len(expected_paths), len(paths))
+        self.assertEqual(13, len(self.base_paths))
+        self.assertTrue({path.resolve() for path in self.base_paths} <= expected_paths)
         self.assertEqual(
             set(validate_packets.EXECUTION_LIMIT_DEFAULTS),
             set(validate_packets.effective_execution_limits({})),
