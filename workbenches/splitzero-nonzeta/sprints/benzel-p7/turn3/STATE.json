@@ -1,0 +1,54 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 3,
+  "parent_commit": "038ed02bb524e60e9c2bd20c3a0aa02365f4001d",
+  "full_target": "Original Propp 7 nonnegative-invariant type-103 existence",
+  "full_target_status": "NOT_RESOLVED_BY_THIS_WORK",
+  "new_result": "All d>=4: V(d+15,2d+15) and reflected pairs; one 16-bone source repair",
+  "result_status": "WRITTEN_EXACT_CERTIFICATE_ASSISTED_PROOF; INDEPENDENT_REVIEW_PENDING",
+  "cumulative_constructed_scope": "h=0,1,2,3 for d>=3; h=4,5 for d>=4",
+  "general_maps": "Original cell/polygon and all 12 tile-phase inverse maps for d>=3,h>=0",
+  "bounded_scopes": {
+    "sixth_collar_d": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "constant_charge_annuli": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "source_fidelity": "Original placed-tile anchors expand to SHA-256-pinned full-cell JSON evidence",
+  "novelty_status": "NOT_ESTABLISHED",
+  "independent_specialist_review": false,
+  "lean_build": false,
+  "new_full_resolution_claimed": false,
+  "next_task": "Construct a parameter-uniform positive lift through variable h using the exact all-phase polygon incidence map; retain all original supports, old-tile changes and inverse maps. Test invariant-preserving annuli without treating bounded witnesses as a uniform theorem.",
+  "restart_files": [
+    "README.md",
+    "PROOF.md",
+    "tables.json",
+    "construction.py",
+    "polygons.py",
+    "fixtures.py",
+    "certify.py",
+    "affine.py",
+    "check.py",
+    "evidence/normal.json",
+    "evidence/optimized.json"
+  ],
+  "publication_workflow": "Separate stacked draft PR for later integration; no changes to main or prior mathematical leaves"
+}
