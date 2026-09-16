@@ -1,0 +1,51 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 2,
+  "requested_turn_budget": [
+    10,
+    20
+  ],
+  "target": "Propp Problem 7: full original nonnegative-invariant type-103 existence statement",
+  "full_target_status": "NOT_RESOLVED_BY_THIS_WORK",
+  "result_status": "WRITTEN_SUBFAMILY_PROOF_WITH_FINITE_REPLAY; INDEPENDENT_REVIEW_PENDING",
+  "constructed_scope": "All integers d>=3 and h=1,2,3 in (a,b)=(d+3h,2d+3h), and reflected pairs; additional finite h=4 certificates d=4..10",
+  "novelty_status": "NOT_ESTABLISHED",
+  "upstream_commit": "1c8ec52c85c173adc9f8403a8a26914955e2f5a9",
+  "parent_commit": "89acf6be7ad7e73892b7628f2419e16ef445b581",
+  "mathematical_start_commit": "90f23b04fbde1e25d07342e2b8a8c80d919402c5",
+  "closed_steps": [
+    "Exact original coordinate/tile transport",
+    "All-parameter first and second positive collar partitions",
+    "Finite-jet bone obstruction and exact comparison-kernel maps",
+    "Positive nine-cell source-stone transport with inverse",
+    "All-parameter third-collar partition after moving two old bones",
+    "Explicit integral global bone quotient and quotient-mod-3 jet isomorphism",
+    "Finite-support comparison kernel with signed preimage and retained positive source repair",
+    "Split copy of Z in the actual collar-support comparison kernel with explicit evaluation left inverse",
+    "Original 9-by-27 integer bone matrix and inverse replay of 98 unimodular operations",
+    "Seven exact fourth-collar witnesses through d=10",
+    "Original-generator comparison identifies the two third-collar constructions without double-counting them"
+  ],
+  "failed_route": "Historical frozen-old-bone recurrence at d=3,h=2, repaired in turn 2 by the explicit nine-cell move; concurrent exploratory solver infeasibility statuses remain recorded without proof claims.",
+  "next_task": "Prove the indexed fourth-collar repair from the actual old tile families, retaining the exceptional d=4 witness; then construct a repeatable positive lift through the remaining h-range.",
+  "independent_specialist_review": false,
+  "lean_rebuilt": false,
+  "new_full_resolution_claimed": false,
+  "agents_launched": 0,
+  "restart_files": [
+    "README.md",
+    "STATE.json",
+    "TURN2.md",
+    "check_turn2.py",
+    "evidence/turn2/fourth-witnesses.json",
+    "evidence/turn2/summary.json",
+    "turn2/PROOF.md",
+    "turn2/check.py",
+    "turn2/fourth-seeds.json",
+    "turn2/evidence/summary.json",
+    "PROOF.md",
+    "check.py"
+  ],
+  "preserved_concurrent_commit": "89acf6be7ad7e73892b7628f2419e16ef445b581",
+  "overlap_relation": "TURN2.md section 0: equality on original placed tiles and original Laurent ring generators."
+}

@@ -1,0 +1,82 @@
+{
+  "record_date": "2026-09-15",
+  "sprint_turn": 2,
+  "status": "PASS",
+  "runs": [
+    {
+      "status": "PASS",
+      "python_optimized": false,
+      "d_min": 3,
+      "d_max": 100,
+      "third_collar_parameter_values": 98,
+      "third_collar_cochain_identities": 98,
+      "full_h3_tilings_with_reflections": 196,
+      "h3_tile_placements_with_reflections": 428848,
+      "nine_cell_moves": 98,
+      "old_bones_moved_each_time": 2,
+      "full_h4_tilings": 5,
+      "h4_tile_placements": 660,
+      "ring_checks": {
+        "laurent_cell_square_checks": 625,
+        "translated_bone_classes": 1875,
+        "integral_quotient_kernel_checks": 507,
+        "local_contained_bones": 0
+      },
+      "exploration": {
+        "positive_annuli_replayed": 8,
+        "tile_placements": 828,
+        "uncertified_solver_infeasibility_returns": 12,
+        "infeasibility_claimed_proved": false
+      },
+      "input_sha256": {
+        "check.py": "2f56262dcfd53de738f1590ac877693b3a77616b09381bde3f18de9155f875f7",
+        "PROOF.md": "53063a773775affef03e85f0ddde1185a8a7e5d9e5edce2b1bf22d9caea48560",
+        "fourth-seeds.json": "571bc12efe318995c612332db1d6ac09e667c8f8b9bae1379021237247012f2d",
+        "exploration.json": "b3cb8aa2c11dbde4c8107a94ba93128349899115b8753768a1d9b478b6d39c9a",
+        "parent/check.py": "e0102ab744e42e85841af1277ca6e7fd316d2ba74e0fa604aa4b3832a89ec36c"
+      },
+      "seconds": 10.124,
+      "scope": "Exact finite replay accompanying written all-parameter h=3 proof. h=4 only d=4..8. No full P7 resolution or Lean build.",
+      "full_receipt_sha256": "043551288e4173398ed5e36073bb2423374e71776f8c88bdf614ad02b46d8be9",
+      "receipt_file": "normal.json"
+    },
+    {
+      "status": "PASS",
+      "python_optimized": true,
+      "d_min": 3,
+      "d_max": 100,
+      "third_collar_parameter_values": 98,
+      "third_collar_cochain_identities": 98,
+      "full_h3_tilings_with_reflections": 196,
+      "h3_tile_placements_with_reflections": 428848,
+      "nine_cell_moves": 98,
+      "old_bones_moved_each_time": 2,
+      "full_h4_tilings": 5,
+      "h4_tile_placements": 660,
+      "ring_checks": {
+        "laurent_cell_square_checks": 625,
+        "translated_bone_classes": 1875,
+        "integral_quotient_kernel_checks": 507,
+        "local_contained_bones": 0
+      },
+      "exploration": {
+        "positive_annuli_replayed": 8,
+        "tile_placements": 828,
+        "uncertified_solver_infeasibility_returns": 12,
+        "infeasibility_claimed_proved": false
+      },
+      "input_sha256": {
+        "check.py": "2f56262dcfd53de738f1590ac877693b3a77616b09381bde3f18de9155f875f7",
+        "PROOF.md": "53063a773775affef03e85f0ddde1185a8a7e5d9e5edce2b1bf22d9caea48560",
+        "fourth-seeds.json": "571bc12efe318995c612332db1d6ac09e667c8f8b9bae1379021237247012f2d",
+        "exploration.json": "b3cb8aa2c11dbde4c8107a94ba93128349899115b8753768a1d9b478b6d39c9a",
+        "parent/check.py": "e0102ab744e42e85841af1277ca6e7fd316d2ba74e0fa604aa4b3832a89ec36c"
+      },
+      "seconds": 10.118,
+      "scope": "Exact finite replay accompanying written all-parameter h=3 proof. h=4 only d=4..8. No full P7 resolution or Lean build.",
+      "full_receipt_sha256": "4ee8e7a3fc87a2006f8da5c770d621ecba56eeb483aa509cdb9a397581f2e2a0",
+      "receipt_file": "optimized.json"
+    }
+  ],
+  "scope": "Bounded exact replay; all-parameter h=3 construction proved in turn2/PROOF.md. h=4 only d=4..8. No full P7 resolution, independent specialist acceptance, Lean replay or optimality claim."
+}

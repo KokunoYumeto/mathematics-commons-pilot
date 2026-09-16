@@ -1,0 +1,73 @@
+{
+  "record_type": "packet_transition",
+  "schema_version": "0.1.0",
+  "record_version": "1.0.0",
+  "transition_id": "MC-BENZEL-P7-REVIEW-001-READY",
+  "event_model": "append_only",
+  "event_kind": "state_transition",
+  "from_packet_ref": {
+    "packet_id": "MC-BENZEL-P7-REVIEW-001",
+    "record_version": "1.0.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "fb3a7d12bf4c23cd9ecc268ce8b3a9f234ed8aa1c35b5e32ebcddc94c89fad26"
+      }
+    ]
+  },
+  "to_packet_ref": {
+    "packet_id": "MC-BENZEL-P7-REVIEW-001",
+    "record_version": "1.1.0",
+    "hashes": [
+      {
+        "algorithm": "sha256",
+        "digest": "46666ff7f324f4ceed31578c4d13c2573c27c6be8920dbc472d63a2d81c52426"
+      }
+    ]
+  },
+  "sequence": 1,
+  "from_status": "draft",
+  "to_status": "ready",
+  "actor_id": "KokunoYumeto",
+  "occurred_at": "2026-09-16T20:25:35Z",
+  "git_commit": "16a49bf871aad5c5e8439bebf74cd9bcd47eceb5",
+  "reason": "The exact public source identities, bounded reconstruction question, contributor publication boundary and independent-review criteria are recorded. This makes one unclaimed audit packet ready; no mathematical result is accepted and no portfolio job is launched.",
+  "next_owner_id": "KokunoYumeto",
+  "submission_boundary": {
+    "private_by_default": true,
+    "schema_fields_are_public_allowlist": true,
+    "allowlisted_artifact_ids": [],
+    "excluded_from_submission_by_default": {
+      "raw_transcript": true,
+      "prompt_history": true,
+      "chain_of_thought": true,
+      "private_notes": true,
+      "unpublished_communications": true,
+      "personal_context": true,
+      "credentials": true,
+      "unrelated_local_files": true
+    },
+    "raw_interaction_records_required": false,
+    "redaction_status": "passed",
+    "publication_preview_status": "approved",
+    "retention_rule": "approved_submission_only"
+  },
+  "submission_rights": {
+    "commons_originated_record": true,
+    "dedication": "CC0-1.0",
+    "dedication_scope": "intentionally_submitted_commons_components_only",
+    "submitted_component_ids": [
+      "MC-BENZEL-P7-REVIEW-001-READY"
+    ],
+    "third_party_rights_preserved": true,
+    "third_party_source_ids": [],
+    "redistribution_status": "permitted"
+  },
+  "limitations": {
+    "status": "known",
+    "items": [
+      "The Git commit identifies the prior main repository basis, retained under squash integration; artifact identities separately pin the exact source PR head.",
+      "Ready means the specified review can be claimed, not that a theorem or the full portfolio has been accepted."
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "date": "2026-09-14",
+  "base_commit": "5644a4ebb53e324b97a98d0e978c931c28eb82ba",
+  "type": "dated_workbench_status_delta",
+  "preserved_original_source_labels": true,
+  "canonical_commons_admission": false,
+  "rows": [
+    {
+      "id": "P14",
+      "prior": "CONTROL / STATUS_CONFLICT",
+      "status": "RESOLVED_PUBLISHED",
+      "route": "CONTROL",
+      "source_problem": "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf#page=11",
+      "resolution": "https://arxiv.org/html/2209.05717v2",
+      "locator": "Theorem 1.1",
+      "matching_scope": "All original admissible a,b with a+b=1 mod 3; unique all-five-prototile tiling, all right stones.",
+      "source_history": [{"url":"https://faculty.uml.edu/jpropp/benzels.html","label":"Open","page_date":"2025-08-06","treatment":"preserved as stale source label, not effective dispatch status"}],
+      "checks": "Direct residue construction for 150 ordered pairs; written all-parameter construction/uniqueness in notes/proofs.md section 2.",
+      "independent_full_proof_audit": false
+    },
+    {
+      "id": "AIM-C14",
+      "prior": "NOT_PREVIOUSLY_REGISTERED",
+      "status": "RESOLVED_PUBLISHED",
+      "route": "CONTROL",
+      "source_problem": "https://aimath.org/pastworkshops/chipfiringproblems.pdf#page=5",
+      "resolution": "https://arxiv.org/html/1309.2201v2",
+      "locator": "Theorem 3, Algorithms 1-2, Theorem 5",
+      "matching_scope": "Rooted labelled trees/parking functions with the stated degree-inversion relation; complete graph is the original Stanley question.",
+      "checks": "Both inverse laws, independent subset definition and edge-subset spanning-tree enumeration; 43 cases / 1569 parking-function instances.",
+      "independent_full_proof_audit": false
+    },
+    {
+      "id": "AIM-E36",
+      "prior": "NOT_PREVIOUSLY_REGISTERED",
+      "status": "RESOLVED_PUBLISHED",
+      "route": "CONTROL",
+      "source_problem": "https://aimath.org/WWN/matrixspectrum/matrixspectrum.pdf#page=5",
+      "resolution": "https://arxiv.org/pdf/0911.2172v4",
+      "locator": "Bai, The Grone-Merris Conjecture, main theorem",
+      "matching_scope": "Finite simple graph Laplacian spectrum majorized by the conjugate degree sequence.",
+      "checks": "29 exact spectra via incidence matrices and characteristic polynomials; not the full analytic proof.",
+      "independent_full_proof_audit": false
+    },
+    {
+      "id": "AIM-ZC2N",
+      "prior": "NOT_PREVIOUSLY_REGISTERED",
+      "status": "RESOLVED_RELATED_VARIANT",
+      "route": "CONTROL",
+      "source_problem": "https://aimath.org/WWN/matrixspectrum/matrixspectrum.pdf#page=3",
+      "resolution": "https://arxiv.org/html/1612.01783v2",
+      "locator": "Complex 708-by-708 zero-pattern construction with 1415 nonzeros",
+      "matching_scope": "Related complex zero-pattern analogue only. No status transfer to the real sign-pattern or arbitrary-positive-characteristic question.",
+      "checks": "Two original 8-by-8 matrices have characteristic polynomials t^8 and (t-1)^8; independent determinant checks at nine rational points. Not a replay of the entire generic-subfamily selection argument.",
+      "independent_full_proof_audit": false
+    },
+    {
+      "id": "P04",
+      "prior": "CLAIMED_UNVERIFIED / INDEX_ONLY",
+      "status": "CLAIMED_UNVERIFIED",
+      "route": "REVIEW",
+      "source_problem": "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf#page=7",
+      "claim_repository": "crabsatellite/benzel-problem4",
+      "claim_commit": "f8f91033216ba16fa851adbb9d6a9cf005509619",
+      "formal_endpoint": "lean4/BenzelProblem4Kernel/PublicationRoot.lean: publication_problem4",
+      "inspected_blobs": {
+        "lean4/BenzelProblem4Kernel/PublicationRoot.lean": "45145ab380e9b45d76e6d74dc1097f460d7455ce",
+        "lean4/BenzelProblem4Kernel/Basic.lean": "51f04f6be8d6b2eec4f45fd7b4b607bf2d2b879c",
+        "lean4/BenzelProblem4Kernel/NormalForm.lean": "a9fb55cb59b7a9f396d6911995c20f2f83121281"
+      },
+      "additional_reading": ["FORMALIZATION_CORRESPONDENCE.md (locator retained without a blob pin)"],
+      "matching_scope": "Axial/barycentric carrier inverse, exact left/bone offsets, invariant numerator=6 Delta and top-level endpoint spot-checked.",
+      "checks": "Nine literal finite tiling witnesses at nonpositive invariant, 2<=a<=b<=12.",
+      "remaining": "Read and replay the full exact dependency closure, trust-zero build and axiom audit; independent mathematical review.",
+      "lean_rebuilt": false
+    },
+    {
+      "id": "P06",
+      "prior": "CLAIMED_UNVERIFIED / INDEX_ONLY",
+      "status": "CLAIMED_UNVERIFIED",
+      "route": "REVIEW",
+      "source_problem": "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf#page=8",
+      "claim_repository": "crabsatellite/peripheral-benzel-tilings",
+      "claim_commit": "5d1983de4592261dd0b915987ebcc9c0c8ae11b8",
+      "reported_endpoint": "BenzelProblem6Kernel.manuscript_main_theorem_proved",
+      "inspected_paths": ["README.md (read at the pinned repository generation; full formal root not yet replayed)"],
+      "matching_scope": "README states the original type-103 diagonal n>=5 and formula. The separate d=4 claim is also type-103 and must not be substituted for type-113 P15/P17.",
+      "checks": "Exact-cover count for n=5 through 11 matches the displayed factorial formula.",
+      "remaining": "Inspect literal Lean root and all dependencies, map every definition to the original cells/tiles, rebuild with trust zero and axiom audit.",
+      "lean_rebuilt": false
+    },
+    {
+      "id": "P07",
+      "prior": "OPEN_IN_SOURCE / BROAD_EXISTENCE_ENTRY",
+      "status": "OPEN_IN_SOURCE",
+      "route": "A",
+      "source_problem": "https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf#page=9",
+      "resolutions_of_subfamilies": ["https://arxiv.org/html/2209.05717v2","https://arxiv.org/html/2403.07663v1","https://arxiv.org/abs/2206.04223"],
+      "matching_scope": "Explicit reflection, tile-set inclusion and invertible d,h parameter maps in notes/proofs.md section 3.",
+      "residual": "d>=3, 1<=h<=binom(d,2)-1, (a,b)=(d+3h,2d+3h). h=1 still includes the unreviewed P6 claim.",
+      "checks": "38 finite witnesses at nonnegative invariant, 2<=a<=b<=12.",
+      "full_problem_solved": false
+    }
+  ]
+}
